@@ -164,5 +164,8 @@ globalThis.ETYMON_WORD_ART = {
   "[\"Veda\",\"weid-\"]": "Veda",
   "[\"visage\",\"weid-\"]": "visage",
   "[\"vista\",\"weid-\"]": "vista",
-  "[\"zodiac\",\"gwei-\"]": "zodiac"
+  "[\"zodiac\",\"gwei-\"]": "zodiac",
+  "[\"jetty\",\"yē-\"]": "jetty",
+  "[\"maniac\",\"men-1\"]": "maniac",
+  "[\"precipitous\",\"per1+kaput-\"]": "precipitous"
 };
