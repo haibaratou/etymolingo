@@ -6,6 +6,38 @@
 ゲームのデータと辞書のデータが同じ棚に混ざっていて、どれを手で直してよくて
 どれが機械の作りものなのか見分けがつかなくなっていた。ここで線を引く。
 
+## リポジトリは3つ。なぜ分かれているか
+
+同じ名前のファイルが複数の場所にあって迷うので、まず置き場の役割を書く。
+
+| 置き場 | 何のためにあるか | 公開 | ここにしか無いもの |
+|---|---|---|---|
+| **`haibaratou/etymon-source`**<br>母艦 | **語源データの正本**。買った辞書・取ってきた参照資料・手当ての CSV・作るスクリプトの全部。消したら戻らないものはここ | **非公開** | `cache_refs/`(16GB 参照資料)<br>`export_public_game_data.py`<br>`README-出典と補完メモ.md` |
+| **`haibaratou/haibaratou`**<br>配信先 | **画面と、画面が読むデータ**。GitHub Pages で配信される。生データは置かない | **公開** | `app/etymopedia.html`(本物はここだけ)<br>`app/data/generated-etymon/`<br>`assets/word/`(検品済みの絵) |
+| **作業用クローン**<br>(手元の `haibaratou`) | 作業場。履歴の控え。**ここから公開リポジトリへ push してはいけない** | — | 作り直す前の完全な履歴 |
+
+> 作業用クローンから push できない理由は `README-AIのための取扱説明書.md` にある。
+> 公開リポジトリは履歴を作り直してあり、作業用とは別物の履歴を持つ。
+
+### 同じ名前のファイルがあるとき、どれが本物か
+
+| ファイル | 本物の置き場 | なぜ |
+|---|---|---|
+| `app/etymopedia.html` | **配信先** | 画面は配信先で直接さわる。作業用の版は古い |
+| `app/etymon-explorer.html` | 3つとも同じに保つ | どこで開いても同じ画面が要る |
+| `app/data/pie/*`(生データ) | **母艦** | 配信先には出さない |
+| `app/data/generated-etymon/*` | **配信先**(母艦から書き出す) | `export_public_game_data.py` が作る派生物 |
+
+### 置き場が2つある理由(`data/pie` と `data/generated-etymon`)
+
+同じデータに見えるが、**生データを公開しないため**に分けてある。
+母艦では `app/data/pie/`、配信先では `app/data/generated-etymon/` に置く。
+`export_public_game_data.py` が、公開してよいものだけを選んで後者に書き出す。
+
+画面(`etymon-explorer.html`)は起動時に `roots.json` を叩いて**在るほうを自分で選ぶ**
+ので、どちらに置かれても動く。これが無かったとき、配信先では辞書本文が
+1件も出ず「データが消えた」と誤診する事故が起きた。
+
 ## ひとつだけのルール
 
 - **母艦(source)** … 手で書いたもの・買ったもの・取ってきたもの。**消したら戻らない。**
@@ -40,8 +72,8 @@
 - `eo/<初文字>.json` … etymonline の記述。**proprietary。公開物に混ぜない。**
 
 ### 母艦 ②手当て(2.9MB)── いちばん失いたくない資産
-`word_blurb.csv`(1.9MB ひとこと語源) `word_tag.csv`(375KB) `word_para.csv`(210KB)
-`word_kana.csv` `word_ja_fix.csv` `word_lang_fix.csv` `valence.csv` `root_rank.csv`
+`word_blurb.csv`(1.9MB ひとこと語源) `word_para.csv`(210KB)
+`word_kana.csv` `word_ja_fix.csv` `word_lang_fix.csv` `word_sense_add.csv` `root_rank.csv`
 `root_eo.csv` `affix_lang.csv` `word_sentence.csv` ほか `*_fix.csv` `*_override.csv`
 
 人が判断して書いた列。機械で作り直せない。**これがいちばんの資産。**
@@ -90,7 +122,7 @@
 app/data/
   source/                 母艦。手で直すのはここだけ。非公開
     dict/                 words.json roots.json affixes.json details_brief.json det/ eo/
-    hand/                 *_fix.csv *_override.csv word_blurb.csv word_tag.csv …
+    hand/                 *_fix.csv *_override.csv word_blurb.csv word_sense_add.csv …
     add/                  words_add_eo.json words_add_nonpie.json nopie.json
     cache/                ngram_freq.json eo_slugs.json cache_kaikki/ …
   build/                  派生。手で直さない
@@ -332,3 +364,68 @@ boss  同じ理由で 日本語 → 正しくはオランダ語 baas でゲル�
 ```
 
 切る前の全文が残っていれば あとから短くできるが、切ったものからは戻せない。
+
+## 2026-09 に変わったこと
+
+### 意味タグ(`word_tag.csv` / `tags.json` / `valence.csv`)は捨てた
+
+機械で割り当てたもので中身が当てにならず、判定の誤作動の元だった。
+arrow(矢)が「ことば」、cure(治療)が「どうぐ」になる類の取り違えが多く、
+49,127語のうち働きタグが付いていたのは9,390語だけだった。**ただのゴミだったので消した。**
+
+代わりに **`app/root_sense.py`** を使う。語の働きを `roots.json` の `ja`
+(語根の意味。人が見て書いたもの)から出す。「見る・知る」なら 見 と 知 を拾う。
+装備が付く語は 9,390 → 3,937語に減るが、どれも語源に裏付けがある。
+
+これに伴い、種類タグが土台だった `build_town_data.py`(町)と
+`build_game_cards.py`(タグ判定の試作)は**止めてある**。
+黙って空のデータを書くと既にある町が消えるため、はっきり止まるようにした。
+再開するには種類の出どころを決め直すこと。
+
+### 同綴りの別語義は `word_sense_add.csv` で足す
+
+`light` が「光」と「軽い」で2項目あるように、同じ綴りでも語源がちがえば別の見出し。
+既存の取り込みは綴りが重複すると弾くので、別語義を足す口が無かった。
+
+活用形には**元の動詞の語根を与える**(`made` ← `mag-`)。
+`down` が 下へ(`dheuə-`)/ 綿毛(`dheu-1`)で語根により分かれているのと同じ形にすることで、
+`(綴り, 語根)` を鍵にした語義別のレア度が採れるようになる。
+
+語義そのものは `word_ja_fix.csv` の **`p` 列**(語根で行を特定する仕組み)で入れる。
+綴りだけを鍵にすると、同綴り全部に同じ語義が付いてしまう。
+
+### レア度が採れない語は `null`(0 ではない)
+
+0 のままだと一覧の並べ替えで「いちばんふつうの語」として先頭に来てしまう。
+画面は `r == null` を昇順降順どちらでも最後に置く作りになっている。
+
+残る130語の内訳は、Ngram に項目が無い93語と、空白や記号で検索単位に合わない37語
+(`pinkster flower` / `götterdammerung` 等)。後者は**珍しさではなく測定の都合**。
+エティモペディアの `rarTier()` は `if(!r) return 7` で★7「究極絶滅語」に送る。
+
+### 同綴りのレア度は品詞タグ付き Ngram で分ける
+
+`fill_homograph_rarity.py` の説明文に「同品詞どうしの99綴りは据え置き」とあるが、
+**これは古い**。`down` は `down_NOUN` の実測で 59(下へ)/ 675(綿毛)に分離済み。
+品詞タグが1つでも違えば分けられる。`word_r_sense_fix.csv` の `memo` 列に
+どう分けたかが書いてある。
+
+手でレア度を当ててはいけない。必ず `fill_homograph_rarity.py` で実測すること。
+
+### 長く走る取得スクリプトは、進み具合を必ず見ること
+
+`fetch_ngram_rarity.py` が **1語で7日間 止まっていた**ことがある。
+Google が空応答を返し続け、待ち時間に上限が無かった。プロセスは生きているので
+`pgrep` では「稼働中」に見え、気づけなかった。いまは上限を入れてある。
+
+    tail -3 <ログ>; stat -c '%y' <ログ>    # 最終行の時刻を必ず見る
+
+`pgrep` で生きているかだけを見て「進んでいる」と判断しないこと。
+
+## 要判断: 日本語辞書の公開範囲
+
+配信先の `app/data/ja/ja_det/`(32MB)には、コトバンク経由で取った
+**デジタル大辞泉の記述が全文そのまま**入っており、GitHub Pages で誰でも読める。
+
+英語側は同種の資料(`cache_refs/` 16GB)を「私用」として配信していない。
+**日本語側だけ本文を出していて、扱いが揃っていない。** 方針を決めること。

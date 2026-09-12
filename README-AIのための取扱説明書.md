@@ -79,6 +79,19 @@ cp app/data/ja/ja_det/*.json /home/user/etymon-source/app/data/ja/ja_det/
 cp app/build_ja_*.py app/fetch_ja_refs.py /home/user/etymon-source/app/
 cd /home/user/etymon-source && git add -A && git commit && git push origin main
 
+# 1b) 英語データベースを母艦へ ── スクリプトと生データ
+cp app/build_pie_data.py app/fetch_ngram_rarity.py app/root_sense.py /home/user/etymon-source/app/
+cp app/data/pie/*.csv app/data/pie/words.json app/data/pie/ngram_freq.json \
+   /home/user/etymon-source/app/data/pie/
+cd /home/user/etymon-source && git add -A && git commit && git push origin main
+
+# 1c) 配信先が読むデータを書き出す(このスクリプトは母艦にしか無い)
+cd /home/user/etymon-source
+python3 app/export_public_game_data.py /home/user/haibaratou-pub
+#   → /home/user/haibaratou-pub/app/data/generated-etymon/ を作り直す
+#     配信先の置き場は data/pie ではなく data/generated-etymon。ここを取り違えると
+#     「データが消えた」と誤診する(実際にやった)
+
 # 2) 配信先へ ── 画面が読むものだけ(索引と本文。生データは出さない)
 cd /home/user/haibaratou
 cp app/data/ja/ja_index.json /home/user/haibaratou-pub/app/data/ja/
@@ -91,6 +104,18 @@ git push origin HEAD:claude/etymoringo-spec-n5g38o   # 指定ブランチも同�
 作業用クローンでも commit はしておく(履歴の控えとして)。push できないのは承知のうえ。
 
 ---
+
+### 同じ名前のファイルは、どこが本物か決まっている
+
+| ファイル | 本物 | 注意 |
+|---|---|---|
+| `app/etymopedia.html` | **配信先** | 作業用の版は古い。配信先から持ってくる |
+| `app/etymon-explorer.html` | 3つとも同じに保つ | |
+| `app/data/pie/*` | **母艦** | 配信先には出さない |
+| `app/data/generated-etymon/*` | **配信先** | 母艦の export スクリプトが作る |
+
+画面を1枚に詰め込む「packed 版」を安易に作らないこと。中身を抱え込むと、
+パスの誤りのような不具合に気づけなくなる(21.5MB の版を作って実際に誤診した)。
 
 ## 2. 絶対にやってはいけないこと
 
