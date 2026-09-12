@@ -32,6 +32,12 @@
       "count": 49127,
       "sha256": "66d7431978ccca6736894bf28ea259990bf772fc2b5f2dceabbb7b715f5030cb"
     },
+    "eo_slugs": {
+      "file": "eo_slugs.json",
+      "bytes": 520338,
+      "count": 47363,
+      "sha256": "bea8d96709efe8bae910522a366314b2341b6705e1e7e0ffa54abcc1e49214a7"
+    },
     "word_suika_words": {
       "file": "word-suika-words.json",
       "bytes": 176140,

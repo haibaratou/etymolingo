@@ -1477,10 +1477,15 @@ let timerFailing=false;
 
 /* ====================================================================== */
 async function loadData(){
-  try{
-    const r=await fetch("data/pie/word_block.json",{cache:"no-store"});
-    if(r.ok)DATA=await r.json();
-  }catch(e){}
+  /* データの置き場は2つある。作業用は data/pie、配信先は data/generated-etymon。
+     以前は data/pie 決め打ちで、配信先では 404 になり、
+     埋め込みの古い控えで動いていた(新しいデータが反映されない)。 */
+  for(const d of ["data/pie/","data/generated-etymon/"]){
+    try{
+      const r=await fetch(d+"word_block.json",{cache:"no-store"});
+      if(r.ok){DATA=await r.json();break;}
+    }catch(e){}
+  }
   if(!DATA.cards||!DATA.cards.length){
     try{DATA=JSON.parse($("#cardData").textContent||"{}")}catch(e){}
   }
