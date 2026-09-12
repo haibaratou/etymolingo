@@ -455,40 +455,35 @@ Google が空応答を返し続け、待ち時間に上限が無かった。プ�
 英語側は同種の資料(`cache_refs/` 16GB)を「私用」として配信していない。
 **日本語側だけ本文を出していて、扱いが揃っていない。** 方針を決めること。
 
-## 画像はどこにあるか(2026-09 実測)
+## 画像はどこにあるか(2026-09 確定)
 
-語源データベース(`app/etymon-explorer.html`)が使う絵は2種類:
+### ★ 画像の置き場は `etymolingo` の1箇所だけ
 
-    assets/word/           4,669枚  英単語の絵
-    assets/root-concept/   1,120枚  語根の概念画
+    etymolingo/assets/     ← ここが唯一の正本。追加・差し替えはここだけ
 
-絵とデータの対応づけは2つ:
+他のリポジトリは**画像を持たない**。公開 URL を読む:
+
+    https://haibaratou.github.io/etymolingo/assets/word/cue.png
+
+**新しい画像を足すときは etymolingo に置くこと。** 他所にコピーを作らない。
+コピーを作ると、どれが最新か分からなくなり、古い版に巻き戻る事故が起きる。
+
+### いまの状態
+
+    etymolingo        assets/ を持つ(唯一の正本)     5,939件
+    etymon-game-lab   持たない。URL を読む(38本書き換え済み)
+    etymon-source     持たない。ja-dict.html が URL を読む
+
+### 画像とデータの対応づけ
 
     assets/word/illustration-index.js  「単語＋語根」→ 絵のファイル名
     app/data/pie/root_art.csv          語根 → 絵(91行)。母艦にある
 
-### ねじれ: データは母艦、絵は配信先
+### 注意
 
-                        root_art.csv   root-concept   word
-    母艦 etymon-source       有           0枚        2,354枚
-    配信先 etymolingo        無         1,120枚      4,669枚
-    etymon-game-lab          無         1,120枚      4,361枚
+**etymolingo を非公開にすると、lab と母艦から画像が読めなくなる。**
+非公開にするなら、その前に読む側へ画像を配る必要がある。
 
-**「すべてのソース」であるはずの母艦に絵が無い。** 対応表だけが母艦にあり、
-絵の実体は配信先にある。母艦だけでは語源データベースが成立しない。
-(母艦の word 2,354枚は 2026-09 に日本語辞書のため入れたもの。元は0枚だった)
-
-### 絵の重複について
-
-lab にしか無い絵は **0件**。lab の assets は配信先の完全な部分集合なので、
-消しても何も失われない。
-
-配信先は GitHub Pages で公開されているので、絵は URL でも取れる:
-
-    https://haibaratou.github.io/etymolingo/assets/word/cue.png   → 200 OK
-
-つまり lab や母艦が絵のコピーを持つ必要はなく、この URL を読めばよい。
-ただし配信先を非公開にすると読めなくなる。
-
-正本をどこに置くかは未決定(2026-09 時点)。
+元から存在しない画像が5件ある(background.png, wild_cat/fairy/nurse/witch.png)。
+これは今回の書き換え以前から壊れていたもの。
 
