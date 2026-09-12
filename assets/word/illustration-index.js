@@ -289,5 +289,19 @@ globalThis.ETYMON_WORD_ART = {
   "[\"quicksilver\",\"gwei-\"]": "quicksilver",
   "[\"resurgent\",\"re-+upo+reg-\"]": "resurgent",
   "[\"unary\",\"oi-no-\"]": "unary",
-  "[\"viva\",\"gwei-\"]": "viva"
+  "[\"viva\",\"gwei-\"]": "viva",
+  "[\"abrogate\",\"apo-+reg-\"]": "abrogate",
+  "[\"anemone\",\"anə-\"]": "anemone",
+  "[\"blaspheme\",\"mel-5+bhā-2\"]": "blaspheme",
+  "[\"interjection\",\"en+yē-\"]": "interjection",
+  "[\"jettison\",\"yē-\"]": "jettison",
+  "[\"necromancy\",\"nek-1+men-1\"]": "necromancy",
+  "[\"occiput\",\"epi+kaput-\"]": "occiput",
+  "[\"outwit\",\"ud-+weid-\"]": "outwit",
+  "[\"prefatory\",\"per1+bhā-2\"]": "prefatory",
+  "[\"purveyor\",\"per1+weid-\"]": "purveyor",
+  "[\"recto\",\"reg-\"]": "recto",
+  "[\"semiautomatic\",\"sēmi-+men-1\"]": "semiautomatic",
+  "[\"Theodosia\",\"dō-+dhēs-\"]": "Theodosia",
+  "[\"Unicode\",\"oi-no-\"]": "Unicode"
 };
