@@ -358,5 +358,10 @@ globalThis.ETYMON_WORD_ART = {
   "[\"samizdat\",\"sem-1+eghs+dō-\"]": "samizdat",
   "[\"twit\",\"ad-+weid-\"]": "twit",
   "[\"undirected graph\",\"ne+dwis-+reg-\"]": "undirected_graph",
-  "[\"viviparous\",\"gwei-+perə-1\"]": "viviparous"
+  "[\"viviparous\",\"gwei-+perə-1\"]": "viviparous",
+  "[\"Ahura Mazda\",\"ansu-+men-1+dhē-\"]": "Ahura_Mazda",
+  "[\"behead\",\"ambhi+kaput-\"]": "behead",
+  "[\"cacophonous\",\"bhā-2+kakka-\"]": "cacophonous",
+  "[\"idolize\",\"weid-\"]": "idolize",
+  "[\"merman\",\"mori-\"]": "merman"
 };
