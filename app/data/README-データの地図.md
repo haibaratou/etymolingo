@@ -13,9 +13,9 @@
 
 | 置き場 | 何のためにあるか | 公開 | ここにしか無いもの |
 |---|---|---|---|
-| **`etymon-source`**<br>母艦 | **語源データの正本**。買った辞書・取ってきた参照資料・手当ての CSV・作るスクリプトの全部。消したら戻らないものはここ | **非公開** | `cache_refs/`(16GB 参照資料)<br>`export_public_game_data.py`<br>`README-出典と補完メモ.md` |
-| ****配信先リポジトリ****<br>配信先 | **画面と、画面が読むデータ**。GitHub Pages で配信される。生データは置かない | **公開** | `app/etymopedia.html`(本物はここだけ)<br>`app/data/generated-etymon/`<br>`assets/word/`(検品済みの絵) |
-| **`etymon-game-lab`**<br>ゲーム工房 | ゲームの開発・検査・製作素材。試作はここで作り、仕上がったものを配信先へ出す | **非公開** | 試作・QA・素材の原版 |
+| **`etymon-source`**<br>母艦 | **語源データの正本**。買った辞書・取ってきた参照資料・手当ての CSV・作るスクリプトの全部。消したら戻らないものはここ | **非公開** | `cache_refs/`(16GB 参照資料)<br>`tools/`(作るスクリプト65件)<br>`app/ja-dict.html`(日本語辞書。最重要)<br>`README-出典と補完メモ.md` |
+| **`etymolingo`**<br>配信先 | **製品の画面と、それが読むデータ**。GitHub Pages で配信。試作は置かない | **公開**<br>(検索よけ有) | `app/etymopedia.html`(本物はここだけ)<br>`app/data/generated-etymon/`<br>**`assets/`(画像の唯一の正本)** |
+| **`etymon-game-lab`**<br>ゲーム工房 | **試作ゲームの置き場**。html 54本。画像は持たず配信先の URL を読む | **非公開** | 試作ゲーム一式<br>`tools/`(作るスクリプト57件) |
 | **作業用クローン**<br>(手元の作業場) | 作業場。履歴の控え。**ここから公開リポジトリへ push してはいけない** | — | 作り直す前の完全な履歴 |
 
 `haibaratou-legacy-private`(非公開)は **一時的な置き場で、役目を終えている**。
@@ -44,12 +44,25 @@ GitHub の説明文「Config files for my GitHub profile」は誤り。実体は
 > 作業用クローンから push できない理由は `README-AIのための取扱説明書.md` にある。
 > 公開リポジトリは履歴を作り直してあり、作業用とは別物の履歴を持つ。
 
+### 2026-09 の整理でこうなった
+
+| | 中身 |
+|---|---|
+| **配信先 `etymolingo`** | `app/` に html 3本(`index` / `etymopedia` / `etymon-explorer`)だけ。`app/data/` は読むものだけ。`assets/` が画像の正本 |
+| **`etymon-game-lab`** | `app/` に試作 html 54本。スクリプトは `tools/` へどけた |
+| **母艦 `etymon-source`** | `app/` は `ja-dict.html` と `data/` だけ。スクリプトは `tools/` へどけた |
+
+**`app/` には html 以外を置かない。** py や js を混ぜると html が埋もれて見つからなくなる。
+作るスクリプトは `tools/` に置くこと。
+
 ### 同じ名前のファイルがあるとき、どれが本物か
 
 | ファイル | 本物の置き場 | なぜ |
 |---|---|---|
-| `app/etymopedia.html` | **配信先** | 画面は配信先で直接さわる。作業用の版は古い |
-| `app/etymon-explorer.html` | 3つとも同じに保つ | どこで開いても同じ画面が要る |
+| `app/etymopedia.html` | **配信先** | 画面は配信先で直接さわる |
+| `app/etymon-explorer.html` | **配信先** | 母艦に置いた古いコピーは 2026-09 に消した |
+| `app/ja-dict.html` | **母艦** | 日本語辞書の本体。入口にリンクは無いがゴミではない |
+| 試作ゲーム | **lab** | 配信先には置かない |
 | `app/data/pie/*`(生データ) | **母艦** | 配信先には出さない |
 | `app/data/generated-etymon/*` | **配信先**(母艦から書き出す) | `export_public_game_data.py` が作る派生物 |
 
@@ -59,9 +72,9 @@ GitHub の説明文「Config files for my GitHub profile」は誤り。実体は
 母艦では `app/data/pie/`、配信先では `app/data/generated-etymon/` に置く。
 `export_public_game_data.py` が、公開してよいものだけを選んで後者に書き出す。
 
-画面(`etymon-explorer.html`)は起動時に `roots.json` を叩いて**在るほうを自分で選ぶ**
-ので、どちらに置かれても動く。これが無かったとき、配信先では辞書本文が
-1件も出ず「データが消えた」と誤診する事故が起きた。
+配信先の画面(`etymon-explorer.html`)は `data/generated-etymon/` だけを見る。
+以前は `data/pie` も探していたが、配信先に `data/pie` は無いので毎回 404 が出るだけ
+だったのでやめた(2026-09)。母艦のデータを画面が直接読むことはない。
 
 ## ひとつだけのルール
 
