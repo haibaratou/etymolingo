@@ -343,5 +343,20 @@ globalThis.ETYMON_WORD_ART = {
   "[\"ultramarine\",\"al-1+mori-\"]": "ultramarine",
   "[\"vivisection\",\"gwei-+sek-\"]": "vivisection",
   "[\"witless\",\"weid-+leu-\"]": "witless",
-  "[\"wizardry\",\"weid-+kar-\"]": "wizardry"
+  "[\"wizardry\",\"weid-+kar-\"]": "wizardry",
+  "[\"advisement\",\"weid-+ad-\"]": "advisement",
+  "[\"anamnesis\",\"an-+men-1\"]": "anamnesis",
+  "[\"anemometer\",\"anə-+mē-2\"]": "anemometer",
+  "[\"capitate\",\"kaput-\"]": "capitate",
+  "[\"cormorant\",\"ker-2+mori-\"]": "cormorant",
+  "[\"dacha\",\"dō-\"]": "dacha",
+  "[\"improvident\",\"ne+per1+weid-\"]": "improvident",
+  "[\"macrobiotic\",\"gwei-\"]": "macrobiotic",
+  "[\"mnemonics\",\"men-1\"]": "mnemonics",
+  "[\"nonentity\",\"ne+es-+oi-no-\"]": "nonentity",
+  "[\"phonic\",\"bhā-2\"]": "phonic",
+  "[\"samizdat\",\"sem-1+eghs+dō-\"]": "samizdat",
+  "[\"twit\",\"ad-+weid-\"]": "twit",
+  "[\"undirected graph\",\"ne+dwis-+reg-\"]": "undirected_graph",
+  "[\"viviparous\",\"gwei-+perə-1\"]": "viviparous"
 };
