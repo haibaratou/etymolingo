@@ -13,12 +13,12 @@
 
 | 置き場 | 何のためにあるか | 公開 | ここにしか無いもの |
 |---|---|---|---|
-| **`haibaratou/etymon-source`**<br>母艦 | **語源データの正本**。買った辞書・取ってきた参照資料・手当ての CSV・作るスクリプトの全部。消したら戻らないものはここ | **非公開** | `cache_refs/`(16GB 参照資料)<br>`export_public_game_data.py`<br>`README-出典と補完メモ.md` |
-| **`haibaratou/haibaratou`**<br>配信先 | **画面と、画面が読むデータ**。GitHub Pages で配信される。生データは置かない | **公開** | `app/etymopedia.html`(本物はここだけ)<br>`app/data/generated-etymon/`<br>`assets/word/`(検品済みの絵) |
-| **`haibaratou/etymon-game-lab`**<br>ゲーム工房 | ゲームの開発・検査・製作素材。試作はここで作り、仕上がったものを配信先へ出す | **非公開** | 試作・QA・素材の原版 |
-| **作業用クローン**<br>(手元の `haibaratou`) | 作業場。履歴の控え。**ここから公開リポジトリへ push してはいけない** | — | 作り直す前の完全な履歴 |
+| **`etymon-source`**<br>母艦 | **語源データの正本**。買った辞書・取ってきた参照資料・手当ての CSV・作るスクリプトの全部。消したら戻らないものはここ | **非公開** | `cache_refs/`(16GB 参照資料)<br>`export_public_game_data.py`<br>`README-出典と補完メモ.md` |
+| ****配信先リポジトリ****<br>配信先 | **画面と、画面が読むデータ**。GitHub Pages で配信される。生データは置かない | **公開** | `app/etymopedia.html`(本物はここだけ)<br>`app/data/generated-etymon/`<br>`assets/word/`(検品済みの絵) |
+| **`etymon-game-lab`**<br>ゲーム工房 | ゲームの開発・検査・製作素材。試作はここで作り、仕上がったものを配信先へ出す | **非公開** | 試作・QA・素材の原版 |
+| **作業用クローン**<br>(手元の作業場) | 作業場。履歴の控え。**ここから公開リポジトリへ push してはいけない** | — | 作り直す前の完全な履歴 |
 
-`haibaratou/WildWordopia`(非公開)は、語源データベースの元になった
+`WildWordopia`(非公開)は、語源データベースの元になった
 `docs/WildWordopia PIE.xlsx` と同じ名前を持つ古いリポジトリ。中身は未確認。
 
 > 作業用クローンから push できない理由は `README-AIのための取扱説明書.md` にある。

@@ -9,9 +9,9 @@
 ## 0. 最初の5分
 
 ```bash
-git -C /home/user/haibaratou       log --oneline -3    # 作業用
-git -C /home/user/etymon-source    log --oneline -3    # 母艦
-git -C /home/user/haibaratou-pub   log --oneline -3    # 配信先
+git -C <作業用クローン>       log --oneline -3    # 作業用
+git -C <母艦クローン>    log --oneline -3    # 母艦
+git -C <配信先クローン>   log --oneline -3    # 配信先
 ps aux | grep [f]etch_               # 取得スクリプトが動いていないか
 ```
 
@@ -24,29 +24,29 @@ ps aux | grep [f]etch_               # 取得スクリプトが動いていな�
 
 | リポジトリ | 中身 | 公開 |
 |---|---|---|
-| `haibaratou/etymon-source` | **母艦**。語源データの正本。ここが唯一の真実 | 非公開 |
-| `haibaratou/haibaratou` | 配信先。GitHub Pages でサイトとゲームを出す | 公開 |
-| `haibaratou/etymon-game-lab` | ゲームの開発・検査 | — |
+| `etymon-source` | **母艦**。語源データの正本。ここが唯一の真実 | 非公開 |
+| **配信先リポジトリ** | 配信先。GitHub Pages でサイトとゲームを出す | 公開 |
+| `etymon-game-lab` | ゲームの開発・検査 | — |
 
 ローカルの控えは3つある。
 
 | 場所 | 使いかた |
 |---|---|
-| `/home/user/haibaratou` | **作業用**。編集と生成はここでやる。19GBの控えと生データ、
+| `<作業用クローン>` | **作業用**。編集と生成はここでやる。19GBの控えと生データ、
   および公開リポジトリから外した私用資料378ファイルがある。**ここから push しない** |
-| `/home/user/etymon-source` | 母艦へ push するための正常なクローン |
-| `/home/user/haibaratou-pub` | 配信先へ push するための正常なクローン |
+| `<母艦クローン>` | 母艦へ push するための正常なクローン |
+| `<配信先クローン>` | 配信先へ push するための正常なクローン |
 
 ### ★ 作業用クローンから公開リポジトリへ push してはいけない
 
 **これは不具合ではない。意図してそうしてある。**
 
-公開リポジトリ `haibaratou/haibaratou` は、`c1b7102`「Initial clean public site
+公開リポジトリ **配信先リポジトリ** は、`c1b7102`「Initial clean public site
 snapshot from origin/main」で**履歴を作り直してある**。その次のコミットが
 `REPOSITORY_BOUNDARY.md` の追加。つまり「公開してよいものだけの、きれいな履歴」を
 新しく始めた、という判断がすでに下されている。
 
-作業用クローン `/home/user/haibaratou` は、その**作り直す前の完全な履歴**を持っている。
+作業用クローン `<作業用クローン>` は、その**作り直す前の完全な履歴**を持っている。
 
 ```bash
 $ git merge-base origin/main HEAD
@@ -71,32 +71,32 @@ $ git merge-base origin/main HEAD
 作業用で作ったファイルを、正常なクローンにコピーしてから push する。
 
 ```bash
-cd /home/user/haibaratou
+cd <作業用クローン>
 
 # 1) 母艦へ ── 生データ・控え・スクリプト、ぜんぶ
-cp app/data/ja/ja_*.json app/data/ja/ja_words.txt /home/user/etymon-source/app/data/ja/
-cp app/data/ja/ja_det/*.json /home/user/etymon-source/app/data/ja/ja_det/
-cp app/build_ja_*.py app/fetch_ja_refs.py /home/user/etymon-source/app/
-cd /home/user/etymon-source && git add -A && git commit && git push origin main
+cp app/data/ja/ja_*.json app/data/ja/ja_words.txt <母艦クローン>/app/data/ja/
+cp app/data/ja/ja_det/*.json <母艦クローン>/app/data/ja/ja_det/
+cp app/build_ja_*.py app/fetch_ja_refs.py <母艦クローン>/app/
+cd <母艦クローン> && git add -A && git commit && git push origin main
 
 # 1b) 英語データベースを母艦へ ── スクリプトと生データ
-cp app/build_pie_data.py app/fetch_ngram_rarity.py app/root_sense.py /home/user/etymon-source/app/
+cp app/build_pie_data.py app/fetch_ngram_rarity.py app/root_sense.py <母艦クローン>/app/
 cp app/data/pie/*.csv app/data/pie/words.json app/data/pie/ngram_freq.json \
-   /home/user/etymon-source/app/data/pie/
-cd /home/user/etymon-source && git add -A && git commit && git push origin main
+   <母艦クローン>/app/data/pie/
+cd <母艦クローン> && git add -A && git commit && git push origin main
 
 # 1c) 配信先が読むデータを書き出す(このスクリプトは母艦にしか無い)
-cd /home/user/etymon-source
-python3 app/export_public_game_data.py /home/user/haibaratou-pub
-#   → /home/user/haibaratou-pub/app/data/generated-etymon/ を作り直す
+cd <母艦クローン>
+python3 app/export_public_game_data.py <配信先クローン>
+#   → <配信先クローン>/app/data/generated-etymon/ を作り直す
 #     配信先の置き場は data/pie ではなく data/generated-etymon。ここを取り違えると
 #     「データが消えた」と誤診する(実際にやった)
 
 # 2) 配信先へ ── 画面が読むものだけ(索引と本文。生データは出さない)
-cd /home/user/haibaratou
-cp app/data/ja/ja_index.json /home/user/haibaratou-pub/app/data/ja/
-cp app/data/ja/ja_det/*.json /home/user/haibaratou-pub/app/data/ja/ja_det/
-cd /home/user/haibaratou-pub && git add -A && git commit
+cd <作業用クローン>
+cp app/data/ja/ja_index.json <配信先クローン>/app/data/ja/
+cp app/data/ja/ja_det/*.json <配信先クローン>/app/data/ja/ja_det/
+cd <配信先クローン> && git add -A && git commit
 git push origin HEAD:main
 git push origin HEAD:claude/etymoringo-spec-n5g38o   # 指定ブランチも同じ内容にしておく
 ```
@@ -263,7 +263,7 @@ JMdict の英訳から作る。**文は切らない。**
 確かめかた。
 
 ```bash
-cd /home/user/haibaratou-pub && python3 -m http.server 8781 &
+cd <配信先クローン> && python3 -m http.server 8781 &
 # → http://localhost:8781/app/ja-dict.html
 ```
 

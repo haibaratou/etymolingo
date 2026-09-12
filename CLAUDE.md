@@ -1,4 +1,4 @@
-# CLAUDE.md — haibaratou/haibaratou プロジェクト引き継ぎ
+# CLAUDE.md — エティモリンゴ プロジェクト引き継ぎ
 
 > **まず `README-AIのための取扱説明書.md` を読むこと。**
 > リポジトリの構成・push の道すじ・語源データベース(英語/日本語)の
@@ -20,7 +20,7 @@ Claude Codeはこのローカルリポジトリのファイルとgitを直接操
   (参考用に、旧Claudeが作った v7 系のスナップショットを `app/lexicopia-hakoniwa-v7-mine.html`
    として同梱してあるが、これは**参照専用**。リポジトリ本体とは別物として扱う。)
 
-- 反映先は **`app/` フォルダ**。GitHub上の正規パスは以下の3つ:
+- 反映先は **`app/` フォルダ**。配信先リポジトリ上の正規パスは以下の3つ:
   - `app/index.html` … 下の2つへのハイパーリンクだけを持つ入口ページ
   - `app/lexicopia-hakoniwa.html` … ゲーム本体(Codex修正済みの最新がリポジトリにある)
   - `app/etymopedia.html` … 共創型オンライン語源辞典(単一HTML)

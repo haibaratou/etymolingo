@@ -1,11 +1,7 @@
 # エティモリンゴ：レキシコピア / エティモペディア
 
 印欧語根(ことばの祖先)をテーマにした、辞典とゲームの公開サイト。
-
-**https://haibaratou.github.io/haibaratou/app/index.html**
-
-> このリポジトリはアカウント名と同じ名前のため、この README は
-> GitHub のプロフィールページにも表示される。
+入口は `app/index.html`。
 
 ## 公開しているもの
 
@@ -20,8 +16,6 @@
 | [**レキシコピア箱庭**](app/lexicopia-hakoniwa_IP360.html) | 語根キャラがうろつく箱庭 |
 | [**ワードドロップ**](app/word-drop.html) / [**ワードスイカ**](app/word-suika.html) | 落ちもの |
 
-入口は `app/index.html`。
-
 ## 中身の置きかた
 
 ```
@@ -30,20 +24,15 @@ app/
   data/
     *.csv                   エティモペディアと箱庭が読む文言・語のデータ
     generated-etymon/       語源データベースの実行用の写し
-                            (母艦 etymon-source から書き出したもの)
     ja/                     日本語辞書の索引と本文
 assets/
-  chara/ word/ root-concept/    語根キャラ・単語の絵・概念の絵
+  chara/ word/ root-concept/         語根キャラ・単語の絵・概念の絵
   enemy/ player/ ground/ game/ ui/   ゲームの素材
 ```
 
 **`app/data/generated-etymon/` と `assets/` は手で直さない。**
-語源データは非公開の母艦 `etymon-source` が正本で、ここにあるのはその写し。
+語源データは非公開の母艦リポジトリが正本で、ここにあるのはその写し。
 直したいことがあったら母艦のほうを直して書き出す。
-
-置き場の役割・作りかた・やってはいけないことは
-[`app/data/README-データの地図.md`](app/data/README-データの地図.md) と
-[`README-AIのための取扱説明書.md`](README-AIのための取扱説明書.md) にある。
 
 ## 名前について
 
