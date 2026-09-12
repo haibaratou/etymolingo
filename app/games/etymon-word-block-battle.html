@@ -1891,7 +1891,8 @@ button{font:inherit;color:inherit}
       </div>
       <button class="miniBtn" id="sOpen" hidden>↗ 別タブで開く(全画面用)</button>
       <div class="urlRow" id="urlRow" hidden>
-        <input id="urlBox" readonly value="https://haibaratou.github.io/haibaratou/app/etymon-word-block-battle.html">
+        <input id="urlBox" readonly value="">
+<script>document.getElementById("urlBox").value=new URL("etymon-word-block-battle.html",location.href).href;</script>
         <button class="miniBtn" id="urlCopy">コピー</button>
       </div>
       <div class="sheetNote" id="fsNote"></div>
