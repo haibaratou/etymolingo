@@ -48,7 +48,17 @@ GitHub の説明文「Config files for my GitHub profile」は誤り。実体は
 
 | | 中身 |
 |---|---|
-| **配信先 `etymolingo`** | `app/` に html 3本(`index` / `etymopedia` / `etymon-explorer`)だけ。`app/data/` は読むものだけ。`assets/` が画像の正本 |
+| **配信先 `etymolingo`** | `app/` は入口と製品2本、ゲームは `app/games/` にまとめた。`assets/` が画像の正本 |
+
+    app/
+      index.html            入口。ここからリンクされているものが「消してはいけないもの」
+      etymopedia.html       製品
+      etymon-explorer.html  製品(語源データベース)
+      games/                ゲーム9本 + webmanifest + icon.svg + data.js
+      data/  old/
+
+**`index.html` は判断の基準であって、整理の対象ではない。**
+リンクを削るとゴミの判定そのものが壊れる。実際に一度やらかした(2026-09)。
 | **`etymon-game-lab`** | `app/` に試作 html 54本。スクリプトは `tools/` へどけた |
 | **母艦 `etymon-source`** | `app/` は `ja-dict.html` と `data/` だけ。スクリプトは `tools/` へどけた |
 
