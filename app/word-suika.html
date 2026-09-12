@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+  <meta name="theme-color" content="#fff4c7">
+<title>ワードスイカ</title>
+<style>
+:root{--ink:#29232d;--cream:#fffaf0;--yellow:#ffd34d;--orange:#f49a32;--blue:#65b9e8;--pink:#f08ba6}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:#191722;color:var(--ink);font-family:"M PLUS Rounded 1c","Yu Gothic",system-ui,sans-serif;overscroll-behavior:none}
+body{display:grid;place-items:center;padding:0}
+.game{width:min(100vw,720px);height:100dvh;min-height:560px;display:grid;grid-template-rows:auto minmax(0,1fr) auto;background:var(--cream);overflow:hidden;position:relative}
+.top{padding:max(8px,env(safe-area-inset-top)) 12px 9px;background:linear-gradient(180deg,#fff9df,#ffeaa1);border-bottom:4px solid var(--ink);display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;z-index:3}
+.brand{display:flex;align-items:center;gap:9px;min-width:0}.brandBall{width:42px;height:42px;border:3px solid var(--ink);border-radius:50%;display:grid;place-items:center;background:#fff;font-weight:1000;box-shadow:0 4px 0 rgba(41,35,45,.22)}
+h1{font-size:clamp(20px,5vw,29px);line-height:1;margin:0;font-weight:1000}.sub{font-size:11px;font-weight:800;margin-top:4px;color:#6e6070}
+.scoreBox{display:flex;gap:6px}.scoreCell{min-width:66px;text-align:center;background:#fff;border:3px solid var(--ink);border-radius:13px;padding:3px 8px;box-shadow:0 4px 0 rgba(41,35,45,.18)}.scoreCell small{display:block;font-size:9px;font-weight:900;color:#89778c}.scoreCell b{font-size:18px}
+.boardWrap{min-height:0;position:relative;background:linear-gradient(180deg,#90d9ef 0%,#dcf4e7 54%,#ffe8a3 100%);overflow:hidden}
+canvas{display:block;width:100%;height:100%;touch-action:none;cursor:crosshair}
+.queueHud{position:absolute;right:10px;top:10px;z-index:2;display:flex;align-items:center;gap:5px;background:rgba(255,255,255,.94);border:3px solid var(--ink);border-radius:18px;padding:5px 7px;pointer-events:none;box-shadow:0 4px 0 rgba(41,35,45,.18);white-space:nowrap}.currentBall{width:64px;height:64px;border:3px solid var(--ink);border-radius:50%;display:grid;place-items:center;background:var(--yellow);font-size:39px;font-weight:1000}.currentBall.word{font-size:18px}.nextRow{display:flex;gap:4px}.peekBall{width:32px;height:32px;border:2px solid var(--ink);border-radius:50%;display:grid;place-items:center;font-size:17px;font-weight:1000;background:#fff}.queueHud.choice{display:none}.choiceDock{position:static;z-index:3;display:none;gap:5px;padding:5px;background:#fff;border:3px solid var(--ink);border-radius:18px;box-shadow:0 4px 0 rgba(41,35,45,.18);margin-right:auto}.choiceDock.on{display:flex}.choiceBall{width:48px;height:48px;padding:0;border-radius:50%;font-size:25px;box-shadow:0 3px 0 rgba(41,35,45,.22)}.choiceBall.wordChoice{font-size:14px;letter-spacing:-.03em}.choiceBall.on{background:var(--yellow);transform:translateY(-3px);box-shadow:0 6px 0 rgba(41,35,45,.25)}
+.toast{position:absolute;left:50%;top:82px;z-index:4;transform:translate(-50%,-15px) scale(.9);opacity:0;min-width:180px;text-align:center;background:#fff;border:4px solid var(--ink);border-radius:18px;padding:8px 16px;font-weight:1000;font-size:22px;box-shadow:0 6px 0 rgba(41,35,45,.25);pointer-events:none;transition:.2s}.toast.on{opacity:1;transform:translate(-50%,0) scale(1)}.toast b{color:#e67623}.toast.new{background:#fff2a8;border-color:#e67623}.toast.new strong{display:block;color:#e94f68;font-size:34px;line-height:1;letter-spacing:.06em}.toast.new b{display:block;margin-top:3px;color:var(--ink);font-size:16px}
+.stageIntro{position:absolute;inset:0;z-index:9;display:grid;place-items:center;background:rgba(41,35,45,.52);opacity:0;visibility:hidden;pointer-events:none}.stageIntro.on{visibility:visible;animation:stageIntro 1.45s both}.stageIntroCard{width:min(560px,88%);text-align:center;background:#fff9e9;border:6px solid var(--ink);border-radius:28px;padding:24px 18px;box-shadow:0 10px 0 rgba(41,35,45,.28)}.stageIntro small{display:block;color:#e67623;font-size:clamp(18px,4vw,28px);font-weight:1000;letter-spacing:.12em}.stageIntro b{display:block;margin-top:9px;font-size:clamp(30px,7vw,52px);font-weight:1000;line-height:1.18}@keyframes stageIntro{0%{opacity:0;transform:scale(.72)}12%,72%{opacity:1;transform:scale(1)}88%{opacity:1;transform:scale(1.04)}100%{opacity:0;transform:scale(1.12)}}
+.bottom{padding:8px 10px max(9px,env(safe-area-inset-bottom));border-top:4px solid var(--ink);background:#fff9e9;display:flex;justify-content:flex-end;gap:8px;align-items:center}.bottomBtns{display:flex;gap:6px}.modeChange{padding-inline:10px;background:#fff}
+.log{display:none}
+button{appearance:none;border:3px solid var(--ink);border-radius:13px;background:#fff;color:var(--ink);font:inherit;font-weight:1000;padding:9px 13px;box-shadow:0 4px 0 rgba(41,35,45,.22);cursor:pointer}button:active{transform:translateY(3px);box-shadow:0 1px 0 rgba(41,35,45,.22)}
+.over,.modeSelect{position:absolute;inset:0;z-index:10;display:none;place-items:center;background:rgba(25,23,34,.75);padding:24px}.over.on,.modeSelect.on{display:grid}.overCard,.modeCard{width:min(440px,94%);background:#fffaf0;border:5px solid var(--ink);border-radius:24px;text-align:center;padding:24px;box-shadow:0 10px 0 rgba(0,0,0,.25)}.overCard h2,.modeCard h2{font-size:30px;margin:0 0 8px}.overCard p,.modeCard p{font-weight:850}.overCard button{background:var(--yellow);font-size:19px}.modeButtons{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}.modeButtons button{min-height:112px;font-size:21px}.modeButtons button:first-child{background:#fff}.modeButtons button:last-child{background:var(--yellow)}.modeButtons small{display:block;margin-top:7px;font-size:11px;line-height:1.45;color:#6e6070}
+.stagePick{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin:14px 0 18px}.stagePick button{padding:9px 0;border-width:2px;border-radius:12px;font-size:17px;background:#fff}.stagePick button.on{background:var(--yellow);transform:translateY(-2px);box-shadow:0 6px 0 rgba(41,35,45,.25)}
+@media(max-width:430px){.game{min-height:500px}.top{padding-left:8px;padding-right:8px}.sub{display:none}.scoreCell{min-width:57px;padding-inline:5px}.queueHud{top:7px;max-width:calc(100% - 14px)}.choiceDock{gap:3px;padding:4px}.choiceBall{width:36px;height:36px;font-size:20px}.choiceBall.wordChoice{font-size:11px}.modeChange,#reset{width:52px;padding-inline:0}.modeChange{font-size:0}.modeChange::after{content:"ステージ";font-size:11px}#reset{font-size:0}#reset::after{content:"↻";font-size:27px}}
+</style>
+</head>
+<body>
+<main class="game">
+  <header class="top">
+    <div class="brand"><span class="brandBall">Aa</span><div><h1>ワードスイカ</h1><div class="sub" id="stageInfo">STAGE 1・4文字でクリア</div></div></div>
+    <div class="scoreBox"><div class="scoreCell"><small>SCORE</small><b id="score">0</b></div><div class="scoreCell"><small>STAGE</small><b><span id="stage">1</span> / <span id="goal">4字</span></b></div></div>
+  </header>
+  <section class="boardWrap" id="boardWrap">
+    <canvas id="board" aria-label="文字を落とす盤面"></canvas>
+    <div class="queueHud" id="queueHud"><span class="currentBall" id="current">A</span><div class="nextRow" id="next"></div></div>
+    <div class="toast" id="toast"></div>
+  </section>
+  <footer class="bottom"><div class="choiceDock" id="choices" aria-label="選べる文字"></div><div class="log"><b id="log">好きな横位置をタップして落とす</b><span id="dictState">辞書を準備中…</span></div><div class="bottomBtns"><button class="modeChange" id="modeChange" type="button">ステージ</button><button id="reset" type="button">↻ やりなおす</button></div></footer>
+  <div class="stageIntro" id="stageIntro"><div class="stageIntroCard"><small id="stageIntroNumber">STAGE 1</small><b id="stageIntroGoal">4文字の英単語を作る</b></div></div>
+  <div class="over" id="over"><div class="overCard"><h2 id="resultTitle">いっぱい！</h2><p id="result"></p><button id="again" type="button">もう一度</button></div></div>
+  <div class="modeSelect on" id="modeSelect"><div class="modeCard"><h2>ステージ選択</h2><div class="stagePick" id="stagePick" aria-label="ステージを選ぶ"></div></div></div>
+</main>
+<script>
+const FALLBACK=`as her do there out with and been which time could if or at she them about other up they me we one his for no their have also an be all that but my what of he can to when it like you who your him by more the than from this on not in is only some our over two these see then through any how first just between way know where even us before now down after well because life work being get new make here many those much use right same both good each man own long need day must around still while go too take under off think world never might data want going little found three again part without another against place come away system say head thought high are case during social face water within few every number help always state process power find set example last small human home great end old often room point year order love until side though went upon change since next am study form let give others best less mind research second law felt house himself together level door enough light model book name why feel group fact far night once control become value course tell among means ever open care sure present heart school nothing able woman self along several support above four health mother moment father young low energy behind voice full further due either line country mean common real show past kind hard role food death idea white free risk nature history word result matter problem front true future toward effect close five language half air view term someone money itself type period clear action reason per single age short turn blood city land interest inside story rate field read else include class outside black similar main century big herself move response alone policy design rest physical current section cell subject party answer society surface force quality whose activity decision return lower car disease account today third major size addition bring impact plan act mouth range culture cost forward project red access positive fire beyond truth simply meet loss amount instead team below purpose pressure presence content create office legal perhaps whom movement private remember wrong media stay complex special source art simple stage court ability poor phone share floor property nor seem issue product skin church report cut entire eye modern pay complete distance critical respect arm species normal allow road hold medical basis breath direct behavior music concept negative review region ten earth walk standard stand note object rule capital onto status weight solution offer recent industry science primary percent window blue program degree mental date husband success correct continue event safe income active faith capacity instance phase volume develop student round appear glass former task couple hundred contact plant address produce king manner tree basic remain indeed exactly digital factor except perfect strategy break base maybe peace avoid desire supply soil heavy doubt require improve demand via relation measure freedom cover ensure reaction edge reduce search internal evening identify extent contrast visit initial acid chair sample add setting build charge effort actual occur month worth unit street record sit foot exercise attempt neither vision benefit seat balance die animal notice gender prevent receive external constant rich despite river gold carry achieve nation apply protect exchange protein progress prior separate version anti conflict relative transfer thousand proper concern corner none overall regard exist feature affect ancient suggest religion unique contract upper dinner yes double nice birth crisis duty ahead accept release empty unless career describe expect quick opposite forth maintain strange afraid agent tone travel horse store secret enter input promise lose seek maximum regular perform cycle truly mode pleasure thirty command audience device discuss enemy severe stock sky obvious solid press worry credit crime conduct client detail spend dress officer software obtain apart passage till station surprise formal lie injury official mission alive judgment visual enjoy pair bound join screen escape storage agree thin relief ring joint video partner ear guide beneath aspect finger missing band adult frame inner forget square catch host extra survey outcome ball indicate unable decide contain capable garden platform chief beauty visible dynamic tend divine prove notion desk aid listen domain vehicle cent judge aside famous sequence danger advice island mention plane request glad magic typical plate aim manage fellow index ideal flat sin taste shirt`.split(/\s+/);
+const FALLBACK_INFO={her:["彼女の、彼女を",1],do:["する、役に立つ",1],there:["そこに",1],out:["外へ",1],with:["〜と一緒に",1],and:["〜と",1],been:["〜であった",1],which:["どちら",1],time:["時間、回",1],could:["できた",1],if:["もし〜ならば",1],or:["または",1],at:["〜に",1],she:["彼女は",1],them:["彼らを",1],about:["〜について",1],other:["ほかの",1],up:["上へ",1],they:["彼らは",1],me:["私を",1],we:["私たちは",1],one:["一つ",1],his:["彼の",1],for:["〜のために",1],no:["いいえ",1],their:["彼らの",1],have:["持っている",1],also:["〜もまた",1],an:["一つの",1],be:["である",1],all:["全ての",1],that:["それ",1],but:["しかし",1],my:["私の",1],what:["何",1],of:["〜の",1],he:["彼は",1],can:["〜できる",1],to:["〜へ",1],when:["いつ",1],it:["それは",1],like:["好む、〜のような",1],you:["あなた",1],who:["誰",1],your:["あなたの",1],him:["彼を",1],by:["〜によって",1],more:["もっと多くの",1],the:["その",1],than:["〜よりも",1],from:["〜から",1],this:["これ",1],on:["〜の上に",1],not:["〜でない",1],in:["中に",1],is:["〜である",1],only:["唯一の",5],some:["いくつかの",11],our:["私たちの",15],over:["〜の上に",17],two:["二つ",19],these:["これら",20],see:["見る",20],then:["そのとき",21],through:["〜を通って",28],any:["どんな〜でも",32],how:["どうやって",33],first:["第一の",37],just:["ちょうど",38],between:["〜の間に",39],way:["道、方法",42],know:["知る",43],where:["どこに",49],even:["〜さえ",54],us:["私たちを",54],before:["〜の前に",55],now:["今",58],down:["下へ",59],after:["〜のあとに",59],well:["よく、健康な",61],because:["なぜなら",61],life:["命",63],work:["仕事、作品",64],being:["存在",67],get:["得る、なる",70],new:["新しい",71],make:["作る",74],here:["ここに",74],many:["多くの",74],those:["それら",74],much:["たくさんの",78],use:["使う",81],right:["正しい、右",83],same:["同じ",84],both:["両方の",84],good:["良い",86],each:["それぞれの",88],man:["男性",89],own:["自分の",95],long:["長い",96],need:["必要",97],day:["日",98],must:["〜しなければならない",98],around:["周りに",98],still:["静かな",98],while:["〜する間に",98],go:["行く",100],too:["〜もまた",100],take:["取る",102],under:["下に",106],off:["離れて",108],think:["考える",109],world:["世界",110],never:["決して〜ない",112],might:["力、〜かもしれない",112],data:["データ",112],want:["欲しい",114],going:["行くこと",116],little:["小さい",116],found:["設立する",117],three:["三つ",117],again:["再び",118],part:["部分、役",118],without:["〜なしに",119],another:["別の",121],against:["〜に反対して",122],place:["場所",123],come:["来る",124],away:["離れて",125],system:["体系",126],say:["言う",128],head:["頭",128],thought:["考え",130],high:["高い",131],are:["〜である",133],case:["場合、事件",134],during:["〜の間に",136],social:["社会の",137],face:["顔",140]};
+const STAGES=[
+  {type:"length",goal:4,letters:"andlhsetroic"},
+  {type:"count",wordLength:2,count:3,letters:"anitmetobewedogoup"},
+  {type:"length",goal:5,letters:"watchrightplane"},
+  {type:"count",wordLength:3,count:3,letters:"catdogsunpenboxrun"},
+  {type:"length",goal:6,letters:"friendpeopleworld"},
+  {type:"count",wordLength:3,count:4,letters:"theandforbutyouallcan"},
+  {type:"length",goal:7,letters:"searchlationactionknown",bonuses:["re","un"]},
+  {type:"length",goal:8,letters:"informaquesmovedevelop",bonuses:["tion","ment"]},
+  {type:"length",goal:9,letters:"availreasonunderstandlearn",bonuses:["able","ing"]},
+  {type:"length",goal:10,letters:"communicadevelopenvironremark",bonuses:["tion","ment","able"]}
+];
+const $=s=>document.querySelector(s),canvas=$("#board"),ctx=canvas.getContext("2d");
+const wrap=$("#boardWrap"),scoreEl=$("#score"),stageEl=$("#stage"),goalEl=$("#goal"),stageInfoEl=$("#stageInfo"),queueHud=$("#queueHud"),currentEl=$("#current"),nextEl=$("#next"),choicesEl=$("#choices"),logEl=$("#log"),dictState=$("#dictState"),toast=$("#toast"),modeSelect=$("#modeSelect"),stageIntro=$("#stageIntro");
+let W=0,H=0,dpr=1,bodies=[],particles=[],queue=[],aimX=220,last=performance.now(),nextId=1,score=0,wordCount=0,canDrop=false,over=false,dangerFrames=0,toastTimer=0,burstFlash=0,burstLabel=null,mode="",choiceIndex=0,stage=1,selectedStage=1,stageCursor=0,stageLetterCursor=0,stageProgress=0,stageCleared=false,stageClearTimer=0,stageIntroTimer=0,audioCtx=null;
+let dictionary=[],wordBySignature=new Map(),wordInfo=new Map(),buildTargets=[];
+const DISCOVERY_KEY="word-suika-discovered-v1";let discoveredWords=new Set();
+try{discoveredWords=new Set(JSON.parse(localStorage.getItem(DISCOVERY_KEY)||"[]"))}catch(e){}
+const colors=["#ffd34d","#f39b61","#71c6e7","#ef91aa","#8fd19b","#bda0e5"];
+const signature=s=>[...String(s).toLowerCase().replace(/[^a-z]/g,"")].sort().join("");
+const shuffle=a=>{for(let i=a.length-1;i;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+function setDictionary(entries,source="語源DB抜粋"){
+  const seen=new Set();dictionary=[];wordBySignature=new Map();wordInfo=new Map();
+  entries.forEach((entry,index)=>{const raw=typeof entry==="string"?entry:entry.w,w=String(raw||"").toLowerCase();if(!/^[a-z]{2,8}$/.test(w)||seen.has(w))return;seen.add(w);dictionary.push(w);const fallback=FALLBACK_INFO[w]||["",index+1],info=typeof entry==="string"?{ja:fallback[0],r:fallback[1]}:{ja:String(entry.ja||""),r:Number(entry.r)||9999};wordInfo.set(w,info);const sig=signature(w);if(!wordBySignature.has(sig))wordBySignature.set(sig,w)});
+  const memo=new Map();
+  const canBuild=sig=>{
+    if(sig.length===1)return true;if(memo.has(sig))return memo.get(sig);
+    if(!wordBySignature.has(sig)){memo.set(sig,false);return false}
+    for(let mask=1;mask<(1<<sig.length)-1;mask++){
+      let a="",b="";for(let i=0;i<sig.length;i++)((mask>>i)&1?a+=sig[i]:b+=sig[i]);
+      if(a>b)continue;if(canBuild(a)&&canBuild(b)){memo.set(sig,true);return true}
+    }
+    memo.set(sig,false);return false;
+  };
+  buildTargets=dictionary.filter(w=>w.length<=6&&wordInfo.get(w)?.ja&&canBuild(signature(w)));
+  dictState.textContent=`${source} ${dictionary.length}語`;
+}
+setDictionary(FALLBACK,"語源DB抜粋");
+fetch("data/generated-etymon/words.json").then(r=>r.ok?r.json():Promise.reject()).then(rows=>{
+  const best=new Map();rows.forEach(x=>{const w=String(x.w||"").toLowerCase();if(!x.pic||!/^[a-z]{2,8}$/.test(w))return;const rank=Number(x.r)||9999;if(!best.has(w)||rank<best.get(w).r)best.set(w,{w,ja:x.ja||"",r:rank})});
+  setDictionary([...best.values()].sort((a,b)=>a.r-b.r),"語源DB");refillQueue();renderQueue();
+}).catch(()=>{});
+const currentStage=()=>STAGES[Math.min(stage-1,STAGES.length-1)];
+function renderStagePicker(){$("#stagePick").innerHTML=STAGES.map((_,i)=>`<button class="${selectedStage===i+1?"on":""}" type="button" data-stage="${i+1}" aria-pressed="${selectedStage===i+1}">${i+1}</button>`).join("");$("#stagePick").querySelectorAll("button").forEach(b=>b.onclick=()=>startStage(Number(b.dataset.stage)))}
+function nextStageLetter(){const s=currentStage(),step=stageCursor++;if(s.bonuses?.length&&step>0&&step%12===0)return s.bonuses[(step/12-1)%s.bonuses.length];return s.letters[(stageLetterCursor++)%s.letters.length]}
+function refillQueue(){
+  while(queue.length<16)queue.push(nextStageLetter());
+}
+function choiceCandidates(){
+  refillQueue();let found=[];
+  for(let tries=0;tries<12;tries++){
+    const seen=new Set();found=[];queue.forEach((ch,index)=>{if(found.length<5&&!seen.has(ch)){seen.add(ch);found.push({ch,index})}});
+    if(found.length>=5)break;queue.push(nextStageLetter());
+  }
+  return found;
+}
+function renderQueue(){
+  refillQueue();queueHud.classList.toggle("choice",mode==="choice");
+  if(mode==="choice"){
+    const offered=choiceCandidates();if(!offered.some(x=>x.index===choiceIndex))choiceIndex=offered[0]?.index??0;
+    const selected=queue[choiceIndex]||queue[0];currentEl.textContent=selected.toUpperCase();currentEl.classList.toggle("word",selected.length>1);choicesEl.classList.add("on");
+    choicesEl.innerHTML=offered.map(x=>`<button class="choiceBall${x.ch.length>1?" wordChoice":""}${x.index===choiceIndex?" on":""}" type="button" data-index="${x.index}" aria-pressed="${x.index===choiceIndex}">${x.ch.toUpperCase()}</button>`).join("");
+    choicesEl.querySelectorAll("button").forEach(b=>b.onclick=()=>{choiceIndex=Number(b.dataset.index);renderQueue();logEl.textContent=`${queue[choiceIndex].toUpperCase()} を選択中`});
+  }else{
+    choicesEl.classList.remove("on");
+    currentEl.textContent=queue[0].toUpperCase();currentEl.classList.toggle("word",queue[0].length>1);nextEl.innerHTML=queue.slice(1,4).map((c,i)=>`<span class="peekBall" style="background:${colors[(c.charCodeAt(0)+i)%colors.length]};font-size:${c.length>1?11:17}px">${c.toUpperCase()}</span>`).join("");
+  }
+}
+function resize(){const r=wrap.getBoundingClientRect();W=Math.max(1,r.width);H=Math.max(1,r.height);dpr=Math.min(2,devicePixelRatio||1);canvas.width=Math.round(W*dpr);canvas.height=Math.round(H*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);aimX=Math.max(57,Math.min(W-57,aimX||W/2))}
+new ResizeObserver(resize).observe(wrap);resize();
+const imageCache=new Map();
+function wordImage(word){if(imageCache.has(word))return imageCache.get(word);const img=new Image();img.src=`../assets/word/${word}.png`;imageCache.set(word,img);return img}
+function addBody(label,x,y,word=""){
+  const raw=word||label.toLowerCase(),isWord=!!word,isPart=!word&&raw.length>1,r=isWord?Math.min(106,44*Math.pow(1.12,raw.length-1)):isPart?Math.min(62,40+raw.length*5):40;
+  const info=wordInfo.get(raw)||{};const b={id:nextId++,label:raw.toUpperCase(),letters:raw.toLowerCase(),word:isWord?raw:"",part:isPart,ja:isWord?(info.ja||"和訳なし"):"",x,y,r,vx:(Math.random()-.5)*10,vy:0,color:colors[(raw.charCodeAt(0)+raw.length)%colors.length],born:performance.now(),img:isWord?wordImage(raw):null};bodies.push(b);return b;
+}
+function dropAt(x){if(!mode||!canDrop||over)return;refillQueue();x=Math.max(57,Math.min(W-57,x));let ch;if(mode==="choice"){ch=queue.splice(choiceIndex,1)[0];choiceIndex=0}else ch=queue.shift();addBody(ch,x,61);aimX=x;canDrop=false;setTimeout(()=>{if(!over&&!stageClearTimer&&!bodies.some(b=>b.clearsStage))canDrop=true},420);renderQueue();logEl.textContent=`${ch.toUpperCase()} を落とした`}
+function mergeBodies(parts,word){
+  const total=parts.reduce((sum,b)=>sum+b.r*b.r,0),x=parts.reduce((sum,b)=>sum+b.x*b.r*b.r,0)/total,y=parts.reduce((sum,b)=>sum+b.y*b.r*b.r,0)/total;
+  const source=new Set(parts),names=parts.map(b=>b.label);bodies=bodies.filter(o=>!source.has(o));const n=addBody(word,x,y,word);n.vx=parts.reduce((sum,b)=>sum+b.vx,0)/parts.length*.35;n.vy=Math.min(...parts.map(b=>b.vy))-55;
+  score+=word.length*word.length*10;wordCount++;scoreEl.textContent=score;
+  const isNew=!discoveredWords.has(word);if(isNew){discoveredWords.add(word);try{localStorage.setItem(DISCOVERY_KEY,JSON.stringify([...discoveredWords]))}catch(e){}}
+  logEl.textContent=`${names.join(" + ")} → ${word.toUpperCase()}`;showToast(word,isNew);speakWord(word);
+  for(let i=0;i<18;i++)particles.push({x,y,vx:(Math.random()-.5)*220,vy:(Math.random()-.8)*180,life:1,color:n.color});
+  const objective=currentStage();if(objective.type==="count"&&word.length===objective.wordLength){stageProgress++;n.clearTitle=`${objective.wordLength} LETTER ${stageProgress}/${objective.count}`;updateStageDisplay();if(stageProgress>=objective.count)armStageClear(n)}else if(objective.type==="length"&&word.length>=objective.goal){n.clearTitle=`${objective.goal} LETTER CLEAR!`;armStageClear(n)}
+}
+function armStageClear(clearBody){const vanishAt=performance.now()+700;clearBody.clearsStage=true;bodies.forEach(b=>{b.vanishAt=vanishAt;b.boardClear=true});canDrop=false}
+function tryWordMerge(){
+  const links=bodies.map(()=>new Set());
+  for(let i=0;i<bodies.length;i++)for(let j=i+1;j<bodies.length;j++){
+    const a=bodies[i],b=bodies[j];if(Math.hypot(a.x-b.x,a.y-b.y)<=a.r+b.r+7){links[i].add(j);links[j].add(i)}
+  }
+  let best=null;const visited=new Set();
+  for(let start=0;start<bodies.length;start++){
+    if(visited.has(start))continue;const component=[],stack=[start];visited.add(start);
+    while(stack.length){const i=stack.pop();component.push(i);links[i].forEach(j=>{if(!visited.has(j)){visited.add(j);stack.push(j)}})}
+    if(component.length<2)continue;
+    const count=Math.min(component.length,10),limit=1<<count;
+    for(let mask=1;mask<limit;mask++){
+      if((mask&(mask-1))===0)continue;const chosen=[];let letters="";
+      for(let k=0;k<count;k++)if(mask&(1<<k)){chosen.push(component[k]);letters+=bodies[component[k]].letters}
+      if(letters.length>8)continue;
+      const chosenSet=new Set(chosen),seen=new Set([chosen[0]]),todo=[chosen[0]];
+      while(todo.length){const i=todo.pop();links[i].forEach(j=>{if(chosenSet.has(j)&&!seen.has(j)){seen.add(j);todo.push(j)}})}
+      if(seen.size!==chosen.length)continue;
+      const word=wordBySignature.get(signature(letters));if(!word)continue;
+      if(!best||word.length>best.word.length||(word.length===best.word.length&&chosen.length>best.indices.length))best={indices:chosen,word};
+    }
+  }
+  if(best){mergeBodies(best.indices.map(i=>bodies[i]),best.word);return true}return false;
+}
+function showToast(word,isNew=false){clearTimeout(toastTimer);toast.classList.toggle("new",isNew);toast.innerHTML=isNew?`<strong>NEW!</strong><b>${word.toUpperCase()}</b>`:`WORD! <b>${word.toUpperCase()}</b>`;toast.classList.add("on");toastTimer=setTimeout(()=>toast.classList.remove("on"),1000)}
+function ensureAudio(){const AudioCtor=window.AudioContext||window.webkitAudioContext;if(!AudioCtor)return null;if(!audioCtx)audioCtx=new AudioCtor();if(audioCtx.state==="suspended")audioCtx.resume();return audioCtx}
+function playStageSound(){const ac=ensureAudio();if(!ac)return;const now=ac.currentTime;[523.25,659.25,783.99].forEach((freq,i)=>{const osc=ac.createOscillator(),gain=ac.createGain(),start=now+i*.115;osc.type="triangle";osc.frequency.setValueAtTime(freq,start);gain.gain.setValueAtTime(.0001,start);gain.gain.exponentialRampToValueAtTime(.12,start+.025);gain.gain.exponentialRampToValueAtTime(.0001,start+.23);osc.connect(gain).connect(ac.destination);osc.start(start);osc.stop(start+.24)})}
+function speakWord(word){if(!("speechSynthesis" in window)||!("SpeechSynthesisUtterance" in window))return;const utterance=new window.SpeechSynthesisUtterance(word);utterance.lang="en-US";utterance.rate=.88;utterance.pitch=1;const voice=window.speechSynthesis.getVoices().find(v=>/^en(?:-|_)/i.test(v.lang));if(voice)utterance.voice=voice;window.speechSynthesis.cancel();window.speechSynthesis.speak(utterance)}
+function stageObjectiveText(){const s=currentStage();return s.type==="count"?`${s.wordLength}文字の英単語を ${s.count}個作る`:`${s.goal}文字の英単語を作る`}
+function showStageIntro(){clearTimeout(stageIntroTimer);canDrop=false;$("#stageIntroNumber").textContent=`STAGE ${stage}`;$("#stageIntroGoal").textContent=stageObjectiveText();stageIntro.classList.remove("on");void stageIntro.offsetWidth;stageIntro.classList.add("on");playStageSound();stageIntroTimer=setTimeout(()=>{stageIntro.classList.remove("on");if(mode&&!over)canDrop=true},1450)}
+function vanishClearedWords(){const now=performance.now(),gone=bodies.filter(b=>b.vanishAt&&now>=b.vanishAt);if(!gone.length)return;const clearBody=gone.find(b=>b.clearsStage),ids=new Set(gone.map(b=>b.id));bodies=bodies.filter(b=>!ids.has(b.id));gone.forEach((b,index)=>{if(clearBody)particles.push({x:b.x,y:b.y,vx:(b.x-W/2)*1.8+(Math.random()-.5)*180,vy:-180-Math.random()*260,life:2,color:b.color,size:Math.max(22,Math.min(52,b.r*.9)),label:b.label,rot:0,spin:(Math.random()-.5)*8});const sparks=clearBody?20:84;for(let i=0;i<sparks;i++){const a=Math.random()*Math.PI*2,speed=110+Math.random()*430;particles.push({x:b.x,y:b.y,vx:Math.cos(a)*speed,vy:Math.sin(a)*speed-90,life:1.25,color:colors[(i+index)%colors.length],size:4+Math.random()*9})}});if(clearBody){burstLabel={word:clearBody.label,ja:clearBody.ja||"和訳なし",title:clearBody.clearTitle||"STAGE CLEAR!",life:1};logEl.textContent=`${clearBody.label} ${clearBody.clearTitle||"完成"}`;clearTimeout(stageClearTimer);stageClearTimer=setTimeout(()=>showStageClear(clearBody),950)}burstFlash=1}
+function physics(dt){
+  const s=Math.min(.033,dt/1000),floor=H-9;
+  bodies.forEach(b=>{b.vy+=720*s;b.vx*=Math.pow(.994,dt/16.67);b.vy*=Math.pow(.997,dt/16.67);b.x+=b.vx*s;b.y+=b.vy*s});
+  for(let pass=0;pass<7;pass++){
+    for(let i=0;i<bodies.length;i++)for(let j=i+1;j<bodies.length;j++){
+      const a=bodies[i],b=bodies[j];let dx=b.x-a.x,dy=b.y-a.y,d=Math.hypot(dx,dy),min=a.r+b.r;
+      if(d>=min)continue;if(d<.01){dx=.01;dy=-.01;d=Math.hypot(dx,dy)}const nx=dx/d,ny=dy/d,overlap=min-d+.15;
+      const ma=a.r*a.r,mb=b.r*b.r,t=ma+mb;a.x-=nx*overlap*mb/t;a.y-=ny*overlap*mb/t;b.x+=nx*overlap*ma/t;b.y+=ny*overlap*ma/t;
+      const rvx=b.vx-a.vx,rvy=b.vy-a.vy,along=rvx*nx+rvy*ny;if(along<0){const impulse=-along*.35;a.vx-=nx*impulse*mb/t;a.vy-=ny*impulse*mb/t;b.vx+=nx*impulse*ma/t;b.vy+=ny*impulse*ma/t}
+    }
+    bodies.forEach(b=>{if(b.x<b.r+4){b.x=b.r+4;b.vx=Math.abs(b.vx)*.25}if(b.x>W-b.r-4){b.x=W-b.r-4;b.vx=-Math.abs(b.vx)*.25}if(b.y>floor-b.r){b.y=floor-b.r;b.vy=-Math.abs(b.vy)*.08;if(Math.abs(b.vy)<8)b.vy=0}});
+  }
+  tryWordMerge();vanishClearedWords();
+  particles.forEach(p=>{p.vy+=400*s;p.x+=p.vx*s;p.y+=p.vy*s;p.rot=(p.rot||0)+(p.spin||0)*s;p.life-=s*1.8});particles=particles.filter(p=>p.life>0);
+  burstFlash=Math.max(0,burstFlash-s*2.5);
+  if(burstLabel){burstLabel.life-=s/1.55;if(burstLabel.life<=0)burstLabel=null}
+  const resolvingStage=!!stageClearTimer||bodies.some(b=>b.clearsStage),danger=!resolvingStage&&bodies.some(b=>performance.now()-b.born>2500&&b.y-b.r<88&&Math.abs(b.vy)<30);dangerFrames=danger?dangerFrames+1:Math.max(0,dangerFrames-2);if(dangerFrames>150)gameOver();
+}
+function roundRect(c,x,y,w,h,r){c.beginPath();c.roundRect(x,y,w,h,r)}
+function drawBody(b){
+  ctx.save();ctx.translate(b.x,b.y);if(b.vanishAt){const pulse=1+Math.sin(performance.now()/45)*.08;ctx.scale(pulse,pulse);ctx.shadowColor="#fff17a";ctx.shadowBlur=24}ctx.beginPath();ctx.arc(3,6,b.r,0,Math.PI*2);ctx.fillStyle="rgba(41,35,45,.22)";ctx.fill();ctx.beginPath();ctx.arc(0,0,b.r,0,Math.PI*2);ctx.fillStyle=b.color;ctx.fill();ctx.lineWidth=4;ctx.strokeStyle="#29232d";ctx.stroke();ctx.shadowColor="transparent";
+  if(b.word&&b.img&&b.img.complete&&b.img.naturalWidth){ctx.save();ctx.beginPath();ctx.arc(0,0,b.r-6,0,Math.PI*2);ctx.clip();ctx.fillStyle="#fff";ctx.fillRect(-b.r,-b.r,b.r*2,b.r*2);const k=Math.min((b.r*1.72)/b.img.naturalWidth,(b.r*1.72)/b.img.naturalHeight),w=b.img.naturalWidth*k,h=b.img.naturalHeight*k;ctx.drawImage(b.img,-w/2,-h/2,w,h);ctx.restore();ctx.textAlign="center";ctx.textBaseline="middle";ctx.lineJoin="round";ctx.font=`1000 ${Math.max(11,b.r*.3)}px system-ui`;ctx.lineWidth=4;ctx.strokeStyle="rgba(255,255,255,.96)";ctx.strokeText(b.label,0,b.r*.53);ctx.fillStyle="#29232d";ctx.fillText(b.label,0,b.r*.53);ctx.font=`800 ${Math.max(7,b.r*.17)}px system-ui`;const ja=b.ja.length>11?b.ja.slice(0,10)+"…":b.ja;ctx.lineWidth=3;ctx.strokeText(ja,0,b.r*.78);ctx.fillStyle="#594e62";ctx.fillText(ja,0,b.r*.78)}else{ctx.fillStyle="#29232d";ctx.font=`1000 ${b.part?Math.max(20,Math.min(34,b.r*2.25/b.label.length)):b.r*1.05}px system-ui`;ctx.textAlign="center";ctx.textBaseline="middle";ctx.fillText(b.label,0,1)}ctx.restore();
+}
+function draw(){ctx.clearRect(0,0,W,H);ctx.fillStyle="rgba(255,255,255,.2)";for(let y=120;y<H;y+=62){ctx.fillRect(0,y,W,1)}ctx.setLineDash([8,8]);ctx.strokeStyle=dangerFrames?"#e94f68":"rgba(41,35,45,.28)";ctx.lineWidth=3;ctx.beginPath();ctx.moveTo(0,88);ctx.lineTo(W,88);ctx.stroke();ctx.setLineDash([]);
+  const previewCh=mode==="choice"?(queue[choiceIndex]||queue[0]):queue[0];ctx.strokeStyle="rgba(41,35,45,.42)";ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(aimX,0);ctx.lineTo(aimX,Math.min(H,205));ctx.stroke();ctx.save();ctx.shadowColor="rgba(41,35,45,.28)";ctx.shadowBlur=0;ctx.shadowOffsetY=7;ctx.beginPath();ctx.arc(aimX,61,55,0,Math.PI*2);ctx.fillStyle="#fff7cf";ctx.fill();ctx.shadowColor="transparent";ctx.lineWidth=5;ctx.strokeStyle="#29232d";ctx.stroke();ctx.fillStyle="#29232d";ctx.font=`1000 ${previewCh?.length>1?26:60}px system-ui`;ctx.textAlign="center";ctx.textBaseline="middle";ctx.fillText((previewCh||"").toUpperCase(),aimX,63);ctx.restore();
+  bodies.forEach(drawBody);particles.forEach(p=>{ctx.globalAlpha=Math.min(1,Math.max(0,p.life));if(p.label){ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.rot||0);ctx.textAlign="center";ctx.textBaseline="middle";ctx.font=`1000 ${p.size}px system-ui`;ctx.lineWidth=7;ctx.strokeStyle="#fff";ctx.strokeText(p.label,0,0);ctx.fillStyle="#29232d";ctx.fillText(p.label,0,0);ctx.restore()}else{ctx.fillStyle=p.color;ctx.beginPath();ctx.arc(p.x,p.y,p.size||4,0,Math.PI*2);ctx.fill()}});ctx.globalAlpha=1;if(burstFlash){ctx.fillStyle=`rgba(255,245,155,${burstFlash*.48})`;ctx.fillRect(0,0,W,H)}if(burstLabel){const a=Math.min(1,burstLabel.life*4),bw=Math.min(W-28,430),bh=118,bx=(W-bw)/2,by=Math.max(118,H*.25);ctx.save();ctx.globalAlpha=a;ctx.beginPath();ctx.roundRect(bx,by,bw,bh,22);ctx.fillStyle="rgba(255,255,255,.95)";ctx.fill();ctx.lineWidth=5;ctx.strokeStyle="#29232d";ctx.stroke();ctx.textAlign="center";ctx.textBaseline="middle";ctx.fillStyle="#e67623";ctx.font="1000 16px system-ui";ctx.fillText(burstLabel.title,W/2,by+20);ctx.fillStyle="#29232d";ctx.font=`1000 ${Math.min(44,bw/9)}px system-ui`;ctx.fillText(burstLabel.word,W/2,by+59);ctx.fillStyle="#6e6070";ctx.font="850 16px system-ui";ctx.fillText(burstLabel.ja,W/2,by+94);ctx.restore()}}
+function loop(now){const dt=now-last;last=now;if(!over)physics(dt);draw();requestAnimationFrame(loop)}
+function showStageClear(b){if(over)return;over=true;stageCleared=true;const lastStage=stage>=STAGES.length;$("#resultTitle").textContent=lastStage?"ALL CLEAR!":`STAGE ${stage} CLEAR!`;$("#result").textContent=`${b.label}（${b.ja||"和訳なし"}） ／ ${score}点`;$("#again").textContent=lastStage?"最初から":"次のステージ";$("#over").classList.add("on")}
+function gameOver(){if(over)return;over=true;stageCleared=false;$("#resultTitle").textContent=`STAGE ${stage} 失敗`;$("#result").textContent=`${wordCount}語を完成　${score}点`;$("#again").textContent="同じステージを再挑戦";$("#over").classList.add("on")}
+function updateStageDisplay(){const s=currentStage(),goal=s.type==="count"?`${s.wordLength}字 ${stageProgress}/${s.count}`:`${s.goal}字`;stageEl.textContent=stage;goalEl.textContent=goal;stageInfoEl.textContent=s.type==="count"?`STAGE ${stage}・${s.wordLength}文字の英単語を${s.count}個作る`:`STAGE ${stage}・${s.goal}文字でクリア`}
+function reset(){clearTimeout(stageClearTimer);stageClearTimer=0;clearTimeout(stageIntroTimer);stageIntroTimer=0;stageIntro.classList.remove("on");clearTimeout(toastTimer);toast.classList.remove("on","new");bodies=[];particles=[];queue=[];stageCursor=0;stageLetterCursor=0;stageProgress=0;score=0;wordCount=0;dangerFrames=0;burstFlash=0;burstLabel=null;over=false;stageCleared=false;canDrop=false;choiceIndex=0;scoreEl.textContent=0;$("#over").classList.remove("on");logEl.textContent=mode==="choice"?"候補を選んで、落とす位置をタップ":"好きな横位置をタップして落とす";updateStageDisplay();refillQueue();renderQueue();if(mode)showStageIntro()}
+function startStage(stageNumber){selectedStage=stageNumber;stage=stageNumber;mode="choice";modeSelect.classList.remove("on");reset()}
+function changeMode(){clearTimeout(stageClearTimer);stageClearTimer=0;selectedStage=stage;mode="choice";canDrop=false;bodies=[];particles=[];queue=[];choicesEl.classList.remove("on");renderStagePicker();modeSelect.classList.add("on");updateStageDisplay()}
+function continueAfterResult(){if(stageCleared)stage=stage>=STAGES.length?1:stage+1;selectedStage=stage;reset()}
+canvas.addEventListener("pointermove",e=>{const r=canvas.getBoundingClientRect();aimX=Math.max(57,Math.min(W-57,e.clientX-r.left))});canvas.addEventListener("pointerdown",e=>{e.preventDefault();const r=canvas.getBoundingClientRect();dropAt(e.clientX-r.left)});$("#reset").onclick=reset;$("#again").onclick=continueAfterResult;
+$("#modeChange").onclick=changeMode;
+renderStagePicker();
+requestAnimationFrame(t=>{last=t;loop(t)});
+</script>
+</body>
+</html>
