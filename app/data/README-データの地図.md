@@ -18,20 +18,20 @@
 | **`etymon-game-lab`**<br>ゲーム工房 | ゲームの開発・検査・製作素材。試作はここで作り、仕上がったものを配信先へ出す | **非公開** | 試作・QA・素材の原版 |
 | **作業用クローン**<br>(手元の作業場) | 作業場。履歴の控え。**ここから公開リポジトリへ push してはいけない** | — | 作り直す前の完全な履歴 |
 
-`haibaratou-legacy-private`(非公開)は **私用資料の保管庫**。
-GitHub の説明文が「Config files for my GitHub profile」になっているが、これは誤り。
-中身は**公開リポジトリから意図して外した資料**で、GitHub 上ではここにしか無い。
+`haibaratou-legacy-private`(非公開)は **一時的な置き場で、役目を終えている**。
+GitHub の説明文「Config files for my GitHub profile」は誤り。実体は
+公開リポジトリから外した私用資料(IP360 応募書類・企画書・参考動画)だが、
+**Google Drive に控えがあり、GitHub には一時的に置いてみただけ**とのこと。
 
-    docs/ip360_2026          IP360 第2回応募の申請書類      181MB
-    docs/創風_2025           創風2025 の資料                 19MB
-    docs/…カヤック…企画書.pdf  企画書                        4.5MB
-    docs/WildWordopia PIE.xlsx  語源データベースの元          17MB
-    references/              参考動画・キャプチャ
+ファイル一覧(8,987件)を作業用クローンと突き合わせたところ、
+ここにしか無いファイルは9件で、その全部が他に揃っている:
 
-配信先(公開)にはこれらが1ファイルも無い。**消してはいけない。**
-なお手元の作業用クローンのほうが資料が新しい(創風2025 が 19MB→58MB、
-画像資料が 432KB→2.1MB)。legacy への反映が止まっているので、
-私用資料を足したときはこちらへ送ること。
+    app/word-drop.html / worddrop.json / worddrop-ja.json   → 配信先にあり
+    app/build_word_drop.py / build_worddrop_ja.py           → 母艦にあり
+    build_wordnet_tags.py / tags.json / valence.csv / word_tag.csv
+                                     → 2026-09 に捨てた意味タグ(ゴミ)
+
+**消してよい。** 消す前に、docs/ の資料が Google Drive にあることだけ現物で確かめること。
 
 `WildWordopia`(非公開)は**とても古いリポジトリで、いまのプロジェクトとは関わりがない**。
 残してあるだけなので、触らなくてよい。
