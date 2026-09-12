@@ -15,8 +15,8 @@
 // 番号付き接辞を含む52語では、正しく付与39・番号の取り違え2・未付与11。
 
 const fs=require('fs');const D=require('path').join(__dirname,'..','.cache_wd')+'/';   // etymonline本文のキャッシュ置き場
-const A=require('/home/user/haibaratou/app/data/pie/affixes.json');
-const W=require('/home/user/haibaratou/app/data/pie/words.json');
+const A=require(require('path').join(__dirname,'data/pie/affixes.json'));
+const W=require(require('path').join(__dirname,'data/pie/words.json'));
 const byName=new Map(A.map(a=>[a.name,a]));
 const stripNum=n=>n.replace(/\(\d+\)$/,'').replace(/\d+$/,'');   // in-2→in- / -ic(1)→-ic
 const DB=W.filter(w=>!w.src&&!/[^a-zA-Z' -]/.test(w.w));
