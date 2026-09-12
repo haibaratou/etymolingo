@@ -233,8 +233,8 @@ const $ = s => document.querySelector(s);
 const MINLEN = 2, MAXBALLS = 8;
 /* 2つの辞書を切り替える。英語は「文字→英単語」、日本語は「ひらがな→漢字の語」 */
 const DICTS = {
-  en: { file:"data/worddrop.json", max:10, speak:"en-US", chip:"ABC",  re:/^[a-z]{2,10}$/ },
-  ja: { file:"data/worddrop-ja.json", max:8, speak:"ja-JP", chip:"あ→漢", re:/^[ぁ-ゖ]{2,8}$/ }
+  en: { file:"../data/worddrop.json", max:10, speak:"en-US", chip:"ABC",  re:/^[a-z]{2,10}$/ },
+  ja: { file:"../data/worddrop-ja.json", max:8, speak:"ja-JP", chip:"あ→漢", re:/^[ぁ-ゖ]{2,8}$/ }
 };
 let dictMode = "en";
 try { if (localStorage.getItem("wordrop.dict") === "ja") dictMode = "ja"; } catch (_) {}
@@ -251,7 +251,7 @@ const glossOf = e => !e ? "" : (dictMode === "ja" ? (e.g || "") : "");
 const FILL = 0.76;                 // ボールで埋める面積のねらい(密だが枠からはみ出さない)
 const STARTER_RATE = 0.20;         // 最初の山に混ぜておく単語ボールの割合
 const EPOCH = Date.UTC(2026, 0, 1);
-const ART_BASE = "../assets/word/";
+const ART_BASE = "../../assets/word/";
 const SHARE_URL = "https://haibaratou.github.io/haibaratou/app/word-drop.html";
 /* 文字ごとに色を固定する。同じ色は1つも無い。
    ・文字ボール(1字)= 中間トーン。英26色は最小色差ΔE24.4、かな78色はΔE13.5

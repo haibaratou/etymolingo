@@ -196,7 +196,7 @@ function drawWeight(w){return Math.pow(.68,starsOf(w)-1)*(w.v?1.15:1)}
 function rarityName(w){const s=starsOf(w);return s>=9?"神話級":s>=7?"激レア":s>=5?"レア":s>=3?"ふつう":"よく出る"}
 function iconForWord(w){const s=`${w.w} ${w.ja||""}`.toLowerCase(),rules=[[/海|水|marine|aqua|ocean|sea/,"🌊"],[/星|銀河|宇宙|天体|star|galaxy|space|asteroid/,"✨"],[/動物|animal|beast/,"🐾"],[/草|木|花|植物|plant|tree|flower|grass/,"🌿"],[/食|果物|food|fruit|eat/,"🍎"],[/乳|milk/,"🥛"],[/見る|視|観察|see|view|vision|sight|spect/,"👁️"],[/話|言葉|声|speak|voice|word/,"💬"],[/考|心|idea|mind|think/,"💡"],[/生|命|birth|life|live/,"🌱"],[/医|産科|doctor|medical|obstetric/,"🩺"],[/障害|壁|block|barrier|obstacle/,"🪨"],[/頭|帽子|head|hat|cap/,"🎩"],[/足|歩|foot|pedal|walk/,"👣"],[/王|導|leader|king|rule/,"👑"],[/運ぶ|与える|carry|give|gift/,"🎁"],[/動|行く|旅|move|travel|go/,"🧭"],[/火|熱|fire|heat/,"🔥"],[/時間|time|chron/,"⏳"],[/立つ|建|stand|build|struct/,"🏛️"],[/回|変化|turn|change/,"🔄"],[/投げ|throw|ject/,"🎯"]];for(const [re,icon] of rules)if(re.test(s))return icon;const icons=["🔮","🧩","🪶","⚙️","💎","🗝️","🎭","🪄","📜","🌙"];let h=0;for(const c of w.w)h=(h*31+c.charCodeAt(0))>>>0;return icons[h%icons.length]}
 function wordId(w){return String(w._id)}
-function rootImg(r){return `../assets/${r.img}`}
+function rootImg(r){return `../../assets/${r.img}`}
 function rootLabel(r){return `*${r.pie||r.key}`}
 function wordsForSelection(keys=state.selected){
   if(!keys.length)return [];
@@ -252,7 +252,7 @@ function sortedCatalogue(words){
 function renderWordCatalogue(words){
   const list=sortedCatalogue(words),box=$("#wordCatalogue");if(!box)return;
   const total=list.reduce((n,w)=>n+drawWeight(w),0);
-  box.innerHTML=list.map(w=>{const root=state.rootByKey.get(w.p.find(k=>state.rootByKey.has(k))),color=root?.color||"#9d8bd5",symbol=iconForWord(w),chance=Math.max(1,Math.round(drawWeight(w)/total*100));return `<div class="wordHint"><span class="wordThumb" style="--wc:${color}"><img src="../assets/word/${encodeURIComponent(w.w)}.png" alt=""><i>${symbol}</i></span><b>${esc(w.w)}</b><span class="meaning">${esc(w.ja||w.pos||"")}</span><small>${esc(w.p.map(k=>rootLabel(state.rootByKey.get(k)||{pie:k})).join(" ＋ "))}</small><span class="wordMeta"><span class="rarityName">${rarityName(w)} ${"★".repeat(starsOf(w))}</span><span class="wordChance">約${chance}%</span></span></div>`}).join("")||'<div class="emptyOracle">この組み合わせだけで作れる単語はありません</div>';
+  box.innerHTML=list.map(w=>{const root=state.rootByKey.get(w.p.find(k=>state.rootByKey.has(k))),color=root?.color||"#9d8bd5",symbol=iconForWord(w),chance=Math.max(1,Math.round(drawWeight(w)/total*100));return `<div class="wordHint"><span class="wordThumb" style="--wc:${color}"><img src="../../assets/word/${encodeURIComponent(w.w)}.png" alt=""><i>${symbol}</i></span><b>${esc(w.w)}</b><span class="meaning">${esc(w.ja||w.pos||"")}</span><small>${esc(w.p.map(k=>rootLabel(state.rootByKey.get(k)||{pie:k})).join(" ＋ "))}</small><span class="wordMeta"><span class="rarityName">${rarityName(w)} ${"★".repeat(starsOf(w))}</span><span class="wordChance">約${chance}%</span></span></div>`}).join("")||'<div class="emptyOracle">この組み合わせだけで作れる単語はありません</div>';
   $$("#wordCatalogue .wordThumb img").forEach(img=>img.onerror=()=>img.classList.add("missing"));
 }
 function renderForgeDesk(){
@@ -266,7 +266,7 @@ function forge(){
 function blendColor(){return state.rootByKey.get(state.selected[0])?.color||"#e8875a"}
 function cardHTML(w){
   const s=starsOf(w),roots=w.p.map(k=>state.rootByKey.get(k)).filter(Boolean),cc=blendColor(),symbol=iconForWord(w);
-  return `<div class="wordCard${s>=8?" rare":""}" style="--cc:${cc}"><div class="wcHead"><div class="wcHeadText"><span class="wcEn">${esc(w.w)}</span><span class="wcJp">${esc(w.ja||"意味を調査中")} ・ ${esc(w.pos||"ことば")}</span></div><div class="wcClan">${roots.slice(0,3).map(r=>`<img src="${rootImg(r)}" title="${esc(r.ja)}">`).join("")}</div></div><div class="wcArt"><img class="wordArt" src="../assets/word/${encodeURIComponent(w.w)}.png" alt=""><div class="wcFallback" hidden>${symbol}</div></div><div class="wcStars">${"★".repeat(s)}<span style="opacity:.18">${"★".repeat(10-s)}</span></div><div class="wcRoots">${roots.map(r=>esc(rootLabel(r))).join(" ＋ ")}</div><div class="wcBox"><b>${roots.map(r=>`「${esc(r.ja)}」`).join("と")}の系譜</b><p>古代の概念が重なり、現代英語 <strong>${esc(w.w)}</strong> へたどり着いた。</p></div><div class="wcFoot">ETYMO-RINGO / RANK ${w.r??"—"}</div></div>`;
+  return `<div class="wordCard${s>=8?" rare":""}" style="--cc:${cc}"><div class="wcHead"><div class="wcHeadText"><span class="wcEn">${esc(w.w)}</span><span class="wcJp">${esc(w.ja||"意味を調査中")} ・ ${esc(w.pos||"ことば")}</span></div><div class="wcClan">${roots.slice(0,3).map(r=>`<img src="${rootImg(r)}" title="${esc(r.ja)}">`).join("")}</div></div><div class="wcArt"><img class="wordArt" src="../../assets/word/${encodeURIComponent(w.w)}.png" alt=""><div class="wcFallback" hidden>${symbol}</div></div><div class="wcStars">${"★".repeat(s)}<span style="opacity:.18">${"★".repeat(10-s)}</span></div><div class="wcRoots">${roots.map(r=>esc(rootLabel(r))).join(" ＋ ")}</div><div class="wcBox"><b>${roots.map(r=>`「${esc(r.ja)}」`).join("と")}の系譜</b><p>古代の概念が重なり、現代英語 <strong>${esc(w.w)}</strong> へたどり着いた。</p></div><div class="wcFoot">ETYMO-RINGO / RANK ${w.r??"—"}</div></div>`;
 }
 function showResult(w,isNew){
   $("#resultCard").innerHTML=cardHTML(w);const img=$("#resultCard .wordArt"),fb=$("#resultCard .wcFallback");img.onerror=()=>{img.hidden=true;fb.hidden=false};$(".resultTitle").textContent=isNew?"ことばカード誕生！":"再会したことば・箔＋1";$("#resultOverlay").classList.add("open");
@@ -283,7 +283,7 @@ async function init(){
     const bundled=window.ETYMON_WORD_FORGE_DATA;
     const [roots,words]=bundled
       ? [bundled.roots,bundled.words]
-      : await Promise.all([fetch("data/generated-etymon/roots.json").then(r=>r.json()),fetch("data/generated-etymon/words.json").then(r=>r.json())]);
+      : await Promise.all([fetch("../data/generated-etymon/roots.json").then(r=>r.json()),fetch("../data/generated-etymon/words.json").then(r=>r.json())]);
     state.roots=roots.filter(r=>r.img);state.words=words.filter(w=>w.w&&Array.isArray(w.p)&&w.p.length&&w.r!=null).map((w,i)=>({...w,_id:i}));state.rootByKey=new Map(state.roots.map(r=>[r.key,r]));
     for(const w of state.words){const p=[...new Set(w.p)];if(p.length<1||p.length>3||!p.every(k=>state.rootByKey.has(k)))continue;const key=keyOf(p);if(!state.exact.has(key))state.exact.set(key,[]);state.exact.get(key).push(w)}
     for(const v of state.exact.values())v.sort((a,b)=>(a.r??9999)-(b.r??9999));

@@ -34,7 +34,7 @@ body{
   content:"";
   position:absolute;
   inset:0;
-  background:url("../assets/ground/T_BG_base_ruin.png") center/cover no-repeat;
+  background:url("../../assets/ground/T_BG_base_ruin.png") center/cover no-repeat;
   filter:saturate(1.04);
 }
 #stage::after{
@@ -594,10 +594,10 @@ h1{
     <div class="partyZone" id="partyZone"></div>
     <div class="enemyZone" id="enemyZone"></div>
     <div class="party" id="party">
-      <img class="chara" src="../assets/chara/T_ch_kaput_head.png" alt="カプト">
-      <img class="chara" src="../assets/chara/T_ch_ane_breath.png" alt="アネ">
-      <img class="chara" src="../assets/chara/T_ch_bha_speak.png" alt="バーファ">
-      <img class="chara" src="../assets/chara/T_ch_ye_throw.png" alt="イェ">
+      <img class="chara" src="../../assets/chara/T_ch_kaput_head.png" alt="カプト">
+      <img class="chara" src="../../assets/chara/T_ch_ane_breath.png" alt="アネ">
+      <img class="chara" src="../../assets/chara/T_ch_bha_speak.png" alt="バーファ">
+      <img class="chara" src="../../assets/chara/T_ch_ye_throw.png" alt="イェ">
     </div>
     <div class="enemyName">透明人間 ミエタラヤラレール</div>
     <div class="enemyWrap" id="enemyWrap">
@@ -632,7 +632,7 @@ h1{
 <script>
 const cards = [
   {id:"vision", jp:"見る力", stars:10, root:"weid", target:"enemy", text:"見えないものを見抜く。特攻。", damage:120, special:true},
-  {id:"witness", jp:"目撃者", stars:10, root:"spek", target:"enemy", text:"目撃者が現れる。特攻。", damage:120, special:true, art:"../assets/chara/T_ch_weid_see.png"},
+  {id:"witness", jp:"目撃者", stars:10, root:"spek", target:"enemy", text:"目撃者が現れる。特攻。", damage:120, special:true, art:"../../assets/chara/T_ch_weid_see.png"},
   {id:"cabbage", jp:"キャベツ", stars:2, root:"kaput", target:"enemy", text:"投げつけて場所を暴く。", damage:24},
   {id:"monster", jp:"怪物", stars:7, root:"men", target:"enemy", text:"怪物を召喚して戦う。", damage:48},
   {id:"jet", jp:"ジェット機", stars:7, root:"ye", target:"enemy", text:"風圧で吹き飛ばす。", damage:36},
@@ -678,7 +678,7 @@ function makeCard(card, index){
 function cardMarkup(card){
   const filled = "★".repeat(card.stars);
   const empty = "☆".repeat(Math.max(0, 10 - card.stars));
-  const img = card.art || `../assets/word/${card.id}.png`;
+  const img = card.art || `../../assets/word/${card.id}.png`;
   return `
     <div class="cardInner">
       <div class="cardHead">
@@ -859,14 +859,14 @@ function playCardEffect(card, mode){
   if(!battleEffects) return;
   const fx = document.createElement("div");
   fx.className = "battleFx";
-  const img = card.art || `../assets/word/${card.id}.png`;
+  const img = card.art || `../../assets/word/${card.id}.png`;
   if(mode === "enemy"){
     if(card.id === "vision"){
       fx.className += " fxVision";
       fx.innerHTML = `<div class="fxText">見えた!</div>`;
     }else if(card.id === "witness"){
       fx.className += " fxWitness";
-      fx.innerHTML = `<img src="../assets/chara/T_ch_weid_see.png" alt=""><div class="fxText">見た!</div>`;
+      fx.innerHTML = `<img src="../../assets/chara/T_ch_weid_see.png" alt=""><div class="fxText">見た!</div>`;
     }else if(card.id === "monster"){
       fx.className += " fxMonster";
       fx.innerHTML = `<img src="${img}" alt="">`;
