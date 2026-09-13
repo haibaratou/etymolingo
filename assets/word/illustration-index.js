@@ -365,5 +365,6 @@ globalThis.ETYMON_WORD_ART = {
   "[\"idolize\",\"weid-\"]": "idolize",
   "[\"merman\",\"mori-\"]": "merman",
   "[\"rajah\",\"reg-\"]": "rajah",
-  "[\"raj\",\"reg-\"]": "raj"
+  "[\"raj\",\"reg-\"]": "raj",
+  "[\"Phanerozoic\",\"bhā-1+gwei-\"]": "Phanerozoic"
 };
