@@ -363,5 +363,6 @@ globalThis.ETYMON_WORD_ART = {
   "[\"behead\",\"ambhi+kaput-\"]": "behead",
   "[\"cacophonous\",\"bhā-2+kakka-\"]": "cacophonous",
   "[\"idolize\",\"weid-\"]": "idolize",
-  "[\"merman\",\"mori-\"]": "merman"
+  "[\"merman\",\"mori-\"]": "merman",
+  "[\"rajah\",\"reg-\"]": "rajah"
 };
