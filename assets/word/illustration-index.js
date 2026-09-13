@@ -383,5 +383,6 @@ globalThis.ETYMON_WORD_ART = {
   "[\"subjacent\",\"yē-\"]": "subjacent",
   "[\"mare\",\"mori-\"]": "mare@mori",
   "[\"nonsectarian\",\"ne+sekʷ-1+oi-no-\"]": "nonsectarian",
-  "[\"jetsam\",\"yē-\"]": "jetsam"
+  "[\"jetsam\",\"yē-\"]": "jetsam",
+  "[\"mantic\",\"men-1\"]": "mantic"
 };
