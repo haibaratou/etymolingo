@@ -386,5 +386,6 @@ globalThis.ETYMON_WORD_ART = {
   "[\"jetsam\",\"yē-\"]": "jetsam",
   "[\"mantic\",\"men-1\"]": "mantic",
   "[\"pusillanimous\",\"pau-+anə-\"]": "pusillanimous",
-  "[\"dado\",\"dō-\"]": "dado"
+  "[\"dado\",\"dō-\"]": "dado",
+  "[\"prevision\",\"weid-+per1\"]": "prevision"
 };
