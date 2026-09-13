@@ -384,5 +384,6 @@ globalThis.ETYMON_WORD_ART = {
   "[\"mare\",\"mori-\"]": "mare@mori",
   "[\"nonsectarian\",\"ne+sekʷ-1+oi-no-\"]": "nonsectarian",
   "[\"jetsam\",\"yē-\"]": "jetsam",
-  "[\"mantic\",\"men-1\"]": "mantic"
+  "[\"mantic\",\"men-1\"]": "mantic",
+  "[\"pusillanimous\",\"pau-+anə-\"]": "pusillanimous"
 };
