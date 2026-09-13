@@ -379,5 +379,6 @@ globalThis.ETYMON_WORD_ART = {
   "[\"supererogatory\",\"uper+eghs+reg-\"]": "supererogatory",
   "[\"animatronic\",\"anə-\"]": "animatronic",
   "[\"epizootic\",\"gwei-+epi\"]": "epizootic",
-  "[\"arrogate\",\"ad-+reg-\"]": "arrogate"
+  "[\"arrogate\",\"ad-+reg-\"]": "arrogate",
+  "[\"subjacent\",\"yē-\"]": "subjacent"
 };
