@@ -373,5 +373,6 @@ globalThis.ETYMON_WORD_ART = {
   "[\"antiphon\",\"ant-+bhā-2\"]": "antiphon",
   "[\"mere\",\"mori-\"]": "mere@mori",
   "[\"megalomania\",\"meg-+men-1\"]": "megalomania",
-  "[\"derecho\",\"reg-\"]": "derecho"
+  "[\"derecho\",\"reg-\"]": "derecho",
+  "[\"xylophone\",\"bhā-2\"]": "xylophone"
 };
