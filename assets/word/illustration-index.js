@@ -380,5 +380,6 @@ globalThis.ETYMON_WORD_ART = {
   "[\"animatronic\",\"anə-\"]": "animatronic",
   "[\"epizootic\",\"gwei-+epi\"]": "epizootic",
   "[\"arrogate\",\"ad-+reg-\"]": "arrogate",
-  "[\"subjacent\",\"yē-\"]": "subjacent"
+  "[\"subjacent\",\"yē-\"]": "subjacent",
+  "[\"mare\",\"mori-\"]": "mare@mori"
 };
