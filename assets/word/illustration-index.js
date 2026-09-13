@@ -372,5 +372,6 @@ globalThis.ETYMON_WORD_ART = {
   "[\"anthropoid\",\"weid-\"]": "anthropoid",
   "[\"antiphon\",\"ant-+bhā-2\"]": "antiphon",
   "[\"mere\",\"mori-\"]": "mere@mori",
-  "[\"megalomania\",\"meg-+men-1\"]": "megalomania"
+  "[\"megalomania\",\"meg-+men-1\"]": "megalomania",
+  "[\"derecho\",\"reg-\"]": "derecho"
 };
