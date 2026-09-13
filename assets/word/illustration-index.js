@@ -385,5 +385,6 @@ globalThis.ETYMON_WORD_ART = {
   "[\"nonsectarian\",\"ne+sekʷ-1+oi-no-\"]": "nonsectarian",
   "[\"jetsam\",\"yē-\"]": "jetsam",
   "[\"mantic\",\"men-1\"]": "mantic",
-  "[\"pusillanimous\",\"pau-+anə-\"]": "pusillanimous"
+  "[\"pusillanimous\",\"pau-+anə-\"]": "pusillanimous",
+  "[\"dado\",\"dō-\"]": "dado"
 };
