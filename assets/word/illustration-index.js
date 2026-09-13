@@ -369,5 +369,6 @@ globalThis.ETYMON_WORD_ART = {
   "[\"Phanerozoic\",\"bhā-1+gwei-\"]": "Phanerozoic",
   "[\"azotemia\",\"gwei-+ne\"]": "azotemia",
   "[\"corvée\",\"reg-\"]": "corvee",
-  "[\"anthropoid\",\"weid-\"]": "anthropoid"
+  "[\"anthropoid\",\"weid-\"]": "anthropoid",
+  "[\"antiphon\",\"ant-+bhā-2\"]": "antiphon"
 };
