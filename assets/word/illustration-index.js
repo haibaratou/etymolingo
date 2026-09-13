@@ -367,5 +367,6 @@ globalThis.ETYMON_WORD_ART = {
   "[\"rajah\",\"reg-\"]": "rajah",
   "[\"raj\",\"reg-\"]": "raj",
   "[\"Phanerozoic\",\"bhā-1+gwei-\"]": "Phanerozoic",
-  "[\"azotemia\",\"gwei-+ne\"]": "azotemia"
+  "[\"azotemia\",\"gwei-+ne\"]": "azotemia",
+  "[\"corvée\",\"reg-\"]": "corvee"
 };
