@@ -381,5 +381,6 @@ globalThis.ETYMON_WORD_ART = {
   "[\"epizootic\",\"gwei-+epi\"]": "epizootic",
   "[\"arrogate\",\"ad-+reg-\"]": "arrogate",
   "[\"subjacent\",\"yē-\"]": "subjacent",
-  "[\"mare\",\"mori-\"]": "mare@mori"
+  "[\"mare\",\"mori-\"]": "mare@mori",
+  "[\"nonsectarian\",\"ne+sekʷ-1+oi-no-\"]": "nonsectarian"
 };
