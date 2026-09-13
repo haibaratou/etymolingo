@@ -374,5 +374,6 @@ globalThis.ETYMON_WORD_ART = {
   "[\"mere\",\"mori-\"]": "mere@mori",
   "[\"megalomania\",\"meg-+men-1\"]": "megalomania",
   "[\"derecho\",\"reg-\"]": "derecho",
-  "[\"xylophone\",\"bhā-2\"]": "xylophone"
+  "[\"xylophone\",\"bhā-2\"]": "xylophone",
+  "[\"goniometer\",\"genu-1+mē-2\"]": "goniometer"
 };
