@@ -377,5 +377,6 @@ globalThis.ETYMON_WORD_ART = {
   "[\"xylophone\",\"bhā-2\"]": "xylophone",
   "[\"goniometer\",\"genu-1+mē-2\"]": "goniometer",
   "[\"supererogatory\",\"uper+eghs+reg-\"]": "supererogatory",
-  "[\"animatronic\",\"anə-\"]": "animatronic"
+  "[\"animatronic\",\"anə-\"]": "animatronic",
+  "[\"epizootic\",\"gwei-+epi\"]": "epizootic"
 };
