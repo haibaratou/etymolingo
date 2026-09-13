@@ -378,5 +378,6 @@ globalThis.ETYMON_WORD_ART = {
   "[\"goniometer\",\"genu-1+mē-2\"]": "goniometer",
   "[\"supererogatory\",\"uper+eghs+reg-\"]": "supererogatory",
   "[\"animatronic\",\"anə-\"]": "animatronic",
-  "[\"epizootic\",\"gwei-+epi\"]": "epizootic"
+  "[\"epizootic\",\"gwei-+epi\"]": "epizootic",
+  "[\"arrogate\",\"ad-+reg-\"]": "arrogate"
 };
