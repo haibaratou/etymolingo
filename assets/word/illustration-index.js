@@ -370,5 +370,6 @@ globalThis.ETYMON_WORD_ART = {
   "[\"azotemia\",\"gwei-+ne\"]": "azotemia",
   "[\"corvée\",\"reg-\"]": "corvee",
   "[\"anthropoid\",\"weid-\"]": "anthropoid",
-  "[\"antiphon\",\"ant-+bhā-2\"]": "antiphon"
+  "[\"antiphon\",\"ant-+bhā-2\"]": "antiphon",
+  "[\"mere\",\"mori-\"]": "mere@mori"
 };
