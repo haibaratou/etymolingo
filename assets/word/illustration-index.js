@@ -364,5 +364,6 @@ globalThis.ETYMON_WORD_ART = {
   "[\"cacophonous\",\"bhā-2+kakka-\"]": "cacophonous",
   "[\"idolize\",\"weid-\"]": "idolize",
   "[\"merman\",\"mori-\"]": "merman",
-  "[\"rajah\",\"reg-\"]": "rajah"
+  "[\"rajah\",\"reg-\"]": "rajah",
+  "[\"raj\",\"reg-\"]": "raj"
 };
