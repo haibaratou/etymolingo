@@ -389,5 +389,6 @@ globalThis.ETYMON_WORD_ART = {
   "[\"dado\",\"dō-\"]": "dado",
   "[\"prevision\",\"weid-+per1\"]": "prevision",
   "[\"bioturbation\",\"gwei-+(s)twer-1\"]": "bioturbation",
-  "[\"eidolon\",\"weid-\"]": "eidolon"
+  "[\"eidolon\",\"weid-\"]": "eidolon",
+  "[\"diazo\",\"dwo-+gwei-\"]": "diazo"
 };
