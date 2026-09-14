@@ -388,5 +388,6 @@ globalThis.ETYMON_WORD_ART = {
   "[\"pusillanimous\",\"pau-+anə-\"]": "pusillanimous",
   "[\"dado\",\"dō-\"]": "dado",
   "[\"prevision\",\"weid-+per1\"]": "prevision",
-  "[\"bioturbation\",\"gwei-+(s)twer-1\"]": "bioturbation"
+  "[\"bioturbation\",\"gwei-+(s)twer-1\"]": "bioturbation",
+  "[\"eidolon\",\"weid-\"]": "eidolon"
 };
