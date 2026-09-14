@@ -390,5 +390,6 @@ globalThis.ETYMON_WORD_ART = {
   "[\"prevision\",\"weid-+per1\"]": "prevision",
   "[\"bioturbation\",\"gwei-+(s)twer-1\"]": "bioturbation",
   "[\"eidolon\",\"weid-\"]": "eidolon",
-  "[\"diazo\",\"dwo-+gwei-\"]": "diazo"
+  "[\"diazo\",\"dwo-+gwei-\"]": "diazo",
+  "[\"stereophonic\",\"ster-1+bhā-2\"]": "stereophonic"
 };
