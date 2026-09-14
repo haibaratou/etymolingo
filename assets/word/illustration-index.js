@@ -387,5 +387,6 @@ globalThis.ETYMON_WORD_ART = {
   "[\"mantic\",\"men-1\"]": "mantic",
   "[\"pusillanimous\",\"pau-+anə-\"]": "pusillanimous",
   "[\"dado\",\"dō-\"]": "dado",
-  "[\"prevision\",\"weid-+per1\"]": "prevision"
+  "[\"prevision\",\"weid-+per1\"]": "prevision",
+  "[\"bioturbation\",\"gwei-+(s)twer-1\"]": "bioturbation"
 };
