@@ -393,5 +393,6 @@ globalThis.ETYMON_WORD_ART = {
   "[\"diazo\",\"dwo-+gwei-\"]": "diazo",
   "[\"stereophonic\",\"ster-1+bhā-2\"]": "stereophonic",
   "[\"homophone\",\"bhā-2+sem-1\"]": "homophone",
-  "[\"Uniate\",\"oi-no-\"]": "Uniate"
+  "[\"Uniate\",\"oi-no-\"]": "Uniate",
+  "[\"fay\",\"bhā-2\"]": "fay@bha2"
 };
