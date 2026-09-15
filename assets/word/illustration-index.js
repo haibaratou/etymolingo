@@ -396,5 +396,6 @@ globalThis.ETYMON_WORD_ART = {
   "[\"Uniate\",\"oi-no-\"]": "Uniate",
   "[\"fay\",\"bhā-2\"]": "fay@bha2",
   "[\"donative\",\"dō-\"]": "donative",
-  "[\"victual\",\"gwei-\"]": "victual"
+  "[\"victual\",\"gwei-\"]": "victual",
+  "[\"epidote\",\"dō-\"]": "epidote"
 };
