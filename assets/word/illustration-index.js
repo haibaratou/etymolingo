@@ -394,5 +394,6 @@ globalThis.ETYMON_WORD_ART = {
   "[\"stereophonic\",\"ster-1+bhā-2\"]": "stereophonic",
   "[\"homophone\",\"bhā-2+sem-1\"]": "homophone",
   "[\"Uniate\",\"oi-no-\"]": "Uniate",
-  "[\"fay\",\"bhā-2\"]": "fay@bha2"
+  "[\"fay\",\"bhā-2\"]": "fay@bha2",
+  "[\"donative\",\"dō-\"]": "donative"
 };
