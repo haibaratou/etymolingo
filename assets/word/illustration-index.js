@@ -397,5 +397,6 @@ globalThis.ETYMON_WORD_ART = {
   "[\"fay\",\"bhā-2\"]": "fay@bha2",
   "[\"donative\",\"dō-\"]": "donative",
   "[\"victual\",\"gwei-\"]": "victual",
-  "[\"epidote\",\"dō-\"]": "epidote"
+  "[\"epidote\",\"dō-\"]": "epidote",
+  "[\"mauvais\",\"bhā-2+mel-5\"]": "mauvais"
 };
