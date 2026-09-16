@@ -402,5 +402,6 @@ globalThis.ETYMON_WORD_ART = {
   "[\"mariculture\",\"mori-+kʷel-1\"]": "mariculture",
   "[\"eldritch\",\"al-1+reg-\"]": "eldritch",
   "[\"monophonic\",\"men-4+bhā-2\"]": "monophonic",
-  "[\"euphony\",\"(e)su-+bhā-2\"]": "euphony"
+  "[\"euphony\",\"(e)su-+bhā-2\"]": "euphony",
+  "[\"apodosis\",\"apo-+dō-\"]": "apodosis"
 };
