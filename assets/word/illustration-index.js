@@ -404,5 +404,6 @@ globalThis.ETYMON_WORD_ART = {
   "[\"monophonic\",\"men-4+bhā-2\"]": "monophonic",
   "[\"euphony\",\"(e)su-+bhā-2\"]": "euphony",
   "[\"apodosis\",\"apo-+dō-\"]": "apodosis",
-  "[\"meerkat\",\"mori-\"]": "meerkat"
+  "[\"meerkat\",\"mori-\"]": "meerkat",
+  "[\"einkorn\",\"oi-no-+gr̥ə-no-\"]": "einkorn"
 };
