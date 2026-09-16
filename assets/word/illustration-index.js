@@ -399,5 +399,6 @@ globalThis.ETYMON_WORD_ART = {
   "[\"victual\",\"gwei-\"]": "victual",
   "[\"epidote\",\"dō-\"]": "epidote",
   "[\"mauvais\",\"bhā-2+mel-5\"]": "mauvais",
-  "[\"mariculture\",\"mori-+kʷel-1\"]": "mariculture"
+  "[\"mariculture\",\"mori-+kʷel-1\"]": "mariculture",
+  "[\"eldritch\",\"al-1+reg-\"]": "eldritch"
 };
