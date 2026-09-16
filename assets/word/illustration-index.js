@@ -411,5 +411,6 @@ globalThis.ETYMON_WORD_ART = {
   "[\"Armorica\",\"mori-\"]": "Armorica",
   "[\"vivify\",\"dhē-+gwei-\"]": "vivify",
   "[\"aneroid\",\"ne+newo-+weid-\"]": "aneroid",
-  "[\"deja vu\",\"weid-\"]": "deja_vu"
+  "[\"deja vu\",\"weid-\"]": "deja_vu",
+  "[\"kaput\",\"kaput-\"]": "kaput"
 };
