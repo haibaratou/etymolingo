@@ -401,5 +401,6 @@ globalThis.ETYMON_WORD_ART = {
   "[\"mauvais\",\"bhā-2+mel-5\"]": "mauvais",
   "[\"mariculture\",\"mori-+kʷel-1\"]": "mariculture",
   "[\"eldritch\",\"al-1+reg-\"]": "eldritch",
-  "[\"monophonic\",\"men-4+bhā-2\"]": "monophonic"
+  "[\"monophonic\",\"men-4+bhā-2\"]": "monophonic",
+  "[\"euphony\",\"(e)su-+bhā-2\"]": "euphony"
 };
