@@ -407,5 +407,6 @@ globalThis.ETYMON_WORD_ART = {
   "[\"meerkat\",\"mori-\"]": "meerkat",
   "[\"einkorn\",\"oi-no-+gr̥ə-no-\"]": "einkorn",
   "[\"banlieue\",\"bhā-2\"]": "banlieue",
-  "[\"prorogue\",\"per1+reg-\"]": "prorogue"
+  "[\"prorogue\",\"per1+reg-\"]": "prorogue",
+  "[\"Armorica\",\"mori-\"]": "Armorica"
 };
