@@ -409,5 +409,6 @@ globalThis.ETYMON_WORD_ART = {
   "[\"banlieue\",\"bhā-2\"]": "banlieue",
   "[\"prorogue\",\"per1+reg-\"]": "prorogue",
   "[\"Armorica\",\"mori-\"]": "Armorica",
-  "[\"vivify\",\"dhē-+gwei-\"]": "vivify"
+  "[\"vivify\",\"dhē-+gwei-\"]": "vivify",
+  "[\"aneroid\",\"ne+newo-+weid-\"]": "aneroid"
 };
