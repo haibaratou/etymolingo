@@ -412,5 +412,6 @@ globalThis.ETYMON_WORD_ART = {
   "[\"vivify\",\"dhē-+gwei-\"]": "vivify",
   "[\"aneroid\",\"ne+newo-+weid-\"]": "aneroid",
   "[\"deja vu\",\"weid-\"]": "deja_vu",
-  "[\"kaput\",\"kaput-\"]": "kaput"
+  "[\"kaput\",\"kaput-\"]": "kaput",
+  "[\"meerschaum\",\"mori-+(s)keu-\"]": "meerschaum"
 };
