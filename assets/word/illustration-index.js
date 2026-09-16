@@ -403,5 +403,6 @@ globalThis.ETYMON_WORD_ART = {
   "[\"eldritch\",\"al-1+reg-\"]": "eldritch",
   "[\"monophonic\",\"men-4+bhā-2\"]": "monophonic",
   "[\"euphony\",\"(e)su-+bhā-2\"]": "euphony",
-  "[\"apodosis\",\"apo-+dō-\"]": "apodosis"
+  "[\"apodosis\",\"apo-+dō-\"]": "apodosis",
+  "[\"meerkat\",\"mori-\"]": "meerkat"
 };
