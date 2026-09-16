@@ -410,5 +410,6 @@ globalThis.ETYMON_WORD_ART = {
   "[\"prorogue\",\"per1+reg-\"]": "prorogue",
   "[\"Armorica\",\"mori-\"]": "Armorica",
   "[\"vivify\",\"dhē-+gwei-\"]": "vivify",
-  "[\"aneroid\",\"ne+newo-+weid-\"]": "aneroid"
+  "[\"aneroid\",\"ne+newo-+weid-\"]": "aneroid",
+  "[\"deja vu\",\"weid-\"]": "deja_vu"
 };
