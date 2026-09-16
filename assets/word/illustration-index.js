@@ -408,5 +408,6 @@ globalThis.ETYMON_WORD_ART = {
   "[\"einkorn\",\"oi-no-+gr̥ə-no-\"]": "einkorn",
   "[\"banlieue\",\"bhā-2\"]": "banlieue",
   "[\"prorogue\",\"per1+reg-\"]": "prorogue",
-  "[\"Armorica\",\"mori-\"]": "Armorica"
+  "[\"Armorica\",\"mori-\"]": "Armorica",
+  "[\"vivify\",\"dhē-+gwei-\"]": "vivify"
 };
