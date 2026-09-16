@@ -405,5 +405,6 @@ globalThis.ETYMON_WORD_ART = {
   "[\"euphony\",\"(e)su-+bhā-2\"]": "euphony",
   "[\"apodosis\",\"apo-+dō-\"]": "apodosis",
   "[\"meerkat\",\"mori-\"]": "meerkat",
-  "[\"einkorn\",\"oi-no-+gr̥ə-no-\"]": "einkorn"
+  "[\"einkorn\",\"oi-no-+gr̥ə-no-\"]": "einkorn",
+  "[\"banlieue\",\"bhā-2\"]": "banlieue"
 };
