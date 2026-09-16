@@ -406,5 +406,6 @@ globalThis.ETYMON_WORD_ART = {
   "[\"apodosis\",\"apo-+dō-\"]": "apodosis",
   "[\"meerkat\",\"mori-\"]": "meerkat",
   "[\"einkorn\",\"oi-no-+gr̥ə-no-\"]": "einkorn",
-  "[\"banlieue\",\"bhā-2\"]": "banlieue"
+  "[\"banlieue\",\"bhā-2\"]": "banlieue",
+  "[\"prorogue\",\"per1+reg-\"]": "prorogue"
 };
