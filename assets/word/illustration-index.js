@@ -413,5 +413,6 @@ globalThis.ETYMON_WORD_ART = {
   "[\"aneroid\",\"ne+newo-+weid-\"]": "aneroid",
   "[\"deja vu\",\"weid-\"]": "deja_vu",
   "[\"kaput\",\"kaput-\"]": "kaput",
-  "[\"meerschaum\",\"mori-+(s)keu-\"]": "meerschaum"
+  "[\"meerschaum\",\"mori-+(s)keu-\"]": "meerschaum",
+  "[\"rhizobium\",\"wrād-+gwei-\"]": "rhizobium"
 };
