@@ -448,5 +448,7 @@ globalThis.ETYMON_WORD_ART = {
   "[\"nonblocking\",\"ne+oi-no-\"]": "nonblocking",
   "[\"superjacent\",\"uper+yē-\"]": "superjacent",
   "[\"vivarium\",\"gwei-\"]": "vivarium",
-  "[\"witting\",\"weid-\"]": "witting"
+  "[\"witting\",\"weid-\"]": "witting",
+  "[\"genuflection\",\"genu-1\"]": "genuflection",
+  "[\"maenad\",\"men-1\"]": "maenad"
 };
