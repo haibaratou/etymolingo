@@ -417,5 +417,8 @@ globalThis.ETYMON_WORD_ART = {
   "[\"rhizobium\",\"wrād-+gwei-\"]": "rhizobium",
   "[\"fado\",\"bhā-2\"]": "fado",
   "[\"quincunx\",\"oi-no-+penkʷe\"]": "quincunx",
-  "[\"raita\",\"reg-+steig-\"]": "raita"
+  "[\"raita\",\"reg-+steig-\"]": "raita",
+  "[\"hetman\",\"kaput-+man-1\"]": "hetman",
+  "[\"kleptomania\",\"klep-+men-1\"]": "kleptomania",
+  "[\"maar\",\"mori-\"]": "maar"
 };
