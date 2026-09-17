@@ -436,5 +436,8 @@ globalThis.ETYMON_WORD_ART = {
   "[\"vivace\",\"gwei-\"]": "vivace",
   "[\"anamnestic\",\"men-1\"]": "anamnestic",
   "[\"compos mentis\",\"men-1+poti-+kom\"]": "compos_mentis",
-  "[\"polyphemus\",\"pelə-1+bhā-2\"]": "polyphemus"
+  "[\"polyphemus\",\"pelə-1+bhā-2\"]": "polyphemus",
+  "[\"belvedere\",\"deu-2+weid-\"]": "belvedere",
+  "[\"maladroit\",\"mel-5+ad-+reg-\"]": "maladroit",
+  "[\"purvey\",\"per1+weid-\"]": "purvey"
 };
