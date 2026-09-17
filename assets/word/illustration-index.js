@@ -430,5 +430,8 @@ globalThis.ETYMON_WORD_ART = {
   "[\"zoic\",\"gwei-\"]": "zoic",
   "[\"nonsuit\",\"ne+oi-no-+sekʷ-1\"]": "nonsuit",
   "[\"vend\",\"wes-1+dō-\"]": "vend",
-  "[\"wite\",\"weid-\"]": "wite"
+  "[\"wite\",\"weid-\"]": "wite",
+  "[\"animadversion\",\"anə-+ad-+wer-3\"]": "animadversion",
+  "[\"rogatory\",\"reg-\"]": "rogatory",
+  "[\"vivace\",\"gwei-\"]": "vivace"
 };
