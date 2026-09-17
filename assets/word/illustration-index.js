@@ -424,5 +424,8 @@ globalThis.ETYMON_WORD_ART = {
   "[\"caudillo\",\"kaput-\"]": "caudillo",
   "[\"fabliau\",\"bhā-2\"]": "fabliau",
   "[\"reck\",\"reg-\"]": "reck",
-  "[\"fandango\",\"bhā-2\"]": "fandango"
+  "[\"fandango\",\"bhā-2\"]": "fandango",
+  "[\"bionics\",\"gwei-\"]": "bionics",
+  "[\"nonpareil\",\"ne+perə-2+oi-no-\"]": "nonpareil",
+  "[\"zoic\",\"gwei-\"]": "zoic"
 };
