@@ -427,5 +427,8 @@ globalThis.ETYMON_WORD_ART = {
   "[\"fandango\",\"bhā-2\"]": "fandango",
   "[\"bionics\",\"gwei-\"]": "bionics",
   "[\"nonpareil\",\"ne+perə-2+oi-no-\"]": "nonpareil",
-  "[\"zoic\",\"gwei-\"]": "zoic"
+  "[\"zoic\",\"gwei-\"]": "zoic",
+  "[\"nonsuit\",\"ne+oi-no-+sekʷ-1\"]": "nonsuit",
+  "[\"vend\",\"wes-1+dō-\"]": "vend",
+  "[\"wite\",\"weid-\"]": "wite"
 };
