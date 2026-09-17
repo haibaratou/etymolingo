@@ -439,5 +439,8 @@ globalThis.ETYMON_WORD_ART = {
   "[\"polyphemus\",\"pelə-1+bhā-2\"]": "polyphemus",
   "[\"belvedere\",\"deu-2+weid-\"]": "belvedere",
   "[\"maladroit\",\"mel-5+ad-+reg-\"]": "maladroit",
-  "[\"purvey\",\"per1+weid-\"]": "purvey"
+  "[\"purvey\",\"per1+weid-\"]": "purvey",
+  "[\"genuflect\",\"genu-1\"]": "genuflect",
+  "[\"heptagon\",\"genu-1\"]": "heptagon",
+  "[\"rani\",\"reg-\"]": "rani"
 };
