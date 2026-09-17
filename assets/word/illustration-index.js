@@ -433,5 +433,8 @@ globalThis.ETYMON_WORD_ART = {
   "[\"wite\",\"weid-\"]": "wite",
   "[\"animadversion\",\"anə-+ad-+wer-3\"]": "animadversion",
   "[\"rogatory\",\"reg-\"]": "rogatory",
-  "[\"vivace\",\"gwei-\"]": "vivace"
+  "[\"vivace\",\"gwei-\"]": "vivace",
+  "[\"anamnestic\",\"men-1\"]": "anamnestic",
+  "[\"compos mentis\",\"men-1+poti-+kom\"]": "compos_mentis",
+  "[\"polyphemus\",\"pelə-1+bhā-2\"]": "polyphemus"
 };
