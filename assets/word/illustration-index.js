@@ -420,5 +420,9 @@ globalThis.ETYMON_WORD_ART = {
   "[\"raita\",\"reg-+steig-\"]": "raita",
   "[\"hetman\",\"kaput-+man-1\"]": "hetman",
   "[\"kleptomania\",\"klep-+men-1\"]": "kleptomania",
-  "[\"maar\",\"mori-\"]": "maar"
+  "[\"maar\",\"mori-\"]": "maar",
+  "[\"caudillo\",\"kaput-\"]": "caudillo",
+  "[\"fabliau\",\"bhā-2\"]": "fabliau",
+  "[\"reck\",\"reg-\"]": "reck",
+  "[\"fandango\",\"bhā-2\"]": "fandango"
 };
