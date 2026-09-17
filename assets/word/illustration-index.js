@@ -450,5 +450,6 @@ globalThis.ETYMON_WORD_ART = {
   "[\"vivarium\",\"gwei-\"]": "vivarium",
   "[\"witting\",\"weid-\"]": "witting",
   "[\"genuflection\",\"genu-1\"]": "genuflection",
-  "[\"maenad\",\"men-1\"]": "maenad"
+  "[\"maenad\",\"men-1\"]": "maenad",
+  "[\"aphonia\",\"bhā-2\"]": "aphonia"
 };
