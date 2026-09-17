@@ -414,5 +414,8 @@ globalThis.ETYMON_WORD_ART = {
   "[\"deja vu\",\"weid-\"]": "deja_vu",
   "[\"kaput\",\"kaput-\"]": "kaput",
   "[\"meerschaum\",\"mori-+(s)keu-\"]": "meerschaum",
-  "[\"rhizobium\",\"wrād-+gwei-\"]": "rhizobium"
+  "[\"rhizobium\",\"wrād-+gwei-\"]": "rhizobium",
+  "[\"fado\",\"bhā-2\"]": "fado",
+  "[\"quincunx\",\"oi-no-+penkʷe\"]": "quincunx",
+  "[\"raita\",\"reg-+steig-\"]": "raita"
 };
