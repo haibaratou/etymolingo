@@ -445,5 +445,8 @@ globalThis.ETYMON_WORD_ART = {
   "[\"rani\",\"reg-\"]": "rani",
   "[\"abiogenesis\",\"gwei-\"]": "abiogenesis",
   "[\"kleptomaniac\",\"klep-+men-1\"]": "kleptomaniac",
-  "[\"nonblocking\",\"ne+oi-no-\"]": "nonblocking"
+  "[\"nonblocking\",\"ne+oi-no-\"]": "nonblocking",
+  "[\"superjacent\",\"uper+yē-\"]": "superjacent",
+  "[\"vivarium\",\"gwei-\"]": "vivarium",
+  "[\"witting\",\"weid-\"]": "witting"
 };
