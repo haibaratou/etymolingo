@@ -442,5 +442,8 @@ globalThis.ETYMON_WORD_ART = {
   "[\"purvey\",\"per1+weid-\"]": "purvey",
   "[\"genuflect\",\"genu-1\"]": "genuflect",
   "[\"heptagon\",\"genu-1\"]": "heptagon",
-  "[\"rani\",\"reg-\"]": "rani"
+  "[\"rani\",\"reg-\"]": "rani",
+  "[\"abiogenesis\",\"gwei-\"]": "abiogenesis",
+  "[\"kleptomaniac\",\"klep-+men-1\"]": "kleptomaniac",
+  "[\"nonblocking\",\"ne+oi-no-\"]": "nonblocking"
 };
