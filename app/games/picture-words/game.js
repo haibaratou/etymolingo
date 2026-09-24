@@ -18,7 +18,7 @@
       connect: 'つなぐ', undo: 'もどす', correct: '単語ゲット！', wrong: 'おしい！ もう一度つないでみよう',
       short: '最後の文字まで、つないでみよう', mix: '新しい並びで、ひらめこう',
       tap: '', soundOff: '音声と効果音をオフ', soundOn: '音声と効果音をオン',
-      help: '遊び方', levels: '好きなところから、ひとつずつ。', choose: 'ステージを選ぶ',
+      help: '遊び方', levels: '好きなところから、ひとつずつ。', choose: 'ステージを選ぶ', stageSelect: 'ステージ選択',
       close: '閉じる', error: 'イラストを読み込めませんでした', retry: 'もう一度読み込む', skip: '次の絵へ',
       completed: '庭いっぱいに、ことばが咲いた。', chapterComplete: 'ひとつの庭が、花いっぱいに。',
       replay: 'もう一度、庭を歩く', allHinted: 'ヒントの文字を、順番につなごう',
@@ -33,7 +33,7 @@
       connect: 'connect', undo: 'undo', correct: 'WORD GET!', wrong: 'Almost! Give it another go.',
       short: 'Keep going to the last letter', mix: 'A fresh arrangement. A fresh idea.',
       tap: '', soundOff: 'Turn sound and voice off', soundOn: 'Turn sound and voice on',
-      help: 'How to play', levels: 'A little wonder, wherever you begin.', choose: 'Choose a puzzle',
+      help: 'How to play', levels: 'A little wonder, wherever you begin.', choose: 'Choose a puzzle', stageSelect: 'STAGES',
       close: 'Close', error: 'This picture could not be loaded', retry: 'Try loading again', skip: 'Try the next picture',
       completed: 'A whole garden of words in bloom.', chapterComplete: 'Another garden, full of little wonders.',
       replay: 'Wander through again', allHinted: 'Connect the revealed letters in order',
@@ -259,6 +259,7 @@
       imageErrorText: 'error', retryImage: 'retry', skipImage: 'skip' };
     for (const [id, key] of Object.entries(labels)) $(id).textContent = t[key];
     $('levels').setAttribute('aria-label', t.choose); $('help').setAttribute('aria-label', t.help);
+    $('stageSelectLabel').textContent = t.stageSelect;
     $('difficulty').setAttribute('aria-label', mode === 'ja' ? '難易度を選ぶ' : 'Choose difficulty');
     $('undo').setAttribute('aria-label', mode === 'ja' ? '一文字もどす' : 'Undo the last letter');
     $('closeModal').setAttribute('aria-label', t.close);
