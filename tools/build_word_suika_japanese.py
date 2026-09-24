@@ -26,7 +26,8 @@ def main():
     output, seen = [], set()
     for row in json.loads(args.index.read_text(encoding="utf-8")):
         word, reading, picture, english = row[0], row[1], row[3], row[4]
-        kana = hiragana(reading or word)
+        # 辞書に複数の読みが「・」で併記される場合は、先頭の主の読みを使う。
+        kana = hiragana((reading or word).split("・", 1)[0])
         if not re.fullmatch(r"[ぁ-ゔー]{2,8}", kana) or kana in seen:
             continue
         candidates = [picture, *(english or "").split(";")]
