@@ -44,7 +44,7 @@
   function readSave() {
     let raw = {};
     try { raw = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch { /* Storage is optional. */ }
-    const value = { mode: raw.mode === 'en' ? 'en' : 'ja', sound: raw.sound !== false, theme: raw.theme === 'dark' ? 'dark' : 'light', targetTier: Number.isInteger(raw.targetTier) && raw.targetTier >= 0 && raw.targetTier < difficulty.tiers.length ? raw.targetTier : 6, routeVersion: 1 };
+    const value = { mode: raw.mode === 'en' ? 'en' : 'ja', sound: raw.sound !== false, theme: raw.theme === 'dark' ? 'dark' : 'light', layout: raw.layout === 'mobile' || raw.layout === 'desktop' ? raw.layout : 'auto', targetTier: Number.isInteger(raw.targetTier) && raw.targetTier >= 0 && raw.targetTier < difficulty.tiers.length ? raw.targetTier : 6, routeVersion: 1 };
     for (const lang of ['ja', 'en']) {
       const old = raw[lang] || {};
       const stars = {};
@@ -265,6 +265,7 @@
     $('wheel').setAttribute('aria-label', mode === 'ja' ? 'なぞって答える文字盤' : 'Connect letters to answer');
     updateSound();
     updateTheme();
+    updateLayout();
   }
   function updateTheme() {
     const dark = saved.theme === 'dark';
@@ -275,6 +276,11 @@
       : (dark ? 'Use light mode' : 'Use dark mode'));
     $('theme').innerHTML = icon(dark ? 'sun' : 'moon');
     $('themeColor').content = dark ? '#071126' : '#f6f4ec';
+  }
+  function updateLayout() {
+    document.documentElement.dataset.layout = saved.layout;
+    $('viewMobile').setAttribute('aria-pressed', String(saved.layout === 'mobile'));
+    $('viewDesktop').setAttribute('aria-pressed', String(saved.layout === 'desktop'));
   }
   function updateSound() {
     $('sound').setAttribute('aria-label', saved.sound ? text().soundOff : text().soundOn);
@@ -647,6 +653,8 @@
   $('theme').addEventListener('click', () => {
     saved.theme = saved.theme === 'dark' ? 'light' : 'dark'; persist(); updateTheme();
   });
+  $('viewMobile').addEventListener('click', () => { saved.layout = 'mobile'; persist(); updateLayout(); });
+  $('viewDesktop').addEventListener('click', () => { saved.layout = 'desktop'; persist(); updateLayout(); });
   document.querySelectorAll('[data-mode]').forEach(button => button.addEventListener('click', () => {
     if (mode === button.dataset.mode) return;
     mode = button.dataset.mode; loadLevel(index);
