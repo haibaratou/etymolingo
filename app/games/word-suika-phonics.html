@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
   <meta name="theme-color" content="#fff4c7">
-<title>ワードスイカ</title>
+<title>ワードスイカ Phonics</title>
 <style>
 :root{--ink:#29232d;--cream:#fffaf0;--yellow:#ffd34d;--orange:#f49a32;--blue:#65b9e8;--pink:#f08ba6}
 *{box-sizing:border-box}
@@ -31,7 +31,7 @@ button{appearance:none;border:3px solid var(--ink);border-radius:13px;background
 <body>
 <main class="game">
   <header class="top">
-    <div class="brand"><span class="brandBall">Aa</span><div><h1>ワードスイカ</h1><div class="sub" id="stageInfo">STAGE 1・4文字でクリア</div></div></div>
+    <div class="brand"><span class="brandBall">Ph</span><div><h1>ワードスイカ Phonics</h1><div class="sub" id="stageInfo">STAGE 1・5文字でクリア</div></div></div>
     <div class="scoreBox"><div class="scoreCell"><small>SCORE</small><b id="score">0</b></div><div class="scoreCell"><small>STAGE</small><b><span id="stage">1</span> / <span id="goal">4字</span></b></div></div>
   </header>
   <section class="boardWrap" id="boardWrap">
@@ -40,59 +40,38 @@ button{appearance:none;border:3px solid var(--ink);border-radius:13px;background
     <div class="toast" id="toast"></div>
   </section>
   <footer class="bottom"><div class="choiceDock" id="choices" aria-label="選べる文字"></div><div class="log"><b id="log">好きな横位置をタップして落とす</b><span id="dictState">辞書を準備中…</span></div><div class="bottomBtns"><button class="modeChange" id="modeChange" type="button">ステージ</button><button id="reset" type="button">↻ やりなおす</button></div></footer>
-  <div class="stageIntro" id="stageIntro"><div class="stageIntroCard"><small id="stageIntroNumber">STAGE 1</small><b id="stageIntroGoal">4文字の英単語を作る</b></div></div>
+  <div class="stageIntro" id="stageIntro"><div class="stageIntroCard"><small id="stageIntroNumber">STAGE 1</small><b id="stageIntroGoal">5文字の英単語を作る</b></div></div>
   <div class="over" id="over"><div class="overCard"><h2 id="resultTitle">いっぱい！</h2><p id="result"></p><button id="again" type="button">もう一度</button></div></div>
-  <div class="modeSelect on" id="languageSelect"><div class="modeCard"><h2>ことばをえらぶ</h2><p>どちらのワードスイカで遊びますか？</p><div class="modeButtons"><button id="englishStart" type="button">English<small>英単語であそぶ</small></button><button id="japaneseStart" type="button">にほんご<small>ひらがなであそぶ</small></button></div></div></div>
-  <div class="modeSelect" id="modeSelect"><div class="modeCard"><h2>ステージ選択</h2><div class="stagePick" id="stagePick" aria-label="ステージを選ぶ"></div></div></div>
+  <div class="modeSelect on" id="modeSelect"><div class="modeCard"><h2>STAGE 1</h2><p>左から右へ、phonicsチャンクをつなげよう</p><div class="stagePick" id="stagePick" aria-label="ステージを選ぶ"></div></div></div>
 </main>
 <script>
 const FALLBACK=`as her do there out with and been which time could if or at she them about other up they me we one his for no their have also an be all that but my what of he can to when it like you who your him by more the than from this on not in is only some our over two these see then through any how first just between way know where even us before now down after well because life work being get new make here many those much use right same both good each man own long need day must around still while go too take under off think world never might data want going little found three again part without another against place come away system say head thought high are case during social face water within few every number help always state process power find set example last small human home great end old often room point year order love until side though went upon change since next am study form let give others best less mind research second law felt house himself together level door enough light model book name why feel group fact far night once control become value course tell among means ever open care sure present heart school nothing able woman self along several support above four health mother moment father young low energy behind voice full further due either line country mean common real show past kind hard role food death idea white free risk nature history word result matter problem front true future toward effect close five language half air view term someone money itself type period clear action reason per single age short turn blood city land interest inside story rate field read else include class outside black similar main century big herself move response alone policy design rest physical current section cell subject party answer society surface force quality whose activity decision return lower car disease account today third major size addition bring impact plan act mouth range culture cost forward project red access positive fire beyond truth simply meet loss amount instead team below purpose pressure presence content create office legal perhaps whom movement private remember wrong media stay complex special source art simple stage court ability poor phone share floor property nor seem issue product skin church report cut entire eye modern pay complete distance critical respect arm species normal allow road hold medical basis breath direct behavior music concept negative review region ten earth walk standard stand note object rule capital onto status weight solution offer recent industry science primary percent window blue program degree mental date husband success correct continue event safe income active faith capacity instance phase volume develop student round appear glass former task couple hundred contact plant address produce king manner tree basic remain indeed exactly digital factor except perfect strategy break base maybe peace avoid desire supply soil heavy doubt require improve demand via relation measure freedom cover ensure reaction edge reduce search internal evening identify extent contrast visit initial acid chair sample add setting build charge effort actual occur month worth unit street record sit foot exercise attempt neither vision benefit seat balance die animal notice gender prevent receive external constant rich despite river gold carry achieve nation apply protect exchange protein progress prior separate version anti conflict relative transfer thousand proper concern corner none overall regard exist feature affect ancient suggest religion unique contract upper dinner yes double nice birth crisis duty ahead accept release empty unless career describe expect quick opposite forth maintain strange afraid agent tone travel horse store secret enter input promise lose seek maximum regular perform cycle truly mode pleasure thirty command audience device discuss enemy severe stock sky obvious solid press worry credit crime conduct client detail spend dress officer software obtain apart passage till station surprise formal lie injury official mission alive judgment visual enjoy pair bound join screen escape storage agree thin relief ring joint video partner ear guide beneath aspect finger missing band adult frame inner forget square catch host extra survey outcome ball indicate unable decide contain capable garden platform chief beauty visible dynamic tend divine prove notion desk aid listen domain vehicle cent judge aside famous sequence danger advice island mention plane request glad magic typical plate aim manage fellow index ideal flat sin taste shirt`.split(/\s+/);
 const FALLBACK_INFO={her:["彼女の、彼女を",1],do:["する、役に立つ",1],there:["そこに",1],out:["外へ",1],with:["〜と一緒に",1],and:["〜と",1],been:["〜であった",1],which:["どちら",1],time:["時間、回",1],could:["できた",1],if:["もし〜ならば",1],or:["または",1],at:["〜に",1],she:["彼女は",1],them:["彼らを",1],about:["〜について",1],other:["ほかの",1],up:["上へ",1],they:["彼らは",1],me:["私を",1],we:["私たちは",1],one:["一つ",1],his:["彼の",1],for:["〜のために",1],no:["いいえ",1],their:["彼らの",1],have:["持っている",1],also:["〜もまた",1],an:["一つの",1],be:["である",1],all:["全ての",1],that:["それ",1],but:["しかし",1],my:["私の",1],what:["何",1],of:["〜の",1],he:["彼は",1],can:["〜できる",1],to:["〜へ",1],when:["いつ",1],it:["それは",1],like:["好む、〜のような",1],you:["あなた",1],who:["誰",1],your:["あなたの",1],him:["彼を",1],by:["〜によって",1],more:["もっと多くの",1],the:["その",1],than:["〜よりも",1],from:["〜から",1],this:["これ",1],on:["〜の上に",1],not:["〜でない",1],in:["中に",1],is:["〜である",1],only:["唯一の",5],some:["いくつかの",11],our:["私たちの",15],over:["〜の上に",17],two:["二つ",19],these:["これら",20],see:["見る",20],then:["そのとき",21],through:["〜を通って",28],any:["どんな〜でも",32],how:["どうやって",33],first:["第一の",37],just:["ちょうど",38],between:["〜の間に",39],way:["道、方法",42],know:["知る",43],where:["どこに",49],even:["〜さえ",54],us:["私たちを",54],before:["〜の前に",55],now:["今",58],down:["下へ",59],after:["〜のあとに",59],well:["よく、健康な",61],because:["なぜなら",61],life:["命",63],work:["仕事、作品",64],being:["存在",67],get:["得る、なる",70],new:["新しい",71],make:["作る",74],here:["ここに",74],many:["多くの",74],those:["それら",74],much:["たくさんの",78],use:["使う",81],right:["正しい、右",83],same:["同じ",84],both:["両方の",84],good:["良い",86],each:["それぞれの",88],man:["男性",89],own:["自分の",95],long:["長い",96],need:["必要",97],day:["日",98],must:["〜しなければならない",98],around:["周りに",98],still:["静かな",98],while:["〜する間に",98],go:["行く",100],too:["〜もまた",100],take:["取る",102],under:["下に",106],off:["離れて",108],think:["考える",109],world:["世界",110],never:["決して〜ない",112],might:["力、〜かもしれない",112],data:["データ",112],want:["欲しい",114],going:["行くこと",116],little:["小さい",116],found:["設立する",117],three:["三つ",117],again:["再び",118],part:["部分、役",118],without:["〜なしに",119],another:["別の",121],against:["〜に反対して",122],place:["場所",123],come:["来る",124],away:["離れて",125],system:["体系",126],say:["言う",128],head:["頭",128],thought:["考え",130],high:["高い",131],are:["〜である",133],case:["場合、事件",134],during:["〜の間に",136],social:["社会の",137],face:["顔",140]};
-const STAGES=[
-  {type:"length",goal:4,letters:"andlhsetroic"},
-  {type:"count",wordLength:2,count:3,letters:"anitmetobewedogoup"},
-  {type:"length",goal:5,letters:"watchrightplane"},
-  {type:"count",wordLength:3,count:3,letters:"catdogsunpenboxrun"},
-  {type:"length",goal:6,letters:"friendpeopleworld"},
-  {type:"count",wordLength:3,count:4,letters:"theandforbutyouallcan"},
-  {type:"length",goal:7,letters:"searchlationactionknown",bonuses:["re","un"]},
-  {type:"length",goal:8,letters:"informaquesmovedevelop",bonuses:["tion","ment"]},
-  {type:"length",goal:9,letters:"availreasonunderstandlearn",bonuses:["able","ing"]},
-  {type:"length",goal:10,letters:"communicadevelopenvironremark",bonuses:["tion","ment","able"]}
-];
+// First prototype: a fixed, reusable phonics sequence.  The source words are
+// LIGHT / NIGHT / RIGHT / THINK / SINK / LINK, but any dictionary word may form.
+const STAGES=[{type:"length",goal:5,chunks:["l","igh","t","n","igh","t","r","igh","t","th","i","nk","s","i","nk","l","i","nk","re","a","c","t","or"]}];
 const $=s=>document.querySelector(s),canvas=$("#board"),ctx=canvas.getContext("2d");
 const wrap=$("#boardWrap"),scoreEl=$("#score"),stageEl=$("#stage"),goalEl=$("#goal"),stageInfoEl=$("#stageInfo"),queueHud=$("#queueHud"),currentEl=$("#current"),nextEl=$("#next"),choicesEl=$("#choices"),logEl=$("#log"),dictState=$("#dictState"),toast=$("#toast"),modeSelect=$("#modeSelect"),stageIntro=$("#stageIntro");
-let W=0,H=0,dpr=1,bodies=[],particles=[],queue=[],aimX=220,last=performance.now(),nextId=1,score=0,wordCount=0,canDrop=false,over=false,dangerFrames=0,toastTimer=0,burstFlash=0,burstLabel=null,mode="",choiceIndex=0,stage=1,selectedStage=1,stageCursor=0,stageLetterCursor=0,stageProgress=0,stageCleared=false,stageClearTimer=0,stageIntroTimer=0,audioCtx=null;
-let dictionary=[],wordBySignature=new Map(),wordInfo=new Map(),buildTargets=[];
+let W=0,H=0,dpr=1,bodies=[],particles=[],queue=[],aimX=220,last=performance.now(),nextId=1,score=0,wordCount=0,canDrop=false,over=false,dangerFrames=0,toastTimer=0,burstFlash=0,burstLabel=null,mode="",choiceIndex=0,stage=1,selectedStage=1,stageCursor=0,stageLetterCursor=0,stageProgress=0,stageCleared=false,stageClearTimer=0,stageIntroTimer=0,audioCtx=null,touchSerial=0;
+let firstTouch=new Map();
+let dictionary=[],wordByText=new Map(),wordInfo=new Map(),buildTargets=[];
 const DISCOVERY_KEY="word-suika-discovered-v1";let discoveredWords=new Set();
 try{discoveredWords=new Set(JSON.parse(localStorage.getItem(DISCOVERY_KEY)||"[]"))}catch(e){}
 const colors=["#ffd34d","#f39b61","#71c6e7","#ef91aa","#8fd19b","#bda0e5"];
-const signature=s=>[...String(s).toLowerCase().replace(/[^a-z]/g,"")].sort().join("");
 const shuffle=a=>{for(let i=a.length-1;i;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
 function setDictionary(entries,source="語源DB抜粋"){
-  const seen=new Set();dictionary=[];wordBySignature=new Map();wordInfo=new Map();
-  entries.forEach((entry,index)=>{const raw=typeof entry==="string"?entry:entry.w,w=String(raw||"").toLowerCase();if(!/^[a-z]{2,8}$/.test(w)||seen.has(w))return;seen.add(w);dictionary.push(w);const fallback=FALLBACK_INFO[w]||["",index+1],info=typeof entry==="string"?{ja:fallback[0],r:fallback[1]}:{ja:String(entry.ja||""),r:Number(entry.r)||9999};wordInfo.set(w,info);const sig=signature(w);if(!wordBySignature.has(sig))wordBySignature.set(sig,w)});
-  const memo=new Map();
-  const canBuild=sig=>{
-    if(sig.length===1)return true;if(memo.has(sig))return memo.get(sig);
-    if(!wordBySignature.has(sig)){memo.set(sig,false);return false}
-    for(let mask=1;mask<(1<<sig.length)-1;mask++){
-      let a="",b="";for(let i=0;i<sig.length;i++)((mask>>i)&1?a+=sig[i]:b+=sig[i]);
-      if(a>b)continue;if(canBuild(a)&&canBuild(b)){memo.set(sig,true);return true}
-    }
-    memo.set(sig,false);return false;
-  };
-  buildTargets=dictionary.filter(w=>w.length<=6&&wordInfo.get(w)?.ja&&canBuild(signature(w)));
+  const seen=new Set();dictionary=[];wordByText=new Map();wordInfo=new Map();
+  entries.forEach((entry,index)=>{const raw=typeof entry==="string"?entry:entry.w,w=String(raw||"").toLowerCase();if(!/^[a-z]{2,12}$/.test(w)||seen.has(w))return;seen.add(w);dictionary.push(w);const fallback=FALLBACK_INFO[w]||["",index+1],info=typeof entry==="string"?{ja:fallback[0],r:fallback[1]}:{ja:String(entry.ja||""),r:Number(entry.r)||9999};wordInfo.set(w,info);wordByText.set(w,w)});
+  buildTargets=dictionary;
   dictState.textContent=`${source} ${dictionary.length}語`;
 }
 setDictionary(FALLBACK,"語源DB抜粋");
-fetch("../data/generated-etymon/words.json").then(r=>r.ok?r.json():Promise.reject()).then(rows=>{
-  const best=new Map();rows.forEach(x=>{const w=String(x.w||"").toLowerCase();if(!x.pic||!/^[a-z]{2,8}$/.test(w))return;const rank=Number(x.r)||9999;if(!best.has(w)||rank<best.get(w).r)best.set(w,{w,ja:x.ja||"",r:rank})});
-  setDictionary([...best.values()].sort((a,b)=>a.r-b.r),"語源DB");refillQueue();renderQueue();
+fetch("../data/generated-etymon/word-suika-words.json").then(r=>r.ok?r.json():Promise.reject()).then(rows=>{
+  setDictionary(rows,"語源DB");refillQueue();renderQueue();
 }).catch(()=>{});
 const currentStage=()=>STAGES[Math.min(stage-1,STAGES.length-1)];
 function renderStagePicker(){$("#stagePick").innerHTML=STAGES.map((_,i)=>`<button class="${selectedStage===i+1?"on":""}" type="button" data-stage="${i+1}" aria-pressed="${selectedStage===i+1}">${i+1}</button>`).join("");$("#stagePick").querySelectorAll("button").forEach(b=>b.onclick=()=>startStage(Number(b.dataset.stage)))}
-function nextStageLetter(){const s=currentStage(),step=stageCursor++;if(s.bonuses?.length&&step>0&&step%12===0)return s.bonuses[(step/12-1)%s.bonuses.length];return s.letters[(stageLetterCursor++)%s.letters.length]}
+function nextStageLetter(){const s=currentStage(),step=stageCursor++;return s.chunks[step%s.chunks.length]}
 function refillQueue(){
   while(queue.length<16)queue.push(nextStageLetter());
 }
@@ -120,8 +99,9 @@ function resize(){const r=wrap.getBoundingClientRect();W=Math.max(1,r.width);H=M
 new ResizeObserver(resize).observe(wrap);resize();
 const imageCache=new Map();
 function wordImage(word){if(imageCache.has(word))return imageCache.get(word);const img=new Image();img.src=`../../assets/word/${word}.png`;imageCache.set(word,img);return img}
+function wordRadius(length){return Math.min(160,42+Math.max(0,length-2)*13)}
 function addBody(label,x,y,word=""){
-  const raw=word||label.toLowerCase(),isWord=!!word,isPart=!word&&raw.length>1,r=isWord?Math.min(106,44*Math.pow(1.12,raw.length-1)):isPart?Math.min(62,40+raw.length*5):40;
+  const raw=word||label.toLowerCase(),isWord=!!word,isPart=!word&&raw.length>1,r=isWord?wordRadius(raw.length):Math.min(52,36+raw.length*5);
   const info=wordInfo.get(raw)||{};const b={id:nextId++,label:raw.toUpperCase(),letters:raw.toLowerCase(),word:isWord?raw:"",part:isPart,ja:isWord?(info.ja||"和訳なし"):"",x,y,r,vx:(Math.random()-.5)*10,vy:0,color:colors[(raw.charCodeAt(0)+raw.length)%colors.length],born:performance.now(),img:isWord?wordImage(raw):null};bodies.push(b);return b;
 }
 function dropAt(x){if(!mode||!canDrop||over)return;refillQueue();x=Math.max(57,Math.min(W-57,x));let ch;if(mode==="choice"){ch=queue.splice(choiceIndex,1)[0];choiceIndex=0}else ch=queue.shift();addBody(ch,x,61);aimX=x;canDrop=false;setTimeout(()=>{if(!over&&!stageClearTimer&&!bodies.some(b=>b.clearsStage))canDrop=true},420);renderQueue();logEl.textContent=`${ch.toUpperCase()} を落とした`}
@@ -138,7 +118,7 @@ function armStageClear(clearBody){const vanishAt=performance.now()+700;clearBody
 function tryWordMerge(){
   const links=bodies.map(()=>new Set());
   for(let i=0;i<bodies.length;i++)for(let j=i+1;j<bodies.length;j++){
-    const a=bodies[i],b=bodies[j];if(Math.hypot(a.x-b.x,a.y-b.y)<=a.r+b.r+7){links[i].add(j);links[j].add(i)}
+    const a=bodies[i],b=bodies[j],key=a.id<b.id?`${a.id}:${b.id}`:`${b.id}:${a.id}`;if(Math.hypot(a.x-b.x,a.y-b.y)<=a.r+b.r+7){if(!firstTouch.has(key))firstTouch.set(key,++touchSerial);links[i].add(j);links[j].add(i)}
   }
   let best=null;const visited=new Set();
   for(let start=0;start<bodies.length;start++){
@@ -147,14 +127,16 @@ function tryWordMerge(){
     if(component.length<2)continue;
     const count=Math.min(component.length,10),limit=1<<count;
     for(let mask=1;mask<limit;mask++){
-      if((mask&(mask-1))===0)continue;const chosen=[];let letters="";
-      for(let k=0;k<count;k++)if(mask&(1<<k)){chosen.push(component[k]);letters+=bodies[component[k]].letters}
-      if(letters.length>8)continue;
+      if((mask&(mask-1))===0)continue;const chosen=[];
+      for(let k=0;k<count;k++)if(mask&(1<<k))chosen.push(component[k]);
+      const ordered=[...chosen].sort((a,b)=>bodies[a].x-bodies[b].x),letters=ordered.map(i=>bodies[i].letters).join("");
+      if(letters.length>12)continue;
       const chosenSet=new Set(chosen),seen=new Set([chosen[0]]),todo=[chosen[0]];
       while(todo.length){const i=todo.pop();links[i].forEach(j=>{if(chosenSet.has(j)&&!seen.has(j)){seen.add(j);todo.push(j)}})}
       if(seen.size!==chosen.length)continue;
-      const word=wordBySignature.get(signature(letters));if(!word)continue;
-      if(!best||word.length>best.word.length||(word.length===best.word.length&&chosen.length>best.indices.length))best={indices:chosen,word};
+      const word=wordByText.get(letters);if(!word)continue;
+      let touched=Infinity;for(let i=0;i<ordered.length;i++)for(let j=i+1;j<ordered.length;j++){const a=bodies[ordered[i]],b=bodies[ordered[j]],key=a.id<b.id?`${a.id}:${b.id}`:`${b.id}:${a.id}`;touched=Math.min(touched,firstTouch.get(key)||Infinity)}
+      if(!best||touched<best.touched||(touched===best.touched&&(word.length<best.word.length||(word.length===best.word.length&&bodies[ordered[0]].x<bodies[best.indices[0]].x))))best={indices:ordered,word,touched};
     }
   }
   if(best){mergeBodies(best.indices.map(i=>bodies[i]),best.word);return true}return false;
@@ -196,14 +178,12 @@ function loop(now){const dt=now-last;last=now;if(!over)physics(dt);draw();reques
 function showStageClear(b){if(over)return;over=true;stageCleared=true;const lastStage=stage>=STAGES.length;$("#resultTitle").textContent=lastStage?"ALL CLEAR!":`STAGE ${stage} CLEAR!`;$("#result").textContent=`${b.label}（${b.ja||"和訳なし"}） ／ ${score}点`;$("#again").textContent=lastStage?"最初から":"次のステージ";$("#over").classList.add("on")}
 function gameOver(){if(over)return;over=true;stageCleared=false;$("#resultTitle").textContent=`STAGE ${stage} 失敗`;$("#result").textContent=`${wordCount}語を完成　${score}点`;$("#again").textContent="同じステージを再挑戦";$("#over").classList.add("on")}
 function updateStageDisplay(){const s=currentStage(),goal=s.type==="count"?`${s.wordLength}字 ${stageProgress}/${s.count}`:`${s.goal}字`;stageEl.textContent=stage;goalEl.textContent=goal;stageInfoEl.textContent=s.type==="count"?`STAGE ${stage}・${s.wordLength}文字の英単語を${s.count}個作る`:`STAGE ${stage}・${s.goal}文字でクリア`}
-function reset(){clearTimeout(stageClearTimer);stageClearTimer=0;clearTimeout(stageIntroTimer);stageIntroTimer=0;stageIntro.classList.remove("on");clearTimeout(toastTimer);toast.classList.remove("on","new");bodies=[];particles=[];queue=[];stageCursor=0;stageLetterCursor=0;stageProgress=0;score=0;wordCount=0;dangerFrames=0;burstFlash=0;burstLabel=null;over=false;stageCleared=false;canDrop=false;choiceIndex=0;scoreEl.textContent=0;$("#over").classList.remove("on");logEl.textContent=mode==="choice"?"候補を選んで、落とす位置をタップ":"好きな横位置をタップして落とす";updateStageDisplay();refillQueue();renderQueue();if(mode)showStageIntro()}
+function reset(){clearTimeout(stageClearTimer);stageClearTimer=0;clearTimeout(stageIntroTimer);stageIntroTimer=0;stageIntro.classList.remove("on");clearTimeout(toastTimer);toast.classList.remove("on","new");bodies=[];particles=[];queue=[];firstTouch=new Map();touchSerial=0;stageCursor=0;stageLetterCursor=0;stageProgress=0;score=0;wordCount=0;dangerFrames=0;burstFlash=0;burstLabel=null;over=false;stageCleared=false;canDrop=false;choiceIndex=0;scoreEl.textContent=0;$("#over").classList.remove("on");logEl.textContent=mode==="choice"?"候補を選んで、落とす位置をタップ":"好きな横位置をタップして落とす";updateStageDisplay();refillQueue();renderQueue();if(mode)showStageIntro()}
 function startStage(stageNumber){selectedStage=stageNumber;stage=stageNumber;mode="choice";modeSelect.classList.remove("on");reset()}
 function changeMode(){clearTimeout(stageClearTimer);stageClearTimer=0;selectedStage=stage;mode="choice";canDrop=false;bodies=[];particles=[];queue=[];choicesEl.classList.remove("on");renderStagePicker();modeSelect.classList.add("on");updateStageDisplay()}
 function continueAfterResult(){if(stageCleared)stage=stage>=STAGES.length?1:stage+1;selectedStage=stage;reset()}
 canvas.addEventListener("pointermove",e=>{const r=canvas.getBoundingClientRect();aimX=Math.max(57,Math.min(W-57,e.clientX-r.left))});canvas.addEventListener("pointerdown",e=>{e.preventDefault();const r=canvas.getBoundingClientRect();dropAt(e.clientX-r.left)});$("#reset").onclick=reset;$("#again").onclick=continueAfterResult;
 $("#modeChange").onclick=changeMode;
-$("#englishStart").onclick=()=>location.href="word-suika-phonics.html";
-$("#japaneseStart").onclick=()=>location.href="word-suika_jp.html";
 renderStagePicker();
 requestAnimationFrame(t=>{last=t;loop(t)});
 </script>
