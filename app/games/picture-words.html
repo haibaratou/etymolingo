@@ -7,10 +7,11 @@
   <meta name="description" content="一枚の絵から、ことばが咲く。日本語と英語で遊べる、なぞってつなぐイラストパズル。">
   <title>WORD BLOOM — ことばの庭</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%232c5146'/%3E%3Cg fill='%23f4bf9f'%3E%3Cellipse cx='32' cy='22' rx='8' ry='13'/%3E%3Cellipse cx='32' cy='42' rx='8' ry='13'/%3E%3Cellipse cx='22' cy='32' rx='13' ry='8'/%3E%3Cellipse cx='42' cy='32' rx='13' ry='8'/%3E%3C/g%3E%3Ccircle cx='32' cy='32' r='6' fill='%23f8edbc'/%3E%3C/svg%3E">
-  <link rel="stylesheet" href="picture-words/style.css">
+  <link rel="stylesheet" href="picture-words/style.css?v=book2">
   <script src="picture-words/catalog.js" defer></script>
   <script src="picture-words/gesture.js" defer></script>
-  <script src="picture-words/game.js" defer></script>
+  <script src="picture-words/pronunciation.js?v=voice1" defer></script>
+  <script src="picture-words/game.js?v=book3" defer></script>
 </head>
 <body>
   <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -39,7 +40,7 @@
           <button id="modeJa" type="button" data-mode="ja" aria-pressed="true">日本語</button>
           <button id="modeEn" type="button" data-mode="en" aria-label="ENGLISH" aria-pressed="false"><span class="language-full">ENGLISH</span><span class="language-short" aria-hidden="true">EN</span></button>
         </div>
-        <button class="icon-button sound-button" id="sound" type="button" aria-label="効果音をオフ" aria-pressed="true"><svg><use href="#i-sound"/></svg></button>
+        <button class="icon-button sound-button" id="sound" type="button" aria-label="音声と効果音をオフ" aria-pressed="true"><svg><use href="#i-sound"/></svg></button>
         <button class="icon-button" id="help" type="button" aria-label="遊び方"><svg><use href="#i-help"/></svg></button>
       </nav>
     </header>
@@ -82,18 +83,21 @@
             <svg class="trail" id="trail" viewBox="0 0 360 360" aria-hidden="true"><defs><filter id="trail-glow"><feGaussianBlur stdDeviation="4"/></filter></defs><polyline id="trailGlow" class="trail-glow"/><polyline id="trailLine"/><circle id="trailTip" r="6" cx="180" cy="180"/></svg>
             <div class="letters" id="letters"></div>
             <button id="undo" class="wheel-center" type="button" aria-label="一文字もどす"><svg class="center-flower"><use href="#i-flower"/></svg><svg class="center-undo"><use href="#i-undo"/></svg><span id="centerLabel">つなぐ</span></button>
+            <div class="reward-scene" id="rewardScene" hidden>
+              <span id="rewardBadge" class="reward-badge">NEW WORD GET!</span>
+              <button class="word-reward" id="wordReward" type="button" hidden>
+                <span class="book-left"><span id="rewardBookName" class="book-name"></span><span id="rewardShelf" class="book-shelf"></span><span class="book-count"><small id="rewardBefore"></small><strong id="rewardAfter"></strong><small> / 60</small></span><span id="rewardProgress" class="book-progress"></span></span>
+                <span class="book-right"><span class="book-page-number" id="rewardPageNumber"></span><span class="book-placeholder" aria-hidden="true">?</span><img id="rewardArt" class="book-word-art" alt="" width="120" height="120"><strong id="rewardWord" class="book-word"></strong><small id="rewardReading" class="book-reading"></small><span id="rewardSeal" class="book-seal"></span></span>
+              </button>
+              <div id="winPronunciation" class="win-pronunciation" hidden></div>
+              <span id="advanceLabel" class="advance-label">次の問題へ <span aria-hidden="true">→</span></span>
+            </div>
           </div>
           <div class="feedback" id="feedback" role="status" aria-live="polite">指をはなすと答え合わせ</div>
           <div class="game-actions" id="gameActions">
             <button id="shuffle" class="action-button" type="button"><svg><use href="#i-shuffle"/></svg><span id="shuffleLabel">まぜる</span></button>
             <button id="hint" class="action-button hint-button" type="button"><svg><use href="#i-bulb"/></svg><span id="hintLabel">ひと文字ヒント</span><span class="free-tag" id="freeTag">FREE</span></button>
           </div>
-          <button class="word-reward" id="wordReward" type="button" hidden>
-            <span class="reward-icon"><svg><use href="#i-book"/></svg></span>
-            <span class="reward-copy"><span id="rewardBadge" class="reward-badge">NEW WORD</span><strong id="rewardWord"></strong><small id="rewardProgress"></small></span>
-            <svg class="reward-arrow"><use href="#i-arrow"/></svg>
-          </button>
-          <button id="next" class="next-button" type="button" hidden><span id="nextLabel">次のことばへ</span><svg><use href="#i-arrow"/></svg></button>
           <p class="gesture-note" id="gestureNote">もどって取り消し。タップでも遊べます。</p>
         </section>
       </div>

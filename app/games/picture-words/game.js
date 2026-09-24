@@ -1,4 +1,4 @@
-/* WORD BLOOM — no dependencies, network services, or generated dictionary edits. */
+/* WORD BLOOM — standalone play, browser voices, and a curated dictionary excerpt. */
 (() => {
   'use strict';
   const $ = id => document.getElementById(id);
@@ -15,7 +15,7 @@
       collection: '日本語・英語の辞書', found: '単語ゲット', caption: 'ひとつの絵から、ことばが咲く。',
       connect: 'つなぐ', undo: 'もどす', correct: '単語ゲット！', wrong: 'おしい！ もう一度つないでみよう',
       short: '最後の文字まで、つないでみよう', mix: '新しい並びで、ひらめこう',
-      tap: '続けてタップ、またはなぞってつなごう', soundOff: '効果音をオフ', soundOn: '効果音をオン',
+      tap: '続けてタップ、またはなぞってつなごう', soundOff: '音声と効果音をオフ', soundOn: '音声と効果音をオン',
       help: '遊び方', levels: '好きなところから、ひとつずつ。', choose: 'ステージを選ぶ',
       close: '閉じる', error: 'イラストを読み込めませんでした', retry: 'もう一度読み込む', skip: '次の絵へ',
       completed: '庭いっぱいに、ことばが咲いた。', chapterComplete: 'ひとつの庭が、花いっぱいに。',
@@ -30,7 +30,7 @@
       collection: 'Your dictionaries', found: 'words collected', caption: 'A little picture. A word waiting to bloom.',
       connect: 'connect', undo: 'undo', correct: 'WORD GET!', wrong: 'Almost! Give it another go.',
       short: 'Keep going to the last letter', mix: 'A fresh arrangement. A fresh idea.',
-      tap: 'Keep tapping, or swipe to connect', soundOff: 'Turn sound off', soundOn: 'Turn sound on',
+      tap: 'Keep tapping, or swipe to connect', soundOff: 'Turn sound and voice off', soundOn: 'Turn sound and voice on',
       help: 'How to play', levels: 'A little wonder, wherever you begin.', choose: 'Choose a puzzle',
       close: 'Close', error: 'This picture could not be loaded', retry: 'Try loading again', skip: 'Try the next picture',
       completed: 'A whole garden of words in bloom.', chapterComplete: 'Another garden, full of little wonders.',
@@ -58,6 +58,8 @@
   let phase = 'loading', generation = 0, pointer = null, wheelRect = null, shuffleBusy = false;
   let feedbackTimer = 0;
   let dictionaryLanguage = mode, dictionaryFilter = 'all', lastAcquired = null;
+  let advanceTimers = [];
+  const REWARD_DURATION = 1700;
   const pending = new Set();
   const text = () => copy[mode];
   const progress = () => saved[mode];
@@ -134,9 +136,57 @@
       [523.25, 659.25, 783.99, 1046.5, 1318.5].forEach((f, i) => this.tone(f, .7, i * .075, .22));
       [261.63, 329.63, 392].forEach(f => this.tone(f, 1.1, .15, .1, 0, 'triangle'));
     }
+    duck(speaking) {
+      if (this.ctx && this.master) this.master.gain.setTargetAtTime(speaking ? .055 : .28, this.ctx.currentTime, .07);
+    }
     stop() { for (const voice of this.voices) { try { voice.stop(); } catch {} } this.voices.clear(); }
   }
   const sound = new Sound();
+  const speech = new window.WordBloomSpeech.Pronunciation({
+    onState: event => {
+      sound.duck(event.state === 'queued' || event.state === 'speaking');
+      document.querySelectorAll('.pronunciation').forEach(panel => {
+        if (panel.dataset.word !== event.wordId || panel.dataset.language !== event.language) return;
+        panel.dataset.state = event.state;
+        panel.classList.toggle('is-speaking', event.state === 'speaking');
+        panel.setAttribute('aria-busy', String(event.state === 'queued' || event.state === 'speaking'));
+        let message = '';
+        if (event.state === 'queued') message = mode === 'ja' ? '発音を準備中…' : 'Getting the voice ready…';
+        if (event.state === 'speaking') message = mode === 'ja' ? `「${event.text}」を発音中` : `Listen: ${event.text}`;
+        if (event.state === 'finished') message = mode === 'ja' ? '聞けたら、まねして言ってみよう！' : 'Your turn. Say it out loud!';
+        if (event.state === 'muted') message = mode === 'ja' ? '右上の音声をオンにすると聞けます' : 'Turn sound on at the top to listen';
+        if (event.state === 'unavailable') message = mode === 'ja' ? 'この端末では、この言語の音声を利用できません' : 'This language’s voice is unavailable on this device';
+        if (event.state === 'error') message = event.error === 'not-allowed'
+          ? (mode === 'ja' ? '「発音を聞く」を押してね' : 'Tap Listen to hear the word')
+          : (mode === 'ja' ? '音声を再生できませんでした。ボタンでもう一度どうぞ' : 'Voice playback failed. Tap Listen to try again.');
+        if (event.state === 'idle') message = mode === 'ja' ? '何度でも聞いて、声に出してみよう' : 'Listen again, then try saying it';
+        panel.querySelector('.pronunciation-status').textContent = message;
+      });
+    },
+  });
+  speech.setEnabled(saved.sound);
+
+  function pronunciationPanel(word, language) {
+    const panel = document.createElement('div'); panel.className = 'pronunciation';
+    panel.dataset.word = word.id; panel.dataset.language = language; panel.dataset.state = 'idle';
+    panel.setAttribute('role', 'group'); panel.setAttribute('aria-label', mode === 'ja' ? '発音を聞く' : 'Word pronunciation');
+    const heading = document.createElement('div'); heading.className = 'pronunciation-heading';
+    const spoken = language === 'ja' ? word.w : word.en;
+    heading.innerHTML = '<span class="voice-bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>';
+    const label = document.createElement('span'); label.textContent = `${spoken} · ${language === 'ja' ? '日本語' : 'ENGLISH'}`; heading.append(label);
+    const buttons = document.createElement('div'); buttons.className = 'pronunciation-buttons';
+    for (const slow of [false, true]) {
+      const button = document.createElement('button'); button.type = 'button'; button.dataset.slow = String(slow);
+      button.innerHTML = `${icon('sound')}<span>${mode === 'ja' ? (slow ? 'ゆっくり' : '発音を聞く') : (slow ? 'Slow' : 'Listen')}</span>`;
+      button.setAttribute('aria-label', mode === 'ja' ? `「${spoken}」の発音を${slow ? 'ゆっくり' : ''}聞く` : `${slow ? 'Slow pronunciation' : 'Listen to'} ${spoken}`);
+      button.addEventListener('click', () => speech.speak(word, language, slow)); buttons.append(button);
+    }
+    const status = document.createElement('span'); status.className = 'pronunciation-status'; status.setAttribute('role', 'status'); status.setAttribute('aria-live', 'polite');
+    status.textContent = saved.sound ? (mode === 'ja' ? '何度でも聞いて、声に出してみよう' : 'Listen again, then try saying it') : (mode === 'ja' ? '右上の音声をオンにすると聞けます' : 'Turn sound on at the top to listen');
+    panel.append(heading, buttons, status);
+    buttons.querySelectorAll('button').forEach(button => { button.disabled = !saved.sound; });
+    return panel;
+  }
 
   class Petals {
     constructor() {
@@ -185,7 +235,7 @@
     document.title = mode === 'ja' ? 'WORD BLOOM — ことばの庭' : 'WORD BLOOM — A garden of words';
     $('modeJa').setAttribute('aria-pressed', String(mode === 'ja')); $('modeEn').setAttribute('aria-pressed', String(mode === 'en'));
     const labels = { clueHeading: 'title', instruction: 'instruction', gestureNote: 'note', shuffleLabel: 'shuffle', hintLabel: 'hint',
-      nextLabel: 'next', footerNote: 'footer', collectionLabel: 'collection', foundLabel: 'found', pictureCaption: 'caption',
+      footerNote: 'footer', collectionLabel: 'collection', foundLabel: 'found', pictureCaption: 'caption',
       imageErrorText: 'error', retryImage: 'retry', skipImage: 'skip' };
     for (const [id, key] of Object.entries(labels)) $(id).textContent = t[key];
     $('levels').setAttribute('aria-label', t.choose); $('help').setAttribute('aria-label', t.help);
@@ -198,6 +248,10 @@
     $('sound').setAttribute('aria-label', saved.sound ? text().soundOff : text().soundOn);
     $('sound').setAttribute('aria-pressed', String(saved.sound));
     $('sound').innerHTML = icon(saved.sound ? 'sound' : 'mute');
+    document.querySelectorAll('.pronunciation').forEach(panel => {
+      panel.querySelectorAll('button').forEach(button => { button.disabled = !saved.sound; });
+      panel.querySelector('.pronunciation-status').textContent = saved.sound ? (mode === 'ja' ? '何度でも聞いて、声に出してみよう' : 'Listen again, then try saying it') : (mode === 'ja' ? '右上の音声をオンにすると聞けます' : 'Turn sound on at the top to listen');
+    });
   }
   function updateProgress() {
     const group = Math.floor(index / 10), stars = progress().stars;
@@ -284,14 +338,28 @@
     updateAnswer(); drawTrail();
   }
 
-  function loadLevel(nextIndex, focusNext = false) {
-    generation++; clearPending(); cancelGesture(); sound.stop(); petals.clear();
+  function pauseAdvance() {
+    advanceTimers.forEach(id => { clearTimeout(id); pending.delete(id); }); advanceTimers = [];
+    $('game').classList.remove('stage-out');
+  }
+  function queueAdvance(delay = REWARD_DURATION) {
+    pauseAdvance();
+    if (phase !== 'solved' || $('modal').open || document.hidden) return;
+    advanceTimers.push(later(() => $('game').classList.add('stage-out'), delay - 180));
+    advanceTimers.push(later(() => loadLevel(nextUncollected(mode, index), true, true), delay));
+  }
+  function loadLevel(nextIndex, focusNext = false, keepPronunciation = false) {
+    pauseAdvance(); generation++; clearPending(); cancelGesture();
+    if (!keepPronunciation) speech.stop();
+    sound.stop(); petals.clear();
     document.querySelectorAll('.flying-letter, .collected-word').forEach(el => el.remove());
     $('wordReward').hidden = true; $('collection').classList.remove('word-added');
+    $('rewardScene').hidden = true; $('rewardScene').classList.remove('page-filled');
+    $('winPronunciation').hidden = true; $('winPronunciation').replaceChildren();
     index = (nextIndex + catalog.length) % catalog.length; progress().index = index; persist();
     entry = catalog[index]; answer = [...(mode === 'ja' ? entry.w : entry.en.toUpperCase())];
     selected = []; hintCount = 0; mistakes = 0; shuffleBusy = false; phase = 'loading';
-    $('game').dataset.state = phase; $('next').hidden = true; $('gameActions').hidden = false;
+    $('game').dataset.state = phase; $('gameActions').hidden = false;
     $('hint').disabled = false; $('shuffle').disabled = false; $('imageError').hidden = true;
     updateLabels(); updateProgress();
     $('answer').className = `answer${answer.length > 7 ? ' long' : ''}`;
@@ -313,7 +381,7 @@
       $('hint').disabled = true; $('shuffle').disabled = true; setFeedback(text().error, 'wrong');
     };
     image.src = imgURL(entry);
-    const preload = new Image(); preload.src = imgURL(catalog[(index + 1) % catalog.length]);
+    const preload = new Image(); preload.src = imgURL(catalog[nextUncollected(mode, index)]);
   }
 
   function flyLetters() {
@@ -349,7 +417,7 @@
     const first = !progress().stars[entry.id];
     progress().stars[entry.id] = Math.max(progress().stars[entry.id] || 0, stars); persist();
     if (first) lastAcquired = { lang: mode, id: entry.id };
-    updateAnswer(); updateProgress();
+    updateAnswer();
     const pronunciation = mode === 'ja' ? entry.en.toUpperCase() : `${entry.ja} · ${entry.w}`;
     $('pictureCaption').textContent = pronunciation;
     $('answerInfo').textContent = `${'✦'.repeat(stars)}${'✧'.repeat(3 - stars)}  ${mode === 'ja' ? entry.ja : entry.en.toUpperCase()}`;
@@ -358,22 +426,37 @@
     $('gestureNote').textContent = first ? text().saved : text().replayed;
     $('pictureStamp').textContent = first ? 'WORD GET!' : 'GOT IT!';
     $('rewardBadge').textContent = first ? (complete ? 'BOOK COMPLETE' : 'NEW WORD GET!') : (mode === 'ja' ? '獲得済み' : 'COLLECTED');
-    $('rewardWord').textContent = mode === 'ja' ? `${entry.ja}（${entry.w}）` : entry.en.toUpperCase();
-    $('rewardProgress').textContent = `${bookName(mode)} ${first ? '+1 · ' : ''}${collectedCount(mode)} / ${catalog.length}`;
+    $('rewardWord').textContent = mode === 'ja' ? entry.ja : entry.en.toUpperCase();
+    $('rewardReading').textContent = mode === 'ja' ? entry.w : entry.ja;
+    $('rewardBookName').textContent = bookName(mode);
+    $('rewardArt').src = imgURL(entry);
+    $('rewardPageNumber').textContent = `PAGE ${String(index + 1).padStart(3, '0')}`;
+    $('rewardBefore').textContent = String(collectedCount(mode) - (first ? 1 : 0));
+    $('rewardAfter').textContent = String(collectedCount(mode));
+    $('rewardProgress').textContent = mode === 'ja' ? (first ? '新しいページが埋まった！' : 'このページは登録済み') : (first ? 'A new page filled!' : 'Already in your book');
+    $('rewardSeal').textContent = mode === 'ja' ? (first ? '登録！' : '正解！') : (first ? 'ADDED!' : 'GOT IT!');
+    $('advanceLabel').textContent = mode === 'ja' ? '次の問題へ →' : 'Next picture →';
+    $('rewardShelf').replaceChildren(...catalog.filter(word => word.id !== entry.id && progress().stars[word.id]).slice(-3).map(word => {
+      const image = document.createElement('img'); image.src = imgURL(word); image.alt = ''; return image;
+    }));
+    if (!$('rewardShelf').children.length) $('rewardShelf').innerHTML = `${icon('book')}<span>${mode === 'ja' ? 'はじめの1ページ' : 'Your first page'}</span>`;
     $('wordReward').setAttribute('aria-label', `${bookName(mode)} ${mode === 'ja' ? 'を開く' : '— open'}`);
     $('wordReward').hidden = false;
-    $('gameActions').hidden = true; $('next').hidden = false;
+    $('rewardScene').hidden = false;
+    $('hint').disabled = true; $('shuffle').disabled = true;
     $('centerLabel').textContent = 'bloom!';
-    $('nextLabel').textContent = complete ? text().replay : text().next;
     const rect = $('pictureCard').getBoundingClientRect(); petals.burst(rect.left + rect.width / 2, rect.top + rect.height / 2, 90, true);
-    if (first) animateAcquisition();
-    later(() => { if (!$('modal').open) $('next').focus({ preventScroll: true }); }, 650);
+    later(() => { $('rewardScene').classList.add('page-filled'); updateProgress(); }, 760);
+    if (first) later(animateAcquisition, 850);
+    $('winPronunciation').replaceChildren(pronunciationPanel(entry, mode)); $('winPronunciation').hidden = false;
+    speech.speak(entry, mode);
+    queueAdvance();
   }
 
   function animateAcquisition() {
     $('collection').classList.remove('word-added'); void $('collection').offsetWidth; $('collection').classList.add('word-added');
     if (reducedMotion.matches) return;
-    const from = $('pictureCard').getBoundingClientRect(), to = $('collection').getBoundingClientRect();
+    const from = $('rewardArt').getBoundingClientRect(), to = $('collection').getBoundingClientRect();
     const token = document.createElement('span'), image = document.createElement('img');
     token.className = 'collected-word'; token.setAttribute('aria-hidden', 'true'); image.src = imgURL(entry); image.alt = '';
     token.append(image); token.style.left = `${from.right - 60}px`; token.style.top = `${from.bottom - 60}px`; document.body.append(token);
@@ -382,7 +465,7 @@
       { transform: 'translate(0,0) rotate(-12deg) scale(.5)', opacity: 0 },
       { transform: 'translate(0,-24px) rotate(8deg) scale(1.12)', opacity: 1, offset: .25 },
       { transform: `translate(${dx}px,${dy}px) rotate(-8deg) scale(.2)`, opacity: 0 },
-    ], { duration: 1000, delay: 350, easing: 'cubic-bezier(.25,.7,.3,1)', fill: 'both' });
+    ], { duration: 620, easing: 'cubic-bezier(.25,.7,.3,1)', fill: 'both' });
     animation.onfinish = () => token.remove();
   }
 
@@ -402,7 +485,7 @@
   function cancelGesture() {
     if (pointer && $('wheel').hasPointerCapture?.(pointer.id)) $('wheel').releasePointerCapture(pointer.id);
     pointer = null; wheelRect = null; $('wheel').classList.remove('dragging');
-    if (nodes.length) { selected = []; updateAnswer(); drawTrail(); }
+    if (nodes.length && phase !== 'solved') { selected = []; updateAnswer(); drawTrail(); }
   }
   $('wheel').addEventListener('pointerdown', event => {
     if (phase !== 'playing' || shuffleBusy || pointer || !event.isPrimary || event.button !== 0 || event.target.closest('#undo')) return;
@@ -438,7 +521,11 @@
   $('wheel').addEventListener('contextmenu', event => event.preventDefault());
   window.addEventListener('blur', cancelGesture);
   window.addEventListener('resize', () => { if (pointer) cancelGesture(); });
-  document.addEventListener('visibilitychange', () => { if (document.hidden) { cancelGesture(); sound.stop(); petals.clear(); } });
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) { pauseAdvance(); cancelGesture(); speech.stop(); sound.stop(); petals.clear(); }
+    else queueAdvance(850);
+  });
+  window.addEventListener('pagehide', () => speech.stop());
 
   $('undo').addEventListener('click', () => {
     if (phase !== 'playing' || !selected.length) return;
@@ -461,7 +548,7 @@
     if (hintCount === answer.length) $('hint').disabled = true;
   });
   $('sound').addEventListener('click', () => {
-    saved.sound = !saved.sound; persist(); updateSound();
+    saved.sound = !saved.sound; speech.setEnabled(saved.sound); persist(); updateSound();
     if (saved.sound) { sound.unlock(); sound.hint(); } else sound.stop();
   });
   document.querySelectorAll('[data-mode]').forEach(button => button.addEventListener('click', () => {
@@ -472,22 +559,23 @@
   $('skipImage').addEventListener('click', () => loadLevel(index + 1));
 
   function openModal(title, body) {
-    cancelGesture(); $('modalTitle').textContent = title; $('modalBody').replaceChildren();
+    pauseAdvance(); cancelGesture(); speech.stop(); $('modalTitle').textContent = title; $('modalBody').replaceChildren();
     if (typeof body === 'string') $('modalBody').innerHTML = body; else $('modalBody').append(body);
     if (!$('modal').open) $('modal').showModal();
     $('modal').scrollTop = 0;
   }
   $('closeModal').addEventListener('click', () => $('modal').close());
+  $('modal').addEventListener('close', () => { speech.stop(); queueAdvance(850); });
   $('modal').addEventListener('click', event => { if (event.target === $('modal')) { const r = $('modal').getBoundingClientRect(); if (event.clientX < r.left || event.clientX > r.right || event.clientY < r.top || event.clientY > r.bottom) $('modal').close(); } });
   $('help').addEventListener('click', () => {
     const steps = mode === 'ja' ? [
       'イラストを見て、ことばを思い浮かべます。日本語はひらがな、英語はアルファベットで答えます。',
       '文字から文字へ、指をはなさずになぞります。最後の文字で指をはなすと答え合わせ。',
-      '正解すると単語ゲット！ 日本語・英語それぞれの辞書を埋めていきます。未獲得のページから次の問題を選べます。',
+      '正解すると発音とともに図鑑の1ページが埋まり、自動で次の問題へ。獲得したページは下の辞書から開いて、何度でも発音を聞き直せます。',
     ] : [
       'Look at the picture and find its word. Choose Japanese for hiragana, or English for the alphabet.',
       'Swipe from letter to letter, then lift your finger to check. You can also tap the letters one at a time.',
-      'Correct answers unlock words. Fill your Japanese and English dictionaries separately, and choose a missing page to collect next.',
+      'Get it right, hear the word, and watch a dictionary page fill in. The next puzzle starts automatically. Open your dictionaries below to listen again.',
     ];
     const note = mode === 'ja' ? '前の文字へ戻ると取り消し。同じ文字は別々の丸を使います。ヒントは何度でも無料で、使っても単語を獲得できます。キーボードは Tab / Enter / Backspace。獲得済みの語は重複せず、ベストの星を保存します。' : 'Trace back to undo. Repeated letters use separate circles. Hints are free and still let you collect the word. Keyboard: Tab / Enter / Backspace. Replays improve your best stars without adding duplicate entries.';
     openModal(text().help, `<div class="help-steps">${steps.map((line, i) => `<div class="help-step"><b>${i + 1}</b><p>${line}</p></div>`).join('')}</div><p class="help-note">${note}</p><button class="modal-primary" id="startPlaying" type="button">${mode === 'ja' ? 'ことばを咲かせよう' : 'Let it bloom'}</button>`);
@@ -589,20 +677,9 @@
     const challenge = document.createElement('button'); challenge.type = 'button'; challenge.className = 'modal-primary';
     challenge.textContent = challengeLang === lang ? (mode === 'ja' ? 'もう一度、この単語で遊ぶ' : 'Play this word again') : mode === 'ja' ? `${other === 'ja' ? '日本語' : '英語'}でもゲットする` : `Collect it in ${other === 'ja' ? 'Japanese' : 'English'}`;
     challenge.addEventListener('click', () => beginDictionaryPuzzle(challengeLang, wordIndex));
-    container.append(back, image, heading, reading, translation, best, badges, challenge);
+    container.append(back, image, heading, reading, translation, pronunciationPanel(word, lang), best, badges, challenge);
     openModal(bookName(lang), container); back.focus({ preventScroll: true });
   }
-  $('next').addEventListener('click', () => {
-    if (phase !== 'solved') return;
-    const nextIndex = nextUncollected(mode, index);
-    const gardenStart = Math.floor(index / 10) * 10;
-    const gardenComplete = catalog.slice(gardenStart, gardenStart + 10).every(word => progress().stars[word.id]);
-    if ((index + 1) % 10 === 0 && gardenComplete) {
-      const all = Object.keys(progress().stars).length === catalog.length;
-      openModal(all ? text().completed : text().chapterComplete, `<div class="garden-complete">${icon('flower')}<p>${mode === 'ja' ? 'ゲットした単語が、辞書のページになりました。<br>次の単語も集めにいこう。' : 'Your words are saved in your dictionary.<br>Another page is waiting to be filled.'}</p></div><button type="button" class="modal-primary" id="continueGarden">${all ? text().replay : text().next}</button>`);
-      $('continueGarden').addEventListener('click', () => { $('modal').close(); loadLevel(nextIndex, true); });
-    } else loadLevel(nextIndex, true);
-  });
   document.addEventListener('keydown', event => {
     if ($('modal').open || event.ctrlKey || event.metaKey || event.altKey) return;
     if (event.key === 'Backspace' && phase === 'playing') { event.preventDefault(); $('undo').click(); }
