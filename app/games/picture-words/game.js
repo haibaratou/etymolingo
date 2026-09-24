@@ -2,20 +2,22 @@
 (() => {
   'use strict';
   const $ = id => document.getElementById(id);
-  const catalog = window.PICTURE_WORDS_CATALOG || [];
-  const { advanceSelection, sweptHits } = window.WordBloomGesture;
+  const originalCatalog = window.PICTURE_WORDS_CATALOG || [];
+  const difficulty = window.WordBloomDifficulty;
+  const catalog = difficulty.buildCatalog(originalCatalog);
+  const { advanceSelection, sweptHits, activeBatch, canSelectRing, planLetters } = window.WordBloomGesture;
   const KEY = 'word-bloom-v1';
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
   const copy = {
     ja: {
       gardens: ['はじまりの庭', 'おいしい小道', 'どうぶつの森', '暮らしのアトリエ', '自然のたからもの', 'まだ見ぬ世界へ'],
       title: 'この絵、なんのことば？', instruction: '文字をなぞって、つなげよう',
-      release: '指をはなすと答え合わせ', note: 'もどって取り消し。タップでも遊べます。',
+      release: '', note: '途中で離すとキャンセル',
       shuffle: 'まぜる', hint: 'ひと文字ヒント', next: '次の単語をゲット', footer: '正解するたび、辞書が育つ。',
       collection: '日本語・英語の辞書', found: '単語ゲット', caption: 'ひとつの絵から、ことばが咲く。',
       connect: 'つなぐ', undo: 'もどす', correct: '単語ゲット！', wrong: 'おしい！ もう一度つないでみよう',
       short: '最後の文字まで、つないでみよう', mix: '新しい並びで、ひらめこう',
-      tap: '続けてタップ、またはなぞってつなごう', soundOff: '音声と効果音をオフ', soundOn: '音声と効果音をオン',
+      tap: '', soundOff: '音声と効果音をオフ', soundOn: '音声と効果音をオン',
       help: '遊び方', levels: '好きなところから、ひとつずつ。', choose: 'ステージを選ぶ',
       close: '閉じる', error: 'イラストを読み込めませんでした', retry: 'もう一度読み込む', skip: '次の絵へ',
       completed: '庭いっぱいに、ことばが咲いた。', chapterComplete: 'ひとつの庭が、花いっぱいに。',
@@ -25,12 +27,12 @@
     en: {
       gardens: ['The first garden', 'A tasty little path', 'Animal friends', 'Everyday wonders', 'Treasures of nature', 'A world to discover'],
       title: 'One picture. Which word?', instruction: 'Swipe the letters. Find the word.',
-      release: 'Lift your finger to check your word', note: 'Trace back to undo. Tapping works, too.',
+      release: '', note: 'Release an unfinished word to cancel',
       shuffle: 'Shuffle', hint: 'Reveal a letter', next: 'Collect the next word', footer: 'Every word fills another page.',
       collection: 'Your dictionaries', found: 'words collected', caption: 'A little picture. A word waiting to bloom.',
       connect: 'connect', undo: 'undo', correct: 'WORD GET!', wrong: 'Almost! Give it another go.',
       short: 'Keep going to the last letter', mix: 'A fresh arrangement. A fresh idea.',
-      tap: 'Keep tapping, or swipe to connect', soundOff: 'Turn sound and voice off', soundOn: 'Turn sound and voice on',
+      tap: '', soundOff: 'Turn sound and voice off', soundOn: 'Turn sound and voice on',
       help: 'How to play', levels: 'A little wonder, wherever you begin.', choose: 'Choose a puzzle',
       close: 'Close', error: 'This picture could not be loaded', retry: 'Try loading again', skip: 'Try the next picture',
       completed: 'A whole garden of words in bloom.', chapterComplete: 'Another garden, full of little wonders.',
@@ -42,12 +44,12 @@
   function readSave() {
     let raw = {};
     try { raw = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch { /* Storage is optional. */ }
-    const value = { mode: raw.mode === 'en' ? 'en' : 'ja', sound: raw.sound !== false };
+    const value = { mode: raw.mode === 'en' ? 'en' : 'ja', sound: raw.sound !== false, routeVersion: 1 };
     for (const lang of ['ja', 'en']) {
       const old = raw[lang] || {};
       const stars = {};
       for (const word of catalog) if ([1, 2, 3].includes(old.stars?.[word.id])) stars[word.id] = old.stars[word.id];
-      value[lang] = { index: Number.isInteger(old.index) ? Math.max(0, Math.min(catalog.length - 1, old.index)) : 0, stars };
+      value[lang] = { index: difficulty.resumeIndex(raw, old, originalCatalog, catalog), stars };
     }
     return value;
   }
@@ -59,6 +61,8 @@
   let feedbackTimer = 0;
   let dictionaryLanguage = mode, dictionaryFilter = 'all', lastAcquired = null;
   let advanceTimers = [];
+  let keyboardNavigation = false;
+  let ringBatches = [[]], lastActiveBatch = -1;
   const REWARD_DURATION = 1700;
   const pending = new Set();
   const text = () => copy[mode];
@@ -69,6 +73,13 @@
     for (let step = 1; step <= catalog.length; step++) {
       const candidate = (after + step + catalog.length) % catalog.length;
       if (!saved[lang].stars[catalog[candidate].id]) return candidate;
+    }
+    return (after + 1) % catalog.length;
+  };
+  const nextBilingualWord = after => {
+    for (let step = 1; step <= catalog.length; step++) {
+      const candidate = (after + step) % catalog.length, word = catalog[candidate];
+      if (!saved.ja.stars[word.id] || !saved.en.stars[word.id]) return candidate;
     }
     return (after + 1) % catalog.length;
   };
@@ -131,7 +142,14 @@
     undo() { this.tone(330, .12, 0, .13); }
     mix() { [293.66, 392, 440].forEach((f, i) => this.tone(f, .1, i * .035, .12)); }
     hint() { this.tone(659.25, .3, 0, .2); this.tone(880, .4, .1, .13); }
-    wrong() { this.tone(293.66, .18, 0, .18); this.tone(261.63, .2, .09, .1); }
+    wrong() {
+      this.stop(); this.unlock(); this.duck(false);
+      // Two low, slightly dissonant pulses, distinct from the rising pick notes.
+      this.tone(180, .16, 0, .3, 0, 'triangle');
+      this.tone(187, .16, 0, .1, 0, 'square');
+      this.tone(120, .25, .14, .3, 0, 'triangle');
+      this.tone(127, .25, .14, .1, 0, 'square');
+    }
     win() {
       [523.25, 659.25, 783.99, 1046.5, 1318.5].forEach((f, i) => this.tone(f, .7, i * .075, .22));
       [261.63, 329.63, 392].forEach(f => this.tone(f, 1.1, .15, .1, 0, 'triangle'));
@@ -235,7 +253,7 @@
     document.title = mode === 'ja' ? 'WORD BLOOM — ことばの庭' : 'WORD BLOOM — A garden of words';
     $('modeJa').setAttribute('aria-pressed', String(mode === 'ja')); $('modeEn').setAttribute('aria-pressed', String(mode === 'en'));
     const labels = { clueHeading: 'title', instruction: 'instruction', gestureNote: 'note', shuffleLabel: 'shuffle', hintLabel: 'hint',
-      footerNote: 'footer', collectionLabel: 'collection', foundLabel: 'found', pictureCaption: 'caption',
+      footerNote: 'footer', collectionLabel: 'collection', foundLabel: 'found',
       imageErrorText: 'error', retryImage: 'retry', skipImage: 'skip' };
     for (const [id, key] of Object.entries(labels)) $(id).textContent = t[key];
     $('levels').setAttribute('aria-label', t.choose); $('help').setAttribute('aria-label', t.help);
@@ -255,8 +273,17 @@
   }
   function updateProgress() {
     const group = Math.floor(index / 10), stars = progress().stars;
-    $('chapterNumber').textContent = `GARDEN ${String(group + 1).padStart(2, '0')}`;
-    $('chapterName').textContent = text().gardens[group];
+    const profile = difficulty.challenge(entry, mode);
+    $('game').style.setProperty('--rarity', profile.color); $('game').dataset.rarity = profile.key;
+    $('chapterNumber').textContent = `RANK ${profile.rank} / ${difficulty.tiers.length}`;
+    $('chapterName').textContent = mode === 'ja' ? profile.ja : profile.en;
+    $('rarityBadge').textContent = `${profile.code} · ${profile.name}`;
+    $('rarityBadge').setAttribute('aria-label', `${mode === 'ja' ? '難度' : 'Difficulty'} ${profile.rank} / ${difficulty.tiers.length} · ${profile.name}`);
+    const jaOwned = !!saved.ja.stars[entry.id], enOwned = !!saved.en.stars[entry.id];
+    $('jaClearMark').textContent = jaOwned ? '✓' : '';
+    $('enClearMark').textContent = enOwned ? '✓' : '';
+    $('modeJa').dataset.cleared = String(jaOwned); $('modeEn').dataset.cleared = String(enOwned);
+    $('connectLabel').textContent = `${profile.name} CHALLENGE`;
     $('levelText').textContent = `${String(index + 1).padStart(2, '0')} / ${catalog.length}`;
     $('pictureNumber').textContent = `NO. ${String(index + 1).padStart(3, '0')}`;
     const count = collectedCount(mode);
@@ -272,25 +299,26 @@
     $('progress').setAttribute('aria-label', mode === 'ja' ? `この庭で ${catalog.slice(group * 10, group * 10 + 10).filter(word => stars[word.id]).length} / 10 語発見` : `Garden ${group + 1} progress`);
   }
   function layoutNodes() {
-    nodes.forEach((node, i) => {
-      const angle = -Math.PI / 2 + i * Math.PI * 2 / nodes.length;
-      node.x = 180 + Math.cos(angle) * 127; node.y = 180 + Math.sin(angle) * 127;
-      node.button.style.left = `${node.x / 3.6}%`; node.button.style.top = `${node.y / 3.6}%`;
-    });
+    for (let batch = 0; batch < ringBatches.length; batch++) {
+      const group = nodes.filter(node => node.batch === batch), radius = ringBatches.length > 1 ? (batch === 0 ? 85 : 153) : 127;
+      group.forEach((node, i) => {
+        const angle = -Math.PI / 2 + (i + (batch > 0 ? .5 : 0)) * Math.PI * 2 / group.length;
+        node.x = 180 + Math.cos(angle) * radius; node.y = 180 + Math.sin(angle) * radius;
+        node.button.style.left = `${node.x / 3.6}%`; node.button.style.top = `${node.y / 3.6}%`;
+      });
+    }
   }
   function makeWheel() {
-    const letters = [...answer];
-    const decoys = mode === 'ja' ? [...'あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわん'] : [...'AEIOURSTNLMPCD'];
-    const desired = Math.min(10, Math.max(mode === 'ja' ? 5 : 6, letters.length + (letters.length < 5 ? 2 : 0)));
-    const available = shuffle(decoys.filter(ch => !letters.includes(ch)));
-    while (letters.length < desired && available.length) letters.push(available.pop());
-    shuffle(letters);
-    if (letters.slice(0, answer.length).join('') === answer.join('')) letters.push(letters.shift());
-    nodes = letters.map((char, id) => {
-      const button = document.createElement('button'); button.type = 'button'; button.className = `letter${letters.length > 8 ? ' dense' : ''}`;
+    const profile = difficulty.challenge(entry, mode);
+    const plan = planLetters(answer, [], profile.innerCount, profile.dual); ringBatches = plan.batches; lastActiveBatch = -1;
+    $('wheel').classList.toggle('dual-ring', ringBatches.length > 1);
+    nodes = shuffle(plan.letters).map(node => {
+      const { char, id } = node;
+      const button = document.createElement('button'); button.type = 'button'; button.className = `letter${profile.dual ? ' ring-letter' : ''}`;
+      button.dataset.ring = node.batch === 0 ? 'inner' : 'outer'; button.dataset.batch = String(node.batch);
       button.textContent = char; button.dataset.node = String(id); button.setAttribute('aria-label', char); button.setAttribute('aria-pressed', 'false');
       button.addEventListener('click', event => { if (event.detail === 0 && phase === 'playing' && !shuffleBusy) { sound.unlock(); selectNode(id); if (selected.length >= answer.length) checkAnswer(); else setFeedback(text().tap); } });
-      return { id, char, button, x: 0, y: 0 };
+      return { ...node, button, x: 0, y: 0 };
     });
     $('letters').replaceChildren(...nodes.map(node => node.button)); layoutNodes();
   }
@@ -310,6 +338,21 @@
       node.button.classList.toggle('selected', selected.includes(node.id));
       node.button.setAttribute('aria-pressed', String(selected.includes(node.id)));
     }
+    const batch = activeBatch(selected, ringBatches), dual = ringBatches.length > 1;
+    for (const node of nodes) {
+      node.button.disabled = phase === 'solved';
+      node.button.classList.remove('ring-locked');
+      node.button.classList.toggle('outer-pending', dual && batch === 0 && node.batch > 0);
+    }
+    $('wheel').dataset.activeRing = batch === 0 ? 'inner' : 'outer';
+    if (dual && phase !== 'solved') {
+      $('instruction').textContent = mode === 'ja' ? '指を離さず、ことばをつなごう' : 'Keep swiping to complete the word';
+      $('centerLabel').textContent = selected.length ? text().undo : text().connect;
+    }
+    if (batch > lastActiveBatch && lastActiveBatch >= 0 && phase === 'playing') {
+      sound.hint(); $('wheel').classList.remove('ring-unlock'); void $('wheel').offsetWidth; $('wheel').classList.add('ring-unlock');
+    }
+    lastActiveBatch = batch;
   }
   function drawTrail(tip = null) {
     const points = selected.map(id => { const n = nodes.find(item => item.id === id); return `${n.x},${n.y}`; });
@@ -323,13 +366,12 @@
   }
   function selectNode(id) {
     if (phase !== 'playing') return;
-    const used = selected.indexOf(id);
+    const candidate = nodes.find(node => node.id === id);
+    if (selected.includes(id)) return;
+    if (candidate.button.hidden || !canSelectRing(candidate, selected, ringBatches)) return;
     const next = advanceSelection(selected, id, answer.length);
     if (next === selected) return;
     selected = next;
-    if (used >= 0) {
-      sound.undo(); vibrate(5); updateAnswer(); drawTrail(); return;
-    }
     const node = nodes.find(item => item.id === id);
     node.button.classList.remove('hint-target');
     sound.pick(selected.length, node.x); vibrate(7);
@@ -346,26 +388,44 @@
     pauseAdvance();
     if (phase !== 'solved' || $('modal').open || document.hidden) return;
     advanceTimers.push(later(() => $('game').classList.add('stage-out'), delay - 180));
-    advanceTimers.push(later(() => loadLevel(nextUncollected(mode, index), true, true), delay));
+    advanceTimers.push(later(() => {
+      const other = mode === 'ja' ? 'en' : 'ja';
+      if (!saved[other].stars[entry.id]) { mode = other; loadLevel(index, true, true); }
+      else {
+        const next = nextBilingualWord(index), word = catalog[next];
+        if (saved[mode].stars[word.id] && !saved[other].stars[word.id]) mode = other;
+        loadLevel(next, true, true);
+      }
+    }, delay));
   }
   function loadLevel(nextIndex, focusNext = false, keepPronunciation = false) {
+    const previousTier = entry?.tier;
     pauseAdvance(); generation++; clearPending(); cancelGesture();
     if (!keepPronunciation) speech.stop();
     sound.stop(); petals.clear();
     document.querySelectorAll('.flying-letter, .collected-word').forEach(el => el.remove());
     $('wordReward').hidden = true; $('collection').classList.remove('word-added');
     $('rewardScene').hidden = true; $('rewardScene').classList.remove('page-filled');
+    if ($('rewardScene').hidePopover && $('rewardScene').matches(':popover-open')) $('rewardScene').hidePopover();
+    $('rewardBackdrop').hidden = true;
+    $('rankUp').hidden = true;
     $('winPronunciation').hidden = true; $('winPronunciation').replaceChildren();
-    index = (nextIndex + catalog.length) % catalog.length; progress().index = index; persist();
-    entry = catalog[index]; answer = [...(mode === 'ja' ? entry.w : entry.en.toUpperCase())];
+    index = (nextIndex + catalog.length) % catalog.length; progress().index = index;
+    entry = catalog[index]; progress().wordId = entry.id; persist();
+    answer = [...(mode === 'ja' ? entry.w : entry.en.toUpperCase())];
     selected = []; hintCount = 0; mistakes = 0; shuffleBusy = false; phase = 'loading';
     $('game').dataset.state = phase; $('gameActions').hidden = false;
+    $('wheel').classList.remove('mistake'); $('answer').classList.remove('mistake');
     $('hint').disabled = false; $('shuffle').disabled = false; $('imageError').hidden = true;
     updateLabels(); updateProgress();
-    $('answer').className = `answer${answer.length > 7 ? ' long' : ''}`;
+    $('pictureCaption').textContent = mode === 'ja' ? entry.en : entry.ja;
+    $('pictureCaption').lang = mode === 'ja' ? 'en' : 'ja';
+    $('answer').className = `answer${answer.length > 10 ? ' extra-long' : answer.length > 7 ? ' long' : ''}`;
     $('answer').replaceChildren(...answer.map((_, i) => { const tile = document.createElement('span'); tile.className = 'answer-tile'; tile.style.setProperty('--i', i); return tile; }));
-    $('answerInfo').textContent = mode === 'ja' ? `ひらがな ${answer.length} 文字` : `${answer.length} LETTERS`;
+    const profile = difficulty.challenge(entry, mode);
+    $('answerInfo').textContent = mode === 'ja' ? `難度 ${profile.rank} · ${answer.length}文字 / ${profile.choices}択` : `LEVEL ${profile.rank} · ${answer.length} LETTERS / ${profile.choices} CHOICES`;
     makeWheel(); resetSelection(); setFeedback(text().release);
+    $('gestureNote').textContent = mode === 'ja' ? '途中で離すとキャンセル' : 'Release an unfinished word to cancel';
     const version = generation, image = $('clueImage');
     image.style.opacity = '0'; image.alt = mode === 'ja' ? '答えを考えるためのイラスト' : 'Picture clue. What does it show?';
     image.onload = () => {
@@ -373,7 +433,8 @@
       image.style.opacity = '1'; phase = 'playing'; $('game').dataset.state = phase;
       // Restart the picture entrance once the actual clue is ready.
       image.style.animation = 'none'; void image.offsetWidth; image.style.animation = '';
-      if (focusNext) nodes[0]?.button.focus({ preventScroll: true });
+      if (previousTier !== undefined && entry.tier > previousTier) showRankUp(profile);
+      if (focusNext && keyboardNavigation) nodes[0]?.button.focus({ preventScroll: true });
     };
     image.onerror = () => {
       if (version !== generation) return;
@@ -381,7 +442,16 @@
       $('hint').disabled = true; $('shuffle').disabled = true; setFeedback(text().error, 'wrong');
     };
     image.src = imgURL(entry);
-    const preload = new Image(); preload.src = imgURL(catalog[nextUncollected(mode, index)]);
+    const preload = new Image(); preload.src = imgURL(catalog[nextBilingualWord(index)]);
+  }
+
+  function showRankUp(profile) {
+    $('rankUpName').textContent = `${profile.code} · ${profile.name}`;
+    $('rankUpDetail').textContent = mode === 'ja' ? `難度 ${profile.rank}へ · ${profile.choices}択から見つけよう` : `Difficulty ${profile.rank} · ${profile.choices} letters to choose from`;
+    $('rankUpDiamonds').textContent = '◆'.repeat(profile.rank) + '◇'.repeat(difficulty.tiers.length - profile.rank);
+    $('rankUp').hidden = false;
+    const rect = $('pictureCard').getBoundingClientRect(); petals.burst(rect.left + rect.width / 2, rect.top + rect.height / 2, 35, true);
+    later(() => { $('rankUp').hidden = true; }, 1150);
   }
 
   function flyLetters() {
@@ -406,35 +476,45 @@
     if (word === answer.join('')) { win(); return; }
     const tooShort = selected.length < answer.length;
     if (!tooShort) mistakes++;
-    phase = 'checking'; sound.wrong();
+    phase = 'checking'; $('game').dataset.state = phase; sound.wrong(); vibrate([35, 30, 45]);
+    resetSelection();
     setFeedback(tooShort ? text().short : text().wrong, 'wrong');
-    $('answer').classList.remove('shake'); void $('answer').offsetWidth; $('answer').classList.add('shake');
-    later(() => { phase = 'playing'; $('answer').classList.remove('shake'); resetSelection(); setFeedback(text().release); }, 600);
+    for (const element of [$('answer'), $('wheel')]) {
+      element.classList.remove('mistake'); void element.offsetWidth; element.classList.add('mistake');
+    }
+    later(() => {
+      phase = 'playing'; $('game').dataset.state = phase;
+      $('answer').classList.remove('mistake'); $('wheel').classList.remove('mistake');
+      resetSelection(); setFeedback(text().release);
+    }, 480);
   }
   function win() {
+    $('rankUp').hidden = true;
     phase = 'solved'; $('game').dataset.state = phase; flyLetters(); sound.win(); vibrate([12, 35, 20]);
     const stars = Math.max(1, 3 - Math.min(2, hintCount + (mistakes > 0 ? 1 : 0)));
     const first = !progress().stars[entry.id];
     progress().stars[entry.id] = Math.max(progress().stars[entry.id] || 0, stars); persist();
     if (first) lastAcquired = { lang: mode, id: entry.id };
     updateAnswer();
-    const pronunciation = mode === 'ja' ? entry.en.toUpperCase() : `${entry.ja} · ${entry.w}`;
-    $('pictureCaption').textContent = pronunciation;
     $('answerInfo').textContent = `${'✦'.repeat(stars)}${'✧'.repeat(3 - stars)}  ${mode === 'ja' ? entry.ja : entry.en.toUpperCase()}`;
     const complete = collectedCount(mode) === catalog.length;
+    const both = !!saved.ja.stars[entry.id] && !!saved.en.stars[entry.id];
     setFeedback(first ? (complete ? `${bookName(mode)} ${mode === 'ja' ? 'コンプリート！' : 'complete!'}` : text().correct) : (mode === 'ja' ? '正解！ この単語は獲得済み' : 'Correct! Already collected.'), 'success');
-    $('gestureNote').textContent = first ? text().saved : text().replayed;
     $('pictureStamp').textContent = first ? 'WORD GET!' : 'GOT IT!';
-    $('rewardBadge').textContent = first ? (complete ? 'BOOK COMPLETE' : 'NEW WORD GET!') : (mode === 'ja' ? '獲得済み' : 'COLLECTED');
+    $('rewardBadge').textContent = both ? 'BILINGUAL CLEAR!' : first ? (complete ? 'BOOK COMPLETE' : 'NEW WORD GET!') : (mode === 'ja' ? '獲得済み' : 'COLLECTED');
+    $('rewardScene').classList.toggle('bilingual-clear', both);
+    $('rewardScene').style.setProperty('--rarity', difficulty.tiers[entry.tier].color);
+    $('rewardScene').dataset.rarity = difficulty.tiers[entry.tier].key;
     $('rewardWord').textContent = mode === 'ja' ? entry.ja : entry.en.toUpperCase();
     $('rewardReading').textContent = mode === 'ja' ? entry.w : entry.ja;
     $('rewardBookName').textContent = bookName(mode);
     $('rewardArt').src = imgURL(entry);
-    $('rewardPageNumber').textContent = `PAGE ${String(index + 1).padStart(3, '0')}`;
+    $('rewardPageNumber').textContent = `${difficulty.tiers[entry.tier].code} · PAGE ${String(index + 1).padStart(3, '0')}`;
     $('rewardBefore').textContent = String(collectedCount(mode) - (first ? 1 : 0));
     $('rewardAfter').textContent = String(collectedCount(mode));
-    $('rewardProgress').textContent = mode === 'ja' ? (first ? '新しいページが埋まった！' : 'このページは登録済み') : (first ? 'A new page filled!' : 'Already in your book');
-    $('rewardSeal').textContent = mode === 'ja' ? (first ? '登録！' : '正解！') : (first ? 'ADDED!' : 'GOT IT!');
+    $('rewardTotal').textContent = ` / ${catalog.length}`;
+    $('rewardProgress').textContent = `${difficulty.tiers[entry.tier].name}\n${mode === 'ja' ? (first ? '新しいページが埋まった！' : 'このページは登録済み') : (first ? 'A new page filled!' : 'Already in your book')}`;
+    $('rewardSeal').textContent = both ? 'JA + EN' : mode === 'ja' ? (first ? '登録！' : '正解！') : (first ? 'ADDED!' : 'GOT IT!');
     $('advanceLabel').textContent = mode === 'ja' ? '次の問題へ →' : 'Next picture →';
     $('rewardShelf').replaceChildren(...catalog.filter(word => word.id !== entry.id && progress().stars[word.id]).slice(-3).map(word => {
       const image = document.createElement('img'); image.src = imgURL(word); image.alt = ''; return image;
@@ -443,9 +523,11 @@
     $('wordReward').setAttribute('aria-label', `${bookName(mode)} ${mode === 'ja' ? 'を開く' : '— open'}`);
     $('wordReward').hidden = false;
     $('rewardScene').hidden = false;
+    $('rewardScene').showPopover?.();
+    $('rewardBackdrop').hidden = false;
     $('hint').disabled = true; $('shuffle').disabled = true;
     $('centerLabel').textContent = 'bloom!';
-    const rect = $('pictureCard').getBoundingClientRect(); petals.burst(rect.left + rect.width / 2, rect.top + rect.height / 2, 90, true);
+    const rect = $('wordReward').getBoundingClientRect(); petals.burst(rect.left + rect.width / 2, rect.top + rect.height / 2, 140, true);
     later(() => { $('rewardScene').classList.add('page-filled'); updateProgress(); }, 760);
     if (first) later(animateAcquisition, 850);
     $('winPronunciation').replaceChildren(pronunciationPanel(entry, mode)); $('winPronunciation').hidden = false;
@@ -475,12 +557,12 @@
   }
   function hitRadius(node) { return Math.min(39, node.button.offsetWidth / (wheelRect.width / 360) / 2 + 5); }
   function nearest(point) {
-    return nodes.map(node => ({ node, distance: Math.hypot(node.x - point.x, node.y - point.y) }))
+    return nodes.filter(node => !node.button.hidden && canSelectRing(node, selected, ringBatches)).map(node => ({ node, distance: Math.hypot(node.x - point.x, node.y - point.y) }))
       .filter(hit => hit.distance <= hitRadius(hit.node)).sort((a, b) => a.distance - b.distance)[0]?.node;
   }
   // Swept-segment intersection keeps fast swipes from skipping a letter between events.
   function sweep(from, to) {
-    for (const id of sweptHits(nodes, from, to, hitRadius)) selectNode(id);
+    for (const id of sweptHits(nodes.filter(node => !node.button.hidden), from, to, hitRadius)) selectNode(id);
   }
   function cancelGesture() {
     if (pointer && $('wheel').hasPointerCapture?.(pointer.id)) $('wheel').releasePointerCapture(pointer.id);
@@ -510,10 +592,10 @@
   $('wheel').addEventListener('pointerup', event => {
     if (!pointer || event.pointerId !== pointer.id) return;
     const end = pointFrom(event); sweep(pointer.last, end);
-    const moved = pointer.moved;
     if ($('wheel').hasPointerCapture(event.pointerId)) $('wheel').releasePointerCapture(event.pointerId);
     $('wheel').classList.remove('dragging'); drawTrail();
-    if (moved || selected.length >= answer.length) checkAnswer(); else setFeedback(text().tap);
+    if (selected.length >= answer.length) checkAnswer();
+    else { resetSelection(); setFeedback(text().release); }
     pointer = null; wheelRect = null;
   });
   $('wheel').addEventListener('pointercancel', event => { if (pointer?.id === event.pointerId) cancelGesture(); });
@@ -542,7 +624,7 @@
   $('hint').addEventListener('click', () => {
     if (phase !== 'playing' || shuffleBusy) return;
     cancelGesture(); sound.unlock(); sound.hint(); hintCount = Math.min(answer.length, hintCount + 1); updateAnswer();
-    const target = nodes.find(node => node.char === answer[hintCount - 1]);
+    const target = nodes.find(node => node.answerIndex === hintCount - 1);
     if (target) { target.button.classList.remove('hint-target'); void target.button.offsetWidth; target.button.classList.add('hint-target'); }
     setFeedback(hintCount === answer.length ? text().allHinted : mode === 'ja' ? `${hintCount}文字めは「${answer[hintCount - 1]}」` : `Letter ${hintCount} is ${answer[hintCount - 1]}`, '', true);
     if (hintCount === answer.length) $('hint').disabled = true;
@@ -553,7 +635,7 @@
   });
   document.querySelectorAll('[data-mode]').forEach(button => button.addEventListener('click', () => {
     if (mode === button.dataset.mode) return;
-    mode = button.dataset.mode; loadLevel(saved[mode].index);
+    mode = button.dataset.mode; loadLevel(index);
   }));
   $('retryImage').addEventListener('click', () => loadLevel(index));
   $('skipImage').addEventListener('click', () => loadLevel(index + 1));
@@ -570,14 +652,14 @@
   $('help').addEventListener('click', () => {
     const steps = mode === 'ja' ? [
       'イラストを見て、ことばを思い浮かべます。日本語はひらがな、英語はアルファベットで答えます。',
-      '文字から文字へ、指をはなさずになぞります。最後の文字で指をはなすと答え合わせ。',
+      '文字から文字へ、指をはなさずになぞります。最後までつないで離すと答え合わせ。途中で離すと選択を取り消します。',
       '正解すると発音とともに図鑑の1ページが埋まり、自動で次の問題へ。獲得したページは下の辞書から開いて、何度でも発音を聞き直せます。',
     ] : [
       'Look at the picture and find its word. Choose Japanese for hiragana, or English for the alphabet.',
-      'Swipe from letter to letter, then lift your finger to check. You can also tap the letters one at a time.',
+      'Swipe through the entire word and release to check. Releasing an unfinished word cancels the selection.',
       'Get it right, hear the word, and watch a dictionary page fill in. The next puzzle starts automatically. Open your dictionaries below to listen again.',
     ];
-    const note = mode === 'ja' ? '前の文字へ戻ると取り消し。同じ文字は別々の丸を使います。ヒントは何度でも無料で、使っても単語を獲得できます。キーボードは Tab / Enter / Backspace。獲得済みの語は重複せず、ベストの星を保存します。' : 'Trace back to undo. Repeated letters use separate circles. Hints are free and still let you collect the word. Keyboard: Tab / Enter / Backspace. Replays improve your best stars without adding duplicate entries.';
+    const note = mode === 'ja' ? '選んだ文字を横切っても取り消されません。同じ文字は別々の丸を使います。外側の文字も最初から選べます。一文字戻すときは中央の矢印、または Backspace。ヒントを使っても単語を獲得できます。キーボードは Tab / Enter / Backspace。' : 'Crossing selected letters keeps your word intact. Repeated letters use separate circles. Outer letters are available from the start. Use the center arrow or Backspace to undo a letter. Hints still let you collect the word. Keyboard: Tab / Enter / Backspace.';
     openModal(text().help, `<div class="help-steps">${steps.map((line, i) => `<div class="help-step"><b>${i + 1}</b><p>${line}</p></div>`).join('')}</div><p class="help-note">${note}</p><button class="modal-primary" id="startPlaying" type="button">${mode === 'ja' ? 'ことばを咲かせよう' : 'Let it bloom'}</button>`);
     $('startPlaying').addEventListener('click', () => $('modal').close());
   });
@@ -585,10 +667,16 @@
     const container = document.createElement('div'), intro = document.createElement('p'), grid = document.createElement('div');
     intro.className = 'modal-copy'; intro.textContent = text().levels; grid.className = 'level-grid'; container.append(intro, grid);
     catalog.forEach((word, i) => {
+      const profile = difficulty.challenge(word, mode);
+      if (i % 10 === 0) {
+        const heading = document.createElement('h3'); heading.className = 'stage-rank-heading'; heading.style.setProperty('--rarity', profile.color);
+        heading.innerHTML = `<b>${profile.code} · ${profile.name}</b><span>${mode === 'ja' ? `難度 ${profile.rank} · ${profile.ja}` : `Difficulty ${profile.rank} · ${profile.en}`}</span>`; grid.append(heading);
+      }
       const button = document.createElement('button'); button.type = 'button';
       button.className = `level-cell${i === index ? ' current' : ''}${progress().stars[word.id] ? ' done' : ''}`;
+      button.style.setProperty('--rarity', profile.color);
       button.textContent = String(i + 1).padStart(2, '0'); button.dataset.level = String(i);
-      button.setAttribute('aria-label', `${mode === 'ja' ? 'ステージ' : 'Puzzle'} ${i + 1}`);
+      button.setAttribute('aria-label', `${mode === 'ja' ? 'ステージ' : 'Puzzle'} ${i + 1} · ${profile.name}`);
       if (progress().stars[word.id]) { const score = document.createElement('small'); score.textContent = '✦'.repeat(progress().stars[word.id]); button.append(score); }
       button.addEventListener('click', () => { $('modal').close(); loadLevel(i); }); grid.append(button);
     });
@@ -634,6 +722,7 @@
       const owned = !!saved[lang].stars[word.id];
       if ((dictionaryFilter === 'owned' && !owned) || (dictionaryFilter === 'missing' && owned)) continue;
       const card = document.createElement('button'); card.type = 'button'; card.className = `dictionary-card ${owned ? 'owned' : 'missing'}`; card.dataset.wordId = word.id;
+      const rarity = difficulty.tiers[word.tier]; card.dataset.rarity = rarity.key; card.style.setProperty('--rarity', rarity.color);
       const number = document.createElement('span'); number.className = 'dictionary-number'; number.textContent = `NO. ${String(wordIndex + 1).padStart(3, '0')}`;
       const title = document.createElement('strong'), subtitle = document.createElement('small');
       card.append(number);
@@ -650,7 +739,8 @@
         card.setAttribute('aria-label', mode === 'ja' ? `未獲得 No.${String(wordIndex + 1).padStart(3, '0')} に挑戦` : `Discover missing word ${wordIndex + 1}`);
         card.addEventListener('click', () => beginDictionaryPuzzle(lang, wordIndex));
       }
-      card.append(title, subtitle); grid.append(card);
+      const rarityTag = document.createElement('span'); rarityTag.className = 'dictionary-rarity'; rarityTag.textContent = `${rarity.code} · ${rarity.name}`;
+      card.append(title, subtitle, rarityTag); grid.append(card);
     }
     container.append(tabs, summary, meter, caption, filters, grid);
     if (!grid.childElementCount) { const empty = document.createElement('p'); empty.className = 'dictionary-empty'; empty.textContent = mode === 'ja' ? (dictionaryFilter === 'owned' ? '最初の正解で、最初の1ページをゲット。' : '未獲得のページはありません。辞書コンプリート！') : (dictionaryFilter === 'owned' ? 'Your first correct answer will unlock your first page.' : 'No missing pages. Dictionary complete!'); container.append(empty); }
@@ -665,6 +755,8 @@
     back.addEventListener('click', () => { renderDictionary(); $('modalBody').querySelector(`[data-word-id="${word.id}"]`)?.focus(); });
     const image = document.createElement('img'); image.src = imgURL(word); image.alt = word.ja;
     const heading = document.createElement('h3'); heading.textContent = lang === 'ja' ? word.ja : word.en;
+    const profile = difficulty.challenge(word, lang), rarity = document.createElement('p'); rarity.className = 'entry-rarity'; rarity.style.setProperty('--rarity', profile.color);
+    rarity.textContent = `${profile.code} · ${profile.name} · ${mode === 'ja' ? '難度' : 'DIFFICULTY'} ${profile.rank} / ${difficulty.tiers.length}`;
     const reading = document.createElement('p'); reading.className = 'entry-reading'; reading.textContent = lang === 'ja' ? word.w : `${word.ja} · ${word.w}`;
     const translation = document.createElement('p'); translation.className = 'entry-translation'; translation.textContent = lang === 'ja' ? `ENGLISH · ${word.en}` : `JAPANESE · ${word.w}`;
     const badges = document.createElement('div'); badges.className = 'entry-books';
@@ -677,14 +769,16 @@
     const challenge = document.createElement('button'); challenge.type = 'button'; challenge.className = 'modal-primary';
     challenge.textContent = challengeLang === lang ? (mode === 'ja' ? 'もう一度、この単語で遊ぶ' : 'Play this word again') : mode === 'ja' ? `${other === 'ja' ? '日本語' : '英語'}でもゲットする` : `Collect it in ${other === 'ja' ? 'Japanese' : 'English'}`;
     challenge.addEventListener('click', () => beginDictionaryPuzzle(challengeLang, wordIndex));
-    container.append(back, image, heading, reading, translation, pronunciationPanel(word, lang), best, badges, challenge);
+    container.append(back, image, heading, rarity, reading, translation, pronunciationPanel(word, lang), best, badges, challenge);
     openModal(bookName(lang), container); back.focus({ preventScroll: true });
   }
   document.addEventListener('keydown', event => {
+    if (event.key === 'Tab') keyboardNavigation = true;
     if ($('modal').open || event.ctrlKey || event.metaKey || event.altKey) return;
     if (event.key === 'Backspace' && phase === 'playing') { event.preventDefault(); $('undo').click(); }
     if (event.key === 'Escape' && phase === 'playing') { cancelGesture(); resetSelection(); }
   });
+  document.addEventListener('pointerdown', () => { keyboardNavigation = false; }, { passive: true });
   if (catalog.length) loadLevel(index);
   else { $('game').dataset.state = 'error'; setFeedback('出題データを読み込めませんでした。ページを再読み込みしてください。', 'wrong'); }
 })();

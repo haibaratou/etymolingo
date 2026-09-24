@@ -30,6 +30,16 @@ CHOICES = [
     ('ひこうき', 'plane'), ('じてんしゃ', 'bicycle'), ('ばす', 'bus'),
     ('ぴあの', 'piano'), ('ぎたー', 'guitar'), ('きのこ', 'mushroom'),
     ('かぼちゃ', 'pumpkin'), ('にんにく', 'garlic'), ('すいか', 'watermelon'),
+    ('おんどけい', 'thermometer'), ('れいぞうこ', 'refrigerator'),
+    ('せいざ', 'constellation'), ('そうぞうりょく', 'imagination'),
+    ('てつがく', 'philosophy'), ('どくりつ', 'independence'),
+    ('へんよう', 'transformation'), ('むじゅん', 'contradiction'),
+    ('へりこぷたー', 'helicopter'), ('せんすいかん', 'submarine'),
+    ('かんげんがくだん', 'orchestra'), ('まんじょういっち', 'unanimity'),
+    ('ぜんだいみもん', 'unprecedented'), ('そうかんかんけい', 'correlation'),
+    ('かがくぎじゅつ', 'technology'), ('こうせいぶっしつ', 'antibiotic'),
+    ('しゃしんさつえい', 'photography'), ('おうだんほどう', 'crosswalk'),
+    ('しぜんかんきょう', 'environment'), ('みんしゅしゅぎ', 'democracy'),
 ]
 
 
@@ -45,10 +55,12 @@ def main():
     # Check spelling and case on case-insensitive hosts as well.
     filenames = {path.name for path in (ROOT / 'assets/word').glob('*.png')}
     selected = []
-    for reading, picture in CHOICES:
+    for index, (reading, picture) in enumerate(CHOICES):
         row = lookup[(reading, picture)]
         assert picture + '.png' in filenames, f'Missing exact image filename: {picture}'
-        selected.append({**row, 'en': picture, 'id': picture})
+        word = {**row, 'en': picture, 'id': picture}
+        if index >= 60: word['challengeBand'] = 1 if index < 70 else 2
+        selected.append(word)
     text = '// Curated from generated-etymon/word-suika-ja.json; retain exact w, ja, and pic.\n'
     text += 'window.PICTURE_WORDS_CATALOG = ' + json.dumps(selected, ensure_ascii=False, indent=2) + ';\n'
     (HERE / 'catalog.js').write_text(text, encoding='utf-8')

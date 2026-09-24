@@ -7,11 +7,12 @@
   <meta name="description" content="一枚の絵から、ことばが咲く。日本語と英語で遊べる、なぞってつなぐイラストパズル。">
   <title>WORD BLOOM — ことばの庭</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%232c5146'/%3E%3Cg fill='%23f4bf9f'%3E%3Cellipse cx='32' cy='22' rx='8' ry='13'/%3E%3Cellipse cx='32' cy='42' rx='8' ry='13'/%3E%3Cellipse cx='22' cy='32' rx='13' ry='8'/%3E%3Cellipse cx='42' cy='32' rx='13' ry='8'/%3E%3C/g%3E%3Ccircle cx='32' cy='32' r='6' fill='%23f8edbc'/%3E%3C/svg%3E">
-  <link rel="stylesheet" href="picture-words/style.css?v=book2">
-  <script src="picture-words/catalog.js" defer></script>
-  <script src="picture-words/gesture.js" defer></script>
-  <script src="picture-words/pronunciation.js?v=voice1" defer></script>
-  <script src="picture-words/game.js?v=book3" defer></script>
+  <link rel="stylesheet" href="picture-words/style.css?v=dual8">
+  <script src="picture-words/catalog.js?v=dual8" defer></script>
+  <script src="picture-words/difficulty.js?v=dual8" defer></script>
+  <script src="picture-words/gesture.js?v=dual8" defer></script>
+  <script src="picture-words/pronunciation.js?v=dual8" defer></script>
+  <script src="picture-words/game.js?v=dual8" defer></script>
 </head>
 <body>
   <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -36,10 +37,6 @@
         <span><b>WORD BLOOM<span class="brand-dot">.</span></b><small>ことばの庭</small></span>
       </a>
       <nav class="header-actions" aria-label="ゲーム設定">
-        <div class="language-switch" role="group" aria-label="答える言語">
-          <button id="modeJa" type="button" data-mode="ja" aria-pressed="true">日本語</button>
-          <button id="modeEn" type="button" data-mode="en" aria-label="ENGLISH" aria-pressed="false"><span class="language-full">ENGLISH</span><span class="language-short" aria-hidden="true">EN</span></button>
-        </div>
         <button class="icon-button sound-button" id="sound" type="button" aria-label="音声と効果音をオフ" aria-pressed="true"><svg><use href="#i-sound"/></svg></button>
         <button class="icon-button" id="help" type="button" aria-label="遊び方"><svg><use href="#i-help"/></svg></button>
       </nav>
@@ -48,64 +45,74 @@
     <main id="game" class="game-shell" data-state="loading">
       <section class="chapter-bar" aria-label="進行状況">
         <div class="chapter-heading"><span class="eyebrow" id="chapterNumber">GARDEN 01</span><h1 id="chapterName">はじまりの庭</h1></div>
-        <button id="levels" class="level-pill" type="button" aria-label="ステージを選ぶ"><span class="level-dot"></span><span id="levelText">01 / 60</span><span class="chevron">⌄</span></button>
+        <button id="levels" class="level-pill" type="button" aria-label="ステージを選ぶ"><span class="level-dot"></span><span id="levelText">01 / 80</span><span class="chevron">⌄</span></button>
         <div class="chapter-progress" id="progress" aria-label="庭の進み具合"></div>
         <div class="discovery-count"><svg><use href="#i-flower"/></svg><b id="foundCount">0</b><span id="foundLabel">ことば発見</span></div>
       </section>
 
       <div class="play-layout">
         <section class="clue-section" aria-labelledby="clueHeading">
-          <div class="section-kicker"><span class="tiny-line"></span><span id="clueKicker">A LITTLE PICTURE, A LITTLE WONDER</span></div>
-          <h2 id="clueHeading">この絵、なんのことば？</h2>
+          <h2 id="clueHeading" hidden>この絵、なんのことば？</h2>
           <div class="picture-card" id="pictureCard">
             <span class="paper-tape" aria-hidden="true"></span>
-            <div class="picture-meta"><span id="pictureNumber">NO. 001</span><svg><use href="#i-flower"/></svg></div>
+            <div class="picture-meta"><span id="pictureNumber">NO. 001</span><span id="rarityBadge" class="rarity-badge">C · COMMON</span></div>
             <div class="picture-stage">
               <div class="picture-halo" aria-hidden="true"></div>
               <span class="picture-spark spark-one" aria-hidden="true">✧</span><span class="picture-spark spark-two" aria-hidden="true">✦</span>
               <img id="clueImage" alt="答えを考えるためのイラスト" draggable="false" width="512" height="512">
               <div class="image-error" id="imageError" hidden><p id="imageErrorText">イラストを読み込めませんでした</p><button id="retryImage" type="button">もう一度読み込む</button><button id="skipImage" type="button">次の絵へ</button></div>
             </div>
-            <div class="picture-caption"><span class="caption-rule"></span><span id="pictureCaption">ひとつの絵から、ことばが咲く。</span><span class="caption-rule"></span></div>
+            <div class="picture-caption"><span id="pictureCaption"></span></div>
             <span class="picture-stamp" id="pictureStamp" aria-hidden="true">WORD GET!</span>
+            <div id="rankUp" class="rank-up" role="status" hidden><small>DIFFICULTY UP</small><strong id="rankUpName"></strong><span id="rankUpDetail"></span><span id="rankUpDiamonds" aria-hidden="true"></span></div>
+
           </div>
           <div class="answer-wrap">
+            <div class="bilingual-control">
+              <div class="language-switch puzzle-language" role="group" aria-label="この問題を答える言語">
+                <button id="modeJa" type="button" data-mode="ja" aria-label="日本語" aria-pressed="true"><span>日本語</span><small id="jaClearMark"></small></button>
+                <span class="language-bridge" aria-hidden="true">⇄</span>
+                <button id="modeEn" type="button" data-mode="en" aria-label="ENGLISH" aria-pressed="false"><span>ENGLISH</span><small id="enClearMark"></small></button>
+              </div>
+            </div>
             <div class="answer" id="answer" aria-label="答えのマス"></div>
-            <div class="answer-info"><span id="answerInfo">ひらがな 3 文字</span><span class="answer-dots" aria-hidden="true">· · ·</span></div>
+            <div class="answer-info" hidden><span id="answerInfo"></span></div>
           </div>
         </section>
 
         <section class="interaction-section" aria-label="文字をつなぐ">
-          <div class="wheel-intro"><span class="eyebrow" id="connectLabel">LET IT BLOOM</span><p id="instruction">文字をなぞって、つなげよう</p></div>
+          <div class="wheel-intro" hidden><span class="eyebrow" id="connectLabel"></span><p id="instruction"></p></div>
           <div class="wheel" id="wheel" role="group" aria-label="なぞって答える文字盤">
+            <div id="ringGuide" class="ring-guide" aria-live="polite" hidden></div>
             <div class="wheel-orbit orbit-one" aria-hidden="true"></div><div class="wheel-orbit orbit-two" aria-hidden="true"></div>
             <span class="orbit-spark" aria-hidden="true">✦</span>
             <svg class="trail" id="trail" viewBox="0 0 360 360" aria-hidden="true"><defs><filter id="trail-glow"><feGaussianBlur stdDeviation="4"/></filter></defs><polyline id="trailGlow" class="trail-glow"/><polyline id="trailLine"/><circle id="trailTip" r="6" cx="180" cy="180"/></svg>
             <div class="letters" id="letters"></div>
             <button id="undo" class="wheel-center" type="button" aria-label="一文字もどす"><svg class="center-flower"><use href="#i-flower"/></svg><svg class="center-undo"><use href="#i-undo"/></svg><span id="centerLabel">つなぐ</span></button>
-            <div class="reward-scene" id="rewardScene" hidden>
+          </div>
+          <div class="feedback" id="feedback" role="status" aria-live="polite"></div>
+          <div class="game-actions" id="gameActions">
+            <button id="shuffle" class="action-button" type="button"><svg><use href="#i-shuffle"/></svg><span id="shuffleLabel">まぜる</span></button>
+            <button id="hint" class="action-button hint-button" type="button"><svg><use href="#i-bulb"/></svg><span id="hintLabel">ひと文字ヒント</span><span class="free-tag" id="freeTag">FREE</span></button>
+          </div>
+          <p class="gesture-note" id="gestureNote" hidden></p>
+        </section>
+      </div>
+
+      <footer class="garden-footer"><div><svg><use href="#i-leaf"/></svg><span id="footerNote">正解するたび、辞書が育つ。</span></div><button id="collection" type="button"><svg><use href="#i-book"/></svg><span id="collectionLabel">日本語・英語の辞書</span><span id="collectionCount">0 / 160</span><span aria-hidden="true">↗</span></button></footer>
+    </main>
+    <div class="page-footnote"><span>PICTURE × LETTERS × A LITTLE JOY</span><span>made for curious minds</span></div>
+  </div>
+  <div id="rewardBackdrop" class="reward-backdrop" hidden aria-hidden="true"></div>
+  <div class="reward-scene" id="rewardScene" popover="manual" hidden>
               <span id="rewardBadge" class="reward-badge">NEW WORD GET!</span>
               <button class="word-reward" id="wordReward" type="button" hidden>
-                <span class="book-left"><span id="rewardBookName" class="book-name"></span><span id="rewardShelf" class="book-shelf"></span><span class="book-count"><small id="rewardBefore"></small><strong id="rewardAfter"></strong><small> / 60</small></span><span id="rewardProgress" class="book-progress"></span></span>
+                <span class="book-left"><span id="rewardBookName" class="book-name"></span><span id="rewardShelf" class="book-shelf"></span><span class="book-count"><small id="rewardBefore"></small><strong id="rewardAfter"></strong><small id="rewardTotal"> / 80</small></span><span id="rewardProgress" class="book-progress"></span></span>
                 <span class="book-right"><span class="book-page-number" id="rewardPageNumber"></span><span class="book-placeholder" aria-hidden="true">?</span><img id="rewardArt" class="book-word-art" alt="" width="120" height="120"><strong id="rewardWord" class="book-word"></strong><small id="rewardReading" class="book-reading"></small><span id="rewardSeal" class="book-seal"></span></span>
               </button>
               <div id="winPronunciation" class="win-pronunciation" hidden></div>
               <span id="advanceLabel" class="advance-label">次の問題へ <span aria-hidden="true">→</span></span>
             </div>
-          </div>
-          <div class="feedback" id="feedback" role="status" aria-live="polite">指をはなすと答え合わせ</div>
-          <div class="game-actions" id="gameActions">
-            <button id="shuffle" class="action-button" type="button"><svg><use href="#i-shuffle"/></svg><span id="shuffleLabel">まぜる</span></button>
-            <button id="hint" class="action-button hint-button" type="button"><svg><use href="#i-bulb"/></svg><span id="hintLabel">ひと文字ヒント</span><span class="free-tag" id="freeTag">FREE</span></button>
-          </div>
-          <p class="gesture-note" id="gestureNote">もどって取り消し。タップでも遊べます。</p>
-        </section>
-      </div>
-
-      <footer class="garden-footer"><div><svg><use href="#i-leaf"/></svg><span id="footerNote">正解するたび、辞書が育つ。</span></div><button id="collection" type="button"><svg><use href="#i-book"/></svg><span id="collectionLabel">日本語・英語の辞書</span><span id="collectionCount">0 / 120</span><span aria-hidden="true">↗</span></button></footer>
-    </main>
-    <div class="page-footnote"><span>PICTURE × LETTERS × A LITTLE JOY</span><span>made for curious minds</span></div>
-  </div>
   <canvas id="particles" aria-hidden="true"></canvas>
   <dialog id="modal" aria-labelledby="modalTitle">
     <div class="modal-top"><span class="eyebrow" id="modalEyebrow">WORD BLOOM</span><button id="closeModal" class="icon-button" type="button" aria-label="閉じる"><svg><use href="#i-close"/></svg></button></div>

@@ -419,5 +419,165 @@ window.PICTURE_WORDS_CATALOG = [
     "pic": "watermelon",
     "en": "watermelon",
     "id": "watermelon"
+  },
+  {
+    "w": "おんどけい",
+    "ja": "温度計",
+    "pic": "thermometer",
+    "en": "thermometer",
+    "id": "thermometer",
+    "challengeBand": 1
+  },
+  {
+    "w": "れいぞうこ",
+    "ja": "冷蔵庫",
+    "pic": "refrigerator",
+    "en": "refrigerator",
+    "id": "refrigerator",
+    "challengeBand": 1
+  },
+  {
+    "w": "せいざ",
+    "ja": "星座",
+    "pic": "constellation",
+    "en": "constellation",
+    "id": "constellation",
+    "challengeBand": 1
+  },
+  {
+    "w": "そうぞうりょく",
+    "ja": "想像力",
+    "pic": "imagination",
+    "en": "imagination",
+    "id": "imagination",
+    "challengeBand": 1
+  },
+  {
+    "w": "てつがく",
+    "ja": "哲学",
+    "pic": "philosophy",
+    "en": "philosophy",
+    "id": "philosophy",
+    "challengeBand": 1
+  },
+  {
+    "w": "どくりつ",
+    "ja": "独立",
+    "pic": "independence",
+    "en": "independence",
+    "id": "independence",
+    "challengeBand": 1
+  },
+  {
+    "w": "へんよう",
+    "ja": "変容",
+    "pic": "transformation",
+    "en": "transformation",
+    "id": "transformation",
+    "challengeBand": 1
+  },
+  {
+    "w": "むじゅん",
+    "ja": "矛盾",
+    "pic": "contradiction",
+    "en": "contradiction",
+    "id": "contradiction",
+    "challengeBand": 1
+  },
+  {
+    "w": "へりこぷたー",
+    "ja": "ヘリコプター",
+    "pic": "helicopter",
+    "en": "helicopter",
+    "id": "helicopter",
+    "challengeBand": 1
+  },
+  {
+    "w": "せんすいかん",
+    "ja": "潜水艦",
+    "pic": "submarine",
+    "en": "submarine",
+    "id": "submarine",
+    "challengeBand": 1
+  },
+  {
+    "w": "かんげんがくだん",
+    "ja": "管弦楽団",
+    "pic": "orchestra",
+    "en": "orchestra",
+    "id": "orchestra",
+    "challengeBand": 2
+  },
+  {
+    "w": "まんじょういっち",
+    "ja": "満場一致",
+    "pic": "unanimity",
+    "en": "unanimity",
+    "id": "unanimity",
+    "challengeBand": 2
+  },
+  {
+    "w": "ぜんだいみもん",
+    "ja": "前代未聞",
+    "pic": "unprecedented",
+    "en": "unprecedented",
+    "id": "unprecedented",
+    "challengeBand": 2
+  },
+  {
+    "w": "そうかんかんけい",
+    "ja": "相関関係",
+    "pic": "correlation",
+    "en": "correlation",
+    "id": "correlation",
+    "challengeBand": 2
+  },
+  {
+    "w": "かがくぎじゅつ",
+    "ja": "科学技術",
+    "pic": "technology",
+    "en": "technology",
+    "id": "technology",
+    "challengeBand": 2
+  },
+  {
+    "w": "こうせいぶっしつ",
+    "ja": "抗生物質",
+    "pic": "antibiotic",
+    "en": "antibiotic",
+    "id": "antibiotic",
+    "challengeBand": 2
+  },
+  {
+    "w": "しゃしんさつえい",
+    "ja": "写真撮影",
+    "pic": "photography",
+    "en": "photography",
+    "id": "photography",
+    "challengeBand": 2
+  },
+  {
+    "w": "おうだんほどう",
+    "ja": "横断歩道",
+    "pic": "crosswalk",
+    "en": "crosswalk",
+    "id": "crosswalk",
+    "challengeBand": 2
+  },
+  {
+    "w": "しぜんかんきょう",
+    "ja": "自然環境",
+    "pic": "environment",
+    "en": "environment",
+    "id": "environment",
+    "challengeBand": 2
+  },
+  {
+    "w": "みんしゅしゅぎ",
+    "ja": "民主主義",
+    "pic": "democracy",
+    "en": "democracy",
+    "id": "democracy",
+    "challengeBand": 2
   }
 ];

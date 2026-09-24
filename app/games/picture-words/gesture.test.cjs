@@ -8,13 +8,13 @@ test('a sparse pointer segment picks up every crossed letter in travel order', (
   assert.deepEqual(sweptHits(nodes, { x: 210, y: 0 }, { x: -30, y: 0 }, () => 25), [2, 1, 0]);
 });
 
-test('sweeping backwards unwinds several letters without resubmitting', () => {
+test('crossing selected letters in either direction never cancels the swipe', () => {
   const nodes = [0, 1, 2, 3].map(id => ({ id, x: id * 90, y: 0 }));
   let path = [0, 1, 2, 3];
   for (const id of sweptHits(nodes, { x: 270, y: 0 }, { x: 0, y: 0 }, () => 25)) path = advanceSelection(path, id, 4);
-  assert.deepEqual(path, [0]);
+  assert.deepEqual(path, [0, 1, 2, 3]);
   path = advanceSelection(path, 2, 4);
-  assert.deepEqual(path, [0, 2]);
+  assert.deepEqual(path, [0, 1, 2, 3]);
 });
 
 test('two identical letters have distinct physical identities', () => {
@@ -22,14 +22,14 @@ test('two identical letters have distinct physical identities', () => {
   let path = [];
   for (const id of [0, 1, 2, 2, 3, 4, 5]) path = advanceSelection(path, id, 6);
   assert.equal(path.map(id => letters[id]).join(''), 'RABBIT');
-  assert.deepEqual(advanceSelection(path, 2, 6), [0, 1, 2]);
+  assert.equal(advanceSelection(path, 2, 6), path);
 });
 
 test('the last letter can be held without repeating it and the answer cannot overflow', () => {
   const path = [0, 1, 2];
   assert.equal(advanceSelection(path, 2, 3), path);
   assert.equal(advanceSelection(path, 3, 3), path);
-  assert.deepEqual(advanceSelection(path, 1, 3), [0, 1]);
+  assert.equal(advanceSelection(path, 1, 3), path);
 });
 
 test('stationary and near-miss events do not invent hits', () => {
