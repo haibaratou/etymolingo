@@ -14,7 +14,7 @@
       title: 'この絵、なんのことば？', instruction: '文字をなぞって、つなげよう',
       release: '', note: '途中で離すとキャンセル',
       shuffle: 'まぜる', hint: 'ひと文字ヒント', next: '次の単語をゲット', footer: '正解するたび、辞書が育つ。',
-      collection: '日本語・英語の辞書', found: '単語ゲット', reveal: '答えを開示', hiddenAnswers: (ja, en) => `日本語 ${ja}文字　·　ENGLISH ${en}文字`, shownAnswers: (ja, en) => `${ja}　·　${en}`,
+      collection: '日本語・英語の辞書', found: '単語ゲット', reveal: '答えを開示', shownAnswers: (ja, en) => `日本語 · ${ja}　/　ENGLISH · ${en}`,
       connect: 'つなぐ', undo: 'もどす', correct: '単語ゲット！', wrong: 'おしい！ もう一度つないでみよう',
       short: '最後の文字まで、つないでみよう', mix: '新しい並びで、ひらめこう',
       tap: '', soundOff: '音声と効果音をオフ', soundOn: '音声と効果音をオン',
@@ -29,7 +29,7 @@
       title: 'One picture. Which word?', instruction: 'Swipe the letters. Find the word.',
       release: '', note: 'Release an unfinished word to cancel',
       shuffle: 'Shuffle', hint: 'Reveal a letter', next: 'Collect the next word', footer: 'Every word fills another page.',
-      collection: 'Your dictionaries', found: 'words collected', reveal: 'Reveal answers', hiddenAnswers: (ja, en) => `JAPANESE ${ja} letters · ENGLISH ${en} letters`, shownAnswers: (ja, en) => `${ja} · ${en}`,
+      collection: 'Your dictionaries', found: 'words collected', reveal: 'Reveal answers', shownAnswers: (ja, en) => `JAPANESE · ${ja}  /  ENGLISH · ${en}`,
       connect: 'connect', undo: 'undo', correct: 'WORD GET!', wrong: 'Almost! Give it another go.',
       short: 'Keep going to the last letter', mix: 'A fresh arrangement. A fresh idea.',
       tap: '', soundOff: 'Turn sound and voice off', soundOn: 'Turn sound and voice on',
@@ -270,11 +270,13 @@
     updateLayout();
   }
   function updateAnswerDisclosure() {
-    const japaneseLength = [...entry.w].length, englishLength = [...entry.en].length;
+    const otherLanguage = mode === 'ja' ? 'en' : 'ja';
+    const otherAnswer = otherLanguage === 'ja' ? entry.w : entry.en.toUpperCase();
+    const otherLabel = otherLanguage === 'ja' ? '日本語' : 'ENGLISH';
     $('pictureCaption').textContent = answersRevealed
       ? text().shownAnswers(entry.ja, entry.en.toUpperCase())
-      : text().hiddenAnswers(japaneseLength, englishLength);
-    $('pictureCaption').lang = answersRevealed ? (mode === 'ja' ? 'en' : 'ja') : mode;
+      : `${otherLabel} · ${'●'.repeat([...otherAnswer].length)}`;
+    $('pictureCaption').lang = answersRevealed ? mode : otherLanguage;
     $('revealAnswer').hidden = answersRevealed;
   }
   function updateTheme() {
@@ -543,10 +545,15 @@
     $('rewardProgress').textContent = `${difficulty.tiers[entry.tier].name}\n${mode === 'ja' ? (first ? '新しいページが埋まった！' : 'このページは登録済み') : (first ? 'A new page filled!' : 'Already in your book')}`;
     $('rewardSeal').textContent = both ? 'JA + EN' : mode === 'ja' ? (first ? '登録！' : '正解！') : (first ? 'ADDED!' : 'GOT IT!');
     $('advanceLabel').textContent = mode === 'ja' ? '次の問題へ →' : 'Next picture →';
-    $('rewardShelf').replaceChildren(...catalog.filter(word => word.id !== entry.id && progress().stars[word.id]).slice(-3).map(word => {
-      const image = document.createElement('img'); image.src = imgURL(word); image.alt = ''; return image;
+    const library = $('rewardShelf'); library.className = 'book-shelf book-library-grid';
+    library.replaceChildren(...catalog.map((word, pageIndex) => {
+      const page = document.createElement('span');
+      const owned = !!progress().stars[word.id], newest = word.id === entry.id && first;
+      page.className = `library-page${owned ? ' owned' : ''}${newest ? ' newest' : ''}`;
+      page.dataset.wordId = word.id; page.dataset.page = String(pageIndex + 1);
+      page.setAttribute('aria-hidden', 'true');
+      return page;
     }));
-    if (!$('rewardShelf').children.length) $('rewardShelf').innerHTML = `${icon('book')}<span>${mode === 'ja' ? 'はじめの1ページ' : 'Your first page'}</span>`;
     $('wordReward').setAttribute('aria-label', `${bookName(mode)} ${mode === 'ja' ? 'を開く' : '— open'}`);
     $('wordReward').hidden = false;
     $('rewardScene').hidden = false;
@@ -565,7 +572,9 @@
   function animateAcquisition() {
     $('collection').classList.remove('word-added'); void $('collection').offsetWidth; $('collection').classList.add('word-added');
     if (reducedMotion.matches) return;
-    const from = $('rewardArt').getBoundingClientRect(), to = $('collection').getBoundingClientRect();
+    const from = $('rewardArt').getBoundingClientRect();
+    const target = $('rewardShelf').querySelector(`[data-word-id="${entry.id}"]`) || $('collection');
+    const to = target.getBoundingClientRect();
     const token = document.createElement('span'), image = document.createElement('img');
     token.className = 'collected-word'; token.setAttribute('aria-hidden', 'true'); image.src = imgURL(entry); image.alt = '';
     token.append(image); token.style.left = `${from.right - 60}px`; token.style.top = `${from.bottom - 60}px`; document.body.append(token);
