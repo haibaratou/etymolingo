@@ -44,7 +44,7 @@
   function readSave() {
     let raw = {};
     try { raw = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch { /* Storage is optional. */ }
-    const value = { mode: raw.mode === 'en' ? 'en' : 'ja', sound: raw.sound !== false, routeVersion: 1 };
+    const value = { mode: raw.mode === 'en' ? 'en' : 'ja', sound: raw.sound !== false, theme: raw.theme === 'dark' ? 'dark' : 'light', routeVersion: 1 };
     for (const lang of ['ja', 'en']) {
       const old = raw[lang] || {};
       const stars = {};
@@ -261,6 +261,17 @@
     $('closeModal').setAttribute('aria-label', t.close);
     $('wheel').setAttribute('aria-label', mode === 'ja' ? 'なぞって答える文字盤' : 'Connect letters to answer');
     updateSound();
+    updateTheme();
+  }
+  function updateTheme() {
+    const dark = saved.theme === 'dark';
+    document.documentElement.dataset.theme = saved.theme;
+    $('theme').setAttribute('aria-pressed', String(dark));
+    $('theme').setAttribute('aria-label', mode === 'ja'
+      ? (dark ? 'ライトモードにする' : 'ダークモードにする')
+      : (dark ? 'Use light mode' : 'Use dark mode'));
+    $('theme').innerHTML = icon(dark ? 'sun' : 'moon');
+    $('themeColor').content = dark ? '#071126' : '#f6f4ec';
   }
   function updateSound() {
     $('sound').setAttribute('aria-label', saved.sound ? text().soundOff : text().soundOn);
@@ -632,6 +643,9 @@
   $('sound').addEventListener('click', () => {
     saved.sound = !saved.sound; speech.setEnabled(saved.sound); persist(); updateSound();
     if (saved.sound) { sound.unlock(); sound.hint(); } else sound.stop();
+  });
+  $('theme').addEventListener('click', () => {
+    saved.theme = saved.theme === 'dark' ? 'light' : 'dark'; persist(); updateTheme();
   });
   document.querySelectorAll('[data-mode]').forEach(button => button.addEventListener('click', () => {
     if (mode === button.dataset.mode) return;
