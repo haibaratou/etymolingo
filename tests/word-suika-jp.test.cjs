@@ -78,6 +78,12 @@ test('connected そ・ら・ち first form a real 空 ball, then そちら', () 
   assert.equal(g.run('bodies.length'), 0);
 });
 
+test('stage 1 offers ち, ら, そ as its first three balls', () => {
+  const g = game();
+  g.run('startStage(1)');
+  assert.equal(g.run('JSON.stringify(queue.slice(0, 3))'), '["ち","ら","そ"]');
+});
+
 for (const letters of ['そらち', 'そちら', 'らそち', 'らちそ', 'ちそら', 'ちらそ']) {
   test(`stage 1 clears through actual drops in order ${letters}`, () => {
     const g = game();
