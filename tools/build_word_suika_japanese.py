@@ -39,6 +39,11 @@ def main():
 
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(output, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+    script = args.output.with_suffix(".js")
+    script.write_text(
+        "globalThis.WORD_SUIKA_JA_WORDS=" + json.dumps(output, ensure_ascii=False, separators=(",", ":")) + ";\n",
+        encoding="utf-8",
+    )
     print(f"{len(output)} Japanese illustrated words -> {args.output}")
 
 
