@@ -42,6 +42,7 @@ button{appearance:none;border:3px solid var(--ink);border-radius:13px;background
   <footer class="bottom"><div class="choiceDock" id="choices" aria-label="選べる文字"></div><div class="log"><b id="log">好きな横位置をタップして落とす</b><span id="dictState">辞書を準備中…</span></div><div class="bottomBtns"><button class="modeChange" id="modeChange" type="button">ステージ</button><button id="reset" type="button">↻ やりなおす</button></div></footer>
   <div class="stageIntro" id="stageIntro"><div class="stageIntroCard"><small id="stageIntroNumber">STAGE 1</small><b id="stageIntroGoal">4文字の英単語を作る</b></div></div>
   <div class="over" id="over"><div class="overCard"><h2 id="resultTitle">いっぱい！</h2><p id="result"></p><button id="again" type="button">もう一度</button></div></div>
+  <div class="modeSelect on" id="languageSelect"><div class="modeCard"><h2>ことばをえらぶ</h2><p>どちらのワードスイカで遊びますか？</p><div class="modeButtons"><button id="englishStart" type="button">English<small>英単語であそぶ</small></button><button id="japaneseStart" type="button">にほんご<small>ひらがなであそぶ</small></button></div></div></div>
   <div class="modeSelect on" id="modeSelect"><div class="modeCard"><h2>ステージ選択</h2><div class="stagePick" id="stagePick" aria-label="ステージを選ぶ"></div></div></div>
 </main>
 <script>
@@ -201,6 +202,8 @@ function changeMode(){clearTimeout(stageClearTimer);stageClearTimer=0;selectedSt
 function continueAfterResult(){if(stageCleared)stage=stage>=STAGES.length?1:stage+1;selectedStage=stage;reset()}
 canvas.addEventListener("pointermove",e=>{const r=canvas.getBoundingClientRect();aimX=Math.max(57,Math.min(W-57,e.clientX-r.left))});canvas.addEventListener("pointerdown",e=>{e.preventDefault();const r=canvas.getBoundingClientRect();dropAt(e.clientX-r.left)});$("#reset").onclick=reset;$("#again").onclick=continueAfterResult;
 $("#modeChange").onclick=changeMode;
+$("#englishStart").onclick=()=>$("#languageSelect").classList.remove("on");
+$("#japaneseStart").onclick=()=>location.href="word-suika_jp.html";
 renderStagePicker();
 requestAnimationFrame(t=>{last=t;loop(t)});
 </script>
