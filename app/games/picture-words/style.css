@@ -101,6 +101,8 @@ html[data-layout=desktop] .page-shell{min-width:760px;padding:0 64px}html[data-l
 html[data-theme=dark] .view-switch{border-color:#405a87;background:#0d1b35}html[data-theme=dark] .view-switch button[aria-pressed=true]{background:linear-gradient(135deg,#446eb1,#273f78);box-shadow:0 0 18px #8dbaff44}
 @media(max-width:700px){.view-switch button{height:29px;padding:0 5px;font-size:7px}.view-switch button svg{width:13px;height:13px}}
 .picture-caption{height:auto;min-height:25px;flex-wrap:wrap;padding:3px 0}.reveal-answer{border:1px solid currentColor;border-radius:12px;padding:3px 8px;background:transparent;color:inherit;font-size:8px;font-weight:750;letter-spacing:.04em}.reveal-answer:hover{background:color-mix(in srgb,currentColor 10%,transparent)}html[data-theme=dark] .reveal-answer{color:#cfe3ff;background:#172b4b;border-color:#6285b6}
+/* Word art stays on white paper in every theme so transparent illustrations retain their linework. */
+.picture-stage{background:#fff;border-radius:3px;box-shadow:inset 0 0 0 1px #dce2e9}.picture-stage img{position:relative;z-index:1}html[data-theme=dark] .picture-stage{background:#fff;box-shadow:inset 0 0 0 1px #c9d2df}
 /* The reward fills the viewport as an overlay; the board underneath never moves. */
 .reward-scene[popover]{margin:0;padding:0;border:0;background:transparent;color:var(--ink);overflow:visible;z-index:2147483647}.reward-backdrop{z-index:2147483645!important}#particles{z-index:2147483646!important}.collected-word{z-index:2147483646}
 .reward-backdrop{position:fixed;inset:0;z-index:35;background:radial-gradient(ellipse at center,#fbf4dc44,#243e2d88);backdrop-filter:blur(3px);pointer-events:none;animation:reward-backdrop-in .18s both}
