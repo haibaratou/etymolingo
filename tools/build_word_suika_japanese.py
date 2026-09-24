@@ -7,7 +7,8 @@ from pathlib import Path
 
 
 def image_name(text):
-    return re.sub(r"\s+", "_", re.sub(r"^to\s+", "", (text or "").strip(), flags=re.I))
+    text = re.sub(r"^to\s+", "", (text or "").strip(), flags=re.I)
+    return re.sub(r"\s+", "_", text.strip("-‐‑‒–—"))
 
 
 def hiragana(text):
