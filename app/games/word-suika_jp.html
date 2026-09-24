@@ -70,9 +70,13 @@ if(Array.isArray(globalThis.WORD_SUIKA_JA_WORDS)){
 }else dictState.textContent="日本語辞書を読み込めませんでした";
 const currentStage=()=>STAGES[Math.min(stage-1,STAGES.length-1)];
 function renderStagePicker(){$("#stagePick").innerHTML=STAGES.map((_,i)=>`<button class="${selectedStage===i+1?"on":""}" type="button" data-stage="${i+1}" aria-pressed="${selectedStage===i+1}">${i+1}</button>`).join("");$("#stagePick").querySelectorAll("button").forEach(b=>b.onclick=()=>startStage(Number(b.dataset.stage)))}
-let stageTarget="あい";
-function prepareStageTarget(){const goal=currentStage().goal,candidates=buildTargets.filter(w=>w.length===goal);stageTarget=candidates.length?candidates[(stage*37+score)%candidates.length]:buildTargets[0]||"あい";stageLetterCursor=0;}
-function nextStageLetter(){stageCursor++;return stageTarget[stageLetterCursor++%stageTarget.length]}
+let stageTarget="あい",stageLetters=[];
+function shuffleStageLetters(){const original=[...stageTarget],cards=shuffle([...original]);if(cards.length>1&&cards.every((c,i)=>c===original[i]))cards.push(cards.shift());return cards;}
+function prepareStageTarget(){const goal=currentStage().goal,candidates=buildTargets.filter(w=>w.length===goal);stageTarget=candidates.length?candidates[(stage*37+score)%candidates.length]:buildTargets[0]||"あい";stageLetters=shuffleStageLetters();stageLetterCursor=0;}
+function nextStageLetter(){
+  if(stageLetterCursor>=stageLetters.length){stageLetters=shuffleStageLetters();stageLetterCursor=0;}
+  stageCursor++;return stageLetters[stageLetterCursor++];
+}
 function refillQueue(){
   while(queue.length<16)queue.push(nextStageLetter());
 }
