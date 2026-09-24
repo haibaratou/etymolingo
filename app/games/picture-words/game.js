@@ -14,7 +14,7 @@
       title: 'この絵、なんのことば？', instruction: '文字をなぞって、つなげよう',
       release: '', note: '途中で離すとキャンセル',
       shuffle: 'まぜる', hint: 'ひと文字ヒント', next: '次の単語をゲット', footer: '正解するたび、辞書が育つ。',
-      collection: '日本語・英語の辞書', found: '単語ゲット', caption: 'ひとつの絵から、ことばが咲く。',
+      collection: '日本語・英語の辞書', found: '単語ゲット', reveal: '答えを開示', hiddenAnswers: (ja, en) => `日本語 ${ja}文字　·　ENGLISH ${en}文字`, shownAnswers: (ja, en) => `${ja}　·　${en}`,
       connect: 'つなぐ', undo: 'もどす', correct: '単語ゲット！', wrong: 'おしい！ もう一度つないでみよう',
       short: '最後の文字まで、つないでみよう', mix: '新しい並びで、ひらめこう',
       tap: '', soundOff: '音声と効果音をオフ', soundOn: '音声と効果音をオン',
@@ -29,7 +29,7 @@
       title: 'One picture. Which word?', instruction: 'Swipe the letters. Find the word.',
       release: '', note: 'Release an unfinished word to cancel',
       shuffle: 'Shuffle', hint: 'Reveal a letter', next: 'Collect the next word', footer: 'Every word fills another page.',
-      collection: 'Your dictionaries', found: 'words collected', caption: 'A little picture. A word waiting to bloom.',
+      collection: 'Your dictionaries', found: 'words collected', reveal: 'Reveal answers', hiddenAnswers: (ja, en) => `JAPANESE ${ja} letters · ENGLISH ${en} letters`, shownAnswers: (ja, en) => `${ja} · ${en}`,
       connect: 'connect', undo: 'undo', correct: 'WORD GET!', wrong: 'Almost! Give it another go.',
       short: 'Keep going to the last letter', mix: 'A fresh arrangement. A fresh idea.',
       tap: '', soundOff: 'Turn sound and voice off', soundOn: 'Turn sound and voice on',
@@ -56,7 +56,7 @@
   const saved = readSave();
   let mode = saved.mode;
   let index = saved[mode].index;
-  let entry, answer = [], nodes = [], selected = [], hintCount = 0, mistakes = 0;
+  let entry, answer = [], nodes = [], selected = [], hintCount = 0, mistakes = 0, answersRevealed = false;
   let phase = 'loading', generation = 0, pointer = null, wheelRect = null, shuffleBusy = false;
   let feedbackTimer = 0;
   let dictionaryLanguage = mode, dictionaryFilter = 'all', lastAcquired = null;
@@ -263,9 +263,18 @@
     $('undo').setAttribute('aria-label', mode === 'ja' ? '一文字もどす' : 'Undo the last letter');
     $('closeModal').setAttribute('aria-label', t.close);
     $('wheel').setAttribute('aria-label', mode === 'ja' ? 'なぞって答える文字盤' : 'Connect letters to answer');
+    $('revealAnswer').textContent = t.reveal;
     updateSound();
     updateTheme();
     updateLayout();
+  }
+  function updateAnswerDisclosure() {
+    const japaneseLength = [...entry.w].length, englishLength = [...entry.en].length;
+    $('pictureCaption').textContent = answersRevealed
+      ? text().shownAnswers(entry.ja, entry.en.toUpperCase())
+      : text().hiddenAnswers(japaneseLength, englishLength);
+    $('pictureCaption').lang = answersRevealed ? (mode === 'ja' ? 'en' : 'ja') : mode;
+    $('revealAnswer').hidden = answersRevealed;
   }
   function updateTheme() {
     const dark = saved.theme === 'dark';
@@ -430,13 +439,13 @@
     index = (nextIndex + catalog.length) % catalog.length; progress().index = index;
     entry = catalog[index]; progress().wordId = entry.id; persist();
     answer = [...(mode === 'ja' ? entry.w : entry.en.toUpperCase())];
+    answersRevealed = false;
     selected = []; hintCount = 0; mistakes = 0; shuffleBusy = false; phase = 'loading';
     $('game').dataset.state = phase; $('gameActions').hidden = false;
     $('wheel').classList.remove('mistake'); $('answer').classList.remove('mistake');
     $('hint').disabled = false; $('shuffle').disabled = false; $('imageError').hidden = true;
     updateLabels(); updateProgress();
-    $('pictureCaption').textContent = mode === 'ja' ? entry.en : entry.ja;
-    $('pictureCaption').lang = mode === 'ja' ? 'en' : 'ja';
+    updateAnswerDisclosure();
     $('answer').className = `answer${answer.length > 10 ? ' extra-long' : answer.length > 7 ? ' long' : ''}`;
     $('answer').replaceChildren(...answer.map((_, i) => { const tile = document.createElement('span'); tile.className = 'answer-tile'; tile.style.setProperty('--i', i); return tile; }));
     const profile = difficulty.challenge(entry, mode);
@@ -653,6 +662,7 @@
   $('theme').addEventListener('click', () => {
     saved.theme = saved.theme === 'dark' ? 'light' : 'dark'; persist(); updateTheme();
   });
+  $('revealAnswer').addEventListener('click', () => { answersRevealed = true; updateAnswerDisclosure(); });
   $('viewMobile').addEventListener('click', () => { saved.layout = 'mobile'; persist(); updateLayout(); });
   $('viewDesktop').addEventListener('click', () => { saved.layout = 'desktop'; persist(); updateLayout(); });
   document.querySelectorAll('[data-mode]').forEach(button => button.addEventListener('click', () => {
