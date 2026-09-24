@@ -44,7 +44,7 @@
   function readSave() {
     let raw = {};
     try { raw = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch { /* Storage is optional. */ }
-    const value = { mode: raw.mode === 'en' ? 'en' : 'ja', sound: raw.sound !== false, theme: raw.theme === 'dark' ? 'dark' : 'light', routeVersion: 1 };
+    const value = { mode: raw.mode === 'en' ? 'en' : 'ja', sound: raw.sound !== false, theme: raw.theme === 'dark' ? 'dark' : 'light', targetTier: Number.isInteger(raw.targetTier) && raw.targetTier >= 0 && raw.targetTier < difficulty.tiers.length ? raw.targetTier : 6, routeVersion: 1 };
     for (const lang of ['ja', 'en']) {
       const old = raw[lang] || {};
       const stars = {};
@@ -67,14 +67,16 @@
   const pending = new Set();
   const text = () => copy[mode];
   const progress = () => saved[mode];
+  const rarityStars = tier => '★'.repeat(Math.ceil((tier + 1) * 3 / difficulty.tiers.length));
   const collectedCount = lang => catalog.filter(word => saved[lang].stars[word.id]).length;
   const bookName = lang => mode === 'ja' ? (lang === 'ja' ? '日本語辞書' : '英語辞書') : (lang === 'ja' ? 'Japanese dictionary' : 'English dictionary');
   const nextUncollected = (lang, after) => {
     for (let step = 1; step <= catalog.length; step++) {
       const candidate = (after + step + catalog.length) % catalog.length;
-      if (!saved[lang].stars[catalog[candidate].id]) return candidate;
+      if (catalog[candidate].tier === saved.targetTier && !saved[lang].stars[catalog[candidate].id]) return candidate;
     }
-    return (after + 1) % catalog.length;
+    const firstInTier = catalog.findIndex(word => word.tier === saved.targetTier);
+    return firstInTier >= 0 ? firstInTier : (after + 1) % catalog.length;
   };
   const nextBilingualWord = after => {
     for (let step = 1; step <= catalog.length; step++) {
@@ -257,6 +259,7 @@
       imageErrorText: 'error', retryImage: 'retry', skipImage: 'skip' };
     for (const [id, key] of Object.entries(labels)) $(id).textContent = t[key];
     $('levels').setAttribute('aria-label', t.choose); $('help').setAttribute('aria-label', t.help);
+    $('difficulty').setAttribute('aria-label', mode === 'ja' ? '難易度を選ぶ' : 'Choose difficulty');
     $('undo').setAttribute('aria-label', mode === 'ja' ? '一文字もどす' : 'Undo the last letter');
     $('closeModal').setAttribute('aria-label', t.close);
     $('wheel').setAttribute('aria-label', mode === 'ja' ? 'なぞって答える文字盤' : 'Connect letters to answer');
@@ -287,8 +290,9 @@
     const profile = difficulty.challenge(entry, mode);
     $('game').style.setProperty('--rarity', profile.color); $('game').dataset.rarity = profile.key;
     $('chapterNumber').textContent = `RANK ${profile.rank} / ${difficulty.tiers.length}`;
+    $('difficultyText').textContent = `${rarityStars(saved.targetTier)} ${difficulty.tiers[saved.targetTier].name}`;
     $('chapterName').textContent = mode === 'ja' ? profile.ja : profile.en;
-    $('rarityBadge').textContent = `${profile.code} · ${profile.name}`;
+    $('rarityBadge').innerHTML = `<span class="rarity-stars">${rarityStars(entry.tier)}</span> ${profile.code} · ${profile.name}`;
     $('rarityBadge').setAttribute('aria-label', `${mode === 'ja' ? '難度' : 'Difficulty'} ${profile.rank} / ${difficulty.tiers.length} · ${profile.name}`);
     const jaOwned = !!saved.ja.stars[entry.id], enOwned = !!saved.en.stars[entry.id];
     $('jaClearMark').textContent = jaOwned ? '✓' : '';
@@ -400,13 +404,9 @@
     if (phase !== 'solved' || $('modal').open || document.hidden) return;
     advanceTimers.push(later(() => $('game').classList.add('stage-out'), delay - 180));
     advanceTimers.push(later(() => {
-      const other = mode === 'ja' ? 'en' : 'ja';
-      if (!saved[other].stars[entry.id]) { mode = other; loadLevel(index, true, true); }
-      else {
-        const next = nextBilingualWord(index), word = catalog[next];
-        if (saved[mode].stars[word.id] && !saved[other].stars[word.id]) mode = other;
-        loadLevel(next, true, true);
-      }
+      // Keep the pace: a solved word always leads to a different picture.
+      // The paired language remains available through the central switch.
+      loadLevel(nextUncollected(mode, index), true, true);
     }, delay));
   }
   function loadLevel(nextIndex, focusNext = false, keepPronunciation = false) {
@@ -676,6 +676,24 @@
     const note = mode === 'ja' ? '選んだ文字を横切っても取り消されません。同じ文字は別々の丸を使います。外側の文字も最初から選べます。一文字戻すときは中央の矢印、または Backspace。ヒントを使っても単語を獲得できます。キーボードは Tab / Enter / Backspace。' : 'Crossing selected letters keeps your word intact. Repeated letters use separate circles. Outer letters are available from the start. Use the center arrow or Backspace to undo a letter. Hints still let you collect the word. Keyboard: Tab / Enter / Backspace.';
     openModal(text().help, `<div class="help-steps">${steps.map((line, i) => `<div class="help-step"><b>${i + 1}</b><p>${line}</p></div>`).join('')}</div><p class="help-note">${note}</p><button class="modal-primary" id="startPlaying" type="button">${mode === 'ja' ? 'ことばを咲かせよう' : 'Let it bloom'}</button>`);
     $('startPlaying').addEventListener('click', () => $('modal').close());
+  });
+  $('difficulty').addEventListener('click', () => {
+    const title = mode === 'ja' ? '挑戦する難易度を選ぶ' : 'Choose your challenge';
+    const intro = document.createElement('p'); intro.className = 'modal-copy'; intro.textContent = mode === 'ja' ? '選んだランクの未獲得語だけを、次の問題として出します。' : 'Your next puzzles will come from this rank.';
+    const grid = document.createElement('div'); grid.className = 'difficulty-grid';
+    difficulty.tiers.forEach((tier, tierIndex) => {
+      const button = document.createElement('button'); button.type = 'button'; button.className = 'difficulty-choice';
+      button.dataset.tier = String(tierIndex); button.style.setProperty('--tier-color', tier.color);
+      button.setAttribute('aria-pressed', String(saved.targetTier === tierIndex));
+      button.innerHTML = `<strong class="choice-stars">${rarityStars(tierIndex)}</strong><b>${tier.code} · ${tier.name}</b><span>${mode === 'ja' ? tier.ja : tier.en}</span>`;
+      button.addEventListener('click', () => {
+        saved.targetTier = tierIndex; persist(); $('modal').close();
+        const first = catalog.findIndex(word => word.tier === tierIndex && !saved[mode].stars[word.id]);
+        loadLevel(first >= 0 ? first : catalog.findIndex(word => word.tier === tierIndex), true);
+      });
+      grid.append(button);
+    });
+    const panel = document.createElement('div'); panel.append(intro, grid); openModal(title, panel);
   });
   $('levels').addEventListener('click', () => {
     const container = document.createElement('div'), intro = document.createElement('p'), grid = document.createElement('div');
