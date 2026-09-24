@@ -66,7 +66,7 @@ function setDictionary(entries,source="日本語辞書"){
   dictState.textContent=`${source} ${dictionary.length}語`;
 }
 if(Array.isArray(globalThis.WORD_SUIKA_JA_WORDS)){
-  setDictionary(globalThis.WORD_SUIKA_JA_WORDS,"絵のある日本語辞書");prepareStageTarget();refillQueue();renderQueue();
+  setDictionary(globalThis.WORD_SUIKA_JA_WORDS,"絵のある日本語辞書");
 }else dictState.textContent="日本語辞書を読み込めませんでした";
 const currentStage=()=>STAGES[Math.min(stage-1,STAGES.length-1)];
 function renderStagePicker(){$("#stagePick").innerHTML=STAGES.map((_,i)=>`<button class="${selectedStage===i+1?"on":""}" type="button" data-stage="${i+1}" aria-pressed="${selectedStage===i+1}">${i+1}</button>`).join("");$("#stagePick").querySelectorAll("button").forEach(b=>b.onclick=()=>startStage(Number(b.dataset.stage)))}
@@ -331,6 +331,7 @@ function continueAfterResult(){if(stageCleared)stage=stage>=STAGES.length?1:stag
 canvas.addEventListener("pointermove",e=>{const r=canvas.getBoundingClientRect();aimX=Math.max(57,Math.min(W-57,e.clientX-r.left))});canvas.addEventListener("pointerdown",e=>{e.preventDefault();const r=canvas.getBoundingClientRect();dropAt(e.clientX-r.left)});$("#reset").onclick=reset;$("#again").onclick=continueAfterResult;
 $("#modeChange").onclick=changeMode;
 renderStagePicker();
+if(dictionary.length){prepareStageTarget();refillQueue();renderQueue();}
 requestAnimationFrame(t=>{last=t;loop(t)});
 </script>
 </body>
