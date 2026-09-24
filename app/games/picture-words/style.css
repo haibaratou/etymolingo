@@ -103,6 +103,7 @@ html[data-layout=desktop] .page-shell{min-width:760px;padding:0 64px}html[data-l
 html[data-theme=dark] .view-switch{border-color:#405a87;background:#0d1b35}html[data-theme=dark] .view-switch button[aria-pressed=true]{background:linear-gradient(135deg,#446eb1,#273f78);box-shadow:0 0 18px #8dbaff44}
 @media(max-width:700px){.view-switch button{height:29px;padding:0 5px;font-size:7px}.view-switch button svg{width:13px;height:13px}}
 .picture-caption{height:42px;min-height:42px;padding:3px 0;position:relative;display:grid;place-items:center;overflow:hidden}.picture-caption>span{display:block;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.reveal-answer{position:absolute;right:5px;top:50%;transform:translateY(-50%);border:1px solid currentColor;border-radius:12px;padding:3px 8px;background:var(--paper);color:inherit;font-size:8px;font-weight:750;letter-spacing:.04em}.reveal-answer:hover{background:color-mix(in srgb,currentColor 10%,var(--paper))}html[data-theme=dark] .reveal-answer{color:#cfe3ff;background:#172b4b;border-color:#6285b6}
+.picture-caption>span.masked-answer{font-size:13px;letter-spacing:.08em;color:var(--muted);padding-right:90px}
 /* The language switch never changes the board's vertical rhythm. */
 .answer{height:82px;min-height:82px;align-content:center}.bilingual-control{height:61px;margin-bottom:0}
 .answer.extra-long{flex-wrap:nowrap;max-width:330px;gap:3px}.answer.extra-long .answer-tile{width:20px;flex-basis:20px;height:30px;font-size:14px}
