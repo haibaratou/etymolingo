@@ -72,7 +72,13 @@ const currentStage=()=>STAGES[Math.min(stage-1,STAGES.length-1)];
 function renderStagePicker(){$("#stagePick").innerHTML=STAGES.map((_,i)=>`<button class="${selectedStage===i+1?"on":""}" type="button" data-stage="${i+1}" aria-pressed="${selectedStage===i+1}">${i+1}</button>`).join("");$("#stagePick").querySelectorAll("button").forEach(b=>b.onclick=()=>startStage(Number(b.dataset.stage)))}
 let stageTarget="あい",stageLetters=[];
 function shuffleStageLetters(){const original=[...stageTarget],cards=shuffle([...original]);if(cards.length>1&&cards.every((c,i)=>c===original[i]))cards.push(cards.shift());return cards;}
-function prepareStageTarget(){const goal=currentStage().goal,candidates=buildTargets.filter(w=>w.length===goal);stageTarget=candidates.length?candidates[(stage*37+score)%candidates.length]:buildTargets[0]||"あい";stageLetters=shuffleStageLetters();stageLetterCursor=0;}
+function prepareStageTarget(){
+  const goal=currentStage().goal,candidates=buildTargets.filter(w=>w.length===goal);
+  stageTarget=candidates.length?candidates[(stage*37+score)%candidates.length]:buildTargets[0]||"あい";
+  // Teach the first-stage 空 → そちら chain with a predictable opening.
+  stageLetters=stage===1&&stageTarget==="そちら"?["ち","ら","そ"]:shuffleStageLetters();
+  stageLetterCursor=0;
+}
 function nextStageLetter(){
   if(stageLetterCursor>=stageLetters.length){stageLetters=shuffleStageLetters();stageLetterCursor=0;}
   stageCursor++;return stageLetters[stageLetterCursor++];
@@ -100,15 +106,20 @@ function renderQueue(){
     currentEl.textContent=queue[0].toUpperCase();currentEl.classList.toggle("word",queue[0].length>1);nextEl.innerHTML=queue.slice(1,4).map((c,i)=>`<span class="peekBall" style="background:${colors[(c.charCodeAt(0)+i)%colors.length]};font-size:${c.length>1?11:17}px">${c.toUpperCase()}</span>`).join("");
   }
 }
-function resize(){const r=wrap.getBoundingClientRect();W=Math.max(1,r.width);H=Math.max(1,r.height);dpr=Math.min(2,devicePixelRatio||1);canvas.width=Math.round(W*dpr);canvas.height=Math.round(H*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);aimX=Math.max(57,Math.min(W-57,aimX||W/2))}
+function resize(){const r=wrap.getBoundingClientRect();W=Math.max(1,r.width);H=Math.max(1,r.height);dpr=Math.min(2,devicePixelRatio||1);canvas.width=Math.round(W*dpr);canvas.height=Math.round(H*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);aimX=Math.max(57,Math.min(W-57,aimX||W/2));bodies.forEach(b=>{if(b.word)b.r=wordRadius(b.letters.length);b.x=Math.max(b.r+4,Math.min(W-b.r-4,b.x))})}
 new ResizeObserver(resize).observe(wrap);resize();
 const imageCache=new Map();
 function wordImage(word){const pic=wordInfo.get(word)?.pic||word;if(imageCache.has(pic))return imageCache.get(pic);const img=new Image();img.src=`../../assets/word/${pic}.png`;imageCache.set(pic,img);return img}
+function wordRadius(length){
+  // Keep every length distinct, including on narrow mobile boards.
+  const growth=Math.min(20,Math.max(0,(W/2-12-40)/7));
+  return 40+growth*(length-1);
+}
 function addBody(label,x,y,word=""){
-  const raw=word||label.toLowerCase(),isWord=!!word,isPart=!word&&raw.length>1,r=isWord?Math.min(106,44*Math.pow(1.12,raw.length-1)):isPart?Math.min(62,40+raw.length*5):40;
+  const raw=word||label.toLowerCase(),isWord=!!word,isPart=!word&&raw.length>1,r=isWord?wordRadius(raw.length):isPart?Math.min(62,40+raw.length*5):40;
   const info=wordInfo.get(raw)||{};const b={id:nextId++,label:raw.toUpperCase(),letters:raw.toLowerCase(),word:isWord?raw:"",part:isPart,ja:isWord?(info.ja||"和訳なし"):"",x,y,r,vx:(Math.random()-.5)*10,vy:0,color:colors[(raw.charCodeAt(0)+raw.length)%colors.length],born:performance.now(),img:isWord?wordImage(raw):null,chainHistory:isWord?[raw]:[]};bodies.push(b);return b;
 }
-function dropAt(x){if(!mode||!canDrop||over)return;refillQueue();x=Math.max(57,Math.min(W-57,x));let ch;if(mode==="choice"){ch=queue.splice(choiceIndex,1)[0];choiceIndex=0}else ch=queue.shift();addBody(ch,x,61);aimX=x;canDrop=false;setTimeout(()=>{if(!over&&!stageClearTimer&&!bodies.some(b=>b.clearsStage))canDrop=true},420);renderQueue();logEl.textContent=`${ch.toUpperCase()} を落とした`}
+function dropAt(x){if(!mode||!canDrop||wordChain||over)return;refillQueue();x=Math.max(57,Math.min(W-57,x));let ch;if(mode==="choice"){ch=queue.splice(choiceIndex,1)[0];choiceIndex=0}else ch=queue.shift();addBody(ch,x,61);aimX=x;canDrop=false;setTimeout(()=>{if(!over&&!wordChain&&!stageClearTimer&&!bodies.some(b=>b.clearsStage))canDrop=true},420);renderQueue();logEl.textContent=`${ch.toUpperCase()} を落とした`}
 function mergeBodies(parts,words,historyWords=[]){
   words=[...new Set(Array.isArray(words)?words:[words])];if(!words.length)return;
   historyWords=[...new Set((historyWords||[]).map(w=>String(w).toLowerCase()))];
@@ -120,6 +131,7 @@ function mergeBodies(parts,words,historyWords=[]){
   words.forEach((word,index)=>{
     const angle=words.length===1?-Math.PI/2:(Math.PI*2*index/words.length)-Math.PI/2,spread=words.length===1?0:Math.min(76,34+words.length*8);
     const n=addBody(word,Math.max(48,Math.min(W-48,x+Math.cos(angle)*spread)),Math.max(58,y+Math.sin(angle)*spread*.45),word);
+    n.x=Math.max(n.r+4,Math.min(W-n.r-4,n.x));
     n.vx=baseVx+(words.length>1?Math.cos(angle)*28:0);n.vy=baseVy+(words.length>1?Math.sin(angle)*16:0);n.chainHistory=historyWords.length?[...historyWords]:[word];created.push(n);
     score+=word.length*word.length*10;wordCount++;
     const isNew=!discoveredWords.has(word);anyNew=anyNew||isNew;if(isNew){discoveredWords.add(word);try{localStorage.setItem(DISCOVERY_KEY,JSON.stringify([...discoveredWords]))}catch(e){}}
@@ -141,6 +153,8 @@ function subsetConnected(localMask,indices,links){
 function buildChainSteps(indices,links,finalWords){
   const count=indices.length,fullMask=(1<<count)-1,nodes=[];
   for(let mask=1;mask<=fullMask;mask++){
+    // An existing word ball is already complete; do not replay its formation.
+    if((mask&(mask-1))===0)continue;
     if(!subsetConnected(mask,indices,links))continue;
     let letters="",ids=[];for(let k=0;k<count;k++)if(mask&(1<<k)){const b=bodies[indices[k]];letters+=b.letters;ids.push(b.id)}
     if(letters.length<2||letters.length>8)continue;const words=wordBySignature.get(signature(letters));if(!words?.length)continue;
@@ -159,10 +173,7 @@ function buildChainSteps(indices,links,finalWords){
     bestPath.set(node,path);
   }
   let path=bestPath.get(finalNode)||[finalNode];
-  const first=path[0],firstBodies=first.ids.map(id=>bodies.find(b=>b.id===id)).filter(Boolean);
-  const historyPrefix=[];
-  if(firstBodies.length===1&&firstBodies[0].chainHistory?.length>1){for(const w of firstBodies[0].chainHistory)historyPrefix.push({word:w,ids:[firstBodies[0].id],history:true})}
-  const steps=[...historyPrefix];let previousIds=new Set();
+  const steps=[];let previousIds=new Set();
   for(const node of path){
     const ids=new Set(node.ids),newIds=new Set([...ids].filter(id=>!previousIds.has(id)));
     for(const word of node.words)steps.push({word,ids:[...ids],newIds:[...newIds]});
@@ -228,7 +239,7 @@ function updateWordChain(now){
   wordChain.activeStep=null;wordChain.nextAt=now+CHAIN_GAP_MS;
 }
 function tryWordMerge(){
-  if(wordChain)return false;const links=bodies.map(()=>new Set());
+  if(wordChain||stageClearTimer||bodies.some(b=>b.clearsStage))return false;const links=bodies.map(()=>new Set());
   for(let i=0;i<bodies.length;i++)for(let j=i+1;j<bodies.length;j++){
     const a=bodies[i],b=bodies[j],near=Math.hypot(a.x-b.x,a.y-b.y)<=a.r+b.r+7;if(near){links[i].add(j);links[j].add(i)}
   }
@@ -246,7 +257,8 @@ function tryWordMerge(){
       while(todo.length){const i=todo.pop();links[i].forEach(j=>{if(chosenSet.has(j)&&!seen.has(j)){seen.add(j);todo.push(j)}})}
       if(seen.size!==chosen.length)continue;
       const words=wordBySignature.get(signature(letters));if(!words?.length)continue;
-      if(!best||letters.length>best.length||(letters.length===best.length&&chosen.length>best.indices.length))best={indices:chosen,words:[...words],length:letters.length};
+      // Finish the shortest touching word first, then reuse its actual ball.
+      if(!best||letters.length<best.length||(letters.length===best.length&&chosen.length>best.indices.length))best={indices:chosen,words:[...words],length:letters.length};
     }
   }
   if(best){const parts=best.indices.map(i=>bodies[i]),steps=buildChainSteps(best.indices,links,best.words);return startWordChain(parts,best.words,steps)}return false;
