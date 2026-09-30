@@ -4,15 +4,15 @@
   "files": {
     "roots": {
       "file": "roots.json",
-      "bytes": 1033894,
+      "bytes": 1033895,
       "count": 1436,
-      "sha256": "b7a5696b598b74d3f72fe0457338b823924f0a6d7f43ef26527afa15ca819349"
+      "sha256": "765a7960a27c2399725f1d8b014d2fd0febf8dde40c17066a2c21a21570b3c06"
     },
     "words": {
       "file": "words.json",
-      "bytes": 10819519,
+      "bytes": 10743315,
       "count": 49170,
-      "sha256": "232acd532df0ce9e5bc04ebbc9c5d872ee73392a76cce9c432a7a1655c04718c"
+      "sha256": "222d20ccb1dc9f3f5e072563c212b34c7893ec25cdc51bf46dd0a53602b5b8f9"
     },
     "affixes": {
       "file": "affixes.json",
@@ -28,9 +28,9 @@
     },
     "details_brief": {
       "file": "details_brief.json",
-      "bytes": 147382,
-      "count": 49127,
-      "sha256": "66d7431978ccca6736894bf28ea259990bf772fc2b5f2dceabbb7b715f5030cb"
+      "bytes": 147511,
+      "count": 49170,
+      "sha256": "bdc45c17a04c6676053dbc85764f4f064697df1e03e4accb01f480817219e0f9"
     },
     "eo_slugs": {
       "file": "eo_slugs.json",
@@ -40,13 +40,13 @@
     },
     "word_suika_words": {
       "file": "word-suika-words.json",
-      "bytes": 176140,
-      "count": 4013,
-      "sha256": "fda75e8ca87e43fefd619a18c42e24d8475c8755e0102a06300916c76cc69b98"
+      "bytes": 2,
+      "count": 0,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
     },
     "det": {
       "file": "det/*.json",
-      "bytes": 42769397,
+      "bytes": 42770988,
       "count": 27
     },
     "eo": {

@@ -14,7 +14,7 @@
       title: 'この絵、なんのことば？', instruction: '文字をなぞって、つなげよう',
       release: '', note: '途中で離すとキャンセル',
       shuffle: 'まぜる', hint: 'ひと文字ヒント', next: '次の単語をゲット', footer: '正解するたび、辞書が育つ。',
-      collection: '日本語・英語の辞書', found: '単語ゲット', reveal: '答えを開示',
+      collection: '日本語・英語の辞書', found: '単語ゲット',
       connect: 'つなぐ', undo: 'もどす', correct: '単語ゲット！', wrong: 'おしい！ もう一度つないでみよう',
       short: '最後の文字まで、つないでみよう', mix: '新しい並びで、ひらめこう',
       tap: '', soundOff: '音声と効果音をオフ', soundOn: '音声と効果音をオン',
@@ -29,7 +29,7 @@
       title: 'One picture. Which word?', instruction: 'Swipe the letters. Find the word.',
       release: '', note: 'Release an unfinished word to cancel',
       shuffle: 'Shuffle', hint: 'Reveal a letter', next: 'Collect the next word', footer: 'Every word fills another page.',
-      collection: 'Your dictionaries', found: 'words collected', reveal: 'Reveal answers',
+      collection: 'Your dictionaries', found: 'words collected',
       connect: 'connect', undo: 'undo', correct: 'WORD GET!', wrong: 'Almost! Give it another go.',
       short: 'Keep going to the last letter', mix: 'A fresh arrangement. A fresh idea.',
       tap: '', soundOff: 'Turn sound and voice off', soundOn: 'Turn sound and voice on',
@@ -56,7 +56,7 @@
   const saved = readSave();
   let mode = saved.mode;
   let index = saved[mode].index;
-  let entry, answer = [], nodes = [], selected = [], hintCount = 0, mistakes = 0, answersRevealed = false;
+  let entry, answer = [], nodes = [], selected = [], hintCount = 0, mistakes = 0;
   let phase = 'loading', generation = 0, pointer = null, wheelRect = null, shuffleBusy = false;
   let feedbackTimer = 0;
   let dictionaryLanguage = mode, dictionaryFilter = 'all', lastAcquired = null;
@@ -264,20 +264,16 @@
     $('undo').setAttribute('aria-label', mode === 'ja' ? '一文字もどす' : 'Undo the last letter');
     $('closeModal').setAttribute('aria-label', t.close);
     $('wheel').setAttribute('aria-label', mode === 'ja' ? 'なぞって答える文字盤' : 'Connect letters to answer');
-    $('revealAnswer').textContent = t.reveal;
     updateSound();
     updateTheme();
     updateLayout();
   }
   function updateAnswerDisclosure() {
     const otherLanguage = mode === 'ja' ? 'en' : 'ja';
-    const otherAnswer = otherLanguage === 'ja' ? entry.w : entry.en.toUpperCase();
-    $('pictureCaption').textContent = answersRevealed
-      ? otherAnswer
-      : '●'.repeat([...otherAnswer].length);
-    $('pictureCaption').classList.toggle('masked-answer', !answersRevealed);
-    $('pictureCaption').lang = answersRevealed ? mode : otherLanguage;
-    $('revealAnswer').hidden = answersRevealed;
+    const otherAnswer = [...(otherLanguage === 'ja' ? entry.w : entry.en.toUpperCase())];
+    $('pictureCaption').textContent = otherAnswer.map((char, i) => i < hintCount ? char : '●').join('');
+    $('pictureCaption').classList.add('masked-answer');
+    $('pictureCaption').lang = otherLanguage;
   }
   function updateTheme() {
     const dark = saved.theme === 'dark';
@@ -427,8 +423,9 @@
       loadLevel(nextUncollected(mode, index), true, true);
     }, delay));
   }
-  function loadLevel(nextIndex, focusNext = false, keepPronunciation = false) {
+  function loadLevel(nextIndex, focusNext = false, keepPronunciation = false, keepHints = false, keepPicture = false) {
     const previousTier = entry?.tier;
+    const retainedHintCount = keepHints ? hintCount : 0;
     pauseAdvance(); generation++; clearPending(); cancelGesture();
     if (!keepPronunciation) speech.stop();
     sound.stop(); petals.clear();
@@ -442,8 +439,7 @@
     index = (nextIndex + catalog.length) % catalog.length; progress().index = index;
     entry = catalog[index]; progress().wordId = entry.id; persist();
     answer = [...(mode === 'ja' ? entry.w : entry.en.toUpperCase())];
-    answersRevealed = false;
-    selected = []; hintCount = 0; mistakes = 0; shuffleBusy = false; phase = 'loading';
+    selected = []; hintCount = Math.min(retainedHintCount, answer.length); mistakes = 0; shuffleBusy = false; phase = 'loading';
     $('game').dataset.state = phase; $('gameActions').hidden = false;
     $('wheel').classList.remove('mistake'); $('answer').classList.remove('mistake');
     $('hint').disabled = false; $('shuffle').disabled = false; $('imageError').hidden = true;
@@ -456,21 +452,29 @@
     makeWheel(); resetSelection(); setFeedback(text().release);
     $('gestureNote').textContent = mode === 'ja' ? '途中で離すとキャンセル' : 'Release an unfinished word to cancel';
     const version = generation, image = $('clueImage');
-    image.style.opacity = '0'; image.alt = mode === 'ja' ? '答えを考えるためのイラスト' : 'Picture clue. What does it show?';
-    image.onload = () => {
-      if (version !== generation) return;
-      image.style.opacity = '1'; phase = 'playing'; $('game').dataset.state = phase;
-      // Restart the picture entrance once the actual clue is ready.
-      image.style.animation = 'none'; void image.offsetWidth; image.style.animation = '';
-      if (previousTier !== undefined && entry.tier > previousTier) showRankUp(profile);
+    image.alt = mode === 'ja' ? '答えを考えるためのイラスト' : 'Picture clue. What does it show?';
+    if (keepPicture && image.complete && image.naturalWidth > 0 && image.src.endsWith(encodeURIComponent(entry.pic) + '.png')) {
+      image.style.opacity = '1';
+      image.style.animation = 'none';
+      phase = 'playing'; $('game').dataset.state = phase;
       if (focusNext && keyboardNavigation) nodes[0]?.button.focus({ preventScroll: true });
-    };
-    image.onerror = () => {
-      if (version !== generation) return;
-      phase = 'error'; $('game').dataset.state = phase; $('imageError').hidden = false;
-      $('hint').disabled = true; $('shuffle').disabled = true; setFeedback(text().error, 'wrong');
-    };
-    image.src = imgURL(entry);
+    } else {
+      image.style.opacity = '0';
+      image.onload = () => {
+        if (version !== generation) return;
+        image.style.opacity = '1'; phase = 'playing'; $('game').dataset.state = phase;
+        // Restart the picture entrance only when the picture itself changes.
+        image.style.animation = 'none'; void image.offsetWidth; image.style.animation = '';
+        if (previousTier !== undefined && entry.tier > previousTier) showRankUp(profile);
+        if (focusNext && keyboardNavigation) nodes[0]?.button.focus({ preventScroll: true });
+      };
+      image.onerror = () => {
+        if (version !== generation) return;
+        phase = 'error'; $('game').dataset.state = phase; $('imageError').hidden = false;
+        $('hint').disabled = true; $('shuffle').disabled = true; setFeedback(text().error, 'wrong');
+      };
+      image.src = imgURL(entry);
+    }
     const preload = new Image(); preload.src = imgURL(catalog[nextBilingualWord(index)]);
   }
 
@@ -659,10 +663,13 @@
   });
   $('hint').addEventListener('click', () => {
     if (phase !== 'playing' || shuffleBusy) return;
-    cancelGesture(); sound.unlock(); sound.hint(); hintCount = Math.min(answer.length, hintCount + 1); updateAnswer();
+    cancelGesture(); sound.unlock(); sound.hint(); hintCount = Math.min(answer.length, hintCount + 1); updateAnswer(); updateAnswerDisclosure();
     const target = nodes.find(node => node.answerIndex === hintCount - 1);
     if (target) { target.button.classList.remove('hint-target'); void target.button.offsetWidth; target.button.classList.add('hint-target'); }
-    setFeedback(hintCount === answer.length ? text().allHinted : mode === 'ja' ? `${hintCount}文字めは「${answer[hintCount - 1]}」` : `Letter ${hintCount} is ${answer[hintCount - 1]}`, '', true);
+    const jaHint = [...entry.w][hintCount - 1];
+    const enHint = [...entry.en.toUpperCase()][hintCount - 1];
+    const bilingualHint = [jaHint ? `日本語「${jaHint}」` : '', enHint ? `ENGLISH「${enHint}」` : ''].filter(Boolean).join(' / ');
+    setFeedback(hintCount === answer.length ? text().allHinted : mode === 'ja' ? `${hintCount}文字め：${bilingualHint}` : `Hint ${hintCount}: ${bilingualHint}`, '', true);
     if (hintCount === answer.length) $('hint').disabled = true;
   });
   $('sound').addEventListener('click', () => {
@@ -672,12 +679,11 @@
   $('theme').addEventListener('click', () => {
     saved.theme = saved.theme === 'dark' ? 'light' : 'dark'; persist(); updateTheme();
   });
-  $('revealAnswer').addEventListener('click', () => { answersRevealed = true; updateAnswerDisclosure(); });
   $('viewMobile').addEventListener('click', () => { saved.layout = 'mobile'; persist(); updateLayout(); });
   $('viewDesktop').addEventListener('click', () => { saved.layout = 'desktop'; persist(); updateLayout(); });
   document.querySelectorAll('[data-mode]').forEach(button => button.addEventListener('click', () => {
     if (mode === button.dataset.mode) return;
-    mode = button.dataset.mode; loadLevel(index);
+    mode = button.dataset.mode; loadLevel(index, false, false, true, true);
   }));
   $('retryImage').addEventListener('click', () => loadLevel(index));
   $('skipImage').addEventListener('click', () => loadLevel(index + 1));

@@ -1,0 +1,436 @@
+﻿{
+  "I.png": {
+    "subject": "I, the person referring to oneself.",
+    "composition": "Show one friendly child pointing clearly to their own chest with one hand and smiling naturally. No other people or props."
+  },
+  "about.png": {
+    "subject": "about, concerning a particular subject.",
+    "composition": "Show one child reading an open picture book about dinosaurs, with several dinosaur illustrations clearly visible on the pages."
+  },
+  "also.png": {
+    "subject": "also, something added in addition.",
+    "composition": "Show one child placing a second apple beside an apple already in a small basket, making the added item clear."
+  },
+  "by.png": {
+    "subject": "by, beside something.",
+    "composition": "Show one small dog sitting closely beside a wooden chair, with the two subjects clearly adjacent and no person present."
+  },
+  "he.png": {
+    "subject": "he, a male person being referred to.",
+    "composition": "Show one girl indicating one nearby boy with an open hand. Keep only these two people, with the boy clearly the person being referred to."
+  },
+  "her.png": {
+    "subject": "her, belonging to a female person.",
+    "composition": "Show one girl holding her own distinctive backpack close to her body, with one hand on the strap to emphasize possession."
+  },
+  "his.png": {
+    "subject": "his, belonging to a male person.",
+    "composition": "Show one boy holding his own football close to his chest, with a protective hand around it to emphasize possession."
+  },
+  "if.png": {
+    "subject": "if, depending on a condition.",
+    "composition": "Show one child holding a closed umbrella while looking up at a dark rain cloud, ready to open it only if rain begins."
+  },
+  "is.png": {
+    "subject": "is, identifying what someone is.",
+    "composition": "Show one adult doctor standing clearly in a white coat with a stethoscope, making the person's identity immediately recognizable."
+  },
+  "it.png": {
+    "subject": "it, a particular thing being referred to.",
+    "composition": "Show one child pointing directly toward a single red ball placed a short distance away. No other person is present."
+  },
+  "my.png": {
+    "subject": "my, belonging to the speaker.",
+    "composition": "Show one child hugging a personal sketchbook to the chest while pointing to themself with the free hand."
+  },
+  "of.png": {
+    "subject": "of, belonging to or forming part of something.",
+    "composition": "Show one large teacup with its attached handle clearly visible as a natural part of the cup. No person is needed."
+  },
+  "she.png": {
+    "subject": "she, a female person being referred to.",
+    "composition": "Show one boy indicating one nearby girl with an open hand. Keep only these two people, with the girl clearly the person being referred to."
+  },
+  "that.png": {
+    "subject": "that, a particular object farther away.",
+    "composition": "Show one child pointing toward a red toy car placed at the far end of a small table, emphasizing distance from the child."
+  },
+  "their.png": {
+    "subject": "their, belonging to a group of people.",
+    "composition": "Show two children jointly holding the same toy wagon, each gripping one side to make the shared possession clear."
+  },
+  "there.png": {
+    "subject": "there, at a place away from the speaker.",
+    "composition": "Show one child pointing toward an empty bench a short distance away, with the indicated place clearly separated from the child."
+  },
+  "they.png": {
+    "subject": "they, a group of people being referred to.",
+    "composition": "Show two children standing together as one clearly defined group, facing the same direction. No third person is present."
+  },
+  "this.png": {
+    "subject": "this, an object close to the speaker.",
+    "composition": "Show one child holding a small shell very close to the chest and pointing directly at it with the free hand."
+  },
+  "time.png": {
+    "subject": "time, the passage of duration.",
+    "composition": "Show one large hourglass with sand visibly flowing from the upper chamber to the lower chamber. No person or extra props."
+  },
+  "what.png": {
+    "subject": "what, asking the identity of a thing.",
+    "composition": "Show one puzzled child holding an unfamiliar kitchen whisk, studying it closely with raised eyebrows and a questioning expression."
+  },
+  "when.png": {
+    "subject": "when, asking about a time.",
+    "composition": "Show one waiting child pointing to a wristwatch with a questioning expression. Keep the watch face simple and without readable numerals."
+  },
+  "which.png": {
+    "subject": "which, asking for a choice between alternatives.",
+    "composition": "Show one thoughtful child choosing between two different hats held one in each hand, looking back and forth between them."
+  },
+  "know.png": {
+    "subject": "know, having knowledge of something.",
+    "composition": "Show one confident child correctly matching a real leaf to the same leaf pictured in an open nature guide."
+  },
+  "where.png": {
+    "subject": "where, asking about a location.",
+    "composition": "Show one child searching for a missing toy, looking under a chair while the toy is partly visible behind one chair leg."
+  },
+  "us.png": {
+    "subject": "us, the speaker's group receiving attention.",
+    "composition": "Show two children standing close together, with one child gesturing toward both of their chests to indicate the pair as a group."
+  },
+  "now.png": {
+    "subject": "now, at the present moment.",
+    "composition": "Show one child pressing the button of a simple stopwatch and immediately beginning to run, emphasizing action starting at this moment."
+  },
+  "because.png": {
+    "subject": "because, showing a cause and its result.",
+    "composition": "Show one burst balloon caught against a small thorny twig, with the puncture point clearly explaining why the balloon burst."
+  },
+  "get.png": {
+    "subject": "get, obtaining something.",
+    "composition": "Show one child reaching up and taking a picture book from a low shelf, with the book clearly moving into the child's hands."
+  },
+  "here.png": {
+    "subject": "here, at the speaker's present location.",
+    "composition": "Show one child pointing straight down to the empty spot immediately beside their own feet, emphasizing the nearby location."
+  },
+  "those.png": {
+    "subject": "those, several things farther away.",
+    "composition": "Show one child pointing toward three kites hanging together beyond a small fence, emphasizing the distant group."
+  },
+  "same.png": {
+    "subject": "same, matching exactly.",
+    "composition": "Show two identical striped scarves placed side by side, matching in shape, pattern and color. No people or extra props."
+  },
+  "good.png": {
+    "subject": "good, pleasing and satisfactory.",
+    "composition": "Show one child tasting a bowl of fresh soup and smiling with clear approval, with no other person present."
+  },
+  "each.png": {
+    "subject": "each, every individual separately.",
+    "composition": "Show three separate plates arranged in one row, with exactly one apple placed on each plate."
+  },
+  "around.png": {
+    "subject": "around, surrounding something.",
+    "composition": "Show several smooth stones arranged in a clear circle around one small flower, with the flower centered inside them."
+  },
+  "day.png": {
+    "subject": "day, the daylight part of a day.",
+    "composition": "Show one open sunflower facing a bright sun, using only the flower and sun to communicate daylight without a painted sky."
+  },
+  "while.png": {
+    "subject": "while, during another activity.",
+    "composition": "Show one child drawing at a desk while listening through headphones, making the two simultaneous activities clear in one person."
+  },
+  "world.png": {
+    "subject": "world, the Earth and its inhabited places.",
+    "composition": "Show one large round globe with recognizable continents and oceans, centered as the only subject."
+  },
+  "going.png": {
+    "subject": "going, the act of leaving or traveling.",
+    "composition": "Show one traveler stepping through an open gate with a suitcase, moving clearly away from the starting place. No other person is present."
+  },
+  "little.png": {
+    "subject": "little, small in size.",
+    "composition": "Show one tiny kitten curled inside an oversized slipper, making its small body and delicate paws immediately apparent."
+  },
+  "part.png": {
+    "subject": "part, a piece belonging to a whole.",
+    "composition": "Show one removed wooden wheel beside a toy wagon with that wheel missing, making the part-to-whole relationship obvious."
+  },
+  "say.png": {
+    "subject": "say, speaking words aloud.",
+    "composition": "Show one child speaking clearly with an open mouth and one natural hand gesture. No listener or speech bubble is needed."
+  },
+  "high.png": {
+    "subject": "high, far above the ground.",
+    "composition": "Show one small bird perched near the top of a very tall tree trunk, with the great vertical distance emphasized."
+  },
+  "during.png": {
+    "subject": "during, taking place within an ongoing activity.",
+    "composition": "Show one runner drinking from a small bottle while continuing to jog, making the drinking happen during the run."
+  },
+  "few.png": {
+    "subject": "few, a small number remaining.",
+    "composition": "Show one large cookie tin containing only three small cookies, with ample empty space around them."
+  },
+  "within.png": {
+    "subject": "within, inside a defined boundary.",
+    "composition": "Show three toy animals placed entirely inside a small playpen, with every figure clearly enclosed by the rails."
+  },
+  "example.png": {
+    "subject": "example, one item used to demonstrate a kind.",
+    "composition": "Show one pinecone placed prominently in front of a small basket of mixed natural specimens, making it the selected example."
+  },
+  "information.png": {
+    "subject": "information, useful knowledge being communicated.",
+    "composition": "Show one traveler studying a simple illustrated route map closely, with clear route lines and landmarks but no readable labels."
+  },
+  "human.png": {
+    "subject": "human, relating to people.",
+    "composition": "Show one friendly adult person standing naturally with expressive face, upright posture and clearly visible hands."
+  },
+  "great.png": {
+    "subject": "great, worthy of deep admiration.",
+    "composition": "Show one distinguished elderly scientist holding a simple medal and a completed invention, with a calm proud expression."
+  },
+  "home.png": {
+    "subject": "home, the place where one belongs.",
+    "composition": "Show one welcoming small house with an open front door, warm interior light and a familiar pair of shoes by the entrance. No people."
+  },
+  "others.png": {
+    "subject": "others, people apart from oneself.",
+    "composition": "Show one child standing slightly apart from two other children grouped together, making the contrast between self and the others clear."
+  },
+  "best.png": {
+    "subject": "best, the finest choice available.",
+    "composition": "Show one baker selecting the most beautifully shaped loaf from several loaves, holding the chosen loaf proudly. No second person."
+  },
+  "less.png": {
+    "subject": "less, a smaller amount.",
+    "composition": "Show two bowls side by side, with one containing clearly less rice than the other. No people or extra props."
+  },
+  "development.png": {
+    "subject": "development, gradual growth of ability.",
+    "composition": "Show one toddler successfully stacking several blocks with focused hands and a pleased expression, emphasizing newly developed coordination."
+  },
+  "enough.png": {
+    "subject": "enough, as much as is needed.",
+    "composition": "Show three plates with exactly one sandwich on each, making the supply sufficient for all three places without showing people."
+  },
+  "why.png": {
+    "subject": "why, asking for a reason.",
+    "composition": "Show one puzzled child looking at a toppled flowerpot and then at the ball lying beside it, trying to understand the cause."
+  },
+  "fact.png": {
+    "subject": "fact, something verified as true.",
+    "composition": "Show one child carefully counting exactly three apples in a bowl, checking the visible quantity rather than guessing."
+  },
+  "known.png": {
+    "subject": "known, something already familiar or understood.",
+    "composition": "Show one confident child correctly matching a real apple to the same apple pictured in an open book."
+  },
+  "anything.png": {
+    "subject": "anything, any item without restriction.",
+    "composition": "Show one child freely reaching toward a basket containing a ball, a book and a toy rabbit, with no single item singled out."
+  },
+  "learning.png": {
+    "subject": "learning, acquiring knowledge or a skill.",
+    "composition": "Show one child practicing a simple knot while following a small picture instruction card placed beside the hands."
+  },
+  "experience.png": {
+    "subject": "experience, learning through direct participation.",
+    "composition": "Show one delighted child shaping wet clay on a pottery wheel for the first time, with both hands actively touching the spinning clay."
+  },
+  "looking.png": {
+    "subject": "looking, appearing to have a particular quality.",
+    "composition": "Show one tired-looking adult with drooping eyelids, slumped shoulders and a weary expression. No observer is needed."
+  },
+  "voice.png": {
+    "subject": "voice, sound produced when a person speaks or sings.",
+    "composition": "Show one child singing with an open mouth, lifted chin and expressive face, making the act of producing a voice clear."
+  },
+  "either.png": {
+    "subject": "either, one or the other of two choices.",
+    "composition": "Show one child holding two different mittens, one in each hand, looking thoughtfully between the two choices."
+  },
+  "general.png": {
+    "subject": "general, a senior military commander.",
+    "composition": "Show one adult army commander in a simple formal uniform standing beside a strategy map, without weapons or another soldier."
+  },
+  "role.png": {
+    "subject": "role, a particular responsibility in a group.",
+    "composition": "Show one child goalkeeper standing ready inside a goal with gloves on as a ball approaches, making the assigned role clear."
+  },
+  "related.png": {
+    "subject": "related, connected by a meaningful relationship.",
+    "composition": "Show one key placed directly beside the lock it opens, with matching shape and alignment making their relationship clear."
+  },
+  "understand.png": {
+    "subject": "understand, grasping how something works.",
+    "composition": "Show one child smiling in realization while correctly connecting two interlocking gears, with the mechanism now fitting together."
+  },
+  "local.png": {
+    "subject": "local, belonging to a nearby community.",
+    "composition": "Show one small neighborhood bakery beside nearby houses with fresh bread displayed at the doorway, keeping the scene compact and place-specific."
+  },
+  "matter.png": {
+    "subject": "matter, physical material occupying space.",
+    "composition": "Show one solid stone beside one clear glass of water, emphasizing two tangible forms of physical matter without any person."
+  },
+  "toward.png": {
+    "subject": "toward, moving in the direction of something.",
+    "composition": "Show one puppy walking directly toward a red ball placed ahead, with its face, paws and body all aligned toward the ball."
+  },
+  "half.png": {
+    "subject": "half, one of two equal parts.",
+    "composition": "Show one round orange cut neatly into two equal halves, placed side by side with matching cut surfaces fully visible."
+  },
+  "individual.png": {
+    "subject": "individual, considered separately rather than as a group.",
+    "composition": "Show three small potted plants spaced apart from one another, each clearly separate and complete as its own individual item."
+  },
+  "higher.png": {
+    "subject": "higher, at a greater height.",
+    "composition": "Show one child raising a kite high overhead on a taut string, with the kite clearly far above the child's head."
+  },
+  "reason.png": {
+    "subject": "reason, an explanation for something.",
+    "composition": "Show one child looking at an untied shoelace after stumbling and pointing directly to the loose lace as the cause."
+  },
+  "taking.png": {
+    "subject": "taking, appealing or charming.",
+    "composition": "Show one friendly child with a bright engaging smile, relaxed posture and warm expressive eyes. No other person or prop."
+  },
+  "education.png": {
+    "subject": "education, teaching and guiding a learner.",
+    "composition": "Show one teacher helping one child understand a simple globe, pointing patiently while the child watches with interest."
+  },
+  "per.png": {
+    "subject": "per, for each individual unit.",
+    "composition": "Show three separate plates with exactly one bread roll on each plate, making the one-per-item relationship immediately clear."
+  },
+  "land.png": {
+    "subject": "land, solid ground beside water.",
+    "composition": "Show one small boat touching a clear shoreline, with dry ground occupying one side and water the other. No person is needed."
+  },
+  "rate.png": {
+    "subject": "rate, the charge for a service.",
+    "composition": "Show one rental bicycle beside a simple price card reading 5 per hour and a small group of coins, with no people present.",
+    "allow_text": true
+  },
+  "field.png": {
+    "subject": "field, an open grassy area.",
+    "composition": "Show one broad patch of meadow with low grass and a few wildflowers, keeping the open grassy space as the only subject."
+  },
+  "class.png": {
+    "subject": "class, a teaching session with pupils.",
+    "composition": "Show one teacher demonstrating a simple wooden balance to one seated pupil, keeping the lesson interaction compact and clear."
+  },
+  "attention.png": {
+    "subject": "attention, focused observation.",
+    "composition": "Show one child leaning close to a small butterfly on a flower, with eyes fixed entirely on it and no distracting secondary person."
+  },
+  "quite.png": {
+    "subject": "quite, completely rather than partly.",
+    "composition": "Show one child turning an entirely empty cookie tin toward the viewer, with the clean interior plainly visible and no crumbs remaining."
+  },
+  "leave@leip.png": {
+    "subject": "leave, departing from a place.",
+    "composition": "Show one traveler walking out through an open doorway with a suitcase, moving clearly away from the starting place. No other person."
+  },
+  "performance.png": {
+    "subject": "performance, presenting an artistic act.",
+    "composition": "Show one violinist performing with expressive posture and focused movement, keeping the complete instrument and performer clearly visible."
+  },
+  "coming.png": {
+    "subject": "coming, expected to arrive soon.",
+    "composition": "Show one bus approaching a waiting stop from a short distance away, with the vehicle clearly moving toward its destination."
+  },
+  "lot.png": {
+    "subject": "lot, choosing by a random draw.",
+    "composition": "Show one child drawing a single folded slip from a bowl filled with matching folded slips. No other people or readable writing."
+  },
+  "international.png": {
+    "subject": "international, connecting more than one country.",
+    "composition": "Show one globe flanked by a small Japanese flag and a small French flag, emphasizing connection between countries without people."
+  },
+  "bring.png": {
+    "subject": "bring, carrying something toward a destination.",
+    "composition": "Show one child carrying a cup of water carefully toward a small table where it is clearly intended to be placed."
+  },
+  "lead.png": {
+    "subject": "lead, guiding another along a route.",
+    "composition": "Show one adult guide walking slightly ahead of one child and pointing along a safe path, with the child following."
+  },
+  "image.png": {
+    "subject": "image, a visual representation.",
+    "composition": "Show one tablet displaying a clear picture of a red apple, with the device and displayed image as the only subjects."
+  },
+  "training.png": {
+    "subject": "training, repeated practice to improve a skill.",
+    "composition": "Show one young athlete practicing footwork around three low cones with focused posture, without a coach or spectators."
+  },
+  "methods.png": {
+    "subject": "methods, different practical ways to accomplish a task.",
+    "composition": "Show one potted plant beside both a watering can and a small drip bottle, presenting two distinct watering methods without people."
+  },
+  "truth.png": {
+    "subject": "truth, what actually happened.",
+    "composition": "Show one child honestly pointing to a broken cup with a serious open expression, clearly acknowledging what happened. No listener is needed."
+  },
+  "presence.png": {
+    "subject": "presence, being physically at an event.",
+    "composition": "Show one child seated at a classroom desk with a raised hand and school materials ready, clearly present for the lesson."
+  },
+  "security.png": {
+    "subject": "security, being protected from intrusion or harm.",
+    "composition": "Show one sturdy front door secured by a visible deadbolt and chain lock, emphasizing protection without any person."
+  },
+  "received.png": {
+    "subject": "received, generally accepted by a group.",
+    "composition": "Show three children independently following the same familiar handwashing routine, with matching actions indicating common acceptance."
+  },
+  "who.png": {
+    "subject": "who, asking about a person's identity.",
+    "composition": "Show one curious child looking directly at one unfamiliar visitor with raised eyebrows and a questioning expression. No third person is present."
+  },
+  "school@segh.png": {
+    "subject": "school, a place where children learn.",
+    "composition": "Show one welcoming school building with a bell above the entrance, two rows of windows and a simple front door. No people are needed."
+  },
+  "political.png": {
+    "subject": "political, relating to public decision-making.",
+    "composition": "Show two community representatives discussing a small town model across one council table, focusing on a proposed public building."
+  },
+  "term.png": {
+    "subject": "term, a word used for a particular concept.",
+    "composition": "Show one open mathematics notebook with a triangle labeled triangle, making the technical term and the concept it names the only focus.",
+    "allow_text": true
+  },
+  "policy@pele3.png": {
+    "subject": "policy, an agreed plan for public action.",
+    "composition": "Show one council representative discussing a neighborhood tree-planting plan with one resident, using a simple illustrated map and sapling."
+  },
+  "test.png": {
+    "subject": "test, a task used to check knowledge or ability.",
+    "composition": "Show one pupil concentrating on a short worksheet at an individual desk, with pencil ready and no teacher or other pupils present."
+  },
+  "activity.png": {
+    "subject": "activity, purposeful physical or social engagement.",
+    "composition": "Show one child actively planting a seedling, using both hands and a small trowel in one clear purposeful action."
+  },
+  "lower.png": {
+    "subject": "lower, moving something downward.",
+    "composition": "Show one adult carefully lowering a hanging flowerpot on a rope, with the pot clearly midway between its high and low positions."
+  },
+  "late.png": {
+    "subject": "late, arriving after the expected time.",
+    "composition": "Show one child hurrying toward a classroom doorway while glancing anxiously at a wristwatch, with no classmates or other people shown."
+  },
+  "account.png": {
+    "subject": "account, a bank arrangement for keeping money.",
+    "composition": "Show one open bank passbook beside a plain bank card and a few coins, with the account materials grouped clearly and no person present."
+  }
+}

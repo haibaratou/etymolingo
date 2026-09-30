@@ -1,0 +1,11 @@
+; Local-only data import/validation helper. Does not modify dictionary data.
+config_version=5
+
+[application]
+config/name="Etymopedia Batch Import"
+
+[editor_plugins]
+enabled=PackedStringArray("res://addons/batch_import/plugin.cfg")
+
+[rendering]
+renderer/rendering_method="gl_compatibility"
