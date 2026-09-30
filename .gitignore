@@ -7,6 +7,7 @@ Thumbs.db
 __pycache__/
 nohup.out
 ﻿desktop.ini
-work/etymopedia_draft/
+# ローカルの制作物・生成画像・引き継ぎ用作業場所。公開リポジトリには含めない
+work/
 # 参考にする辞書の生ページ(私用のキャッシュ。持ち出さない)
 app/data/pie/cache_refs/
