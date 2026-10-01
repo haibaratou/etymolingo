@@ -44,7 +44,8 @@
   function readSave() {
     let raw = {};
     try { raw = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch { /* Storage is optional. */ }
-    const value = { mode: raw.mode === 'en' ? 'en' : 'ja', sound: raw.sound !== false, theme: raw.theme === 'dark' ? 'dark' : 'light', layout: raw.layout === 'mobile' || raw.layout === 'desktop' ? raw.layout : 'auto', targetTier: Number.isInteger(raw.targetTier) && raw.targetTier >= 0 && raw.targetTier < difficulty.tiers.length ? raw.targetTier : 6, routeVersion: 1 };
+    const value = { mode: raw.mode === 'en' ? 'en' : 'ja', sound: raw.sound !== false, theme: raw.theme === 'dark' ? 'dark' : 'light', layout: raw.layout === 'mobile' || raw.layout === 'desktop' ? raw.layout : 'auto', targetTier: Number.isInteger(raw.targetTier) && raw.targetTier >= 0 && raw.targetTier < difficulty.tiers.length ? raw.targetTier : 6, routeVersion: 1,
+      combo: Number.isInteger(raw.combo) && raw.combo > 0 ? raw.combo : 0, bestCombo: Number.isInteger(raw.bestCombo) && raw.bestCombo > 0 ? raw.bestCombo : 0 };
     for (const lang of ['ja', 'en']) {
       const old = raw[lang] || {};
       const stars = {};
@@ -62,8 +63,12 @@
   let dictionaryLanguage = mode, dictionaryFilter = 'all', lastAcquired = null;
   let advanceTimers = [];
   let keyboardNavigation = false;
+  let comboEligible = true;
+  const COMBO_STEP = 5;
+  const comboLevel = value => value >= 10 ? 3 : value >= COMBO_STEP ? 2 : value >= 2 ? 1 : 0;
   let ringBatches = [[]], lastActiveBatch = -1;
-  const REWARD_DURATION = 1700;
+  const PRAISE_TIME = 620; // praise pops over the board before the card flies in
+  const REWARD_DURATION = 2350;
   const pending = new Set();
   const text = () => copy[mode];
   const progress = () => saved[mode];
@@ -152,10 +157,18 @@
       this.tone(120, .25, .14, .3, 0, 'triangle');
       this.tone(127, .25, .14, .1, 0, 'square');
     }
-    win() {
-      [523.25, 659.25, 783.99, 1046.5, 1318.5].forEach((f, i) => this.tone(f, .7, i * .075, .22));
-      [261.63, 329.63, 392].forEach(f => this.tone(f, 1.1, .15, .1, 0, 'triangle'));
+    win(combo = 0) {
+      // Each clean solve lifts the fanfare a little, so a streak is audible.
+      const lift = Math.pow(2, Math.min(Math.max(combo - 1, 0), 7) / 12);
+      [523.25, 659.25, 783.99, 1046.5, 1318.5].forEach((f, i) => this.tone(f * lift, .7, i * .075, .22));
+      [261.63, 329.63, 392].forEach(f => this.tone(f * lift, 1.1, .15, .1, 0, 'triangle'));
+      if (combo >= 2) {
+        const sparkle = [1567.98, 1760, 2093, 2349.32, 2637.02, 3135.96];
+        sparkle.slice(0, Math.min(combo, sparkle.length)).forEach((f, i) => this.tone(f, .22, .42 + i * .055, .07, (i % 2 ? .4 : -.4), 'triangle'));
+      }
+      if (combo >= 2 && combo % COMBO_STEP === 0) [783.99, 987.77, 1174.66, 1567.98].forEach((f, i) => this.tone(f, .9, .8 + i * .06, .14, 0, 'square'));
     }
+    comboBreak() { this.unlock(); this.tone(523.25, .14, .3, .09, 0, 'triangle'); this.tone(392, .18, .4, .09, 0, 'triangle'); this.tone(261.63, .3, .5, .08, 0, 'triangle'); }
     duck(speaking) {
       if (this.ctx && this.master) this.master.gain.setTargetAtTime(speaking ? .055 : .28, this.ctx.currentTime, .07);
     }
@@ -220,14 +233,14 @@
     }
     burst(x, y, count, celebration = false) {
       if (reducedMotion.matches || document.hidden) return;
-      const colors = ['#e5ac86', '#8fa67b', '#d6bd78', '#b6c697', '#cb7860'];
+      const colors = celebration === 'gold' ? ['#ffc93c', '#ffe27a', '#ff9a1f', '#fff6c2', '#ff7a45'] : celebration ? ['#ff7a45', '#ffc93c', '#2ecc9a', '#3fa9f5', '#ff5c8a', '#9b6bff'] : [getComputedStyle(document.documentElement).getPropertyValue('--accent').trim() || '#ff7a45', '#ffc93c', '#ffffff'];
       for (let i = 0; i < count; i++) {
         const angle = Math.random() * Math.PI * 2, velocity = celebration ? 130 + Math.random() * 320 : 25 + Math.random() * 75;
         this.items.push({ x, y, vx: Math.cos(angle) * velocity, vy: Math.sin(angle) * velocity - (celebration ? 140 : 0),
           size: celebration ? 3 + Math.random() * 5 : 1.5 + Math.random() * 2, life: celebration ? 1.5 + Math.random() : .4 + Math.random() * .2,
-          age: 0, angle, spin: (Math.random() - .5) * 10, color: colors[i % colors.length], celebration });
+          age: 0, angle, spin: (Math.random() - .5) * 10, color: colors[i % colors.length], celebration, shape: celebration ? ['star', 'circle', 'rect', 'rect'][i % 4] : 'circle' });
       }
-      this.items = this.items.slice(-160);
+      this.items = this.items.slice(-320);
       if (!this.frame) { this.last = performance.now(); this.frame = requestAnimationFrame(time => this.draw(time)); }
     }
     draw(time) {
@@ -237,7 +250,11 @@
       for (const p of this.items) {
         p.age += dt; p.x += p.vx * dt; p.y += p.vy * dt; p.vy += (p.celebration ? 220 : 35) * dt; p.angle += p.spin * dt;
         ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.angle); ctx.globalAlpha = Math.max(0, 1 - p.age / p.life);
-        ctx.fillStyle = p.color; ctx.beginPath(); ctx.ellipse(0, 0, p.size, p.size * .48, 0, 0, Math.PI * 2); ctx.fill(); ctx.restore();
+        ctx.fillStyle = p.color; ctx.beginPath();
+        if (p.shape === 'star') { for (let k = 0; k < 10; k++) { const r = k % 2 ? p.size * .55 : p.size * 1.4, a = k * Math.PI / 5; ctx.lineTo(Math.cos(a) * r, Math.sin(a) * r); } ctx.closePath(); }
+        else if (p.shape === 'rect') ctx.rect(-p.size, -p.size * .45, p.size * 2, p.size * .9);
+        else ctx.arc(0, 0, p.size * .8, 0, Math.PI * 2);
+        ctx.fill(); ctx.restore();
       }
       this.frame = this.items.length ? requestAnimationFrame(t => this.draw(t)) : 0;
     }
@@ -261,6 +278,7 @@
     $('levels').setAttribute('aria-label', t.choose); $('help').setAttribute('aria-label', t.help);
     $('stageSelectLabel').textContent = t.stageSelect;
     $('difficulty').setAttribute('aria-label', mode === 'ja' ? '難易度を選ぶ' : 'Choose difficulty');
+    $('difficultyLabel').textContent = mode === 'ja' ? '出題' : 'PLAYING';
     $('undo').setAttribute('aria-label', mode === 'ja' ? '一文字もどす' : 'Undo the last letter');
     $('closeModal').setAttribute('aria-label', t.close);
     $('wheel').setAttribute('aria-label', mode === 'ja' ? 'なぞって答える文字盤' : 'Connect letters to answer');
@@ -271,7 +289,12 @@
   function updateAnswerDisclosure() {
     const otherLanguage = mode === 'ja' ? 'en' : 'ja';
     const otherAnswer = [...(otherLanguage === 'ja' ? entry.w : entry.en.toUpperCase())];
-    $('pictureCaption').textContent = otherAnswer.map((char, i) => i < hintCount ? char : '●').join('');
+    const label = document.createElement('b'); label.className = 'caption-lang';
+    label.textContent = otherLanguage === 'ja' ? (mode === 'ja' ? '日本語' : 'JAPANESE') : (mode === 'ja' ? '英語' : 'ENGLISH');
+    const masked = document.createElement('span'); masked.className = 'caption-mask';
+    masked.textContent = otherAnswer.map((char, i) => i < hintCount ? char : '●').join('');
+    $('pictureCaption').replaceChildren(label, masked);
+    $('pictureCaption').title = mode === 'ja' ? 'もう一方の言語での答え（文字数）' : 'The same word in the other language (letter count)';
     $('pictureCaption').classList.add('masked-answer');
     $('pictureCaption').lang = otherLanguage;
   }
@@ -285,10 +308,30 @@
     $('theme').innerHTML = icon(dark ? 'sun' : 'moon');
     $('themeColor').content = dark ? '#071126' : '#f6f4ec';
   }
+  // "auto" uses the compact one-screen board on phones and the regular board elsewhere.
+  const effectiveLayout = () => saved.layout !== 'auto' ? saved.layout : (innerWidth <= 860 ? 'mobile' : 'auto');
   function updateLayout() {
-    document.documentElement.dataset.layout = saved.layout;
-    $('viewMobile').setAttribute('aria-pressed', String(saved.layout === 'mobile'));
-    $('viewDesktop').setAttribute('aria-pressed', String(saved.layout === 'desktop'));
+    document.documentElement.dataset.layout = effectiveLayout();
+    document.querySelectorAll('[data-layout-choice]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.layoutChoice === saved.layout)));
+  }
+  function renderCombo(event = '') {
+    const value = saved.combo, level = comboLevel(value), meter = $('combo');
+    meter.dataset.level = String(level); $('game').dataset.comboLevel = String(level);
+    $('comboCount').textContent = String(value);
+    const filled = value === 0 ? 0 : value % COMBO_STEP || COMBO_STEP;
+    [...$('comboPips').children].forEach((pip, i) => pip.classList.toggle('on', i < filled));
+    $('comboBest').textContent = `BEST ${saved.bestCombo}`;
+    meter.setAttribute('aria-label', mode === 'ja' ? `${value} コンボ、最高 ${saved.bestCombo}` : `${value} combo, best ${saved.bestCombo}`);
+    if (event) { meter.classList.remove('bump', 'break'); void meter.offsetWidth; meter.classList.add(event); }
+    const risky = value > 0;
+    $('freeTag').textContent = risky ? (mode === 'ja' ? 'COMBO終了' : 'ENDS COMBO') : 'FREE';
+    $('hint').classList.toggle('combo-risk', risky);
+  }
+  function breakCombo() {
+    comboEligible = false;
+    if (saved.combo <= 0) return 0;
+    const lost = saved.combo; saved.combo = 0; persist(); renderCombo('break'); sound.comboBreak(); vibrate([20, 40, 20]);
+    return lost;
   }
   function updateSound() {
     $('sound').setAttribute('aria-label', saved.sound ? text().soundOff : text().soundOn);
@@ -303,7 +346,7 @@
     const group = Math.floor(index / 10), stars = progress().stars;
     const profile = difficulty.challenge(entry, mode);
     $('game').style.setProperty('--rarity', profile.color); $('game').dataset.rarity = profile.key;
-    $('chapterNumber').textContent = `RANK ${profile.rank} / ${difficulty.tiers.length}`;
+    $('chapterNumber').textContent = `${mode === 'ja' ? 'この絵' : 'THIS WORD'} · RANK ${profile.rank}/${difficulty.tiers.length}`;
     $('difficultyText').textContent = `${rarityStars(saved.targetTier)} ${difficulty.tiers[saved.targetTier].name}`;
     $('chapterName').textContent = mode === 'ja' ? profile.ja : profile.en;
     $('rarityBadge').innerHTML = `<span class="rarity-stars">${rarityStars(entry.tier)}</span> ${profile.code} · ${profile.name}`;
@@ -341,15 +384,16 @@
     const profile = difficulty.challenge(entry, mode);
     const plan = planLetters(answer, [], profile.innerCount, profile.dual); ringBatches = plan.batches; lastActiveBatch = -1;
     $('wheel').classList.toggle('dual-ring', ringBatches.length > 1);
-    nodes = shuffle(plan.letters).map(node => {
+    nodes = shuffle(plan.letters).map((node, order) => {
       const { char, id } = node;
       const button = document.createElement('button'); button.type = 'button'; button.className = `letter${profile.dual ? ' ring-letter' : ''}`;
-      button.dataset.ring = node.batch === 0 ? 'inner' : 'outer'; button.dataset.batch = String(node.batch);
+      button.dataset.ring = node.batch === 0 ? 'inner' : 'outer'; button.dataset.batch = String(node.batch); button.style.setProperty('--i', order);
       button.textContent = char; button.dataset.node = String(id); button.setAttribute('aria-label', char); button.setAttribute('aria-pressed', 'false');
       button.addEventListener('click', event => { if (event.detail === 0 && phase === 'playing' && !shuffleBusy) { sound.unlock(); selectNode(id); if (selected.length >= answer.length) checkAnswer(); else setFeedback(text().tap); } });
       return { ...node, button, x: 0, y: 0 };
     });
     $('letters').replaceChildren(...nodes.map(node => node.button)); layoutNodes();
+    $('letters').classList.add('intro'); later(() => $('letters').classList.remove('intro'), 520 + nodes.length * 55);
   }
   function updateAnswer() {
     const word = selected.map(id => nodes.find(node => node.id === id).char);
@@ -405,7 +449,7 @@
     node.button.classList.remove('hint-target');
     sound.pick(selected.length, node.x); vibrate(7);
     const rect = $('wheel').getBoundingClientRect();
-    petals.burst(rect.left + node.x / 360 * rect.width, rect.top + node.y / 360 * rect.height, 7);
+    petals.burst(rect.left + node.x / 360 * rect.width, rect.top + node.y / 360 * rect.height, 10);
     updateAnswer(); drawTrail();
   }
 
@@ -440,10 +484,12 @@
     entry = catalog[index]; progress().wordId = entry.id; persist();
     answer = [...(mode === 'ja' ? entry.w : entry.en.toUpperCase())];
     selected = []; hintCount = Math.min(retainedHintCount, answer.length); mistakes = 0; shuffleBusy = false; phase = 'loading';
+    comboEligible = hintCount === 0;
+    $('rewardCombo').hidden = true; $('game').classList.remove('combo-win'); $('praise').classList.remove('show');
     $('game').dataset.state = phase; $('gameActions').hidden = false;
     $('wheel').classList.remove('mistake'); $('answer').classList.remove('mistake');
     $('hint').disabled = false; $('shuffle').disabled = false; $('imageError').hidden = true;
-    updateLabels(); updateProgress();
+    updateLabels(); updateProgress(); renderCombo();
     updateAnswerDisclosure();
     $('answer').className = `answer${answer.length > 10 ? ' extra-long' : answer.length > 7 ? ' long' : ''}`;
     $('answer').replaceChildren(...answer.map((_, i) => { const tile = document.createElement('span'); tile.className = 'answer-tile'; tile.style.setProperty('--i', i); return tile; }));
@@ -510,8 +556,9 @@
     const tooShort = selected.length < answer.length;
     if (!tooShort) mistakes++;
     phase = 'checking'; $('game').dataset.state = phase; sound.wrong(); vibrate([35, 30, 45]);
+    const lost = tooShort ? 0 : breakCombo();
     resetSelection();
-    setFeedback(tooShort ? text().short : text().wrong, 'wrong');
+    setFeedback(tooShort ? text().short : lost ? (mode === 'ja' ? `おしい！ ${lost} COMBO でストップ` : `Almost! Your ${lost} combo ended.`) : text().wrong, 'wrong');
     for (const element of [$('answer'), $('wheel')]) {
       element.classList.remove('mistake'); void element.offsetWidth; element.classList.add('mistake');
     }
@@ -521,9 +568,23 @@
       resetSelection(); setFeedback(text().release);
     }, 480);
   }
+  const praiseWords = {
+    ja: { gold: ['てんさい！', 'かんぺき！', 'さいこう！'], great: ['すごい！', 'やったね！', 'ナイス！', 'いいね！'], ok: ['できた！', 'クリア！', 'せいかい！'] },
+    en: { gold: ['GENIUS!', 'PERFECT!', 'AMAZING!'], great: ['GREAT!', 'NICE!', 'AWESOME!', 'SUPER!'], ok: ['GOT IT!', 'SOLVED!', 'CORRECT!'] },
+  };
+  function showPraise(stars, combo) {
+    const tier = combo >= COMBO_STEP || (stars === 3 && answer.length >= 6) ? 'gold' : stars === 3 ? 'great' : 'ok';
+    const words = praiseWords[mode][tier], praise = $('praise');
+    praise.textContent = words[Math.floor(Math.random() * words.length)];
+    praise.dataset.tier = tier;
+    praise.classList.remove('show'); void praise.offsetWidth; praise.classList.add('show');
+  }
   function win() {
     $('rankUp').hidden = true;
-    phase = 'solved'; $('game').dataset.state = phase; flyLetters(); sound.win(); vibrate([12, 35, 20]);
+    phase = 'solved'; $('game').dataset.state = phase; flyLetters(); vibrate([12, 35, 20]);
+    if (comboEligible) { saved.combo++; saved.bestCombo = Math.max(saved.bestCombo, saved.combo); }
+    const combo = comboEligible ? saved.combo : 0, newBest = combo >= 2 && combo === saved.bestCombo;
+    sound.win(combo); renderCombo(combo ? 'bump' : '');
     const stars = Math.max(1, 3 - Math.min(2, hintCount + (mistakes > 0 ? 1 : 0)));
     const first = !progress().stars[entry.id];
     progress().stars[entry.id] = Math.max(progress().stars[entry.id] || 0, stars); persist();
@@ -559,15 +620,27 @@
       return page;
     }));
     $('wordReward').setAttribute('aria-label', `${bookName(mode)} ${mode === 'ja' ? 'を開く' : '— open'}`);
-    $('wordReward').hidden = false;
-    $('rewardScene').hidden = false;
-    $('rewardScene').showPopover?.();
-    $('rewardBackdrop').hidden = false;
+    $('rewardStars').replaceChildren(...[0, 1, 2].map(i => { const star = document.createElement('i'); star.textContent = '★'; star.style.setProperty('--i', i); star.className = i < stars ? 'on' : ''; return star; }));
     $('hint').disabled = true; $('shuffle').disabled = true;
+    showPraise(stars, combo);
+    const wheelRect = $('wheel').getBoundingClientRect();
+    petals.burst(wheelRect.left + wheelRect.width / 2, wheelRect.top + wheelRect.height / 2, 60 + Math.min(combo, 8) * 8, combo >= COMBO_STEP ? 'gold' : true);
     $('centerLabel').textContent = 'bloom!';
-    const rect = $('wordReward').getBoundingClientRect(); petals.burst(rect.left + rect.width / 2, rect.top + rect.height / 2, 140, true);
-    later(() => { $('rewardScene').classList.add('page-filled'); updateProgress(); }, 760);
-    if (first) later(animateAcquisition, 850);
+    const comboBanner = $('rewardCombo'), milestone = combo >= COMBO_STEP && combo % COMBO_STEP === 0;
+    comboBanner.hidden = combo < 2; comboBanner.dataset.level = String(comboLevel(combo)); comboBanner.classList.toggle('milestone', milestone);
+    $('rewardComboCount').textContent = String(combo);
+    $('rewardComboNote').textContent = milestone ? (combo >= 10 ? 'FEVER!' : 'GREAT STREAK!') : newBest ? (mode === 'ja' ? '自己ベスト更新！' : 'NEW BEST!') : (mode === 'ja' ? 'ノーヒント・ノーミス' : 'No hints, no misses');
+    $('game').classList.toggle('combo-win', combo >= 2);
+    $('rewardScene').classList.toggle('has-combo', combo >= 2);
+    later(() => {
+      $('wordReward').hidden = false; $('rewardScene').hidden = false;
+      $('rewardScene').showPopover?.(); $('rewardBackdrop').hidden = false;
+      const rect = $('wordReward').getBoundingClientRect();
+      petals.burst(rect.left + rect.width / 2, rect.top + rect.height / 3, 130 + Math.min(combo, 8) * 20, combo >= COMBO_STEP ? 'gold' : true);
+      if (milestone) later(() => petals.burst(innerWidth / 2, innerHeight * .25, 100, 'gold'), 380);
+      later(() => { $('rewardScene').classList.add('page-filled'); updateProgress(); }, 760);
+      if (first) later(animateAcquisition, 900);
+    }, reducedMotion.matches ? 0 : PRAISE_TIME);
     $('winPronunciation').replaceChildren(pronunciationPanel(entry, mode)); $('winPronunciation').hidden = false;
     speech.speak(entry, mode);
     queueAdvance();
@@ -601,8 +674,24 @@
       .filter(hit => hit.distance <= hitRadius(hit.node)).sort((a, b) => a.distance - b.distance)[0]?.node;
   }
   // Swept-segment intersection keeps fast swipes from skipping a letter between events.
+  // Passing over a letter needs a firmer touch than starting on one, so grazing a neighbour
+  // on the way across a crowded ring does not pick it up by accident.
+  function passRadius(node) { return node.button.offsetWidth / (wheelRect.width / 360) / 2 * .85; }
   function sweep(from, to) {
-    for (const id of sweptHits(nodes.filter(node => !node.button.hidden), from, to, hitRadius)) selectNode(id);
+    for (const id of sweptHits(nodes.filter(node => !node.button.hidden), from, to, passRadius)) selectNode(id);
+    repeatLetter(to);
+  }
+  // Double letters (CORRECT, ROLL, もも…): leaving the last letter and coming back onto it
+  // takes its unused twin, so the same circle can be "used twice" naturally.
+  function repeatLetter(position) {
+    const last = nodes.find(node => node.id === selected.at(-1));
+    if (!pointer || !last) return;
+    const distance = Math.hypot(position.x - last.x, position.y - last.y), radius = hitRadius(last);
+    if (distance > radius * 1.1) { pointer.exited = last.id; return; }
+    if (pointer.exited !== last.id || distance > radius * .9) return;
+    pointer.exited = null;
+    const twin = nodes.find(node => node.char === last.char && !selected.includes(node.id) && !node.button.hidden);
+    if (twin) selectNode(twin.id);
   }
   function cancelGesture() {
     if (pointer && $('wheel').hasPointerCapture?.(pointer.id)) $('wheel').releasePointerCapture(pointer.id);
@@ -614,7 +703,7 @@
     wheelRect = $('wheel').getBoundingClientRect();
     const position = pointFrom(event), node = nearest(position); if (!node) { wheelRect = null; return; }
     event.preventDefault(); sound.unlock();
-    pointer = { id: event.pointerId, kind: event.pointerType, start: position, last: position, moved: false };
+    pointer = { id: event.pointerId, kind: event.pointerType, start: position, last: position, moved: false, exited: null };
     $('wheel').setPointerCapture(event.pointerId); $('wheel').classList.add('dragging');
     selectNode(node.id); drawTrail(position); setFeedback(text().release);
   });
@@ -663,7 +752,7 @@
   });
   $('hint').addEventListener('click', () => {
     if (phase !== 'playing' || shuffleBusy) return;
-    cancelGesture(); sound.unlock(); sound.hint(); hintCount = Math.min(answer.length, hintCount + 1); updateAnswer(); updateAnswerDisclosure();
+    cancelGesture(); sound.unlock(); sound.hint(); breakCombo(); hintCount = Math.min(answer.length, hintCount + 1); updateAnswer(); updateAnswerDisclosure();
     const target = nodes.find(node => node.answerIndex === hintCount - 1);
     if (target) { target.button.classList.remove('hint-target'); void target.button.offsetWidth; target.button.classList.add('hint-target'); }
     const jaHint = [...entry.w][hintCount - 1];
@@ -679,8 +768,7 @@
   $('theme').addEventListener('click', () => {
     saved.theme = saved.theme === 'dark' ? 'light' : 'dark'; persist(); updateTheme();
   });
-  $('viewMobile').addEventListener('click', () => { saved.layout = 'mobile'; persist(); updateLayout(); });
-  $('viewDesktop').addEventListener('click', () => { saved.layout = 'desktop'; persist(); updateLayout(); });
+  window.addEventListener('resize', updateLayout);
   document.querySelectorAll('[data-mode]').forEach(button => button.addEventListener('click', () => {
     if (mode === button.dataset.mode) return;
     mode = button.dataset.mode; loadLevel(index, false, false, true, true);
@@ -697,19 +785,28 @@
   $('closeModal').addEventListener('click', () => $('modal').close());
   $('modal').addEventListener('close', () => { speech.stop(); queueAdvance(850); });
   $('modal').addEventListener('click', event => { if (event.target === $('modal')) { const r = $('modal').getBoundingClientRect(); if (event.clientX < r.left || event.clientX > r.right || event.clientY < r.top || event.clientY > r.bottom) $('modal').close(); } });
+  function layoutSettings() {
+    const choices = [['auto', 'desktop', mode === 'ja' ? '自動' : 'Auto'], ['mobile', 'phone', mode === 'ja' ? '縦持ち' : 'Phone'], ['desktop', 'desktop', 'PC']];
+    return `<div class="settings-row"><span>${mode === 'ja' ? '画面レイアウト' : 'Layout'}</span><div class="layout-choice" role="group" aria-label="${mode === 'ja' ? '画面レイアウト' : 'Layout'}">${choices.map(([value, iconName, label]) => `<button type="button" data-layout-choice="${value}" aria-pressed="${saved.layout === value}">${value === 'auto' ? '' : icon(iconName)}<span>${label}</span></button>`).join('')}</div></div>`
+      + `<p class="settings-best">${mode === 'ja' ? '最高 COMBO' : 'Best combo'} <b>${saved.bestCombo}</b></p>`;
+  }
   $('help').addEventListener('click', () => {
     const steps = mode === 'ja' ? [
-      'イラストを見て、ことばを思い浮かべます。日本語はひらがな、英語はアルファベットで答えます。',
+      'イラストを見て、ことばを思い浮かべます。日本語はひらがな、英語はアルファベットで答えます。絵の下の伏字は、もう一方の言語での文字数です。',
       '文字から文字へ、指をはなさずになぞります。最後までつないで離すと答え合わせ。途中で離すと選択を取り消します。',
+      'ヒントなし・ミスなしで正解し続けると COMBO が伸び、演出と音がどんどん華やかに。5の倍数で大きなボーナス演出。ヒントや誤答で COMBO は 0 に戻ります。',
       '正解すると発音とともに図鑑の1ページが埋まり、自動で次の問題へ。獲得したページは下の辞書から開いて、何度でも発音を聞き直せます。',
     ] : [
-      'Look at the picture and find its word. Choose Japanese for hiragana, or English for the alphabet.',
+      'Look at the picture and find its word. Choose Japanese for hiragana, or English for the alphabet. The dots under the picture show the word length in the other language.',
       'Swipe through the entire word and release to check. Releasing an unfinished word cancels the selection.',
+      'Solve in a row with no hints and no misses to build a COMBO. The fanfare grows with it, with a big burst every 5. A hint or a wrong answer resets it.',
       'Get it right, hear the word, and watch a dictionary page fill in. The next puzzle starts automatically. Open your dictionaries below to listen again.',
     ];
-    const note = mode === 'ja' ? '選んだ文字を横切っても取り消されません。同じ文字は別々の丸を使います。外側の文字も最初から選べます。一文字戻すときは中央の矢印、または Backspace。ヒントを使っても単語を獲得できます。キーボードは Tab / Enter / Backspace。' : 'Crossing selected letters keeps your word intact. Repeated letters use separate circles. Outer letters are available from the start. Use the center arrow or Backspace to undo a letter. Hints still let you collect the word. Keyboard: Tab / Enter / Backspace.';
-    openModal(text().help, `<div class="help-steps">${steps.map((line, i) => `<div class="help-step"><b>${i + 1}</b><p>${line}</p></div>`).join('')}</div><p class="help-note">${note}</p><button class="modal-primary" id="startPlaying" type="button">${mode === 'ja' ? 'ことばを咲かせよう' : 'Let it bloom'}</button>`);
+    const note = mode === 'ja' ? '選んだ文字を横切っても取り消されません。同じ文字が続くとき（CORRECT の RR など）は、もう一つの丸へ進むか、いったん外へ出て同じ丸に戻ればOK。外側の文字も最初から選べます。一文字戻すときは中央の矢印、または Backspace。ヒントを使っても単語を獲得できます。キーボードは Tab / Enter / Backspace。' : 'Crossing selected letters keeps your word intact. For a double letter (the RR in CORRECT), slide to its twin or slip off the letter and back onto it. Outer letters are available from the start. Use the center arrow or Backspace to undo a letter. Hints still let you collect the word. Keyboard: Tab / Enter / Backspace.';
+    openModal(text().help, `<div class="help-steps">${steps.map((line, i) => `<div class="help-step"><b>${i + 1}</b><p>${line}</p></div>`).join('')}</div><p class="help-note">${note}</p>${layoutSettings()}<button class="modal-primary" id="startPlaying" type="button">${mode === 'ja' ? 'ことばを咲かせよう' : 'Let it bloom'}</button>`);
     $('startPlaying').addEventListener('click', () => $('modal').close());
+    $('modalBody').querySelectorAll('[data-layout-choice]').forEach(button => button.addEventListener('click', () => { saved.layout = button.dataset.layoutChoice; persist(); updateLayout(); }));
+    updateLayout();
   });
   $('difficulty').addEventListener('click', () => {
     const title = mode === 'ja' ? '挑戦する難易度を選ぶ' : 'Choose your challenge';
