@@ -1,5 +1,6 @@
 globalThis.ETYMON_WORD_ART = {
   "[\"a\",\"oi-no-\"]": "a@oino",
+  "[\"a\",\"an-\"]": "a@an",
   "[\"AEF\",\"\"]": "AEF",
   "[\"Ariadne\",\"\"]": "Ariadne",
   "[\"its\",\"\"]": "its",
