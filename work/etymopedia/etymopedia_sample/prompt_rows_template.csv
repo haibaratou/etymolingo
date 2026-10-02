@@ -1,0 +1,64 @@
+﻿ファイル名,語義,対象語義,画像生成プロンプト,プロンプト準備状況,要確認理由,画風参照画像
+balloon.png,風船,風船,"Subject: balloon, target meaning ""風船"".
+
+Composition: Show one large inflated party balloon with a tied neck and a short string, floating upward as the single dominant object.
+
+Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
+
+Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png
+dryness.png,乾いている状態、乾燥,乾燥,"Subject: dryness, a state with very little moisture.
+
+Composition: Show a dry cracked patch of earth with one wilted leaf resting on it, clearly emphasizing lack of moisture.
+
+Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
+
+Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png
+moss.png,コケ,コケ,"Subject: moss, moss.
+
+Composition: Show a small dense patch of soft green moss covering the surface of a damp stone.
+
+Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
+
+Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png
+refreshing.png,心身をさわやかにする,fresh; refreshing,"Subject: refreshing, pleasantly fresh and invigorating.
+
+Composition: Show an adult standing outdoors in crisp morning air with a relaxed smile while a light breeze moves the clothes and hair.
+
+Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
+
+Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No incidental text, numerals, or labels. No logos or watermark.",作成済み,,references/invidious.png
+Oregon.png,オレゴン州,オレゴン州,"Subject: Oregon, target meaning ""オレゴン州"".
+
+Composition: Show snow-capped Mount Hood rising behind dense evergreen forest, with a winding river and rugged Pacific Northwest landscape in one compact Oregon scene.
+
+Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
+
+Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png
+acidic.png,酸っぱい、酸の,酸っぱい,"Subject: acidic, target meaning ""酸っぱい"".
+
+Composition: Show a person biting into a freshly cut lemon wedge. Their eyes squeeze shut, cheeks pull inward, and lips pucker sharply from the strong sour taste; the lemon half and the sour facial reaction are the two dominant visual cues.
+
+Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
+
+Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png
+tuberculosis.png,結核,結核,"Subject: tuberculosis, target meaning ""結核"".
+
+Composition: Show a clean medical chest image with lungs highlighted and several small affected spots inside the lungs, paired with a coughing patient in a mask; keep it non-graphic.
+
+Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
+
+Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png
