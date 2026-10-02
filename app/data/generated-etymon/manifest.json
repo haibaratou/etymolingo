@@ -10,9 +10,9 @@
     },
     "words": {
       "file": "words.json",
-      "bytes": 10743315,
+      "bytes": 10699911,
       "count": 49170,
-      "sha256": "222d20ccb1dc9f3f5e072563c212b34c7893ec25cdc51bf46dd0a53602b5b8f9"
+      "sha256": "ceb559e1319c04ac9e8ba883bf3ac39961656fde2194090d3a01445cba5ab7ec"
     },
     "affixes": {
       "file": "affixes.json",
