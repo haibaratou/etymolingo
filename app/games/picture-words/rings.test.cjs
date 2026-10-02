@@ -6,6 +6,7 @@ const { buildCatalog, challenge } = require('./difficulty.js');
 const scope = { window: {} }; vm.runInNewContext(fs.readFileSync(require.resolve('./catalog.js'), 'utf8'), scope);
 test('every answer is complete in one or two rings, without paging or hiding letters', () => {
   for (const word of buildCatalog(scope.window.PICTURE_WORDS_CATALOG)) for (const language of ['ja','en']) {
+    if (language === 'ja' && !word.w) continue;
     const answer = [...(language === 'ja' ? word.w : word.en.toUpperCase())], profile = challenge(word, language);
     const { letters, batches } = planLetters(answer, Array(profile.decoys).fill('X'), profile.innerCount, profile.dual);
     let path = [];

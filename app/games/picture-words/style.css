@@ -442,89 +442,6 @@ dialog h2{font-size:26px;font-weight:700;margin:6px 0 18px}
 .pronunciation-status{display:block;margin-top:8px;font-size:11px;color:var(--ink-soft)}
 .dictionary-entry .modal-primary{margin-top:14px}
 
-/* ---------- Phone board (data-layout=mobile): one screen, no scroll ---------- */
-html[data-layout=mobile]{--card:clamp(130px,calc(100dvh - 600px),240px);--wheel:min(calc(100vw - 44px),300px,calc(100dvh - 318px - var(--card)));--letter:min(58px,calc(var(--wheel) * .2));--letter-dual:min(46px,calc(var(--wheel) * .155))}
-html[data-layout=mobile] .page-shell{max-width:460px;padding:0 14px}
-html[data-layout=mobile] .topbar{height:54px}
-html[data-layout=mobile] .brand-mark{width:36px;height:36px;border-radius:12px;box-shadow:0 4px 0 #c9406a}
-html[data-layout=mobile] .brand-mark svg{width:24px;height:24px}
-html[data-layout=mobile] .brand b{font-size:19px}
-html[data-layout=mobile] .brand small{display:none}
-html[data-layout=mobile] .header-actions{gap:7px}
-html[data-layout=mobile] .icon-button{width:38px;height:38px;box-shadow:0 3px 0 var(--panel-edge)}
-html[data-layout=mobile] .icon-button svg{width:19px;height:19px}
-html[data-layout=mobile] .chapter-bar{flex-wrap:nowrap;gap:6px;padding:2px 0 4px}
-html[data-layout=mobile] .chapter-heading{display:none}
-html[data-layout=mobile] .level-pill,html[data-layout=mobile] .discovery-count{height:30px;padding:0 10px;font-size:11px;border-radius:15px;box-shadow:0 3px 0 var(--panel-edge)}
-html[data-layout=mobile] .pill-label,html[data-layout=mobile] #stageSelectLabel,html[data-layout=mobile] .level-dot,html[data-layout=mobile] #foundLabel{display:none}
-html[data-layout=mobile] .stage-select-button{order:0}
-html[data-layout=mobile] .chapter-progress{order:1;gap:4px;margin:0 auto 0 4px}
-html[data-layout=mobile] .progress-dot{width:7px;height:7px}
-html[data-layout=mobile] .progress-dot.current{box-shadow:0 0 0 2px var(--accent)}
-html[data-layout=mobile] .difficulty-pill{order:2;max-width:42vw;overflow:hidden}
-html[data-layout=mobile] #difficultyText{overflow:hidden;text-overflow:ellipsis}
-html[data-layout=mobile] .discovery-count{order:3;gap:4px}
-html[data-layout=mobile] .discovery-count b{font-size:14px}
-html[data-layout=mobile] .discovery-count svg{width:15px;height:15px}
-html[data-layout=mobile] .play-layout{display:flex;flex-direction:column;justify-content:space-evenly;gap:0;padding:6px 0 4px}
-html[data-layout=mobile] .picture-card{width:var(--card);padding:7px 7px 3px;border-radius:24px;box-shadow:0 0 0 4px color-mix(in srgb,var(--rarity) 55%,#fff),0 8px 0 4px color-mix(in srgb,var(--rarity) 70%,#000 10%),0 16px 26px #3d2c5c22}
-html[data-layout=mobile] .picture-stage{border-radius:18px}
-html[data-layout=mobile] .picture-meta{top:-11px;left:12px;right:12px}
-html[data-layout=mobile] #pictureNumber{display:none}
-html[data-layout=mobile] .rarity-badge{font-size:9px;padding:3px 8px;margin-left:auto}
-html[data-layout=mobile] .picture-caption{height:26px}
-html[data-layout=mobile] .caption-lang{font-size:9px;padding:2px 6px}
-html[data-layout=mobile] .caption-mask{font-size:12px}
-html[data-layout=mobile] .picture-stamp{width:56px;height:56px;font-size:10px;right:-12px;bottom:18px}
-html[data-layout=mobile] .picture-spark{font-size:16px}
-html[data-layout=mobile] .rank-up{border-radius:24px}.rank-up strong{font-size:20px}
-html[data-layout=mobile] .answer-wrap{margin-top:12px}
-html[data-layout=mobile] .bilingual-control{margin-bottom:8px}
-html[data-layout=mobile] .puzzle-language{width:250px;padding:4px;border-radius:20px;grid-template-columns:1fr 22px 1fr;box-shadow:0 3px 0 var(--panel-edge)}
-html[data-layout=mobile] .puzzle-language button{height:36px;font-size:13px;border-radius:16px}
-html[data-layout=mobile] .answer{min-height:50px;gap:5px}
-html[data-layout=mobile] .answer-tile{width:40px;flex-basis:40px;height:46px;font-size:23px;border-radius:12px}
-html[data-layout=mobile] .answer.long .answer-tile{width:33px;flex-basis:33px;height:42px;font-size:19px;border-radius:10px}
-html[data-layout=mobile] .answer.extra-long{gap:3px}
-html[data-layout=mobile] .answer.extra-long .answer-tile{width:25px;flex-basis:25px;height:36px;font-size:16px;border-radius:8px}
-html[data-layout=mobile] .wheel{box-shadow:0 7px 0 var(--panel-edge),0 16px 30px #3d2c5c1c,inset 0 0 0 5px color-mix(in srgb,var(--accent) 16%,transparent)}
-html[data-layout=mobile] .wheel-center{width:62px;height:62px;margin:-31px}
-html[data-layout=mobile] .wheel-center svg{width:24px;height:24px}
-html[data-layout=mobile] .dual-ring .wheel-center{width:48px;height:48px;margin:-24px}
-html[data-layout=mobile] .dual-ring .wheel-center svg{width:18px;height:18px}
-html[data-layout=mobile] .dual-ring #centerLabel{display:none}
-html[data-layout=mobile] #trailLine{stroke-width:12}
-html[data-layout=mobile] .combo-meter{top:-10px;left:-18px;padding:6px 10px 5px;border-radius:14px}
-html[data-layout=mobile] .combo-count{font-size:22px}
-html[data-layout=mobile] .combo-word{font-size:8px}
-html[data-layout=mobile] .combo-meter small{display:none}
-html[data-layout=mobile] .combo-pips i{width:7px;height:4px}
-html[data-layout=mobile] .praise{font-size:40px;-webkit-text-stroke-width:7px}
-html[data-layout=mobile] .feedback{height:30px;margin-top:8px;font-size:12px;border-radius:15px}
-html[data-layout=mobile] .game-actions{margin-top:6px;gap:10px}
-html[data-layout=mobile] .action-button{height:46px;padding:0 18px;font-size:14px;border-radius:17px;box-shadow:0 4px 0 #0002}
-html[data-layout=mobile] #shuffle{box-shadow:0 4px 0 #1a6bb0}
-html[data-layout=mobile] .hint-button{box-shadow:0 4px 0 #c98400}
-html[data-layout=mobile] .garden-footer{justify-content:center;padding:6px 0 max(10px,env(safe-area-inset-bottom))}
-html[data-layout=mobile] .garden-footer>div{display:none}
-html[data-layout=mobile] #collection{height:38px;padding:0 14px;font-size:12px;box-shadow:0 4px 0 #5f37c2}
-html[data-layout=mobile] #collectionLabel{font-size:0}
-html[data-layout=mobile] #collectionLabel:after{content:"じしょ";font-size:12px}
-html[lang=en][data-layout=mobile] #collectionLabel:after{content:"Dictionary"}
-@media(max-height:760px){
-  html[data-layout=mobile]{--card:clamp(118px,calc(100dvh - 560px),200px);--wheel:min(calc(100vw - 44px),280px,calc(100dvh - 290px - var(--card)))}
-  html[data-layout=mobile] .topbar{height:46px}
-  html[data-layout=mobile] .icon-button{width:34px;height:34px}
-  html[data-layout=mobile] .answer-wrap{margin-top:8px}
-  html[data-layout=mobile] .puzzle-language button{height:32px}
-  html[data-layout=mobile] .answer{min-height:44px}
-  html[data-layout=mobile] .answer-tile{height:40px}
-  html[data-layout=mobile] .feedback{height:26px;margin-top:5px}
-  html[data-layout=mobile] .action-button{height:40px}
-  html[data-layout=mobile] #collection{height:32px}
-}
-@media(max-width:370px){html[data-layout=mobile] .brand b{font-size:16px}html[data-layout=mobile] .icon-button{width:34px;height:34px}}
-
 /* Phone reward card */
 @media(max-width:700px){
   .reward-scene{width:min(340px,calc(100vw - 40px))}
@@ -568,24 +485,6 @@ html[data-theme=dark] .letter{box-shadow:0 5px 0 #a8927f,0 0 18px #ffffff1a}
   .picture-card,.wheel-orbit,.picture-halo{animation:none!important}
 }
 
-/* ---------- Phone fit pass ---------- */
-.action-button span{white-space:nowrap}
-html[data-layout=mobile]{--card:clamp(124px,calc(100dvh - 624px),220px);--wheel:min(calc(100vw - 44px),300px,calc(100dvh - 354px - var(--card)))}
-html[data-layout=mobile] .interaction-section{position:relative}
-html[data-layout=mobile] .feedback{position:absolute;z-index:7;top:-4px;left:50%;transform:translateX(-50%);width:max-content;max-width:100%;margin:0;pointer-events:none}
-html[data-layout=mobile] .feedback.wrong,html[data-layout=mobile] .feedback.success{animation:toast .3s var(--pop)}
-@keyframes toast{0%{transform:translate(-50%,8px) scale(.6)}100%{transform:translateX(-50%)}}
-html[data-layout=mobile] .game-actions{margin-top:14px}
-html[data-layout=mobile] #hintLabel{font-size:0}
-html[data-layout=mobile] #hintLabel:after{content:"ヒント";font-size:14px}
-html[lang=en][data-layout=mobile] #hintLabel:after{content:"Hint"}
-html[data-layout=mobile] .free-tag{font-size:9px;padding:2px 6px}
-.reward-combo{top:150px}
-@media(max-width:700px){.reward-combo{top:108px}}
-@media(max-height:760px){html[data-layout=mobile]{--card:clamp(116px,calc(100dvh - 570px),190px);--wheel:min(calc(100vw - 44px),280px,calc(100dvh - 320px - var(--card)))}}
-.answer{width:100%}.answer-tile{min-width:0}
-html[data-layout=mobile] .clue-section,html[data-layout=mobile] .interaction-section{width:100%}
-
 /* ---------- Calm board: nothing moves while you think ---------- */
 /* Only events (pop-in, correct, wrong, combo) animate; the picture and the board stay still. */
 .picture-card{animation:none}
@@ -603,33 +502,6 @@ html[data-layout=mobile] .clue-section,html[data-layout=mobile] .interaction-sec
 .dual-ring .letter.outer-pending:not(.selected):hover{transform:scale(.86)}
 .ring-unlock .letter[data-ring=outer]{animation:ring-ready .5s var(--pop)}
 @keyframes ring-ready{0%{transform:scale(.86)}50%{transform:scale(1.25)}100%{transform:none}}
-
-/* =====================================================================
-   Wheel dock (2026-10): mobile-puzzle layout.
-   The wheel takes the full width; shuffle / hint / dictionary / combo sit
-   in the four free corners around the circle instead of stacking below it.
-   ===================================================================== */
-.wheel-dock{position:relative;width:var(--wheel);flex:none}
-.wheel-dock .wheel{width:100%}
-.wheel-dock .combo-meter{top:2px;left:0}
-.garden-footer{display:none}
-.game-actions{position:static;margin:0;display:block;width:auto;height:0}
-.corner-button{position:absolute;z-index:6;width:64px;height:64px;padding:0;border-radius:50%;display:grid;place-items:center;align-content:center;gap:1px;font-size:11px;font-weight:700;color:#fff;transition:transform .12s,box-shadow .12s}
-.corner-button svg{width:26px;height:26px;stroke-width:2.4}
-.corner-button:active:not(:disabled){transform:translateY(4px)}
-#shuffle.corner-button{left:0;bottom:0;background:linear-gradient(180deg,#5cc0ff,#2b8fe0);box-shadow:0 5px 0 #1a6bb0,0 8px 16px #2b8fe033}
-#hint.corner-button{right:0;bottom:0;background:linear-gradient(180deg,#ffd75e,#ffb31f);box-shadow:0 5px 0 #c98400,0 8px 16px #ffb31f33}
-#shuffle.corner-button:active:not(:disabled){box-shadow:0 1px 0 #1a6bb0}
-#hint.corner-button:active:not(:disabled){box-shadow:0 1px 0 #c98400}
-.corner-button span{white-space:nowrap;line-height:1}
-#hintLabel,#shuffleLabel{font-size:10px}
-#hint .free-tag{position:absolute;top:-8px;right:-10px;display:none;padding:3px 6px;border-radius:9px;font-size:9px;line-height:1;background:var(--bad);color:#fff;box-shadow:0 2px 0 var(--bad-deep)}
-#hint.combo-risk .free-tag{display:block}
-.dict-corner{right:0;top:0;width:58px;height:58px;color:#fff;background:linear-gradient(180deg,#b28bff,#8559f0);box-shadow:0 5px 0 #5f37c2,0 8px 16px #8559f033;border-radius:50%}
-.dict-corner #collectionLabel{display:none}
-.dict-corner #collectionCount{position:absolute;bottom:-6px;right:-6px;min-width:26px;height:22px;padding:0 6px;border-radius:11px;font-size:12px;line-height:22px;color:#5f37c2;background:#fff;box-shadow:0 2px 0 #d9ccf5}
-#collection.dict-corner{height:58px;padding:0}
-#collection.dict-corner:active{box-shadow:0 1px 0 #5f37c2}
 
 /* Letters are sized from the wheel itself (container units), so they scale with any screen. */
 .letters{container-type:size}
@@ -654,67 +526,212 @@ html[data-layout=mobile] .clue-section,html[data-layout=mobile] .interaction-sec
 .wheel.dual-ring[data-active-ring=outer] .orbit-one{border-color:color-mix(in srgb,var(--accent) 45%,transparent);border-width:3px}
 #trailLine{stroke-width:12}
 
-/* ---------- Phone: one screen, wheel first ---------- */
-html[data-layout=mobile]{--wheel:min(calc(100vw - 24px),420px,calc(100dvh - 330px));--card:clamp(118px,calc(100dvh - var(--wheel) - 236px),250px)}
-html[data-layout=mobile] .page-shell{position:relative;padding:0 12px}
-html[data-layout=mobile] .topbar{height:50px;justify-content:flex-end}
-html[data-layout=mobile] .brand{display:none}
-html[data-layout=mobile] #theme{display:none}
-html[data-layout=mobile] .header-actions{gap:6px}
-html[data-layout=mobile] .chapter-bar{position:absolute;top:calc(8px + env(safe-area-inset-top));left:12px;right:100px;height:34px;padding:0;gap:6px;flex-wrap:nowrap}
-html[data-layout=mobile] .chapter-progress,html[data-layout=mobile] .discovery-count{display:none}
-html[data-layout=mobile] .level-pill{height:34px;font-size:12px;padding:0 11px}
-html[data-layout=mobile] .difficulty-pill{max-width:none;flex:0 1 auto;min-width:0}
-html[data-layout=mobile] .play-layout{justify-content:space-between;padding:4px 0 max(10px,env(safe-area-inset-bottom))}
-html[data-layout=mobile] .picture-card{width:var(--card);padding:6px;border-radius:22px}
-html[data-layout=mobile] .picture-meta{top:-10px;left:auto;right:10px}
-html[data-layout=mobile] .picture-stage{border-radius:17px}
-/* Masked other-language word floats inside the picture; the language toggle overlaps the card edge. */
-html[data-layout=mobile] .picture-caption{position:absolute;z-index:3;left:6px;right:6px;bottom:24px;height:auto;pointer-events:none}
-html[data-layout=mobile] .picture-caption>span{padding:3px 8px 3px 3px;border-radius:12px;background:#ffffffe6;box-shadow:0 1px 4px #3d2c5c22}
-html[data-layout=mobile] .picture-stamp{bottom:30px}
-html[data-layout=mobile] .answer-wrap{margin-top:-16px;position:relative;z-index:4}
-html[data-layout=mobile] .bilingual-control{margin-bottom:6px}
-html[data-layout=mobile] .puzzle-language{width:228px;padding:3px;border-radius:18px;box-shadow:0 3px 0 var(--panel-edge),0 6px 14px #3d2c5c1f}
-html[data-layout=mobile] .puzzle-language button{height:34px;font-size:13px;border-radius:15px}
-html[data-layout=mobile] .answer{min-height:46px;gap:5px}
-html[data-layout=mobile] .answer-tile{width:42px;flex-basis:42px;height:46px;font-size:24px}
-html[data-layout=mobile] .wheel-dock{margin-top:4px}
-html[data-layout=mobile] .wheel{box-shadow:0 6px 0 var(--panel-edge),0 14px 26px #3d2c5c1a,inset 0 0 0 5px color-mix(in srgb,var(--accent) 16%,transparent)}
-html[data-layout=mobile] .corner-button{width:56px;height:56px}
-html[data-layout=mobile] .corner-button svg{width:23px;height:23px}
-html[data-layout=mobile] .dict-corner,html[data-layout=mobile] #collection.dict-corner{width:50px;height:50px}
-html[data-layout=mobile] .dict-corner svg{width:22px;height:22px}
-html[data-layout=mobile] .wheel-dock .combo-meter{top:0;left:-2px}
-html[data-layout=mobile] .feedback{top:auto;bottom:calc(var(--wheel) + 6px)}
-html[data-layout=mobile] .praise{font-size:44px}
-@media(max-height:760px){
-  html[data-layout=mobile]{--wheel:min(calc(100vw - 24px),400px,calc(100dvh - 300px));--card:clamp(110px,calc(100dvh - var(--wheel) - 214px),220px)}
-  html[data-layout=mobile] .topbar{height:46px}
-  html[data-layout=mobile] .chapter-bar{top:6px}
-  html[data-layout=mobile] .answer{min-height:42px}
-  html[data-layout=mobile] .answer-tile{height:42px}
-}
-/* Desktop keeps two columns; the dock just sits in the right column. */
-html:not([data-layout=mobile]) .wheel-dock{margin-top:8px}
+/* ---------- A little dictionary, filled one day at a time ---------- */
+.daily-collection{position:relative;display:grid;grid-template-columns:1fr 1.15fr;grid-template-areas:"heading slots" "main slots";gap:5px 28px;width:100%;padding:15px 22px 16px;border:1px solid #e5d4b7;border-radius:22px;background:linear-gradient(105deg,#fffdf6,#fff6df);color:#514636;text-align:left;box-shadow:0 4px 0 #e8d7b7,0 8px 24px #70532d0b;isolation:isolate;transition:transform .2s var(--pop),box-shadow .2s}
+.daily-collection:before{content:"";position:absolute;left:9px;top:14px;bottom:14px;width:3px;border-radius:3px;background:#eb9a73;opacity:.6}
+.daily-collection:active{transform:translateY(2px);box-shadow:0 2px 0 #e8d7b7}
+.daily-heading{grid-area:heading;display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:12px;font-weight:800;letter-spacing:.025em}
+#dailyTitle{color:#856344}
+#dailyStreak{font-size:10px;color:#c76c35;white-space:nowrap}
+.daily-main{grid-area:main;display:flex;align-items:center;gap:12px;min-width:0}
+#dailyCount{flex:none;font-size:32px;font-weight:700;line-height:1;letter-spacing:-.025em;color:#815031;font-variant-numeric:tabular-nums}
+#dailyCount small{font-size:15px;color:#a58c71;letter-spacing:0}
+#dailyMessage{font-size:11px;line-height:1.5;font-weight:700;flex:1;min-width:0;overflow-wrap:anywhere}
+.daily-main>svg{flex:none;width:24px;height:24px;color:#af8060;stroke-width:1.7}
+.daily-slots{grid-area:slots;display:grid;grid-template-columns:repeat(10,minmax(0,1fr));align-items:center;gap:5px;min-width:0}
+.daily-slot{position:relative;display:grid;place-items:center;aspect-ratio:1;min-width:0;border:1.5px dashed #ddc9a9;border-radius:7px;background:#f4ead85c;color:#cfbb98;overflow:hidden}
+.daily-slot:empty:before{content:"✧";font-size:13px;line-height:1}
+.daily-slot.filled{background:#fff;border:1.5px solid #c7d7ad;box-shadow:0 2px 0 #d1dcc0}
+.daily-slot img{width:95%;height:95%;object-fit:contain;filter:drop-shadow(0 1px 1px #5b45241a)}
+.daily-slot.newest{border-color:#efb344;background:#fff4cb}
+.daily-collection.just-collected{animation:daily-receive .8s var(--pop)}
+.daily-collection.just-collected .daily-slot.newest{animation:stamp-receive .65s .08s var(--pop) both}
+.daily-collection.page-complete{border-color:#e9b653;background:linear-gradient(105deg,#fff9e7,#ffedb3);box-shadow:0 4px 0 #e4bd68,0 8px 24px #e8b64422}
+@keyframes daily-receive{0%,100%{transform:none}35%{transform:scale(1.025);box-shadow:0 4px 0 #d8b768,0 0 0 5px #ffd76666}65%{transform:scale(.995)}}
+@keyframes stamp-receive{0%{transform:translateY(-10px) scale(1.55) rotate(-12deg);opacity:0}65%{transform:translateY(2px) scale(.9) rotate(3deg);opacity:1}100%{transform:none}}
+.collection-fly{position:fixed;z-index:2147483646;pointer-events:none;width:64px;height:64px;padding:5px;object-fit:contain;border:2px solid #ffc957;border-radius:15px;background:#fffdf6;box-shadow:0 4px 0 #d3a751,0 10px 22px #3d2c5c33;will-change:transform,opacity}
+.collection-fly img{width:100%;height:100%;object-fit:contain}
+.chapter-bar{padding:12px 0 4px}
+.chapter-heading,.chapter-progress,.discovery-count{display:none}
+.level-pill{height:40px;font-size:12px;background:color-mix(in srgb,var(--panel) 70%,transparent);box-shadow:0 2px 0 var(--panel-edge)}
 .tier-code{display:none}
 .pill-stars{color:var(--sun-deep)}
-html[data-layout=mobile] .play-layout{justify-content:space-evenly}
-/* Short phones: the header floats in the gutters beside the picture, so the
-   picture and the wheel get the whole height. */
-@media(max-height:780px){
-  html[data-layout=mobile]{--wheel:min(calc(100vw - 24px),400px,calc(100dvh - 300px));--card:min(calc(100vw - 196px),calc(100dvh - var(--wheel) - 112px),230px)}
-  html[data-layout=mobile] .topbar{position:absolute;top:0;right:12px;height:auto;padding-top:calc(8px + env(safe-area-inset-top));z-index:10}
-  html[data-layout=mobile] .header-actions{gap:5px}
-  html[data-layout=mobile] .icon-button{width:36px;height:36px}
-  html[data-layout=mobile] .icon-button svg{width:18px;height:18px}
-  html[data-layout=mobile] .chapter-bar{top:calc(8px + env(safe-area-inset-top));right:auto;height:auto;flex-direction:column;align-items:flex-start;gap:8px;z-index:10}
-  html[data-layout=mobile] .level-pill{height:32px;padding:0 10px;font-size:12px}
-  html[data-layout=mobile] .tier-name{display:none}
-  html[data-layout=mobile] .tier-code{display:inline}
-  html[data-layout=mobile] .difficulty-pill .chevron{display:none}
-  html[data-layout=mobile] .play-layout{padding-top:calc(12px + env(safe-area-inset-top))}
-  html[data-layout=mobile] .picture-meta{right:auto;left:50%;transform:translateX(-50%)}
-  html[data-layout=mobile] .rarity-badge{font-size:8px;padding:3px 7px}
+.action-button span{white-space:nowrap}
+.answer{width:100%}.answer-tile{min-width:0}
+.puzzle-language button:disabled{color:var(--ink-soft);background:transparent;box-shadow:none;opacity:.4;transform:none}
+.puzzle-language:has(button:disabled) .language-bridge{opacity:.3}
+.garden-footer{display:none}
+.game-actions{display:grid;grid-template-columns:1fr 1.08fr 1fr;gap:10px;width:var(--wheel);max-width:100%;height:auto;margin:18px 0 0;padding:0}
+.game-actions>.action-button{position:relative;display:flex;align-items:center;justify-content:center;gap:7px;width:100%;height:54px;min-width:0;margin:0;padding:0 8px;border-radius:18px;font-size:12px}
+.game-actions>.action-button svg{flex:none;width:21px;height:21px}
+#collection.collection-button{display:flex;height:54px;padding:0 8px;border-radius:18px;font-size:12px;background:linear-gradient(180deg,#b28bff,#8559f0);box-shadow:0 5px 0 #5f37c2,0 8px 16px #8559f022}
+.collection-button #collectionLabel{white-space:nowrap}
+.collection-button #collectionCount{position:absolute;top:-7px;right:6px;min-width:24px;padding:2px 6px;border-radius:10px;background:#fff;color:#7553b0;font-size:10px;box-shadow:0 2px 0 #d9ccf5}
+#hintLabel{font-size:12px}
+#hint .free-tag{position:absolute;top:-7px;right:6px;font-size:8px;padding:2px 5px}
+
+/* The reward is a real page of ten picture stamps, not a field of tiny dots. */
+.reward-scene{width:min(380px,calc(100vw - 40px));max-height:calc(100dvh - 30px);overflow-y:auto;overflow-x:clip;padding:12px 10px 22px;scrollbar-width:none}
+.reward-scene::-webkit-scrollbar{display:none}
+.reward-scene:before{position:fixed;top:40%;width:640px;height:640px;margin:-320px;opacity:.6}
+.reward-scene>.reward-badge{font-size:30px;margin-bottom:13px;-webkit-text-stroke-width:6px}
+.word-reward{border-radius:22px;box-shadow:0 0 0 4px color-mix(in srgb,var(--rarity) 55%,#fff),0 7px 0 4px color-mix(in srgb,var(--rarity) 60%,#000 12%),0 18px 38px #0003;transform-origin:50% 75%}
+.book-right{padding:27px 14px 12px;background:radial-gradient(ellipse at 50% 65%,#fffaf0,#fff 72%);border-radius:22px 22px 0 0}
+.book-word-art{width:128px;height:128px}
+.book-word{font-size:28px;line-height:1.08;max-width:100%}
+.book-reading{font-size:13px}
+.book-page-number{font-size:9px;left:12px;top:11px}
+.book-seal{right:10px;top:11px;min-width:48px;height:48px;font-size:10px}
+.reward-stars{font-size:23px;margin-top:8px;gap:5px}
+.book-left{position:relative;gap:7px 8px;padding:12px 15px 14px;border-radius:0 0 22px 22px;border-top:1px solid #e5d6bd;background:linear-gradient(90deg,#f7eddb,#fff8ec 8%,#fff8ec 94%,#f3e6d1)}
+.book-left:after{content:"";position:absolute;left:7px;top:10px;bottom:10px;width:2px;background:#e3cfb3;pointer-events:none}
+.book-name{font-size:12px}
+.book-count strong,.book-count>small:first-child{font-size:26px}
+.book-count>small:last-child{font-size:11px}
+.book-shelf.book-library-grid{grid-template-columns:repeat(5,minmax(0,1fr));gap:6px}
+.library-page{position:relative;display:grid;place-items:center;aspect-ratio:1;border:1.5px dashed #deceb5;border-radius:9px;background:#efe6d653;overflow:hidden}
+.library-page:empty:before{content:"✧";font-size:20px;color:#d8c7aa}
+.library-page img{width:94%;height:94%;object-fit:contain;filter:drop-shadow(0 2px 1px #614d3522)}
+.library-page.owned{border:1.5px solid #bfcca9;background:#fffdf6;box-shadow:0 2px 0 #d6ddc5}
+.library-page.newest{border:1.5px dashed #deceb5;background:#efe6d6}
+.library-page.newest img{opacity:0;transform:scale(.45) rotate(-15deg)}
+.page-filled .library-page.newest{border:1.5px solid #eab442;background:#fff2c7;box-shadow:0 2px 0 #d7a644,0 0 14px #ffc93c70;animation:page-open .7s var(--pop) both}
+.page-filled .library-page.newest img{opacity:1;transform:none;transition:transform .55s var(--pop),opacity .15s}
+@keyframes page-open{0%{transform:translateY(-9px) scale(1.6) rotate(-12deg)}60%{transform:translateY(3px) scale(.88) rotate(4deg)}100%{transform:none}}
+.book-progress{font-size:11px;white-space:normal}
+.daily-reward{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:4px 10px;margin:14px 0 2px;padding:10px 12px;border-radius:16px;background:#fff9e8;color:#815031;font-size:12px;font-weight:700;box-shadow:0 3px 0 #e7c883;text-align:center}
+.daily-reward strong{font-size:18px;color:#b46b28}
+.daily-reward span,.daily-reward small{font-size:11px;line-height:1.5}
+.daily-reward.complete{background:linear-gradient(100deg,#fff1b5,#fffbdc);box-shadow:0 3px 0 #dfa52b,0 0 24px #ffc93c66;animation:daily-receive .8s var(--pop)}
+.reward-combo{left:0;top:118px;padding:6px 9px 5px;border-radius:14px}
+.reward-combo b{font-size:25px}
+.reward-combo span{font-size:9px}
+.reward-combo small{font-size:8px;max-width:92px}
+.advance-label{display:block;width:100%;min-height:44px;margin-top:13px;border-radius:14px;background:#ffffffd9;text-align:center;font-size:12px;font-weight:700;color:#60492f;box-shadow:0 3px 0 #c6b294}
+
+/* Search and pagination stay thumb-sized as the dictionary grows. */
+.dictionary-search{display:block;width:100%;min-height:46px;margin:0 0 15px;padding:10px 14px;border:2px solid var(--line);border-radius:15px;background:var(--panel-2);color:var(--ink);font:inherit;font-size:16px;outline-offset:3px}
+.dictionary-search::placeholder{color:var(--ink-soft);font-size:12px}
+.dictionary-pages{display:flex;align-items:center;justify-content:center;gap:12px;margin:18px 0 4px;font-size:12px;font-weight:700;color:var(--ink-soft)}
+.dictionary-pages button{min-width:44px;min-height:44px;padding:0 15px;border-radius:15px;background:var(--panel-2);color:var(--ink);box-shadow:0 3px 0 var(--panel-edge);font-weight:700}
+.dictionary-pages button:disabled{opacity:.4;box-shadow:none}
+.dictionary-filters button,.dictionary-back,.pronunciation-buttons button{min-height:44px}
+.dictionary-entry h3{max-width:100%;overflow-wrap:anywhere}
+.dictionary-summary{gap:8px}
+.dictionary-summary p{min-width:0;font-size:12px}
+.dictionary-summary strong{font-size:32px}
+.dictionary-summary strong small{font-size:13px}
+html[data-theme=dark] .daily-collection{border-color:#54466c;background:linear-gradient(105deg,#332948,#44304c);color:#efe2d3;box-shadow:0 4px 0 #1c142e}
+html[data-theme=dark] #dailyTitle,html[data-theme=dark] #dailyCount{color:#f3c694}
+html[data-theme=dark] #dailyMessage,html[data-theme=dark] #dailyStreak{color:#e4c6a6}
+html[data-theme=dark] .daily-slot{border-color:#6c5d79;background:#ffffff09}
+html[data-theme=dark] .daily-slot.filled{background:#fffaf1;border-color:#d6bf84}
+
+/* ---------- Mobile: a collection header and a full, usable letter wheel ---------- */
+/* One normal-flow layout avoids overlap on short phones. Small screens scroll
+   vertically instead of shrinking the puzzle into inaccessible tap targets. */
+html[data-layout=mobile]{--wheel:min(calc(100vw - 32px),310px);--card:148px;--letter:64px;--letter-dual:50px}
+html[data-layout=mobile] .page-shell{position:relative;display:block;width:100%;max-width:460px;height:auto;max-height:none;padding:0 12px;min-height:100dvh;overflow:visible}
+html[data-layout=mobile] .topbar{position:relative;flex:none;height:calc(44px + env(safe-area-inset-top));padding-top:env(safe-area-inset-top);gap:8px}
+html[data-layout=mobile] .brand{display:flex;gap:7px;min-width:0}
+html[data-layout=mobile] .brand-mark{width:25px;height:25px;border-radius:9px;box-shadow:0 2px 0 #c9406a;transform:rotate(-5deg)}
+html[data-layout=mobile] .brand-mark svg{width:18px;height:18px}
+html[data-layout=mobile] .brand b{font-size:15px;letter-spacing:.015em;white-space:nowrap}
+html[data-layout=mobile] .brand small{display:none}
+html[data-layout=mobile] #theme{display:none}
+html[data-layout=mobile] .header-actions{gap:2px}
+html[data-layout=mobile] .icon-button{width:44px;height:44px;background:transparent;box-shadow:none}
+html[data-layout=mobile] .icon-button svg{width:21px;height:21px}
+html[data-layout=mobile] .game-shell{flex:none;height:auto;max-height:none;overflow:visible}
+html[data-layout=mobile] .daily-collection{grid-template-columns:1fr;grid-template-areas:"heading" "main" "slots";gap:4px;padding:7px 13px 8px;border-radius:18px}
+html[data-layout=mobile] .daily-collection:before{left:6px;top:11px;bottom:11px;width:2px}
+html[data-layout=mobile] .daily-heading{font-size:11px;line-height:1.2}
+html[data-layout=mobile] #dailyStreak{font-size:9px}
+html[data-layout=mobile] .daily-main{gap:10px;min-height:29px}
+html[data-layout=mobile] #dailyCount{font-size:28px}
+html[data-layout=mobile] #dailyCount small{font-size:13px}
+html[data-layout=mobile] #dailyMessage{font-size:10px;line-height:1.4}
+html[data-layout=mobile] .daily-main>svg{width:23px;height:23px}
+html[data-layout=mobile] .daily-slots{gap:5px}
+html[data-layout=mobile] .daily-slot{max-height:28px;border-radius:6px}
+html[data-layout=mobile] .chapter-bar{position:static;display:flex;align-items:center;justify-content:space-between;flex-wrap:nowrap;flex-direction:row;height:44px;gap:8px;padding:0}
+html[data-layout=mobile] .level-pill{height:44px;min-width:0;max-width:none;flex:0 1 auto;padding:0 7px;background:none;border-radius:12px;box-shadow:none;font-size:11px;color:var(--ink-soft);gap:5px}
+html[data-layout=mobile] .stage-select-button{order:2}
+html[data-layout=mobile] .difficulty-pill{order:1}
+html[data-layout=mobile] .pill-label,html[data-layout=mobile] .level-dot{display:none}
+html[data-layout=mobile] #stageSelectLabel{font-size:10px}
+html[data-layout=mobile] #difficultyText{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+html[data-layout=mobile] .tier-name{display:inline}
+html[data-layout=mobile] .play-layout{display:flex;flex-direction:column;flex:none;justify-content:flex-start;gap:8px;padding:5px 0 max(12px,env(safe-area-inset-bottom))}
+html[data-layout=mobile] .clue-section,html[data-layout=mobile] .interaction-section{width:100%}
+html[data-layout=mobile] .picture-card{width:var(--card);padding:6px;border-radius:22px;box-shadow:0 0 0 3px color-mix(in srgb,var(--rarity) 45%,#fff),0 6px 0 3px color-mix(in srgb,var(--rarity) 60%,#000 8%),0 12px 24px #3d2c5c18}
+html[data-layout=mobile] .picture-meta{top:-9px;left:auto;right:8px;transform:none}
+html[data-layout=mobile] #pictureNumber{display:none}
+html[data-layout=mobile] .rarity-badge{font-size:8px;padding:3px 7px;box-shadow:0 2px 0 color-mix(in srgb,var(--rarity) 70%,#000)}
+html[data-layout=mobile] .picture-stage{border-radius:16px}
+html[data-layout=mobile] .picture-stage img{width:84%;height:84%}
+html[data-layout=mobile] .picture-caption{position:absolute;z-index:3;left:6px;right:6px;bottom:10px;height:auto;pointer-events:none}
+html[data-layout=mobile] .picture-caption>span{gap:4px;padding:3px 7px;border-radius:10px;background:#ffffffe8;box-shadow:0 1px 4px #3d2c5c16}
+html[data-layout=mobile] .caption-mask{font-size:11px;letter-spacing:.1em}
+html[data-layout=mobile] .picture-stamp{width:50px;height:50px;font-size:9px;right:-10px;bottom:18px}
+html[data-layout=mobile] .picture-spark{font-size:15px}
+html[data-layout=mobile] .rank-up{border-radius:22px}
+html[data-layout=mobile] .rank-up strong{font-size:20px}
+html[data-layout=mobile] .answer-wrap{margin-top:8px;position:relative;z-index:4}
+html[data-layout=mobile] .bilingual-control{margin-bottom:6px}
+html[data-layout=mobile] .puzzle-language{width:230px;padding:3px;border-radius:18px;grid-template-columns:1fr 22px 1fr;box-shadow:0 3px 0 var(--panel-edge)}
+html[data-layout=mobile] .puzzle-language button{height:44px;font-size:12px;border-radius:15px}
+html[data-layout=mobile] .answer{min-height:43px;gap:5px}
+html[data-layout=mobile] .answer-tile{width:39px;flex-basis:39px;height:43px;font-size:23px;border-radius:12px}
+html[data-layout=mobile] .answer.long .answer-tile{width:32px;flex-basis:32px;height:40px;font-size:20px;border-radius:10px}
+html[data-layout=mobile] .answer.extra-long{gap:3px}
+html[data-layout=mobile] .answer.extra-long .answer-tile{width:25px;flex-basis:25px;height:36px;font-size:17px;border-radius:8px;border-width:2px}
+html[data-layout=mobile] .wheel{box-shadow:0 6px 0 var(--panel-edge),0 14px 26px #3d2c5c1a,inset 0 0 0 5px color-mix(in srgb,var(--accent) 16%,transparent)}
+html[data-layout=mobile] .combo-meter{top:0;left:0;padding:6px 9px 5px;border-radius:13px}
+html[data-layout=mobile] .combo-count{font-size:23px}
+html[data-layout=mobile] .combo-word{font-size:8px}
+html[data-layout=mobile] .combo-meter small{display:none}
+html[data-layout=mobile] .combo-pips i{width:7px;height:4px}
+html[data-layout=mobile] .game-actions{margin-top:12px;gap:9px}
+html[data-layout=mobile] .game-actions>.action-button,html[data-layout=mobile] #collection.collection-button{height:50px;border-radius:16px;font-size:11px;padding:0 6px;gap:5px}
+html[data-layout=mobile] .game-actions>.action-button svg{width:19px;height:19px}
+html[data-layout=mobile] .collection-button #collectionLabel,html[data-layout=mobile] #hintLabel{font-size:11px}
+html[data-layout=mobile] .feedback{position:absolute;z-index:7;top:-8px;left:50%;transform:translateX(-50%);width:max-content;max-width:calc(100% - 50px);min-height:30px;height:auto;margin:0;padding:7px 13px;font-size:11px;line-height:1.4;pointer-events:none}
+html[data-layout=mobile] .feedback.wrong,html[data-layout=mobile] .feedback.success{animation:toast .3s var(--pop)}
+@keyframes toast{0%{transform:translate(-50%,8px) scale(.6)}100%{transform:translateX(-50%)}}
+html[data-layout=mobile] .praise{font-size:43px;-webkit-text-stroke-width:7px}
+@media(max-width:350px){
+  html[data-layout=mobile]{--wheel:calc(100vw - 34px);--card:148px}
+  html[data-layout=mobile] .page-shell{padding:0 10px}
+  html[data-layout=mobile] .brand b{font-size:13px}
+  html[data-layout=mobile] .brand-mark{width:23px;height:23px}
+  html[data-layout=mobile] .level-pill{font-size:10px;padding:0 4px}
+  html[data-layout=mobile] #stageSelectLabel{font-size:9px}
+  html[data-layout=mobile] .daily-slots{gap:4px}
+  html[data-layout=mobile] .answer.extra-long .answer-tile{font-size:15px}
+  .dictionary-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .dictionary-tabs{gap:8px}
+  .dictionary-tabs button{padding:10px;gap:6px}
+  .dictionary-tabs button span{font-size:12px}
+  .reward-scene{width:calc(100vw - 28px)}
+  .reward-scene>.reward-badge{font-size:25px}
 }
-.discovery-count{display:none}
+@media(max-height:680px){
+  .reward-scene{padding-top:8px;padding-bottom:15px}
+  .reward-scene>.reward-badge{font-size:26px;margin-bottom:9px}
+  .book-right{padding-top:24px;padding-bottom:8px}
+  .book-word-art{width:88px;height:88px}
+  .book-word{font-size:24px;margin-top:4px}
+  .book-reading{font-size:11px}
+  .reward-stars{font-size:20px;margin-top:6px}
+  .book-left{gap:5px 7px;padding-top:9px;padding-bottom:10px}
+  .book-shelf.book-library-grid{gap:5px}
+  .library-page{max-height:44px}
+  .daily-reward{margin-top:12px;padding:7px 10px}
+  .advance-label{margin-top:10px}
+  .reward-combo{top:88px}
+}
+@media(prefers-reduced-motion:reduce){
+  .daily-collection.just-collected,.daily-collection.just-collected .daily-slot.newest,.page-filled .library-page.newest,.daily-reward.complete{animation:none}
+  .collection-fly{display:none}
+}

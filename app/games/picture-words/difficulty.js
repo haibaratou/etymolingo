@@ -14,15 +14,15 @@
   const repeats = text => [...text].length - new Set([...text]).size;
   // A game-specific spelling score, not a language proficiency / frequency level.
   function wordScore(word) {
-    const kana = [...word.w], english = [...word.en];
+    const kana = [...(word.w || '')], english = [...word.en];
     const small = kana.filter(ch => 'ぁぃぅぇぉゃゅょっ'.includes(ch)).length;
     const voiced = kana.filter(ch => /[がぎぐげござじずぜぞだぢづでどばびぶべぼぱぴぷぺぽ]/.test(ch)).length;
-    return kana.length * 2 + english.length + small * 2 + voiced * .5 + (repeats(word.w) + repeats(word.en)) * .6 + (word.challengeBand || 0) * 24;
+    return Math.max(kana.length * 2, english.length * 2) + small * 2 + voiced * .5 + (repeats(word.w || '') + repeats(word.en)) * .6 + (word.challengeBand || 0) * 12;
   }
   function buildCatalog(words) {
     return words.map((word, sourceIndex) => ({ ...word, sourceIndex, difficultyScore: wordScore(word) }))
       .sort((a, b) => a.difficultyScore - b.difficultyScore || a.sourceIndex - b.sourceIndex)
-      .map((word, order) => ({ ...word, order, tier: Math.min(tiers.length - 1, Math.floor(order / 10)) }));
+      .map((word, order) => ({ ...word, order, tier: [9, 12, 15, 18, 22, 27, 34].filter(limit => word.difficultyScore >= limit).length }));
   }
   function challenge(word, language) {
     const tier = tiers[word.tier], length = [...(language === 'ja' ? word.w : word.en)].length;
@@ -35,7 +35,9 @@
   function resumeIndex(raw, old, original, ordered) {
     if (old.wordId) { const found = ordered.findIndex(word => word.id === old.wordId); if (found >= 0) return found; }
     if (!Number.isInteger(old.index)) return 0;
-    const source = raw.routeVersion === 1 ? ordered : original;
+    // Route v1 sorted only the original 80 words; expansion must not reinterpret its indices.
+    const legacy = original.slice(0, 80).map((word, sourceIndex) => ({ ...word, sourceIndex, score: [...word.w].length * 2 + word.en.length + [...word.w].filter(ch => 'ぁぃぅぇぉゃゅょっ'.includes(ch)).length * 2 + [...word.w].filter(ch => /[がぎぐげござじずぜぞだぢづでどばびぶべぼぱぴぷぺぽ]/.test(ch)).length * .5 + (repeats(word.w) + repeats(word.en)) * .6 + (word.challengeBand || 0) * 24 })).sort((a, b) => a.score - b.score || a.sourceIndex - b.sourceIndex);
+    const source = raw.routeVersion === 2 ? ordered : raw.routeVersion === 1 ? legacy : original;
     const id = source[Math.max(0, Math.min(source.length - 1, old.index))]?.id;
     return Math.max(0, ordered.findIndex(word => word.id === id));
   }

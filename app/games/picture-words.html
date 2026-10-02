@@ -10,12 +10,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=M+PLUS+Rounded+1c:wght@500;700;800&display=swap">
-  <link rel="stylesheet" href="picture-words/style.css?v=pop33">
-  <script src="picture-words/catalog.js?v=pop33" defer></script>
-  <script src="picture-words/difficulty.js?v=pop33" defer></script>
-  <script src="picture-words/gesture.js?v=pop33" defer></script>
-  <script src="picture-words/pronunciation.js?v=pop33" defer></script>
-  <script src="picture-words/game.js?v=pop33" defer></script>
+  <link rel="stylesheet" href="picture-words/style.css?v=discovery1">
+  <script src="picture-words/catalog.js?v=discovery1" defer></script>
+  <script src="picture-words/difficulty.js?v=discovery1" defer></script>
+  <script src="picture-words/gesture.js?v=discovery1" defer></script>
+  <script src="picture-words/pronunciation.js?v=discovery1" defer></script>
+  <script src="picture-words/progression.js?v=discovery1" defer></script>
+  <script src="picture-words/game.js?v=discovery1" defer></script>
 </head>
 <body>
   <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -51,6 +52,11 @@
     </header>
 
     <main id="game" class="game-shell" data-state="loading">
+      <button id="dailyCollection" class="daily-collection" type="button" aria-label="今日の収集ページを開く">
+        <span class="daily-heading"><span id="dailyTitle">きょうの1ページ</span><span id="dailyStreak"></span></span>
+        <span class="daily-main"><strong id="dailyCount">0 <small>/ 10</small></strong><span id="dailyMessage">絵を集めて、辞書を育てよう</span><svg aria-hidden="true"><use href="#i-book"/></svg></span>
+        <span id="dailySlots" class="daily-slots"></span>
+      </button>
       <section class="chapter-bar" aria-label="進行状況">
         <div class="chapter-heading"><span class="eyebrow" id="chapterNumber">GARDEN 01</span><h1 id="chapterName">はじまりの庭</h1></div>
         <button id="difficulty" class="level-pill difficulty-pill" type="button" aria-label="難易度を選ぶ"><span class="level-dot"></span><small class="pill-label" id="difficultyLabel">出題</small><span id="difficultyText">RANK 7</span><span class="chevron">⌄</span></button>
@@ -105,18 +111,20 @@
           <div class="feedback" id="feedback" role="status" aria-live="polite"></div>
           <div class="game-actions" id="gameActions">
             <button id="shuffle" class="action-button" type="button"><svg><use href="#i-shuffle"/></svg><span id="shuffleLabel">まぜる</span></button>
+            <button id="collection" class="action-button collection-button" type="button"><svg><use href="#i-book"/></svg><span id="collectionLabel">辞書</span><span id="collectionCount">0</span></button>
             <button id="hint" class="action-button hint-button" type="button"><svg><use href="#i-bulb"/></svg><span id="hintLabel">ひと文字ヒント</span><span class="free-tag" id="freeTag">FREE</span></button>
           </div>
           <p class="gesture-note" id="gestureNote" hidden></p>
         </section>
       </div>
 
-      <footer class="garden-footer"><div><svg><use href="#i-leaf"/></svg><span id="footerNote">正解するたび、辞書が育つ。</span></div><button id="collection" type="button"><svg><use href="#i-book"/></svg><span id="collectionLabel">日本語・英語の辞書</span><span id="collectionCount">0 / 160</span><span aria-hidden="true">↗</span></button></footer>
+      <footer class="garden-footer"><div><svg><use href="#i-leaf"/></svg><span id="footerNote">正解するたび、辞書が育つ。</span></div></footer>
     </main>
     <div class="page-footnote"><span>PICTURE × LETTERS × A LITTLE JOY</span><span>made for curious minds</span></div>
   </div>
   <div id="rewardBackdrop" class="reward-backdrop" hidden aria-hidden="true"></div>
   <div class="reward-scene" id="rewardScene" popover="manual" hidden>
+              <div id="dailyReward" class="daily-reward" role="status"></div>
               <span id="rewardBadge" class="reward-badge">NEW WORD GET!</span>
               <span id="rewardCombo" class="reward-combo" hidden><b id="rewardComboCount">2</b><span>COMBO!</span><small id="rewardComboNote"></small></span>
               <button class="word-reward" id="wordReward" type="button" hidden>
@@ -124,7 +132,7 @@
                 <span class="book-right"><span class="book-page-number" id="rewardPageNumber"></span><span class="book-placeholder" aria-hidden="true">?</span><img id="rewardArt" class="book-word-art" alt="" width="120" height="120"><strong id="rewardWord" class="book-word"></strong><small id="rewardReading" class="book-reading"></small><span id="rewardStars" class="reward-stars" aria-hidden="true"></span><span id="rewardSeal" class="book-seal"></span></span>
               </button>
               <div id="winPronunciation" class="win-pronunciation" hidden></div>
-              <span id="advanceLabel" class="advance-label">次の問題へ <span aria-hidden="true">→</span></span>
+              <button id="advanceLabel" class="advance-label" type="button">次の問題へ <span aria-hidden="true">→</span></button>
             </div>
   <canvas id="particles" aria-hidden="true"></canvas>
   <dialog id="modal" aria-labelledby="modalTitle">

@@ -5,6 +5,10 @@
   const originalCatalog = window.PICTURE_WORDS_CATALOG || [];
   const difficulty = window.WordBloomDifficulty;
   const catalog = difficulty.buildCatalog(originalCatalog);
+  const discovery = window.PictureWordsProgression;
+  const byId = new Map(catalog.map(word => [word.id, word]));
+  const supports = (word, lang) => lang === 'en' || !!word.w;
+  const availableCount = lang => catalog.filter(word => supports(word, lang)).length;
   const { advanceSelection, sweptHits, activeBatch, canSelectRing, planLetters } = window.WordBloomGesture;
   const KEY = 'word-bloom-v1';
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
@@ -14,11 +18,11 @@
       title: 'この絵、なんのことば？', instruction: '文字をなぞって、つなげよう',
       release: '', note: '途中で離すとキャンセル',
       shuffle: 'まぜる', hint: 'ヒント', next: '次の単語をゲット', footer: '正解するたび、辞書が育つ。',
-      collection: '日本語・英語の辞書', found: '単語ゲット',
+      collection: '辞書', found: '単語ゲット',
       connect: 'つなぐ', undo: 'もどす', correct: '単語ゲット！', wrong: 'おしい！ もう一度つないでみよう',
       short: '最後の文字まで、つないでみよう', mix: '新しい並びで、ひらめこう',
       tap: '', soundOff: '音声と効果音をオフ', soundOn: '音声と効果音をオン',
-      help: '遊び方', levels: '好きなところから、ひとつずつ。', choose: 'ステージを選ぶ', stageSelect: 'ステージ選択',
+      help: '遊び方', levels: '好きなところから、ひとつずつ。', choose: 'ことばを選ぶ', stageSelect: 'ことば一覧',
       close: '閉じる', error: 'イラストを読み込めませんでした', retry: 'もう一度読み込む', skip: '次の絵へ',
       completed: '庭いっぱいに、ことばが咲いた。', chapterComplete: 'ひとつの庭が、花いっぱいに。',
       replay: 'もう一度、庭を歩く', allHinted: 'ヒントの文字を、順番につなごう',
@@ -29,11 +33,11 @@
       title: 'One picture. Which word?', instruction: 'Swipe the letters. Find the word.',
       release: '', note: 'Release an unfinished word to cancel',
       shuffle: 'Shuffle', hint: 'Hint', next: 'Collect the next word', footer: 'Every word fills another page.',
-      collection: 'Your dictionaries', found: 'words collected',
+      collection: 'Dictionary', found: 'words collected',
       connect: 'connect', undo: 'undo', correct: 'WORD GET!', wrong: 'Almost! Give it another go.',
       short: 'Keep going to the last letter', mix: 'A fresh arrangement. A fresh idea.',
       tap: '', soundOff: 'Turn sound and voice off', soundOn: 'Turn sound and voice on',
-      help: 'How to play', levels: 'A little wonder, wherever you begin.', choose: 'Choose a puzzle', stageSelect: 'STAGES',
+      help: 'How to play', levels: 'A little wonder, wherever you begin.', choose: 'Choose a puzzle', stageSelect: 'WORDS',
       close: 'Close', error: 'This picture could not be loaded', retry: 'Try loading again', skip: 'Try the next picture',
       completed: 'A whole garden of words in bloom.', chapterComplete: 'Another garden, full of little wonders.',
       replay: 'Wander through again', allHinted: 'Connect the revealed letters in order',
@@ -44,7 +48,7 @@
   function readSave() {
     let raw = {};
     try { raw = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch { /* Storage is optional. */ }
-    const value = { mode: raw.mode === 'en' ? 'en' : 'ja', sound: raw.sound !== false, theme: raw.theme === 'dark' ? 'dark' : 'light', layout: raw.layout === 'mobile' || raw.layout === 'desktop' ? raw.layout : 'auto', targetTier: Number.isInteger(raw.targetTier) && raw.targetTier >= 0 && raw.targetTier < difficulty.tiers.length ? raw.targetTier : 6, routeVersion: 1,
+    const value = { mode: raw.mode === 'ja' ? 'ja' : 'en', sound: raw.sound !== false, theme: raw.theme === 'dark' ? 'dark' : 'light', layout: raw.layout === 'mobile' || raw.layout === 'desktop' ? raw.layout : 'auto', targetTier: raw.routeVersion === 2 && Number.isInteger(raw.targetTier) && raw.targetTier >= -1 && raw.targetTier < difficulty.tiers.length ? raw.targetTier : -1, routeVersion: 2, discovery: discovery.hydrate(raw.discovery),
       combo: Number.isInteger(raw.combo) && raw.combo > 0 ? raw.combo : 0, bestCombo: Number.isInteger(raw.bestCombo) && raw.bestCombo > 0 ? raw.bestCombo : 0 };
     for (const lang of ['ja', 'en']) {
       const old = raw[lang] || {};
@@ -60,35 +64,25 @@
   let entry, answer = [], nodes = [], selected = [], hintCount = 0, mistakes = 0;
   let phase = 'loading', generation = 0, pointer = null, wheelRect = null, shuffleBusy = false;
   let feedbackTimer = 0;
-  let dictionaryLanguage = mode, dictionaryFilter = 'all', lastAcquired = null;
+  let dictionaryLanguage = mode, dictionaryFilter = 'all', lastAcquired = null, dictionaryPage = 0, dictionaryQuery = '';
+  const DICTIONARY_PAGE_SIZE = 48;
   let advanceTimers = [];
   let keyboardNavigation = false;
   let comboEligible = true;
   const COMBO_STEP = 5;
   const comboLevel = value => value >= 10 ? 3 : value >= COMBO_STEP ? 2 : value >= 2 ? 1 : 0;
   let ringBatches = [[]], lastActiveBatch = -1;
-  const PRAISE_TIME = 620; // praise pops over the board before the card flies in
-  const REWARD_DURATION = 2350;
+  const PRAISE_TIME = 260;
+  const REWARD_DURATION = 1900;
   const pending = new Set();
   const text = () => copy[mode];
   const progress = () => saved[mode];
   const rarityStars = tier => '★'.repeat(Math.ceil((tier + 1) * 3 / difficulty.tiers.length));
-  const collectedCount = lang => catalog.filter(word => saved[lang].stars[word.id]).length;
+  const collectedCount = lang => catalog.filter(word => supports(word, lang) && saved[lang].stars[word.id]).length;
+  const uniqueCount = () => catalog.filter(word => saved.ja.stars[word.id] || saved.en.stars[word.id]).length;
   const bookName = lang => mode === 'ja' ? (lang === 'ja' ? '日本語辞書' : '英語辞書') : (lang === 'ja' ? 'Japanese dictionary' : 'English dictionary');
   const nextUncollected = (lang, after) => {
-    for (let step = 1; step <= catalog.length; step++) {
-      const candidate = (after + step + catalog.length) % catalog.length;
-      if (catalog[candidate].tier === saved.targetTier && !saved[lang].stars[catalog[candidate].id]) return candidate;
-    }
-    const firstInTier = catalog.findIndex(word => word.tier === saved.targetTier);
-    return firstInTier >= 0 ? firstInTier : (after + 1) % catalog.length;
-  };
-  const nextBilingualWord = after => {
-    for (let step = 1; step <= catalog.length; step++) {
-      const candidate = (after + step) % catalog.length, word = catalog[candidate];
-      if (!saved.ja.stars[word.id] || !saved.en.stars[word.id]) return candidate;
-    }
-    return (after + 1) % catalog.length;
+    return discovery.selectNext(catalog, saved, { language: lang, targetTier: saved.targetTier, afterId: catalog[after]?.id });
   };
   const persist = () => { saved.mode = mode; try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch { /* Private browsing may deny writes. */ } };
   const later = (fn, ms) => {
@@ -288,12 +282,10 @@
   }
   function updateAnswerDisclosure() {
     const otherLanguage = mode === 'ja' ? 'en' : 'ja';
-    const otherAnswer = [...(otherLanguage === 'ja' ? entry.w : entry.en.toUpperCase())];
-    const label = document.createElement('b'); label.className = 'caption-lang';
-    label.textContent = otherLanguage === 'ja' ? (mode === 'ja' ? '日本語' : 'JAPANESE') : (mode === 'ja' ? '英語' : 'ENGLISH');
+    const otherAnswer = [...(otherLanguage === 'ja' ? entry.w || entry.ja : entry.en.toUpperCase())];
     const masked = document.createElement('span'); masked.className = 'caption-mask';
     masked.textContent = otherAnswer.map((char, i) => i < hintCount ? char : '●').join('');
-    $('pictureCaption').replaceChildren(label, masked);
+    $('pictureCaption').replaceChildren(masked);
     $('pictureCaption').title = mode === 'ja' ? 'もう一方の言語での答え（文字数）' : 'The same word in the other language (letter count)';
     $('pictureCaption').classList.add('masked-answer');
     $('pictureCaption').lang = otherLanguage;
@@ -348,7 +340,7 @@
     $('game').style.setProperty('--rarity', profile.color); $('game').dataset.rarity = profile.key;
     $('chapterNumber').textContent = `${mode === 'ja' ? 'この絵' : 'THIS WORD'} · RANK ${profile.rank}/${difficulty.tiers.length}`;
     const target = difficulty.tiers[saved.targetTier];
-    $('difficultyText').innerHTML = `<span class="pill-stars">${rarityStars(saved.targetTier)}</span> <span class="tier-name">${target.name}</span><span class="tier-code">${target.code}</span>`;
+    $('difficultyText').innerHTML = target ? `<span class="pill-stars">${rarityStars(saved.targetTier)}</span> <span class="tier-name">${target.name}</span><span class="tier-code">${target.code}</span>` : (mode === 'ja' ? 'おまかせ発見' : 'Discovery');
     $('chapterName').textContent = mode === 'ja' ? profile.ja : profile.en;
     $('rarityBadge').innerHTML = `<span class="rarity-stars">${rarityStars(entry.tier)}</span> ${profile.code} · ${profile.name}`;
     $('rarityBadge').setAttribute('aria-label', `${mode === 'ja' ? '難度' : 'Difficulty'} ${profile.rank} / ${difficulty.tiers.length} · ${profile.name}`);
@@ -356,20 +348,39 @@
     $('jaClearMark').textContent = jaOwned ? '✓' : '';
     $('enClearMark').textContent = enOwned ? '✓' : '';
     $('modeJa').dataset.cleared = String(jaOwned); $('modeEn').dataset.cleared = String(enOwned);
+    $('modeJa').disabled = !supports(entry, 'ja');
+    $('modeJa').title = entry.w ? '' : 'この絵は英語で遊べます';
     $('connectLabel').textContent = `${profile.name} CHALLENGE`;
-    $('levelText').textContent = `${String(index + 1).padStart(2, '0')} / ${catalog.length}`;
+    $('levelText').textContent = availableCount(mode).toLocaleString();
     $('pictureNumber').textContent = `NO. ${String(index + 1).padStart(3, '0')}`;
     const count = collectedCount(mode);
     $('foundCount').textContent = count;
-    $('collectionCount').textContent = String(collectedCount('ja') + collectedCount('en'));
+    $('collectionCount').textContent = String(uniqueCount());
     $('collection').setAttribute('aria-label', mode === 'ja'
-      ? `辞書を開く：日本語 ${collectedCount('ja')} / ${catalog.length} 語、英語 ${collectedCount('en')} / ${catalog.length} 語`
-      : `Open dictionaries: Japanese ${collectedCount('ja')} of ${catalog.length}, English ${collectedCount('en')} of ${catalog.length}`);
+      ? `辞書を開く：日本語 ${collectedCount('ja')} / ${availableCount('ja')} 語、英語 ${collectedCount('en')} / ${catalog.length} 語`
+      : `Open dictionaries: Japanese ${collectedCount('ja')} of ${availableCount('ja')}, English ${collectedCount('en')} of ${catalog.length}`);
     $('progress').replaceChildren(...catalog.slice(group * 10, group * 10 + 10).map((word, i) => {
       const dot = document.createElement('span'); dot.className = `progress-dot${stars[word.id] ? ' done' : ''}${i === index % 10 ? ' current' : ''}`;
       return dot;
     }));
     $('progress').setAttribute('aria-label', mode === 'ja' ? `この庭で ${catalog.slice(group * 10, group * 10 + 10).filter(word => stars[word.id]).length} / 10 語発見` : `Garden ${group + 1} progress`);
+    renderDaily();
+  }
+  function renderDaily() {
+    const daily = discovery.summary(saved.discovery);
+    $('dailyCollection').classList.toggle('page-complete', daily.pageFilled === 10);
+    $('dailyTitle').textContent = mode === 'ja' ? `きょうの ${daily.pageNumber} ページ目` : `TODAY · PAGE ${daily.pageNumber}`;
+    $('dailyStreak').textContent = daily.streak ? (mode === 'ja' ? `${daily.streak}日つづいてる` : `${daily.streak} day streak`) : (mode === 'ja' ? '毎日、あたらしい発見' : 'A little discovery, every day');
+    $('dailyCount').innerHTML = `${daily.pageFilled}<small> / 10</small>`;
+    $('dailyMessage').textContent = mode === 'ja' ? (daily.pageFilled === 10 ? '完成！ もっと集めよう' : `あと${10 - daily.pageFilled}語でページ完成`) : (daily.pageFilled === 10 ? 'Page complete! Keep collecting' : `${10 - daily.pageFilled} ${daily.pageFilled === 9 ? 'discovery' : 'discoveries'} to fill this page`);
+    $('dailySlots').replaceChildren(...Array.from({length:10}, (_, i) => {
+      const slot = document.createElement('span'), word = byId.get(daily.pageIds[i]);
+      slot.className = `daily-slot${word ? ' filled' : ''}${word?.id === lastAcquired?.id ? ' newest' : ''}`;
+      if (word) { const img = document.createElement('img'); img.src = imgURL(word); img.alt = word.en; slot.append(img); }
+      else slot.textContent = '·';
+      return slot;
+    }));
+    $('dailyCollection').setAttribute('aria-label', mode === 'ja' ? `今日${daily.count}語を発見。${daily.pageNumber}ページ目、10枠中${daily.pageFilled}枠。辞書を開く` : `${daily.count} new words today. Page ${daily.pageNumber}, ${daily.pageFilled} of 10. Open dictionary`);
   }
   // Rings breathe with progress: the ring you are working on is big and roomy,
   // the other one shrinks out of the way (locked outer letters wait small at the rim,
@@ -480,12 +491,12 @@
     }, delay));
   }
   function loadLevel(nextIndex, focusNext = false, keepPronunciation = false, keepHints = false, keepPicture = false) {
-    const previousTier = entry?.tier;
     const retainedHintCount = keepHints ? hintCount : 0;
     pauseAdvance(); generation++; clearPending(); cancelGesture();
     if (!keepPronunciation) speech.stop();
     sound.stop(); petals.clear();
-    document.querySelectorAll('.flying-letter, .collected-word').forEach(el => el.remove());
+    document.querySelectorAll('.flying-letter, .collected-word, .collection-fly').forEach(el => el.remove());
+    $('dailyCollection').classList.remove('just-collected');
     $('wordReward').hidden = true; $('collection').classList.remove('word-added');
     $('rewardScene').hidden = true; $('rewardScene').classList.remove('page-filled');
     if ($('rewardScene').hidePopover && $('rewardScene').matches(':popover-open')) $('rewardScene').hidePopover();
@@ -493,7 +504,10 @@
     $('rankUp').hidden = true;
     $('winPronunciation').hidden = true; $('winPronunciation').replaceChildren();
     index = (nextIndex + catalog.length) % catalog.length; progress().index = index;
-    entry = catalog[index]; progress().wordId = entry.id; persist();
+    entry = catalog[index];
+    if (!supports(entry, mode)) mode = 'en';
+    progress().index = index; progress().wordId = entry.id;
+    saved.discovery = discovery.markSeen(saved.discovery, entry.id, mode); persist();
     answer = [...(mode === 'ja' ? entry.w : entry.en.toUpperCase())];
     selected = []; hintCount = Math.min(retainedHintCount, answer.length); mistakes = 0; shuffleBusy = false; phase = 'loading';
     comboEligible = hintCount === 0;
@@ -523,7 +537,7 @@
         image.style.opacity = '1'; phase = 'playing'; $('game').dataset.state = phase;
         // Restart the picture entrance only when the picture itself changes.
         image.style.animation = 'none'; void image.offsetWidth; image.style.animation = '';
-        if (previousTier !== undefined && entry.tier > previousTier) showRankUp(profile);
+        // Discovery mixes ranks, so a random harder word is not a rank-up event.
         if (focusNext && keyboardNavigation) nodes[0]?.button.focus({ preventScroll: true });
       };
       image.onerror = () => {
@@ -533,7 +547,6 @@
       };
       image.src = imgURL(entry);
     }
-    const preload = new Image(); preload.src = imgURL(catalog[nextBilingualWord(index)]);
   }
 
   function showRankUp(profile) {
@@ -599,35 +612,44 @@
     sound.win(combo); renderCombo(combo ? 'bump' : '');
     const stars = Math.max(1, 3 - Math.min(2, hintCount + (mistakes > 0 ? 1 : 0)));
     const first = !progress().stars[entry.id];
+    const newDiscovery = !saved.ja.stars[entry.id] && !saved.en.stars[entry.id];
+    const award = discovery.collect(saved.discovery, entry.id, mode, {isNew: newDiscovery});
+    saved.discovery = award.discovery;
     progress().stars[entry.id] = Math.max(progress().stars[entry.id] || 0, stars); persist();
     if (first) lastAcquired = { lang: mode, id: entry.id };
     updateAnswer();
     $('answerInfo').textContent = `${'✦'.repeat(stars)}${'✧'.repeat(3 - stars)}  ${mode === 'ja' ? entry.ja : entry.en.toUpperCase()}`;
-    const complete = collectedCount(mode) === catalog.length;
+    const complete = collectedCount(mode) === availableCount(mode);
     const both = !!saved.ja.stars[entry.id] && !!saved.en.stars[entry.id];
     setFeedback(first ? (complete ? `${bookName(mode)} ${mode === 'ja' ? 'コンプリート！' : 'complete!'}` : text().correct) : (mode === 'ja' ? '正解！ この単語は獲得済み' : 'Correct! Already collected.'), 'success');
     $('pictureStamp').textContent = first ? 'WORD GET!' : 'GOT IT!';
     $('rewardBadge').textContent = both ? 'BILINGUAL CLEAR!' : first ? (complete ? 'BOOK COMPLETE' : 'NEW WORD GET!') : (mode === 'ja' ? '獲得済み' : 'COLLECTED');
+    if (award.pageCompleted) $('rewardBadge').textContent = mode === 'ja' ? 'ページ完成！' : 'PAGE COMPLETE!';
+    $('rewardScene').classList.toggle('page-complete', award.pageCompleted);
+    $('dailyReward').classList.toggle('complete', award.pageCompleted);
+    $('dailyReward').textContent = mode === 'ja' ? (award.added ? `今日 ${award.daily.count} 語目の発見！${award.pageCompleted ? ' 10枚そろった！' : ''}` : '覚えたことばが、またひとつ強くなる') : (award.added ? `Discovery ${award.daily.count} today!${award.pageCompleted ? ' All 10 stamps collected!' : ''}` : 'Another word, remembered');
     $('rewardScene').classList.toggle('bilingual-clear', both);
     $('rewardScene').style.setProperty('--rarity', difficulty.tiers[entry.tier].color);
     $('rewardScene').dataset.rarity = difficulty.tiers[entry.tier].key;
     $('rewardWord').textContent = mode === 'ja' ? entry.ja : entry.en.toUpperCase();
     $('rewardReading').textContent = mode === 'ja' ? entry.w : entry.ja;
-    $('rewardBookName').textContent = bookName(mode);
+    $('rewardBookName').textContent = mode === 'ja' ? `きょうの ${award.daily.pageNumber} ページ目` : `TODAY · PAGE ${award.daily.pageNumber}`;
     $('rewardArt').src = imgURL(entry);
     $('rewardPageNumber').textContent = `${difficulty.tiers[entry.tier].code} · PAGE ${String(index + 1).padStart(3, '0')}`;
-    $('rewardBefore').textContent = String(collectedCount(mode) - (first ? 1 : 0));
-    $('rewardAfter').textContent = String(collectedCount(mode));
-    $('rewardTotal').textContent = ` / ${catalog.length}`;
-    $('rewardProgress').textContent = `${difficulty.tiers[entry.tier].name}\n${mode === 'ja' ? (first ? '新しいページが埋まった！' : 'このページは登録済み') : (first ? 'A new page filled!' : 'Already in your book')}`;
+    $('rewardBefore').textContent = String(award.daily.pageFilled - (award.added ? 1 : 0));
+    $('rewardAfter').textContent = String(award.daily.pageFilled);
+    $('rewardTotal').textContent = ' / 10';
+    $('rewardProgress').textContent = mode === 'ja' ? `辞書に ${uniqueCount()} 語 / ${catalog.length} 語` : `${uniqueCount()} / ${catalog.length} words discovered`;
     $('rewardSeal').textContent = both ? 'JA + EN' : mode === 'ja' ? (first ? '登録！' : '正解！') : (first ? 'ADDED!' : 'GOT IT!');
     $('advanceLabel').textContent = mode === 'ja' ? '次の問題へ →' : 'Next picture →';
     const library = $('rewardShelf'); library.className = 'book-shelf book-library-grid';
-    library.replaceChildren(...catalog.map((word, pageIndex) => {
+    library.replaceChildren(...Array.from({length:10}, (_, pageIndex) => {
+      const word = byId.get(award.daily.pageIds[pageIndex]);
       const page = document.createElement('span');
-      const owned = !!progress().stars[word.id], newest = word.id === entry.id && first;
+      const owned = !!word, newest = word?.id === entry.id && award.added;
       page.className = `library-page${owned ? ' owned' : ''}${newest ? ' newest' : ''}`;
-      page.dataset.wordId = word.id; page.dataset.page = String(pageIndex + 1);
+      page.dataset.wordId = word?.id || ''; page.dataset.page = String(pageIndex + 1);
+      if (word) { const image = document.createElement('img'); image.src = imgURL(word); image.alt = ''; page.append(image); }
       page.setAttribute('aria-hidden', 'true');
       return page;
     }));
@@ -649,16 +671,17 @@
       $('rewardScene').showPopover?.(); $('rewardBackdrop').hidden = false;
       const rect = $('wordReward').getBoundingClientRect();
       petals.burst(rect.left + rect.width / 2, rect.top + rect.height / 3, 130 + Math.min(combo, 8) * 20, combo >= COMBO_STEP ? 'gold' : true);
-      if (milestone) later(() => petals.burst(innerWidth / 2, innerHeight * .25, 100, 'gold'), 380);
-      later(() => { $('rewardScene').classList.add('page-filled'); updateProgress(); }, 760);
-      if (first) later(animateAcquisition, 900);
+      if (milestone || award.pageCompleted) later(() => { petals.burst(innerWidth / 2, innerHeight * .25, 150, 'gold'); sound.win(10); }, 380);
+      later(() => { $('rewardScene').classList.add('page-filled'); updateProgress(); }, 420);
+      if (award.added) later(animateAcquisition, 500);
     }, reducedMotion.matches ? 0 : PRAISE_TIME);
     $('winPronunciation').replaceChildren(pronunciationPanel(entry, mode)); $('winPronunciation').hidden = false;
     speech.speak(entry, mode);
-    queueAdvance();
+    queueAdvance(award.pageCompleted ? 3300 : REWARD_DURATION);
   }
 
   function animateAcquisition() {
+    $('dailyCollection').classList.add('just-collected');
     $('collection').classList.remove('word-added'); void $('collection').offsetWidth; $('collection').classList.add('word-added');
     if (reducedMotion.matches) return;
     const from = $('rewardArt').getBoundingClientRect();
@@ -666,7 +689,10 @@
     const to = target.getBoundingClientRect();
     const token = document.createElement('span'), image = document.createElement('img');
     token.className = 'collected-word'; token.setAttribute('aria-hidden', 'true'); image.src = imgURL(entry); image.alt = '';
-    token.append(image); token.style.left = `${from.right - 60}px`; token.style.top = `${from.bottom - 60}px`; document.body.append(token);
+    // Keep the flying picture in the popover's top layer, above the open book.
+    const scene = $('rewardScene'), sceneRect = scene.getBoundingClientRect();
+    token.append(image); token.style.position = 'absolute'; token.style.zIndex = '20';
+    token.style.left = `${from.right - sceneRect.left - 60}px`; token.style.top = `${from.bottom - sceneRect.top + scene.scrollTop - 60}px`; scene.append(token);
     const dx = to.left + to.width / 2 - from.right + 30, dy = to.top + to.height / 2 - from.bottom + 30;
     const animation = token.animate([
       { transform: 'translate(0,0) rotate(-12deg) scale(.5)', opacity: 0 },
@@ -746,7 +772,7 @@
   window.addEventListener('resize', () => { if (pointer) cancelGesture(); });
   document.addEventListener('visibilitychange', () => {
     if (document.hidden) { pauseAdvance(); cancelGesture(); speech.stop(); sound.stop(); petals.clear(); }
-    else queueAdvance(850);
+    else { renderDaily(); queueAdvance(850); }
   });
   window.addEventListener('pagehide', () => speech.stop());
 
@@ -782,11 +808,12 @@
   });
   window.addEventListener('resize', updateLayout);
   document.querySelectorAll('[data-mode]').forEach(button => button.addEventListener('click', () => {
-    if (mode === button.dataset.mode) return;
+    if (mode === button.dataset.mode || !supports(entry, button.dataset.mode)) return;
     mode = button.dataset.mode; loadLevel(index, false, false, true, true);
   }));
   $('retryImage').addEventListener('click', () => loadLevel(index));
-  $('skipImage').addEventListener('click', () => loadLevel(index + 1));
+  $('skipImage').addEventListener('click', () => loadLevel(nextUncollected(mode, index)));
+  $('advanceLabel').addEventListener('click', () => { if (phase === 'solved') loadLevel(nextUncollected(mode, index), true, true); });
 
   function openModal(title, body) {
     pauseAdvance(); cancelGesture(); speech.stop(); $('modalTitle').textContent = title; $('modalBody').replaceChildren();
@@ -827,8 +854,11 @@
   });
   $('difficulty').addEventListener('click', () => {
     const title = mode === 'ja' ? '挑戦する難易度を選ぶ' : 'Choose your challenge';
-    const intro = document.createElement('p'); intro.className = 'modal-copy'; intro.textContent = mode === 'ja' ? '選んだランクの未獲得語だけを、次の問題として出します。' : 'Your next puzzles will come from this rank.';
+    const intro = document.createElement('p'); intro.className = 'modal-copy'; intro.textContent = mode === 'ja' ? '未獲得のことばを優先。選んだランクを集めきると、別のランクも発見できます。' : 'Discover missing words first. When a rank is collected, explore the other ranks.';
     const grid = document.createElement('div'); grid.className = 'difficulty-grid';
+    const automatic = document.createElement('button'); automatic.type = 'button'; automatic.className = 'difficulty-choice';
+    automatic.setAttribute('aria-pressed', String(saved.targetTier === -1)); automatic.textContent = mode === 'ja' ? '✦ おまかせ発見 · いろいろなことばに出会う' : '✦ Discovery · a fresh mix of words';
+    automatic.addEventListener('click', () => { saved.targetTier = -1; persist(); $('modal').close(); loadLevel(nextUncollected(mode, index), true); }); grid.append(automatic);
     difficulty.tiers.forEach((tier, tierIndex) => {
       const button = document.createElement('button'); button.type = 'button'; button.className = 'difficulty-choice';
       button.dataset.tier = String(tierIndex); button.style.setProperty('--tier-color', tier.color);
@@ -836,34 +866,16 @@
       button.innerHTML = `<strong class="choice-stars">${rarityStars(tierIndex)}</strong><b>${tier.code} · ${tier.name}</b><span>${mode === 'ja' ? tier.ja : tier.en}</span>`;
       button.addEventListener('click', () => {
         saved.targetTier = tierIndex; persist(); $('modal').close();
-        const first = catalog.findIndex(word => word.tier === tierIndex && !saved[mode].stars[word.id]);
-        loadLevel(first >= 0 ? first : catalog.findIndex(word => word.tier === tierIndex), true);
+        loadLevel(nextUncollected(mode, index), true);
       });
       grid.append(button);
     });
     const panel = document.createElement('div'); panel.append(intro, grid); openModal(title, panel);
   });
-  $('levels').addEventListener('click', () => {
-    const container = document.createElement('div'), intro = document.createElement('p'), grid = document.createElement('div');
-    intro.className = 'modal-copy'; intro.textContent = text().levels; grid.className = 'level-grid'; container.append(intro, grid);
-    catalog.forEach((word, i) => {
-      const profile = difficulty.challenge(word, mode);
-      if (i % 10 === 0) {
-        const heading = document.createElement('h3'); heading.className = 'stage-rank-heading'; heading.style.setProperty('--rarity', profile.color);
-        heading.innerHTML = `<b>${profile.code} · ${profile.name}</b><span>${mode === 'ja' ? `難度 ${profile.rank} · ${profile.ja}` : `Difficulty ${profile.rank} · ${profile.en}`}</span>`; grid.append(heading);
-      }
-      const button = document.createElement('button'); button.type = 'button';
-      button.className = `level-cell${i === index ? ' current' : ''}${progress().stars[word.id] ? ' done' : ''}`;
-      button.style.setProperty('--rarity', profile.color);
-      button.textContent = String(i + 1).padStart(2, '0'); button.dataset.level = String(i);
-      button.setAttribute('aria-label', `${mode === 'ja' ? 'ステージ' : 'Puzzle'} ${i + 1} · ${profile.name}`);
-      if (progress().stars[word.id]) { const score = document.createElement('small'); score.textContent = '✦'.repeat(progress().stars[word.id]); button.append(score); }
-      button.addEventListener('click', () => { $('modal').close(); loadLevel(i); }); grid.append(button);
-    });
-    openModal(text().choose, container);
-  });
-  function openDictionary() { dictionaryLanguage = mode; dictionaryFilter = 'all'; renderDictionary(); }
+  $('levels').addEventListener('click', () => { dictionaryLanguage = mode; dictionaryFilter = 'missing'; dictionaryPage = 0; dictionaryQuery = ''; renderDictionary(); });
+  function openDictionary() { dictionaryLanguage = mode; dictionaryFilter = 'owned'; dictionaryPage = 0; dictionaryQuery = ''; renderDictionary(); }
   $('collection').addEventListener('click', openDictionary);
+  $('dailyCollection').addEventListener('click', () => { dictionaryLanguage = mode; dictionaryFilter = 'today'; dictionaryPage = 0; dictionaryQuery = ''; renderDictionary(); });
   $('wordReward').addEventListener('click', openDictionary);
 
   function beginDictionaryPuzzle(lang, targetIndex) {
@@ -872,35 +884,42 @@
   }
 
   function renderDictionary(focusControl = '') {
-    const lang = dictionaryLanguage, count = collectedCount(lang), percent = Math.floor(count / catalog.length * 100);
+    const lang = dictionaryLanguage, count = collectedCount(lang), totalWords = availableCount(lang), percent = Math.floor(count / totalWords * 100);
+    const todayIds = new Set(discovery.summary(saved.discovery).todayIds);
     const container = document.createElement('div'); container.className = 'dictionary';
     const tabs = document.createElement('div'); tabs.className = 'dictionary-tabs'; tabs.setAttribute('role', 'group');
     tabs.setAttribute('aria-label', mode === 'ja' ? '表示する辞書' : 'Choose a dictionary');
     for (const language of ['ja', 'en']) {
       const button = document.createElement('button'); button.type = 'button'; button.dataset.book = language;
       button.setAttribute('aria-pressed', String(language === lang));
-      button.innerHTML = `${icon('book')}<span>${bookName(language)}<small>${collectedCount(language)} / ${catalog.length}</small></span>`;
-      button.addEventListener('click', () => { dictionaryLanguage = language; renderDictionary('book'); }); tabs.append(button);
+      button.innerHTML = `${icon('book')}<span>${bookName(language)}<small>${collectedCount(language)} / ${availableCount(language)}</small></span>`;
+      button.addEventListener('click', () => { dictionaryLanguage = language; dictionaryPage = 0; renderDictionary('book'); }); tabs.append(button);
     }
     const summary = document.createElement('div'); summary.className = 'dictionary-summary';
-    summary.innerHTML = `<div><span class="eyebrow">${count === catalog.length ? 'DICTIONARY COMPLETE' : 'GROW YOUR DICTIONARY'}</span><p><b>${count}</b> / ${catalog.length} <span>${mode === 'ja' ? '語ゲット' : 'words collected'}</span></p></div><strong>${percent}<small>%</small></strong>`;
+    summary.innerHTML = `<div><span class="eyebrow">${count === totalWords ? 'DICTIONARY COMPLETE' : 'GROW YOUR DICTIONARY'}</span><p><b>${count}</b> / ${totalWords} <span>${mode === 'ja' ? '語ゲット' : 'words collected'}</span></p></div><strong>${percent}<small>%</small></strong>`;
     const meter = document.createElement('div'); meter.className = 'dictionary-meter'; meter.setAttribute('role', 'progressbar');
-    meter.setAttribute('aria-label', bookName(lang)); meter.setAttribute('aria-valuenow', String(count)); meter.setAttribute('aria-valuemin', '0'); meter.setAttribute('aria-valuemax', String(catalog.length));
+    meter.setAttribute('aria-label', bookName(lang)); meter.setAttribute('aria-valuenow', String(count)); meter.setAttribute('aria-valuemin', '0'); meter.setAttribute('aria-valuemax', String(totalWords));
     const fill = document.createElement('span'); fill.style.width = `${percent}%`; meter.append(fill);
     const caption = document.createElement('p'); caption.className = 'dictionary-caption';
-    caption.textContent = count === catalog.length ? (mode === 'ja' ? '全ページが埋まりました！ もう一冊の辞書も育てよう。' : 'Every page is filled! Keep growing your other dictionary.') : (mode === 'ja' ? `あと ${catalog.length - count} 語で完成。未獲得のページを選んで挑戦しよう。` : `${catalog.length - count} words to go. Pick a missing page to collect next.`);
+    const daily = discovery.summary(saved.discovery);
+    caption.textContent = mode === 'ja' ? `今日の発見 ${daily.count} 語 · ${daily.pagesCompleted} ページ完成 · これまで ${daily.totalDays} 日の記録` : `${daily.count} discoveries today · ${daily.pagesCompleted} ${daily.pagesCompleted === 1 ? 'page' : 'pages'} filled · ${daily.totalDays} ${daily.totalDays === 1 ? 'day' : 'days'} of discoveries`;
     const filters = document.createElement('div'); filters.className = 'dictionary-filters'; filters.setAttribute('role', 'group');
     filters.setAttribute('aria-label', mode === 'ja' ? '獲得状況で絞り込む' : 'Filter by collection status');
-    for (const [value, label, total] of [['all', mode === 'ja' ? 'すべて' : 'All', catalog.length], ['owned', mode === 'ja' ? '獲得済み' : 'Collected', count], ['missing', mode === 'ja' ? '未獲得' : 'Missing', catalog.length - count]]) {
+    for (const [value, label, total] of [['today', mode === 'ja' ? '今日' : 'Today', catalog.filter(w => supports(w,lang) && todayIds.has(w.id)).length], ['owned', mode === 'ja' ? '獲得済み' : 'Collected', count], ['missing', mode === 'ja' ? '未獲得' : 'Missing', totalWords - count], ['all', mode === 'ja' ? 'すべて' : 'All', totalWords]]) {
       const button = document.createElement('button'); button.type = 'button'; button.textContent = `${label} ${total}`; button.dataset.filter = value;
-      button.setAttribute('aria-pressed', String(dictionaryFilter === value)); button.addEventListener('click', () => { dictionaryFilter = value; renderDictionary('filter'); }); filters.append(button);
+      button.setAttribute('aria-pressed', String(dictionaryFilter === value)); button.addEventListener('click', () => { dictionaryFilter = value; dictionaryPage = 0; renderDictionary('filter'); }); filters.append(button);
     }
+    const search = document.createElement('input'); search.type = 'search'; search.className = 'dictionary-search'; search.value = dictionaryQuery;
+    search.placeholder = mode === 'ja' ? 'ことばを探す' : 'Find a word'; search.setAttribute('aria-label', search.placeholder);
+    const updateSearch = event => { if (event.isComposing) return; dictionaryQuery = search.value; dictionaryPage = 0; renderDictionary('search'); };
+    search.addEventListener('input', updateSearch); search.addEventListener('compositionend', updateSearch);
     const grid = document.createElement('div'); grid.className = 'dictionary-grid';
     const collator = new Intl.Collator(lang);
-    const words = catalog.map((word, wordIndex) => ({ word, wordIndex })).sort((a, b) => collator.compare(lang === 'ja' ? a.word.w : a.word.en, lang === 'ja' ? b.word.w : b.word.en));
-    for (const { word, wordIndex } of words) {
+    const query = dictionaryQuery.trim().toLocaleLowerCase();
+    const words = catalog.map((word, wordIndex) => ({ word, wordIndex })).filter(({word}) => supports(word,lang) && (dictionaryFilter !== 'today' || todayIds.has(word.id)) && (dictionaryFilter !== 'owned' || saved[lang].stars[word.id]) && (dictionaryFilter !== 'missing' || !saved[lang].stars[word.id]) && (!query || `${word.en} ${word.ja} ${word.w}`.toLocaleLowerCase().includes(query))).sort((a, b) => collator.compare(lang === 'ja' ? a.word.w : a.word.en, lang === 'ja' ? b.word.w : b.word.en));
+    const pages = Math.max(1, Math.ceil(words.length / DICTIONARY_PAGE_SIZE)); dictionaryPage = Math.min(dictionaryPage, pages - 1);
+    for (const { word, wordIndex } of words.slice(dictionaryPage * DICTIONARY_PAGE_SIZE, (dictionaryPage + 1) * DICTIONARY_PAGE_SIZE)) {
       const owned = !!saved[lang].stars[word.id];
-      if ((dictionaryFilter === 'owned' && !owned) || (dictionaryFilter === 'missing' && owned)) continue;
       const card = document.createElement('button'); card.type = 'button'; card.className = `dictionary-card ${owned ? 'owned' : 'missing'}`; card.dataset.wordId = word.id;
       const rarity = difficulty.tiers[word.tier]; card.dataset.rarity = rarity.key; card.style.setProperty('--rarity', rarity.color);
       const number = document.createElement('span'); number.className = 'dictionary-number'; number.textContent = `NO. ${String(wordIndex + 1).padStart(3, '0')}`;
@@ -922,11 +941,19 @@
       const rarityTag = document.createElement('span'); rarityTag.className = 'dictionary-rarity'; rarityTag.textContent = `${rarity.code} · ${rarity.name}`;
       card.append(title, subtitle, rarityTag); grid.append(card);
     }
-    container.append(tabs, summary, meter, caption, filters, grid);
-    if (!grid.childElementCount) { const empty = document.createElement('p'); empty.className = 'dictionary-empty'; empty.textContent = mode === 'ja' ? (dictionaryFilter === 'owned' ? '最初の正解で、最初の1ページをゲット。' : '未獲得のページはありません。辞書コンプリート！') : (dictionaryFilter === 'owned' ? 'Your first correct answer will unlock your first page.' : 'No missing pages. Dictionary complete!'); container.append(empty); }
+    const paging = document.createElement('div'); paging.className = 'dictionary-pages';
+    for (const delta of [-1,1]) {
+      const button = document.createElement('button'); button.type = 'button'; button.textContent = delta < 0 ? '←' : '→'; button.disabled = dictionaryPage + delta < 0 || dictionaryPage + delta >= pages;
+      button.setAttribute('aria-label', delta < 0 ? 'Previous page' : 'Next page');
+      button.addEventListener('click', () => { dictionaryPage += delta; renderDictionary(); }); paging.append(button);
+      if (delta < 0) { const label = document.createElement('span'); label.textContent = `${dictionaryPage + 1} / ${pages} · ${words.length.toLocaleString()}`; paging.append(label); }
+    }
+    container.append(tabs, summary, meter, caption, filters, search, paging, grid);
+    if (!grid.childElementCount) { const empty = document.createElement('p'); empty.className = 'dictionary-empty'; empty.textContent = query ? (mode === 'ja' ? '見つかりませんでした。別のことばで探してみよう。' : 'No matching words. Try another search.') : (mode === 'ja' ? '新しい絵を解いて、このページを埋めよう。' : 'Solve a new picture to fill this page.'); container.append(empty); }
     openModal(text().collection, container);
     if (focusControl === 'book') tabs.querySelector('[aria-pressed="true"]').focus({ preventScroll: true });
     if (focusControl === 'filter') filters.querySelector('[aria-pressed="true"]').focus({ preventScroll: true });
+    if (focusControl === 'search') { search.focus({preventScroll:true}); search.setSelectionRange(search.value.length, search.value.length); }
   }
 
   function showDictionaryEntry(word, wordIndex, lang) {
@@ -937,15 +964,16 @@
     const heading = document.createElement('h3'); heading.textContent = lang === 'ja' ? word.ja : word.en;
     const profile = difficulty.challenge(word, lang), rarity = document.createElement('p'); rarity.className = 'entry-rarity'; rarity.style.setProperty('--rarity', profile.color);
     rarity.textContent = `${profile.code} · ${profile.name} · ${mode === 'ja' ? '難度' : 'DIFFICULTY'} ${profile.rank} / ${difficulty.tiers.length}`;
-    const reading = document.createElement('p'); reading.className = 'entry-reading'; reading.textContent = lang === 'ja' ? word.w : `${word.ja} · ${word.w}`;
-    const translation = document.createElement('p'); translation.className = 'entry-translation'; translation.textContent = lang === 'ja' ? `ENGLISH · ${word.en}` : `JAPANESE · ${word.w}`;
+    const reading = document.createElement('p'); reading.className = 'entry-reading'; reading.textContent = lang === 'ja' ? word.w : word.ja;
+    const translation = document.createElement('a'); translation.className = 'entry-translation'; translation.textContent = mode === 'ja' ? '語源辞書で詳しく見る ↗' : 'Explore this word in the dictionary ↗'; translation.href = `../etymon-explorer.html#words/q=${encodeURIComponent(word.en)}`; translation.target = '_blank'; translation.rel = 'noopener';
     const badges = document.createElement('div'); badges.className = 'entry-books';
     for (const language of ['ja', 'en']) {
+      if (!supports(word, language)) continue;
       const owned = !!saved[language].stars[word.id], badge = document.createElement('span'); badge.className = owned ? 'owned' : '';
       badge.textContent = `${bookName(language)} · ${mode === 'ja' ? (owned ? '獲得済み' : '未獲得') : (owned ? 'collected' : 'missing')}`; badges.append(badge);
     }
     const best = document.createElement('p'); best.className = 'entry-stars'; best.textContent = '✦'.repeat(saved[lang].stars[word.id]);
-    const other = lang === 'ja' ? 'en' : 'ja', challengeLang = saved[other].stars[word.id] ? lang : other;
+    const other = lang === 'ja' ? 'en' : 'ja', challengeLang = saved[other].stars[word.id] || !supports(word, other) ? lang : other;
     const challenge = document.createElement('button'); challenge.type = 'button'; challenge.className = 'modal-primary';
     challenge.textContent = challengeLang === lang ? (mode === 'ja' ? 'もう一度、この単語で遊ぶ' : 'Play this word again') : mode === 'ja' ? `${other === 'ja' ? '日本語' : '英語'}でもゲットする` : `Collect it in ${other === 'ja' ? 'Japanese' : 'English'}`;
     challenge.addEventListener('click', () => beginDictionaryPuzzle(challengeLang, wordIndex));
@@ -959,6 +987,6 @@
     if (event.key === 'Escape' && phase === 'playing') { cancelGesture(); resetSelection(); }
   });
   document.addEventListener('pointerdown', () => { keyboardNavigation = false; }, { passive: true });
-  if (catalog.length) loadLevel(index);
+  if (catalog.length) loadLevel(nextUncollected(mode, index));
   else { $('game').dataset.state = 'error'; setFeedback('出題データを読み込めませんでした。ページを再読み込みしてください。', 'wrong'); }
 })();
