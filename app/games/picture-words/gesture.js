@@ -19,8 +19,9 @@
     return incomplete < 0 ? batches.length - 1 : incomplete;
   }
   function canSelectRing(node, path, batches) {
-    // The outer ring is visually muted initially, but never locked.
-    return !path.includes(node.id);
+    // The inner ring holds the opening letters; the outer ring opens once every inner letter is used.
+    if (path.includes(node.id)) return false;
+    return node.batch <= activeBatch(path, batches);
   }
   function planLetters(answer, decoys, innerCount, dual) {
     // Keep every required letter visible from the start. Never page a ring.

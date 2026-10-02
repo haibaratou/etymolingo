@@ -20,11 +20,11 @@ test('every answer is complete in one or two rings, without paging or hiding let
     assert.equal(path.map(id => letters.find(n => n.id === id).char).join(''), answer.join(''));
   }
 });
-test('outer letters can be selected immediately; outer chords ignore previously selected inner hits', () => {
+test('outer letters stay locked until every inner letter is used; outer chords ignore previously selected inner hits', () => {
   const { letters, batches } = planLetters([...'GARLIC'], ['X','Y','Z'], 3, true);
   const outer = letters[3], inner = letters[1];
-  assert.equal(canSelectRing(outer, [], batches), true);
-  assert.equal(canSelectRing(outer, [0,1], batches), true);
+  assert.equal(canSelectRing(outer, [], batches), false);
+  assert.equal(canSelectRing(outer, [0,1], batches), false);
   assert.equal(canSelectRing(outer, [0,1,2], batches), true);
   assert.equal(canSelectRing(inner, [0,1,2], batches), false);
   assert.equal(canSelectRing(inner, [0,1,2,3], batches), false);

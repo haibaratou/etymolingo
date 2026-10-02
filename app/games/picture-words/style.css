@@ -598,3 +598,123 @@ html[data-layout=mobile] .clue-section,html[data-layout=mobile] .interaction-sec
 .combo-meter[data-level="3"]{animation:none}
 .picture-stage img{animation:pic-in .35s var(--ease) both}
 @keyframes pic-in{0%{opacity:0;transform:scale(.92)}100%{opacity:1;transform:none}}
+/* Outer ring is locked until the inner ring is used up. */
+.dual-ring .letter.outer-pending:not(.selected){opacity:.38;transform:scale(.86);filter:grayscale(.6);cursor:not-allowed}
+.dual-ring .letter.outer-pending:not(.selected):hover{transform:scale(.86)}
+.ring-unlock .letter[data-ring=outer]{animation:ring-ready .5s var(--pop)}
+@keyframes ring-ready{0%{transform:scale(.86)}50%{transform:scale(1.25)}100%{transform:none}}
+
+/* =====================================================================
+   Wheel dock (2026-10): mobile-puzzle layout.
+   The wheel takes the full width; shuffle / hint / dictionary / combo sit
+   in the four free corners around the circle instead of stacking below it.
+   ===================================================================== */
+.wheel-dock{position:relative;width:var(--wheel);flex:none}
+.wheel-dock .wheel{width:100%}
+.wheel-dock .combo-meter{top:2px;left:0}
+.garden-footer{display:none}
+.game-actions{position:static;margin:0;display:block;width:auto;height:0}
+.corner-button{position:absolute;z-index:6;width:64px;height:64px;padding:0;border-radius:50%;display:grid;place-items:center;align-content:center;gap:1px;font-size:11px;font-weight:700;color:#fff;transition:transform .12s,box-shadow .12s}
+.corner-button svg{width:26px;height:26px;stroke-width:2.4}
+.corner-button:active:not(:disabled){transform:translateY(4px)}
+#shuffle.corner-button{left:0;bottom:0;background:linear-gradient(180deg,#5cc0ff,#2b8fe0);box-shadow:0 5px 0 #1a6bb0,0 8px 16px #2b8fe033}
+#hint.corner-button{right:0;bottom:0;background:linear-gradient(180deg,#ffd75e,#ffb31f);box-shadow:0 5px 0 #c98400,0 8px 16px #ffb31f33}
+#shuffle.corner-button:active:not(:disabled){box-shadow:0 1px 0 #1a6bb0}
+#hint.corner-button:active:not(:disabled){box-shadow:0 1px 0 #c98400}
+.corner-button span{white-space:nowrap;line-height:1}
+#hintLabel,#shuffleLabel{font-size:10px}
+#hint .free-tag{position:absolute;top:-8px;right:-10px;display:none;padding:3px 6px;border-radius:9px;font-size:9px;line-height:1;background:var(--bad);color:#fff;box-shadow:0 2px 0 var(--bad-deep)}
+#hint.combo-risk .free-tag{display:block}
+.dict-corner{right:0;top:0;width:58px;height:58px;color:#fff;background:linear-gradient(180deg,#b28bff,#8559f0);box-shadow:0 5px 0 #5f37c2,0 8px 16px #8559f033;border-radius:50%}
+.dict-corner #collectionLabel{display:none}
+.dict-corner #collectionCount{position:absolute;bottom:-6px;right:-6px;min-width:26px;height:22px;padding:0 6px;border-radius:11px;font-size:12px;line-height:22px;color:#5f37c2;background:#fff;box-shadow:0 2px 0 #d9ccf5}
+#collection.dict-corner{height:58px;padding:0}
+#collection.dict-corner:active{box-shadow:0 1px 0 #5f37c2}
+
+/* Letters are sized from the wheel itself (container units), so they scale with any screen. */
+.letters{container-type:size}
+.wheel .letters .letter{--s:23cqw;width:var(--s);height:var(--s);margin:calc(var(--s) / -2);font-size:calc(var(--s) * .5);
+  transition:left .4s var(--pop),top .4s var(--pop),width .35s var(--pop),height .35s var(--pop),margin .35s var(--pop),font-size .35s var(--pop),opacity .25s,background .15s,color .15s,box-shadow .15s,transform .15s}
+.wheel.dual-ring[data-active-ring=inner] .letters .letter[data-ring=inner]{--s:20cqw}
+.wheel.dual-ring[data-active-ring=inner] .letters .letter[data-ring=outer]{--s:9.5cqw}
+.wheel.dual-ring[data-active-ring=outer] .letters .letter[data-ring=outer]{--s:17.5cqw}
+.wheel.dual-ring[data-active-ring=outer] .letters .letter[data-ring=inner]{--s:10cqw}
+.wheel.dual-ring .letters .letter.outer-pending:not(.selected){opacity:.5;transform:none;filter:grayscale(.4)}
+.wheel.dual-ring .letters .letter.outer-pending:not(.selected):hover{transform:none}
+.wheel .wheel-center{width:21%;height:auto;aspect-ratio:1;margin:-10.5%}
+.wheel.dual-ring[data-active-ring=inner] .wheel-center{width:17%;margin:-8.5%}
+.wheel.dual-ring[data-active-ring=outer] .wheel-center{width:13%;margin:-6.5%}
+.wheel.dual-ring .wheel-center svg{width:40%;height:40%}
+.wheel.dual-ring #centerLabel{display:none}
+.wheel .wheel-center{transition:width .35s var(--pop),margin .35s var(--pop),transform .2s var(--pop)}
+.wheel.dual-ring .orbit-one{inset:5%}
+.wheel.dual-ring[data-active-ring=inner] .orbit-two{inset:22%}
+.wheel.dual-ring[data-active-ring=outer] .orbit-two{inset:32%}
+.wheel-orbit{transition:inset .4s var(--pop),border-color .3s}
+.wheel.dual-ring[data-active-ring=outer] .orbit-one{border-color:color-mix(in srgb,var(--accent) 45%,transparent);border-width:3px}
+#trailLine{stroke-width:12}
+
+/* ---------- Phone: one screen, wheel first ---------- */
+html[data-layout=mobile]{--wheel:min(calc(100vw - 24px),420px,calc(100dvh - 330px));--card:clamp(118px,calc(100dvh - var(--wheel) - 236px),250px)}
+html[data-layout=mobile] .page-shell{position:relative;padding:0 12px}
+html[data-layout=mobile] .topbar{height:50px;justify-content:flex-end}
+html[data-layout=mobile] .brand{display:none}
+html[data-layout=mobile] #theme{display:none}
+html[data-layout=mobile] .header-actions{gap:6px}
+html[data-layout=mobile] .chapter-bar{position:absolute;top:calc(8px + env(safe-area-inset-top));left:12px;right:100px;height:34px;padding:0;gap:6px;flex-wrap:nowrap}
+html[data-layout=mobile] .chapter-progress,html[data-layout=mobile] .discovery-count{display:none}
+html[data-layout=mobile] .level-pill{height:34px;font-size:12px;padding:0 11px}
+html[data-layout=mobile] .difficulty-pill{max-width:none;flex:0 1 auto;min-width:0}
+html[data-layout=mobile] .play-layout{justify-content:space-between;padding:4px 0 max(10px,env(safe-area-inset-bottom))}
+html[data-layout=mobile] .picture-card{width:var(--card);padding:6px;border-radius:22px}
+html[data-layout=mobile] .picture-meta{top:-10px;left:auto;right:10px}
+html[data-layout=mobile] .picture-stage{border-radius:17px}
+/* Masked other-language word floats inside the picture; the language toggle overlaps the card edge. */
+html[data-layout=mobile] .picture-caption{position:absolute;z-index:3;left:6px;right:6px;bottom:24px;height:auto;pointer-events:none}
+html[data-layout=mobile] .picture-caption>span{padding:3px 8px 3px 3px;border-radius:12px;background:#ffffffe6;box-shadow:0 1px 4px #3d2c5c22}
+html[data-layout=mobile] .picture-stamp{bottom:30px}
+html[data-layout=mobile] .answer-wrap{margin-top:-16px;position:relative;z-index:4}
+html[data-layout=mobile] .bilingual-control{margin-bottom:6px}
+html[data-layout=mobile] .puzzle-language{width:228px;padding:3px;border-radius:18px;box-shadow:0 3px 0 var(--panel-edge),0 6px 14px #3d2c5c1f}
+html[data-layout=mobile] .puzzle-language button{height:34px;font-size:13px;border-radius:15px}
+html[data-layout=mobile] .answer{min-height:46px;gap:5px}
+html[data-layout=mobile] .answer-tile{width:42px;flex-basis:42px;height:46px;font-size:24px}
+html[data-layout=mobile] .wheel-dock{margin-top:4px}
+html[data-layout=mobile] .wheel{box-shadow:0 6px 0 var(--panel-edge),0 14px 26px #3d2c5c1a,inset 0 0 0 5px color-mix(in srgb,var(--accent) 16%,transparent)}
+html[data-layout=mobile] .corner-button{width:56px;height:56px}
+html[data-layout=mobile] .corner-button svg{width:23px;height:23px}
+html[data-layout=mobile] .dict-corner,html[data-layout=mobile] #collection.dict-corner{width:50px;height:50px}
+html[data-layout=mobile] .dict-corner svg{width:22px;height:22px}
+html[data-layout=mobile] .wheel-dock .combo-meter{top:0;left:-2px}
+html[data-layout=mobile] .feedback{top:auto;bottom:calc(var(--wheel) + 6px)}
+html[data-layout=mobile] .praise{font-size:44px}
+@media(max-height:760px){
+  html[data-layout=mobile]{--wheel:min(calc(100vw - 24px),400px,calc(100dvh - 300px));--card:clamp(110px,calc(100dvh - var(--wheel) - 214px),220px)}
+  html[data-layout=mobile] .topbar{height:46px}
+  html[data-layout=mobile] .chapter-bar{top:6px}
+  html[data-layout=mobile] .answer{min-height:42px}
+  html[data-layout=mobile] .answer-tile{height:42px}
+}
+/* Desktop keeps two columns; the dock just sits in the right column. */
+html:not([data-layout=mobile]) .wheel-dock{margin-top:8px}
+.tier-code{display:none}
+.pill-stars{color:var(--sun-deep)}
+html[data-layout=mobile] .play-layout{justify-content:space-evenly}
+/* Short phones: the header floats in the gutters beside the picture, so the
+   picture and the wheel get the whole height. */
+@media(max-height:780px){
+  html[data-layout=mobile]{--wheel:min(calc(100vw - 24px),400px,calc(100dvh - 300px));--card:min(calc(100vw - 196px),calc(100dvh - var(--wheel) - 112px),230px)}
+  html[data-layout=mobile] .topbar{position:absolute;top:0;right:12px;height:auto;padding-top:calc(8px + env(safe-area-inset-top));z-index:10}
+  html[data-layout=mobile] .header-actions{gap:5px}
+  html[data-layout=mobile] .icon-button{width:36px;height:36px}
+  html[data-layout=mobile] .icon-button svg{width:18px;height:18px}
+  html[data-layout=mobile] .chapter-bar{top:calc(8px + env(safe-area-inset-top));right:auto;height:auto;flex-direction:column;align-items:flex-start;gap:8px;z-index:10}
+  html[data-layout=mobile] .level-pill{height:32px;padding:0 10px;font-size:12px}
+  html[data-layout=mobile] .tier-name{display:none}
+  html[data-layout=mobile] .tier-code{display:inline}
+  html[data-layout=mobile] .difficulty-pill .chevron{display:none}
+  html[data-layout=mobile] .play-layout{padding-top:calc(12px + env(safe-area-inset-top))}
+  html[data-layout=mobile] .picture-meta{right:auto;left:50%;transform:translateX(-50%)}
+  html[data-layout=mobile] .rarity-badge{font-size:8px;padding:3px 7px}
+}
+.discovery-count{display:none}

@@ -13,7 +13,7 @@
       gardens: ['はじまりの庭', 'おいしい小道', 'どうぶつの森', '暮らしのアトリエ', '自然のたからもの', 'まだ見ぬ世界へ'],
       title: 'この絵、なんのことば？', instruction: '文字をなぞって、つなげよう',
       release: '', note: '途中で離すとキャンセル',
-      shuffle: 'まぜる', hint: 'ひと文字ヒント', next: '次の単語をゲット', footer: '正解するたび、辞書が育つ。',
+      shuffle: 'まぜる', hint: 'ヒント', next: '次の単語をゲット', footer: '正解するたび、辞書が育つ。',
       collection: '日本語・英語の辞書', found: '単語ゲット',
       connect: 'つなぐ', undo: 'もどす', correct: '単語ゲット！', wrong: 'おしい！ もう一度つないでみよう',
       short: '最後の文字まで、つないでみよう', mix: '新しい並びで、ひらめこう',
@@ -28,7 +28,7 @@
       gardens: ['The first garden', 'A tasty little path', 'Animal friends', 'Everyday wonders', 'Treasures of nature', 'A world to discover'],
       title: 'One picture. Which word?', instruction: 'Swipe the letters. Find the word.',
       release: '', note: 'Release an unfinished word to cancel',
-      shuffle: 'Shuffle', hint: 'Reveal a letter', next: 'Collect the next word', footer: 'Every word fills another page.',
+      shuffle: 'Shuffle', hint: 'Hint', next: 'Collect the next word', footer: 'Every word fills another page.',
       collection: 'Your dictionaries', found: 'words collected',
       connect: 'connect', undo: 'undo', correct: 'WORD GET!', wrong: 'Almost! Give it another go.',
       short: 'Keep going to the last letter', mix: 'A fresh arrangement. A fresh idea.',
@@ -347,7 +347,8 @@
     const profile = difficulty.challenge(entry, mode);
     $('game').style.setProperty('--rarity', profile.color); $('game').dataset.rarity = profile.key;
     $('chapterNumber').textContent = `${mode === 'ja' ? 'この絵' : 'THIS WORD'} · RANK ${profile.rank}/${difficulty.tiers.length}`;
-    $('difficultyText').textContent = `${rarityStars(saved.targetTier)} ${difficulty.tiers[saved.targetTier].name}`;
+    const target = difficulty.tiers[saved.targetTier];
+    $('difficultyText').innerHTML = `<span class="pill-stars">${rarityStars(saved.targetTier)}</span> <span class="tier-name">${target.name}</span><span class="tier-code">${target.code}</span>`;
     $('chapterName').textContent = mode === 'ja' ? profile.ja : profile.en;
     $('rarityBadge').innerHTML = `<span class="rarity-stars">${rarityStars(entry.tier)}</span> ${profile.code} · ${profile.name}`;
     $('rarityBadge').setAttribute('aria-label', `${mode === 'ja' ? '難度' : 'Difficulty'} ${profile.rank} / ${difficulty.tiers.length} · ${profile.name}`);
@@ -360,7 +361,7 @@
     $('pictureNumber').textContent = `NO. ${String(index + 1).padStart(3, '0')}`;
     const count = collectedCount(mode);
     $('foundCount').textContent = count;
-    $('collectionCount').textContent = `${collectedCount('ja') + collectedCount('en')} / ${catalog.length * 2}`;
+    $('collectionCount').textContent = String(collectedCount('ja') + collectedCount('en'));
     $('collection').setAttribute('aria-label', mode === 'ja'
       ? `辞書を開く：日本語 ${collectedCount('ja')} / ${catalog.length} 語、英語 ${collectedCount('en')} / ${catalog.length} 語`
       : `Open dictionaries: Japanese ${collectedCount('ja')} of ${catalog.length}, English ${collectedCount('en')} of ${catalog.length}`);
@@ -370,9 +371,19 @@
     }));
     $('progress').setAttribute('aria-label', mode === 'ja' ? `この庭で ${catalog.slice(group * 10, group * 10 + 10).filter(word => stars[word.id]).length} / 10 語発見` : `Garden ${group + 1} progress`);
   }
+  // Rings breathe with progress: the ring you are working on is big and roomy,
+  // the other one shrinks out of the way (locked outer letters wait small at the rim,
+  // used inner letters tuck in toward the centre once the outer ring opens).
+  function ringRadius(batch, active) {
+    if (ringBatches.length === 1) return 124;
+    if (batch === 0) return active === 0 ? 100 : 64;
+    return active === 0 ? 161 : 140;
+  }
   function layoutNodes() {
+    const active = activeBatch(selected, ringBatches);
+    $('wheel').dataset.activeRing = active === 0 ? 'inner' : 'outer';
     for (let batch = 0; batch < ringBatches.length; batch++) {
-      const group = nodes.filter(node => node.batch === batch), radius = ringBatches.length > 1 ? (batch === 0 ? 85 : 153) : 127;
+      const group = nodes.filter(node => node.batch === batch), radius = ringRadius(batch, active);
       group.forEach((node, i) => {
         const angle = -Math.PI / 2 + (i + (batch > 0 ? .5 : 0)) * Math.PI * 2 / group.length;
         node.x = 180 + Math.cos(angle) * radius; node.y = 180 + Math.sin(angle) * radius;
@@ -422,6 +433,7 @@
       $('instruction').textContent = mode === 'ja' ? '指を離さず、ことばをつなごう' : 'Keep swiping to complete the word';
       $('centerLabel').textContent = selected.length ? text().undo : text().connect;
     }
+    if (batch !== lastActiveBatch && lastActiveBatch >= 0) layoutNodes();
     if (batch > lastActiveBatch && lastActiveBatch >= 0 && phase === 'playing') {
       sound.hint(); $('wheel').classList.remove('ring-unlock'); void $('wheel').offsetWidth; $('wheel').classList.add('ring-unlock');
     }
@@ -668,7 +680,7 @@
     const rect = wheelRect || $('wheel').getBoundingClientRect();
     return { x: (event.clientX - rect.left) / rect.width * 360, y: (event.clientY - rect.top) / rect.height * 360 };
   }
-  function hitRadius(node) { return Math.min(39, node.button.offsetWidth / (wheelRect.width / 360) / 2 + 5); }
+  function hitRadius(node) { return Math.min(52, node.button.offsetWidth / (wheelRect.width / 360) / 2 + 5); }
   function nearest(point) {
     return nodes.filter(node => !node.button.hidden && canSelectRing(node, selected, ringBatches)).map(node => ({ node, distance: Math.hypot(node.x - point.x, node.y - point.y) }))
       .filter(hit => hit.distance <= hitRadius(hit.node)).sort((a, b) => a.distance - b.distance)[0]?.node;
@@ -788,6 +800,7 @@
   function layoutSettings() {
     const choices = [['auto', 'desktop', mode === 'ja' ? '自動' : 'Auto'], ['mobile', 'phone', mode === 'ja' ? '縦持ち' : 'Phone'], ['desktop', 'desktop', 'PC']];
     return `<div class="settings-row"><span>${mode === 'ja' ? '画面レイアウト' : 'Layout'}</span><div class="layout-choice" role="group" aria-label="${mode === 'ja' ? '画面レイアウト' : 'Layout'}">${choices.map(([value, iconName, label]) => `<button type="button" data-layout-choice="${value}" aria-pressed="${saved.layout === value}">${value === 'auto' ? '' : icon(iconName)}<span>${label}</span></button>`).join('')}</div></div>`
+      + `<div class="settings-row"><span>${mode === 'ja' ? 'テーマ' : 'Theme'}</span><div class="layout-choice" role="group">${[['light', 'sun', mode === 'ja' ? 'ライト' : 'Light'], ['dark', 'moon', mode === 'ja' ? 'ダーク' : 'Dark']].map(([value, iconName, label]) => `<button type="button" data-theme-choice="${value}" aria-pressed="${saved.theme === value}">${icon(iconName)}<span>${label}</span></button>`).join('')}</div></div>`
       + `<p class="settings-best">${mode === 'ja' ? '最高 COMBO' : 'Best combo'} <b>${saved.bestCombo}</b></p>`;
   }
   $('help').addEventListener('click', () => {
@@ -795,17 +808,21 @@
       'イラストを見て、ことばを思い浮かべます。日本語はひらがな、英語はアルファベットで答えます。絵の下の伏字は、もう一方の言語での文字数です。',
       '文字から文字へ、指をはなさずになぞります。最後までつないで離すと答え合わせ。途中で離すと選択を取り消します。',
       'ヒントなし・ミスなしで正解し続けると COMBO が伸び、演出と音がどんどん華やかに。5の倍数で大きなボーナス演出。ヒントや誤答で COMBO は 0 に戻ります。',
-      '正解すると発音とともに図鑑の1ページが埋まり、自動で次の問題へ。獲得したページは下の辞書から開いて、何度でも発音を聞き直せます。',
+      '正解すると発音とともに図鑑の1ページが埋まり、自動で次の問題へ。獲得したページは文字盤右上の辞書ボタンから開いて、何度でも発音を聞き直せます。',
     ] : [
       'Look at the picture and find its word. Choose Japanese for hiragana, or English for the alphabet. The dots under the picture show the word length in the other language.',
       'Swipe through the entire word and release to check. Releasing an unfinished word cancels the selection.',
       'Solve in a row with no hints and no misses to build a COMBO. The fanfare grows with it, with a big burst every 5. A hint or a wrong answer resets it.',
-      'Get it right, hear the word, and watch a dictionary page fill in. The next puzzle starts automatically. Open your dictionaries below to listen again.',
+      'Get it right, hear the word, and watch a dictionary page fill in. The next puzzle starts automatically. Open your dictionaries from the book button by the wheel to listen again.',
     ];
-    const note = mode === 'ja' ? '選んだ文字を横切っても取り消されません。同じ文字が続くとき（CORRECT の RR など）は、もう一つの丸へ進むか、いったん外へ出て同じ丸に戻ればOK。外側の文字も最初から選べます。一文字戻すときは中央の矢印、または Backspace。ヒントを使っても単語を獲得できます。キーボードは Tab / Enter / Backspace。' : 'Crossing selected letters keeps your word intact. For a double letter (the RR in CORRECT), slide to its twin or slip off the letter and back onto it. Outer letters are available from the start. Use the center arrow or Backspace to undo a letter. Hints still let you collect the word. Keyboard: Tab / Enter / Backspace.';
+    const note = mode === 'ja' ? '選んだ文字を横切っても取り消されません。同じ文字が続くとき（CORRECT の RR など）は、もう一つの丸へ進むか、いったん外へ出て同じ丸に戻ればOK。外側の文字は、内側の文字をすべて使うと選べるようになります。一文字戻すときは中央の矢印、または Backspace。ヒントを使っても単語を獲得できます。キーボードは Tab / Enter / Backspace。' : 'Crossing selected letters keeps your word intact. For a double letter (the RR in CORRECT), slide to its twin or slip off the letter and back onto it. Outer letters unlock once every inner letter is used. Use the center arrow or Backspace to undo a letter. Hints still let you collect the word. Keyboard: Tab / Enter / Backspace.';
     openModal(text().help, `<div class="help-steps">${steps.map((line, i) => `<div class="help-step"><b>${i + 1}</b><p>${line}</p></div>`).join('')}</div><p class="help-note">${note}</p>${layoutSettings()}<button class="modal-primary" id="startPlaying" type="button">${mode === 'ja' ? 'ことばを咲かせよう' : 'Let it bloom'}</button>`);
     $('startPlaying').addEventListener('click', () => $('modal').close());
     $('modalBody').querySelectorAll('[data-layout-choice]').forEach(button => button.addEventListener('click', () => { saved.layout = button.dataset.layoutChoice; persist(); updateLayout(); }));
+    $('modalBody').querySelectorAll('[data-theme-choice]').forEach(button => button.addEventListener('click', () => {
+      saved.theme = button.dataset.themeChoice; persist(); updateTheme();
+      $('modalBody').querySelectorAll('[data-theme-choice]').forEach(other => other.setAttribute('aria-pressed', String(other === button)));
+    }));
     updateLayout();
   });
   $('difficulty').addEventListener('click', () => {
