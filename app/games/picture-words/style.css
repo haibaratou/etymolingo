@@ -829,3 +829,19 @@ html[data-layout=mobile]{--wheel:clamp(180px,calc((var(--play-height) - 206px) *
 .wheel.dual-ring[data-active-ring=inner] .orbit-one{opacity:.48}
 .wheel.dual-ring[data-active-ring=outer] .orbit-one{opacity:1}
 html[data-layout=mobile] #shuffle{color:#fff;background:#1763a6}
+
+/* Compact honeycomb: large glyphs, close targets, no circular travel requirement. */
+.wheel{border-radius:24px;background:transparent;box-shadow:none!important}
+.wheel-orbit,.orbit-spark,.constellation-sky{display:none!important}
+.wheel .letters .letter,.wheel.dual-ring .letters .letter,
+html[data-layout=mobile] .wheel .letters .letter,
+html[data-layout=mobile] .wheel.dual-ring .letters .letter,
+.wheel.dual-ring[data-active-ring] .letters .letter[data-ring]{
+  --s:16cqw;width:var(--s);height:calc(var(--s) * 1.12);margin:calc(var(--s) * -.56) calc(var(--s) * -.5);
+  font-size:calc(var(--s) * .64);border-radius:0;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);
+  background:#ffe4a6;color:#392652;box-shadow:none;border:0;animation:none!important;transform:none!important;
+}
+.wheel .letters .letter.selected{background:var(--accent);color:#fff}
+.wheel .letters .letter.hint-target{background:#ffda66;color:#392652}
+.wheel .wheel-center,.wheel.dual-ring[data-active-ring] .wheel-center{width:14%;height:14%;margin:-7%;border-radius:14px}
+@media(orientation:portrait){html[data-layout=mobile]{--wheel:min(300px,calc(100vw - 24px),calc(var(--play-height) - 242px))}}

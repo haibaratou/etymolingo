@@ -401,19 +401,22 @@
     }));
     $('dailyCollection').setAttribute('aria-label', mode === 'ja' ? `今日${daily.count}語を発見。${daily.pageNumber}ページ目、10枠中${daily.pageFilled}枠。辞書を開く` : `${daily.count} new words today. Page ${daily.pageNumber}, ${daily.pageFilled} of 10. Open dictionary`);
   }
-  // Keep both rings readable and stationary throughout the gesture.
-  function ringRadius(batch, active) {
-    if (ringBatches.length === 1) return 124;
-    return batch === 0 ? 78 : 145;
+  // A close-packed hexagonal lattice keeps strokes short without moving targets.
+  function letterPositions(count, batch, dual) {
+    const near = [[60,0],[30,52],[-30,52],[-60,0],[-30,-52],[30,-52]];
+    const far = [[0,-104],[90,-52],[120,0],[90,52],[0,104],[-90,52],[-120,0],[-90,-52]];
+    const pool = dual && batch > 0 ? far : [...near,far[0],far[4]];
+    const chosen = count <= 6 && !(dual && batch > 0) ? Array.from({length:count},(_,i)=>near[Math.floor(i*6/count)]) : pool.slice(0,count);
+    return chosen.map(([x,y])=>({x:180+x,y:180+y}));
   }
   function layoutNodes() {
     const active = activeBatch(selected, ringBatches);
     $('wheel').dataset.activeRing = active === 0 ? 'inner' : 'outer';
     for (let batch = 0; batch < ringBatches.length; batch++) {
-      const group = nodes.filter(node => node.batch === batch), radius = ringRadius(batch, active);
+      const group = nodes.filter(node => node.batch === batch);
+      const positions = letterPositions(group.length,batch,ringBatches.length>1);
       group.forEach((node, i) => {
-        const angle = -Math.PI / 2 + (i + (batch > 0 ? .5 : 0)) * Math.PI * 2 / group.length;
-        node.x = 180 + Math.cos(angle) * radius; node.y = 180 + Math.sin(angle) * radius;
+        Object.assign(node,positions[i]);
         node.button.style.left = `${node.x / 3.6}%`; node.button.style.top = `${node.y / 3.6}%`;
       });
     }
