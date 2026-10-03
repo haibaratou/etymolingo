@@ -307,16 +307,6 @@
     updateTheme();
     updateLayout();
   }
-  function updateAnswerDisclosure() {
-    const otherLanguage = mode === 'ja' ? 'en' : 'ja';
-    const otherAnswer = [...(otherLanguage === 'ja' ? entry.w || entry.ja : entry.en.toUpperCase())];
-    const masked = document.createElement('span'); masked.className = 'caption-mask';
-    masked.textContent = '●'.repeat(otherAnswer.length);
-    $('pictureCaption').replaceChildren(masked);
-    $('pictureCaption').title = mode === 'ja' ? 'もう一方の言語での答え（文字数）' : 'The same word in the other language (letter count)';
-    $('pictureCaption').classList.add('masked-answer');
-    $('pictureCaption').lang = otherLanguage;
-  }
   function updateTheme() {
     const dark = saved.theme === 'dark';
     document.documentElement.dataset.theme = saved.theme;
@@ -548,7 +538,6 @@
     $('wheel').classList.remove('mistake'); $('answer').classList.remove('mistake');
     $('hint').disabled = false; $('shuffle').disabled = false; $('imageError').hidden = true;
     updateLabels(); updateProgress(); renderCombo();
-    updateAnswerDisclosure();
     $('answer').className = `answer${answer.length > 10 ? ' extra-long' : answer.length > 7 ? ' long' : ''}`;
     $('answer').replaceChildren(...answer.map((_, i) => { const tile = document.createElement('span'); tile.className = 'answer-tile'; tile.style.setProperty('--i', i); return tile; }));
     const profile = difficulty.challenge(entry, mode);
@@ -836,7 +825,7 @@
   });
   $('hint').addEventListener('click', () => {
     if (phase !== 'playing' || shuffleBusy) return;
-    cancelGesture(); sound.unlock(); sound.hint(); breakCombo(); hintCount = Math.min(answer.length, hintCount + 1); updateAnswer(); updateAnswerDisclosure();
+    cancelGesture(); sound.unlock(); sound.hint(); breakCombo(); hintCount = Math.min(answer.length, hintCount + 1); updateAnswer();
     const target = nodes.find(node => node.answerIndex === hintCount - 1);
     if (target) { target.button.classList.remove('hint-target'); void target.button.offsetWidth; target.button.classList.add('hint-target'); }
     const revealed = answer[hintCount - 1];

@@ -2,17 +2,10 @@ const {test}=require('node:test');
 const assert=require('node:assert/strict');
 const fs=require('node:fs'),vm=require('node:vm');
 const code=fs.readFileSync(__dirname+'/game.js','utf8');
-test('hints never disclose the opposite-language answer below the illustration',()=>{
-  const start=code.indexOf('  function updateAnswerDisclosure()');
-  const end=code.indexOf('  function updateTheme()',start);
-  let caption;
-  const panel={replaceChildren:node=>caption=node.textContent,classList:{add:()=>{}}};
-  const context={mode:'en',entry:{w:'めがね',en:'glasses'},hintCount:14,
-    document:{createElement:()=>({})},$:()=>panel};
-  vm.runInNewContext(code.slice(start,end)+';updateAnswerDisclosure();',context);
-  assert.equal(caption,'●●●');
-  context.mode='ja';vm.runInNewContext('updateAnswerDisclosure();',context);
-  assert.equal(caption,'●●●●●●●');
+test('the illustration has no opposite-language answer or letter-count caption',()=>{
+  const html=fs.readFileSync(__dirname+'/../picture-words.html','utf8');
+  assert.doesNotMatch(html,/pictureCaption|picture-caption/);
+  assert.doesNotMatch(code,/updateAnswerDisclosure|caption-mask|otherAnswer/);
   const hint=code.slice(code.indexOf("  $('hint').addEventListener"),code.indexOf("  $('sound').addEventListener"));
   assert.doesNotMatch(hint,/entry\.w|entry\.en|bilingualHint/);
 });
