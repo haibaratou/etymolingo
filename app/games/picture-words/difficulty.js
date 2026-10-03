@@ -26,8 +26,8 @@
   }
   function challenge(word, language) {
     const tier = tiers[word.tier], length = [...(language === 'ja' ? word.w : word.en)].length;
-    const dual = length > 6;
-    const innerCount = dual ? 6 : length;
+    const dual = length > 8;
+    const innerCount = dual ? Math.min(6, Math.ceil(length / 2)) : length;
     // Each language has exactly its own spelling's letters. No padding choices.
     const decoys = 0;
     return { ...tier, rank: word.tier + 1, length, choices: length + decoys, decoys, dual, innerCount, batches: dual ? 2 : 1 };

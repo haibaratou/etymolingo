@@ -80,8 +80,8 @@ test('short words stay in one ring, long words use two rings with at most six in
     for (const word of ordered) {
       if (language === 'ja' && !word.w) continue;
       const p = challenge(word, language);
-      assert.ok(p.length >= (language === 'ja' ? 1 : 2)); assert.equal(p.choices, p.length); assert.equal(p.decoys, 0); assert.ok(p.innerCount <= 6); assert.equal(p.dual, p.length > 6);
-      if (p.dual) assert.equal(p.innerCount, 6); else assert.ok(p.choices <= 6);
+      assert.ok(p.length >= (language === 'ja' ? 1 : 2)); assert.equal(p.choices, p.length); assert.equal(p.decoys, 0); assert.ok(p.innerCount <= 8); assert.equal(p.dual, p.length > 8);
+      if (p.dual) assert.equal(p.innerCount, Math.min(6, Math.ceil(p.length / 2))); else assert.ok(p.choices <= 8);
     }
   }
   assert.ok(ordered.some(word => word.ja === '満場一致'));
