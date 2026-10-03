@@ -11,12 +11,24 @@ test('central shuffle responds to a tap but ignores dragging and a live letter g
     layoutNodes:()=>layouts++,setFeedback:()=>{},text:()=>({mix:''}),
     later:fn=>fn(),reducedMotion:{matches:true},
   };
-  vm.runInNewContext(code.slice(code.indexOf('  let shuffleTap ='),code.indexOf("  $('hint').addEventListener")),context);
+  vm.runInNewContext(code.slice(code.indexOf('  let shuffleTap ='),code.indexOf("  $('listenClue').addEventListener")),context);
   handlers.pointerdown({clientX:10,clientY:10});
   handlers.pointermove({clientX:40,clientY:10});
   handlers.click({detail:1});assert.equal(layouts,0);
   handlers.pointerdown({clientX:10,clientY:10});handlers.click({detail:1});assert.equal(layouts,1);
   context.pointer={id:1};handlers.pointerdown({clientX:10,clientY:10});handlers.click({detail:1});assert.equal(layouts,1);
+});
+
+test('listening uses the current answer language without revealing letters or changing the puzzle',()=>{
+  let handler;const calls=[];
+  const entry={id:'glasses',en:'glasses',w:'めがね'};
+  const context={$:()=>({addEventListener:(_,fn)=>handler=fn}),entry,mode:'en',phase:'playing',cluePlayback:false,
+    speech:{stop:()=>{},speak:(...args)=>calls.push(args)}};
+  const start=code.indexOf("  $('listenClue').addEventListener");
+  vm.runInNewContext(code.slice(start,code.indexOf("  $('hint').addEventListener",start)),context);
+  handler();context.mode='ja';handler();
+  assert.deepEqual(calls,[[entry,'en',false,true],[entry,'ja',false,true]]);
+  assert.equal(context.entry,entry);
 });
 test('reload changes the URL without deleting saved progress',()=>{
   let handler,target;

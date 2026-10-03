@@ -177,9 +177,17 @@
     stop() { for (const voice of this.voices) { try { voice.stop(); } catch {} } this.voices.clear(); }
   }
   const sound = new Sound();
+  let cluePlayback = false;
   const speech = new window.WordBloomSpeech.Pronunciation({
     onState: event => {
       sound.duck(event.state === 'queued' || event.state === 'speaking');
+      if (cluePlayback) {
+        const busy = event.state === 'queued' || event.state === 'speaking';
+        const failed = event.state === 'error' || event.state === 'unavailable';
+        $('listenClue').setAttribute('aria-busy', String(busy));
+        $('listenClueLabel').textContent = busy ? (mode === 'ja' ? '再生中' : 'Playing') : failed ? (mode === 'ja' ? '再試行' : 'Retry') : (mode === 'ja' ? '聞く' : 'Listen');
+        if (!busy) cluePlayback = false;
+      }
       document.querySelectorAll('.pronunciation').forEach(panel => {
         if (panel.dataset.word !== event.wordId || panel.dataset.language !== event.language) return;
         panel.dataset.state = event.state;
@@ -278,6 +286,8 @@
     if (reset) feedbackTimer = setTimeout(() => { if (phase === 'playing') setFeedback(text().release); }, 2300);
   }
   function updateLabels() {
+    $('listenClue').setAttribute('aria-label', mode === 'ja' ? '発音を聞く' : 'Listen to pronunciation');
+    $('listenClueLabel').textContent = mode === 'ja' ? '聞く' : 'Listen';
     $('shuffle').setAttribute('aria-label', text().shuffle);
     const t = text(); document.documentElement.lang = mode;
     document.title = mode === 'ja' ? 'WORD BLOOM — ことばの庭' : 'WORD BLOOM — A garden of words';
@@ -817,6 +827,12 @@
     if (nodes.map(node => node.id).join(',') === old) nodes.push(nodes.shift());
     layoutNodes(); setFeedback(text().mix, '', true);
     later(() => { shuffleBusy = false; }, reducedMotion.matches ? 0 : 470);
+  });
+  $('listenClue').addEventListener('click', () => {
+    if (!entry || !['playing', 'solved'].includes(phase)) return;
+    speech.stop();
+    cluePlayback = true;
+    speech.speak(entry, mode, false, true);
   });
   $('hint').addEventListener('click', () => {
     if (phase !== 'playing' || shuffleBusy) return;

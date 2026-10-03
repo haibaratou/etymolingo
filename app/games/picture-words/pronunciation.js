@@ -36,10 +36,10 @@
         this.onState({ ...previous.info, state: 'idle' });
       }
     }
-    speak(word, language, slow = false) {
+    speak(word, language, slow = false, requested = false) {
       this.stop(); this.refreshVoices();
       const info = { wordId: word.id, text: language === 'ja' ? word.w : word.en, language, slow };
-      if (!this.enabled) { this.onState({ ...info, state: 'muted' }); return false; }
+      if (!this.enabled && !requested) { this.onState({ ...info, state: 'muted' }); return false; }
       if (this.availability(language) !== 'ready') { this.onState({ ...info, state: 'unavailable' }); return false; }
       const serial = this.serial;
       let utterance;
