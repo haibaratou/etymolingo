@@ -18,12 +18,38 @@ class CatalogRulesTest(unittest.TestCase):
         self.assertEqual(catalog.japanese_answer('市場', lookup), '')
         self.assertEqual(catalog.japanese_answer('背中に乗せた荷物', lookup), '')
 
+    def test_first_meaning_never_falls_back_to_a_later_sense(self):
+        lookup = {'流れる': {'ながれる'}, '尻': {'しり'}, '写真': {'しゃしん'}}
+        for meaning in ('走る、流れる', '底、尻', '絵、写真'):
+            self.assertEqual(catalog.japanese_answer(meaning, lookup), '')
+        self.assertEqual(catalog.verified_reading('走る、ラン', 'run',
+            {'run': [{'ja': 'ラン', 'w': 'らん'}]}), '')
+        source = {'w': 'gang', 'p': ['ghengh-'], 'ja': '一群',
+                  'ja_readings': [{'gloss': '一群', 'kana': 'いちぐん', 'status': 'reviewed'}]}
+        self.assertEqual(catalog.first_meaning_answer(source, 'gang', {}, {}), 'いちぐん')
+        source['ja_readings'][0]['status'] = 'candidate'
+        self.assertEqual(catalog.first_meaning_answer(source, 'gang', {}, {}), '')
+        seizure = {'w': 'seizure', 'p': [], 'ja': 'つかむこと、押収、発作'}
+        self.assertEqual(catalog.first_meaning_answer(seizure, 'seizure', {}, {}), 'つかむこと')
+        seizure['ja'] = '発作、つかむこと'
+        with self.assertRaises(ValueError):
+            catalog.first_meaning_answer(seizure, 'seizure', {}, {})
+
+    def test_confirmed_image_mismatch_stays_unready_without_losing_its_identity(self):
+        source = {'w': 'arts', 'p': [], 'ja': '芸術、諸芸術',
+                  'ja_readings': [{'gloss': '芸術', 'kana': 'げいじゅつ', 'status': 'reviewed'}]}
+        self.assertEqual(catalog.image_review_status(source, 'arts'), 'image_meaning_mismatch')
+        self.assertEqual(catalog.first_meaning_answer(source, 'arts', {}, {}), '')
+        source['ja'] = '別の意味'
+        self.assertEqual(catalog.image_review_status(source, 'arts'), 'meaning_changed_since_image_review')
+        self.assertEqual(catalog.image_review_status({'w': 'apple', 'p': [], 'ja': 'リンゴ'}, 'apple'), '')
+
     def test_update_audit_checks_actual_display_image_and_cutoff(self):
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / 'audit.csv'
             path.write_text('単語,語根,辞書参照画像ファイル名,辞書表示画像_2026-09-10以降更新,辞書表示画像更新日時_JST\n'
-                            'seal,selk-,seal@selk.png,YES,2026-09-10T00:00:00+09:00\n'
-                            'old,,old.png,YES,2026-09-09T23:59:59+09:00\n'
+                            'seal,selk-,seal@selk.png,YES,2026-09-11T00:00:00+09:00\n'
+                            'old,,old.png,YES,2026-09-10T23:59:59+09:00\n'
                             'missing,,missing.png,YES,\n'
                             'undated,,undated.png,YES,2026-09-10T00:00:00\n'
                             'rejected,,rejected.png,NO,2026-09-11T00:00:00+09:00\n', encoding='utf-8')
@@ -83,7 +109,8 @@ class ShippedCatalogTest(unittest.TestCase):
         self.assertTrue(all(datetime.fromisoformat(row[3]) >= catalog.CUTOFF for row in audit))
         playable = [row for row in self.entries if row['updatedArt']]
         self.assertGreater(len(playable), 3000)
-        self.assertGreater(sum(bool(row['w']) for row in playable), 2000)
+        self.assertTrue(any(bool(row['w']) for row in playable))
+        # Missing first-sense readings are deliberately unready, never filled from later senses.
         for row in self.entries:
             self.assertEqual(row['updatedArt'], (row['en'], row['pic'] + '.png') in allowed)
 
@@ -138,3 +165,4 @@ class ShippedCatalogTest(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+

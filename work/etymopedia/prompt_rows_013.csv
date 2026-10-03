@@ -53,7 +53,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
 Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png
-unmistakable.png,間違いない、明白な,明白な,"Subject: Unmistakable evidence of muddy paws.
+unmistakable.png,間違いない、明白な,間違いない,"Subject: Unmistakable evidence of muddy paws.
 
 Composition: A muddy dog stands at the end of a fresh trail of matching pawprints across a pale rug, while its owner points directly from the tracks to the dog's mud-covered feet.
 
@@ -118,13 +118,13 @@ Framing: One compact composition, with the complete subject using about 80-90% o
 Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png
 cartoon.png,漫画,漫画,"Subject: A single-panel comic drawing.
 
-Composition: An artist holds a sheet bearing one large comic panel in which a mischievous cat tips over a flowerpot beside a startled owner, with expressive faces and an empty speech balloon.
+Composition: An artist holds a sheet bearing one large comic panel in which a mischievous cat tips over a flowerpot beside a startled owner. Exaggerated facial expressions and energetic action strokes tell the joke without speech balloons.
 
 Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech balloons or bubbles, numerals, logos or watermark.",作成済み,,references/invidious.png
 coercive.png,強制的な、高圧的な,強制的な,"Subject: A person forcing another to comply.
 
 Composition: A stern supervisor blocks a worker's exit with an outstretched arm and points insistently at a heavy crate, while the reluctant worker recoils with tense shoulders and open hands.
@@ -143,7 +143,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
 Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png
-fertilization.png,肥沃化、施肥,施肥,"Subject: Applying fertilizer to plants.
+fertilization.png,肥沃化、施肥,肥沃化,"Subject: Applying fertilizer to plants.
 
 Composition: A gardener kneels beside a young tomato plant and scatters a small handful of fertilizer granules over the soil around its roots, with an open plain sack beside the gardener.
 
@@ -233,7 +233,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
 Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png
-saucepan.png,ソースパン、片手鍋,片手鍋,"Subject: A small saucepan.
+saucepan.png,ソースパン、片手鍋,ソースパン,"Subject: A small saucepan.
 
 Composition: Show a deep round metal saucepan with one long handle extending to the right and a fitted lid slightly lifted above the rim, revealing a small amount of soup inside.
 
@@ -242,7 +242,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
 Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png
-sinner.png,罪人、罪を犯した人,罪を犯した人,"Subject: A remorseful person who has sinned.
+sinner.png,罪人、罪を犯した人,罪人,"Subject: A remorseful person who has sinned.
 
 Composition: A man in ordinary clothes kneels with bowed head before a church cross, his hands clasped above an open stolen coin purse that he has set down in remorse.
 
@@ -278,24 +278,24 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
 Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png
-Hindi.png,ヒンジ、ヒンディ,ヒンディ,"Subject: Written Hindi.
+Hindi.png,ヒンディー語,ヒンディー語,"Subject: A written Hindi specimen.
 
-Composition: Show an open notebook with the clearly handwritten Hindi greeting नमस्ते on its upper line and the simple sentence आप कैसे हैं? beneath it, with a fountain pen resting beside the page.
+Composition: An open notebook displays only the Hindi greeting नमस्ते in clear handwritten Devanagari, with a fountain pen beside the page. No second line, sentence, translation, or language label.
 
 Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. Only the Hindi writing नमस्ते and आप कैसे हैं? is permitted on the notebook page. No incidental labels, logos or watermark.",作成済み,,references/invidious.png
+Output: 512x512 PNG, RGBA, genuine transparent background. Only नमस्ते as the actual handwritten specimen. No incidental captions, speech balloons, logos or watermark.",作成済み,,references/invidious.png
 Wikipedia.png,ウィキペディア,ウィキペディア,"Subject: A Wikipedia encyclopedia article.
 
-Composition: A laptop displays a Wikipedia article with the small site heading Wikipedia, the article title Moon, a lunar photograph, the sentence The Moon orbits Earth, a Contents sidebar, and an Edit tab.
+Composition: A laptop shows an encyclopedia-style article with a lunar photograph, a small monochrome puzzle-globe emblem, blue link-like strokes, and a contents column. Keep all article lines unreadable and omit headings and labels.
 
 Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. Only the interface text Wikipedia, Moon, The Moon orbits Earth, Contents, and Edit is permitted; omit the site logo. No incidental labels, logos or watermark.",作成済み,,references/invidious.png
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech balloons or bubbles, numerals, logos or watermark.",作成済み,,references/invidious.png
 afar.png,遠くに、遠く,遠くに,"Subject: A boat far away.
 
 Composition: A person on a rocky shore shades their eyes and looks across a wide stretch of water toward a tiny sailboat close to the distant horizon.
@@ -341,7 +341,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
 Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png
-cosmopolitan.png,世界主義的な、国際的な,国際的な,"Subject: An internationally connected gathering.
+cosmopolitan.png,世界主義的な、国際的な,世界主義的な,"Subject: An internationally connected gathering.
 
 Composition: At one cafe table, three travelers of different backgrounds share conversation over a folded world map and cups of coffee, with varied luggage tucked neatly beside their chairs.
 
@@ -359,7 +359,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
 Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png
-dignified.png,堂々とした、威厳のある,威厳のある,"Subject: A dignified older person.
+dignified.png,堂々とした、威厳のある,堂々とした,"Subject: A dignified older person.
 
 Composition: An older woman in a simple formal suit stands upright with composed eyes, a level chin, and hands calmly folded before her while a seated listener looks up respectfully.
 
@@ -478,13 +478,13 @@ Framing: One compact composition, with the complete subject using about 80-90% o
 Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png
 signified.png,シニフィエ、所記,シニフィエ,"Subject: The mental concept evoked by a sign.
 
-Composition: A reader holds a small card bearing TREE while a large connected thought bubble contains a leafy tree with trunk and roots; emphasize the tree concept inside the reader's mind.
+Composition: A reader looks at a small picture card showing a simple outline of a tree. A connected, image-filled thought cloud shows a vivid leafy tree with trunk and roots, emphasizing the mental concept evoked by the pictorial sign.
 
 Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. Only TREE is permitted on the small sign card. No incidental labels, logos or watermark.",作成済み,,references/invidious.png
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech balloons or bubbles, numerals, logos or watermark.",作成済み,,references/invidious.png
 staple.png,主食,主食,"Subject: Rice as a staple food.
 
 Composition: Center a large bowl of steamed rice on a modest dining mat, with a pair of chopsticks and two much smaller side dishes showing that the rice is the main part of the meal.
@@ -503,7 +503,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
 Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png
-unreliable.png,信頼できない、信頼性のない,信頼性のない,"Subject: An unreliable chair.
+unreliable.png,信頼できない、信頼性のない,信頼できない,"Subject: An unreliable chair.
 
 Composition: A person cautiously sits on a chair whose loose leg folds outward, gripping the seat in alarm as a screw drops to the floor and the chair tips.
 
@@ -521,15 +521,15 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
 Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png
-Anglican.png,アングリア人、アングリアの,アングリアの,"Subject: An East Anglian landscape.
+Anglican.png,聖公会の信徒、聖公会の,聖公会の信徒,"Subject: A member of an Anglican church.
 
-Composition: Show Horsey Windpump's tall brick tower, dark cap, and four sails beside a reed-lined waterway, with flat grazing marshes extending behind it in the Norfolk Broads.
+Composition: A fictional Anglican worshipper participates in a service inside an English cathedral, holding an open prayer book beside a pew while a robed minister leads at the altar. Include a small Canterbury-style cathedral window motif, with all print unreadable.
 
 Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech balloons or bubbles, numerals, logos or watermark.",作成済み,,references/invidious.png
 Athena.png,アシーナ,アシーナ,"Subject: Athena, the Greek goddess of wisdom.
 
 Composition: Athena stands in a long peplos and crested helmet, holding an upright spear and round shield, with a small owl perched close beside her shoulder.
@@ -593,15 +593,15 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
 Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png
-archival.png,記録文書の、古文書の,古文書の,"Subject: Historical records preserved in an archive.
+archival.png,記録文書の、古文書の,記録文書の,"Subject: Historical records preserved in an archive.
 
-Composition: A gloved archivist lifts a yellowed parchment bearing the old handwritten entry Three sacks of wheat received from an open protective storage box, with a tied bundle of aged letters lying inside beside it.
+Composition: A gloved archivist lifts a yellowed parchment covered in tiny unreadable manuscript strokes from an open protective storage box. A tied bundle of aged letters lies inside beside it.
 
 Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. Only the short archival entry Three sacks of wheat received is permitted on the parchment. No incidental labels, logos or watermark.",作成済み,,references/invidious.png
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech balloons or bubbles, numerals, logos or watermark.",作成済み,,references/invidious.png
 ballot.png,投票,投票,"Subject: Casting a ballot.
 
 Composition: A voter lowers a folded paper ballot into the narrow slot of a sealed ballot box while an election attendant watches from the other side of the table.
@@ -683,7 +683,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
 Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png
-illustrative.png,理解を助ける、説明に役立つ,説明に役立つ,"Subject: A demonstration that clarifies an idea.
+illustrative.png,理解を助ける、説明に役立つ,理解を助ける,"Subject: A demonstration that clarifies an idea.
 
 Composition: A teacher uses a wooden plank balanced on a small block to lift a heavy stone, while a student leans close and points at the rising stone with a newly understanding smile.
 
@@ -710,7 +710,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
 Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png
-motto.png,標語、モットー,モットー,"Subject: A personal motto.
+motto.png,標語、モットー,標語,"Subject: A personal motto.
 
 Composition: A craftsperson works carefully at a small bench beneath a pinned handwritten note reading Keep trying, with a repaired wooden toy in their hands and a few tools within reach.
 
@@ -737,15 +737,15 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
 Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png
-rhyme.png,韻,韻,"Subject: Rhyming words in a short verse.
+rhyme.png,韻,韻,"Subject: A pair of rhyming written words.
 
-Composition: An open notebook displays the two lines A little cat and Wore a red hat, with cat and hat placed at the right ends and underlined in the same color.
+Composition: An open notebook displays cat and hat on two aligned lines, with at underlined in each to emphasize the shared ending sound. A pencil rests alongside the page.
 
 Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. Only the two verse lines A little cat and Wore a red hat, with underlines beneath cat and hat, are permitted. No incidental labels, logos or watermark.",作成済み,,references/invidious.png
+Output: 512x512 PNG, RGBA, genuine transparent background. Only cat and hat with their shared at endings underlined; no verse sentences. No incidental captions, speech balloons, logos or watermark.",作成済み,,references/invidious.png
 richly.png,富裕に、豊かに,富裕に,"Subject: Living in wealth.
 
 Composition: A relaxed adult reclines in a plush armchair in a richly furnished room, with a marble-topped table, a silver tea service, and a large jeweled ring visible on one hand.
@@ -818,7 +818,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
 Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png
-Tobias.png,トバイアス、トビアス,トビアス,"Subject: Tobias from the Book of Tobit.
+Tobias.png,トバイアス、トビアス,トバイアス,"Subject: Tobias from the Book of Tobit.
 
 Composition: A young Tobias in a simple traveling tunic walks beside the winged angel Raphael, carrying a large silver fish by a cord while a small dog follows their feet.
 
@@ -872,7 +872,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
 Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png
-eve.png,前日、前夜,前夜,"Subject: The night before Christmas.
+eve.png,前日、前夜,前日,"Subject: The night before Christmas.
 
 Composition: A parent quietly places the last wrapped gift beneath a decorated Christmas tree while a child sleeps nearby under a blanket and a crescent moon is visible through the window.
 
@@ -917,7 +917,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
 Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png
-interdependence.png,持ちつ持たれつの関係、相互依存,相互依存,"Subject: Two people depending on one another.
+interdependence.png,持ちつ持たれつの関係、相互依存,持ちつ持たれつの関係,"Subject: Two people depending on one another.
 
 Composition: Two climbers on a steep rock face are connected by a taut safety rope, with the upper climber holding the rope while the lower climber steadies the upper climber's foot on a secure ledge.
 
@@ -989,7 +989,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
 Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png
-thinner.png,シンナー、薄め液,薄め液,"Subject: Paint thinner being used.
+thinner.png,シンナー、薄め液,シンナー,"Subject: Paint thinner being used.
 
 Composition: A gloved painter tips a small amount of clear thinner from a plain metal can into a pot of thick blue paint, while a mixing stick lifts a smoother, more fluid ribbon from the mixture.
 
@@ -1133,16 +1133,16 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
 Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png
-commandment.png,戒律、命令,命令,"Subject: A direct command.
+commandment.png,戒律、命令,戒律,"Subject: A religious moral commandment.
 
-Composition: A worksite foreman points firmly at a stack of beams and extends an open hand toward a worker, who immediately turns to lift the nearest beam in response.
+Composition: Beside two ancient stone teaching tablets, a religious teacher gently stops a listener from taking another person’s coin purse and guides the hand back. A second listener watches. The tablets bear only shallow unreadable marks.
 
 Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png
-conveniently.png,都合よく、好都合に,好都合に,"Subject: Something conveniently within reach.
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech balloons or bubbles, numerals, logos or watermark.",作成済み,,references/invidious.png
+conveniently.png,都合よく、好都合に,都合よく,"Subject: Something conveniently within reach.
 
 Composition: A person caught in sudden rain reaches into an umbrella stand positioned directly beside the open front door, taking an umbrella without stepping out into the wet doorway.
 
@@ -1250,7 +1250,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
 Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png
-primacy.png,最重要、第1位,第1位,"Subject: First place in a competition.
+primacy.png,最重要、第1位,最重要,"Subject: First place in a competition.
 
 Composition: A smiling athlete wearing a gold medal stands on the highest central podium block, with two other athletes on lower blocks to either side and the winner raising a small trophy.
 
@@ -1286,7 +1286,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
 Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png
-stratification.png,成層、地層,地層,"Subject: Layers of rock in the ground.
+stratification.png,成層、地層,成層,"Subject: Layers of rock in the ground.
 
 Composition: Show a single exposed cliff face with clearly stacked horizontal bands of sandstone, dark shale, and pale limestone, with a few small pebbles at its base.
 
@@ -1340,15 +1340,15 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
 Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png
-Galatians.png,ガラテヤ人への手紙、ガラテヤ書,ガラテヤ人への手紙,"Subject: Paul's Letter to the Galatians.
+Galatians.png,ガラテヤ人への手紙、ガラテヤ書,ガラテヤ人への手紙,"Subject: A contextual study of Paul’s Letter to the Galatians.
 
-Composition: Show an open New Testament with a ribbon marking a page headed Galatians, followed by the brief opening Paul, to the churches of Galatia and Grace and peace to you, with a quill laid beside the book.
+Composition: A reader studies a parchment letter beside an ancient unlabelled map of central Anatolia and a small early-Christian cross. A quill and sealed correspondence lie nearby; the letter contains only unreadable manuscript strokes.
 
 Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. Only Galatians, Paul, to the churches of Galatia, and Grace and peace to you are permitted on the open book. No incidental labels, logos or watermark.",作成済み,,references/invidious.png
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech balloons or bubbles, numerals, logos or watermark.",作成済み,,references/invidious.png
 ark.png,方舟,方舟,"Subject: Noah's ark.
 
 Composition: A large wooden ark with a broad rounded hull and boxlike upper shelter floats on floodwater, with paired giraffe heads and two small birds visible near its open upper windows.
@@ -1421,7 +1421,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
 Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png
-cozy.png,暖かい、居心地が良い,居心地が良い,"Subject: A cozy resting place.
+cozy.png,暖かい、居心地が良い,暖かい,"Subject: A cozy resting place.
 
 Composition: A relaxed adult curls up in a cushioned armchair under a thick knitted blanket, holding a steaming mug beside a small fireplace covered by a protective screen.
 
@@ -1457,7 +1457,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
 Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png
-far-reaching.png,広範囲に及ぶ、遠くまで伝わる,遠くまで伝わる,"Subject: A signal reaching far away.
+far-reaching.png,広範囲に及ぶ、遠くまで伝わる,広範囲に及ぶ,"Subject: A signal reaching far away.
 
 Composition: A lighthouse on a rocky headland projects a long narrow beam across a wide stretch of sea to a small ship near the distant horizon, keeping the beam continuous between them.
 
@@ -1466,7 +1466,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
 Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png
-gravely.png,重大に、厳かに,厳かに,"Subject: Acting solemnly at a memorial.
+gravely.png,重大に、厳かに,重大に,"Subject: Acting solemnly at a memorial.
 
 Composition: A formally dressed adult lowers their head and slowly lays a wreath before a plain memorial stone, with still shoulders, closed lips, and a second mourner standing quietly behind.
 
@@ -1583,7 +1583,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
 Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png
-transporter.png,トランスポータ、運送人,運送人,"Subject: A carrier delivering a load.
+transporter.png,トランスポータ、運送人,トランスポータ,"Subject: A carrier delivering a load.
 
 Composition: A delivery worker pushes a hand truck stacked with securely strapped cardboard boxes toward an open warehouse doorway, leaning forward to guide the heavy load over the threshold.
 
@@ -1700,7 +1700,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
 Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png
-charismatic.png,カリスマ的な、カリスマ性のある,カリスマ性のある,"Subject: A charismatic speaker holding an audience’s attention.
+charismatic.png,カリスマ的な、カリスマ性のある,カリスマ的な,"Subject: A charismatic speaker holding an audience’s attention.
 
 Composition: Show an adult speaker standing confidently with an open smile and one hand extended toward four seated listeners. The listeners lean forward and look directly at the speaker with engaged, admiring expressions.
 
@@ -1916,15 +1916,15 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
 Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png
-art@er1.png,〜である,〜である,"Subject: The archaic English copula in a complete sentence.
+art@er1.png,〜である,〜である,"Subject: Being the same person.
 
-Composition: Show an open grammar notebook containing the single example sentence “Thou art kind.” A pencil underlines “art,” with the whole sentence clearly legible and no additional headings.
+Composition: A child stands beside a mirror; the reflection exactly matches the child’s face, posture, and clothing, showing that the reflected figure is the same person. No words or symbolic equation.
 
 Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. Only the complete example sentence “Thou art kind.” and the underline beneath “art” are permitted. No incidental labels, logos or watermark.",作成済み,,references/invidious.png
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech balloons or bubbles, numerals, logos or watermark.",作成済み,,references/invidious.png
 bandage.png,包帯、帯具,包帯,"Subject: A cloth bandage wrapped around an arm.
 
 Composition: Show an adult’s forearm wrapped in a clean white bandage, with a loose roll still attached to the final strip. A second hand gently smooths the overlapping layers, and no wound or blood is visible.
@@ -2033,15 +2033,15 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
 Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png
-multilingual.png,多言語の,多言語の,"Subject: A multilingual greeting sign.
+multilingual.png,多言語の,多言語の,"Subject: Several languages represented together.
 
-Composition: Show one welcoming signboard displaying “Hello,” “こんにちは,” and “Hola” on three clean lines. A smiling receptionist stands beside the board with an open hand directed toward visitors.
+Composition: A receptionist offers three open phrasebooks with visibly different Latin, Japanese, and Arabic script samples, while a traveler compares the pages. Keep the samples to isolated characters rather than greetings or sentences.
 
 Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. Only the greetings “Hello”, “こんにちは”, and “Hola” are permitted on the signboard. No incidental labels, logos or watermark.",作成済み,,references/invidious.png
+Output: 512x512 PNG, RGBA, genuine transparent background. Only isolated specimen characters A, あ, and ب on the phrasebook pages; no words, sentences, captions, or dialogue. No incidental captions, speech balloons, logos or watermark.",作成済み,,references/invidious.png
 ostensibly.png,うわべは、表向きは,うわべは,"Subject: A pleasant appearance concealing resentment.
 
 Composition: Show an adult facing a visitor with a broad polite smile while secretly clenching one fist behind their back. Angle the view so the visitor sees only the smiling face and the viewer also sees the hidden fist.
@@ -2096,7 +2096,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
 Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png
-toddler.png,2～4歳ぐらいの幼児、よちよち歩きの小児,よちよち歩きの小児,"Subject: A toddler taking unsteady steps.
+toddler.png,2～4歳ぐらいの幼児、よちよち歩きの小児,2～4歳ぐらいの幼児,"Subject: A toddler taking unsteady steps.
 
 Composition: Show a small toddler walking with feet spread wide and both arms held out for balance. A seated parent nearby holds open hands toward the child without touching them.
 
@@ -2114,7 +2114,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
 Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png
-unintended.png,意図されたものでない、意図的でない,意図的でない,"Subject: An accidental spill.
+unintended.png,意図されたものでない、意図的でない,意図されたものでない,"Subject: An accidental spill.
 
 Composition: Show an adult turning toward a ringing telephone and unintentionally knocking a water glass with their elbow. The glass tips across the tabletop as the person looks back with wide-eyed surprise.
 
@@ -2233,13 +2233,13 @@ Framing: One compact composition, with the complete subject using about 80-90% o
 Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png
 half-life.png,半減期,半減期,"Subject: The half-life of a radioactive sample.
 
-Composition: Show one transparent sample tray containing eight large atom symbols, four still orange and four changed to gray, beside a stopwatch. Place the compact equation “N = N₀/2” directly below the tray to identify the remaining parent nuclei after one half-life.
+Composition: Show one transparent sample tray containing eight large atom symbols, four still orange and four changed to gray, beside a stopwatch. Keep the surviving and decayed halves equally numerous and clearly differentiated.
 
 Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. Only the equation “N = N₀/2” is permitted; no labels or other writing. No incidental labels, logos or watermark.",作成済み,,references/invidious.png
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech balloons or bubbles, numerals, logos or watermark.",作成済み,,references/invidious.png
 haunting.png,しばしば心に浮かぶ,しばしば心に浮かぶ,"Subject: A memory that keeps returning to mind.
 
 Composition: Show an adult sitting quietly with a wistful expression while holding an old house key. A single soft-edged thought bubble above them contains the familiar small house associated with the key, keeping the memory tied to the present moment.
@@ -2251,13 +2251,13 @@ Framing: One compact composition, with the complete subject using about 80-90% o
 Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png
 hide@kei1.png,土地面積の単位,土地面積の単位,"Subject: A hide, an old English unit of land holding.
 
-Composition: Show a parchment estate map held open by a medieval surveyor, with one enclosed group of cultivated strips and a small farmhouse inside a bold boundary. Write “1 hide” within that boundary, keeping all land in one continuous holding rather than assigning a fixed modern acreage.
+Composition: A medieval surveyor shows one bounded landholding on a parchment estate map, containing cultivated strips and a farmhouse. Keep the holding continuous and avoid a fixed modern acreage, measurements, or a unit label.
 
 Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. Only the land-measure notation “1 hide” is permitted inside the estate boundary. No incidental labels, logos or watermark.",作成済み,,references/invidious.png
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech balloons or bubbles, numerals, logos or watermark.",作成済み,,references/invidious.png
 nucleic.png,核の,核の,"Subject: The nucleus of a cell.
 
 Composition: Show one cutaway animal cell with a large round purple nucleus enclosed by its own double membrane at the center. Keep the surrounding cytoplasm pale and simple so the nucleus and its darker nucleolus dominate the view.
@@ -2269,13 +2269,13 @@ Framing: One compact composition, with the complete subject using about 80-90% o
 Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png
 performative.png,遂行的な,遂行的な,"Subject: A performative utterance that enacts a marriage.
 
-Composition: Show a wedding officiant facing two adults who stand hand in hand, with a speech bubble containing “I pronounce you married.” The officiant speaks with one open hand raised while the couple turn toward each other as the declaration takes effect.
+Composition: A wedding officiant formally addresses two adults holding hands, raising one open hand at the decisive moment as the couple turns toward each other and the witnesses begin applauding. No speech balloon or printed pronouncement.
 
 Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. Only the speech-bubble utterance “I pronounce you married.” is permitted. No incidental labels, logos or watermark.",作成済み,,references/invidious.png
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech balloons or bubbles, numerals, logos or watermark.",作成済み,,references/invidious.png
 platinum.png,白金,白金,"Subject: Platinum metal.
 
 Composition: Show one heavy silver-white platinum ingot beside a plain polished platinum ring on a small dark jeweler’s pad. Give the metal cool muted highlights and keep both objects free of stamps or lettering.
@@ -2330,7 +2330,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
 Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png
-unmarried.png,結婚していない、独身の,独身の,"Subject: An unmarried adult living independently.
+unmarried.png,結婚していない、独身の,結婚していない,"Subject: An unmarried adult living independently.
 
 Composition: Show one adult seated comfortably at a small dining table set for one, holding a cup in a clearly visible left hand without a wedding band. A single coat hangs beside the doorway of the compact home, and the person looks relaxed and self-sufficient.
 
@@ -2546,7 +2546,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
 Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png
-trade-off.png,交換、トレードオフ,トレードオフ,"Subject: A trade-off between carrying capacity and weight.
+trade-off.png,交換、トレードオフ,交換,"Subject: A trade-off between carrying capacity and weight.
 
 Composition: Show a hiker crouching beside an overfilled backpack, removing a comfortable thick blanket to make room for a large water bottle. The hiker looks thoughtfully between the blanket in one hand and the tightly packed bag.
 
@@ -2591,15 +2591,15 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
 Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png
-Herr.png,…氏,…氏,"Subject: The German courtesy title used before a man’s surname.
+Herr.png,…氏,…氏,"Subject: A respectful formal address to a man.
 
-Composition: Show a formal envelope addressed only to “Herr Müller,” held beside the hand of a politely dressed adult man. Make the title and surname clearly readable as one address line, without adding any other writing.
+Composition: At a formal German reception, one adult courteously addresses a man with a small respectful nod and an open-handed greeting. Keep the setting contemporary, clothing ordinary, and all words absent.
 
 Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. Only the address line “Herr Müller” is permitted on the envelope. No incidental labels, logos or watermark.",作成済み,,references/invidious.png
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech balloons or bubbles, numerals, logos or watermark.",作成済み,,references/invidious.png
 Windsor.png,ウィンザー,ウィンザー,"Subject: The House of Windsor, the British royal family.
 
 Composition: Show King George V with his neat beard in a dark military uniform, Queen Mary in a high-necked gown and tiara, and their clean-shaven adult son Edward in formal uniform, grouped for a family portrait. Place them in a stone room at Windsor Castle with a crown resting on a cushion beside the seated king.
@@ -2755,13 +2755,13 @@ Framing: One compact composition, with the complete subject using about 80-90% o
 Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png
 reassurance.png,安心させる言葉,安心させる言葉,"Subject: Reassuring words spoken to a frightened person.
 
-Composition: Show a calm adult kneeling beside a frightened child in a safe doorway, resting a gentle hand on the child’s shoulder. A small speech bubble from the adult reads “You’re safe now,” while the child begins to relax.
+Composition: A calm adult kneels beside a frightened child in a safe doorway, resting a gentle hand on the child’s shoulder and speaking softly with relaxed lips. The child’s shoulders lower and tense grip loosens. No speech balloons or visible words.
 
 Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. Only the speech-bubble utterance “You’re safe now” is permitted. No incidental labels, logos or watermark.",作成済み,,references/invidious.png
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech balloons or bubbles, numerals, logos or watermark.",作成済み,,references/invidious.png
 ripple.png,亜麻こき,亜麻こき,"Subject: A ripple used to strip seed heads from flax.
 
 Composition: Show a wooden bench fitted with a single upright row of long iron comb teeth. A worker pulls a bundle of flax stalks through the teeth, stripping round seed capsules into a shallow basket below.
@@ -2872,13 +2872,13 @@ Framing: One compact composition, with the complete subject using about 80-90% o
 Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png
 enthalpy.png,エンタルピー,エンタルピー,"Subject: Enthalpy as internal energy plus pressure-volume energy.
 
-Composition: Show a cutaway gas cylinder with a movable weighted piston and a small flame heating it from below. Place the compact equation “H = U + pV” beside the cylinder, with a short upward arrow at the rising piston to connect the formula to the physical system.
+Composition: Show a cutaway gas cylinder with a movable weighted piston and a small flame heating it from below. On a small adjoining laboratory calculation sheet place H = U + pV; a short upward arrow at the piston indicates its rise.
 
 Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. Only the equation “H = U + pV” and the short upward piston-motion arrow are permitted. No incidental labels, logos or watermark.",作成済み,,references/invidious.png
+Output: 512x512 PNG, RGBA, genuine transparent background. Only H = U + pV on the calculation sheet and one upward movement arrow; no explanatory words or labels. No incidental captions, speech balloons, logos or watermark.",作成済み,,references/invidious.png
 gluten.png,グルテン,グルテン,"Subject: Elastic gluten in wheat dough.
 
 Composition: Show two hands stretching a small piece of wheat dough into a thin translucent membrane. Keep the pale elastic sheet continuous between the fingertips, with a thicker dough rim around its edge.
@@ -2924,7 +2924,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
 Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png
-majestic.png,威厳のある、堂々とした,堂々とした,"Subject: A majestic eagle.
+majestic.png,威厳のある、堂々とした,威厳のある,"Subject: A majestic eagle.
 
 Composition: Show a large eagle perched high on a rugged rock with its broad chest upright and powerful wings spread fully. Turn its head slightly to the side with a calm, commanding gaze, keeping every feather tip inside the frame.
 
@@ -3095,7 +3095,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
 Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png
-autonomic.png,自律の、自律神経系の,自律神経系の,"Subject: The autonomic nerves controlling the heart.
+autonomic.png,自律の、自律神経系の,自律の,"Subject: The autonomic nerves controlling the heart.
 
 Composition: Show a calm sleeping adult with a clean transparent chest cutaway revealing the heart. Fine branching nerves lead from the brainstem down toward the heart, whose small motion strokes indicate beating without the sleeper’s conscious action.
 
@@ -3122,7 +3122,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
 Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png
-blindly.png,無思慮に、よく考えもせず,よく考えもせず,"Subject: Acting without thinking through the consequences.
+blindly.png,無思慮に、よく考えもせず,無思慮に,"Subject: Acting without thinking through the consequences.
 
 Composition: Show an adult walking forward while staring at a phone, about to place one foot into a clearly visible puddle. Their face remains absorbed in the screen while a nearby companion raises a warning hand.
 
@@ -3149,7 +3149,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
 Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png
-dearly.png,非常に、愛情を込めて,愛情を込めて,"Subject: Holding a loved one affectionately.
+dearly.png,非常に、愛情を込めて,非常に,"Subject: Holding a loved one affectionately.
 
 Composition: Show a grandparent gently cupping a child’s cheek with one hand while hugging the child close with the other arm. Both faces soften into affectionate smiles as they look at each other.
 
@@ -3167,7 +3167,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
 Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png
-gaseous.png,ガスの、気体の,気体の,"Subject: Matter in a gaseous state.
+gaseous.png,ガスの、気体の,ガスの,"Subject: Matter in a gaseous state.
 
 Composition: Show a transparent inflated balloon containing widely spaced small particle spheres scattered throughout its full volume. Short tiny motion strokes around the particles indicate free movement, while the balloon’s tied neck keeps the gas enclosed.
 
@@ -3185,7 +3185,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
 Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png
-grove.png,林、木立,木立,"Subject: A small grove of trees.
+grove.png,林、木立,林,"Subject: A small grove of trees.
 
 Composition: Show a compact group of five leafy trees growing close together on one grassy patch. Keep the separate trunks visible beneath their overlapping canopies, with open ground and little underbrush between them.
 
@@ -3221,7 +3221,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
 Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png
-insider.png,部内者、内部関係者,内部関係者,"Subject: An insider admitted to a private staff meeting.
+insider.png,部内者、内部関係者,部内者,"Subject: An insider admitted to a private staff meeting.
 
 Composition: Show an employee wearing the same small unlettered badge as two colleagues, entering their meeting room as one colleague pulls out a chair for them. The employee confidently carries a folder to the shared table.
 
@@ -3257,7 +3257,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
 Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png
-malware.png,マルウェア、悪意のあるソフトウェア,悪意のあるソフトウェア,"Subject: Malicious software locking files on a computer.
+malware.png,マルウェア、悪意のあるソフトウェア,マルウェア,"Subject: Malicious software locking files on a computer.
 
 Composition: Show a laptop screen dominated by a dark intrusive software window with a red padlock, overlapping a file manager whose document icons each carry a small matching lock. A worried owner reaches toward the keyboard.
 
@@ -3275,7 +3275,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
 Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png
-phenomenal.png,現象の、現象に関する,現象に関する,"Subject: An observed optical phenomenon.
+phenomenal.png,現象の、現象に関する,現象の,"Subject: An observed optical phenomenon.
 
 Composition: Show sunlight passing through one triangular glass prism and spreading into a short rainbow band on a white card. A student leans close to examine where the colored light lands.
 
@@ -3302,7 +3302,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
 Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png
-quota.png,分配高、割り当て,割り当て,"Subject: A fixed allocation of supplies.
+quota.png,分配高、割り当て,分配高,"Subject: A fixed allocation of supplies.
 
 Composition: Show a relief worker handing one small crate containing two water bottles and two bread rolls to an adult waiting at a distribution table. Two identical filled crates remain within the worker's reach.
 
@@ -3419,15 +3419,15 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
 Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png
-Mister_cap.png,〜さん,〜さん,"Subject: The polite title Mr. used before a man's surname.
+Mister_cap.png,〜さん,〜さん,"Subject: A courteous form of address to a man.
 
-Composition: Show a person beginning a handwritten letter with the salutation Dear Mr. Chen, clearly visible at the top of the page. Their pen rests immediately after the comma, making the courteous title part of an actual form of address.
+Composition: An adult politely greets a man at a reception desk with a small respectful nod, giving him their full attention before offering a handshake. No written title, name card, or speech balloon.
 
 Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. Allow only the salutation Dear Mr. Chen, on the letter; no other readable writing. No incidental labels, logos or watermark.",作成済み,,references/invidious.png
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech balloons or bubbles, numerals, logos or watermark.",作成済み,,references/invidious.png
 Qatar.png,カタール,カタール,"Subject: Qatar's Doha waterfront.
 
 Composition: Show the cream-colored geometric blocks and central tower of Doha's Museum of Islamic Art beside turquoise bay water. A wooden dhow passes in front, with a restrained cluster of modern towers across the same bay.
@@ -3473,9 +3473,9 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
 Output: 512x512 PNG, RGBA, genuine transparent background. Allow only C9H8O4 and the chemical bond lines and O, H, and CH3 groups needed for the aspirin skeletal structure on the bottle label. No incidental labels, logos or watermark.",作成済み,,references/invidious.png
-bureau.png,事務局、案内所,案内所,"Subject: A staffed information bureau.
+bureau.png,事務局、案内所,事務局,"Subject: The administrative office of an organization.
 
-Composition: Show a visitor holding an unfolded street map at a public information counter. A smiling attendant points to a route on the map, with a neat rack of folded brochures beside them.
+Composition: Show two office clerks processing membership forms at a shared desk inside a small association office. One sorts envelopes into trays while the other answers a telephone beside a filing cabinet; keep the coordinated administrative work central rather than tourist guidance.
 
 Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
 
@@ -3527,7 +3527,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
 Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png
-heartily.png,一生懸命に、熱心に,熱心に,"Subject: A person working with wholehearted enthusiasm.
+heartily.png,一生懸命に、熱心に,一生懸命に,"Subject: A person working with wholehearted enthusiasm.
 
 Composition: Show a volunteer leaning eagerly over a table to knead a large mound of bread dough, sleeves rolled up and face bright with concentration. Their bent elbows and firmly planted feet convey energetic effort.
 
@@ -3554,7 +3554,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
 Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png
-materiality.png,物質性、有形物,有形物,"Subject: A solid, tangible object being handled.
+materiality.png,物質性、有形物,物質性,"Subject: A solid, tangible object being handled.
 
 Composition: Show an adult lifting a heavy stone cube with both hands, fingers pressing firmly against its hard faces. The cube casts a strong grounded shadow on the table immediately below.
 
@@ -3572,7 +3572,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
 Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png
-neuropathy.png,ニューロパチー、神経障害,神経障害,"Subject: Damage to a peripheral nerve.
+neuropathy.png,ニューロパチー、神経障害,ニューロパチー,"Subject: Damage to a peripheral nerve.
 
 Composition: Show a clean enlarged medical cutaway of a single peripheral nerve fiber, with several sections of its pale insulating sheath cracked and missing around the central axon. A translucent outline of the lower leg surrounds the nerve in its anatomical position.
 
@@ -3617,7 +3617,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
 Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png
-westward.png,西への、西向きの,西向きの,"Subject: A traveler moving toward the setting sun.
+westward.png,西への、西向きの,西への,"Subject: A traveler moving toward the setting sun.
 
 Composition: Show a hiker walking along a path toward a low orange sun sinking behind the horizon. The hiker faces away from the viewer, with their long shadow extending backward along the path.
 
@@ -3707,7 +3707,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
 Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png
-coldly.png,冷たく、素っ気なく,素っ気なく,"Subject: Responding to someone in a cold manner.
+coldly.png,冷たく、素っ気なく,冷たく,"Subject: Responding to someone in a cold manner.
 
 Composition: Show one adult offering a friendly wave while another keeps their arms folded and turns their face away with a flat, closed expression. Leave a small clear gap between the two people.
 
@@ -3770,7 +3770,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
 Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png
-monsoon.png,モンスーン、季節風,季節風,"Subject: A monsoon wind bringing heavy rain ashore.
+monsoon.png,モンスーン、季節風,モンスーン,"Subject: A monsoon wind bringing heavy rain ashore.
 
 Composition: Show a coastal palm tree bending inland under a strong wind as thick slanted rain sweeps from the sea across a small shore. A person in a raincoat braces against the wind beneath the palm.
 
@@ -3833,7 +3833,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
 Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png
-set-up.png,セットアップ; 昇圧; 段取,段取,"Subject: Preparing a machine for a task.
+set-up.png,セットアップ; 昇圧; 段取,セットアップ,"Subject: Preparing a machine for a task.
 
 Composition: Show a workshop operator securing a rectangular wood block against the fence of an unplugged drill press and aligning the drill bit above it. A clamp and two spare bits sit neatly beside the machine.
 
@@ -3853,13 +3853,13 @@ Framing: One compact composition, with the complete subject using about 80-90% o
 Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png
 stylistic.png,文体の,文体の,"Subject: A writer attending to literary style.
 
-Composition: Show a writer revising a manuscript with the short sentence The moon sailed over sleeping roofs clearly written on the page. Their pen circles sailed and sleeping while a thoughtful finger rests against their chin.
+Composition: Show a writer revising a manuscript whose lines are tiny unreadable strokes. The writer crosses out a short segment, inserts a more flowing line above it, and reads it with a thoughtful expression; no legible example sentence.
 
 Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. Allow only The moon sailed over sleeping roofs on the manuscript and the pen circles around sailed and sleeping. No incidental labels, logos or watermark.",作成済み,,references/invidious.png
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech balloons or bubbles, numerals, logos or watermark.",作成済み,,references/invidious.png
 subtly.png,微妙に,微妙に,"Subject: Adding a very subtle tint.
 
 Composition: Show a painter using the tip of a small brush to place a barely visible pale-blue wash along the rim of a white ceramic bowl. The rest of the bowl remains nearly white, emphasizing the delicate touch.
@@ -4031,7 +4031,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
 Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png
-satin.png,繻子、サテン,サテン,"Subject: Smooth satin fabric with a lustrous face.
+satin.png,繻子、サテン,繻子,"Subject: Smooth satin fabric with a lustrous face.
 
 Composition: Show a length of pale rose satin cascading in broad folds from a low box. Bright smooth highlights run along the raised folds, and a turned-back corner reveals the fabric's duller underside.
 
@@ -4040,7 +4040,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
 Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png
-sedation.png,鎮静剤の使用、鎮静状態,鎮静状態,"Subject: A patient resting under monitored sedation.
+sedation.png,鎮静剤の使用、鎮静状態,鎮静剤の使用,"Subject: A patient resting under monitored sedation.
 
 Composition: Show an adult reclining with closed eyes and a relaxed face in a clinical chair, a blanket covering their legs. A clinician watches a small bedside monitor while a pulse sensor clips gently to the patient's finger.
 
@@ -4094,7 +4094,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
 Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png
-wearable.png,身に着けられる、身体に装着できる,身体に装着できる,"Subject: A device designed to be worn on the body.
+wearable.png,身に着けられる、身体に装着できる,身に着けられる,"Subject: A device designed to be worn on the body.
 
 Composition: Show an adult fastening a small fitness tracker around their wrist, with the adjustable strap curving snugly against the arm. Keep the complete wearable device and the fastening fingers prominent.
 
@@ -4157,7 +4157,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
 Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png
-contagious.png,人から人への接触によって直接伝染する、接触伝染性の,接触伝染性の,"Subject: A skin infection spreading through direct contact.
+contagious.png,人から人への接触によって直接伝染する、接触伝染性の,人から人への接触によって直接伝染する,"Subject: A skin infection spreading through direct contact.
 
 Composition: Show a clean medical-style close view of two hands touching at the fingers, one bearing several small red skin lesions. Enlarged microbe shapes pass directly across the touching fingertips, keeping the focus on contact transmission.
 
@@ -4211,7 +4211,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
 Output: 512x512 PNG, RGBA, genuine transparent background. Allow small handwritten manuscript strokes on the historical letter, chronicle, and working notebook; no readable headings or labels. No incidental labels, logos or watermark.",作成済み,,references/invidious.png
-honeymoon.png,蜜月、ハネムーン期間,ハネムーン期間,"Subject: Newlyweds enjoying their honeymoon.
+honeymoon.png,蜜月、ハネムーン期間,蜜月,"Subject: Newlyweds enjoying their honeymoon.
 
 Composition: Show two newly married adults wearing simple wedding rings and matching flower garlands, sitting close together on a seaside bench. Their suitcases rest beside the bench as they smile and lean gently against each other.
 
@@ -4222,13 +4222,13 @@ Framing: One compact composition, with the complete subject using about 80-90% o
 Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png
 informational.png,情報の,情報の,"Subject: A leaflet supplying practical travel information.
 
-Composition: Show a visitor reading a folded leaflet containing a simple bus-route map and the short line Bus leaves at 10:00. Their fingertip follows the route toward a clearly drawn bus-stop symbol.
+Composition: A visitor studies a folded leaflet containing a simple bus-route map, a clock-face pictogram, and a bus-stop pictogram. Their fingertip follows the route toward the stop. Keep the clock unnumbered and use no written directions.
 
 Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. Allow only Bus leaves at 10:00 within the information leaflet, with the necessary route lines and bus-stop symbol. No incidental labels, logos or watermark.",作成済み,,references/invidious.png
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech balloons or bubbles, numerals, logos or watermark.",作成済み,,references/invidious.png
 kidnapping.png,誘拐,誘拐,"Subject: A person being abducted against their will.
 
 Composition: Show an adult captor dragging a resisting adult toward the open side door of a plain van. The victim leans backward with one hand reaching toward a nearby passerby, keeping the scene non-graphic.
@@ -4247,7 +4247,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
 Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png
-mother-in-law.png,しゅうとめ、義母,義母,"Subject: A person's spouse and mother-in-law together.
+mother-in-law.png,しゅうとめ、義母,しゅうとめ,"Subject: A person's spouse and mother-in-law together.
 
 Composition: Show an adult couple wearing wedding rings beside an older woman, with one spouse affectionately resting a hand on their mother's shoulder. The other spouse offers the older woman a welcoming cup of tea.
 
@@ -4364,7 +4364,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
 Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png
-treacherous.png,不誠実な、信用を裏切る,信用を裏切る,"Subject: A person betraying someone who trusts them.
+treacherous.png,不誠実な、信用を裏切る,不誠実な,"Subject: A person betraying someone who trusts them.
 
 Composition: Show two adults shaking hands warmly while one secretly passes the other's wallet behind their back to a hidden accomplice. The trusting person smiles unaware, and the concealed handoff remains clearly visible to the viewer.
 
@@ -4418,7 +4418,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
 Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png
-afterlife.png,来世、あの世,あの世,"Subject: A symbolic depiction of the world after death.
+afterlife.png,来世、あの世,来世,"Subject: A symbolic depiction of the world after death.
 
 Composition: Show a gentle translucent adult spirit rising from a grave mound beneath a plain headstone toward a softly glowing doorway among clouds. Keep the spirit's calm face and upward movement clear within one continuous imagined scene.
 
@@ -4481,15 +4481,15 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
 Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png
-doctrinal.png,教義上の、教義に関する,教義に関する,"Subject: A discussion centered on a religious creed.
+doctrinal.png,教義上の、教義に関する,教義上の,"Subject: A discussion centered on a religious creed.
 
-Composition: Show two clergy seated beside a small cross, pointing to an open page carrying the short creed We believe in one God. Their attentive faces and fingers remain focused on the doctrinal statement.
+Composition: Two clergy sit beside a small cross, attentively studying and pointing into a shared open religious book. Its pages show only tiny unreadable manuscript strokes, with no creed or explanatory wording.
 
 Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. Allow only We believe in one God on the open creed page; no other readable writing. No incidental labels, logos or watermark.",作成済み,,references/invidious.png
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech balloons or bubbles, numerals, logos or watermark.",作成済み,,references/invidious.png
 hostess.png,ホステス,ホステス,"Subject: A hostess welcoming guests.
 
 Composition: Show an adult woman opening her front door with a welcoming smile and holding a tray with two glasses. A visiting couple stands on the threshold, one carrying a wrapped bouquet.

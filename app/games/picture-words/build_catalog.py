@@ -8,6 +8,7 @@ itself does. No filenames, Japanese readings, meanings, or etymologies are inven
 """
 import argparse
 from collections import Counter, defaultdict
+from functools import lru_cache
 import csv
 from datetime import datetime, timezone, timedelta
 import json
@@ -18,7 +19,7 @@ HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[2]
 MAX_LETTERS = 14
 UPDATED_ART = HERE / 'updated-art.json'
-CUTOFF = datetime(2026, 9, 10, tzinfo=timezone(timedelta(hours=9)))
+CUTOFF = datetime(2026, 9, 11, tzinfo=timezone(timedelta(hours=9)))
 
 
 def updated_art_rows(path):
@@ -316,38 +317,68 @@ def normalized_japanese(text):
     return ''.join(chr(ord(ch) - 0x60) if 'ァ' <= ch <= 'ヶ' else ch for ch in text).strip()
 
 
+def first_meaning(meaning):
+    """The reviewed dictionary order is authoritative; never skip a missing first sense."""
+    return re.split('[、,／/;；]', meaning, maxsplit=1)[0].strip()
+
+
 def verified_reading(meaning, picture, readings):
-    # A picture can have many unrelated Japanese export candidates (e.g. back).
-    # Require an exact source meaning/meaning component instead of choosing the
-    # first reading, and preserve the complete source meaning on the card. The
-    # export sometimes chose an unrelated kanji reading (book: 本 -> もと), so
-    # new Japanese answers also require a directly written kana source. Reviewed
-    # legacy choices remain available regardless of this conservative new rule.
-    meanings = {normalized_japanese(meaning)}
-    meanings.update(normalized_japanese(part) for part in re.split('[、,／/;；]', meaning))
-    matching = [row for row in readings.get(picture, [])
+    first = normalized_japanese(first_meaning(meaning))
+    matching = {row.get('w', '') for row in readings.get(picture, [])
                 if re.fullmatch(r'[ぁ-ゔー]{2,14}', row.get('w', ''))
-                and normalized_japanese(row.get('ja', '')) == row['w']
-                and normalized_japanese(row.get('ja', '')) in meanings]
-    if not matching:
-        return ''
-    return min(matching, key=lambda row: (len(row['w']), row['w']))['w']
+                and normalized_japanese(row.get('ja', '')) == row['w'] == first}
+    return next(iter(matching)) if len(matching) == 1 else ''
 
 
 def japanese_answer(meaning, lookup):
-    # Select a complete meaning, not a substring of a definition. Ambiguous
-    # readings stay unassigned; katakana-to-hiragana does not invent a reading.
-    for part in re.split('[、,／/;；]', meaning):
-        part = part.strip()
-        kana = normalized_japanese(part)
+    part = first_meaning(meaning)
+    kana = normalized_japanese(part)
+    if re.fullmatch(r'[ぁ-ゔー]{2,14}', kana):
+        return kana
+    candidates = lookup.get(part, set())
+    if len(candidates) == 1:
+        reading = next(iter(candidates))
+        if re.fullmatch(r'[ぁ-ゔー]{2,14}', reading):
+            return reading
+    return ''
+
+
+@lru_cache(maxsize=1)
+def readiness_reviews():
+    path = HERE / 'readiness-review.json'
+    if not path.exists():
+        raise FileNotFoundError('Missing explicit image readiness review ledger')
+    rows = read_json(path)['rows']
+    result = {(row['word'], row['roots'], row['filename']): row for row in rows}
+    if len(result) != len(rows):
+        raise ValueError('Duplicate image readiness review identity')
+    return result
+
+
+def image_review_status(source, picture):
+    row = readiness_reviews().get((*identity(source), picture + '.png'))
+    if row:
+        # Meaning changes require a new image review, never an automatic pass.
+        return ('image_meaning_mismatch' if first_meaning(source['ja']) == row['first_meaning_ja']
+                else 'meaning_changed_since_image_review')
+    return ''
+
+
+def first_meaning_answer(source, picture, readings, lookup):
+    first = first_meaning(source['ja'])
+    if image_review_status(source, picture):
+        return ''
+    # Explicitly reviewed exact picture/word/root binding requested by the user.
+    if (*identity(source), picture) == ('seizure', '', 'seizure'):
+        if first != 'つかむこと':
+            raise ValueError('Reviewed seizure image must match the first meaning')
+        return 'つかむこと'
+    kana_rows = source.get('ja_readings') or []
+    if kana_rows and kana_rows[0].get('gloss') == first and kana_rows[0].get('status') == 'reviewed':
+        kana = kana_rows[0].get('kana', '')
         if re.fullmatch(r'[ぁ-ゔー]{2,14}', kana):
             return kana
-        candidates = lookup.get(part, set())
-        if len(candidates) == 1:
-            reading = next(iter(candidates))
-            if re.fullmatch(r'[ぁ-ゔー]{2,14}', reading):
-                return reading
-    return ''
+    return verified_reading(first, picture, readings) or japanese_answer(first, lookup)
 
 
 def eligible(row):
@@ -418,10 +449,16 @@ def build_catalog(words, japanese, inventory, art_index, ledger):
         if source['w'] in seen_words or picture in seen_pictures:
             continue
         selected.append({
-            'w': verified_reading(source['ja'], picture, readings) or japanese_answer(source['ja'], kana_lookup),
-            'ja': source['ja'], 'pic': picture, 'en': source['w'], 'id': picture,
+            'w': first_meaning_answer(source, picture, readings, kana_lookup),
+            'ja': source['ja'], 'pic': picture, 'en': source['w'],
+            'id': 'mortar' if identity(source) == ('mortar', 'mer-2') and picture == 'mortar@construction' else picture,
             'rank': rank, 'roots': source.get('p', []), 'dictionaryIndex': index,
         })
+        review_status = image_review_status(source, picture)
+        if review_status:
+            selected[-1]['reviewStatus'] = review_status
+        elif not selected[-1]['w']:
+            selected[-1]['reviewStatus'] = 'first_reading_unavailable'
         seen_words.add(source['w'])
         seen_pictures.add(picture)
     assert len({row['id'] for row in selected}) == len(selected)
@@ -480,3 +517,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+

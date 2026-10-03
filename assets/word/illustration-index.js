@@ -580,5 +580,6 @@ globalThis.ETYMON_WORD_ART = {
   "[\"riyal\",\"reg-\"]": "riyal",
   "[\"sciaenoid\",\"skai-2+weid-\"]": "sciaenoid",
   "[\"supererogate\",\"uper+eghs-+reg-+eghs\"]": "supererogate",
-  "[\"witticism\",\"weid-\"]": "witticism"
+  "[\"witticism\",\"weid-\"]": "witticism",
+  "[\"mortar\",\"mer-2\"]": "mortar@construction"
 };
