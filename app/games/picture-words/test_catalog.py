@@ -9,6 +9,15 @@ import build_catalog as catalog
 
 
 class CatalogRulesTest(unittest.TestCase):
+    def test_kana_answers_use_complete_meanings_and_unambiguous_readings(self):
+        lookup = {'砂糖菓子': {'さとうがし'}, '本': {'もと・ほん'},
+                  '市場': {'いちば', 'しじょう'}, '背中': {'せなか'}}
+        self.assertEqual(catalog.japanese_answer('キャンディー、砂糖菓子', lookup), 'きゃんでぃー')
+        self.assertEqual(catalog.japanese_answer('背中、後ろ', lookup), 'せなか')
+        self.assertEqual(catalog.japanese_answer('本', lookup), '')
+        self.assertEqual(catalog.japanese_answer('市場', lookup), '')
+        self.assertEqual(catalog.japanese_answer('背中に乗せた荷物', lookup), '')
+
     def test_update_audit_checks_actual_display_image_and_cutoff(self):
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / 'audit.csv'
@@ -74,7 +83,7 @@ class ShippedCatalogTest(unittest.TestCase):
         self.assertTrue(all(datetime.fromisoformat(row[3]) >= catalog.CUTOFF for row in audit))
         playable = [row for row in self.entries if row['updatedArt']]
         self.assertGreater(len(playable), 3000)
-        self.assertGreater(sum(bool(row['w']) for row in playable), 100)
+        self.assertGreater(sum(bool(row['w']) for row in playable), 2000)
         for row in self.entries:
             self.assertEqual(row['updatedArt'], (row['en'], row['pic'] + '.png') in allowed)
 

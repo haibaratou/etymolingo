@@ -49,7 +49,7 @@
     let raw = {};
     try { raw = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch { /* Storage is optional. */ }
     const value = { mode: raw.mode === 'ja' ? 'ja' : 'en', sound: raw.sound !== false, theme: raw.theme === 'dark' ? 'dark' : 'light', layout: raw.layout === 'mobile' || raw.layout === 'desktop' ? raw.layout : 'auto', targetTier: raw.routeVersion === 2 && Number.isInteger(raw.targetTier) && raw.targetTier >= -1 && raw.targetTier < difficulty.tiers.length ? raw.targetTier : -1, routeVersion: 2, discovery: discovery.hydrate(raw.discovery),
-      combo: Number.isInteger(raw.combo) && raw.combo > 0 ? raw.combo : 0, bestCombo: Number.isInteger(raw.bestCombo) && raw.bestCombo > 0 ? raw.bestCombo : 0 };
+      combo: 0, bestCombo: Number.isInteger(raw.bestCombo) && raw.bestCombo > 0 ? raw.bestCombo : 0 };
     for (const lang of ['ja', 'en']) {
       const old = raw[lang] || {};
       const stars = {};
@@ -222,7 +222,15 @@
     }
     resize() {
       this.dpr = Math.min(window.devicePixelRatio || 1, 2);
-      this.canvas.width = innerWidth * this.dpr; this.canvas.height = innerHeight * this.dpr;
+      const rect = this.canvas.getBoundingClientRect();
+      this.canvas.width = Math.ceil(rect.width * this.dpr); this.canvas.height = Math.ceil(rect.height * this.dpr);
+      this.ctx.setTransform(this.dpr, 0, 0, this.dpr, 0, 0);
+    }
+    clearPixels() {
+      // Clear the physical backing store, including edges after browser-bar /
+      // DPR changes. A transformed CSS-sized clear can leave colored trails.
+      this.ctx.setTransform(1, 0, 0, 1, 0, 0);
+      this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
       this.ctx.setTransform(this.dpr, 0, 0, this.dpr, 0, 0);
     }
     burst(x, y, count, celebration = false) {
@@ -238,11 +246,11 @@
       if (!this.frame) { this.last = performance.now(); this.frame = requestAnimationFrame(time => this.draw(time)); }
     }
     draw(time) {
-      const dt = Math.min((time - this.last) / 1000, .032); this.last = time;
-      const ctx = this.ctx; ctx.clearRect(0, 0, innerWidth, innerHeight);
+      const elapsed = Math.max(0, (time - this.last) / 1000), dt = Math.min(elapsed, .032); this.last = time;
+      const ctx = this.ctx; this.clearPixels();
       this.items = this.items.filter(item => item.age < item.life);
       for (const p of this.items) {
-        p.age += dt; p.x += p.vx * dt; p.y += p.vy * dt; p.vy += (p.celebration ? 220 : 35) * dt; p.angle += p.spin * dt;
+        p.age += elapsed; p.x += p.vx * dt; p.y += p.vy * dt; p.vy += (p.celebration ? 220 : 35) * dt; p.angle += p.spin * dt;
         ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.angle); ctx.globalAlpha = Math.max(0, 1 - p.age / p.life);
         ctx.fillStyle = p.color; ctx.beginPath();
         if (p.shape === 'star') { for (let k = 0; k < 10; k++) { const r = k % 2 ? p.size * .55 : p.size * 1.4, a = k * Math.PI / 5; ctx.lineTo(Math.cos(a) * r, Math.sin(a) * r); } ctx.closePath(); }
@@ -252,7 +260,7 @@
       }
       this.frame = this.items.length ? requestAnimationFrame(t => this.draw(t)) : 0;
     }
-    clear() { cancelAnimationFrame(this.frame); this.frame = 0; this.items = []; this.ctx.clearRect(0, 0, innerWidth, innerHeight); }
+    clear() { cancelAnimationFrame(this.frame); this.frame = 0; this.items = []; this.clearPixels(); }
   }
   const petals = new Petals();
   function vibrate(pattern) { if (pointer?.kind === 'touch' && navigator.vibrate) navigator.vibrate(pattern); }
@@ -309,6 +317,7 @@
   function renderCombo(event = '') {
     const value = saved.combo, level = comboLevel(value), meter = $('combo');
     meter.dataset.level = String(level); $('game').dataset.comboLevel = String(level);
+    meter.hidden = true;
     $('comboCount').textContent = String(value);
     const filled = value === 0 ? 0 : value % COMBO_STEP || COMBO_STEP;
     [...$('comboPips').children].forEach((pip, i) => pip.classList.toggle('on', i < filled));
@@ -316,8 +325,8 @@
     meter.setAttribute('aria-label', mode === 'ja' ? `${value} コンボ、最高 ${saved.bestCombo}` : `${value} combo, best ${saved.bestCombo}`);
     if (event) { meter.classList.remove('bump', 'break'); void meter.offsetWidth; meter.classList.add(event); }
     const risky = value > 0;
-    $('freeTag').textContent = risky ? (mode === 'ja' ? 'COMBO終了' : 'ENDS COMBO') : 'FREE';
-    $('hint').classList.toggle('combo-risk', risky);
+    $('freeTag').textContent = '';
+    $('hint').classList.remove('combo-risk');
   }
   function breakCombo() {
     comboEligible = false;
@@ -348,8 +357,8 @@
     $('jaClearMark').textContent = jaOwned ? '✓' : '';
     $('enClearMark').textContent = enOwned ? '✓' : '';
     $('modeJa').dataset.cleared = String(jaOwned); $('modeEn').dataset.cleared = String(enOwned);
-    $('modeJa').disabled = !supports(entry, 'ja');
-    $('modeJa').title = entry.w ? '' : 'この絵は英語で遊べます';
+    $('modeJa').disabled = false;
+    $('modeJa').title = entry.w ? '同じ絵で日本語を解く' : '日本語で遊べる次の絵へ';
     $('connectLabel').textContent = `${profile.name} CHALLENGE`;
     $('levelText').textContent = availableCount(mode).toLocaleString();
     $('pictureNumber').textContent = `NO. ${String(index + 1).padStart(3, '0')}`;
@@ -482,7 +491,7 @@
   }
   function queueAdvance(delay = REWARD_DURATION) {
     pauseAdvance();
-    if (phase !== 'solved' || $('modal').open || document.hidden) return;
+    if (phase !== 'solved' || $('modal').open || $('launchScreen').open || document.hidden) return;
     advanceTimers.push(later(() => $('game').classList.add('stage-out'), delay - 180));
     advanceTimers.push(later(() => {
       // Keep the pace: a solved word always leads to a different picture.
@@ -662,8 +671,9 @@
     $('centerLabel').textContent = 'bloom!';
     const comboBanner = $('rewardCombo'), milestone = combo >= COMBO_STEP && combo % COMBO_STEP === 0;
     comboBanner.hidden = combo < 2; comboBanner.dataset.level = String(comboLevel(combo)); comboBanner.classList.toggle('milestone', milestone);
-    $('rewardComboCount').textContent = String(combo);
-    $('rewardComboNote').textContent = milestone ? (combo >= 10 ? 'FEVER!' : 'GREAT STREAK!') : newBest ? (mode === 'ja' ? '自己ベスト更新！' : 'NEW BEST!') : (mode === 'ja' ? 'ノーヒント・ノーミス' : 'No hints, no misses');
+    $('rewardComboCount').textContent = `${combo}${mode === 'ja' ? '問連続正解' : ' in a row'}`;
+    comboBanner.querySelector('span').textContent = '';
+    $('rewardComboNote').textContent = mode === 'ja' ? 'ヒントなし・間違いなしで正解' : 'Correct without hints or mistakes';
     $('game').classList.toggle('combo-win', combo >= 2);
     $('rewardScene').classList.toggle('has-combo', combo >= 2);
     later(() => {
@@ -808,8 +818,11 @@
   });
   window.addEventListener('resize', updateLayout);
   document.querySelectorAll('[data-mode]').forEach(button => button.addEventListener('click', () => {
-    if (mode === button.dataset.mode || !supports(entry, button.dataset.mode)) return;
-    mode = button.dataset.mode; loadLevel(index, false, false, true, true);
+    if (mode === button.dataset.mode) return;
+    const samePicture = supports(entry, button.dataset.mode);
+    mode = button.dataset.mode;
+    loadLevel(samePicture ? index : nextUncollected(mode, index), false, false, samePicture, samePicture);
+    if (!samePicture) setFeedback('日本語で遊べる次の絵へ', '', true);
   }));
   $('retryImage').addEventListener('click', () => loadLevel(index));
   $('skipImage').addEventListener('click', () => loadLevel(nextUncollected(mode, index)));
@@ -982,11 +995,47 @@
   }
   document.addEventListener('keydown', event => {
     if (event.key === 'Tab') keyboardNavigation = true;
-    if ($('modal').open || event.ctrlKey || event.metaKey || event.altKey) return;
+    if ($('modal').open || $('launchScreen').open || event.ctrlKey || event.metaKey || event.altKey) return;
     if (event.key === 'Backspace' && phase === 'playing') { event.preventDefault(); $('undo').click(); }
     if (event.key === 'Escape' && phase === 'playing') { cancelGesture(); resetSelection(); }
   });
   document.addEventListener('pointerdown', () => { keyboardNavigation = false; }, { passive: true });
-  if (catalog.length) loadLevel(nextUncollected(mode, index));
+  function closePlay() {
+    pauseAdvance(); clearPending(); cancelGesture(); petals.clear(); speech.stop(); sound.stop();
+    saved.combo = 0; persist(); renderCombo();
+    $('modal').close();
+    if ($('rewardScene').matches(':popover-open')) $('rewardScene').hidePopover();
+    $('rewardScene').hidden = true; $('rewardBackdrop').hidden = true;
+    if (!$('launchScreen').open) $('launchScreen').showModal();
+  }
+  async function startPlay(fullscreen) {
+    if (fullscreen && !document.fullscreenElement) {
+      if (!document.documentElement.requestFullscreen) {
+        $('fullscreenNotice').textContent = 'このブラウザーでは全画面にできません。「このまま遊ぶ」、またはホーム画面に追加して開いてください。';
+        return;
+      }
+      try { await document.documentElement.requestFullscreen(); }
+      catch { $('fullscreenNotice').textContent = '全画面にできませんでした。「このまま遊ぶ」で開始できます。'; return; }
+    }
+    $('launchScreen').close(); window.scrollTo(0, 0); sound.unlock();
+    loadLevel(phase === 'solved' ? nextUncollected(mode, index) : index);
+  }
+  $('startFullscreen').addEventListener('click', () => startPlay(true));
+  $('startWindowed').addEventListener('click', () => startPlay(false));
+  $('closeGame').addEventListener('click', async () => {
+    closePlay();
+    if (document.fullscreenElement) await document.exitFullscreen().catch(() => {});
+  });
+  $('launchScreen').addEventListener('cancel', event => event.preventDefault());
+  document.addEventListener('fullscreenchange', () => {
+    petals.clear(); petals.resize(); cancelGesture();
+    if (!document.fullscreenElement) closePlay();
+  });
+  window.visualViewport?.addEventListener('resize', () => { petals.clear(); petals.resize(); cancelGesture(); });
+  if (catalog.length) {
+    loadLevel(nextUncollected(mode, index));
+    const installed = matchMedia('(display-mode: fullscreen), (display-mode: standalone)').matches;
+    if (effectiveLayout() === 'mobile' && !installed) closePlay();
+  }
   else { $('game').dataset.state = 'error'; setFeedback('出題データを読み込めませんでした。ページを再読み込みしてください。', 'wrong'); }
 })();
