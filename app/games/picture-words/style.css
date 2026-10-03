@@ -252,6 +252,9 @@ html[data-theme=dark] #levelText{color:var(--accent)}
 .game-actions{display:flex;justify-content:center;gap:12px;margin-top:10px;width:100%}
 .action-button{height:54px;display:flex;align-items:center;justify-content:center;gap:8px;padding:0 22px;border-radius:20px;font-size:15px;font-weight:700;color:#fff;transition:transform .12s,box-shadow .12s,filter .2s}
 .action-button svg{width:22px;height:22px;stroke-width:2.4}
+#listenClue{background:#1763a6;color:#fff;box-shadow:0 5px 0 #0b3c69,0 8px 16px #1763a622}
+#listenClue svg{color:#fff;stroke:currentColor}
+#listenClue:focus-visible{outline:3px solid #fff;outline-offset:2px;box-shadow:0 0 0 6px #173b61}
 #shuffle{background:linear-gradient(180deg,#5cc0ff,#2b8fe0);box-shadow:0 5px 0 #1a6bb0,0 10px 18px #2b8fe033}
 .hint-button{background:linear-gradient(180deg,#ffd75e,#ffb31f);box-shadow:0 5px 0 #c98400,0 10px 18px #ffb31f33;color:#5b3a00!important}
 .action-button:active:not(:disabled){transform:translateY(4px);box-shadow:0 1px 0 #0003}
