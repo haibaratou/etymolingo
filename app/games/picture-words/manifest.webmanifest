@@ -3,7 +3,7 @@
   "short_name": "ニコリンゴ",
   "start_url": "../picture-words.html",
   "scope": "../",
-  "display": "fullscreen",
+  "display": "standalone",
   "background_color": "#fff4dc",
   "theme_color": "#fff4dc",
   "lang": "ja"

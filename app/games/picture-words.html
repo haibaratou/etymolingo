@@ -14,11 +14,12 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <link rel="stylesheet" href="picture-words/style.css?v=mobile2">
   <script src="picture-words/catalog.js?v=mobile2" defer></script>
-  <script src="picture-words/difficulty.js?v=discovery1" defer></script>
+  <script src="picture-words/difficulty.js?v=bilingual3" defer></script>
   <script src="picture-words/gesture.js?v=discovery1" defer></script>
   <script src="picture-words/pronunciation.js?v=discovery1" defer></script>
   <script src="picture-words/progression.js?v=discovery1" defer></script>
-  <script src="picture-words/game.js?v=mobile2" defer></script>
+  <script src="picture-words/offline.js?v=offline1" defer></script>
+  <script src="picture-words/game.js?v=offline1" defer></script>
 </head>
 <body>
   <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -142,9 +143,9 @@
     <h1 id="launchTitle">ニコリンゴ</h1>
     <p>絵を見て、かなと英語をつなごう。</p>
     <img src="../../assets/word/candy.png" alt="カラフルなキャンディー" width="220" height="220">
-    <button id="startFullscreen" class="modal-primary" type="button">全画面で遊ぶ</button>
-    <button id="startWindowed" type="button">このまま遊ぶ</button>
-    <p id="fullscreenNotice" role="status"></p>
+    <button id="startPlay" class="modal-primary" type="button">遊ぶ</button>
+    <button id="saveOffline" class="modal-primary" type="button">20問を保存（約5MB）</button>
+    <p id="offlineStatus" role="status">通信できるときに保存すると、圏外でも遊べます。</p>
     <a href="../index.html">ゲーム一覧へ</a>
   </dialog>
   <dialog id="modal" aria-labelledby="modalTitle">

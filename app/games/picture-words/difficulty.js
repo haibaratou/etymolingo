@@ -32,6 +32,11 @@
     const decoys = 0;
     return { ...tier, rank: word.tier + 1, length, choices: length + decoys, decoys, dual, innerCount, batches: dual ? 2 : 1 };
   }
+  function bilingualCatalog(words) {
+    return buildCatalog(words).filter(word => word.updatedArt === true &&
+      typeof word.en === 'string' && word.en.length > 0 &&
+      typeof word.w === 'string' && /^[ぁ-ゔー]{2,14}$/.test(word.w));
+  }
   function resumeIndex(raw, old, original, ordered) {
     if (old.wordId) { const found = ordered.findIndex(word => word.id === old.wordId); if (found >= 0) return found; }
     if (!Number.isInteger(old.index)) return 0;
@@ -41,7 +46,7 @@
     const id = source[Math.max(0, Math.min(source.length - 1, old.index))]?.id;
     return Math.max(0, ordered.findIndex(word => word.id === id));
   }
-  const api = { tiers, wordScore, buildCatalog, challenge, resumeIndex };
+  const api = { tiers, wordScore, buildCatalog, bilingualCatalog, challenge, resumeIndex };
   if (typeof module === 'object' && module.exports) module.exports = api;
   else root.WordBloomDifficulty = api;
 })(typeof window === 'undefined' ? globalThis : window);
