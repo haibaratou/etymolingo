@@ -19,15 +19,17 @@ test('every playable picture has both English and kana answers, including restor
     assert.ok(challenge(playable[index], 'en').length > 0);
   }
 });
-test('both pronunciation buttons preserve the current bilingual round and artwork',()=>{
- const code=fs.readFileSync(require.resolve('./game.js'),'utf8'),handlers={},spoken=[];
- const round={answers:{en:[...'CAT'],ja:[...'ねこ']},completed:{en:false,ja:false},hints:{en:0,ja:0}};
- const entry={en:'cat',w:'ねこ',pic:'cat'};
- const context={entry,round,phase:'playing',mode:'en',cancelGesture:()=>{},speech:{stop:()=>{},speak:(...args)=>spoken.push(args)},$:()=>({}),
+test('switching languages retains image and per-language answer-viewed status',()=>{
+ const code=fs.readFileSync(require.resolve('./game.js'),'utf8'),handlers={};
+ const round={answers:{en:[...'CAT'],ja:[...'ねこ']},viewed:{en:true,ja:false},mistakes:{en:0,ja:0}};
+ const entry={en:'cat',w:'ねこ',pic:'cat'};let nextCalls=0;
+ const noop=()=>{};
+ const c={entry,round,phase:'playing',mode:'en',mistakes:1,generation:1,cancelGesture:noop,clearPending:noop,speech:{stop:noop},$:()=>({dataset:{}}),updateLabels:noop,renderAnswers:noop,makeWheel:noop,updateAnswer:noop,drawTrail:noop,updateProgress:noop,persist:noop,setFeedback:noop,nextUncollected:()=>nextCalls++,
  document:{querySelectorAll:()=>['ja','en'].map(lang=>({dataset:{mode:lang},addEventListener:(_,fn)=>handlers[lang]=fn}))}};
- vm.runInNewContext(code.slice(code.indexOf("  document.querySelectorAll('[data-mode]')"),code.indexOf("  $('retryImage')")),context);
- handlers.ja();handlers.en();assert.deepEqual(spoken,[[entry,'ja',false,true],[entry,'en',false,true]]);assert.equal(context.round,round);assert.equal(context.entry,entry);
+ vm.runInNewContext(code.slice(code.indexOf("  document.querySelectorAll('[data-mode]')"),code.indexOf("  $('retryImage')")),c);
+ handlers.ja();assert.equal(c.mode,'ja');assert.equal(c.comboEligible,true);handlers.en();assert.equal(c.comboEligible,false);assert.equal(c.mistakes,1);assert.equal(c.entry,entry);assert.equal(nextCalls,0);assert.equal(round.viewed.en,true);
 });
+
 test('mobile launch never requests browser fullscreen or its exit instructions', () => {
   const game = fs.readFileSync(require.resolve('./game.js'), 'utf8');
   assert.doesNotMatch(game, /requestFullscreen|exitFullscreen/);

@@ -922,3 +922,13 @@ html[data-layout=mobile] .play-toolbar #modeJa,html[data-layout=mobile] .play-to
 #rewardScene[data-record="assisted"] #rewardBadge{background:#9b5714}
 #rewardScene[data-record] #dailyReward{margin-top:0}
 #rewardScene[data-record] .book-right{padding-top:30px}
+
+/* Single-language play retains a compact language selector and a separate listen control. */
+.answer.single-answer{display:flex;justify-content:center}
+.single-answer .language-answer{width:100%}
+.single-answer .answer-language{display:none}
+.single-answer .answer-cells{display:flex;justify-content:center;gap:4px}
+.single-answer .answer-tile{width:clamp(20px,6vw,34px);height:36px;font-size:22px}
+.play-toolbar,html[data-layout=mobile] .play-toolbar{grid-template-columns:repeat(6,minmax(0,1fr))}
+.play-toolbar #listenClue,html[data-layout=mobile] .play-toolbar #listenClue{display:flex!important;grid-row:1;grid-column:auto;height:44px;border-radius:8px}
+.play-toolbar #modeJa[aria-pressed=false],.play-toolbar #modeEn[aria-pressed=false],html[data-layout=mobile] .play-toolbar #modeJa[aria-pressed=false],html[data-layout=mobile] .play-toolbar #modeEn[aria-pressed=false]{background:#e1e9f2;color:#233850;border:1px solid #8ca3bb}
