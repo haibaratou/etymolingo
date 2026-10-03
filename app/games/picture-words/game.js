@@ -1,13 +1,14 @@
 /* WORD BLOOM — standalone play, browser voices, and a curated dictionary excerpt. */
-(() => {
+(async () => {
   'use strict';
   const $ = id => document.getElementById(id);
   const originalCatalog = window.PICTURE_WORDS_CATALOG || [];
   const difficulty = window.WordBloomDifficulty;
-  const catalog = difficulty.buildCatalog(originalCatalog).filter(word => word.updatedArt === true);
+  const offline = await window.NicolingoOffline.ready();
+  const catalog = difficulty.bilingualCatalog(originalCatalog);
   const discovery = window.PictureWordsProgression;
   const byId = new Map(catalog.map(word => [word.id, word]));
-  const supports = (word, lang) => lang === 'en' || !!word.w;
+  const supports = (word, lang) => offline.canPlay(word) && (lang === 'en' || !!word.w);
   const availableCount = lang => catalog.filter(word => supports(word, lang)).length;
   const { advanceSelection, sweptHits, activeBatch, canSelectRing, planLetters } = window.WordBloomGesture;
   const KEY = 'word-bloom-v1';
@@ -82,7 +83,9 @@
   const uniqueCount = () => catalog.filter(word => saved.ja.stars[word.id] || saved.en.stars[word.id]).length;
   const bookName = lang => mode === 'ja' ? (lang === 'ja' ? '日本語辞書' : '英語辞書') : (lang === 'ja' ? 'Japanese dictionary' : 'English dictionary');
   const nextUncollected = (lang, after) => {
-    return discovery.selectNext(catalog, saved, { language: lang, targetTier: saved.targetTier, afterId: catalog[after]?.id });
+    const available = catalog.filter(word => supports(word, lang));
+    const next = discovery.selectNext(available, saved, { language: lang, targetTier: saved.targetTier, afterId: catalog[after]?.id });
+    return available[next] ? catalog.indexOf(available[next]) : -1;
   };
   const persist = () => { saved.mode = mode; try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch { /* Private browsing may deny writes. */ } };
   const later = (fn, ms) => {
@@ -358,7 +361,7 @@
     $('enClearMark').textContent = enOwned ? '✓' : '';
     $('modeJa').dataset.cleared = String(jaOwned); $('modeEn').dataset.cleared = String(enOwned);
     $('modeJa').disabled = false;
-    $('modeJa').title = entry.w ? '同じ絵で日本語を解く' : '日本語で遊べる次の絵へ';
+    $('modeJa').title = '同じ絵で日本語を解く';
     $('connectLabel').textContent = `${profile.name} CHALLENGE`;
     $('levelText').textContent = availableCount(mode).toLocaleString();
     $('pictureNumber').textContent = `NO. ${String(index + 1).padStart(3, '0')}`;
@@ -366,8 +369,8 @@
     $('foundCount').textContent = count;
     $('collectionCount').textContent = String(uniqueCount());
     $('collection').setAttribute('aria-label', mode === 'ja'
-      ? `辞書を開く：日本語 ${collectedCount('ja')} / ${availableCount('ja')} 語、英語 ${collectedCount('en')} / ${catalog.length} 語`
-      : `Open dictionaries: Japanese ${collectedCount('ja')} of ${availableCount('ja')}, English ${collectedCount('en')} of ${catalog.length}`);
+      ? `辞書を開く：日本語 ${collectedCount('ja')} / ${availableCount('ja')} 語、英語 ${collectedCount('en')} / ${availableCount('en')} 語`
+      : `Open dictionaries: Japanese ${collectedCount('ja')} of ${availableCount('ja')}, English ${collectedCount('en')} of ${availableCount('en')}`);
     $('progress').replaceChildren(...catalog.slice(group * 10, group * 10 + 10).map((word, i) => {
       const dot = document.createElement('span'); dot.className = `progress-dot${stars[word.id] ? ' done' : ''}${i === index % 10 ? ' current' : ''}`;
       return dot;
@@ -500,6 +503,8 @@
     }, delay));
   }
   function loadLevel(nextIndex, focusNext = false, keepPronunciation = false, keepHints = false, keepPicture = false) {
+    if (!catalog[nextIndex] || !offline.canPlay(catalog[nextIndex])) nextIndex = nextUncollected(mode, index);
+    if (nextIndex < 0) { closePlay(); updateOfflineStatus(); return; }
     const retainedHintCount = keepHints ? hintCount : 0;
     pauseAdvance(); generation++; clearPending(); cancelGesture();
     if (!keepPronunciation) speech.stop();
@@ -542,6 +547,7 @@
     } else {
       image.style.opacity = '0';
       image.onload = () => {
+        offline.refresh().then(updateOfflineStatus).catch(() => {});
         if (version !== generation) return;
         image.style.opacity = '1'; phase = 'playing'; $('game').dataset.state = phase;
         // Restart the picture entrance only when the picture itself changes.
@@ -819,10 +825,9 @@
   window.addEventListener('resize', updateLayout);
   document.querySelectorAll('[data-mode]').forEach(button => button.addEventListener('click', () => {
     if (mode === button.dataset.mode) return;
-    const samePicture = supports(entry, button.dataset.mode);
+    if (!supports(entry, button.dataset.mode)) return;
     mode = button.dataset.mode;
-    loadLevel(samePicture ? index : nextUncollected(mode, index), false, false, samePicture, samePicture);
-    if (!samePicture) setFeedback('日本語で遊べる次の絵へ', '', true);
+    loadLevel(index, false, false, true, true);
   }));
   $('retryImage').addEventListener('click', () => loadLevel(index));
   $('skipImage').addEventListener('click', () => loadLevel(nextUncollected(mode, index)));
@@ -1008,29 +1013,32 @@
     $('rewardScene').hidden = true; $('rewardBackdrop').hidden = true;
     if (!$('launchScreen').open) $('launchScreen').showModal();
   }
-  async function startPlay(fullscreen) {
-    if (fullscreen && !document.fullscreenElement) {
-      if (!document.documentElement.requestFullscreen) {
-        $('fullscreenNotice').textContent = 'このブラウザーでは全画面にできません。「このまま遊ぶ」、またはホーム画面に追加して開いてください。';
-        return;
-      }
-      try { await document.documentElement.requestFullscreen(); }
-      catch { $('fullscreenNotice').textContent = '全画面にできませんでした。「このまま遊ぶ」で開始できます。'; return; }
-    }
+  function startPlay() {
     $('launchScreen').close(); window.scrollTo(0, 0); sound.unlock();
     loadLevel(phase === 'solved' ? nextUncollected(mode, index) : index);
   }
-  $('startFullscreen').addEventListener('click', () => startPlay(true));
-  $('startWindowed').addEventListener('click', () => startPlay(false));
-  $('closeGame').addEventListener('click', async () => {
-    closePlay();
-    if (document.fullscreenElement) await document.exitFullscreen().catch(() => {});
+  function updateOfflineStatus() {
+    const count = catalog.filter(word => offline.state.pictures.has(word.pic)).length;
+    $('offlineStatus').textContent = count ? `${count}問を保存済み・圏外でも遊べます` : '通信できるときに保存すると、圏外でも遊べます。';
+    $('saveOffline').disabled = !offline.state.supported || !offline.state.online;
+    $('startPlay').disabled = !catalog.some(word => offline.canPlay(word));
+  }
+  $('saveOffline').addEventListener('click', async () => {
+    $('saveOffline').disabled = true;
+    try {
+      await offline.save(catalog, (done, total) => { $('offlineStatus').textContent = `保存中 ${done} / ${total}問`; });
+      updateOfflineStatus();
+    } catch {
+      updateOfflineStatus();
+      $('offlineStatus').textContent += '。保存が途中で止まりました。通信できる場所で再度保存してください。';
+    }
   });
+  window.addEventListener('online', updateOfflineStatus);
+  window.addEventListener('offline', () => { offline.refresh().then(updateOfflineStatus).catch(() => {}); });
+  updateOfflineStatus();
+  $('startPlay').addEventListener('click', startPlay);
+  $('closeGame').addEventListener('click', closePlay);
   $('launchScreen').addEventListener('cancel', event => event.preventDefault());
-  document.addEventListener('fullscreenchange', () => {
-    petals.clear(); petals.resize(); cancelGesture();
-    if (!document.fullscreenElement) closePlay();
-  });
   window.visualViewport?.addEventListener('resize', () => { petals.clear(); petals.resize(); cancelGesture(); });
   if (catalog.length) {
     loadLevel(nextUncollected(mode, index));

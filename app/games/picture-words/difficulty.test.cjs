@@ -2,10 +2,46 @@ const { test } = require('node:test');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const vm = require('node:vm');
-const { tiers, buildCatalog, challenge, resumeIndex } = require('./difficulty.js');
+const { tiers, buildCatalog, bilingualCatalog, challenge, resumeIndex } = require('./difficulty.js');
 const scope = { window: {} }; vm.runInNewContext(fs.readFileSync(require.resolve('./catalog.js'), 'utf8'), scope);
 const source = JSON.parse(JSON.stringify(scope.window.PICTURE_WORDS_CATALOG));
 const ordered = buildCatalog(source);
+test('every playable picture has both English and kana answers, including restored saves', () => {
+  const playable = bilingualCatalog(source);
+  assert.equal(playable.length, 2082);
+  assert.ok(playable.every(word => word.updatedArt && word.en && /^[ぁ-ゔー]{2,14}$/.test(word.w)));
+  assert.equal(playable.find(word => word.en === 'candy').w, 'きゃんでぃー');
+  assert.ok(!playable.some(word => word.en === 'said'));
+  for (const word of playable) {
+    const index = resumeIndex({routeVersion:2}, {wordId:word.id}, source, playable);
+    assert.equal(playable[index].pic, word.pic);
+    assert.ok(challenge(playable[index], 'ja').length > 0);
+    assert.ok(challenge(playable[index], 'en').length > 0);
+  }
+});
+test('language switching keeps the current question index and artwork in both directions', () => {
+  const sourceCode = fs.readFileSync(require.resolve('./game.js'), 'utf8');
+  const start = sourceCode.indexOf("  document.querySelectorAll('[data-mode]')");
+  const end = sourceCode.indexOf("  $('retryImage')", start);
+  const handlers = {}, calls = [];
+  const context = { mode:'en', index:17, entry:{en:'candy',w:'きゃんでぃー'},
+    supports:(word,lang) => !!word[lang === 'ja' ? 'w' : 'en'],
+    document:{querySelectorAll:() => ['ja','en'].map(lang => ({dataset:{mode:lang},addEventListener:(_,fn) => { handlers[lang]=fn; }}))},
+    loadLevel:(...args) => calls.push(args),
+    nextUncollected:() => { throw new Error('Switching must never choose another question'); } };
+  vm.runInNewContext(sourceCode.slice(start,end),context);
+  handlers.ja(); handlers.en();
+  assert.deepEqual(calls, [[17,false,false,true,true],[17,false,false,true,true]]);
+  assert.equal(context.mode,'en');
+  context.entry.w = ''; handlers.ja();
+  assert.equal(calls.length,2); assert.equal(context.mode,'en');
+});
+test('mobile launch never requests browser fullscreen or its exit instructions', () => {
+  const game = fs.readFileSync(require.resolve('./game.js'), 'utf8');
+  assert.doesNotMatch(game, /requestFullscreen|exitFullscreen/);
+  const manifest = JSON.parse(fs.readFileSync(require.resolve('./manifest.webmanifest'), 'utf8'));
+  assert.equal(manifest.display, 'standalone');
+});
 // Captured from the published 80-word route, independently of today's sorter.
 const legacyRoute = `cat dog sea key bus star duck crab shoe moon fox cloud horse chair car bread peach river flower fish cake bridge castle egg spoon ring turtle tea piano octopus clock feather grape lion sheep leaf guitar umbrella panda camera mountain honey plane rabbit bottle giraffe cheese pencil garlic banana mushroom carrot scissors cookie watermelon penguin butterfly pumpkin bicycle potato philosophy submarine constellation helicopter independence thermometer refrigerator transformation contradiction imagination crosswalk technology orchestra democracy correlation antibiotic unanimity photography unprecedented environment`.split(' ');
 
