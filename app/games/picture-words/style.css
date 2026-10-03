@@ -189,8 +189,7 @@ html[data-theme=dark] #levelText{color:var(--accent)}
 .letter.selected{color:#fff;background:radial-gradient(circle at 35% 28%,color-mix(in srgb,var(--accent) 55%,#fff) 0 22%,var(--accent) 60%);box-shadow:0 5px 0 var(--accent-deep),0 0 0 5px color-mix(in srgb,var(--accent) 25%,transparent);animation:letter-pick .3s var(--pop)}
 @keyframes letter-pick{0%{transform:scale(1)}40%{transform:scale(1.28)}100%{transform:scale(1)}}
 .letter:not(.selected):hover{transform:translateY(-2px)}
-.letter.hint-target{box-shadow:0 5px 0 var(--sun-deep),0 0 0 6px #ffc93c88;background:radial-gradient(circle at 35% 28%,#fff 0 25%,#fff1b8 65%);animation:hint-pulse .9s ease-in-out 3}
-@keyframes hint-pulse{50%{transform:scale(1.15) rotate(-6deg);box-shadow:0 5px 0 var(--sun-deep),0 0 0 12px #ffc93c33}}
+.letter.hint-target{box-shadow:0 5px 0 var(--sun-deep),0 0 0 6px #ffc93c88;background:radial-gradient(circle at 35% 28%,#fff 0 25%,#fff1b8 65%);animation:none}
 .dual-ring .letter{width:var(--letter-dual);height:var(--letter-dual);margin:calc(var(--letter-dual) / -2);font-size:calc(var(--letter-dual) * .5)}
 .dual-ring .letter.outer-pending:not(.selected){opacity:.55;transform:scale(.9)}
 .ring-unlock .letter[data-ring=outer]{animation:ring-ready .45s var(--pop)}

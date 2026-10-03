@@ -19,7 +19,7 @@ self.addEventListener('fetch', event => {
     const cache = await caches.open(CACHE), key = new Request(url.origin + url.pathname);
     if (art) { const saved = await cache.match(key); if (saved) return saved; }
     try {
-      const response = await fetch(event.request);
+      const response = await fetch(shell ? new Request(event.request, {cache:'no-cache'}) : event.request);
       if (!response.ok) throw new Error('Unavailable');
       try { if (shell) await cache.put(key, response.clone()); } catch { /* Quota must not break online play. */ }
       return response;
