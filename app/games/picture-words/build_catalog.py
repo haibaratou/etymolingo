@@ -9,6 +9,7 @@ itself does. No filenames, Japanese readings, meanings, or etymologies are inven
 import argparse
 from collections import Counter, defaultdict
 import csv
+from datetime import datetime, timezone, timedelta
 import json
 from pathlib import Path
 import re
@@ -16,6 +17,33 @@ import re
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[2]
 MAX_LETTERS = 14
+UPDATED_ART = HERE / 'updated-art.json'
+CUTOFF = datetime(2026, 9, 10, tzinfo=timezone(timedelta(hours=9)))
+
+
+def updated_art_rows(path):
+    """Use the dated audit of the actual dictionary image, never filesystem mtime."""
+    result = []
+    with path.open(encoding='utf-8-sig', newline='') as file:
+        rows = csv.DictReader(file)
+        required = {'単語', '語根', '辞書参照画像ファイル名',
+                    '辞書表示画像_2026-09-10以降更新', '辞書表示画像更新日時_JST'}
+        if not required.issubset(rows.fieldnames or []):
+            raise ValueError('Missing dated dictionary artwork audit columns.')
+        for row in rows:
+            if row['辞書表示画像_2026-09-10以降更新'] != 'YES':
+                continue
+            try:
+                date = datetime.fromisoformat(row['辞書表示画像更新日時_JST'])
+            except ValueError:
+                continue
+            filename = row['辞書参照画像ファイル名']
+            if date.tzinfo is None or date < CUTOFF or not filename.endswith('.png') or Path(filename).name != filename:
+                continue
+            result.append([row['単語'], row['語根'], filename, date.isoformat()])
+    if not result:
+        raise ValueError('No dated artwork qualifies; refusing an empty update.')
+    return result
 # Retain these reviewed answers and IDs so existing collections remain valid.
 LEGACY_CHOICES = [
     ('うさぎ', 'rabbit'), ('はな', 'flower'), ('つき', 'moon'),
@@ -334,6 +362,8 @@ def resolve_picture(row, inventory, spelling_counts, art_index, ledger):
 
 
 def build_catalog(words, japanese, inventory, art_index, ledger):
+    updated = read_json(UPDATED_ART)
+    allowed = {(word, filename) for word, roots, filename, date in updated}
     readings = defaultdict(list)
     for row in japanese:
         readings[row.get('pic', '')].append(row)
@@ -360,7 +390,7 @@ def build_catalog(words, japanese, inventory, art_index, ledger):
         if not eligible(source) or source['w'] in seen_words:
             continue
         picture = resolve_picture(source, inventory, spelling_counts, art_index, ledger)
-        if not picture:
+        if not picture or (source['w'], picture + '.png') not in allowed:
             continue
         candidates.append((source.get('r', 9999), index, source, picture))
     # One spelling / illustration per page: a homograph never disguises a repeated
@@ -376,6 +406,9 @@ def build_catalog(words, japanese, inventory, art_index, ledger):
         seen_words.add(source['w'])
         seen_pictures.add(picture)
     assert len({row['id'] for row in selected}) == len(selected)
+    # Keep historical entries/IDs for save migration, but never offer old art.
+    for row in selected:
+        row['updatedArt'] = (row['en'], row['pic'] + '.png') in allowed
     return selected
 
 
@@ -398,8 +431,14 @@ def main():
     parser.add_argument('--art-ledger', type=Path, action='append', default=[],
                         help='Optional current word-art-todo.csv; uses its exact filename column.')
     parser.add_argument('--output', type=Path, default=HERE / 'catalog.js')
+    parser.add_argument('--update-audit', type=Path,
+                        help='Refresh the portable dated artwork snapshot from word-art-todo.csv.')
     parser.add_argument('--check', action='store_true', help='Verify the checked-in catalogue without modifying it.')
     args = parser.parse_args()
+    if args.update_audit:
+        if args.check:
+            parser.error('--update-audit cannot be combined with --check')
+        UPDATED_ART.write_text(json.dumps(updated_art_rows(args.update_audit), ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     for path in (args.dictionary, args.words, args.illustration_index, *args.art_ledger):
         if not path.is_file():
             parser.error(f'Missing input: {path}')

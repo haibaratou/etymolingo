@@ -4,7 +4,7 @@
   const $ = id => document.getElementById(id);
   const originalCatalog = window.PICTURE_WORDS_CATALOG || [];
   const difficulty = window.WordBloomDifficulty;
-  const catalog = difficulty.buildCatalog(originalCatalog);
+  const catalog = difficulty.buildCatalog(originalCatalog).filter(word => word.updatedArt === true);
   const discovery = window.PictureWordsProgression;
   const byId = new Map(catalog.map(word => [word.id, word]));
   const supports = (word, lang) => lang === 'en' || !!word.w;
@@ -53,7 +53,7 @@
     for (const lang of ['ja', 'en']) {
       const old = raw[lang] || {};
       const stars = {};
-      for (const word of catalog) if ([1, 2, 3].includes(old.stars?.[word.id])) stars[word.id] = old.stars[word.id];
+      for (const [id, count] of Object.entries(old.stars || {})) if ([1, 2, 3].includes(count)) stars[id] = count;
       value[lang] = { index: difficulty.resumeIndex(raw, old, originalCatalog, catalog), stars };
     }
     return value;
