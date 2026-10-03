@@ -2,6 +2,20 @@ const {test}=require('node:test');
 const assert=require('node:assert/strict');
 const fs=require('node:fs'),vm=require('node:vm');
 const code=fs.readFileSync(__dirname+'/game.js','utf8');
+test('hints never disclose the opposite-language answer below the illustration',()=>{
+  const start=code.indexOf('  function updateAnswerDisclosure()');
+  const end=code.indexOf('  function updateTheme()',start);
+  let caption;
+  const panel={replaceChildren:node=>caption=node.textContent,classList:{add:()=>{}}};
+  const context={mode:'en',entry:{w:'めがね',en:'glasses'},hintCount:14,
+    document:{createElement:()=>({})},$:()=>panel};
+  vm.runInNewContext(code.slice(start,end)+';updateAnswerDisclosure();',context);
+  assert.equal(caption,'●●●');
+  context.mode='ja';vm.runInNewContext('updateAnswerDisclosure();',context);
+  assert.equal(caption,'●●●●●●●');
+  const hint=code.slice(code.indexOf("  $('hint').addEventListener"),code.indexOf("  $('sound').addEventListener"));
+  assert.doesNotMatch(hint,/entry\.w|entry\.en|bilingualHint/);
+});
 test('central shuffle responds to a tap but ignores dragging and a live letter gesture',()=>{
   const handlers={};let layouts=0;
   const context={

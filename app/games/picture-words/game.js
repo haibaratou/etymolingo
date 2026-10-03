@@ -311,7 +311,7 @@
     const otherLanguage = mode === 'ja' ? 'en' : 'ja';
     const otherAnswer = [...(otherLanguage === 'ja' ? entry.w || entry.ja : entry.en.toUpperCase())];
     const masked = document.createElement('span'); masked.className = 'caption-mask';
-    masked.textContent = otherAnswer.map((char, i) => i < hintCount ? char : '●').join('');
+    masked.textContent = '●'.repeat(otherAnswer.length);
     $('pictureCaption').replaceChildren(masked);
     $('pictureCaption').title = mode === 'ja' ? 'もう一方の言語での答え（文字数）' : 'The same word in the other language (letter count)';
     $('pictureCaption').classList.add('masked-answer');
@@ -839,10 +839,8 @@
     cancelGesture(); sound.unlock(); sound.hint(); breakCombo(); hintCount = Math.min(answer.length, hintCount + 1); updateAnswer(); updateAnswerDisclosure();
     const target = nodes.find(node => node.answerIndex === hintCount - 1);
     if (target) { target.button.classList.remove('hint-target'); void target.button.offsetWidth; target.button.classList.add('hint-target'); }
-    const jaHint = [...entry.w][hintCount - 1];
-    const enHint = [...entry.en.toUpperCase()][hintCount - 1];
-    const bilingualHint = [jaHint ? `日本語「${jaHint}」` : '', enHint ? `ENGLISH「${enHint}」` : ''].filter(Boolean).join(' / ');
-    setFeedback(hintCount === answer.length ? text().allHinted : mode === 'ja' ? `${hintCount}文字め：${bilingualHint}` : `Hint ${hintCount}: ${bilingualHint}`, '', true);
+    const revealed = answer[hintCount - 1];
+    setFeedback(hintCount === answer.length ? text().allHinted : mode === 'ja' ? `${hintCount}文字め：「${revealed}」` : `Hint ${hintCount}: ${revealed}`, '', true);
     if (hintCount === answer.length) $('hint').disabled = true;
   });
   $('sound').addEventListener('click', () => {
