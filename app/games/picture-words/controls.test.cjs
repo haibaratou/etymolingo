@@ -47,3 +47,15 @@ test('reload changes the URL without deleting saved progress',()=>{
   });
   handler();assert.ok(new URL(target).searchParams.has('refresh'));
 });
+
+test('lifting a finger preserves partial answers and capture release cannot clear them',()=>{
+  const start=code.indexOf("  $('wheel').addEventListener('pointerup'");
+  const end=code.indexOf("  $('wheel').addEventListener('pointercancel'",start);
+  let handler,updates=0,checked=0;
+  const context={pointer:{id:3,last:{x:0,y:0}},wheelRect:{},selected:[0],answer:['A','B'],
+    pointFrom:()=>({x:0,y:0}),sweep:()=>{},updateAnswer:()=>updates++,drawTrail:()=>{},setFeedback:()=>{},text:()=>({tap:''}),checkAnswer:()=>checked++,
+    $:()=>({addEventListener:(_,fn)=>handler=fn,hasPointerCapture:()=>true,releasePointerCapture:()=>assert.equal(context.pointer,null),classList:{remove:()=>{}}})};
+  vm.runInNewContext(code.slice(start,end),context);handler({pointerId:3});
+  assert.equal(context.selected.length,1);assert.equal(updates,1);assert.equal(checked,0);
+  context.pointer={id:4,last:{x:0,y:0}};context.selected=[0,1];handler({pointerId:4});assert.equal(checked,1);
+});

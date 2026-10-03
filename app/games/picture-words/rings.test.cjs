@@ -24,10 +24,9 @@ test('honeycomb targets remain separated, inside the board and fixed between pha
   const context={};vm.runInNewContext(fn,context);
   for(let length=2;length<=14;length++){
     const dual=length>8,inner=dual?Math.min(6,Math.ceil(length/2)):length;
-    const points=[...context.letterPositions(inner,0,dual),...context.letterPositions(length-inner,1,dual)];
+    const points=[...context.letterPositions(inner,0,dual,length),...(dual?context.letterPositions(length-inner,1,dual,length):[])];
     for(const p of points){
-      assert.ok(p.x>=30&&p.x<=330&&p.y>=32&&p.y<=328);
-      assert.ok(Math.hypot(p.x-180,p.y-180)>=59);
+      assert.ok(p.x>=33&&p.x<=327&&p.y>=33&&p.y<=327);
       for(const q of points)if(p!==q)assert.ok(Math.hypot(p.x-q.x,p.y-q.y)>=59);
     }
     assert.equal(new Set(points.map(p=>`${p.x},${p.y}`)).size,length);

@@ -22,7 +22,7 @@
     ja: {
       gardens: ['はじまりの庭', 'おいしい小道', 'どうぶつの森', '暮らしのアトリエ', '自然のたからもの', 'まだ見ぬ世界へ'],
       title: 'この絵、なんのことば？', instruction: '文字をなぞって、つなげよう',
-      release: '', note: '途中で離すとキャンセル',
+      release: '', note: 'タップでも、なぞっても選べます',
       shuffle: 'まぜる', hint: 'ヒント', next: '次の単語をゲット', footer: '正解するたび、辞書が育つ。',
       collection: '辞書', found: '単語ゲット',
       connect: 'つなぐ', undo: 'もどす', correct: '単語ゲット！', wrong: 'おしい！ もう一度つないでみよう',
@@ -37,7 +37,7 @@
     en: {
       gardens: ['The first garden', 'A tasty little path', 'Animal friends', 'Everyday wonders', 'Treasures of nature', 'A world to discover'],
       title: 'One picture. Which word?', instruction: 'Swipe the letters. Find the word.',
-      release: '', note: 'Release an unfinished word to cancel',
+      release: '', note: 'Tap letters or swipe to connect',
       shuffle: 'Shuffle', hint: 'Hint', next: 'Collect the next word', footer: 'Every word fills another page.',
       collection: 'Dictionary', found: 'words collected',
       connect: 'connect', undo: 'undo', correct: 'WORD GET!', wrong: 'Almost! Give it another go.',
@@ -402,19 +402,26 @@
     $('dailyCollection').setAttribute('aria-label', mode === 'ja' ? `今日${daily.count}語を発見。${daily.pageNumber}ページ目、10枠中${daily.pageFilled}枠。辞書を開く` : `${daily.count} new words today. Page ${daily.pageNumber}, ${daily.pageFilled} of 10. Open dictionary`);
   }
   // A close-packed hexagonal lattice keeps strokes short without moving targets.
-  function letterPositions(count, batch, dual) {
-    const near = [[60,0],[30,52],[-30,52],[-60,0],[-30,-52],[30,-52]];
-    const far = [[0,-104],[90,-52],[120,0],[90,52],[0,104],[-90,52],[-120,0],[-90,-52]];
-    const pool = dual && batch > 0 ? far : [...near,far[0],far[4]];
-    const chosen = count <= 6 && !(dual && batch > 0) ? Array.from({length:count},(_,i)=>near[Math.floor(i*6/count)]) : pool.slice(0,count);
-    return chosen.map(([x,y])=>({x:180+x,y:180+y}));
+  function letterPositions(count, batch, dual, total = count) {
+    const rowsByCount = {2:[2],3:[3],4:[2,2],5:[2,3],6:[3,3],7:[2,3,2],8:[3,2,3],9:[3,3,3],10:[3,4,3],11:[4,3,4],12:[4,4,4],13:[3,4,3,3],14:[3,4,4,3]};
+    const rows=rowsByCount[total] || [total], step=total<=4?96:total<=8?82:68;
+    const points=[];
+    rows.forEach((length,row)=>{
+      for(let col=0;col<length;col++) points.push({x:180+(col-(length-1)/2)*step,y:180+(row-(rows.length-1)/2)*step*1.08});
+    });
+    if(!dual) return points;
+    // Opening letters occupy the centre; later letters surround them without a hole.
+    points.sort((a,b)=>Math.hypot(a.x-180,a.y-180)-Math.hypot(b.x-180,b.y-180));
+    const inner=Math.min(6,Math.ceil(total/2));
+    return batch===0?points.slice(0,inner):points.slice(inner);
   }
   function layoutNodes() {
     const active = activeBatch(selected, ringBatches);
     $('wheel').dataset.activeRing = active === 0 ? 'inner' : 'outer';
+    $('wheel').dataset.letterCount = String(nodes.length);
     for (let batch = 0; batch < ringBatches.length; batch++) {
       const group = nodes.filter(node => node.batch === batch);
-      const positions = letterPositions(group.length,batch,ringBatches.length>1);
+      const positions = letterPositions(group.length,batch,ringBatches.length>1,nodes.length);
       group.forEach((node, i) => {
         Object.assign(node,positions[i]);
         node.button.style.left = `${node.x / 3.6}%`; node.button.style.top = `${node.y / 3.6}%`;
@@ -785,11 +792,12 @@
   $('wheel').addEventListener('pointerup', event => {
     if (!pointer || event.pointerId !== pointer.id) return;
     const end = pointFrom(event); sweep(pointer.last, end);
-    if ($('wheel').hasPointerCapture(event.pointerId)) $('wheel').releasePointerCapture(event.pointerId);
-    $('wheel').classList.remove('dragging'); drawTrail();
-    if (selected.length >= answer.length) checkAnswer();
-    else { resetSelection(); setFeedback(text().release); }
+    const pointerId = pointer.id;
     pointer = null; wheelRect = null;
+    if ($('wheel').hasPointerCapture(pointerId)) $('wheel').releasePointerCapture(pointerId);
+    $('wheel').classList.remove('dragging');
+    if (selected.length >= answer.length) checkAnswer();
+    else { updateAnswer(); drawTrail(); setFeedback(text().tap); }
   });
   $('wheel').addEventListener('pointercancel', event => { if (pointer?.id === event.pointerId) cancelGesture(); });
   $('wheel').addEventListener('lostpointercapture', event => { if (pointer?.id === event.pointerId) cancelGesture(); });
