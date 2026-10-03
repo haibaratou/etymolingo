@@ -106,3 +106,11 @@ test('actual pointer handlers finish an adjacent stroke and erase cancelled sele
   assert.deepEqual(result,Array.from({length},(_,i)=>i));
  }
 });
+
+test('even a live pointer with selected hexes never draws a line or finger tip',()=>{
+ const source=fs.readFileSync(require.resolve('./game.js'),'utf8');
+ const elements={trail:{style:{}},trailLine:{setAttribute(k,v){this[k]=v}},trailGlow:{setAttribute(k,v){this[k]=v}}};
+ const c={pointer:{id:1},selected:[0,1],nodes:[{id:0,x:10,y:10},{id:1,x:20,y:20}],$:id=>elements[id]};
+ vm.runInNewContext(source.slice(source.indexOf('  function drawTrail('),source.indexOf('  function resetSelection(')),c);
+ c.drawTrail({x:200,y:200});assert.equal(elements.trail.style.visibility,'hidden');assert.equal(elements.trailLine.points,'');assert.equal(elements.trailGlow.points,'');
+});

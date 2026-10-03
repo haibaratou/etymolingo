@@ -490,12 +490,10 @@
     }
     $('wheel').classList.toggle('has-selection',selected.length>0);
   }
-  function drawTrail(tip = null) {
-    const points = pointer ? selected.map(id => { const n = nodes.find(item => item.id === id); return `${n.x},${n.y}`; }) : [];
-    $('trail').style.visibility = pointer ? 'visible' : 'hidden';
-    if (tip && points.length) points.push(`${tip.x},${tip.y}`);
-    $('trailLine').setAttribute('points', points.join(' ')); $('trailGlow').setAttribute('points', points.join(' '));
-    if (tip) { $('trailTip').setAttribute('cx', tip.x); $('trailTip').setAttribute('cy', tip.y); }
+  function drawTrail() {
+    // Hex selection is shown by tile color only, including during a live stroke.
+    $('trail').style.visibility='hidden';
+    $('trailLine').setAttribute('points','');$('trailGlow').setAttribute('points','');
   }
   function resetSelection() {
     selected = []; updateAnswer(); drawTrail();

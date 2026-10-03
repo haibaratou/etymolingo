@@ -948,3 +948,6 @@ html[data-layout=mobile] .play-toolbar #modeJa,html[data-layout=mobile] .play-to
 .single-answer .answer-tile{min-width:0;flex:0 1 34px}
 #rewardScene .book-page-number{font-size:10px}
 #wheel #letters .letter.answer-wave[data-lang]{transition:scale .07s ease,background .07s ease}
+
+/* No connecting line, glow or finger-following tip at any gesture stage. */
+#wheel #trail{display:none!important;visibility:hidden!important}
