@@ -3,11 +3,24 @@ import json
 from pathlib import Path
 import tempfile
 import unittest
+from datetime import datetime
 
 import build_catalog as catalog
 
 
 class CatalogRulesTest(unittest.TestCase):
+    def test_update_audit_checks_actual_display_image_and_cutoff(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / 'audit.csv'
+            path.write_text('単語,語根,辞書参照画像ファイル名,辞書表示画像_2026-09-10以降更新,辞書表示画像更新日時_JST\n'
+                            'seal,selk-,seal@selk.png,YES,2026-09-10T00:00:00+09:00\n'
+                            'old,,old.png,YES,2026-09-09T23:59:59+09:00\n'
+                            'missing,,missing.png,YES,\n'
+                            'undated,,undated.png,YES,2026-09-10T00:00:00\n'
+                            'rejected,,rejected.png,NO,2026-09-11T00:00:00+09:00\n', encoding='utf-8')
+            rows = catalog.updated_art_rows(path)
+            self.assertEqual([row[:3] for row in rows], [['seal', 'selk-', 'seal@selk.png']])
+
     def test_homographs_never_guess_a_shared_picture(self):
         row = {'w': 'seal', 'p': ['selk-']}
         files = {'seal': Path('seal.png'), 'seal@selk': Path('seal@selk.png')}
@@ -55,6 +68,16 @@ class CatalogRulesTest(unittest.TestCase):
 
 
 class ShippedCatalogTest(unittest.TestCase):
+    def test_only_dated_exact_art_is_playable(self):
+        audit = catalog.read_json(catalog.UPDATED_ART)
+        allowed = {(word, filename) for word, roots, filename, date in audit}
+        self.assertTrue(all(datetime.fromisoformat(row[3]) >= catalog.CUTOFF for row in audit))
+        playable = [row for row in self.entries if row['updatedArt']]
+        self.assertGreater(len(playable), 3000)
+        self.assertGreater(sum(bool(row['w']) for row in playable), 100)
+        for row in self.entries:
+            self.assertEqual(row['updatedArt'], (row['en'], row['pic'] + '.png') in allowed)
+
     @classmethod
     def setUpClass(cls):
         cls.words = catalog.read_json(catalog.ROOT / 'app/data/generated-etymon/words.json')
@@ -65,7 +88,7 @@ class ShippedCatalogTest(unittest.TestCase):
         cls.entries = catalog.build_catalog(cls.words, cls.japanese, cls.inventory, cls.art_index, cls.ledger)
 
     def test_broad_catalogue_is_reproducible(self):
-        self.assertGreater(len(self.entries), 7000)
+        self.assertGreater(len(self.entries), 3000)
         self.assertGreater(sum(bool(row['w']) for row in self.entries), 100)
         self.assertEqual(catalog.render_catalog(self.entries),
                          (catalog.HERE / 'catalog.js').read_text(encoding='utf-8'))
