@@ -54,6 +54,14 @@ test('muting cancels pending speech and prevents further speech until re-enabled
   x.speech.setEnabled(true); assert.equal(x.speech.speak(moon, 'en'), true); assert.equal(x.calls.length, 2);
 });
 
+test('an explicit listening request works while automatic sound stays muted', () => {
+  const x=setup();x.speech.setEnabled(false);
+  assert.equal(x.speech.speak(moon,'en',false,true),true);
+  assert.equal(x.calls[0].text,'moon');
+  assert.equal(x.speech.enabled,false);
+  assert.equal(x.speech.speak(moon,'ja'),false);
+});
+
 test('stopping for a new puzzle invalidates the old callbacks and watchdog', () => {
   const x = setup(); x.speech.speak(moon, 'ja'); x.speech.stop();
   assert.equal(x.speech.current, null); assert.equal(x.timers.size, 0);

@@ -560,7 +560,7 @@ html[data-theme=dark] .letter{box-shadow:0 5px 0 #a8927f,0 0 18px #ffffff1a}
 .puzzle-language button:disabled{color:var(--ink-soft);background:transparent;box-shadow:none;opacity:.4;transform:none}
 .puzzle-language:has(button:disabled) .language-bridge{opacity:.3}
 .garden-footer{display:none}
-.game-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:var(--wheel);max-width:100%;height:auto;margin:18px 0 0;padding:0}
+.game-actions{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;width:var(--wheel);max-width:100%;height:auto;margin:18px 0 0;padding:0}
 .game-actions>.action-button{position:relative;display:flex;align-items:center;justify-content:center;gap:7px;width:100%;height:54px;min-width:0;margin:0;padding:0 8px;border-radius:18px;font-size:12px}
 .game-actions>.action-button svg{flex:none;width:21px;height:21px}
 #collection.collection-button{display:flex;height:54px;padding:0 8px;border-radius:18px;font-size:12px;background:linear-gradient(180deg,#b28bff,#8559f0);box-shadow:0 5px 0 #5f37c2,0 8px 16px #8559f022}
