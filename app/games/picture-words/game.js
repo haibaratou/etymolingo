@@ -369,7 +369,7 @@
     $('enClearMark').textContent = enOwned ? '✓' : '';
     $('modeJa').dataset.cleared = String(jaOwned); $('modeEn').dataset.cleared = String(enOwned);
     $('modeJa').disabled = false;
-    $('modeJa').title = 'かなの発音';
+    $('modeJa').title = '日本語で遊ぶ';
     $('connectLabel').textContent = `${profile.name} CHALLENGE`;
     $('levelText').textContent = availableCount(mode).toLocaleString();
     $('pictureNumber').textContent = `NO. ${String(index + 1).padStart(3, '0')}`;
@@ -450,7 +450,7 @@
   function makeWheel() {
     let id=0;nodes=[];ringBatches=[[]];lastActiveBatch=-1;
     $('wheel').classList.remove('dual-ring');
-    for(const lang of ['en','ja'])round.answers[lang].forEach((char,answerIndex)=>{
+    for(const lang of [mode])round.answers[lang].forEach((char,answerIndex)=>{
       const node={id:id++,char,lang,answerIndex,batch:0};
       const button=document.createElement('button');button.type='button';button.className='letter';
       button.dataset.node=String(node.id);button.dataset.lang=lang;button.textContent=char;
@@ -461,8 +461,8 @@
     $('letters').replaceChildren(...nodes.map(n=>n.button));arrangeNodes();layoutNodes();
   }
   function renderAnswers(){
-    $('answer').className='answer bilingual-answers';
-    $('answer').replaceChildren(...['en','ja'].map(lang=>{
+    $('answer').className='answer single-answer';
+    $('answer').replaceChildren(...[mode].map(lang=>{
       const group=document.createElement('div');group.className='language-answer';group.dataset.lang=lang;
       const label=document.createElement('span');label.className='answer-language';label.textContent=lang==='en'?'ENGLISH':'かな';group.append(label);
       const tiles=document.createElement('div');tiles.className='answer-cells';
@@ -483,7 +483,7 @@
         tile.className=`answer-tile${done?' solved':entered?' entered':i<round.hints[lang]?' hinted':''}`;
       });
     }
-    $('answer').setAttribute('aria-label',`English ${round.completed.en?'complete':mode==='en'?word.join(''):'empty'}; かな ${round.completed.ja?'正解':mode==='ja'?word.join(''):'未入力'}`);
+    $('answer').setAttribute('aria-label',`${mode==='en'?'English':'かな'} ${round.completed[mode]?'正解':word.join('')||'未入力'}`);
     for(const node of nodes){const chosen=selected.includes(node.id),done=round.completed[node.lang];
       node.button.classList.toggle('selected',chosen);node.button.classList.toggle('language-complete',done);
       node.button.classList.remove('outer-pending');node.button.disabled=done||phase==='solved';node.button.setAttribute('aria-pressed',String(chosen||done));
@@ -560,7 +560,7 @@
     if (mode === 'ja' && !entry.w) mode = 'en';
     progress().index = index; progress().wordId = entry.id;
     saved.discovery = discovery.markSeen(saved.discovery, entry.id, mode); persist();
-    round=bilingualRound(entry.en,entry.w);
+    round=bilingualRound(entry.en,entry.w); round.viewed={en:false,ja:false}; round.mistakes={en:0,ja:0};
     answer=round.answers[mode];
     selected = []; hintCount = Math.min(retainedHintCount, answer.length); mistakes = 0; shuffleBusy = false; phase = 'loading';
     comboEligible = hintCount === 0;
@@ -630,12 +630,7 @@
     if (phase !== 'playing' || !selected.length) return;
     const word = selected.map(id => nodes.find(node => node.id === id).char).join('');
     const result=finishLanguage(round,mode,word);
-    if(result==='complete'){win();return;}
-    if(result==='partial'){
-      sound.win(0);speech.speak(entry,mode);selected=[];updateAnswer();drawTrail();
-      setFeedback(mode==='en'?'英語は正解。かなもつなごう':'かなは正解。英語もつなごう','success',true);
-      mode=mode==='en'?'ja':'en';answer=round.answers[mode];hintCount=round.hints[mode];$('hint').disabled=false;return;
-    }
+    if(result!=='incorrect'){win();return;}
     const tooShort = selected.length < answer.length;
     if (!tooShort) mistakes++;
     phase = 'checking'; $('game').dataset.state = phase; sound.wrong(); vibrate([35, 30, 45]);
@@ -668,17 +663,18 @@
     if (comboEligible) { saved.combo++; saved.bestCombo = Math.max(saved.bestCombo, saved.combo); }
     const combo = comboEligible ? saved.combo : 0, newBest = combo >= 2 && combo === saved.bestCombo;
     sound.win(combo); renderCombo(combo ? 'bump' : '');
-    const stars = Math.max(1, 3 - Math.min(2, (round.answerViewed ? 2 : 0) + (mistakes > 0 ? 1 : 0)));
-    const first = !saved.en.stars[entry.id] || !saved.ja.stars[entry.id];
+    const stars = Math.max(1, 3 - Math.min(2, (round.viewed[mode] ? 2 : 0) + (mistakes > 0 ? 1 : 0)));
+    const first = !saved[mode].stars[entry.id];
     const newDiscovery = !saved.ja.stars[entry.id] && !saved.en.stars[entry.id];
     const award = discovery.collect(saved.discovery, entry.id, mode, {isNew: newDiscovery});
     saved.discovery = award.discovery;
-    const record=saved.answerRecords[entry.id] || {independent:0,assisted:0};
-    const recordKind=round.answerViewed?'assisted':'independent';
+    const wordRecords=saved.answerRecords[entry.id] ||= {};
+    const record=wordRecords[mode] || {independent:0,assisted:0};
+    const recordKind=round.viewed[mode]?'assisted':'independent';
     record[recordKind]=(Number(record[recordKind])||0)+1;
     record.last=recordKind; record.lastAt=new Date().toISOString();
-    saved.answerRecords[entry.id]=record;
-    for(const lang of ['en','ja'])saved[lang].stars[entry.id]=Math.max(saved[lang].stars[entry.id]||0,stars);persist();
+    wordRecords[mode]=record;
+    saved[mode].stars[entry.id]=Math.max(saved[mode].stars[entry.id]||0,stars);persist();
     if (first) lastAcquired = { lang: mode, id: entry.id };
     updateAnswer();
     $('answerInfo').textContent = `${'✦'.repeat(stars)}${'✧'.repeat(3 - stars)}  ${mode === 'ja' ? entry.ja : entry.en.toUpperCase()}`;
@@ -688,7 +684,7 @@
     $('pictureStamp').textContent = first ? 'WORD GET!' : 'GOT IT!';
     $('rewardBadge').textContent = both ? 'BILINGUAL CLEAR!' : first ? (complete ? 'BOOK COMPLETE' : 'NEW WORD GET!') : (mode === 'ja' ? '獲得済み' : 'COLLECTED');
     if (award.pageCompleted) $('rewardBadge').textContent = mode === 'ja' ? 'ページ完成！' : 'PAGE COMPLETE!';
-    $('rewardBadge').textContent=round.answerViewed?'辞書ゲット！ · 答えを見て正解':'辞書ゲット！ · 自力で正解';
+    $('rewardBadge').textContent=round.viewed[mode]?'辞書ゲット！ · 答えを見て正解':'辞書ゲット！ · 自力で正解';
     $('rewardScene').dataset.record=recordKind;
     $('rewardScene').classList.toggle('page-complete', award.pageCompleted);
     $('dailyReward').classList.toggle('complete', award.pageCompleted);
@@ -705,7 +701,7 @@
     $('rewardAfter').textContent = String(award.daily.pageFilled);
     $('rewardTotal').textContent = ' / 10';
     $('rewardProgress').textContent = mode === 'ja' ? `辞書に ${uniqueCount()} 語 / ${catalog.length} 語` : `${uniqueCount()} / ${catalog.length} words discovered`;
-    $('rewardSeal').textContent = round.answerViewed ? '答えを見た' : '自力正解';
+    $('rewardSeal').textContent = round.viewed[mode] ? '答えを見た' : '自力正解';
     $('advanceLabel').textContent = mode === 'ja' ? '次の問題へ →' : 'Next picture →';
     const library = $('rewardShelf'); library.className = 'book-shelf book-library-grid';
     library.replaceChildren(...Array.from({length:10}, (_, pageIndex) => {
@@ -858,12 +854,12 @@
   $('hint').addEventListener('click', () => {
     if (phase !== 'playing' || shuffleBusy) return;
     cancelGesture(); resetSelection(); sound.unlock(); sound.hint(); breakCombo(); comboEligible=false;
-    round.answerViewed=true;
-    // Demonstrate both routes without solving either language or filling answer slots.
+    round.viewed[mode]=true;
+    // Demonstrate the current language route without solving either language or filling answer slots.
     phase='answer-demo'; $('game').dataset.state=phase;
     $('hint').disabled=true; $('shuffle').disabled=true;
     let tick=0;
-    for(const language of ['en','ja']) {
+    for(const language of [mode]) {
       const route=nodes.filter(node=>node.lang===language).sort((a,b)=>a.answerIndex-b.answerIndex);
       for(const node of route) {
         const at=tick++ * 440;
@@ -872,7 +868,7 @@
       }
       tick++;
     }
-    later(()=>{phase='playing';$('game').dataset.state=phase;$('hint').disabled=false;$('shuffle').disabled=false;setFeedback('答えを見た記録が残ります。両方なぞって辞書をゲット！');},tick*440);
+    later(()=>{phase='playing';$('game').dataset.state=phase;$('hint').disabled=false;$('shuffle').disabled=false;setFeedback('答えを見た記録が残ります。なぞって辞書をゲット！');},tick*440);
   });
   $('sound').addEventListener('click', () => {
     saved.sound = !saved.sound; speech.setEnabled(saved.sound); persist(); updateSound();
@@ -883,8 +879,14 @@
   });
   window.addEventListener('resize', updateLayout);
   document.querySelectorAll('[data-mode]').forEach(button=>button.addEventListener('click',()=>{
-    if(!entry)return;cancelGesture();mode=button.dataset.mode;answer=round.answers[mode];hintCount=round.hints[mode];
-    speech.stop();speech.speak(entry,mode,false,true);$('hint').disabled=phase!=='playing';
+    if(!entry || !['playing','answer-demo'].includes(phase) || mode===button.dataset.mode)return;
+    round.mistakes[mode]=mistakes;
+    cancelGesture();generation++;clearPending();speech.stop();
+    mode=button.dataset.mode;answer=round.answers[mode];hintCount=0;mistakes=round.mistakes[mode];
+    comboEligible=!round.viewed[mode] && mistakes===0;selected=[];shuffleBusy=false;phase='playing';
+    $('game').dataset.state=phase;$('hint').disabled=false;$('shuffle').disabled=false;
+    updateLabels();renderAnswers();makeWheel();updateAnswer();drawTrail();updateProgress();persist();
+    setFeedback('');
   }));
   $('retryImage').addEventListener('click', () => loadLevel(index));
   $('skipImage').addEventListener('click', () => loadLevel(nextUncollected(mode, index)));
@@ -907,15 +909,15 @@
   }
   $('help').addEventListener('click', () => {
     const steps = mode === 'ja' ? [
-      '同じイラストを、黄色の英字と青色のかなで答えます。どちらから始めてもかまいません。',
-      '辺が接する同じ言語のマスを、指を離さずにつなぎます。最後までつないで離すと答え合わせ。途中で離すと取り消します。',
-      '片方の正解は緑色で残ります。英語とかなの両方を正解するとクリアし、次のイラストへ進みます。',
-      '画面下の音声ボタンで発音を聞けます。まぜる・辞書・ヒントも同じ操作バーにあります。',
+      '英語か日本語を選び、絵を見て答えを考えます。途中で言語を変えても同じ絵のままです。',
+      '隣り合う六角形を一筆でつなぎます。途中で離すと取り消します。',
+      '選んだ言語を正解すると、その言語の辞書に登録します。',
+      '答えボタンは正解の順に文字を光らせます。自力と答えを見た記録は言語ごとに保存します。'
     ] : [
-      'Answer the same picture in yellow English tiles and blue kana tiles. Either language can go first.',
-      'Connect neighbouring tiles of one language in a single stroke. Release to check; an unfinished stroke is cancelled.',
-      'A correct language stays green. Complete both English and kana to clear the picture and move on.',
-      'Answer plays both solutions in order. You can still collect the word; assisted and independent clears are recorded separately.',
+      'Choose English or Japanese. Switching language keeps the same picture.',
+      'Connect neighbouring hex tiles in one stroke. An unfinished stroke is cancelled.',
+      'Solve the selected language to collect its dictionary entry.',
+      'Answer demonstrates the current solution. Independent and assisted clears are recorded per language.'
     ];
     const note=mode==='ja'?'同じ文字も別々のマスとしてつなぎます。離れたマスや別の言語のマスには飛べません。':'Repeated letters have separate tiles. You cannot jump to a distant tile or switch languages during a stroke.';
     openModal(text().help, `<div class="help-steps">${steps.map((line, i) => `<div class="help-step"><b>${i + 1}</b><p>${line}</p></div>`).join('')}</div><p class="help-note">${note}</p>${layoutSettings()}<button class="modal-primary" id="startPlaying" type="button">${mode === 'ja' ? 'ことばを咲かせよう' : 'Let it bloom'}</button>`);
@@ -978,10 +980,10 @@
     const caption = document.createElement('p'); caption.className = 'dictionary-caption';
     const daily = discovery.summary(saved.discovery);
     caption.textContent = mode === 'ja' ? `今日の発見 ${daily.count} 語 · ${daily.pagesCompleted} ページ完成 · これまで ${daily.totalDays} 日の記録` : `${daily.count} discoveries today · ${daily.pagesCompleted} ${daily.pagesCompleted === 1 ? 'page' : 'pages'} filled · ${daily.totalDays} ${daily.totalDays === 1 ? 'day' : 'days'} of discoveries`;
-    caption.textContent += ` · 自力 ${Object.values(saved.answerRecords).filter(r=>r.independent>0).length}語 · 答えを見て ${Object.values(saved.answerRecords).filter(r=>r.assisted>0).length}語`;
+    caption.textContent += ` · 自力 ${Object.values(saved.answerRecords).filter(r=>r[lang]?.independent>0).length}語 · 答えを見て ${Object.values(saved.answerRecords).filter(r=>r[lang]?.assisted>0).length}語`;
     const filters = document.createElement('div'); filters.className = 'dictionary-filters'; filters.setAttribute('role', 'group');
     filters.setAttribute('aria-label', mode === 'ja' ? '獲得状況で絞り込む' : 'Filter by collection status');
-    for (const [value, label, total] of [['today', mode === 'ja' ? '今日' : 'Today', catalog.filter(w => supports(w,lang) && todayIds.has(w.id)).length], ['owned', mode === 'ja' ? '獲得済み' : 'Collected', count], ['missing', mode === 'ja' ? '未獲得' : 'Missing', totalWords - count], ['all', mode === 'ja' ? 'すべて' : 'All', totalWords], ['independent','自力',Object.values(saved.answerRecords).filter(r=>r.independent>0).length], ['assisted','答えを見た',Object.values(saved.answerRecords).filter(r=>r.assisted>0).length]]) {
+    for (const [value, label, total] of [['today', mode === 'ja' ? '今日' : 'Today', catalog.filter(w => supports(w,lang) && todayIds.has(w.id)).length], ['owned', mode === 'ja' ? '獲得済み' : 'Collected', count], ['missing', mode === 'ja' ? '未獲得' : 'Missing', totalWords - count], ['all', mode === 'ja' ? 'すべて' : 'All', totalWords], ['independent','自力',Object.values(saved.answerRecords).filter(r=>r[lang]?.independent>0).length], ['assisted','答えを見た',Object.values(saved.answerRecords).filter(r=>r[lang]?.assisted>0).length]]) {
       const button = document.createElement('button'); button.type = 'button'; button.textContent = `${label} ${total}`; button.dataset.filter = value;
       button.setAttribute('aria-pressed', String(dictionaryFilter === value)); button.addEventListener('click', () => { dictionaryFilter = value; dictionaryPage = 0; renderDictionary('filter'); }); filters.append(button);
     }
@@ -992,7 +994,7 @@
     const grid = document.createElement('div'); grid.className = 'dictionary-grid';
     const collator = new Intl.Collator(lang);
     const query = dictionaryQuery.trim().toLocaleLowerCase();
-    const words = catalog.map((word, wordIndex) => ({ word, wordIndex })).filter(({word}) => supports(word,lang) && (!['independent','assisted'].includes(dictionaryFilter) || saved.answerRecords[word.id]?.[dictionaryFilter]>0) && (dictionaryFilter !== 'today' || todayIds.has(word.id)) && (dictionaryFilter !== 'owned' || saved[lang].stars[word.id]) && (dictionaryFilter !== 'missing' || !saved[lang].stars[word.id]) && (!query || `${word.en} ${word.ja} ${word.w}`.toLocaleLowerCase().includes(query))).sort((a, b) => collator.compare(lang === 'ja' ? a.word.w : a.word.en, lang === 'ja' ? b.word.w : b.word.en));
+    const words = catalog.map((word, wordIndex) => ({ word, wordIndex })).filter(({word}) => supports(word,lang) && (!['independent','assisted'].includes(dictionaryFilter) || saved.answerRecords[word.id]?.[lang]?.[dictionaryFilter]>0) && (dictionaryFilter !== 'today' || todayIds.has(word.id)) && (dictionaryFilter !== 'owned' || saved[lang].stars[word.id]) && (dictionaryFilter !== 'missing' || !saved[lang].stars[word.id]) && (!query || `${word.en} ${word.ja} ${word.w}`.toLocaleLowerCase().includes(query))).sort((a, b) => collator.compare(lang === 'ja' ? a.word.w : a.word.en, lang === 'ja' ? b.word.w : b.word.en));
     const pages = Math.max(1, Math.ceil(words.length / DICTIONARY_PAGE_SIZE)); dictionaryPage = Math.min(dictionaryPage, pages - 1);
     for (const { word, wordIndex } of words.slice(dictionaryPage * DICTIONARY_PAGE_SIZE, (dictionaryPage + 1) * DICTIONARY_PAGE_SIZE)) {
       const owned = !!saved[lang].stars[word.id];
@@ -1006,8 +1008,8 @@
         title.textContent = lang === 'ja' ? word.ja : word.en; subtitle.textContent = lang === 'ja' ? word.w : word.ja;
         const mark = document.createElement('span'); mark.className = 'dictionary-owned-mark'; mark.innerHTML = icon('check'); card.append(mark);
         const recordLabel=document.createElement('small');recordLabel.className='answer-record';
-        const record=saved.answerRecords[word.id];
-        recordLabel.textContent=record?`自力 ${record.independent||0}回 / 答えを見た ${record.assisted||0}回`:'以前の獲得（記録なし）';card.append(recordLabel);
+        const record=saved.answerRecords[word.id]?.[lang];
+        recordLabel.textContent=record?`自力 ${record.independent||0}回 / 答えを見た ${record.assisted||0}回`:saved.answerRecords[word.id]?.last?'旧・両言語の獲得記録あり':'以前の獲得（記録なし）';card.append(recordLabel);
         card.setAttribute('aria-label', `${title.textContent} · ${mode === 'ja' ? '獲得済み、詳細を見る' : 'collected, view entry'}`);
         if (lastAcquired?.lang === lang && lastAcquired.id === word.id) card.classList.add('just-collected');
         card.addEventListener('click', () => showDictionaryEntry(word, wordIndex, lang));
@@ -1051,7 +1053,7 @@
       const owned = !!saved[language].stars[word.id], badge = document.createElement('span'); badge.className = owned ? 'owned' : '';
       badge.textContent = `${bookName(language)} · ${mode === 'ja' ? (owned ? '獲得済み' : '未獲得') : (owned ? 'collected' : 'missing')}`; badges.append(badge);
     }
-    const history=document.createElement('p');history.className='answer-record';const record=saved.answerRecords[word.id];history.textContent=record?`自力正解 ${record.independent||0}回 · 答えを見て正解 ${record.assisted||0}回`:'以前の獲得：答えを見たかどうかの記録はありません';
+    const history=document.createElement('p');history.className='answer-record';const record=saved.answerRecords[word.id]?.[lang];history.textContent=record?`自力正解 ${record.independent||0}回 · 答えを見て正解 ${record.assisted||0}回`:'以前の獲得：答えを見たかどうかの記録はありません';
     const best = document.createElement('p'); best.className = 'entry-stars'; best.textContent = '✦'.repeat(saved[lang].stars[word.id]);
     const other = lang === 'ja' ? 'en' : 'ja', challengeLang = saved[other].stars[word.id] || !supports(word, other) ? lang : other;
     const challenge = document.createElement('button'); challenge.type = 'button'; challenge.className = 'modal-primary';

@@ -19,31 +19,31 @@ test('both language groups have their own adjacent path at every combined size',
   for(const group of [path.slice(0,en),path.slice(en)])for(let i=1;i<group.length;i++)assert.ok(areNeighbours(group[i-1],group[i],step));
  }
 });
-test('first correct stroke retains picture and playing state; second calls win once',()=>{
- const round=bilingualRound('cat','ねこ'),nodes=[...'CAT'].map((char,id)=>({char,id}));let wins=0;
- const c={round,nodes,mode:'en',selected:[0,1,2],answer:round.answers.en,phase:'playing',entry:{pic:'cat'},finishLanguage,
-  win:()=>wins++,sound:{win:()=>{}},speech:{speak:()=>{}},updateAnswer:()=>{},drawTrail:()=>{},setFeedback:()=>{},$:()=>({})};
- vm.runInNewContext(code.slice(code.indexOf('  function checkAnswer('),code.indexOf('  const praiseWords')),c);
- c.checkAnswer();assert.equal(wins,0);assert.equal(c.phase,'playing');assert.equal(c.entry.pic,'cat');assert.equal(c.mode,'ja');
- c.nodes=[...'ねこ'].map((char,id)=>({char,id}));c.selected=[0,1];c.checkAnswer();assert.equal(wins,1);
-});
 
-test('answer button demonstrates both complete routes once without submitting, then unlocks play',()=>{
- const round=bilingualRound('id','いど'),events=[],timers=[],buttons={hint:{},shuffle:{},game:{dataset:{}}};let handler;
- const nodes=['I','D','い','ど'].map((char,id)=>({char,lang:id<2?'en':'ja',answerIndex:id%2,button:{classList:{add:()=>events.push(char),remove:()=>{}}}}));
- const c={round,nodes,phase:'playing',shuffleBusy:false,comboEligible:true,cancelGesture:()=>{},resetSelection:()=>{},sound:{unlock:()=>{},hint:()=>{}},breakCombo:()=>{},setFeedback:()=>{},later:(fn,ms)=>timers.push({fn,ms}),$:id=>({...buttons[id],addEventListener:(_,fn)=>handler=fn})};
- vm.runInNewContext(code.slice(code.indexOf("  $('hint').addEventListener"),code.indexOf("  $('sound').addEventListener")),c);
- handler();assert.equal(round.answerViewed,true);assert.equal(c.phase,'answer-demo');assert.equal(c.comboEligible,false);
- timers.sort((a,b)=>a.ms-b.ms).forEach(t=>t.fn());assert.deepEqual(events,['I','D','い','ど']);
- assert.equal(c.phase,'playing');assert.equal(round.completed.en,false);assert.equal(round.completed.ja,false);
- assert.equal(round.hints.en,0);assert.equal(round.hints.ja,0);
+test('one correct language immediately wins without completing the other',()=>{
+ for(const mode of ['en','ja']){
+ const round=bilingualRound('id','いど');let wins=0;
+ const c={round,mode,nodes:round.answers[mode].map((char,id)=>({char,id})),selected:[0,1],answer:round.answers[mode],phase:'playing',finishLanguage,win:()=>wins++};
+ vm.runInNewContext(code.slice(code.indexOf('  function checkAnswer('),code.indexOf('  const praiseWords')),c);
+ c.checkAnswer();assert.equal(wins,1);assert.equal(round.completed[mode==='en'?'ja':'en'],false);
+ }
 });
-test('assisted and independent awards accumulate separately and keep earlier history',()=>{
- const start=code.indexOf('    const record=saved.answerRecords[entry.id]');
- const end=code.indexOf("    for(const lang of ['en','ja'])",start);
- const c={saved:{answerRecords:{}},entry:{id:'id'},round:{answerViewed:true}};
+test('answer demonstrates only the active language and records viewing only for it',()=>{
+ for(const mode of ['en','ja']){
+ const round=bilingualRound('id','いど');round.viewed={en:false,ja:false};const events=[],timers=[];let handler;
+ const nodes=['I','D','い','ど'].map((char,id)=>({char,lang:id<2?'en':'ja',answerIndex:id%2,button:{classList:{add:()=>events.push(char),remove:()=>{}}}}));
+ const c={mode,round,nodes,phase:'playing',shuffleBusy:false,comboEligible:true,cancelGesture:()=>{},resetSelection:()=>{},sound:{unlock:()=>{},hint:()=>{}},breakCombo:()=>{},setFeedback:()=>{},later:(fn,ms)=>timers.push({fn,ms}),$:()=>({dataset:{},addEventListener:(_,fn)=>handler=fn})};
+ vm.runInNewContext(code.slice(code.indexOf("  $('hint').addEventListener"),code.indexOf("  $('sound').addEventListener")),c);
+ handler();timers.sort((a,b)=>a.ms-b.ms).forEach(t=>t.fn());assert.deepEqual(events,mode==='en'?['I','D']:['い','ど']);
+ assert.equal(round.viewed[mode],true);assert.equal(round.viewed[mode==='en'?'ja':'en'],false);assert.equal(c.phase,'playing');
+ }
+});
+test('records accumulate per language while preserving old combined history',()=>{
+ const start=code.indexOf('    const wordRecords=saved.answerRecords[entry.id]');
+ const end=code.indexOf('    saved[mode].stars',start);
+ const c={saved:{answerRecords:{id:{independent:2,assisted:1}}},entry:{id:'id'},mode:'en',round:{viewed:{en:true,ja:false}}};
  const record=code.slice(start,end);
- vm.runInNewContext('{'+record+'}',c);assert.equal(c.saved.answerRecords.id.assisted,1);
- c.round.answerViewed=false;vm.runInNewContext('{'+record+'}',c);
- assert.equal(c.saved.answerRecords.id.assisted,1);assert.equal(c.saved.answerRecords.id.independent,1);assert.equal(c.saved.answerRecords.id.last,'independent');
+ vm.runInNewContext('{'+record+'}',c);assert.equal(c.saved.answerRecords.id.en.assisted,1);
+ c.mode='ja';vm.runInNewContext('{'+record+'}',c);
+ assert.equal(c.saved.answerRecords.id.ja.independent,1);assert.equal(c.saved.answerRecords.id.en.independent,0);assert.equal(c.saved.answerRecords.id.assisted,1);
 });
