@@ -42,6 +42,19 @@ test('mobile launch never requests browser fullscreen or its exit instructions',
   const manifest = JSON.parse(fs.readFileSync(require.resolve('./manifest.webmanifest'), 'utf8'));
   assert.equal(manifest.display, 'standalone');
 });
+
+test('retaining a picture pins the displayed entry even with a stale index or lost connectivity', () => {
+  const code = fs.readFileSync(require.resolve('./game.js'), 'utf8');
+  const start = code.indexOf('    // Language changes belong');
+  const end = code.indexOf('    const retainedHintCount', start);
+  const entry = {id:'current',pic:'candy',w:'きゃんでぃー'};
+  const context = {entry,catalog:[{id:'other'},entry],nextIndex:0,index:0,mode:'ja',keepPicture:true,
+    offline:{canPlay:()=>false},nextUncollected:()=>{throw new Error('Must not select another picture');},
+    closePlay:()=>{throw new Error('Must not close current picture');}};
+  vm.runInNewContext('(function(){'+code.slice(start,end)+'})()',context);
+  assert.equal(context.nextIndex,1);
+  assert.equal(context.entry,entry);
+});
 // Captured from the published 80-word route, independently of today's sorter.
 const legacyRoute = `cat dog sea key bus star duck crab shoe moon fox cloud horse chair car bread peach river flower fish cake bridge castle egg spoon ring turtle tea piano octopus clock feather grape lion sheep leaf guitar umbrella panda camera mountain honey plane rabbit bottle giraffe cheese pencil garlic banana mushroom carrot scissors cookie watermelon penguin butterfly pumpkin bicycle potato philosophy submarine constellation helicopter independence thermometer refrigerator transformation contradiction imagination crosswalk technology orchestra democracy correlation antibiotic unanimity photography unprecedented environment`.split(' ');
 

@@ -503,7 +503,11 @@
     }, delay));
   }
   function loadLevel(nextIndex, focusNext = false, keepPronunciation = false, keepHints = false, keepPicture = false) {
-    if (!catalog[nextIndex] || !offline.canPlay(catalog[nextIndex])) nextIndex = nextUncollected(mode, index);
+    // Language changes belong to the displayed entry, never to the next-word
+    // selector or to a saved language-specific index. Keep it even if offline
+    // availability changed after its picture finished loading.
+    if (keepPicture && entry) nextIndex = catalog.indexOf(entry);
+    else if (!catalog[nextIndex] || !offline.canPlay(catalog[nextIndex])) nextIndex = nextUncollected(mode, index);
     if (nextIndex < 0) { closePlay(); updateOfflineStatus(); return; }
     const retainedHintCount = keepHints ? hintCount : 0;
     pauseAdvance(); generation++; clearPending(); cancelGesture();
@@ -519,7 +523,7 @@
     $('winPronunciation').hidden = true; $('winPronunciation').replaceChildren();
     index = (nextIndex + catalog.length) % catalog.length; progress().index = index;
     entry = catalog[index];
-    if (!supports(entry, mode)) mode = 'en';
+    if (mode === 'ja' && !entry.w) mode = 'en';
     progress().index = index; progress().wordId = entry.id;
     saved.discovery = discovery.markSeen(saved.discovery, entry.id, mode); persist();
     answer = [...(mode === 'ja' ? entry.w : entry.en.toUpperCase())];
@@ -825,7 +829,7 @@
   window.addEventListener('resize', updateLayout);
   document.querySelectorAll('[data-mode]').forEach(button => button.addEventListener('click', () => {
     if (mode === button.dataset.mode) return;
-    if (!supports(entry, button.dataset.mode)) return;
+    if (!entry || (button.dataset.mode === 'ja' && !entry.w)) return;
     mode = button.dataset.mode;
     loadLevel(index, false, false, true, true);
   }));
