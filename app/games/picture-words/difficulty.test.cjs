@@ -19,22 +19,14 @@ test('every playable picture has both English and kana answers, including restor
     assert.ok(challenge(playable[index], 'en').length > 0);
   }
 });
-test('language switching keeps the current question index and artwork in both directions', () => {
-  const sourceCode = fs.readFileSync(require.resolve('./game.js'), 'utf8');
-  const start = sourceCode.indexOf("  document.querySelectorAll('[data-mode]')");
-  const end = sourceCode.indexOf("  $('retryImage')", start);
-  const handlers = {}, calls = [];
-  const context = { mode:'en', index:17, entry:{en:'candy',w:'きゃんでぃー'},
-    supports:(word,lang) => !!word[lang === 'ja' ? 'w' : 'en'],
-    document:{querySelectorAll:() => ['ja','en'].map(lang => ({dataset:{mode:lang},addEventListener:(_,fn) => { handlers[lang]=fn; }}))},
-    loadLevel:(...args) => calls.push(args),
-    nextUncollected:() => { throw new Error('Switching must never choose another question'); } };
-  vm.runInNewContext(sourceCode.slice(start,end),context);
-  handlers.ja(); handlers.en();
-  assert.deepEqual(calls, [[17,false,false,true,true],[17,false,false,true,true]]);
-  assert.equal(context.mode,'en');
-  context.entry.w = ''; handlers.ja();
-  assert.equal(calls.length,2); assert.equal(context.mode,'en');
+test('both pronunciation buttons preserve the current bilingual round and artwork',()=>{
+ const code=fs.readFileSync(require.resolve('./game.js'),'utf8'),handlers={},spoken=[];
+ const round={answers:{en:[...'CAT'],ja:[...'ねこ']},completed:{en:false,ja:false},hints:{en:0,ja:0}};
+ const entry={en:'cat',w:'ねこ',pic:'cat'};
+ const context={entry,round,phase:'playing',mode:'en',cancelGesture:()=>{},speech:{stop:()=>{},speak:(...args)=>spoken.push(args)},$:()=>({}),
+ document:{querySelectorAll:()=>['ja','en'].map(lang=>({dataset:{mode:lang},addEventListener:(_,fn)=>handlers[lang]=fn}))}};
+ vm.runInNewContext(code.slice(code.indexOf("  document.querySelectorAll('[data-mode]')"),code.indexOf("  $('retryImage')")),context);
+ handlers.ja();handlers.en();assert.deepEqual(spoken,[[entry,'ja',false,true],[entry,'en',false,true]]);assert.equal(context.round,round);assert.equal(context.entry,entry);
 });
 test('mobile launch never requests browser fullscreen or its exit instructions', () => {
   const game = fs.readFileSync(require.resolve('./game.js'), 'utf8');

@@ -877,3 +877,48 @@ html[data-layout=mobile] .wheel[data-letter-count] .letters .letter,
   html[data-layout=mobile] #shuffle svg{width:19px;height:19px}
   html[data-layout=mobile] .feedback{position:fixed;top:48px}
 }
+
+/* Both languages stay opaque and selectable from the beginning. */
+.wheel .letters .letter{opacity:1!important}
+.wheel .letters .letter[data-lang=en]{background:#ffdf8c;color:#392652}
+.wheel .letters .letter[data-lang=ja]{background:#b8e8ef;color:#173b61}
+.wheel .letters .letter.language-complete{background:#c5ebc8!important;color:#245b30!important;opacity:1!important}
+.bilingual-answers{display:grid;grid-template-columns:1fr 1fr;gap:12px;width:100%}
+.language-answer{min-width:0;text-align:center}
+.answer-language{display:block;font-size:10px;font-weight:700;line-height:16px}
+.answer-cells{display:flex;justify-content:center;gap:2px}
+.bilingual-answers .answer-tile{flex:1 1 0;min-width:0;max-width:28px;width:auto;height:28px;font-size:17px;border-radius:5px;border-width:2px}
+.play-toolbar{grid-column:1/-1;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px;padding:8px;background:var(--panel);border-top:1px solid var(--panel-edge)}
+.play-toolbar #listenClue{display:none!important}
+.play-toolbar button{position:relative;height:44px;margin:0;padding:3px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;border-radius:8px;font-size:10px;box-shadow:none!important;transform:none!important}
+.play-toolbar button svg{width:19px;height:19px}
+.play-toolbar #modeJa,.play-toolbar #modeEn{background:#1763a6;color:#fff}
+.play-toolbar #jaClearMark,.play-toolbar #enClearMark{display:none}
+@media(orientation:portrait){
+ html[data-layout=mobile]{--wheel:min(360px,calc(100vw - 24px));--card:clamp(60px,calc(var(--play-height) - var(--board-height) - 194px),min(360px,calc(100vw - 24px)))}
+ html[data-layout=mobile] .play-layout{grid-template-rows:var(--card) 48px var(--board-height);padding-bottom:calc(62px + env(safe-area-inset-bottom))}
+ html[data-layout=mobile] .bilingual-answers{min-height:48px;gap:10px}
+ html[data-layout=mobile] .bilingual-answers .answer-tile{height:26px;width:auto;flex-basis:0;font-size:16px;border-radius:5px}
+ html[data-layout=mobile] .play-toolbar{position:fixed;z-index:12;left:0;right:0;bottom:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px;margin:0;padding:8px 10px calc(8px + env(safe-area-inset-bottom));height:auto;width:auto;border-radius:0;box-shadow:none}
+ html[data-layout=mobile] .play-toolbar #modeJa,html[data-layout=mobile] .play-toolbar #modeEn,html[data-layout=mobile] .play-toolbar #shuffle,html[data-layout=mobile] .play-toolbar #collection,html[data-layout=mobile] .play-toolbar #hint{grid-row:1;grid-column:auto;height:44px;border-radius:8px;box-shadow:none}
+ html[data-layout=mobile] .play-toolbar #listenClue{display:none!important}
+}
+
+.wheel .letters .letter[data-lang=en]{background:#ffdf8c!important;color:#392652!important}
+.wheel .letters .letter[data-lang=ja]{background:#b8e8ef!important;color:#173b61!important}
+.wheel .letters .letter[data-lang].selected{background:#1763a6!important;color:#fff!important}
+.wheel .letters .letter[data-lang].language-complete{background:#c5ebc8!important;color:#245b30!important}
+html[data-layout=mobile] .play-toolbar #modeJa,html[data-layout=mobile] .play-toolbar #modeEn{background:#1763a6;color:#fff}
+
+/* Answer demonstration is a single ordered wave, never an idle bounce. */
+#wheel #letters .letter.answer-wave[data-lang]{background:#ef467c!important;color:#fff!important;scale:1.16;z-index:8;filter:brightness(1.1);transition:scale .14s ease,background .14s ease}
+.answer-record{display:block;color:#493565;font-size:12px;font-weight:800}
+#rewardScene[data-record] #rewardBadge{font-size:clamp(16px,4vw,24px);font-weight:900}
+#rewardScene[data-record="assisted"] #rewardSeal{background:#e59b27;color:#241835}
+#rewardScene[data-record="independent"] #rewardSeal{background:#147961;color:white}
+@media(prefers-reduced-motion:reduce){#wheel #letters .letter.answer-wave[data-lang]{scale:1;transition:none}}
+
+#rewardScene[data-record] #rewardBadge{margin:10px 0 16px;padding:10px 8px;border-radius:12px;line-height:1.35;background:#17694f;color:white;-webkit-text-stroke:0;text-shadow:none;animation:badge-in .35s ease-out both}
+#rewardScene[data-record="assisted"] #rewardBadge{background:#9b5714}
+#rewardScene[data-record] #dailyReward{margin-top:0}
+#rewardScene[data-record] .book-right{padding-top:30px}

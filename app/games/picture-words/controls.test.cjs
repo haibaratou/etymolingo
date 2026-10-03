@@ -76,8 +76,8 @@ test('a released stroke has no remaining SVG trail',()=>{
 
 test('selection refuses a non-neighbour, but allows the next adjacent cell',()=>{
  const {advanceSelection,areNeighbours}=require('./gesture.js');
- const nodes=[0,1,2].map(id=>({id,x:id*100,y:0,button:{hidden:false,classList:{remove:()=>{}}}}));
- const context={phase:'playing',selected:[0],nodes,answer:['A','B','C'],ringBatches:[[0,1,2]],areNeighbours,advanceSelection,canSelectRing:()=>true,
+ const nodes=[0,1,2].map(id=>({id,lang:'en',x:id*100,y:0,button:{hidden:false,classList:{remove:()=>{}}}}));
+ const context={mode:'en',hintCount:0,tileStep:()=>100,round:{answers:{en:['A','B','C']},hints:{en:0},completed:{en:false}},phase:'playing',selected:[0],nodes,answer:['A','B','C'],ringBatches:[[0,1,2]],areNeighbours,advanceSelection,canSelectRing:()=>true,
   sound:{pick:()=>{}},vibrate:()=>{},petals:{burst:()=>{}},boardHeight:120,updateAnswer:()=>{},drawTrail:()=>{},$:()=>({getBoundingClientRect:()=>({left:0,top:0,width:360,height:120})})};
  const start=code.indexOf('  function selectNode('),end=code.indexOf('  function pauseAdvance(',start);
  vm.runInNewContext(code.slice(start,end),context);context.selectNode(2);assert.equal(context.selected.length,1);
@@ -85,16 +85,16 @@ test('selection refuses a non-neighbour, but allows the next adjacent cell',()=>
 });
 test('actual pointer handlers finish an adjacent stroke and erase cancelled selections',()=>{
  const g=require('./gesture.js'),ctx={};
- vm.runInNewContext(code.slice(code.indexOf('  function letterPositions('),code.indexOf('  function arrangeNodes(')),ctx);
+ vm.runInNewContext(code.slice(code.indexOf('  function tileStep('),code.indexOf('  function arrangeNodes(')),ctx);
  for(const length of [3,6,14]){
   const dual=length>8,inner=dual?6:length,step=length<=4?100:length<=8?86:68;
   const cells=[...ctx.letterPositions(inner,0,dual,length),...(dual?ctx.letterPositions(length-inner,1,dual,length):[])];
   const route=g.connectedPath(cells,step),plan=g.planLetters(Array.from({length},(_,i)=>String(i)),[],inner,dual);
-  const nodes=plan.letters.map((n,i)=>({...n,...route[i],button:{hidden:false,offsetWidth:step*.94,classList:{remove:()=>{}}}}));
+  const nodes=plan.letters.map((n,i)=>({...n,lang:'en',...route[i],button:{hidden:false,offsetWidth:step*.94,classList:{remove:()=>{}}}}));
   const handlers={};let result=null;
   const wheel={getBoundingClientRect:()=>({left:0,top:0,width:360,height:360}),addEventListener:(name,fn)=>handlers[name]=fn,
    setPointerCapture:()=>{},hasPointerCapture:()=>true,releasePointerCapture:()=>{},classList:{add:()=>{},remove:()=>{}}};
-  const c={...g,nodes,selected:[999],ringBatches:plan.batches,answer:plan.letters.map(n=>n.char),boardHeight:360,phase:'playing',shuffleBusy:false,pointer:null,wheelRect:null,
+  const c={...g,tileStep:ctx.tileStep,mode:'en',hintCount:0,round:{answers:{en:plan.letters.map(n=>n.char)},hints:{en:0},completed:{en:false}},nodes,selected:[999],ringBatches:plan.batches,answer:plan.letters.map(n=>n.char),boardHeight:360,phase:'playing',shuffleBusy:false,pointer:null,wheelRect:null,
    $:()=>wheel,sound:{unlock:()=>{},pick:()=>{}},vibrate:()=>{},petals:{burst:()=>{}},updateAnswer:()=>{},drawTrail:()=>{},setFeedback:()=>{},text:()=>({}),
    resetSelection:()=>{c.selected=[];},checkAnswer:()=>{result=[...c.selected];}};
   vm.runInNewContext(code.slice(code.indexOf('  function selectNode('),code.indexOf('  function pauseAdvance(')),c);

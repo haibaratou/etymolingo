@@ -20,7 +20,7 @@ test('GLASSES shows all three S letters together; longer words never have a lone
 
 test('honeycomb targets remain separated, inside the board and fixed between phases', () => {
   const code=fs.readFileSync(require.resolve('./game.js'),'utf8');
-  const fn=code.slice(code.indexOf('  function letterPositions('),code.indexOf('  function layoutNodes('));
+  const fn=code.slice(code.indexOf('  function tileStep('),code.indexOf('  function layoutNodes('));
   const context={};vm.runInNewContext(fn,context);
   for(let length=2;length<=14;length++){
     const dual=length>8,inner=dual?Math.min(6,Math.ceil(length/2)):length;
@@ -83,7 +83,7 @@ test('TRANSFORMATION shows all fourteen required letters, including both N and O
 
 test('six tiles lie on a staggered hex lattice with equally spaced neighbours',()=>{
  const code=fs.readFileSync(require.resolve('./game.js'),'utf8'),ctx={};
- vm.runInNewContext(code.slice(code.indexOf('  function letterPositions('),code.indexOf('  function layoutNodes(')),ctx);
+ vm.runInNewContext(code.slice(code.indexOf('  function tileStep('),code.indexOf('  function layoutNodes(')),ctx);
  const points=ctx.letterPositions(6,0,false,6),step=86;
  const rows=[...new Set(points.map(p=>p.y))].sort((a,b)=>a-b);
  assert.equal(rows.length,2);
@@ -96,7 +96,7 @@ test('six tiles lie on a staggered hex lattice with equally spaced neighbours',(
 test('every size and shuffle has an adjacent one-stroke solution, with no reused cells',()=>{
  const {connectedPath,areNeighbours}=require('./gesture.js');
  const code=fs.readFileSync(require.resolve('./game.js'),'utf8'),ctx={};
- vm.runInNewContext(code.slice(code.indexOf('  function letterPositions('),code.indexOf('  function arrangeNodes(')),ctx);
+ vm.runInNewContext(code.slice(code.indexOf('  function tileStep('),code.indexOf('  function arrangeNodes(')),ctx);
  for(let length=2;length<=14;length++){
   const dual=length>8,inner=dual?Math.min(6,Math.ceil(length/2)):length;
   const cells=[...ctx.letterPositions(inner,0,dual,length),...(dual?ctx.letterPositions(length-inner,1,dual,length):[])];

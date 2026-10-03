@@ -12,14 +12,14 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=M+PLUS+Rounded+1c:wght@500;700;800&display=swap">
   <link rel="manifest" href="picture-words/manifest.webmanifest">
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <link rel="stylesheet" href="picture-words/style.css?v=compact-toolbar1">
+  <link rel="stylesheet" href="picture-words/style.css?v=bilingual-answer2">
   <script src="picture-words/catalog.js?v=mobile2" defer></script>
   <script src="picture-words/difficulty.js?v=visible-letters1" defer></script>
-  <script src="picture-words/gesture.js?v=adjacent1" defer></script>
+  <script src="picture-words/gesture.js?v=bilingual-answer2" defer></script>
   <script src="picture-words/pronunciation.js?v=listen1" defer></script>
   <script src="picture-words/progression.js?v=discovery1" defer></script>
   <script src="picture-words/offline.js?v=start2" defer></script>
-  <script src="picture-words/game.js?v=one-stroke1" defer></script>
+  <script src="picture-words/game.js?v=bilingual-answer2" defer></script>
 </head>
 <body>
   <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -87,14 +87,6 @@
 
           </div>
           <div class="answer-wrap">
-            <div class="bilingual-control">
-              <div class="language-switch puzzle-language" role="group" aria-label="この問題を答える言語">
-                <button id="modeJa" type="button" data-mode="ja" aria-label="日本語" aria-pressed="true"><span>日本語</span><small id="jaClearMark"></small></button>
-                <span class="language-bridge" aria-hidden="true">⇄</span>
-                <button id="modeEn" type="button" data-mode="en" aria-label="ENGLISH" aria-pressed="false"><span>ENGLISH</span><small id="enClearMark"></small></button>
-              </div>
-            <button id="shuffle" class="action-button shuffle-button" type="button" aria-label="まぜる"><svg><use href="#i-shuffle"/></svg><span id="shuffleLabel">まぜる</span><span id="centerLabel" hidden></span></button>
-            </div>
             <div class="answer" id="answer" aria-label="答えのマス"></div>
             <div class="answer-info" hidden><span id="answerInfo"></span></div>
           </div>
@@ -114,13 +106,16 @@
             <button id="undo" type="button" hidden aria-label="一文字もどす"></button>
           </div>
           <div class="feedback" id="feedback" role="status" aria-live="polite"></div>
-          <div class="game-actions" id="gameActions">
-            <button id="listenClue" class="action-button" type="button" aria-label="発音を聞く"><svg><use href="#i-sound"/></svg><span id="listenClueLabel" aria-live="polite">聞く</span></button>
-            <button id="collection" class="action-button collection-button" type="button"><svg><use href="#i-book"/></svg><span id="collectionLabel">辞書</span><span id="collectionCount">0</span></button>
-            <button id="hint" class="action-button hint-button" type="button"><svg><use href="#i-bulb"/></svg><span id="hintLabel">ひと文字ヒント</span><span class="free-tag" id="freeTag">FREE</span></button>
-          </div>
           <p class="gesture-note" id="gestureNote" hidden></p>
         </section>
+        <div class="play-toolbar" id="gameActions" role="group" aria-label="ゲーム操作">
+          <button id="modeJa" type="button" data-mode="ja" aria-label="かなの発音を聞く" aria-pressed="true"><svg><use href="#i-sound"/></svg><span>かな</span><small id="jaClearMark"></small></button>
+          <button id="modeEn" type="button" data-mode="en" aria-label="英語の発音を聞く" aria-pressed="false"><svg><use href="#i-sound"/></svg><span>English</span><small id="enClearMark"></small></button>
+          <button id="listenClue" class="action-button" type="button" aria-label="発音を聞く"><svg><use href="#i-sound"/></svg><span id="listenClueLabel" aria-live="polite">聞く</span></button>
+          <button id="shuffle" class="action-button shuffle-button" type="button" aria-label="まぜる"><svg><use href="#i-shuffle"/></svg><span id="shuffleLabel">まぜる</span><span id="centerLabel" hidden></span></button>
+          <button id="collection" class="action-button collection-button" type="button"><svg><use href="#i-book"/></svg><span id="collectionLabel">辞書</span><span id="collectionCount">0</span></button>
+          <button id="hint" class="action-button hint-button" type="button"><svg><use href="#i-bulb"/></svg><span id="hintLabel">答え</span><span class="free-tag" id="freeTag">FREE</span></button>
+        </div>
       </div>
 
       <footer class="garden-footer"><div><svg><use href="#i-leaf"/></svg><span id="footerNote">正解するたび、辞書が育つ。</span></div></footer>

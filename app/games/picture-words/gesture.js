@@ -46,7 +46,13 @@
     for(const i of order(points.map((_,i)=>i)))if(visit(i))return path.map(j=>({...points[j]}));
     throw new Error('No connected path for this letter layout');
   }
-  const api = { areNeighbours, connectedPath, advanceSelection, sweptHits, activeBatch, canSelectRing, planLetters };
+  function bilingualRound(en,ja){return {answers:{en:[...en.toUpperCase()],ja:[...ja]},completed:{en:false,ja:false},hints:{en:0,ja:0}};}
+  function finishLanguage(round,language,word){
+    if(round.completed[language] || word!==round.answers[language].join(''))return 'incorrect';
+    round.completed[language]=true;
+    return round.completed.en && round.completed.ja ? 'complete':'partial';
+  }
+  const api = { bilingualRound, finishLanguage, areNeighbours, connectedPath, advanceSelection, sweptHits, activeBatch, canSelectRing, planLetters };
   if (typeof module === 'object' && module.exports) module.exports = api;
   else root.WordBloomGesture = api;
 })(typeof window === 'undefined' ? globalThis : window);
