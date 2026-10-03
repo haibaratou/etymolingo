@@ -80,3 +80,33 @@ test('TRANSFORMATION shows all fourteen required letters, including both N and O
   assert.ok(letters.every(n=>n.batch===0||n.batch===1));
   assert.equal(activeBatch(Array.from({length:12},(_,i)=>i),batches),1);
 });
+
+test('six tiles lie on a staggered hex lattice with equally spaced neighbours',()=>{
+ const code=fs.readFileSync(require.resolve('./game.js'),'utf8'),ctx={};
+ vm.runInNewContext(code.slice(code.indexOf('  function letterPositions('),code.indexOf('  function layoutNodes(')),ctx);
+ const points=ctx.letterPositions(6,0,false,6),step=86;
+ const rows=[...new Set(points.map(p=>p.y))].sort((a,b)=>a-b);
+ assert.equal(rows.length,2);
+ assert.ok(Math.abs(rows[1]-rows[0]-step*Math.sqrt(3)/2)<1e-8);
+ const first=points.filter(p=>p.y===rows[0]),second=points.filter(p=>p.y===rows[1]);
+ assert.ok(Math.abs(Math.abs(first[0].x-second[0].x)-step/2)<1e-8);
+ for(const p of points)assert.ok(Math.abs(Math.min(...points.filter(q=>q!==p).map(q=>Math.hypot(q.x-p.x,q.y-p.y)))-step)<1e-8);
+});
+
+test('every size and shuffle has an adjacent one-stroke solution, with no reused cells',()=>{
+ const {connectedPath,areNeighbours}=require('./gesture.js');
+ const code=fs.readFileSync(require.resolve('./game.js'),'utf8'),ctx={};
+ vm.runInNewContext(code.slice(code.indexOf('  function letterPositions('),code.indexOf('  function arrangeNodes(')),ctx);
+ for(let length=2;length<=14;length++){
+  const dual=length>8,inner=dual?Math.min(6,Math.ceil(length/2)):length;
+  const cells=[...ctx.letterPositions(inner,0,dual,length),...(dual?ctx.letterPositions(length-inner,1,dual,length):[])];
+  const step=length<=4?100:length<=8?86:68;
+  for(let seed=1;seed<=100;seed++){
+   let state=seed;const random=()=>{state=(Math.imul(state,1664525)+1013904223)>>>0;return state/4294967296;};
+   const route=connectedPath(cells,step,random);
+   assert.equal(new Set(route.map(p=>`${p.x},${p.y}`)).size,length);
+   for(let i=1;i<route.length;i++)assert.ok(areNeighbours(route[i-1],route[i],step));
+  }
+  assert.equal(areNeighbours({x:0,y:0},{x:step*2,y:0},step),false);
+ }
+});

@@ -15,14 +15,14 @@
   const byId = new Map(catalog.map(word => [word.id, word]));
   const supports = (word, lang) => offline.canPlay(word) && (lang === 'en' || !!word.w);
   const availableCount = lang => catalog.filter(word => supports(word, lang)).length;
-  const { advanceSelection, sweptHits, activeBatch, canSelectRing, planLetters } = window.WordBloomGesture;
+  const { areNeighbours, connectedPath, advanceSelection, sweptHits, activeBatch, canSelectRing, planLetters } = window.WordBloomGesture;
   const KEY = 'word-bloom-v1';
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
   const copy = {
     ja: {
       gardens: ['はじまりの庭', 'おいしい小道', 'どうぶつの森', '暮らしのアトリエ', '自然のたからもの', 'まだ見ぬ世界へ'],
       title: 'この絵、なんのことば？', instruction: '文字をなぞって、つなげよう',
-      release: '', note: 'タップでも、なぞっても選べます',
+      release: '', note: 'ひと筆でつなぎ、離して答える',
       shuffle: 'まぜる', hint: 'ヒント', next: '次の単語をゲット', footer: '正解するたび、辞書が育つ。',
       collection: '辞書', found: '単語ゲット',
       connect: 'つなぐ', undo: 'もどす', correct: '単語ゲット！', wrong: 'おしい！ もう一度つないでみよう',
@@ -37,7 +37,7 @@
     en: {
       gardens: ['The first garden', 'A tasty little path', 'Animal friends', 'Everyday wonders', 'Treasures of nature', 'A world to discover'],
       title: 'One picture. Which word?', instruction: 'Swipe the letters. Find the word.',
-      release: '', note: 'Tap letters or swipe to connect',
+      release: '', note: 'Connect in one stroke; release to answer',
       shuffle: 'Shuffle', hint: 'Hint', next: 'Collect the next word', footer: 'Every word fills another page.',
       collection: 'Dictionary', found: 'words collected',
       connect: 'connect', undo: 'undo', correct: 'WORD GET!', wrong: 'Almost! Give it another go.',
@@ -68,7 +68,7 @@
   let mode = saved.mode;
   let index = saved[mode].index;
   let entry, answer = [], nodes = [], selected = [], hintCount = 0, mistakes = 0;
-  let phase = 'loading', generation = 0, pointer = null, wheelRect = null, shuffleBusy = false;
+  let phase = 'loading', generation = 0, pointer = null, wheelRect = null, shuffleBusy = false, boardHeight = 360;
   let feedbackTimer = 0;
   let dictionaryLanguage = mode, dictionaryFilter = 'all', lastAcquired = null, dictionaryPage = 0, dictionaryQuery = '';
   const DICTIONARY_PAGE_SIZE = 48;
@@ -403,31 +403,49 @@
   }
   // A close-packed hexagonal lattice keeps strokes short without moving targets.
   function letterPositions(count, batch, dual, total = count) {
-    const rowsByCount = {2:[2],3:[3],4:[2,2],5:[2,3],6:[3,3],7:[2,3,2],8:[3,2,3],9:[3,3,3],10:[3,4,3],11:[4,3,4],12:[4,4,4],13:[3,4,3,3],14:[3,4,4,3]};
-    const rows=rowsByCount[total] || [total], step=total<=4?96:total<=8?82:68;
+    const rowsByCount = {2:[2],3:[3],4:[2,2],5:[2,3],6:[3,3],7:[2,3,2],8:[3,2,3],9:[3,3,3],10:[3,4,3],11:[4,3,4],12:[4,4,4],13:[3,4,3,3],14:[3,4,3,4]};
+    const rows=rowsByCount[total] || [total], step=total<=4?100:total<=8?86:68;
     const points=[];
     rows.forEach((length,row)=>{
-      for(let col=0;col<length;col++) points.push({x:180+(col-(length-1)/2)*step,y:180+(row-(rows.length-1)/2)*step*1.08});
+      const first=-Math.floor((length+row)/2);
+      for(let col=0;col<length;col++) points.push({x:(first+col+row/2)*step,y:row*step*Math.sqrt(3)/2});
     });
+    const cx=(Math.min(...points.map(p=>p.x))+Math.max(...points.map(p=>p.x)))/2;
+    const cy=(Math.min(...points.map(p=>p.y))+Math.max(...points.map(p=>p.y)))/2;
+    for(const p of points){p.x+=180-cx;p.y+=180-cy;}
     if(!dual) return points;
     // Opening letters occupy the centre; later letters surround them without a hole.
     points.sort((a,b)=>Math.hypot(a.x-180,a.y-180)-Math.hypot(b.x-180,b.y-180));
     const inner=Math.min(6,Math.ceil(total/2));
     return batch===0?points.slice(0,inner):points.slice(inner);
   }
+  function arrangeNodes(){
+    const dual=ringBatches.length>1,inner=ringBatches[0].length;
+    const cells=[...letterPositions(inner,0,dual,nodes.length),...(dual?letterPositions(nodes.length-inner,1,true,nodes.length):[])];
+    const step=nodes.length<=4?100:nodes.length<=8?86:68;
+    const route=connectedPath(cells,step);
+    for(const node of nodes){const p=route[node.answerIndex];node.baseX=p.x;node.baseY=p.y;}
+  }
   function layoutNodes() {
     const active = activeBatch(selected, ringBatches);
     $('wheel').dataset.activeRing = active === 0 ? 'inner' : 'outer';
     $('wheel').dataset.letterCount = String(nodes.length);
-    for (let batch = 0; batch < ringBatches.length; batch++) {
-      const group = nodes.filter(node => node.batch === batch);
-      const positions = letterPositions(group.length,batch,ringBatches.length>1,nodes.length);
-      group.forEach((node, i) => {
-        Object.assign(node,positions[i]);
-        node.button.style.left = `${node.x / 3.6}%`; node.button.style.top = `${node.y / 3.6}%`;
-      });
+    for(const node of nodes){node.x=node.baseX;node.y=node.baseY;}
+    const step=nodes.length<=4?100:nodes.length<=8?86:68;
+    const tileWidth=step*.94, pad=tileWidth/Math.sqrt(3)+4;
+    const top=Math.min(...nodes.map(n=>n.y)),bottom=Math.max(...nodes.map(n=>n.y));
+    boardHeight=bottom-top+pad*2;
+    document.documentElement.style.setProperty('--board-ratio',String(boardHeight/360));
+    $('wheel').style.setProperty('--hex-size',`${tileWidth/3.6}cqw`);
+    $('wheel').style.aspectRatio=`360 / ${boardHeight}`;
+    $('trail').setAttribute('viewBox',`0 0 360 ${boardHeight}`);
+    for(const node of nodes){
+      node.y=node.y-top+pad;
+      node.button.style.left=`${node.x/3.6}%`;
+      node.button.style.top=`${node.y/boardHeight*100}%`;
     }
   }
+
   function makeWheel() {
     const profile = difficulty.challenge(entry, mode);
     const plan = planLetters(answer, [], profile.innerCount, profile.dual); ringBatches = plan.batches; lastActiveBatch = -1;
@@ -440,7 +458,7 @@
       button.addEventListener('click', event => { if (event.detail === 0 && phase === 'playing' && !shuffleBusy) { sound.unlock(); selectNode(id); if (selected.length >= answer.length) checkAnswer(); else setFeedback(text().tap); } });
       return { ...node, button, x: 0, y: 0 };
     });
-    $('letters').replaceChildren(...nodes.map(node => node.button)); layoutNodes();
+    $('letters').replaceChildren(...nodes.map(node => node.button)); arrangeNodes(); layoutNodes();
     $('letters').classList.add('intro'); later(() => $('letters').classList.remove('intro'), 520 + nodes.length * 55);
   }
   function updateAnswer() {
@@ -477,7 +495,8 @@
     lastActiveBatch = batch;
   }
   function drawTrail(tip = null) {
-    const points = selected.map(id => { const n = nodes.find(item => item.id === id); return `${n.x},${n.y}`; });
+    const points = pointer ? selected.map(id => { const n = nodes.find(item => item.id === id); return `${n.x},${n.y}`; }) : [];
+    $('trail').style.visibility = pointer ? 'visible' : 'hidden';
     if (tip && points.length) points.push(`${tip.x},${tip.y}`);
     $('trailLine').setAttribute('points', points.join(' ')); $('trailGlow').setAttribute('points', points.join(' '));
     if (tip) { $('trailTip').setAttribute('cx', tip.x); $('trailTip').setAttribute('cy', tip.y); }
@@ -490,6 +509,9 @@
     if (phase !== 'playing') return;
     const candidate = nodes.find(node => node.id === id);
     if (selected.includes(id)) return;
+    const previous=nodes.find(node=>node.id===selected.at(-1));
+    const step=nodes.length<=4?100:nodes.length<=8?86:68;
+    if(previous && !areNeighbours(previous,candidate,step)) return;
     if (candidate.button.hidden || !canSelectRing(candidate, selected, ringBatches)) return;
     const next = advanceSelection(selected, id, answer.length);
     if (next === selected) return;
@@ -498,7 +520,7 @@
     node.button.classList.remove('hint-target');
     sound.pick(selected.length, node.x); vibrate(7);
     const rect = $('wheel').getBoundingClientRect();
-    petals.burst(rect.left + node.x / 360 * rect.width, rect.top + node.y / 360 * rect.height, 10);
+    petals.burst(rect.left + node.x / 360 * rect.width, rect.top + node.y / boardHeight * rect.height, 10);
     updateAnswer(); drawTrail();
   }
 
@@ -737,7 +759,7 @@
 
   function pointFrom(event) {
     const rect = wheelRect || $('wheel').getBoundingClientRect();
-    return { x: (event.clientX - rect.left) / rect.width * 360, y: (event.clientY - rect.top) / rect.height * 360 };
+    return { x: (event.clientX - rect.left) / rect.width * 360, y: (event.clientY - rect.top) / rect.height * boardHeight };
   }
   function hitRadius(node) { return Math.min(52, node.button.offsetWidth / (wheelRect.width / 360) / 2 + 5); }
   function nearest(point) {
@@ -750,19 +772,6 @@
   function passRadius(node) { return node.button.offsetWidth / (wheelRect.width / 360) / 2 * .85; }
   function sweep(from, to) {
     for (const id of sweptHits(nodes.filter(node => !node.button.hidden), from, to, passRadius)) selectNode(id);
-    repeatLetter(to);
-  }
-  // Double letters (CORRECT, ROLL, もも…): leaving the last letter and coming back onto it
-  // takes its unused twin, so the same circle can be "used twice" naturally.
-  function repeatLetter(position) {
-    const last = nodes.find(node => node.id === selected.at(-1));
-    if (!pointer || !last) return;
-    const distance = Math.hypot(position.x - last.x, position.y - last.y), radius = hitRadius(last);
-    if (distance > radius * 1.1) { pointer.exited = last.id; return; }
-    if (pointer.exited !== last.id || distance > radius * .9) return;
-    pointer.exited = null;
-    const twin = nodes.find(node => node.char === last.char && !selected.includes(node.id) && !node.button.hidden);
-    if (twin) selectNode(twin.id);
   }
   function cancelGesture() {
     if (pointer && $('wheel').hasPointerCapture?.(pointer.id)) $('wheel').releasePointerCapture(pointer.id);
@@ -771,6 +780,7 @@
   }
   $('wheel').addEventListener('pointerdown', event => {
     if (phase !== 'playing' || shuffleBusy || pointer || !event.isPrimary || event.button !== 0 || event.target.closest('#shuffle')) return;
+    resetSelection();
     wheelRect = $('wheel').getBoundingClientRect();
     const position = pointFrom(event), node = nearest(position); if (!node) { wheelRect = null; return; }
     event.preventDefault(); sound.unlock();
@@ -795,9 +805,9 @@
     const pointerId = pointer.id;
     pointer = null; wheelRect = null;
     if ($('wheel').hasPointerCapture(pointerId)) $('wheel').releasePointerCapture(pointerId);
-    $('wheel').classList.remove('dragging');
+    $('wheel').classList.remove('dragging'); drawTrail();
     if (selected.length >= answer.length) checkAnswer();
-    else { updateAnswer(); drawTrail(); setFeedback(text().tap); }
+    else { resetSelection(); setFeedback(text().release); }
   });
   $('wheel').addEventListener('pointercancel', event => { if (pointer?.id === event.pointerId) cancelGesture(); });
   $('wheel').addEventListener('lostpointercapture', event => { if (pointer?.id === event.pointerId) cancelGesture(); });
@@ -825,7 +835,7 @@
     cancelGesture(); sound.unlock(); sound.mix(); shuffleBusy = true;
     const old = nodes.map(node => node.id).join(','); shuffle(nodes);
     if (nodes.map(node => node.id).join(',') === old) nodes.push(nodes.shift());
-    layoutNodes(); setFeedback(text().mix, '', true);
+    arrangeNodes(); layoutNodes(); setFeedback(text().mix, '', true);
     later(() => { shuffleBusy = false; }, reducedMotion.matches ? 0 : 470);
   });
   $('listenClue').addEventListener('click', () => {
