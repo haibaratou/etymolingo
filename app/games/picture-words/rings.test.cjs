@@ -18,14 +18,19 @@ test('GLASSES shows all three S letters together; longer words never have a lone
   }
 });
 
-test('both rings stay fixed and every full-sized letter stays inside the wheel', () => {
+test('honeycomb targets remain separated, inside the board and fixed between phases', () => {
   const code=fs.readFileSync(require.resolve('./game.js'),'utf8');
-  const fn=code.slice(code.indexOf('  function ringRadius('),code.indexOf('  function layoutNodes('));
-  const context={ringBatches:[[],[]]};vm.runInNewContext(fn,context);
-  for(const batch of [0,1]) {
-    const radius=context.ringRadius(batch,0);
-    assert.equal(radius,context.ringRadius(batch,1));
-    assert.ok(radius+360*.16/2 < 180);
+  const fn=code.slice(code.indexOf('  function letterPositions('),code.indexOf('  function layoutNodes('));
+  const context={};vm.runInNewContext(fn,context);
+  for(let length=2;length<=14;length++){
+    const dual=length>8,inner=dual?Math.min(6,Math.ceil(length/2)):length;
+    const points=[...context.letterPositions(inner,0,dual),...context.letterPositions(length-inner,1,dual)];
+    for(const p of points){
+      assert.ok(p.x>=30&&p.x<=330&&p.y>=32&&p.y<=328);
+      assert.ok(Math.hypot(p.x-180,p.y-180)>=59);
+      for(const q of points)if(p!==q)assert.ok(Math.hypot(p.x-q.x,p.y-q.y)>=59);
+    }
+    assert.equal(new Set(points.map(p=>`${p.x},${p.y}`)).size,length);
   }
 });
 test('every answer is complete in one or two rings, without paging or hiding letters', () => {
