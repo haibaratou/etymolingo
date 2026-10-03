@@ -1015,7 +1015,7 @@
   }
   function startPlay() {
     $('launchScreen').close(); window.scrollTo(0, 0); sound.unlock();
-    loadLevel(phase === 'solved' ? nextUncollected(mode, index) : index);
+    loadLevel(phase === 'solved' ? nextUncollected(mode, index) : index, false, false, true, true);
   }
   function updateOfflineStatus() {
     const count = catalog.filter(word => offline.state.pictures.has(word.pic)).length;
