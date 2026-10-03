@@ -1,4 +1,4 @@
-﻿ファイル名,語義,対象語義,画像生成プロンプト,プロンプト準備状況,要確認理由,画風参照画像
+﻿﻿ファイル名,語義,対象語義,画像生成プロンプト,プロンプト準備状況,要確認理由,画風参照画像
 impurity.png,不純物を含んでいる状態、不潔さ,不純物を含んでいる状態,"Subject: Water containing visible impurities.
 
 Composition: Show a clear glass jar of water with suspended dark specks and a thin muddy sediment layer on the bottom. A gloved hand holds the jar up so the unwanted particles are easy to see.
@@ -1970,15 +1970,15 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
 Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png
-sulphate.png,硫酸,硫酸,"Subject: Sulfuric acid.
+sulphate.png,硫酸塩、硫酸イオン,硫酸イオン,"Subject: A sulfate ion.
 
-Composition: Show a stoppered laboratory bottle containing a clear colorless liquid in a shallow protective tray. Its label carries the chemical formula 'H2SO4' and a small corrosive-hazard pictogram.
+Composition: Show one ball-and-stick sulfate ion with a yellow sulfur sphere at the center and four equal red oxygen spheres at the corners of a tetrahedron, each joined directly to sulfur. Place only SO₄²⁻ beneath the model and include no hydrogen spheres.
 
 Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. Allow only H2SO4 and the corrosive-hazard pictogram as essential chemical and safety identification. No incidental labels, logos or watermark.",作成済み,,references/invidious.png
+Output: 512x512 PNG, RGBA, genuine transparent background. Allow only SO₄²⁻ as essential chemical notation. No other text, labels, logos or watermark.",作成済み,,references/invidious.png
 tractor.png,トラクター,トラクター,"Subject: A farm tractor.
 
 Composition: Show one red farm tractor with large deeply treaded rear tires and smaller front tires pulling a short plow through a narrow patch of brown soil.
