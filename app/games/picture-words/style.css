@@ -805,25 +805,6 @@ html[data-layout=mobile]{--wheel:clamp(180px,calc((var(--play-height) - 206px) *
   html[data-layout=mobile] .play-layout{gap:3px}
 }
 
-/* Portrait play: clue and tools share a row; the wheel owns the full width. */
-@media (orientation:portrait) {
-  html[data-layout=mobile]{--wheel:min(calc(100vw - 24px),calc(var(--play-height) - 242px));--card:min(calc(100vw - 156px),calc(var(--play-height) - var(--wheel) - 106px))}
-  html[data-layout=mobile] .play-layout{display:grid;grid-template-columns:minmax(0,1fr) 126px;grid-template-rows:minmax(136px,var(--card)) 34px var(--wheel);gap:6px 10px;align-items:center;justify-items:center;padding:8px 0}
-  html[data-layout=mobile] .clue-section,html[data-layout=mobile] .answer-wrap,html[data-layout=mobile] .interaction-section{display:contents}
-  html[data-layout=mobile] .picture-card{grid-column:1;grid-row:1;max-width:100%}
-  html[data-layout=mobile] .bilingual-control{grid-column:2;grid-row:1;align-self:start;margin:0;width:100%}
-  html[data-layout=mobile] .puzzle-language{width:100%;grid-template-columns:1fr 1fr;padding:2px;gap:2px}
-  html[data-layout=mobile] .language-bridge{display:none}
-  html[data-layout=mobile] .puzzle-language button{height:38px;font-size:10px}
-  html[data-layout=mobile] .game-actions{grid-column:2;grid-row:1;align-self:end;display:grid;grid-template-columns:1fr 1fr;gap:8px 6px;width:100%;margin:0 0 5px}
-  html[data-layout=mobile] .game-actions>.action-button{height:44px;padding:3px;gap:2px;flex-direction:column;font-size:10px;border-radius:12px}
-  html[data-layout=mobile] #collection.collection-button{grid-column:1/-1;grid-row:2;height:32px;flex-direction:row;border-radius:10px}
-  html[data-layout=mobile] .answer{grid-column:1/-1;grid-row:2;width:100%}
-  html[data-layout=mobile] .wheel{grid-column:1/-1;grid-row:3}
-  html[data-layout=mobile] .wheel.dual-ring .letters .letter{--s:16cqw;font-size:calc(var(--s) * .6)}
-  html[data-layout=mobile] .feedback{position:fixed;top:48px}
-}
-
 /* Pending outer choices stay in place and become solid when their turn starts. */
 .wheel.dual-ring[data-active-ring=inner] .letters .letter.outer-pending:not(.selected){opacity:.48}
 .wheel.dual-ring[data-active-ring=inner] .orbit-one{opacity:.48}
@@ -846,19 +827,6 @@ html[data-layout=mobile] .wheel.dual-ring .letters .letter,
 .wheel .wheel-center,.wheel.dual-ring[data-active-ring] .wheel-center{width:14%;height:14%;margin:-7%;border-radius:14px}
 @media(orientation:portrait){html[data-layout=mobile]{--wheel:min(300px,calc(100vw - 24px),calc(var(--play-height) - 242px))}}
 
-/* Keep the artwork on the screen centre; balance controls on both sides. */
-@media(orientation:portrait){
-  html[data-layout=mobile] .play-layout{grid-template-columns:54px minmax(0,1fr) 54px;column-gap:8px}
-  html[data-layout=mobile] .picture-card{grid-column:2;justify-self:center}
-  html[data-layout=mobile] .bilingual-control{grid-column:1;align-self:center}
-  html[data-layout=mobile] .puzzle-language{grid-template-columns:1fr;gap:6px;background:transparent;box-shadow:none;padding:0}
-  html[data-layout=mobile] .puzzle-language button{height:44px;font-size:9px;background:var(--panel);border-radius:12px}
-  html[data-layout=mobile] .puzzle-language button[aria-pressed=true]{background:#1763a6;color:#fff}
-  html[data-layout=mobile] .game-actions{grid-column:3;align-self:center;grid-template-columns:1fr;gap:8px;margin:0}
-  html[data-layout=mobile] #collection.collection-button{grid-column:1;grid-row:auto;height:44px;flex-direction:column;font-size:9px}
-  html[data-layout=mobile] #collectionLabel{font-size:9px}
-}
-
 /* Size targets to the actual number of choices, not a fourteen-letter template. */
 .wheel.dual-ring[data-active-ring] .letters .letter[data-ring]{--s:18cqw;font-size:calc(var(--s) * .72)}
 .wheel:not(.dual-ring) .letters .letter,
@@ -879,3 +847,33 @@ html[data-layout=mobile] .shuffle-button #centerLabel{display:none}
 /* Selection feedback must override the hexagon's normal tile styling. */
 .wheel .letters .letter.selected{background:#1763a6!important;color:#fff!important}
 .wheel:not(.dragging) .trail{visibility:hidden}
+
+/* A genuine pointy-hex lattice, fitted vertically to its occupied rows. */
+.wheel .letters .letter,
+html[data-layout=mobile] .wheel .letters .letter,
+html[data-layout=mobile] .wheel:not(.dual-ring) .letters .letter,
+html[data-layout=mobile] .wheel[data-letter-count] .letters .letter,
+.wheel.dual-ring[data-active-ring] .letters .letter[data-ring]{
+  --s:var(--hex-size);height:calc(var(--s) * 1.154700538);margin:calc(var(--s) * -.577350269) calc(var(--s) * -.5);
+  transition:background .15s,color .15s; 
+}
+@media(orientation:portrait){
+  html[data-layout=mobile]{--wheel:min(320px,calc(100vw - 24px));--board-height:calc(var(--wheel) * var(--board-ratio,1));--card:clamp(70px,calc(var(--play-height) - var(--board-height) - 170px),min(360px,calc(100vw - 24px)))}
+  html[data-layout=mobile] .play-layout{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));grid-template-rows:var(--card) 34px var(--board-height) 44px;gap:8px 5px;align-items:center;justify-items:center;padding:8px 0}
+  html[data-layout=mobile] .clue-section,html[data-layout=mobile] .answer-wrap,html[data-layout=mobile] .interaction-section,html[data-layout=mobile] .bilingual-control,html[data-layout=mobile] .puzzle-language,html[data-layout=mobile] .game-actions{display:contents}
+  html[data-layout=mobile] .picture-card{grid-column:1/-1;grid-row:1;max-width:100%;justify-self:center}
+  html[data-layout=mobile] .answer{grid-column:1/-1;grid-row:2;width:100%}
+  html[data-layout=mobile] .wheel{grid-column:1/-1;grid-row:3;align-self:center}
+  html[data-layout=mobile] .language-bridge{display:none}
+  html[data-layout=mobile] #modeJa,html[data-layout=mobile] #modeEn,html[data-layout=mobile] #shuffle,html[data-layout=mobile] #listenClue,html[data-layout=mobile] #collection.collection-button,html[data-layout=mobile] #hint{grid-row:4;width:100%;height:44px;min-width:0;margin:0;padding:2px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:2px;border-radius:11px;font-size:10px;align-self:center;transform:none}
+  html[data-layout=mobile] #modeJa{grid-column:1;background:var(--panel)}
+  html[data-layout=mobile] #modeEn{grid-column:2;background:var(--panel)}
+  html[data-layout=mobile] .puzzle-language button[aria-pressed=true]{background:#1763a6!important;color:#fff}
+  html[data-layout=mobile] #listenClue{grid-column:3}
+  html[data-layout=mobile] #shuffle{grid-column:4}
+  html[data-layout=mobile] #collection.collection-button{grid-column:5}
+  html[data-layout=mobile] #hint{grid-column:6}
+  html[data-layout=mobile] #collectionLabel,html[data-layout=mobile] #hintLabel{font-size:10px}
+  html[data-layout=mobile] #shuffle svg{width:19px;height:19px}
+  html[data-layout=mobile] .feedback{position:fixed;top:48px}
+}

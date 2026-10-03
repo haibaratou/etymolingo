@@ -31,7 +31,22 @@
     const batches = Array.from({ length: last + 1 }, (_, batch) => letters.filter(node => node.batch === batch && node.answerIndex >= 0).map(node => node.id));
     return { letters, batches };
   }
-  const api = { advanceSelection, sweptHits, activeBatch, canSelectRing, planLetters };
+  function areNeighbours(a,b,step){return !!a && !!b && Math.abs(Math.hypot(a.x-b.x,a.y-b.y)-step)<step*.02;}
+  function connectedPath(points,step,random=Math.random){
+    const neighbours=points.map(p=>points.map((q,i)=>areNeighbours(p,q,step)?i:-1).filter(i=>i>=0));
+    const order=items=>items.map(i=>({i,r:random()})).sort((a,b)=>a.r-b.r).map(v=>v.i);
+    const used=new Set(),path=[];
+    function visit(i){
+      used.add(i);path.push(i);
+      if(path.length===points.length)return true;
+      const next=order(neighbours[i].filter(j=>!used.has(j))).sort((a,b)=>neighbours[a].filter(j=>!used.has(j)).length-neighbours[b].filter(j=>!used.has(j)).length);
+      for(const j of next)if(visit(j))return true;
+      used.delete(i);path.pop();return false;
+    }
+    for(const i of order(points.map((_,i)=>i)))if(visit(i))return path.map(j=>({...points[j]}));
+    throw new Error('No connected path for this letter layout');
+  }
+  const api = { areNeighbours, connectedPath, advanceSelection, sweptHits, activeBatch, canSelectRing, planLetters };
   if (typeof module === 'object' && module.exports) module.exports = api;
   else root.WordBloomGesture = api;
 })(typeof window === 'undefined' ? globalThis : window);
