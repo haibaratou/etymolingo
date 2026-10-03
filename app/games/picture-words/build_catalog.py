@@ -334,6 +334,22 @@ def verified_reading(meaning, picture, readings):
     return min(matching, key=lambda row: (len(row['w']), row['w']))['w']
 
 
+def japanese_answer(meaning, lookup):
+    # Select a complete meaning, not a substring of a definition. Ambiguous
+    # readings stay unassigned; katakana-to-hiragana does not invent a reading.
+    for part in re.split('[、,／/;；]', meaning):
+        part = part.strip()
+        kana = normalized_japanese(part)
+        if re.fullmatch(r'[ぁ-ゔー]{2,14}', kana):
+            return kana
+        candidates = lookup.get(part, set())
+        if len(candidates) == 1:
+            reading = next(iter(candidates))
+            if re.fullmatch(r'[ぁ-ゔー]{2,14}', reading):
+                return reading
+    return ''
+
+
 def eligible(row):
     word = row.get('w', '')
     positions = set(row.get('pos', '').split('/'))
@@ -363,6 +379,9 @@ def resolve_picture(row, inventory, spelling_counts, art_index, ledger):
 
 def build_catalog(words, japanese, inventory, art_index, ledger):
     updated = read_json(UPDATED_ART)
+    kana_lookup = defaultdict(set)
+    for heading, reading, *_ in read_json(ROOT / 'app/data/ja/ja_index.json'):
+        kana_lookup[heading].add(normalized_japanese(reading or heading))
     allowed = {(word, filename) for word, roots, filename, date in updated}
     readings = defaultdict(list)
     for row in japanese:
@@ -399,7 +418,7 @@ def build_catalog(words, japanese, inventory, art_index, ledger):
         if source['w'] in seen_words or picture in seen_pictures:
             continue
         selected.append({
-            'w': verified_reading(source['ja'], picture, readings),
+            'w': verified_reading(source['ja'], picture, readings) or japanese_answer(source['ja'], kana_lookup),
             'ja': source['ja'], 'pic': picture, 'en': source['w'], 'id': picture,
             'rank': rank, 'roots': source.get('p', []), 'dictionaryIndex': index,
         })
