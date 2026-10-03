@@ -2,6 +2,11 @@
 (async () => {
   'use strict';
   const $ = id => document.getElementById(id);
+  $('reloadGame').addEventListener('click', () => {
+    const url = new URL(location.href);
+    url.searchParams.set('refresh', String(Date.now()));
+    location.replace(url.href);
+  });
   const originalCatalog = window.PICTURE_WORDS_CATALOG || [];
   const difficulty = window.WordBloomDifficulty;
   const offline = await window.NicolingoOffline.ready();
@@ -273,6 +278,7 @@
     if (reset) feedbackTimer = setTimeout(() => { if (phase === 'playing') setFeedback(text().release); }, 2300);
   }
   function updateLabels() {
+    $('shuffle').setAttribute('aria-label', text().shuffle);
     const t = text(); document.documentElement.lang = mode;
     document.title = mode === 'ja' ? 'WORD BLOOM — ことばの庭' : 'WORD BLOOM — A garden of words';
     $('modeJa').setAttribute('aria-pressed', String(mode === 'ja')); $('modeEn').setAttribute('aria-pressed', String(mode === 'en'));
@@ -314,6 +320,7 @@
   // "auto" uses the compact one-screen board on phones and the regular board elsewhere.
   const effectiveLayout = () => saved.layout !== 'auto' ? saved.layout : (innerWidth <= 860 ? 'mobile' : 'auto');
   function updateLayout() {
+    document.documentElement.style.setProperty('--viewport-height', `${window.visualViewport?.height || innerHeight}px`);
     document.documentElement.dataset.layout = effectiveLayout();
     document.querySelectorAll('[data-layout-choice]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.layoutChoice === saved.layout)));
   }
@@ -394,13 +401,10 @@
     }));
     $('dailyCollection').setAttribute('aria-label', mode === 'ja' ? `今日${daily.count}語を発見。${daily.pageNumber}ページ目、10枠中${daily.pageFilled}枠。辞書を開く` : `${daily.count} new words today. Page ${daily.pageNumber}, ${daily.pageFilled} of 10. Open dictionary`);
   }
-  // Rings breathe with progress: the ring you are working on is big and roomy,
-  // the other one shrinks out of the way (locked outer letters wait small at the rim,
-  // used inner letters tuck in toward the centre once the outer ring opens).
+  // Keep both rings readable and stationary throughout the gesture.
   function ringRadius(batch, active) {
     if (ringBatches.length === 1) return 124;
-    if (batch === 0) return active === 0 ? 100 : 64;
-    return active === 0 ? 161 : 140;
+    return batch === 0 ? 78 : 145;
   }
   function layoutNodes() {
     const active = activeBatch(selected, ringBatches);
@@ -757,7 +761,7 @@
     if (nodes.length && phase !== 'solved') { selected = []; updateAnswer(); drawTrail(); }
   }
   $('wheel').addEventListener('pointerdown', event => {
-    if (phase !== 'playing' || shuffleBusy || pointer || !event.isPrimary || event.button !== 0 || event.target.closest('#undo')) return;
+    if (phase !== 'playing' || shuffleBusy || pointer || !event.isPrimary || event.button !== 0 || event.target.closest('#shuffle')) return;
     wheelRect = $('wheel').getBoundingClientRect();
     const position = pointFrom(event), node = nearest(position); if (!node) { wheelRect = null; return; }
     event.preventDefault(); sound.unlock();
@@ -800,8 +804,14 @@
     if (phase !== 'playing' || !selected.length) return;
     selected.pop(); sound.undo(); updateAnswer(); drawTrail();
   });
-  $('shuffle').addEventListener('click', () => {
-    if (phase !== 'playing' || shuffleBusy) return;
+  let shuffleTap = null;
+  $('shuffle').addEventListener('pointerdown', event => { shuffleTap = {x:event.clientX,y:event.clientY,moved:false}; });
+  $('shuffle').addEventListener('pointermove', event => { if (shuffleTap && Math.hypot(event.clientX-shuffleTap.x,event.clientY-shuffleTap.y)>8) shuffleTap.moved=true; });
+  $('shuffle').addEventListener('pointercancel', () => { if(shuffleTap) shuffleTap.moved=true; });
+  $('shuffle').addEventListener('click', event => {
+    const dragged = event.detail > 0 && (!shuffleTap || shuffleTap.moved);
+    shuffleTap = null;
+    if (phase !== 'playing' || shuffleBusy || pointer || dragged) return;
     cancelGesture(); sound.unlock(); sound.mix(); shuffleBusy = true;
     const old = nodes.map(node => node.id).join(','); shuffle(nodes);
     if (nodes.map(node => node.id).join(',') === old) nodes.push(nodes.shift());
@@ -864,7 +874,7 @@
       'Solve in a row with no hints and no misses to build a COMBO. The fanfare grows with it, with a big burst every 5. A hint or a wrong answer resets it.',
       'Get it right, hear the word, and watch a dictionary page fill in. The next puzzle starts automatically. Open your dictionaries from the book button by the wheel to listen again.',
     ];
-    const note = mode === 'ja' ? '選んだ文字を横切っても取り消されません。同じ文字が続くとき（CORRECT の RR など）は、もう一つの丸へ進むか、いったん外へ出て同じ丸に戻ればOK。外側の文字は、内側の文字をすべて使うと選べるようになります。一文字戻すときは中央の矢印、または Backspace。ヒントを使っても単語を獲得できます。キーボードは Tab / Enter / Backspace。' : 'Crossing selected letters keeps your word intact. For a double letter (the RR in CORRECT), slide to its twin or slip off the letter and back onto it. Outer letters unlock once every inner letter is used. Use the center arrow or Backspace to undo a letter. Hints still let you collect the word. Keyboard: Tab / Enter / Backspace.';
+    const note = mode === 'ja' ? '選んだ文字を横切っても取り消されません。同じ文字が続くとき（CORRECT の RR など）は、もう一つの丸へ進むか、いったん外へ出て同じ丸に戻ればOK。外側の文字は、内側の文字をすべて使うと選べるようになります。中央はタップでシャッフル。キーボードでは Backspace で一文字戻せます。ヒントを使っても単語を獲得できます。キーボードは Tab / Enter / Backspace。' : 'Crossing selected letters keeps your word intact. For a double letter (the RR in CORRECT), slide to its twin or slip off the letter and back onto it. Outer letters unlock once every inner letter is used. Tap the center to shuffle. Backspace undoes a letter. Hints still let you collect the word. Keyboard: Tab / Enter / Backspace.';
     openModal(text().help, `<div class="help-steps">${steps.map((line, i) => `<div class="help-step"><b>${i + 1}</b><p>${line}</p></div>`).join('')}</div><p class="help-note">${note}</p>${layoutSettings()}<button class="modal-primary" id="startPlaying" type="button">${mode === 'ja' ? 'ことばを咲かせよう' : 'Let it bloom'}</button>`);
     $('startPlaying').addEventListener('click', () => $('modal').close());
     $('modalBody').querySelectorAll('[data-layout-choice]').forEach(button => button.addEventListener('click', () => { saved.layout = button.dataset.layoutChoice; persist(); updateLayout(); }));
@@ -1043,7 +1053,7 @@
   $('startPlay').addEventListener('click', startPlay);
   $('closeGame').addEventListener('click', closePlay);
   $('launchScreen').addEventListener('cancel', event => event.preventDefault());
-  window.visualViewport?.addEventListener('resize', () => { petals.clear(); petals.resize(); cancelGesture(); });
+  window.visualViewport?.addEventListener('resize', () => { updateLayout(); petals.clear(); petals.resize(); cancelGesture(); });
   if (catalog.length) {
     loadLevel(nextUncollected(mode, index));
     const installed = matchMedia('(display-mode: fullscreen), (display-mode: standalone)').matches;

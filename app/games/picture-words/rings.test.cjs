@@ -4,15 +4,39 @@ const fs = require('node:fs'), vm = require('node:vm');
 const { planLetters, canSelectRing, activeBatch, advanceSelection, sweptHits } = require('./gesture.js');
 const { buildCatalog, challenge } = require('./difficulty.js');
 const scope = { window: {} }; vm.runInNewContext(fs.readFileSync(require.resolve('./catalog.js'), 'utf8'), scope);
+
+test('GLASSES shows all three S letters together; longer words never have a lone outer letter', () => {
+  const words = buildCatalog(scope.window.PICTURE_WORDS_CATALOG);
+  const glasses = words.find(word => word.en === 'glasses');
+  const profile = challenge(glasses, 'en');
+  const plan = planLetters([...'GLASSES'], [], profile.innerCount, profile.dual);
+  assert.equal(plan.batches.length,1);
+  assert.equal(plan.letters.filter(node=>node.char==='S').length,3);
+  for (const word of words) {
+    const p=challenge(word,'en');
+    if(p.dual) assert.ok(p.length-p.innerCount >= 4);
+  }
+});
+
+test('both rings stay fixed and every full-sized letter stays inside the wheel', () => {
+  const code=fs.readFileSync(require.resolve('./game.js'),'utf8');
+  const fn=code.slice(code.indexOf('  function ringRadius('),code.indexOf('  function layoutNodes('));
+  const context={ringBatches:[[],[]]};vm.runInNewContext(fn,context);
+  for(const batch of [0,1]) {
+    const radius=context.ringRadius(batch,0);
+    assert.equal(radius,context.ringRadius(batch,1));
+    assert.ok(radius+360*.16/2 < 180);
+  }
+});
 test('every answer is complete in one or two rings, without paging or hiding letters', () => {
   for (const word of buildCatalog(scope.window.PICTURE_WORDS_CATALOG)) for (const language of ['ja','en']) {
     if (language === 'ja' && !word.w) continue;
     const answer = [...(language === 'ja' ? word.w : word.en.toUpperCase())], profile = challenge(word, language);
     const { letters, batches } = planLetters(answer, Array(profile.decoys).fill('X'), profile.innerCount, profile.dual);
     let path = [];
-    assert.equal(batches.length, answer.length > 6 ? 2 : 1);
-    assert.ok(letters.filter(n => n.batch === 0).length <= 6);
-    assert.ok(letters.filter(n => n.batch === 1).length <= Math.max(6, answer.length - 6));
+    assert.equal(batches.length, answer.length > 8 ? 2 : 1);
+    assert.ok(letters.filter(n => n.batch === 0).length <= 8);
+    assert.ok(letters.filter(n => n.batch === 1).length <= 8);
     assert.equal(letters.filter(n => n.answerIndex >= 0).length, answer.length);
     for (let index = 0; index < answer.length; index++) {
       const node = letters.find(n => n.answerIndex === index); assert.ok(canSelectRing(node, path, batches));

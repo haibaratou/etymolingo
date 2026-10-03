@@ -191,8 +191,8 @@ html[data-theme=dark] #levelText{color:var(--accent)}
 .letter:not(.selected):hover{transform:translateY(-2px)}
 .letter.hint-target{box-shadow:0 5px 0 var(--sun-deep),0 0 0 6px #ffc93c88;background:radial-gradient(circle at 35% 28%,#fff 0 25%,#fff1b8 65%);animation:none}
 .dual-ring .letter{width:var(--letter-dual);height:var(--letter-dual);margin:calc(var(--letter-dual) / -2);font-size:calc(var(--letter-dual) * .5)}
-.dual-ring .letter.outer-pending:not(.selected){opacity:.55;transform:scale(.9)}
-.ring-unlock .letter[data-ring=outer]{animation:ring-ready .45s var(--pop)}
+.dual-ring .letter.outer-pending:not(.selected){opacity:1;transform:none}
+.ring-unlock .letter[data-ring=outer]{animation:none}
 @keyframes ring-ready{50%{transform:scale(1.2)}}
 .wheel-center{position:absolute;z-index:3;left:50%;top:50%;width:76px;height:76px;margin:-38px;border-radius:50%;display:grid;place-items:center;align-content:center;gap:1px;color:var(--ink-soft);background:var(--panel-2);box-shadow:inset 0 3px 0 #3d2c5c10;transition:transform .2s var(--pop)}
 .wheel-center svg{width:30px;height:30px}
@@ -497,20 +497,20 @@ html[data-theme=dark] .letter{box-shadow:0 5px 0 #a8927f,0 0 18px #ffffff1a}
 .picture-stage img{animation:pic-in .35s var(--ease) both}
 @keyframes pic-in{0%{opacity:0;transform:scale(.92)}100%{opacity:1;transform:none}}
 /* Outer ring is locked until the inner ring is used up. */
-.dual-ring .letter.outer-pending:not(.selected){opacity:.38;transform:scale(.86);filter:grayscale(.6);cursor:not-allowed}
-.dual-ring .letter.outer-pending:not(.selected):hover{transform:scale(.86)}
-.ring-unlock .letter[data-ring=outer]{animation:ring-ready .5s var(--pop)}
-@keyframes ring-ready{0%{transform:scale(.86)}50%{transform:scale(1.25)}100%{transform:none}}
+.dual-ring .letter.outer-pending:not(.selected){opacity:1;transform:none;filter:none}
+.dual-ring .letter.outer-pending:not(.selected):hover{transform:none}
+.ring-unlock .letter[data-ring=outer]{animation:none}
+@keyframes ring-ready{0%{transform:none}50%{transform:scale(1.25)}100%{transform:none}}
 
 /* Letters are sized from the wheel itself (container units), so they scale with any screen. */
 .letters{container-type:size}
 .wheel .letters .letter{--s:23cqw;width:var(--s);height:var(--s);margin:calc(var(--s) / -2);font-size:calc(var(--s) * .5);
   transition:left .4s var(--pop),top .4s var(--pop),width .35s var(--pop),height .35s var(--pop),margin .35s var(--pop),font-size .35s var(--pop),opacity .25s,background .15s,color .15s,box-shadow .15s,transform .15s}
-.wheel.dual-ring[data-active-ring=inner] .letters .letter[data-ring=inner]{--s:20cqw}
-.wheel.dual-ring[data-active-ring=inner] .letters .letter[data-ring=outer]{--s:9.5cqw}
-.wheel.dual-ring[data-active-ring=outer] .letters .letter[data-ring=outer]{--s:17.5cqw}
-.wheel.dual-ring[data-active-ring=outer] .letters .letter[data-ring=inner]{--s:10cqw}
-.wheel.dual-ring .letters .letter.outer-pending:not(.selected){opacity:.5;transform:none;filter:grayscale(.4)}
+.wheel.dual-ring[data-active-ring=inner] .letters .letter[data-ring=inner]{--s:16cqw}
+.wheel.dual-ring[data-active-ring=inner] .letters .letter[data-ring=outer]{--s:16cqw}
+.wheel.dual-ring[data-active-ring=outer] .letters .letter[data-ring=outer]{--s:16cqw}
+.wheel.dual-ring[data-active-ring=outer] .letters .letter[data-ring=inner]{--s:16cqw}
+.wheel.dual-ring .letters .letter.outer-pending:not(.selected){opacity:1;transform:none;filter:none}
 .wheel.dual-ring .letters .letter.outer-pending:not(.selected):hover{transform:none}
 .wheel .wheel-center{width:21%;height:auto;aspect-ratio:1;margin:-10.5%}
 .wheel.dual-ring[data-active-ring=inner] .wheel-center{width:17%;margin:-8.5%}
@@ -560,7 +560,7 @@ html[data-theme=dark] .letter{box-shadow:0 5px 0 #a8927f,0 0 18px #ffffff1a}
 .puzzle-language button:disabled{color:var(--ink-soft);background:transparent;box-shadow:none;opacity:.4;transform:none}
 .puzzle-language:has(button:disabled) .language-bridge{opacity:.3}
 .garden-footer{display:none}
-.game-actions{display:grid;grid-template-columns:1fr 1.08fr 1fr;gap:10px;width:var(--wheel);max-width:100%;height:auto;margin:18px 0 0;padding:0}
+.game-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:var(--wheel);max-width:100%;height:auto;margin:18px 0 0;padding:0}
 .game-actions>.action-button{position:relative;display:flex;align-items:center;justify-content:center;gap:7px;width:100%;height:54px;min-width:0;margin:0;padding:0 8px;border-radius:18px;font-size:12px}
 .game-actions>.action-button svg{flex:none;width:21px;height:21px}
 #collection.collection-button{display:flex;height:54px;padding:0 8px;border-radius:18px;font-size:12px;background:linear-gradient(180deg,#b28bff,#8559f0);box-shadow:0 5px 0 #5f37c2,0 8px 16px #8559f022}
@@ -747,10 +747,11 @@ html[data-layout=mobile] .praise{font-size:43px;-webkit-text-stroke-width:7px}
 #freeTag:empty{display:none}
 .reward-combo b{font-size:17px;line-height:1.3}
 .reward-combo small{font-size:10px;max-width:160px}
-html[data-layout=mobile]{--play-height:calc(100dvh - env(safe-area-inset-top) - env(safe-area-inset-bottom));--wheel:clamp(192px,calc((var(--play-height) - 278px) / 2),300px);--card:clamp(124px,calc(var(--play-height) - 278px - var(--wheel)),320px)}
+html[data-layout=mobile]{--play-height:calc(var(--viewport-height,100dvh) - env(safe-area-inset-top) - env(safe-area-inset-bottom));--wheel:clamp(180px,calc((var(--play-height) - 278px) * .56),min(300px,calc(100vw - 40px)));--card:clamp(52px,calc(var(--play-height) - 278px - var(--wheel)),min(320px,calc(100vw - 40px)))}
 html[data-layout=mobile] .page-shell{padding:env(safe-area-inset-top) 10px 0;min-height:100dvh}
 html[data-layout=mobile] .topbar{height:44px;padding-top:0}
 html[data-layout=mobile] .header-actions{gap:0}
+html[data-layout=mobile] .header-actions .icon-button{width:36px;height:36px}
 html[data-layout=mobile] .brand b{font-size:13px}
 html[data-layout=mobile] .brand-mark{width:24px;height:24px}
 html[data-layout=mobile] .daily-collection{display:flex;align-items:center;gap:10px;height:36px;padding:4px 10px;margin:0;border-radius:12px;box-shadow:0 2px 0 #ddc9a9}
@@ -783,6 +784,9 @@ html[data-layout=mobile] .wheel .letters .letter{--s:clamp(38px,23cqw,64px)}
 html[data-layout=mobile] .wheel.dual-ring .letters .letter{--s:clamp(30px,16cqw,48px)}
 html[data-layout=mobile] .wheel-center span{display:none}
 html[data-layout=mobile] .page-footnote,html[data-layout=mobile] .garden-footer{display:none}
+/* Collection and word counts belong in the dictionary, not above the puzzle. */
+html[data-layout=mobile] .daily-collection,html[data-layout=mobile] .chapter-bar{display:none}
+html[data-layout=mobile]{--wheel:clamp(180px,calc((var(--play-height) - 206px) * .56),min(300px,calc(100vw - 40px)));--card:clamp(52px,calc(var(--play-height) - 206px - var(--wheel)),min(320px,calc(100vw - 40px)))}
 @media(max-height:520px) and (orientation:landscape){
   html[data-layout=mobile]{--card:min(52dvh,260px);--wheel:min(58dvh,270px)}
   html[data-layout=mobile] .page-shell{max-width:850px}

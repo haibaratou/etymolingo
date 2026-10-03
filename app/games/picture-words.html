@@ -12,14 +12,14 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=M+PLUS+Rounded+1c:wght@500;700;800&display=swap">
   <link rel="manifest" href="picture-words/manifest.webmanifest">
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <link rel="stylesheet" href="picture-words/style.css?v=still-hint1">
+  <link rel="stylesheet" href="picture-words/style.css?v=visible-letters1">
   <script src="picture-words/catalog.js?v=mobile2" defer></script>
-  <script src="picture-words/difficulty.js?v=bilingual3" defer></script>
+  <script src="picture-words/difficulty.js?v=visible-letters1" defer></script>
   <script src="picture-words/gesture.js?v=discovery1" defer></script>
   <script src="picture-words/pronunciation.js?v=discovery1" defer></script>
   <script src="picture-words/progression.js?v=discovery1" defer></script>
   <script src="picture-words/offline.js?v=start2" defer></script>
-  <script src="picture-words/game.js?v=same-picture4" defer></script>
+  <script src="picture-words/game.js?v=visible-letters1" defer></script>
 </head>
 <body>
   <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -48,6 +48,7 @@
         <span><b>WORD BLOOM<span class="brand-dot">.</span></b><small>ことばの庭</small></span>
       </a>
       <nav class="header-actions" aria-label="ゲーム設定">
+        <button class="icon-button" id="reloadGame" type="button" aria-label="最新版にリロード" title="最新版にリロード"><svg viewBox="0 0 24 24"><path d="M20 7v5h-5M20 12a8 8 0 1 0-2 5M20 12l-4-5"/></svg></button>
         <button class="icon-button" id="closeGame" type="button" aria-label="ゲームを閉じる"><svg><use href="#i-close"/></svg></button>
         <button class="icon-button" id="theme" type="button" aria-label="ダークモードにする" aria-pressed="false"><svg><use href="#i-moon"/></svg></button>
         <button class="icon-button sound-button" id="sound" type="button" aria-label="音声と効果音をオフ" aria-pressed="true"><svg><use href="#i-sound"/></svg></button>
@@ -110,11 +111,11 @@
             <svg class="trail" id="trail" viewBox="0 0 360 360" aria-hidden="true"><defs><filter id="trail-glow"><feGaussianBlur stdDeviation="4"/></filter></defs><polyline id="trailGlow" class="trail-glow"/><polyline id="trailLine"/><circle id="trailTip" r="6" cx="180" cy="180"/></svg>
             <div class="letters" id="letters"></div>
             <div class="praise" id="praise" aria-hidden="true"></div>
-            <button id="undo" class="wheel-center" type="button" aria-label="一文字もどす"><svg class="center-flower"><use href="#i-flower"/></svg><svg class="center-undo"><use href="#i-undo"/></svg><span id="centerLabel">つなぐ</span></button>
+            <button id="shuffle" class="wheel-center" type="button" aria-label="まぜる"><svg><use href="#i-shuffle"/></svg><span id="shuffleLabel">まぜる</span><span id="centerLabel" hidden></span></button>
+            <button id="undo" type="button" hidden aria-label="一文字もどす"></button>
           </div>
           <div class="feedback" id="feedback" role="status" aria-live="polite"></div>
           <div class="game-actions" id="gameActions">
-            <button id="shuffle" class="action-button" type="button"><svg><use href="#i-shuffle"/></svg><span id="shuffleLabel">まぜる</span></button>
             <button id="collection" class="action-button collection-button" type="button"><svg><use href="#i-book"/></svg><span id="collectionLabel">辞書</span><span id="collectionCount">0</span></button>
             <button id="hint" class="action-button hint-button" type="button"><svg><use href="#i-bulb"/></svg><span id="hintLabel">ひと文字ヒント</span><span class="free-tag" id="freeTag">FREE</span></button>
           </div>
