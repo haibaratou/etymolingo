@@ -84,7 +84,7 @@
   const pending = new Set();
   const text = () => copy[mode];
   const progress = () => saved[mode];
-  const rarityStars = tier => '★'.repeat(Math.ceil((tier + 1) * 3 / difficulty.tiers.length));
+  const rarityStars = tier => `<span class="art-stars" role="img" aria-label="${tier+1} stars">${Array.from({length:tier+1},()=>'<img src="../../assets/ui/word_et_star.png" alt="" width="64" height="64">').join('')}</span>`;
   const collectedCount = lang => catalog.filter(word => supports(word, lang) && saved[lang].stars[word.id]).length;
   const uniqueCount = () => catalog.filter(word => saved.ja.stars[word.id] || saved.en.stars[word.id]).length;
   const bookName = lang => mode === 'ja' ? (lang === 'ja' ? '日本語辞書' : '英語辞書') : (lang === 'ja' ? 'Japanese dictionary' : 'English dictionary');
@@ -360,10 +360,10 @@
     $('game').style.setProperty('--rarity', profile.color); $('game').dataset.rarity = profile.key;
     $('chapterNumber').textContent = `${mode === 'ja' ? 'この絵' : 'THIS WORD'} · RANK ${profile.rank}/${difficulty.tiers.length}`;
     const target = difficulty.tiers[saved.targetTier];
-    $('difficultyText').innerHTML = target ? `<span class="pill-stars">${rarityStars(saved.targetTier)}</span> <span class="tier-name">${target.name}</span><span class="tier-code">${target.code}</span>` : (mode === 'ja' ? 'おまかせ発見' : 'Discovery');
+    $('difficultyText').innerHTML = target ? rarityStars(saved.targetTier) : (mode === 'ja' ? 'おまかせ発見' : 'Discovery');
     $('chapterName').textContent = mode === 'ja' ? profile.ja : profile.en;
-    $('rarityBadge').innerHTML = `<span class="rarity-stars">${rarityStars(entry.tier)}</span> ${profile.code} · ${profile.name}`;
-    $('rarityBadge').setAttribute('aria-label', `${mode === 'ja' ? '難度' : 'Difficulty'} ${profile.rank} / ${difficulty.tiers.length} · ${profile.name}`);
+    $('rarityBadge').innerHTML = rarityStars(entry.tier);
+    $('rarityBadge').setAttribute('aria-label', `${profile.rank} stars`);
     const jaOwned = !!saved.ja.stars[entry.id], enOwned = !!saved.en.stars[entry.id];
     $('jaClearMark').textContent = jaOwned ? '✓' : '';
     $('enClearMark').textContent = enOwned ? '✓' : '';
@@ -602,9 +602,9 @@
   }
 
   function showRankUp(profile) {
-    $('rankUpName').textContent = `${profile.code} · ${profile.name}`;
-    $('rankUpDetail').textContent = mode === 'ja' ? `難度 ${profile.rank}へ · ${profile.choices}択から見つけよう` : `Difficulty ${profile.rank} · ${profile.choices} letters to choose from`;
-    $('rankUpDiamonds').textContent = '◆'.repeat(profile.rank) + '◇'.repeat(difficulty.tiers.length - profile.rank);
+    $('rankUpName').innerHTML = rarityStars(profile.rank-1);
+    $('rankUpDetail').textContent = '';
+    $('rankUpDiamonds').textContent = '';
     $('rankUp').hidden = false;
     const rect = $('pictureCard').getBoundingClientRect(); petals.burst(rect.left + rect.width / 2, rect.top + rect.height / 2, 35, true);
     later(() => { $('rankUp').hidden = true; }, 1150);
@@ -696,7 +696,7 @@
     $('rewardReading').textContent = mode === 'ja' ? entry.w : entry.ja;
     $('rewardBookName').textContent = mode === 'ja' ? `きょうの ${award.daily.pageNumber} ページ目` : `TODAY · PAGE ${award.daily.pageNumber}`;
     $('rewardArt').src = imgURL(entry);
-    $('rewardPageNumber').textContent = `${difficulty.tiers[entry.tier].code} · PAGE ${String(index + 1).padStart(3, '0')}`;
+    $('rewardPageNumber').textContent = `PAGE ${String(index + 1).padStart(3, '0')}`;
     $('rewardBefore').textContent = String(award.daily.pageFilled - (award.added ? 1 : 0));
     $('rewardAfter').textContent = String(award.daily.pageFilled);
     $('rewardTotal').textContent = ' / 10';
@@ -862,13 +862,12 @@
     for(const language of [mode]) {
       const route=nodes.filter(node=>node.lang===language).sort((a,b)=>a.answerIndex-b.answerIndex);
       for(const node of route) {
-        const at=tick++ * 440;
+        const at=tick++ * 160;
         later(()=>{node.button.classList.add('answer-wave');setFeedback(`${language==='en'?'ENGLISH':'かな'} ${node.answerIndex+1} / ${route.length}`);},at);
-        later(()=>node.button.classList.remove('answer-wave'),at+420);
+        later(()=>node.button.classList.remove('answer-wave'),at+210);
       }
-      tick++;
     }
-    later(()=>{phase='playing';$('game').dataset.state=phase;$('hint').disabled=false;$('shuffle').disabled=false;setFeedback('答えを見た記録が残ります。なぞって辞書をゲット！');},tick*440);
+    later(()=>{phase='playing';$('game').dataset.state=phase;$('hint').disabled=false;$('shuffle').disabled=false;setFeedback('答えを見た記録が残ります。なぞって辞書をゲット！');},tick*160);
   });
   $('sound').addEventListener('click', () => {
     saved.sound = !saved.sound; speech.setEnabled(saved.sound); persist(); updateSound();
@@ -940,7 +939,7 @@
       const button = document.createElement('button'); button.type = 'button'; button.className = 'difficulty-choice';
       button.dataset.tier = String(tierIndex); button.style.setProperty('--tier-color', tier.color);
       button.setAttribute('aria-pressed', String(saved.targetTier === tierIndex));
-      button.innerHTML = `<strong class="choice-stars">${rarityStars(tierIndex)}</strong><b>${tier.code} · ${tier.name}</b><span>${mode === 'ja' ? tier.ja : tier.en}</span>`;
+      button.innerHTML = rarityStars(tierIndex);
       button.addEventListener('click', () => {
         saved.targetTier = tierIndex; persist(); $('modal').close();
         loadLevel(nextUncollected(mode, index), true);
@@ -1019,7 +1018,7 @@
         card.setAttribute('aria-label', mode === 'ja' ? `未獲得 No.${String(wordIndex + 1).padStart(3, '0')} に挑戦` : `Discover missing word ${wordIndex + 1}`);
         card.addEventListener('click', () => beginDictionaryPuzzle(lang, wordIndex));
       }
-      const rarityTag = document.createElement('span'); rarityTag.className = 'dictionary-rarity'; rarityTag.textContent = `${rarity.code} · ${rarity.name}`;
+      const rarityTag = document.createElement('span'); rarityTag.className = 'dictionary-rarity'; rarityTag.innerHTML = rarityStars(word.tier);
       card.append(title, subtitle, rarityTag); grid.append(card);
     }
     const paging = document.createElement('div'); paging.className = 'dictionary-pages';
@@ -1044,7 +1043,7 @@
     const image = document.createElement('img'); image.src = imgURL(word); image.alt = word.ja;
     const heading = document.createElement('h3'); heading.textContent = lang === 'ja' ? word.ja : word.en;
     const profile = difficulty.challenge(word, lang), rarity = document.createElement('p'); rarity.className = 'entry-rarity'; rarity.style.setProperty('--rarity', profile.color);
-    rarity.textContent = `${profile.code} · ${profile.name} · ${mode === 'ja' ? '難度' : 'DIFFICULTY'} ${profile.rank} / ${difficulty.tiers.length}`;
+    rarity.innerHTML = rarityStars(word.tier);
     const reading = document.createElement('p'); reading.className = 'entry-reading'; reading.textContent = lang === 'ja' ? word.w : word.ja;
     const translation = document.createElement('a'); translation.className = 'entry-translation'; translation.textContent = mode === 'ja' ? '語源辞書で詳しく見る ↗' : 'Explore this word in the dictionary ↗'; translation.href = `../etymon-explorer.html#words/q=${encodeURIComponent(word.en)}`; translation.target = '_blank'; translation.rel = 'noopener';
     const badges = document.createElement('div'); badges.className = 'entry-books';

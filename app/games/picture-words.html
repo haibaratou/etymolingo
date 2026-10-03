@@ -12,14 +12,14 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=M+PLUS+Rounded+1c:wght@500;700;800&display=swap">
   <link rel="manifest" href="picture-words/manifest.webmanifest">
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <link rel="stylesheet" href="picture-words/style.css?v=separate-languages1">
+  <link rel="stylesheet" href="picture-words/style.css?v=star-fixed-art1">
   <script src="picture-words/catalog.js?v=mobile2" defer></script>
   <script src="picture-words/difficulty.js?v=visible-letters1" defer></script>
-  <script src="picture-words/gesture.js?v=separate-languages1" defer></script>
+  <script src="picture-words/gesture.js?v=star-fixed-art1" defer></script>
   <script src="picture-words/pronunciation.js?v=listen1" defer></script>
   <script src="picture-words/progression.js?v=discovery1" defer></script>
   <script src="picture-words/offline.js?v=start2" defer></script>
-  <script src="picture-words/game.js?v=separate-languages1" defer></script>
+  <script src="picture-words/game.js?v=star-fixed-art1" defer></script>
 </head>
 <body>
   <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -75,15 +75,16 @@
           <h2 id="clueHeading" hidden>この絵、なんのことば？</h2>
           <div class="picture-card" id="pictureCard">
             <span class="paper-tape" aria-hidden="true"></span>
-            <div class="picture-meta"><span id="pictureNumber">NO. 001</span><span id="rarityBadge" class="rarity-badge">C · COMMON</span></div>
+            <div class="picture-meta"><span id="pictureNumber">NO. 001</span></div>
             <div class="picture-stage">
               <div class="picture-halo" aria-hidden="true"></div>
               <span class="picture-spark spark-one" aria-hidden="true">✧</span><span class="picture-spark spark-two" aria-hidden="true">✦</span>
               <img id="clueImage" alt="答えを考えるためのイラスト" draggable="false" width="512" height="512">
               <div class="image-error" id="imageError" hidden><p id="imageErrorText">イラストを読み込めませんでした</p><button id="retryImage" type="button">もう一度読み込む</button><button id="skipImage" type="button">次の絵へ</button></div>
             </div>
+            <span id="rarityBadge" class="rarity-badge"></span>
             <span class="picture-stamp" id="pictureStamp" aria-hidden="true">WORD GET!</span>
-            <div id="rankUp" class="rank-up" role="status" hidden><small>DIFFICULTY UP</small><strong id="rankUpName"></strong><span id="rankUpDetail"></span><span id="rankUpDiamonds" aria-hidden="true"></span></div>
+            <div id="rankUp" class="rank-up" role="status" hidden><strong id="rankUpName"></strong><span id="rankUpDetail"></span><span id="rankUpDiamonds" aria-hidden="true"></span></div>
 
           </div>
           <div class="answer-wrap">

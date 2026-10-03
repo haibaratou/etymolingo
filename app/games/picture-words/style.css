@@ -932,3 +932,19 @@ html[data-layout=mobile] .play-toolbar #modeJa,html[data-layout=mobile] .play-to
 .play-toolbar,html[data-layout=mobile] .play-toolbar{grid-template-columns:repeat(6,minmax(0,1fr))}
 .play-toolbar #listenClue,html[data-layout=mobile] .play-toolbar #listenClue{display:flex!important;grid-row:1;grid-column:auto;height:44px;border-radius:8px}
 .play-toolbar #modeJa[aria-pressed=false],.play-toolbar #modeEn[aria-pressed=false],html[data-layout=mobile] .play-toolbar #modeJa[aria-pressed=false],html[data-layout=mobile] .play-toolbar #modeEn[aria-pressed=false]{background:#e1e9f2;color:#233850;border:1px solid #8ca3bb}
+
+/* The illustration size depends on the viewport, never on the selected language. */
+@media(orientation:portrait){
+ html[data-layout=mobile]{--card:clamp(110px,calc((var(--play-height) - 194px) * .54),min(360px,calc(100vw - 24px)));--wheel:min(360px,calc(100vw - 24px),calc((var(--play-height) - var(--card) - 194px) / var(--board-ratio,1)))}
+}
+.art-stars{display:inline-flex;align-items:center;justify-content:center;gap:1px;max-width:100%}
+.art-stars img{display:block;width:24px;height:24px;object-fit:contain;min-width:0;filter:drop-shadow(0 2px 1px #94600066)}
+#pictureCard #rarityBadge{position:absolute;z-index:6;left:50%;right:auto;top:auto;bottom:5px;transform:translateX(-50%);display:flex;justify-content:center;width:max-content;max-width:92%;padding:3px 10px;border-radius:22px;background:linear-gradient(180deg,#fff9dfb3,#fff0b8ed);box-shadow:0 2px 8px #b977003d;border:1px solid #e9c36e}
+#rarityBadge .art-stars img{width:clamp(18px,4.6vw,32px);height:clamp(18px,4.6vw,32px);filter:drop-shadow(0 2px 2px #aa6f0066) drop-shadow(0 0 4px #ffe68a)}
+#pictureCard #clueImage{width:88%;height:88%;object-fit:contain;translate:0 -6px}
+.dictionary-rarity,.entry-rarity{background:transparent;padding:2px}
+.dictionary-rarity .art-stars img{width:13px;height:13px}
+#rankUp>small{display:none}
+.single-answer .answer-tile{min-width:0;flex:0 1 34px}
+#rewardScene .book-page-number{font-size:10px}
+#wheel #letters .letter.answer-wave[data-lang]{transition:scale .07s ease,background .07s ease}

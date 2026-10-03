@@ -1,6 +1,6 @@
 /* Offline shell and explicitly saved illustration pack. Other games pass through. */
 const CACHE = 'nicolingo-offline-v2';
-const SHELL = ['picture-words.html', ...['style.css','catalog.js','difficulty.js','gesture.js','pronunciation.js','progression.js','offline.js','game.js','manifest.webmanifest'].map(name => 'picture-words/' + name)];
+const SHELL = ['picture-words.html','../../assets/ui/word_et_star.png', ...['style.css','catalog.js','difficulty.js','gesture.js','pronunciation.js','progression.js','offline.js','game.js','manifest.webmanifest'].map(name => 'picture-words/' + name)];
 const shellPaths = new Set(SHELL.map(path => new URL(path, self.location).pathname));
 self.addEventListener('install', event => event.waitUntil((async () => {
   const cache = await caches.open(CACHE);
