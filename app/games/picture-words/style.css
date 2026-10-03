@@ -804,3 +804,28 @@ html[data-layout=mobile]{--wheel:clamp(180px,calc((var(--play-height) - 206px) *
   html[data-layout=mobile] .chapter-bar,html[data-layout=mobile] .level-pill{height:28px}
   html[data-layout=mobile] .play-layout{gap:3px}
 }
+
+/* Portrait play: clue and tools share a row; the wheel owns the full width. */
+@media (orientation:portrait) {
+  html[data-layout=mobile]{--wheel:min(calc(100vw - 24px),calc(var(--play-height) - 242px));--card:min(calc(100vw - 156px),calc(var(--play-height) - var(--wheel) - 106px))}
+  html[data-layout=mobile] .play-layout{display:grid;grid-template-columns:minmax(0,1fr) 126px;grid-template-rows:minmax(136px,var(--card)) 34px var(--wheel);gap:6px 10px;align-items:center;justify-items:center;padding:8px 0}
+  html[data-layout=mobile] .clue-section,html[data-layout=mobile] .answer-wrap,html[data-layout=mobile] .interaction-section{display:contents}
+  html[data-layout=mobile] .picture-card{grid-column:1;grid-row:1;max-width:100%}
+  html[data-layout=mobile] .bilingual-control{grid-column:2;grid-row:1;align-self:start;margin:0;width:100%}
+  html[data-layout=mobile] .puzzle-language{width:100%;grid-template-columns:1fr 1fr;padding:2px;gap:2px}
+  html[data-layout=mobile] .language-bridge{display:none}
+  html[data-layout=mobile] .puzzle-language button{height:38px;font-size:10px}
+  html[data-layout=mobile] .game-actions{grid-column:2;grid-row:1;align-self:end;display:grid;grid-template-columns:1fr 1fr;gap:8px 6px;width:100%;margin:0 0 5px}
+  html[data-layout=mobile] .game-actions>.action-button{height:44px;padding:3px;gap:2px;flex-direction:column;font-size:10px;border-radius:12px}
+  html[data-layout=mobile] #collection.collection-button{grid-column:1/-1;grid-row:2;height:32px;flex-direction:row;border-radius:10px}
+  html[data-layout=mobile] .answer{grid-column:1/-1;grid-row:2;width:100%}
+  html[data-layout=mobile] .wheel{grid-column:1/-1;grid-row:3}
+  html[data-layout=mobile] .wheel.dual-ring .letters .letter{--s:16cqw;font-size:calc(var(--s) * .6)}
+  html[data-layout=mobile] .feedback{position:fixed;top:48px}
+}
+
+/* Pending outer choices stay in place and become solid when their turn starts. */
+.wheel.dual-ring[data-active-ring=inner] .letters .letter.outer-pending:not(.selected){opacity:.48}
+.wheel.dual-ring[data-active-ring=inner] .orbit-one{opacity:.48}
+.wheel.dual-ring[data-active-ring=outer] .orbit-one{opacity:1}
+html[data-layout=mobile] #shuffle{color:#fff;background:#1763a6}
