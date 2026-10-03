@@ -9,18 +9,25 @@
     state.pictures = new Set(keys.filter(key => new URL(key.url).pathname.endsWith('.png')).map(key => decodeURIComponent(new URL(key.url).pathname.split('/').pop().slice(0,-4))));
   }
   function canPlay(word) { return (state.online && navigator.onLine) || state.pictures.has(word.pic); }
+  async function bounded(task, milliseconds) {
+    let timer;
+    try { return await Promise.race([task, new Promise(resolve => { timer = setTimeout(resolve, milliseconds); })]); }
+    finally { clearTimeout(timer); }
+  }
   async function ready() {
     if (state.supported) {
-      try {
-        const registration = await navigator.serviceWorker.register('picture-words-sw.js', {scope:'./'});
-        state.registration = registration;
-        await refresh();
-      } catch { await refresh().catch(() => {}); }
+      // Optional storage setup must never hold the game's event handlers hostage.
+      Promise.resolve().then(() => navigator.serviceWorker.register('picture-words-sw.js', {scope:'./'}))
+        .then(registration => { state.registration = registration; }).catch(() => {});
+      await bounded(refresh().catch(() => {}), 500);
     }
     if (navigator.onLine && state.supported) {
-      try {
-        await fetch('picture-words.html?connection-check', {cache:'no-store', signal:AbortSignal.timeout(2500)});
-      } catch { state.online = false; }
+      await bounded(Promise.resolve().then(() => fetch('picture-words.html?connection-check', {cache:'no-store'}))
+        .catch(() => {
+          // A failed probe is useful only when a saved fallback exists. A slow
+          // connection or blocked probe must not disable ordinary online play.
+          if (state.pictures.size) state.online = false;
+        }), 500);
     }
     return api;
   }
