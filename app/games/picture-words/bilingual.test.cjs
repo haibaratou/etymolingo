@@ -41,9 +41,18 @@ test('answer demonstrates only the active language and records viewing only for 
 test('records accumulate per language while preserving old combined history',()=>{
  const start=code.indexOf('    const wordRecords=saved.answerRecords[entry.id]');
  const end=code.indexOf('    saved[mode].stars',start);
- const c={saved:{answerRecords:{id:{independent:2,assisted:1}}},entry:{id:'id'},mode:'en',round:{viewed:{en:true,ja:false}}};
+ const c={mistakes:0,clearScore:(miss,viewed)=>Math.max(0,100-10*miss-(viewed?30:0)),saved:{answerRecords:{id:{independent:2,assisted:1}}},entry:{id:'id'},mode:'en',round:{viewed:{en:true,ja:false}}};
  const record=code.slice(start,end);
  vm.runInNewContext('{'+record+'}',c);assert.equal(c.saved.answerRecords.id.en.assisted,1);
  c.mode='ja';vm.runInNewContext('{'+record+'}',c);
  assert.equal(c.saved.answerRecords.id.ja.independent,1);assert.equal(c.saved.answerRecords.id.en.independent,0);assert.equal(c.saved.answerRecords.id.assisted,1);
+});
+
+
+test('scores deduct only full wrong answers and charge a viewed answer once',()=>{
+ const c={};vm.runInNewContext(code.slice(code.indexOf('  function clearScore('),code.indexOf('  function win()')),c);
+ assert.equal(c.clearScore(0,false),100);assert.equal(c.clearScore(1,false),90);
+ assert.equal(c.clearScore(0,true),70);assert.equal(c.clearScore(2,true),50);
+ assert.equal(c.clearScore(20,true),0);
+ assert.match(c.scoreStamp(100,false),/はなまる/);assert.match(c.scoreStamp(70,true),/答えを見た/);
 });

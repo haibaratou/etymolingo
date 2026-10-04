@@ -679,6 +679,17 @@
     praise.dataset.tier = tier;
     praise.classList.remove('show'); void praise.offsetWidth; praise.classList.add('show');
   }
+  function clearScore(missCount, viewed) {
+    return Math.max(0, 100 - 10 * missCount - (viewed ? 30 : 0));
+  }
+  function scoreStamp(score, viewed) {
+    const petals = Array.from({length:16}, (_,i) => {
+      const a=i*Math.PI/8, b=(i+.5)*Math.PI/8, c=(i+1)*Math.PI/8;
+      return `${i?'':'M '+(100+77*Math.cos(a))+' '+(100+77*Math.sin(a))} Q ${100+106*Math.cos(b)} ${100+106*Math.sin(b)} ${100+77*Math.cos(c)} ${100+77*Math.sin(c)}`;
+    }).join(' ');
+    const outline = score===100 ? `<path d="${petals} Z"/><circle cx="100" cy="100" r="65"/>` : '<circle cx="100" cy="100" r="82"/><circle cx="100" cy="100" r="73"/>';
+    return `<svg viewBox="0 0 200 200" aria-hidden="true">${outline}</svg><strong>${score}<small>点</small></strong><span>${score===100?'はなまる':viewed?'答えを見た':'正解'}</span>`;
+  }
   function win() {
     speech.speak(entry, mode); // Start synthesis before reward DOM and storage work.
     $('rankUp').hidden = true;
@@ -695,6 +706,8 @@
     const record=wordRecords[mode] || {independent:0,assisted:0};
     const recordKind=round.viewed[mode]?'assisted':'independent';
     record[recordKind]=(Number(record[recordKind])||0)+1;
+    const score = clearScore(mistakes, round.viewed[mode]);
+    record.lastScore = score; record.bestScore = Math.max(record.bestScore || 0, score);
     record.last=recordKind; record.lastAt=new Date().toISOString();
     wordRecords[mode]=record;
     saved[mode].stars[entry.id]=Math.max(saved[mode].stars[entry.id]||0,stars);persist();
@@ -705,11 +718,9 @@
     const both = !!saved.ja.stars[entry.id] && !!saved.en.stars[entry.id];
     setFeedback(first ? (complete ? `${bookName(mode)} ${mode === 'ja' ? 'コンプリート！' : 'complete!'}` : text().correct) : (mode === 'ja' ? '正解！ この単語は獲得済み' : 'Correct! Already collected.'), 'success');
     $('game').dataset.record = recordKind;
-    $('pictureStamp').textContent = recordKind === 'independent' ? 'おみごと！' : '答えを見て\nクリア';
-    $('rewardBadge').textContent = both ? 'BILINGUAL CLEAR!' : first ? (complete ? 'BOOK COMPLETE' : 'NEW WORD GET!') : (mode === 'ja' ? '獲得済み' : 'COLLECTED');
-    if (award.pageCompleted) $('rewardBadge').textContent = mode === 'ja' ? 'ページ完成！' : 'PAGE COMPLETE!';
-    $('rewardBadge').textContent = first ? '辞書に登録！' : '辞書に記録！';
+    $('pictureStamp').innerHTML = scoreStamp(score, round.viewed[mode]);
     $('rewardScene').dataset.record=recordKind;
+    $('rewardScene').dataset.score=String(score);
     $('rewardScene').classList.toggle('page-complete', award.pageCompleted);
     $('dailyReward').classList.toggle('complete', award.pageCompleted);
     $('dailyReward').textContent = mode === 'ja' ? (award.added ? `今日 ${award.daily.count} 語目の発見！${award.pageCompleted ? ' 10枚そろった！' : ''}` : '覚えたことばが、またひとつ強くなる') : (award.added ? `Discovery ${award.daily.count} today!${award.pageCompleted ? ' All 10 stamps collected!' : ''}` : 'Another word, remembered');
@@ -726,7 +737,8 @@
     $('rewardAfter').textContent = String(award.daily.pageFilled);
     $('rewardTotal').textContent = ' / 10';
     $('rewardProgress').textContent = mode === 'ja' ? `辞書に ${uniqueCount()} 語 / ${catalog.length} 語` : `${uniqueCount()} / ${catalog.length} words discovered`;
-    $('rewardSeal').textContent = recordKind === 'independent' ? 'おみごと！' : '答えを見て\nクリア';
+    $('rewardSeal').innerHTML = scoreStamp(score, round.viewed[mode]);
+    $('rewardSeal').setAttribute('aria-label', `${score}点${score===100?'、花丸':round.viewed[mode]?'、答えを見た':''}`);
     $('advanceLabel').textContent = '次の問題へ →';
     const library = $('rewardShelf'); library.className = 'book-shelf book-library-grid';
     library.replaceChildren(...Array.from({length:10}, (_, pageIndex) => {
@@ -1032,7 +1044,7 @@
         const mark = document.createElement('span'); mark.className = 'dictionary-owned-mark'; mark.innerHTML = icon('check'); card.append(mark);
         const recordLabel=document.createElement('small');recordLabel.className='answer-record';
         const record=saved.answerRecords[word.id]?.[lang];
-        recordLabel.textContent=record?`自力 ${record.independent||0}回 / 答えを見た ${record.assisted||0}回`:saved.answerRecords[word.id]?.last?'旧・両言語の獲得記録あり':'以前の獲得（記録なし）';card.append(recordLabel);
+        recordLabel.textContent=record?`自力 ${record.independent||0}回 / 答えを見た ${record.assisted||0}回`:saved.answerRecords[word.id]?.last?'旧・両言語の獲得記録あり':'以前の獲得（記録なし）';if(record && Number.isFinite(record.bestScore))recordLabel.textContent += ` · 最高 ${record.bestScore}点`;card.append(recordLabel);
         card.setAttribute('aria-label', `${title.textContent} · ${mode === 'ja' ? '獲得済み、詳細を見る' : 'collected, view entry'}`);
         if (lastAcquired?.lang === lang && lastAcquired.id === word.id) card.classList.add('just-collected');
         card.addEventListener('click', () => showDictionaryEntry(word, wordIndex, lang));
@@ -1077,6 +1089,7 @@
       badge.textContent = `${bookName(language)} · ${mode === 'ja' ? (owned ? '獲得済み' : '未獲得') : (owned ? 'collected' : 'missing')}`; badges.append(badge);
     }
     const history=document.createElement('p');history.className='answer-record';const record=saved.answerRecords[word.id]?.[lang];history.textContent=record?`自力正解 ${record.independent||0}回 · 答えを見て正解 ${record.assisted||0}回`:'以前の獲得：答えを見たかどうかの記録はありません';
+    if(record && Number.isFinite(record.lastScore))history.textContent += ` · 今回 ${record.lastScore}点 / 最高 ${record.bestScore}点`;
     const best = document.createElement('p'); best.className = 'entry-stars'; best.textContent = '✦'.repeat(saved[lang].stars[word.id]);
     const other = lang === 'ja' ? 'en' : 'ja', challengeLang = saved[other].stars[word.id] || !supports(word, other) ? lang : other;
     const challenge = document.createElement('button'); challenge.type = 'button'; challenge.className = 'modal-primary';

@@ -982,24 +982,24 @@ html.phone-host body> :not(.desktop-phone-host){display:none!important}
 #gameActions #collection{grid-column:4!important}
 #gameActions #hint{grid-column:5!important}
 
-/* A full-size result stamp, separate from the collected illustration. */
-.result-stamp-slot{height:176px;display:grid;place-items:center;padding:12px 0 8px;flex-shrink:0}
-#rewardScene[data-record] #rewardSeal{position:relative;inset:auto;display:flex;flex-direction:column;align-items:center;justify-content:center;box-sizing:border-box;white-space:pre-line;text-align:center;width:156px;height:156px;font-size:29px;font-weight:900;line-height:1.25;letter-spacing:1px;transform:rotate(-10deg);animation:result-stamp-impact .3s .12s ease-out both}
-#rewardScene[data-record=independent] #rewardSeal{color:#92172b;background:radial-gradient(circle,#fffbea 45%,#ffe08a 78%,#c7851e);border:7px double #a02035;border-radius:50%;outline:4px solid #f7c955;box-shadow:0 0 0 8px #fff4c5,0 6px 0 8px #bb7a1c,0 9px 26px #f8c84d99;text-shadow:0 1px white}
-#rewardScene[data-record=independent] #rewardSeal:before{content:'♛';font-size:34px;line-height:1;color:#9f6510;margin-bottom:5px}
-#rewardScene[data-record=independent] #rewardSeal:after{content:'★ ★ ★';font-size:20px;color:#ac7218;margin-top:6px}
-#rewardScene[data-record=assisted] #rewardSeal{width:208px;height:98px;font-size:24px;border:5px double #42647d;border-radius:10px;background:#eef5f9;color:#304e64;box-shadow:0 3px 0 #aac0ce;transform:rotate(-4deg);animation:assisted-stamp-in .2s ease-out both}
-#rewardScene[data-record=assisted]:before{opacity:.12;animation:none}
-#rewardScene[data-record=assisted] #rewardBadge{background:#42647d}
-#rewardScene[data-record=independent] #rewardBadge{background:#98253b}
-#rewardScene[data-record] #rewardCombo{display:none}
-.game-shell[data-record] .picture-stamp{width:124px!important;height:124px!important;right:10px!important;bottom:18px!important;font-size:25px!important;white-space:pre-line;border:6px double #98253b;background:#fff1b6;color:#98253b;box-shadow:0 0 0 4px #efc04c,0 5px 14px #0003}
-.game-shell[data-record=assisted] .picture-stamp{width:150px!important;height:76px!important;font-size:20px!important;border-radius:8px;border-color:#42647d;background:#eef5f9;color:#304e64;box-shadow:0 3px 0 #aac0ce}
-@keyframes result-stamp-impact{from{opacity:0;transform:rotate(-18deg) scale(1.9)}70%{opacity:1}to{opacity:1;transform:rotate(-10deg) scale(1)}}
-@keyframes assisted-stamp-in{from{opacity:0;transform:translateY(-10px) rotate(-4deg)}to{opacity:1;transform:translateY(0) rotate(-4deg)}}
-@media(prefers-reduced-motion:reduce){#rewardScene[data-record] #rewardSeal{animation:none}}
 
+/* Score is stamped directly over the illustration, not in a separate banner. */
+.reward-art-wrap{position:relative;display:block;width:min(240px,100%);height:220px;margin:0 auto 8px}
+.reward-art-wrap .book-word-art{width:100%;height:100%;object-fit:contain}
+#rewardScene[data-record] #rewardSeal{position:absolute;z-index:4;right:-12px;bottom:-4px;top:auto;left:auto;display:flex;flex-direction:column;align-items:center;justify-content:center;width:154px;height:154px;box-sizing:border-box;padding:0;border:0;outline:0;border-radius:0;background:transparent;color:#cf2248;box-shadow:none;font-weight:900;line-height:1;letter-spacing:0;transform:rotate(-12deg);animation:score-impact .28s .25s ease-out both;filter:drop-shadow(0 1px 1px #fff)}
+#rewardScene[data-record] #rewardSeal:before,#rewardScene[data-record] #rewardSeal:after{content:none}
+.result-stamp svg,.picture-stamp svg{position:absolute;inset:0;width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:4;stroke-linecap:round}
+.result-stamp strong,.picture-stamp strong{position:relative;font-size:49px;line-height:1.1;text-shadow:0 0 4px white,0 0 8px white}
+.result-stamp strong small,.picture-stamp strong small{font-size:20px}
+.result-stamp>span,.picture-stamp>span{position:relative;font-size:16px;margin-top:5px;text-shadow:0 0 4px white,0 0 8px white}
+#rewardScene[data-record=assisted] #rewardSeal{color:#42647d}
+#rewardScene[data-score="100"] #rewardSeal{width:178px;height:178px;right:-16px;filter:drop-shadow(0 0 2px #fff) drop-shadow(0 0 8px #ffd464)}
+#rewardScene[data-record=assisted]:before{opacity:.12;animation:none}
+#rewardScene[data-record] #rewardCombo{display:none}
+#rewardScene[data-record] .book-right{padding-top:25px}
+.game-shell[data-record] .picture-stamp{width:150px!important;height:150px!important;right:8px!important;bottom:16px!important;background:transparent;color:#cf2248;box-shadow:none;border:0;display:flex;flex-direction:column;justify-content:center}
+.game-shell[data-record=assisted] .picture-stamp{color:#42647d}
+@keyframes score-impact{from{opacity:0;transform:rotate(-20deg) scale(1.8)}to{opacity:1;transform:rotate(-12deg) scale(1)}}
+@media(prefers-reduced-motion:reduce){#rewardScene[data-record] #rewardSeal{animation:none}}
 #gameActions.play-toolbar #listenClue{height:54px;min-height:54px;max-height:54px;font-size:13px}
 #gameActions #listenClue svg{width:30px;height:30px}
-
-#rewardScene[data-record=independent] #rewardSeal{font-size:25px;letter-spacing:0;white-space:nowrap}
