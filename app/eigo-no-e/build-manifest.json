@@ -2,22 +2,22 @@
   "schema": 1,
   "build_version": 3,
   "sources": {
-    "words_sha256": "7674c6c1f9222a53ddd05d7ec4df47a9a81f637f225c3316888dabbad07190fd",
-    "scenes_sha256": "22f53f741f0f129631e875087e6d7871b3c42beee85fffed75d7a07b9bbaebec",
+    "words_sha256": "5c968720059a7a15beac4d42d05e8379c36ff80dd1ab5387d41979dc776be946",
+    "scenes_sha256": "27af29209e2c2ea7f1eeb543b7d4d778cbcea58af9ef3cbd59da476bcc050991",
     "illustration_index_sha256": "c061c6b42654186a1ad334d9f52bac62b0b891b1c122e152f0095091a56f0a59"
   },
-  "eligible": 374,
-  "input_scenes": 374,
+  "eligible": 376,
+  "input_scenes": 376,
   "excluded": [],
   "categories": 15,
-  "unclassified": 279,
+  "unclassified": 281,
   "thumbnail": {
     "size": 320,
     "quality": 82,
     "method": 4,
     "pillow": "12.3.0"
   },
-  "data_sha256": "a5873c9a1fd52c0262f648f21584554fe4bd867d7d8ceffd1fe5ff1da85d938e",
+  "data_sha256": "d18c35fe3efdefa400d9a76f9a607fa0d1ce1231e2ef156c9385021aa904b51a",
   "bindings": [
     {
       "art": "book",
@@ -3010,6 +3010,22 @@
       "image_git_blob": "cccd0d3e938c375c46299f1f92f92dd56e1f39d3",
       "thumbnail_path": "app/eigo-no-e/thumbs/particular.dd08d753bb62.webp",
       "thumbnail_sha256": "c41329f87d4137bddeab8dfa43c820834de33a57ad9132dcf2619209ffd92241"
+    },
+    {
+      "art": "less",
+      "image_path": "assets/word/less.png",
+      "image_sha256": "37a9cf970b252281e574546d4f4cd25b8dd183b380068bfa4312fadb83e767b1",
+      "image_git_blob": "43bc4367110eb931551f94caeba415435134d84b",
+      "thumbnail_path": "app/eigo-no-e/thumbs/less.37a9cf970b25.webp",
+      "thumbnail_sha256": "65fd169a10af5322989d9b3ffd9da171bf56f4efb323a41b0fb8f314950138de"
+    },
+    {
+      "art": "mean@medhyo",
+      "image_path": "assets/word/mean@medhyo.png",
+      "image_sha256": "c6e8c48e1f4f9b4ab7565a79c4efff668f45136a0f7ead7a09586db885eac744",
+      "image_git_blob": "54da7192b0bfd2af9cc9cc4f72cdee88c838732f",
+      "thumbnail_path": "app/eigo-no-e/thumbs/mean@medhyo.c6e8c48e1f4f.webp",
+      "thumbnail_sha256": "c6c1a3f7227cc81d4f3d89cd1ec2d806f03aa4cc4b9d953809e1e532e6b46dea"
     }
   ]
 }

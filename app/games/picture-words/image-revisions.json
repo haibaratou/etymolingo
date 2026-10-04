@@ -79,6 +79,14 @@
       ],
       "art": "right",
       "sha256": "620fa82f8483b7b7821a46030278e7a553e805aaaa0dc7e1e4f4080f77942fda"
+    },
+    {
+      "w": "mean",
+      "p": [
+        "medhyo-"
+      ],
+      "art": "mean@medhyo",
+      "sha256": "c6e8c48e1f4f9b4ab7565a79c4efff668f45136a0f7ead7a09586db885eac744"
     }
   ]
 }
