@@ -18,7 +18,7 @@ if (preview.searchParams.get('preview') === 'mobile' && window.self === window.t
   const frame=document.createElement('iframe');frame.title='Mobile layout preview';frame.src=preview.href;frame.style.cssText='width:390px;height:844px;border:0;background:#fffdf8;box-shadow:0 8px 40px #2a231e22';
   document.body.append(label,frame);return;
 }
-view.innerHTML='<div class="page empty" role="status">説明文付きのイラストを読み込んでいます…</div>';
+view.innerHTML='<div class="page empty" role="status">イラストを読み込んでいます…</div>';
 try {
   if (!generated || !window.EigoCatalogValidation || !window.IllustrationScenes) throw Error('Catalog scripts unavailable');
   if(localSnapshot){
@@ -37,7 +37,7 @@ try {
   const index=JSON.parse(indexText.slice(indexText.indexOf('{'),indexText.lastIndexOf('}')+1));
   D=window.EigoCatalogValidation.buildCurrentCatalog(generated,scenes,words,index);
   }
-  if(!D.words.length)throw Error('No current reviewed entries');
+  if(!D.words.length){view.innerHTML='<div class="page empty">登録画像がありません</div>';return;}
 } catch(error) {
   console.error('Eigo-no-e catalog:',error);
   view.innerHTML='<div class="page empty"><b>イラストを読み込めませんでした</b>接続を確認して、もう一度お試しください。<p><button class="btn" id="retry">もう一度読み込む</button></p></div>';
@@ -51,29 +51,55 @@ const CAT = new Map(), SUB = new Map(), inSub = new Map();
 for (const c of D.categories) { CAT.set(c.id, c); for (const s of c.subs) SUB.set(`${c.id}/${s.id}`, {...s, cat: c}); }
 for (const w of W) for (const k of w.c) (inSub.get(k) || inSub.set(k, []).get(k)).push(w);
 const inCat = id => W.filter(w => !w.unavailable && w.c.some(k => k.startsWith(id + '/')));
-const thumb = w => `${w.thumb.path}?v=${w.thumb.sha256.slice(0,12)}`;
-const full = w => `../${w.image.path}?v=${w.image.sha256.slice(0,12)}`;
+const assetURL = path => String(path).split('/').map(encodeURIComponent).join('/');
+const full = w => `../${assetURL(w.image.path)}?v=${w.image.sha256.slice(0,12)}`;
+const thumb = w => `${assetURL(w.thumb.path)}?v=${w.thumb.sha256.slice(0,12)}`;
 const href = w => `#/w/${encodeURIComponent(w.id)}`;
 const firstJa = w => String(w.ja || '').split('、')[0];
-const num = n => n.toLocaleString('ja-JP');
+const num = n => Number(n||0).toLocaleString('ja-JP');
 const POS = {'名':'名詞','動':'動詞','形':'形容詞','副':'副詞','前':'前置詞','代':'代名詞','接':'接続詞','冠':'冠詞','間':'間投詞','助':'助動詞'};
 const posLabel = w => (w.pos || '').split('/').map(p => POS[p.charAt(0)] || p).join('・');
 const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.random() * (i + 1) | 0; [a[i], a[j]] = [a[j], a[i]]; } return a; };
-
-const tile = w => `<a class="tile" href="${href(w)}"><span class="pic"><img src="${thumb(w)}" alt="${esc(w.w)} のイラスト" loading="lazy" decoding="async" width="320" height="320"></span><span class="cap"><span class="w">${esc(w.w)}</span><span class="j">${esc(firstJa(w))}</span></span></a>`;
-const grid = list => `<div class="grid">${list.filter(w=>!w.unavailable).map(tile).join('')}</div>`;
+const titleOf = w => w.w || (w.bindingStatus==='alternate'?'別の画像・旧版':'画像の対応確認中');
+const hasCaption = w => w.description ? w.description.status==='reviewed'&&!!w.description.en&&!!w.description.ja : w.status==='reviewed'&&!!w.scene?.en&&!!w.scene?.ja;
+const tile = w => `<a class="tile" href="${href(w)}"><span class="pic"><img src="${esc(thumb(w))}" data-fallback="${esc(full(w))}" alt="${esc(w.w ? w.w+' のイラスト' : titleOf(w))}" loading="lazy" decoding="async" width="320" height="320"></span><span class="cap"><span class="w">${esc(titleOf(w))}</span>${w.ja?`<span class="j">${esc(firstJa(w))}</span>`:''}${w.w&&!hasCaption(w)?'<small class="caption-status">解説未作成</small>':''}</span></a>`;
+const gridPages = new Map(); let gridSerial=0;
+const grid = list => {
+  list=list.filter(w=>!w.unavailable);const token=String(++gridSerial),shown=Math.min(60,list.length);
+  gridPages.set(token,{list,shown});
+  return `<div class="paged-grid" data-grid="${token}"><div class="grid">${list.slice(0,shown).map(tile).join('')}</div>${list.length>shown?`<button class="btn load-more" type="button" data-grid="${token}">もっと見る（残り ${num(list.length-shown)} 枚）</button>`:''}</div>`;
+};
 const chev = '<svg><use href="#i-chev"/></svg>';
+const reasonLabel = reason => ({reading_candidate:'日本語の読みを確認中',reading_needs_review:'日本語の読みを確認中',reading_unreviewed:'日本語の読みを確認中',missing_answer:'答えを確認中',unsupported_format:'この表記はパズル未対応',image_first_sense_mismatch:'画像と語義を確認中',known_image_mismatch:'画像と語義を確認中',ownership_pending:'画像の対応確認中',alternate:'別の画像・旧版',owned_alternate_or_superseded:'別の画像・旧版',stale_first_sense:'語義を確認中',stale_art_mapping:'画像の対応確認中',missing_identity:'画像の対応確認中'}[reason] || 'パズルの対応確認中');
+function puzzleActions(w, imageReady){
+  const reasons=[];
+  const actions=['en','ja'].map(lang=>{
+    const a=w.availability?.[lang],label=lang==='en'?'英語パズル':'日本語パズル';
+    if(a?.playable&&a.answer&&imageReady)return `<a class="btn word-puzzle" href="games/picture-words.html?word=${encodeURIComponent(w.id)}&amp;lang=${lang}" target="_blank" rel="noopener">${label} ↗</a>`;
+    if(!a?.playable)reasons.push(reasonLabel(a?.reason));
+    return `<button class="btn" type="button" disabled>${label}</button>`;
+  }).join('');
+  return actions+`<small class="play-status">${!imageReady?'画像を確認中':[...new Set(reasons)].join('・')}</small>`;
+}
+const imageChecks=new Map();
+async function verifyImage(w){
+  if(localSnapshot)return true;
+  const key=w.image.path+':'+w.image.sha256;if(imageChecks.has(key))return imageChecks.get(key);
+  const check=(async()=>{try{const r=await fetch(full(w),{cache:'no-cache'});if(!r.ok||!globalThis.crypto?.subtle)return false;const hash=await crypto.subtle.digest('SHA-256',await r.arrayBuffer());return [...new Uint8Array(hash)].map(b=>b.toString(16).padStart(2,'0')).join('')===w.image.sha256;}catch{return false;}})();
+  imageChecks.set(key,check);if(imageChecks.size>40)imageChecks.delete(imageChecks.keys().next().value);
+  const ok=await check;if(!ok)imageChecks.delete(key);return ok;
+}
 
 /* ───────── 検索 ───────── */
 const kata2hira = s => s.replace(/[ァ-ヶ]/g, c => String.fromCharCode(c.charCodeAt(0) - 0x60));
 const norm = s => kata2hira(String(s || '').normalize('NFKC').toLowerCase().trim());
 const tagText = value => Array.isArray(value) ? value.flatMap(tagText) : value && typeof value === 'object' ? Object.values(value).flatMap(tagText) : typeof value === 'string' ? [value] : [];
 const IDX = W.map(w => {
-  const cats = w.c.map(k => SUB.get(k)).filter(Boolean);
+  const cats = (w.c||[]).map(k => SUB.get(k)).filter(Boolean);
   const jaList = [...String(w.ja || '').split('、'), ...String(w.k || '').split('、')].map(norm).filter(Boolean);
   return {
     w, en: norm(w.w), jaList,
-    keywords: [w.w, w.ja, w.k, ...tagText(w.tags), ...cats.flatMap(s => [s.ja, s.en, s.cat.ja, s.cat.en]), w.scene?.en, w.scene?.ja].map(norm).filter(Boolean),
+    keywords: [w.w, w.ja, w.k, ...(w.w?[]:[w.art]), ...tagText(w.tags), ...cats.flatMap(s => [s.ja, s.en, s.cat.ja, s.cat.en]), ...(hasCaption(w)?[w.scene?.en,w.scene?.ja]:[])].map(norm).filter(Boolean),
   };
 });
 
@@ -167,7 +193,7 @@ function home() {
   view.innerHTML = `<div class="page fade">
     <section class="pict-hero"><h1 class="hero-title">Pictpedia</h1><img class="hero-art" src="../assets/pictpedia/hero-carnival.png?v=e139fd54677d" width="1536" height="1024" alt="Pictpedia：空飛ぶ鉛筆とドラゴンに乗る二人と、にぎやかなことばの世界" fetchpriority="high"></section>
     <div class="tryline">たとえば ${tries.map(([m, q]) => `<a class="${m === 't' ? 'text' : ''}" href="#/${m}/${encodeURIComponent(q)}" title="${m === 't' ? 'あいまい検索' : '単語検索'}">${esc(q)}</a>`).join('')}</div>
-    <h2 class="h2" id="categories">カテゴリーからさがす<small>Categories</small></h2>
+    <h2 class="h2" id="categories">カテゴリーからさがす<a href="#/all">${num(D.word_entry_count)}語・${num(D.total_art)}枚</a></h2>
     <div class="cats">${D.categories.map(c => {
       const icon = c.icon && byId.get(c.icon);
       return `<article class="cat"><a class="ic" href="#/c/${c.id}" tabindex="-1">${icon ? `<img src="${thumb(icon)}" alt="" loading="lazy">` : ''}</a>
@@ -198,54 +224,55 @@ function catPage(cid, sid) {
 }
 
 function wordPage(id) {
-  const w = byId.get(id); if (!w || w.unavailable) return notFound();
+  const w = byId.get(id); if (!w) return notFound();
   const k = w.c[0], sub = SUB.get(k);
   side(sub?.cat.id, sub?.id);
-  const jaAll = String(w.ja || '').split('、');
   const seen = new Set([w.id]);
   const related = w.c.flatMap(x => inSub.get(x) || []).filter(x => !seen.has(x.id) && seen.add(x.id));
   view.innerHTML = `<div class="page fade">
-    <nav class="crumbs"><a href="#/">トップ</a>${sub ? `${chev}<a href="#/c/${sub.cat.id}">${esc(sub.cat.ja)}</a>${chev}<a href="#/c/${k}">${esc(sub.ja)}</a>` : ''}${chev}<span>${esc(w.w)}</span></nav>
+    <nav class="crumbs"><a href="#/">トップ</a>${sub ? `${chev}<a href="#/c/${sub.cat.id}">${esc(sub.cat.ja)}</a>${chev}<a href="#/c/${k}">${esc(sub.ja)}</a>` : ''}${chev}<span>${esc(titleOf(w))}</span></nav>
     <article class="word">
-      <div class="plate"><img src="${full(w)}" alt="${esc(w.w)}(${esc(firstJa(w))})のイラスト" width="1024" height="1024"></div>
+      <div class="plate"><img src="${esc(full(w))}" alt="${esc(titleOf(w))}" width="1024" height="1024"></div>
       <div>
         ${posLabel(w) ? `<span class="pos">${esc(posLabel(w))}</span>` : ''}
-        <h1 class="word-title" lang="en">${esc(w.w)}</h1>
-        <p class="word-ja">${esc(jaAll[0])}${jaAll.length > 1 ? `<small>${esc(jaAll.slice(1).join('、'))}</small>` : ''}</p>
+        <h1 class="word-title${w.w?'':' pending-title'}"${w.w?' lang="en"':''}>${esc(titleOf(w))}</h1>
+        ${w.ja?`<p class="word-ja">${esc(firstJa(w))}</p>`:`<p class="asset-name">画像ファイル：${esc(w.art)}.png</p>`}
         <div class="acts">
-          <button class="btn primary" id="speak" type="button"><svg><use href="#i-sound"/></svg>発音をきく</button>
-          <a class="btn" href="${full(w)}" download="${esc(w.id)}.png"><svg><use href="#i-down"/></svg>PNG</a>
-          <a class="btn word-puzzle" href="games/picture-words.html?word=${encodeURIComponent(w.id)}" target="_blank" rel="noopener"><svg><use href="#i-puzzle"/></svg>この単語のパズル ↗</a>
+          ${w.w?'<button class="btn primary" id="speak" type="button"><svg><use href="#i-sound"/></svg>発音をきく</button>':''}
+          <a class="btn" href="${esc(full(w))}" download="${esc(w.art)}.png"><svg><use href="#i-down"/></svg>PNG</a>
           <button class="btn" id="copy" type="button"><svg><use href="#i-link"/></svg>リンク</button>
         </div>
-        <div class="box" id="sceneBox" aria-live="polite"><p>イラストを確認しています…</p></div>
+        <div class="puzzle-actions" id="puzzleActions">${puzzleActions(w,false)}</div>
+        <div class="box" id="sceneBox" aria-live="polite">${hasCaption(w)?'<p>解説を確認しています…</p>':'<p class="caption-status">解説未作成</p>'}</div>
         <div class="box"><h3>カテゴリー</h3><div class="tags">${w.c.map(x => SUB.get(x)).filter(Boolean).map(s => `<a href="#/c/${s.cat.id}/${s.id}">${esc(s.cat.ja)} › ${esc(s.ja)}</a>`).join('')}</div></div>
       </div>
     </article>
-    ${related.length ? `<h2 class="h2">関連するイラスト<small>Related</small>${sub ? `<a href="#/c/${k}">${esc(sub.ja)}をすべて見る</a>` : ''}</h2>${grid(related.slice(0, 18))}` : ''}
+    ${related.length ? `<h2 class="h2">関連するイラスト${sub ? `<a href="#/c/${k}">${esc(sub.ja)}をすべて見る</a>` : ''}</h2>${grid(related.slice(0, 18))}` : ''}
   </div>`;
-  // Revalidate the exact currently served PNG before showing its description.
-  const sceneBox=$('#sceneBox');
-  // Direct-file viewing uses the build-verified snapshot; browsers block fetch(file:).
-  // HTTP/HTTPS always keeps the live byte/sense checks and never silently falls back.
-  const checked=localSnapshot ? Promise.resolve({status:'reviewed',entry:w})
-    : window.IllustrationScenes.verify(w,{imageUrl:full(w),word:w});
-  checked.then(result=>{
+  const sceneBox=$('#sceneBox'),actions=$('#puzzleActions');
+  verifyImage(w).then(ok=>{
     if(!sceneBox.isConnected)return;
-    if(result.status==='reviewed')sceneBox.innerHTML=`<h3>このイラスト</h3><p class="en" lang="en">${esc(w.scene.en)}</p><p lang="ja">${esc(w.scene.ja)}</p>`;
-    else {
-      w.unavailable=true;
-      view.innerHTML='<div class="page empty"><b>このイラストは更新確認中です</b>別のイラストをお選びください。<p><a class="btn" href="#/">トップへ</a></p></div>';
+    if(ok){
+      actions.innerHTML=puzzleActions(w,true);
+      sceneBox.innerHTML=hasCaption(w)?`<p class="en" lang="en">${esc(w.scene.en)}</p><p lang="ja">${esc(w.scene.ja)}</p>`:'<p class="caption-status">解説未作成</p>';
+    }else{
+      actions.innerHTML='<small class="play-status">画像を確認できないため、パズルを開けません</small><button class="btn" type="button" id="retryImage">再確認</button>';
+      sceneBox.innerHTML='<p class="caption-status">解説未作成</p><small>画像の更新を確認中</small>';
+      $('#retryImage').onclick=()=>wordPage(id);
     }
   });
-  $('#speak').onclick = () => speak(w.w);
-  $('.word-puzzle').onclick = e => {
-    if(e.ctrlKey || e.metaKey || e.shiftKey || e.altKey)return;
-    e.preventDefault();
-    window.open(e.currentTarget.href, '_blank', 'popup,width=620,height=820,noopener');
+  if($('#speak'))$('#speak').onclick = () => speak(w.w);
+  $('#copy').onclick = () => {
+    if(!navigator.clipboard?.writeText)return toast(location.href);
+    navigator.clipboard.writeText(location.href).then(()=>toast('リンクをコピーしました'),()=>toast(location.href));
   };
-  $('#copy').onclick = () => navigator.clipboard?.writeText(location.href).then(() => toast('リンクをコピーしました'), () => toast(location.href));
-  document.title = `${w.w}(${firstJa(w)})のイラスト — Pictpedia`;
+  document.title = `${titleOf(w)}${w.ja?'('+firstJa(w)+')':''} — Pictpedia`;
+}
+
+function allPage(){
+  side();
+  view.innerHTML=`<div class="page fade"><nav class="crumbs"><a href="#/">トップ</a>${chev}<span>すべての画像</span></nav><h1 class="h1">すべての画像</h1><p class="lead">${num(D.word_entry_count)} 語・${num(D.total_art)} 枚</p>${grid(W)}</div>`;
+  document.title='すべての画像 — Pictpedia';
 }
 
 function resultPage(m, q) {
@@ -258,7 +285,7 @@ function resultPage(m, q) {
     <h1 class="h1">「${esc(q)}」のイラスト</h1>
     <p class="hint">${list.length ? `${num(list.length)} 枚${m === 't' ? '(部分一致)' : ''}` : ''}
       <a href="#/${other}/${encodeURIComponent(q)}">${m === 't' ? '単語検索' : 'あいまい検索'}でためす</a></p>
-    ${list.length ? grid(list) : `<div class="empty"><b>見つかりませんでした</b>${m === 't' ? 'キーワードを変えてお試しください。' : 'つづりを変えるか、「あいまい検索」をためしてみてください。'}<br>説明文のある ${num(W.length)} 枚を収録しています。</div>`}
+    ${list.length ? grid(list) : `<div class="empty"><b>見つかりませんでした</b>${m === 't' ? 'キーワードを変えてお試しください。' : 'つづりを変えるか、「あいまい検索」をためしてみてください。'}<br>${num(D.total_art)} 枚を収録しています。</div>`}
   </div>`;
   document.title = `「${q}」のイラスト — Pictpedia`;
 }
@@ -269,6 +296,7 @@ let voice = null;
 const pickVoice = () => { const vs = speechSynthesis.getVoices(); voice = vs.find(v => /en-US/i.test(v.lang) && /Samantha|Google|Jenny|Aria/i.test(v.name)) || vs.find(v => /^en/i.test(v.lang)) || null; };
 if ('speechSynthesis' in window) { pickVoice(); speechSynthesis.onvoiceschanged = pickVoice; }
 function speak(t) {
+  if (!String(t||'').trim()) return;
   if (!('speechSynthesis' in window)) return toast('この端末では発音を再生できません');
   speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(t); u.lang = 'en-US'; u.rate = .9; if (voice) u.voice = voice; speechSynthesis.speak(u);
 }
@@ -276,11 +304,13 @@ let tt; function toast(m) { const t = $('#toast'); t.textContent = m; t.classLis
 addEventListener('keydown', e => { if (e.key === '/' && !/input|textarea/i.test(document.activeElement.tagName)) { e.preventDefault(); input.focus(); } });
 
 function route() {
-  const h = decodeURIComponent(location.hash.replace(/^#\/?/, ''));
+  gridPages.clear();
+  let h;try{h=decodeURIComponent(location.hash.replace(/^#\/?/, ''));}catch{return notFound();}
   const [kind, a, b] = h.split('/');
-  document.body.classList.remove('menu-open');
+  document.body.classList.remove('menu-open');$('#menuBtn').setAttribute('aria-expanded','false');
   document.body.classList.toggle('home-mode', !kind);
   if (!kind) home();
+  else if (kind === 'all') allPage();
   else if (kind === 'c') catPage(a, b);
   else if (kind === 'w') wordPage(h.slice(2));
   else if (kind === 'p') location.replace('games/picture-words.html?word='+encodeURIComponent(h.slice(2)));
@@ -288,6 +318,13 @@ function route() {
   else notFound();
   scrollTo(0, 0);
 }
+view.addEventListener('click',e=>{
+  const more=e.target.closest('.load-more');
+  if(more){const entry=gridPages.get(more.dataset.grid);if(!entry)return;const end=Math.min(entry.shown+60,entry.list.length);more.previousElementSibling.insertAdjacentHTML('beforeend',entry.list.slice(entry.shown,end).map(tile).join(''));entry.shown=end;if(end===entry.list.length)more.remove();else more.textContent=`もっと見る（残り ${num(entry.list.length-end)} 枚）`;return;}
+  const link=e.target.closest('a.word-puzzle');if(link&&!e.ctrlKey&&!e.metaKey&&!e.shiftKey&&!e.altKey){e.preventDefault();window.open(link.href,'_blank','popup,width=620,height=820,noopener');}
+});
+view.addEventListener('error',e=>{const img=e.target;if(img.tagName!=='IMG')return;if(img.dataset.fallback&&img.getAttribute('src')!==img.dataset.fallback){img.src=img.dataset.fallback;delete img.dataset.fallback;}else{img.classList.add('image-failed');img.alt='画像を読み込めません';}},true);
+document.querySelectorAll('#barSearch input,#barSearch button,#menuBtn').forEach(control=>{control.disabled=false;});
 addEventListener('hashchange', route);
 route();
 })();

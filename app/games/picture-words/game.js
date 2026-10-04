@@ -22,22 +22,25 @@
   const datasetState = await sceneRuntime.checkDataset();
   let datasetUnavailable = !datasetState.ok;
   const failedEntries = new Set();
-  const catalog = datasetState.ok ? difficulty.bilingualCatalog(window.WordBloomReviewedScenes.filterCatalog(originalCatalog)) : [];
+  const catalog = datasetState.ok ? difficulty.buildCatalog(window.WordBloomReviewedScenes.filterCatalog(originalCatalog)) : [];
   const discovery = window.PictureWordsProgression;
   const byId = new Map(catalog.map(word => [word.id, word]));
-  const supports = (word, lang) => !datasetUnavailable && !failedEntries.has(word.id) && offline.canPlay(word) && (lang === 'en' || !!word.w);
-  // Explicit dictionary requests only select from the unchanged verified pool.
+  const supports = (word, lang) => !datasetUnavailable && !failedEntries.has(word.id) && offline.canPlay(word) && window.WordBloomReviewedScenes.supportsLanguage(word, lang);
+  // Exact dictionary IDs select their own image row; unavailable requests never become random puzzles.
   function resolveRequestedWord(search, eligible, canPlay) {
     const params = new URLSearchParams(search);
     if (!params.has('word')) return { present: false, index: -1 };
     const ids = params.getAll('word');
     if (ids.length !== 1 || !ids[0]) return { present: true, index: -1, reason: 'invalid-request' };
+    const languages = params.getAll('lang');
+    if (languages.length > 1 || (languages.length && !['en','ja'].includes(languages[0]))) return { present: true, index: -1, reason: 'invalid-request' };
+    const language = languages[0] || 'en';
     const index = eligible.findIndex(word => word.id === ids[0]);
     if (index < 0) return { present: true, index: -1, reason: 'not-eligible' };
-    if (!canPlay(eligible[index])) return { present: true, index: -1, reason: 'unavailable' };
-    return { present: true, index };
+    if (!canPlay(eligible[index], language)) return { present: true, index: -1, reason: 'unavailable', wordId: eligible[index].id, language };
+    return { present: true, index, language };
   }
-  const requestedWord = resolveRequestedWord(location.search, catalog, word => supports(word, 'en'));
+  const requestedWord = resolveRequestedWord(location.search, catalog, (word, lang) => supports(word, lang));
   const availableCount = lang => catalog.filter(word => supports(word, lang)).length;
   const { bilingualRound, finishLanguage, areNeighbours, connectedPath, advanceSelection, sweptHits, activeBatch, canSelectRing, planLetters } = window.WordBloomGesture;
   const KEY = 'word-bloom-v1';
@@ -89,7 +92,7 @@
     return value;
   }
   const saved = readSave();
-  let mode = requestedWord.present ? 'en' : saved.mode;
+  let mode = requestedWord.present ? (requestedWord.language || 'en') : saved.mode;
   let index = saved[mode].index;
   let round = null;
   let entry, roundScene = null, answer = [], nodes = [], selected = [], hintCount = 0, mistakes = 0;
@@ -130,11 +133,18 @@
   const imgURL = word => sceneRuntime.imageURL(word);
   let sceneRequest = 0, sceneReadingHold = false;
   const explanationFor = word => sceneRuntime.prepare(word);
+  function renderExplanation(panel, result) {
+    if (result?.status === 'reviewed' && result.ttsAllowed === true) { window.IllustrationScenes.render(panel, result); return; }
+    panel.replaceChildren(); panel.classList.add('illustration-explanation');
+    panel.dataset.sceneStatus = result?.status || 'missing';
+    const label = document.createElement('small'); label.className = 'illustration-explanation-status';
+    label.textContent = '解説未作成'; panel.append(label);
+  }
   function showRewardExplanation(word) {
     const panel = $('rewardExplanation'); panel.hidden = true; panel.replaceChildren();
-    if (phase !== 'solved' || entry.id !== word.id || roundScene?.status !== 'reviewed') return;
-    window.IllustrationScenes.render(panel, roundScene); panel.hidden = false;
-    sceneReadingHold = true; // Every offered puzzle now has a verified explanation.
+    if (phase !== 'solved' || entry.id !== word.id || !roundScene?.playable) return;
+    renderExplanation(panel, roundScene); panel.hidden = false;
+    sceneReadingHold = true; // Keep the existing Next control available for every solved image.
   }
 
   const shuffle = values => {
@@ -249,7 +259,7 @@
   speech.setEnabled(saved.sound);
 
   function pronunciationPanel(word, language, sceneResult = null) {
-    const narrating = sceneResult?.status === 'reviewed';
+    const narrating = sceneResult?.status === 'reviewed' && sceneResult.ttsAllowed === true;
     const panel = document.createElement('div'); panel.className = 'pronunciation';
     panel.dataset.word = word.id; panel.dataset.language = language; panel.dataset.state = 'idle'; panel.dataset.kind = narrating ? 'scene' : 'word';
     panel.setAttribute('role', 'group'); panel.setAttribute('aria-label', narrating ? (mode === 'ja' ? '説明を聞く' : 'Description audio') : (mode === 'ja' ? '単語の発音を聞く' : 'Word pronunciation'));
@@ -337,7 +347,10 @@
     $('modeToggle').dataset.mode = mode === 'ja' ? 'en' : 'ja';
     $('modeToggle').setAttribute('aria-label', mode === 'ja' ? '英語に切り替える' : '日本語に切り替える');
     $('modeToggle').dataset.active = mode;
-    document.querySelectorAll('[data-mode="ja"]').forEach(button=>{button.disabled=!entry?.w;});
+    const otherLanguage = mode === 'ja' ? 'en' : 'ja';
+    $('modeToggle').disabled = !!entry && !window.WordBloomReviewedScenes.supportsLanguage(entry, otherLanguage);
+    $('modeToggle').title = entry ? window.WordBloomReviewedScenes.unavailableReason(entry, otherLanguage) : '';
+    if ($('modeToggle').disabled) $('modeToggle').setAttribute('aria-label', $('modeToggle').title);
     $('modeLabel').innerHTML = `<span class="mode-ja">日本語</span><span aria-hidden="true">⇄</span><span class="mode-en">英語</span>`;
     const labels = { clueHeading: 'title', instruction: 'instruction', gestureNote: 'note', shuffleLabel: 'shuffle', hintLabel: 'hint',
       footerNote: 'footer', collectionLabel: 'collection', foundLabel: 'found',
@@ -580,7 +593,11 @@
     // selector or to a saved language-specific index. Keep it even if offline
     // availability changed after its picture finished loading.
     if (keepPicture && entry) nextIndex = catalog.indexOf(entry);
-    else if (!catalog[nextIndex] || !offline.canPlay(catalog[nextIndex])) nextIndex = nextUncollected(mode, index);
+    else if (!catalog[nextIndex] || !supports(catalog[nextIndex], mode)) {
+      // A direct request may become unavailable after startup. Never substitute.
+      if (requestedWord.present && nextIndex === requestedWord.index) { closePlay(); updateOfflineStatus(); return; }
+      nextIndex = nextUncollected(mode, index);
+    }
     if (nextIndex < 0) { closePlay(); updateOfflineStatus(); return; }
     const retainedHintCount = keepHints ? hintCount : 0;
     const retainedScene = keepPicture ? roundScene : null;
@@ -600,7 +617,7 @@
     index = (nextIndex + catalog.length) % catalog.length; progress().index = index;
     entry = catalog[index];
     speech.prepare?.(entry);
-    if (mode === 'ja' && !entry.w) mode = 'en';
+    if (!window.WordBloomReviewedScenes.supportsLanguage(entry, mode)) { closePlay(); updateOfflineStatus(); return; }
     progress().index = index; progress().wordId = entry.id;
     const firstView=discovery.isFirstView(saved,entry.id);
     $('newCardBadge').hidden=true;
@@ -621,7 +638,7 @@
     $('gestureNote').textContent = mode === 'ja' ? '途中で離すとキャンセル' : 'Release an unfinished word to cancel';
     const version = generation, image = $('clueImage');
     image.alt = mode === 'ja' ? '答えを考えるためのイラスト' : 'Picture clue. What does it show?';
-    if (keepPicture && retainedScene?.status === 'reviewed' && image.complete && image.naturalWidth > 0 && image.dataset.sceneId === entry.id) {
+    if (keepPicture && retainedScene?.playable === true && image.complete && image.naturalWidth > 0 && image.dataset.sceneId === entry.id) {
       roundScene = retainedScene;
       image.style.opacity = '1';
       image.style.animation = 'none';
@@ -645,13 +662,13 @@
         if (['stale-catalog','manifest-unavailable','missing-catalog-provenance'].includes(reason)) datasetUnavailable = true;
         phase = 'error'; $('game').dataset.state = phase; $('imageError').hidden = false; $('imageError').dataset.reason = reason;
         $('hint').disabled = true; $('shuffle').disabled = true; $('listenClue').disabled = true;
-        setFeedback(mode === 'ja' ? '画像と説明を確認できません。最新版に再読み込みしてください。' : 'The picture and description could not be verified. Reload the latest data.', 'wrong');
+        setFeedback(mode === 'ja' ? '画像を確認できません。最新版に再読み込みしてください。' : 'The picture could not be verified. Reload the latest data.', 'wrong');
         updateOfflineStatus();
       };
       image.onerror = () => failScene('image-decode-failed');
       sceneRuntime.prepare(word).then(result => {
         if (version !== generation || entry.id !== word.id) return;
-        if (result.status !== 'reviewed') { failScene(result.reason); return; }
+        if (!result.playable) { failScene(result.reason); return; }
         roundScene = result; datasetUnavailable = false; failedEntries.delete(word.id);
         image.dataset.sceneId = word.id; image.src = result.imageURL;
       }).catch(() => failScene('image-unavailable'));
@@ -726,8 +743,8 @@
     return `<svg viewBox="0 0 200 200" aria-hidden="true">${outline}</svg><strong>${score}<small>点</small></strong><span>${score===100?'はなまる':viewed?'答えを見た':'正解'}</span>`;
   }
   function win() {
-    if (roundScene?.status !== 'reviewed') return;
-    speech.speakScene(entry, roundScene, mode); // Already verified before play; keep the answer gesture's audio activation.
+    if (!roundScene?.playable) return;
+    if (roundScene.status === 'reviewed' && roundScene.ttsAllowed === true) speech.speakScene(entry, roundScene, mode);
     $('rankUp').hidden = true;
     phase = 'solved'; $('game').dataset.state = phase; updateLabels(); flyLetters(); vibrate([12, 35, 20]);
     if (comboEligible) { saved.combo++; saved.bestCombo = Math.max(saved.bestCombo, saved.combo); }
@@ -811,7 +828,9 @@
       later(() => { $('rewardScene').classList.add('page-filled'); updateProgress(); }, 420);
       if (award.added) later(animateAcquisition, 500);
     }, reducedMotion.matches ? 0 : PRAISE_TIME);
-    $('winPronunciation').replaceChildren(pronunciationPanel(entry, mode, roundScene)); $('winPronunciation').hidden = false;
+    $('winPronunciation').replaceChildren();
+    $('winPronunciation').hidden = roundScene.status !== 'reviewed' || roundScene.ttsAllowed !== true;
+    if (!$('winPronunciation').hidden) $('winPronunciation').append(pronunciationPanel(entry, mode, roundScene));
     queueAdvance(award.pageCompleted ? 4400 : REWARD_DURATION);
   }
 
@@ -950,8 +969,8 @@
   });
   window.addEventListener('resize', updateLayout);
   document.querySelectorAll('[data-mode]').forEach(button=>button.addEventListener('click',()=>{
-    if(button.dataset.mode==='ja' && !entry?.w)return;
     if(!entry || !['playing','answer-demo'].includes(phase) || mode===button.dataset.mode)return;
+    if(!window.WordBloomReviewedScenes.supportsLanguage(entry,button.dataset.mode)){setFeedback(window.WordBloomReviewedScenes.unavailableReason(entry,button.dataset.mode));return;}
     round.mistakes[mode]=mistakes;
     cancelGesture();generation++;clearPending();speech.stop();
     mode=button.dataset.mode;answer=round.answers[mode];hintCount=0;mistakes=round.mistakes[mode];
@@ -1030,12 +1049,13 @@
   $('wordReward').addEventListener('click', openDictionary);
 
   function beginDictionaryPuzzle(lang, targetIndex) {
+    if (!catalog[targetIndex] || !supports(catalog[targetIndex], lang)) return;
     $('modal').close(); mode = lang; loadLevel(targetIndex, true);
     $('clueHeading').scrollIntoView({ behavior: reducedMotion.matches ? 'instant' : 'smooth', block: 'start' });
   }
 
   function renderDictionary(focusControl = '') {
-    const lang = dictionaryLanguage, count = collectedCount(lang), totalWords = availableCount(lang), percent = totalWords ? Math.floor(count / totalWords * 100) : 0;
+    const lang = dictionaryLanguage, count = catalog.filter(word => saved[lang].stars[word.id]).length, totalWords = catalog.length, percent = totalWords ? Math.floor(count / totalWords * 100) : 0;
     const todayIds = new Set(discovery.summary(saved.discovery).todayIds);
     const container = document.createElement('div'); container.className = 'dictionary';
     const tabs = document.createElement('div'); tabs.className = 'dictionary-tabs'; tabs.setAttribute('role', 'group');
@@ -1067,23 +1087,23 @@
     const grid = document.createElement('div'); grid.className = 'dictionary-grid';
     const collator = new Intl.Collator(lang);
     const query = dictionaryQuery.trim().toLocaleLowerCase();
-    const words = catalog.map((word, wordIndex) => ({ word, wordIndex })).filter(({word}) => supports(word,lang) && (!['independent','assisted'].includes(dictionaryFilter) || saved.answerRecords[word.id]?.[lang]?.[dictionaryFilter]>0) && (dictionaryFilter !== 'today' || todayIds.has(word.id)) && (dictionaryFilter !== 'owned' || saved[lang].stars[word.id]) && (dictionaryFilter !== 'missing' || !saved[lang].stars[word.id]) && (!query || `${word.en} ${word.ja} ${word.w}`.toLocaleLowerCase().includes(query))).sort((a, b) => collator.compare(lang === 'ja' ? a.word.w : a.word.en, lang === 'ja' ? b.word.w : b.word.en));
+    const words = catalog.map((word, wordIndex) => ({ word, wordIndex })).filter(({word}) => (!['independent','assisted'].includes(dictionaryFilter) || saved.answerRecords[word.id]?.[lang]?.[dictionaryFilter]>0) && (dictionaryFilter !== 'today' || todayIds.has(word.id)) && (dictionaryFilter !== 'owned' || saved[lang].stars[word.id]) && (dictionaryFilter !== 'missing' || !saved[lang].stars[word.id]) && (!query || `${word.en} ${word.ja} ${word.w}`.toLocaleLowerCase().includes(query))).sort((a, b) => collator.compare(lang === 'ja' ? a.word.w : a.word.en, lang === 'ja' ? b.word.w : b.word.en));
     const pages = Math.max(1, Math.ceil(words.length / DICTIONARY_PAGE_SIZE)); dictionaryPage = Math.min(dictionaryPage, pages - 1);
     for (const { word, wordIndex } of words.slice(dictionaryPage * DICTIONARY_PAGE_SIZE, (dictionaryPage + 1) * DICTIONARY_PAGE_SIZE)) {
-      const owned = !!saved[lang].stars[word.id];
+      const owned = !!saved[lang].stars[word.id], playable = supports(word,lang);
       const card = document.createElement('button'); card.type = 'button'; card.className = `dictionary-card ${owned ? 'owned' : 'missing'}`; card.dataset.wordId = word.id;
       const rarity = difficulty.tiers[word.tier]; card.dataset.rarity = rarity.key; card.style.setProperty('--rarity', rarity.color);
       const number = document.createElement('span'); number.className = 'dictionary-number'; number.textContent = `NO. ${String(wordIndex + 1).padStart(3, '0')}`;
       const title = document.createElement('strong'), subtitle = document.createElement('small');
       card.append(number);
-      if (owned) {
+      if (owned || !playable) {
         const image = document.createElement('img'); image.src = imgURL(word); image.alt = ''; image.loading = 'lazy'; card.append(image);
-        title.textContent = lang === 'ja' ? word.ja : word.en; subtitle.textContent = lang === 'ja' ? word.w : word.ja;
-        const mark = document.createElement('span'); mark.className = 'dictionary-owned-mark'; mark.innerHTML = icon('check'); card.append(mark);
+        title.textContent = (lang === 'ja' ? word.ja : word.en) || word.pic; subtitle.textContent = playable ? (lang === 'ja' ? word.w : word.ja) : window.WordBloomReviewedScenes.unavailableReason(word,lang);
+        const mark = document.createElement('span'); mark.className = 'dictionary-owned-mark'; mark.innerHTML = owned ? icon('check') : ''; card.append(mark);
         const recordLabel=document.createElement('small');recordLabel.className='answer-record';
         const record=saved.answerRecords[word.id]?.[lang];
-        recordLabel.textContent=record?`自力 ${record.independent||0}回 / 答えを見た ${record.assisted||0}回`:saved.answerRecords[word.id]?.last?'旧・両言語の獲得記録あり':'以前の獲得（記録なし）';if(record && Number.isFinite(record.bestScore))recordLabel.textContent += ` · 最高 ${record.bestScore}点`;card.append(recordLabel);
-        card.setAttribute('aria-label', `${title.textContent} · ${mode === 'ja' ? '獲得済み、詳細を見る' : 'collected, view entry'}`);
+        recordLabel.textContent=record?`自力 ${record.independent||0}回 / 答えを見た ${record.assisted||0}回`:saved.answerRecords[word.id]?.last?'旧・両言語の獲得記録あり':owned?'以前の獲得（記録なし）':'未獲得';if(record && Number.isFinite(record.bestScore))recordLabel.textContent += ` · 最高 ${record.bestScore}点`;card.append(recordLabel);
+        card.setAttribute('aria-label', `${title.textContent} · ${owned ? '獲得済み' : '出題準備中'}、詳細を見る`);
         if (lastAcquired?.lang === lang && lastAcquired.id === word.id) card.classList.add('just-collected');
         card.addEventListener('click', () => showDictionaryEntry(word, wordIndex, lang));
       } else {
@@ -1115,7 +1135,7 @@
     const back = document.createElement('button'); back.type = 'button'; back.className = 'dictionary-back'; back.textContent = mode === 'ja' ? '← 辞書にもどる' : '← Back to dictionary';
     back.addEventListener('click', () => { renderDictionary(); $('modalBody').querySelector(`[data-word-id="${word.id}"]`)?.focus(); });
     const image = document.createElement('img'); image.src = imgURL(word); image.alt = word.ja;
-    const heading = document.createElement('h3'); heading.textContent = lang === 'ja' ? word.ja : word.en;
+    const heading = document.createElement('h3'); heading.textContent = (lang === 'ja' ? word.ja : word.en) || word.pic;
     const profile = difficulty.challenge(word, lang), rarity = document.createElement('p'); rarity.className = 'entry-rarity'; rarity.style.setProperty('--rarity', profile.color);
     rarity.innerHTML = rarityStars(word.tier);
     const reading = document.createElement('p'); reading.className = 'entry-reading'; reading.textContent = lang === 'ja' ? word.w : word.ja;
@@ -1126,17 +1146,21 @@
       const owned = !!saved[language].stars[word.id], badge = document.createElement('span'); badge.className = owned ? 'owned' : '';
       badge.textContent = `${bookName(language)} · ${mode === 'ja' ? (owned ? '獲得済み' : '未獲得') : (owned ? 'collected' : 'missing')}`; badges.append(badge);
     }
-    const history=document.createElement('p');history.className='answer-record';const record=saved.answerRecords[word.id]?.[lang];history.textContent=record?`自力正解 ${record.independent||0}回 · 答えを見て正解 ${record.assisted||0}回`:'以前の獲得：答えを見たかどうかの記録はありません';
+    const history=document.createElement('p');history.className='answer-record';const record=saved.answerRecords[word.id]?.[lang];history.textContent=record?`自力正解 ${record.independent||0}回 · 答えを見て正解 ${record.assisted||0}回`:saved[lang].stars[word.id]?'以前の獲得：答えを見たかどうかの記録はありません':'未獲得';
     if(record && Number.isFinite(record.lastScore))history.textContent += ` · 今回 ${record.lastScore}点 / 最高 ${record.bestScore}点`;
-    const best = document.createElement('p'); best.className = 'entry-stars'; best.textContent = '✦'.repeat(saved[lang].stars[word.id]);
+    const best = document.createElement('p'); best.className = 'entry-stars'; best.textContent = '✦'.repeat(saved[lang].stars[word.id] || 0);
     const other = lang === 'ja' ? 'en' : 'ja', challengeLang = saved[other].stars[word.id] || !supports(word, other) ? lang : other;
     const challenge = document.createElement('button'); challenge.type = 'button'; challenge.className = 'modal-primary';
-    challenge.textContent = challengeLang === lang ? (mode === 'ja' ? 'もう一度、この単語で遊ぶ' : 'Play this word again') : mode === 'ja' ? `${other === 'ja' ? '日本語' : '英語'}でもゲットする` : `Collect it in ${other === 'ja' ? 'Japanese' : 'English'}`;
+    challenge.disabled = !supports(word, challengeLang);
+    challenge.textContent = challenge.disabled ? window.WordBloomReviewedScenes.unavailableReason(word, challengeLang) : challengeLang === lang ? (mode === 'ja' ? 'もう一度、この単語で遊ぶ' : 'Play this word again') : mode === 'ja' ? `${other === 'ja' ? '日本語' : '英語'}でもゲットする` : `Collect it in ${other === 'ja' ? 'Japanese' : 'English'}`;
     challenge.addEventListener('click', () => beginDictionaryPuzzle(challengeLang, wordIndex));
     const explanation = document.createElement('div'); explanation.textContent = '説明を確認中…';
     // Dictionary detail is already an explicit reveal. The puzzle itself stays answer-free.
-    explanationFor(word).then(result => {if(explanation.isConnected)window.IllustrationScenes.render(explanation,result);});
-    container.append(back, image, explanation, heading, rarity, reading, translation, pronunciationPanel(word, lang), history, best, challenge);
+    explanationFor(word).then(result => {if(explanation.isConnected)renderExplanation(explanation,result);}).catch(() => {if(explanation.isConnected)renderExplanation(explanation,{status:'unavailable'});});
+    container.append(back, image, explanation, heading, rarity, reading);
+    if (word.bindingStatus === 'bound' && word.en) container.append(translation);
+    if (window.WordBloomReviewedScenes.supportsLanguage(word,lang)) container.append(pronunciationPanel(word,lang));
+    container.append(history, best, challenge);
     openModal(bookName(lang), container); back.focus({ preventScroll: true });
   }
   document.addEventListener('keydown', event => {
@@ -1166,13 +1190,16 @@
     $('startPlay').hidden = datasetUnavailable || !catalog.length;
     $('reloadReviewedData').hidden = !(datasetUnavailable || !catalog.length);
     if (datasetUnavailable || !catalog.length) $('saveOffline').disabled = true;
-    if (datasetUnavailable || !catalog.length) $('offlineStatus').textContent = '確認済みの説明つきデータがありません。最新版に再読み込みするか、refresh_reviewed_catalog.cmd で更新してください。';
+    if (datasetUnavailable || !catalog.length) $('offlineStatus').textContent = '画像データを読み込めません。最新版に再読み込みしてください。';
     else if (location.protocol === 'file:') $('offlineStatus').textContent = `${catalog.length}問の確認済みデータで遊べます。`; 
     if (requestedWord.present && requestedWord.index < 0) {
       $('startPlay').disabled = true; $('startPlay').hidden = true;
       $('saveOffline').disabled = true; $('saveOffline').hidden = true;
       $('launchDifficulty').hidden = true; $('reloadReviewedData').hidden = false;
-      $('offlineStatus').textContent = datasetUnavailable || requestedWord.reason === 'unavailable'
+      const requestedEntry = catalog.find(word => word.id === requestedWord.wordId);
+      $('offlineStatus').textContent = requestedEntry && !window.WordBloomReviewedScenes.supportsLanguage(requestedEntry,requestedWord.language || 'en')
+        ? window.WordBloomReviewedScenes.unavailableReason(requestedEntry,requestedWord.language || 'en') + '。辞典でこの画像を確認できます。'
+        : datasetUnavailable || requestedWord.reason === 'unavailable'
         ? 'この単語の確認済みパズルを現在読み込めません。通信できる状態で最新版に再読み込みしてください。'
         : 'この単語は現在の確認済みパズルの対象ではありません。辞典に戻るか、最新版に再読み込みしてください。';
     }
@@ -1210,6 +1237,6 @@
     const installed = matchMedia('(display-mode: fullscreen), (display-mode: standalone)').matches;
     if (effectiveLayout() === 'mobile' && !installed) closePlay();
   }
-  else { $('game').dataset.state = 'error'; $('startPlay').disabled = true; setFeedback('確認済みの画像と説明がある出題データを読み込めません。最新版に再読み込みしてください。', 'wrong'); if (!$('launchScreen').open) $('launchScreen').showModal(); }
+  else { $('game').dataset.state = 'error'; $('startPlay').disabled = true; setFeedback('画像の出題データを読み込めません。最新版に再読み込みしてください。', 'wrong'); if (!$('launchScreen').open) $('launchScreen').showModal(); }
 })();
 

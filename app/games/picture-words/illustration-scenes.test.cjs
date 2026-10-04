@@ -6,8 +6,8 @@ const plain=value=>JSON.parse(JSON.stringify(value));
 
 function rewardContext(){
  const calls=[],panel={hidden:true,children:['old'],replaceChildren(){this.children=[];}};
- const entry={id:'book'},roundScene={status:'reviewed',entry:{scene:{en:'An open book.',ja:'開いた本。'}}};
- const c={phase:'playing',entry,roundScene,sceneReadingHold:false,$:()=>panel,window:{IllustrationScenes:{render:(target,result)=>calls.push({target,result})}}};
+ const entry={id:'book'},roundScene={status:'reviewed',playable:true,ttsAllowed:true,entry:{scene:{en:'An open book.',ja:'開いた本。'}}};
+ const c={phase:'playing',entry,roundScene,sceneReadingHold:false,renderExplanation:(target,result)=>calls.push({target,result}),$:()=>panel,window:{IllustrationScenes:{render:(target,result)=>calls.push({target,result})}}};
  const start=game.indexOf('  function showRewardExplanation('),end=game.indexOf('\n  const shuffle',start);
  assert.ok(start>=0&&end>start);vm.runInNewContext(game.slice(start,end),c);
  return {c,panel,calls};
@@ -17,7 +17,7 @@ test('the already-verified explanation renders synchronously only for the solved
  const {c,panel,calls}=rewardContext();
  c.showRewardExplanation(c.entry);assert.equal(calls.length,0);assert.equal(panel.hidden,true);
  c.phase='solved';c.roundScene={status:'unavailable'};c.showRewardExplanation(c.entry);assert.equal(calls.length,0);
- c.roundScene={status:'reviewed',entry:{scene:{en:'An open book.',ja:'開いた本。'}}};
+ c.roundScene={status:'reviewed',playable:true,ttsAllowed:true,entry:{scene:{en:'An open book.',ja:'開いた本。'}}};
  c.showRewardExplanation({id:'stale-picture'});assert.equal(calls.length,0);assert.equal(panel.hidden,true);
  const returned=c.showRewardExplanation(c.entry);
  assert.equal(returned,undefined);assert.equal(calls.length,1);assert.equal(calls[0].result,c.roundScene);
@@ -34,45 +34,17 @@ test('moving to another puzzle clears the prior verified explanation and reading
  assert.equal(panel.hidden,true);assert.deepEqual(panel.children,[]);
 });
 
-test('every offered puzzle has the exact reviewed bilingual sense and artwork binding',()=>{
- const scenes=JSON.parse(fs.readFileSync(__dirname+'/../../data/generated-etymon/illustration-scenes.json'));
- const helper=require('../../shared/illustration-scenes.js'),gate=require('./reviewed-scenes.js');
- assert.ok(rows.length>0);assert.equal(rows.length,scope.window.PICTURE_WORDS_CATALOG_META.count);
- assert.equal(require('./difficulty.js').bilingualCatalog(rows).length,rows.length);
- assert.equal(gate.filterCatalog(rows).length,rows.length);
- for(const row of rows){
-  assert.ok(gate.validRow(row),row.id);
-  const entry=helper.find(scenes,row.sceneBinding,row.pic);assert.ok(entry,row.id);
-  assert.equal(entry.review.status,'reviewed');assert.equal(entry.status||entry.review.status,'reviewed');
-  assert.ok(helper.firstSenseMatches(entry,row.sceneBinding));assert.equal(row.en,row.sceneBinding.w);
-  assert.equal(row.reviewedScene.w,entry.w);assert.equal(row.reviewedScene.art,entry.art);
-  assert.deepEqual(plain(row.reviewedScene.p),entry.p);assert.deepEqual(plain(row.reviewedScene.sense),entry.sense);
-  assert.deepEqual(plain(row.reviewedScene.scene),entry.scene);assert.deepEqual(plain(row.reviewedScene.image),entry.image);
- }
- const means=rows.filter(row=>row.en==='mean');assert.equal(means.length,1);
- assert.equal(means[0].pic,'mean@medhyo');assert.equal(means[0].reviewedScene.sense.en,'average');
- assert.ok(rows.some(row=>row.en==='energy'&&row.w==='かつりょく'));
+test('all rows keep image eligibility; captions separately require exact reviewed binding',()=>{
+ const gate=require('./reviewed-scenes.js');assert.equal(gate.filterCatalog(rows).length,rows.length);
+ for(const row of rows)if(row.description.status==='reviewed'){assert.ok(gate.validCaption(row),row.id);assert.equal(row.en,row.reviewedScene.w);}
+ const original=rows.find(row=>gate.validCaption(row));
+ for(const mutate of [row=>delete row.reviewedScene,row=>row.reviewedScene.status='pending',row=>row.reviewedScene.scene.en='',row=>row.reviewedScene.p=['wrong']]){const row=plain(original);mutate(row);assert.equal(gate.validRow(row),true);assert.equal(gate.validCaption(row),false);}
 });
-
-test('missing, unreviewed, mismatched or empty scene records cannot be restored as puzzles',()=>{
- const gate=require('./reviewed-scenes.js'),valid=plain(rows[0]);
- const invalid=[
-  row=>{delete row.reviewedScene;}, row=>{row.reviewedScene.status='pending';},
-  row=>{row.reviewedScene.scene.en='';},row=>{row.reviewedScene.scene.ja='';},
-  row=>{row.reviewedScene.scene.en='This is '+row.en+'.';},
-  row=>{row.reviewedScene.p=['wrong-root'];},row=>{row.sceneBinding.en='wrong sense';},
-  row=>{row.pic='wrong-art';},row=>{row.sceneAsset='picture-words/scene-assets/wrong.js';}
- ].map(mutate=>{const row=plain(valid);mutate(row);return row;});
- assert.equal(gate.filterCatalog([valid]).length,1);
- for(const row of invalid){assert.equal(gate.validRow(row),false);assert.equal(gate.filterCatalog([row]).length,0);}
- assert.equal(gate.filterCatalog([valid,plain(valid)]).length,0);
-});
-
 test('correct-answer narration uses the verified sentence synchronously before reward timers',()=>{
  const start=game.indexOf('  function win() {'),end=game.indexOf("    $('rankUp').hidden",start);
  assert.ok(start>=0&&end>start);const prefix=game.slice(start,end)+'\n  }';
  for(const mode of ['en','ja']){
-  const calls=[],entry={id:'book'},roundScene={status:'reviewed',entry:{scene:{en:'An open book.',ja:'開いた本。'}}};
+  const calls=[],entry={id:'book'},roundScene={status:'reviewed',playable:true,ttsAllowed:true,entry:{scene:{en:'An open book.',ja:'開いた本。'}}};
   const c={entry,roundScene,mode,speech:{speakScene:(...args)=>calls.push(args)}};
   vm.runInNewContext(prefix,c);c.win();assert.equal(calls.length,1);assert.deepEqual(calls[0],[entry,roundScene,mode]);
   c.roundScene=null;c.win();assert.equal(calls.length,1);
@@ -97,7 +69,7 @@ test('every offered puzzle waits for the existing Next control rather than autom
  const start=game.indexOf('  function queueAdvance('),end=game.indexOf('\n  function ',start+5);
  vm.runInNewContext(game.slice(start,end),c);
  for(const row of rows){
-  c.entry=row;c.roundScene={status:'reviewed',entry:row.reviewedScene};c.sceneReadingHold=false;
+  c.entry=row;c.roundScene={status:'reviewed',playable:true,ttsAllowed:true,entry:row.reviewedScene};c.sceneReadingHold=false;
   c.showRewardExplanation(row);c.queueAdvance();assert.equal(c.sceneReadingHold,true,row.id);
  }
  assert.equal(schedules,0);
@@ -117,4 +89,19 @@ test('reward has one normal-flow Next outside the keyboard-scrollable content',(
  assert.ok(css.includes('#rewardScene .advance-label{position:static;flex:0 0 auto'));
  assert.ok(css.includes('#rewardScroll{flex:1 1 auto;min-height:0;overflow-y:auto'));
  assert.ok(css.includes('.advance-label:focus-visible'));
+});
+
+
+test('missing, stale and held captions display the exact honest label and never a substitute definition',()=>{
+ const nodes=[],panel={dataset:{},classList:{add(){}},replaceChildren(){nodes.length=0;},append(node){nodes.push(node);}};
+ const c={document:{createElement:()=>({})},window:{IllustrationScenes:{render:()=>{throw Error('Unreviewed caption must not render');}}}};
+ const start=game.indexOf('  function renderExplanation('),end=game.indexOf('  function showRewardExplanation(',start);
+ vm.runInNewContext(game.slice(start,end),c);
+ for(const status of ['missing','stale','held']){c.renderExplanation(panel,{status,playable:true,ttsAllowed:false,entry:{scene:{en:'Do not speak this definition'}}});assert.equal(nodes.length,1);assert.equal(nodes[0].textContent,'解説未作成');assert.equal(panel.dataset.sceneStatus,status);}
+});
+test('missing captions still complete the win but never request automatic word or scene speech',()=>{
+ const start=game.indexOf('  function win() {'),end=game.indexOf("    $('rankUp').hidden",start);
+ const prefix=game.slice(start,end)+'\n return "continue-winning"; }';
+ const c={entry:{id:'said'},roundScene:{status:'missing',playable:true,ttsAllowed:false},mode:'en',speech:{speakScene:()=>{throw Error('No caption speech');},speak:()=>{throw Error('No word fallback');}}};
+ vm.runInNewContext(prefix,c);assert.equal(c.win(),'continue-winning');c.roundScene={status:'unavailable',playable:false};assert.equal(c.win(),undefined);
 });

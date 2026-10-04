@@ -1,0 +1,1630 @@
+{
+  "schema": 1,
+  "issues": [
+    {
+      "w": "test",
+      "p": [],
+      "art": "test",
+      "imageSha256": "22689f492d9ece79f16ed86ed716b6b2dfe7b8454428316b26d704a5649cde22",
+      "senseSha256": "ab6c86cafc2b6df746c9e4e8122d1d13c8912a9bf70503f432a9c4e41b6bd8cb",
+      "codes": [
+        "visual_or_caption_ambiguity"
+      ],
+      "detail": "The PNG shows a child writing on a question-like sheet at a school desk. The lines and circles could be a worksheet, homework, or an exam; there is no independent exam-setting cue. Hold rather than assert the first sense 試験 / exam.",
+      "status": "held"
+    },
+    {
+      "w": "return",
+      "p": [
+        "re-",
+        "terə-1"
+      ],
+      "art": "return",
+      "imageSha256": "9ce2b83b1e762e42a87527ea85b7917997a3761c36c0afa0793df00bf97bbd69",
+      "senseSha256": "a97655f23ad6d3df40967e66b83e2c5038be0c83bcd88bc9e1450cf8a3eb4420",
+      "codes": [
+        "visual_or_caption_ambiguity"
+      ],
+      "detail": "A traveler with luggage approaches an open door and receives an enthusiastic greeting from a woman and a dog. This establishes arrival and welcome, but not previous departure or return to a former place; returning rather than visiting would add unseen history.",
+      "status": "held"
+    },
+    {
+      "w": "theory",
+      "p": [],
+      "art": "theory",
+      "imageSha256": "1edea099f0eb4c2a42cd0cc286b5c57a3f7d31454479d1d13f692a62e2c0946e",
+      "senseSha256": "463f297d0484d75a63093df05ffb6c4535572b5c0e363651a8aa64f32c77bb1b",
+      "codes": [
+        "visual_or_caption_ambiguity"
+      ],
+      "detail": "A person points at a board linking plant, sun, rain/cloud pictures to a light-bulb icon. This conveys an idea or presentation, but not a coherent explanatory theory/framework. The first sense cannot be established without inventing an explanation.",
+      "status": "held"
+    },
+    {
+      "w": "usually",
+      "p": [
+        "oit-"
+      ],
+      "art": "usually",
+      "imageSha256": "71ec4924176bb425defa45291c3b26a7a24efce937813d19290589bf1e599a58",
+      "senseSha256": "ff8b39e768167fa6260d4374c113dd738757fc153a3ed9bfa96a4f2730e23749",
+      "codes": [
+        "visual_or_caption_ambiguity"
+      ],
+      "detail": "A child brushes teeth next to a clock. The single moment does not show repeated frequency or what happens usually; a habitual claim would be unsupported.",
+      "status": "held"
+    },
+    {
+      "w": "account",
+      "p": [
+        "ad-",
+        "pau-2"
+      ],
+      "art": "account",
+      "imageSha256": "f1ebf7fb14e2ce41bfe4e598aff4977db7e0509c88b27b02705e6e6c09ae014a",
+      "senseSha256": "dfa83ca9520a453b46b843f9c9c23444db086a8442188818184e7143f3bc3379",
+      "codes": [
+        "canonical_source_mismatch"
+      ],
+      "detail": "The first JA sense is 口座 (bank account) while the EN gloss is ledger. The PNG shows cash offered at a counter with a writing attendant; neither an account relationship nor an identified ledger is uniquely established. Hold for canonical/image review without editing either.",
+      "status": "held"
+    },
+    {
+      "w": "late",
+      "p": [
+        "lē-2"
+      ],
+      "art": "late",
+      "imageSha256": "7c4aaa74a1d43de51cd5bc23eec360004c43e5a06d6f3bb7a1b20ccb67997683",
+      "senseSha256": "ff78250282415588d4fcb08a1f3253bc3fb88586649ca34910268bb4438b84ca",
+      "codes": [
+        "visual_or_caption_ambiguity"
+      ],
+      "detail": "A worried child with a backpack runs beside a clock showing roughly four o’clock. No expected time or missed appointment is visible, so the picture establishes haste, not lateness/delay.",
+      "status": "held"
+    },
+    {
+      "w": "today",
+      "p": [
+        "de-",
+        "agh-2"
+      ],
+      "art": "today",
+      "imageSha256": "e0b728d5818e0e94f66aa32c78bcf6a4e5510277193a7bb1e17c1b018ea5180d",
+      "senseSha256": "498389f021a48e30d57b7c51dccf854e5bc6660da26265653e30090a66284c39",
+      "codes": [
+        "visual_or_caption_ambiguity"
+      ],
+      "detail": "A woman circles 9 on a calendar, with 1–5 crossed out but 6–8 unmarked, beside a clock. A circled date could be an appointment; no reference anchors it to today. The incomplete elapsed-date sequence adds ambiguity.",
+      "status": "held"
+    },
+    {
+      "w": "situation",
+      "p": [
+        "tkei-"
+      ],
+      "art": "situation",
+      "imageSha256": "0baf366e8d1a3d6b9c057494aef36e4a044fb81f466db86462bc61e1d5093143",
+      "senseSha256": "0d2c59802aea169e6257acedb6b1fcc1867b3f13d4d922e172d1f7936b790305",
+      "codes": [
+        "visual_or_caption_ambiguity"
+      ],
+      "detail": "A worried woman stands in a messy room with a dog, torn cushions, fallen objects, and spilled soil. These are concrete circumstances, but merely adding the generic label situation to any scene would not independently teach or identify the first sense. Hold rather than assert an invisible abstraction.",
+      "status": "held"
+    },
+    {
+      "w": "provided",
+      "p": [
+        "per1",
+        "weid-"
+      ],
+      "art": "provided",
+      "imageSha256": "209aebe03beb1100adc5ba2a8fd19f8f587dd7b60953cb09d48ca72f6e460c7a",
+      "senseSha256": "cadf21c2ae83d633514076f713d48ceb42e765a3adeaf8362a62f4daf78cd9ec",
+      "codes": [
+        "visual_or_caption_ambiguity"
+      ],
+      "detail": "Two children share an umbrella in rain. No separate requirement, permission, or condition is depicted. A sentence using provided/given that would have to invent a conditional rule; this is a semantic hold, not a regex/grammar-format rejection.",
+      "status": "held"
+    },
+    {
+      "w": "addition",
+      "p": [
+        "ad-",
+        "dō-"
+      ],
+      "art": "addition",
+      "imageSha256": "ebe64f9915c688d5336167b0bb1c6ceb273f68a72ca3e09db24120f1a8e17923",
+      "senseSha256": "2ff8ae44afd064cd29d09bd31446d6e893daf9fd9ff790b617130c6ec4244047",
+      "codes": [
+        "visual_or_caption_ambiguity"
+      ],
+      "detail": "A hand holds a red toy car above an open box containing other toys. The still image has no unambiguous directional cue establishing addition rather than removal; an adding-event caption would commit to unseen movement. Hold rather than choose a direction.",
+      "status": "held"
+    },
+    {
+      "w": "feeling",
+      "p": [
+        "pāl-"
+      ],
+      "art": "feeling",
+      "imageSha256": "0bef3ad0593118d3a2c235b4ee9c0bad4788719e41bf5156d6cc397a1bfdb3d3",
+      "senseSha256": "89878d4721542fc321c7487ff8d8b7ed7882f211de576e814f9208a69ead7710",
+      "codes": [
+        "visual_or_caption_ambiguity"
+      ],
+      "detail": "A woman rests one hand on her chest and has a mild smile. No specific eliciting event or clearly distinct emotional state establishes emotion; a generic feeling caption would add an invisible concept.",
+      "status": "held"
+    },
+    {
+      "w": "job",
+      "p": [],
+      "art": "job",
+      "imageSha256": "6a544153474c2282dbaf281205ebfee66f7eafc8eeb012fb7af179e7fcc14ecd",
+      "senseSha256": "0a23c1e7586540879a5a3652afa0072105735dee74d9d2a0152d00b11d23f9dc",
+      "codes": [
+        "visual_or_caption_ambiguity"
+      ],
+      "detail": "A woman in a suit uses a laptop at a desk. The image can depict work, study, or personal computer use; it does not establish the first EN sense of a regular remunerative position. No employer, duties, or pay should be invented.",
+      "status": "held"
+    },
+    {
+      "w": "impact",
+      "p": [
+        "en",
+        "pag-"
+      ],
+      "art": "impact",
+      "imageSha256": "0c65e385bb6d740de8439a3bfb4d71b787264acfa9c5a3cfd205d979e0c5bde2",
+      "senseSha256": "6eadf4904dce4858d03cf06ea10d73195be7cebb5cf230b17fffae49acb5cde9",
+      "codes": [
+        "canonical_source_mismatch"
+      ],
+      "detail": "The exact PNG depicts physical contact between a red ball and a drum, with impact lines. That fits JA 衝撃, but the first EN gloss influence does not represent the physical-collision sense. Hold for canonical review rather than silently changing the English meaning or switching senses.",
+      "status": "held"
+    },
+    {
+      "w": "son",
+      "p": [
+        "seuə-1"
+      ],
+      "art": "son",
+      "imageSha256": "518ba6f829849cbf67d7a211ba0ffe5f579f79d956b5373f474e5f37ed0bc898",
+      "senseSha256": "e8a9aeb9b013dcb7361b3bdff143d5f5ad153cfefbcfc3a9ba84ab2fe28c3452",
+      "codes": [
+        "visual_or_caption_ambiguity"
+      ],
+      "detail": "An adult man kneels beside a smiling boy with an arm around him. The relationship could be father/son, another relative, or a familiar adult and child. Male offspring is not independently established; do not invent family facts.",
+      "status": "held"
+    },
+    {
+      "w": "context",
+      "p": [
+        "kom",
+        "teks-"
+      ],
+      "art": "context",
+      "imageSha256": "7e360fd2536a9e9c2816355949aacf23f7ea3b0c12dc476ee41233e80e410777",
+      "senseSha256": "f16d800920de23e9c1273eb9183ce60e6cc7e59a9c1e3c5f650148b3376e50c4",
+      "codes": [
+        "visual_or_caption_ambiguity"
+      ],
+      "detail": "A child points to yellow-highlighted lines in an open book. The remaining lines are unreadable marks, so no meaning-changing relation between passage and surrounding text can be verified. A context claim would label ordinary highlighted reading rather than establish the first linguistic sense.",
+      "status": "held"
+    },
+    {
+      "w": "access",
+      "p": [
+        "ad-",
+        "ked-"
+      ],
+      "art": "access",
+      "imageSha256": "48873bec529a93019e28acdb968402d5eb1d4f0cdbf4b06175329ae34ded4bea",
+      "senseSha256": "6032bc3dae09c728ff444be55c4e338c40f90b8ec965ce4a744836f871f9e4ac",
+      "codes": [
+        "canonical_source_mismatch"
+      ],
+      "detail": "The first JA gloss 接近 means approach, while the first EN gloss entry and the ramp/open doorway image support entering or accessibility. This loose first-sense pairing needs canonical editorial review; do not silently replace 接近 with 入場 or 利用.",
+      "status": "held"
+    },
+    {
+      "w": "hope",
+      "p": [
+        "keu-2"
+      ],
+      "art": "hope",
+      "imageSha256": "632f4ad95e3cea3aea62bc851c94eb0b4afbcb711e5f3b2cf072aa3aedac7c63",
+      "senseSha256": "93f5796e8cf0636fa5865c3d2075107dd326ab497284515eced61862f6e3d2b1",
+      "codes": [
+        "canonical_source_mismatch"
+      ],
+      "detail": "The JA first sense 希望 is a noun but aspire is a verb rather than a matching paraphrase. The image shows a smiling backpacked person near a sunny horizon; neither a particular hope nor aspiration is visible. Do not infer an internal wish from pleasant scenery.",
+      "status": "held"
+    },
+    {
+      "w": "positive",
+      "p": [
+        "apo-"
+      ],
+      "art": "positive",
+      "imageSha256": "f35f49ce8682a5cd1b5d772a30b3847de0d6bb65b6247cff30014fb06357453b",
+      "senseSha256": "6f5a825dc131dfefbd514fdaa1fddb3eb465198fb95e0519a9011e5f55311778",
+      "codes": [
+        "image_first_sense_mismatch"
+      ],
+      "detail": "The man speaks confidently while the woman looks uncertain. No definite fact, unmistakable evidence, or clearly specified rule is visible. This reads as confidence or positivity, not independently 明確な / definite.",
+      "status": "held"
+    },
+    {
+      "w": "truth",
+      "p": [
+        "deru-"
+      ],
+      "art": "truth",
+      "imageSha256": "c53cbf940df983c7c1d24b5b27340c68f5fcd3753476e3ea17b6ef6c2c3c095c",
+      "senseSha256": "1a0ce2e46e284bed27f2bfc0e07e36ecd278ca2994ed75047cfcf9cfb3f22d2e",
+      "codes": [
+        "visual_or_caption_ambiguity"
+      ],
+      "detail": "A boy points to himself beside a broken flowerpot and ball while a woman listens. An admission is plausible, but the picture cannot establish whether his account is true, mistaken, or false; a truth caption would invent the truth value.",
+      "status": "held"
+    },
+    {
+      "w": "wife",
+      "p": [],
+      "art": "wife",
+      "imageSha256": "254274790bf2030f5cc8dd11a7287b5c8ddfbf1273d15c72a625853ae2084d4a",
+      "senseSha256": "efc205291f6253e037897577564aa5f0f3334f6dde6f8fb3998b46e268cb952a",
+      "codes": [
+        "visual_or_caption_ambiguity"
+      ],
+      "detail": "Two smiling people embrace with a heart above them, but no wedding, ring, or other marital cue distinguishes a wife from an unmarried partner.",
+      "status": "held"
+    },
+    {
+      "w": "amount",
+      "p": [
+        "ad-",
+        "men-2"
+      ],
+      "art": "amount",
+      "imageSha256": "44daecd31cc32b848d12f3f19d42b6a8b25fc1d70b24ebfeb9dddb646b64a5f8",
+      "senseSha256": "fa49aeb81d4ddc87a0a88d2f6a1051c5e52f5682a3374cb95ef8a90929f4baa3",
+      "codes": [
+        "visual_or_caption_ambiguity"
+      ],
+      "detail": "The woman gathers loose coins around a tray. No count, sum, or completed total is shown; describing a total amount would add an unshown counting purpose or result.",
+      "status": "held"
+    },
+    {
+      "w": "instead",
+      "p": [
+        "en",
+        "stā-",
+        "apo-"
+      ],
+      "art": "instead",
+      "imageSha256": "f6959ec74fcd5c22ebdd760a685ac0c38dff9902ad810c0b84e62e302cf64d50",
+      "senseSha256": "25d16dd56584500390ac4ac080da05c18feec3074d586f592987e3c54ed40cac",
+      "codes": [
+        "visual_or_caption_ambiguity"
+      ],
+      "detail": "A server holds one cup and reaches for another as the customer gestures. The image does not distinguish serving, clearing, or replacing; both liquids are unspecified.",
+      "status": "held"
+    },
+    {
+      "w": "expression",
+      "p": [
+        "eghs",
+        "per-4"
+      ],
+      "art": "expression",
+      "imageSha256": "05d375f19fc65bf5f427fda363182f28bc2b9c86c6bb2005589f6ef90c205476",
+      "senseSha256": "040908539c7b05361961345e4eee8c0c6e6ad15109b49b7cc7ce054ae251fae0",
+      "codes": [
+        "canonical_source_mismatch"
+      ],
+      "detail": "The girl paints a picture, a clear example of artistic 表現, but the canonical English first sense is phrase. No phrase or linguistic expression is depicted.",
+      "status": "held"
+    },
+    {
+      "w": "actually",
+      "p": [
+        "ag-"
+      ],
+      "art": "actually",
+      "imageSha256": "c00b77086044d1d4452746ca32ae4f98d283d74a9927dca2e4edae86105cff1b",
+      "senseSha256": "1713e3e6e70257e18187a88941edf44d47bf9d5c614403fd536d2a15f736b9fa",
+      "codes": [
+        "visual_or_caption_ambiguity"
+      ],
+      "detail": "A smiling man squeezes a gray porous object. The object could be a sponge or a soft rock-shaped prop; the supposed contrast between appearance and reality is not independently established.",
+      "status": "held"
+    },
+    {
+      "w": "content",
+      "p": [
+        "kom",
+        "ten-"
+      ],
+      "art": "content",
+      "imageSha256": "bc21f67ccbb4391050d09758bd0e593128941ae9b579aca54ca4dae8e4c2769c",
+      "senseSha256": "5c55a68646c20bc63f7772c875ea8ac0e7258958a0cb028a2b7ed30b0115cb99",
+      "codes": [
+        "image_first_sense_mismatch"
+      ],
+      "detail": "The open suitcase contains a shirt, toothbrush, and towel. Ordinary English calls these its contents, not its content; exact headword content cannot naturally describe the scene in the current substance sense without bending usage.",
+      "status": "held"
+    },
+    {
+      "w": "legal",
+      "p": [
+        "leg-"
+      ],
+      "art": "legal",
+      "imageSha256": "41fae0aef29c70ec50d049f21526805337320efb3e99d311f7ee4effe18f71b6",
+      "senseSha256": "edcd280407de4be7070f3dbfad45e54af57068923bed5772c7c38a4f1ed288d9",
+      "codes": [
+        "canonical_source_mismatch"
+      ],
+      "detail": "The lawyer, law book, judge, and scales depict something related to law. The English first gloss lawful instead asserts conformity with law, which this picture does not establish.",
+      "status": "held"
+    },
+    {
+      "w": "perhaps",
+      "p": [
+        "per1",
+        "kob-"
+      ],
+      "art": "perhaps",
+      "imageSha256": "0d73200957d4a2ba89fe1769119adb94521fc263f6fdb2fdb9e9706adb270aff",
+      "senseSha256": "1d73a3211381802196b0f32f15117ea6b02af081f82e2929cccc9289207ba1b3",
+      "codes": [
+        "visual_or_caption_ambiguity"
+      ],
+      "detail": "A doubtful boy holds a wrapped gift beside a toy car. Uncertainty is visible, but no particular proposition is: claims about the gift contents, recipient, or future choice would be invented.",
+      "status": "held"
+    },
+    {
+      "w": "involved",
+      "p": [
+        "en",
+        "wel-3"
+      ],
+      "art": "involved",
+      "imageSha256": "2c21ded4acfea05c35e3b59652bcfe4351c2bcc17cdaca3e9018a0832da057ad",
+      "senseSha256": "5390bf78077fea1ae1dcd8dcace47787a1616c6d8be0ba30b08951f99c4653f4",
+      "codes": [
+        "image_first_sense_mismatch"
+      ],
+      "detail": "The adult and children jointly assemble a birdhouse. This directly depicts being involved as participating or concerned, not the canonical first 複雑な / complex.",
+      "status": "held"
+    },
+    {
+      "w": "cultural",
+      "p": [
+        "kʷel-1"
+      ],
+      "art": "cultural",
+      "imageSha256": "c176b66f4875f0f511bdc22722d2e746b6edf23cd0d4c9b3d9db8fb68171e32d",
+      "senseSha256": "4d975ab590f9e2573a02990bf052b48042bc2bb07fa0eed52da5c172279c9187",
+      "codes": [
+        "visual_or_caption_ambiguity"
+      ],
+      "detail": "An older person teaches a younger person to decorate pottery. This is clearly craft instruction, but no specific cultural tradition or societal relation is identified; describing inherited culture would add unshown history.",
+      "status": "held"
+    },
+    {
+      "w": "received",
+      "p": [],
+      "art": "received",
+      "imageSha256": "ccb4a330010659980b1c4527f56a4a1847e0f09927421e7cac0cf788899e5549",
+      "senseSha256": "af5013e5c67fc07f87a04bfe6332e379669987381473666be34e0b12d411bcad",
+      "codes": [
+        "image_first_sense_mismatch"
+      ],
+      "detail": "A group applauds a child showing a lightbulb idea. This supports an idea being well received, not the adjective received meaning established or conventionally accepted.",
+      "status": "held"
+    },
+    {
+      "w": "remember",
+      "p": [
+        "re-",
+        "(s)mer-1"
+      ],
+      "art": "remember",
+      "imageSha256": "81d1c3dfafd53bce07f861d201f72bc5991db053e235d9859465d4c9bb884f7f",
+      "senseSha256": "090528373b2dd1d877f9cac0e629557ba58ba434d8884b7385e5b57ee6c21661",
+      "codes": [
+        "visual_or_caption_ambiguity"
+      ],
+      "detail": "The person finds or retrieves keys from a coat pocket. No remembered prior placement is shown; remembering and simply finding or taking the keys remain indistinguishable.",
+      "status": "held"
+    },
+    {
+      "w": "dead",
+      "p": [
+        "dheu-3"
+      ],
+      "art": "dead",
+      "imageSha256": "90cbda36d2d2986a60ce930441627b132a470d9c1847d53d22adb8cf7b680c6a",
+      "senseSha256": "778252c9859f9aee8eef5a2973b4d8769b2c237f393456891378f1d3cd8bd285",
+      "codes": [
+        "canonical_source_mismatch"
+      ],
+      "detail": "The PNG shows a fully brown, drooping plant. It may be dead or severely wilted, and the English first gloss deceased is ordinarily person-focused; a plant caption would not cleanly establish the current JA/EN pair.",
+      "status": "held"
+    },
+    {
+      "w": "influence",
+      "p": [
+        "en",
+        "bhleu-"
+      ],
+      "art": "influence",
+      "imageSha256": "4addb065d6843e35460c3fdef3dda3c95dd35120d3bd9bedfada40c9bf814454",
+      "senseSha256": "077c8df43f76fc0523883084b3ac530730e5c6f8849cc3a17a226f7412dc5959",
+      "codes": [
+        "visual_or_caption_ambiguity"
+      ],
+      "detail": "One child enjoys a pear and another takes a pear from the bowl. Shared eating is visible, but the picture does not establish that one caused or influenced the other choice.",
+      "status": "held"
+    },
+    {
+      "w": "network",
+      "p": [],
+      "art": "network",
+      "imageSha256": "7397554bcfba46417d0286d70395e39ead1979348109784878d96df5dacf32b2",
+      "senseSha256": "bad58531b17db1dd335315066033c7adb6431b33a31ed93723bb8041002012b3",
+      "codes": [
+        "visual_or_caption_ambiguity"
+      ],
+      "detail": "The image is a computer-and-router connection diagram, clearly the technological network/system sense. The first pair 網 / web and the separate later ネットワーク / system make approval under the first sense ambiguous.",
+      "status": "held"
+    },
+    {
+      "w": "parts",
+      "p": [],
+      "art": "parts",
+      "imageSha256": "83fb7fa91663e7866921e0807b26fa5aa4b57100b9e04531cd62a4bc5319b2c4",
+      "senseSha256": "96709d48a0d3ca46790229d056f12ee8c8c0fafa6524de6b365341c21d097275",
+      "codes": [
+        "image_first_sense_mismatch"
+      ],
+      "detail": "The opened clock and loose gears, screws, and key depict mechanical components, aligning explicitly with the later 部品 / components gloss rather than the current first 部分 / sections.",
+      "status": "held"
+    },
+    {
+      "w": "skin",
+      "p": [
+        "sek-"
+      ],
+      "art": "skin",
+      "imageSha256": "dc3bba03b9ea58f67a6cf581b3f7bdff71f911b4b4f93cb2d4c577739cbacfa3",
+      "senseSha256": "ee6e3caa8e6a005a5d318d7c7ba26e8351ff630aee2ba584d102a8e3b48f84ff",
+      "codes": [
+        "canonical_source_mismatch"
+      ],
+      "detail": "The image clearly shows human skin being rubbed on a forearm. Japanese 皮膚 fits, but English hide conventionally refers to thick animal skin, especially for leather, rather than ordinary human skin.",
+      "status": "held"
+    },
+    {
+      "w": "finally",
+      "p": [],
+      "art": "finally",
+      "imageSha256": "8954e02a5a71ccafab4338327ce2dcb898de0826e079b35d0929f4d27c19827f",
+      "senseSha256": "ae6cc959dcb13ace7211d5c8ca59f95a94835b86ed67860dd5ea4dbc0a6311ee",
+      "codes": [
+        "visual_or_caption_ambiguity"
+      ],
+      "detail": "A smiling woman raises both fists above a fully assembled jigsaw puzzle. Completion and celebration are visible, but the image supplies no elapsed-time, delay, or preceding-process cue to distinguish finally/eventually from simply finished.",
+      "status": "held"
+    },
+    {
+      "w": "complete",
+      "p": [
+        "kom",
+        "pelə-1"
+      ],
+      "art": "complete",
+      "imageSha256": "1413616686b42bfe336013dcac7141d291096797e604f963673df3c27ab99cba",
+      "senseSha256": "612baa514d4cb13e5cba7c41269f0ce2f9bf7336de835d7a73589eb885b8a727",
+      "codes": [
+        "canonical_source_mismatch"
+      ],
+      "detail": "The boy presents a fully assembled puzzle, which clearly illustrates the adjective complete, matching 完全な. The current English first gloss is finish, a verb or event noun rather than the corresponding adjective finished/whole. Using either meaning would silently choose one side of the current pair.",
+      "status": "held"
+    },
+    {
+      "w": "generally",
+      "p": [
+        "genə-"
+      ],
+      "art": "generally",
+      "imageSha256": "726522040083f82dc634bc9903d1d5fd5233a7a76ce7d37c91ac3c4af3af6f10",
+      "senseSha256": "1a0385d39972afc6816bace8e6d63f00a9a9b777df4307ecfda66c570517f60f",
+      "codes": [
+        "visual_or_caption_ambiguity"
+      ],
+      "detail": "The picture shows four umbrella users and one child in a raincoat during one rainy scene. That directly establishes a local majority, but not what usually or typically happens. A generally=mostly gloss could describe the group, while the fixed first English gloss typically leaves the intended frequency-versus-majority interpretation unresolved.",
+      "status": "held"
+    },
+    {
+      "w": "normal",
+      "p": [
+        "gnō-"
+      ],
+      "art": "normal",
+      "imageSha256": "9dd07f7a4be0e34c3a9f21b86135be9997c72973350c02413351b4fb8e2bc45e",
+      "senseSha256": "7961b507332bff0b1775408ba847b5cebcbed810de5705a28f85ce208e616676",
+      "codes": [
+        "visual_or_caption_ambiguity"
+      ],
+      "detail": "A baker holds a golden loaf in a rectangular tin. It is an ordinary-looking successful loaf, but no stated norm, comparator, recurring pattern, or expected specification makes 標準の / typical independently demonstrable. Calling its size or color normal would introduce the unstated benchmark.",
+      "status": "held"
+    },
+    {
+      "w": "basis",
+      "p": [
+        "gʷā-"
+      ],
+      "art": "basis",
+      "imageSha256": "745979db4b6b4dc90ca4e1bc5ae33eb24cf250fb4c2a64242dc761be168d1bba",
+      "senseSha256": "586f5d18506e3c6c23fb973bc755cb4603f289a474400a2b847ca0f3b02a4be4",
+      "codes": [
+        "image_first_sense_mismatch"
+      ],
+      "detail": "A timber house frame rests on visible concrete foundations. In contemporary ordinary English these physical supports are a base or foundation, whereas basis predominantly identifies an underlying idea, fact, principle, or method. The exact headword basis would be an awkward literal label for the depicted supports.",
+      "status": "held"
+    },
+    {
+      "w": "brain",
+      "p": [
+        "mregh-m(n)o-"
+      ],
+      "art": "brain",
+      "imageSha256": "8af0c8a09605a76c9ccdb7866dc8d9d836b4e0e6346f9e14a7ac7ced79cdac61",
+      "senseSha256": "b00dd52c0a5bc38298099f0a0d6b5922bdda4a3e9c6f9e740b16da4fdfd763c3",
+      "codes": [
+        "canonical_source_mismatch"
+      ],
+      "detail": "The PNG depicts a brain with the large folded cerebrum and a distinct smaller striped cerebellum. 脳 and brain denote the whole organ; the English first gloss cerebrum denotes only a part. Describing the whole illustration as cerebrum or silently treating cerebrum as the full brain would misalign the pair.",
+      "status": "held"
+    },
+    {
+      "w": "negative",
+      "p": [
+        "ne"
+      ],
+      "art": "negative",
+      "imageSha256": "018bbd524710eca348b4ebeede3d087f20efd09354dfb63bb94fd6d6ef3c95df",
+      "senseSha256": "a11917aba48f9e71cfa7c81ec49038aadfb6efa90513e04ec1c8c6a170bf03fb",
+      "codes": [
+        "visual_or_caption_ambiguity"
+      ],
+      "detail": "A woman frowns, folds her arms, and shakes her head at a man showing a garden plan. Refusal or disapproval is visible. The fixed English first gloss pessimistic additionally concerns an unfavorable outlook; no predicted outcome or statement establishes that outlook.",
+      "status": "held"
+    },
+    {
+      "w": "capital",
+      "p": [
+        "kaput-"
+      ],
+      "art": "capital",
+      "imageSha256": "3a6f6463a632c3c2128089359673f3385fac1c3bc244e2cb3e664dd218857e5d",
+      "senseSha256": "d7a5305913d411767872d6167dc2d88e6a59de7675a3a5baa3f77047cfe1ccce",
+      "codes": [
+        "image_first_sense_mismatch"
+      ],
+      "detail": "The PNG shows one domed, columned civic-looking building with flags, not a city or a geographic seat-of-government relationship. A capitol-style building is not itself a capital in the 首都 / chief city sense.",
+      "status": "held"
+    },
+    {
+      "w": "oil",
+      "p": [
+        "elaiā"
+      ],
+      "art": "oil",
+      "imageSha256": "b122bdd4b94b50bb20343a3e4ad46ceeb823c54608f73b0b1d0ea7618edb9d98",
+      "senseSha256": "c780320d7707f26367fffc32a5150d36fee16d57b93574b080e548f85536e7e1",
+      "codes": [
+        "image_first_sense_mismatch"
+      ],
+      "detail": "Golden liquid is being poured from a cruet into a shallow bowl. This is a conventional oil/cooking-oil depiction, but there is no friction-reducing or mechanical context establishing the fixed English first gloss lubricant.",
+      "status": "held"
+    },
+    {
+      "w": "rule",
+      "p": [
+        "reg-"
+      ],
+      "art": "rule",
+      "imageSha256": "c1c2ee423758d870404fddcf7179e72755f24b18e4eb1f95e0ea08c1e49ee143",
+      "senseSha256": "a7db72d0cfd170254d26097fcfaff3d112c01648ff519516c5b1c51a38035662",
+      "codes": [
+        "image_first_sense_mismatch"
+      ],
+      "detail": "A child lays a marked measuring bar along a wooden block. This directly depicts the listed later 定規 / measuring bar sense, with no visible behavioral or procedural 規則 / regulation.",
+      "status": "held"
+    },
+    {
+      "w": "immediately",
+      "p": [
+        "ne",
+        "medhyo-"
+      ],
+      "art": "immediately",
+      "imageSha256": "f32c4f87594e7d68bd0fd8f965820c885c36f99f74324e1270e651815a857263",
+      "senseSha256": "b929b2df3a16da1f110435d3fb4b3ca75b4a4b53c46d89da3c1c82f80d22f4bc",
+      "codes": [
+        "visual_or_caption_ambiguity"
+      ],
+      "detail": "A person rises from an armchair and reaches for a door handle beside a highlighted doorbell. Motion and responding to the door are visible, but the picture provides no reliable delay or interval cue establishing instantly rather than merely promptly or eventually.",
+      "status": "held"
+    },
+    {
+      "w": "memory",
+      "p": [
+        "(s)mer-1"
+      ],
+      "art": "memory",
+      "imageSha256": "abefda5ba14292d64c193da64a5c7f1bc34e70be01ed40310b47c7c456913cfc",
+      "senseSha256": "bf0f02809ee808d2ae00fe35534ae104bac0775bcecf1d27027fac5020608481",
+      "codes": [
+        "visual_or_caption_ambiguity"
+      ],
+      "detail": "A smiling girl holds a small photograph of two people. The picture could prompt recollection, but no explicit thought-memory scene or other evidence establishes that she remembers the depicted event rather than merely sees the photo.",
+      "status": "held"
+    },
+    {
+      "w": "degree",
+      "p": [
+        "de-",
+        "ghredh-"
+      ],
+      "art": "degree",
+      "imageSha256": "ecc53d7985aebee278ee3ae979001fb66acae9b3ecd58f52e1f87420ce98af33",
+      "senseSha256": "62c5f87cea7e8165dcece2914e57f7abb34a37af065de2cd198e9843843b9b7c",
+      "codes": [
+        "image_first_sense_mismatch"
+      ],
+      "detail": "A worker measures a sloping board with an angle gauge. The specific visual cue is angular measurement in degrees, while the fixed first pair is 程度 / level. A natural caption using degree of slope would blur the angular-unit sense into the broader level sense.",
+      "status": "held"
+    },
+    {
+      "w": "letter",
+      "p": [
+        "deph-"
+      ],
+      "art": "letter",
+      "imageSha256": "083fd2a3419c92e9960d1c3b687dd39a5f41d0f11dd0504c6a9ecb63e65a120b",
+      "senseSha256": "27564e8484e7efe2690f58b27ab0299d1fd6becc4ca536eaccc78ef08fdc802c",
+      "codes": [
+        "image_first_sense_mismatch"
+      ],
+      "detail": "The PNG shows an open envelope and a heart-decorated letter with wavy writing lines. It clearly illustrates correspondence, the later 手紙 sense, and supplies no identifiable individual alphabetic character for first 文字 / character.",
+      "status": "held"
+    },
+    {
+      "w": "moving",
+      "p": [
+        "meuə-"
+      ],
+      "art": "moving",
+      "imageSha256": "9494aa08fc03b989616ffd3004bc9dd771b36de58c1ed80ca68af4ac72e20c48",
+      "senseSha256": "099fcd5505f143f598faef0728821ea044b5f4204f55c8e3a372d73b8e28a354",
+      "codes": [
+        "image_first_sense_mismatch"
+      ],
+      "detail": "A red wind-up toy car has wheel and speed marks. This depicts physical motion, the later 動いている / in motion sense, not first 感動的な / touching.",
+      "status": "held"
+    },
+    {
+      "w": "husband",
+      "p": [
+        "bheuə-"
+      ],
+      "art": "husband",
+      "imageSha256": "7332cf1214d9e380c870df74e3b4ea8d0666dffd9e4e7b7202dcebeceabae1db",
+      "senseSha256": "ab1d27d2d621444e8327491906fa13ca8a00375fbff1ee1477faadd4668fbed1",
+      "codes": [
+        "visual_or_caption_ambiguity"
+      ],
+      "detail": "A man helps a smiling woman into a coat at a doorway. No wedding rings, wedding scene, spouse labels, or other unambiguous marriage cues establish that the man is her husband.",
+      "status": "held"
+    },
+    {
+      "w": "price",
+      "p": [
+        "per-5"
+      ],
+      "art": "price",
+      "imageSha256": "9e003fe4f7adcfcaf1fdffac02d5f6a55909efc59e1cc709a6476da5a23105fa",
+      "senseSha256": "c4b6f6a476096ef7fe38ab66cbec7e7ce31a36219fe0926de0fc8aa9a646948b",
+      "codes": [
+        "visual_or_caption_ambiguity"
+      ],
+      "detail": "A teddy bear and three plain coins sit together on a counter. No price tag, equation, offering/payment action, seller, or other direct cue establishes that the coins are the toy's cost.",
+      "status": "held"
+    },
+    {
+      "w": "former",
+      "p": [
+        "per1"
+      ],
+      "art": "former",
+      "imageSha256": "705cf5307404fa98f62bcee7b882299c4aa40568bf64477b4f96771bd7fc6ed3",
+      "senseSha256": "15d94ffff67b2c7e84f5e2893d76554105d2301f23e1898d3639273d76a12f51",
+      "codes": [
+        "visual_or_caption_ambiguity"
+      ],
+      "detail": "A visitor holds a childhood-style photograph at a doorway while a woman welcomes him. The scene suggests recollection, but does not establish a former home, former resident, or any particular status that applied previously and no longer does.",
+      "status": "held"
+    },
+    {
+      "w": "ran",
+      "p": [],
+      "art": "ran@x",
+      "imageSha256": "01c5da019d72c27d4768f09b93a30141ab37a183a78fe56f76be415e8f28bf36",
+      "senseSha256": "058040b1743c4b1896dfbce8225e70a40cbcadd542368fcfa4451f99a27db7ff",
+      "codes": [
+        "visual_or_caption_ambiguity"
+      ],
+      "detail": "The exact ran@x.png shows a sweating boy with a towel resting on a bench beside a running track, pointing toward the track while a girl offers a bottle. It suggests a running aftermath but depicts no running action or explicit previous-event sequence, so the exact past-tense ran would assert an unshown event.",
+      "status": "held"
+    },
+    {
+      "w": "holding",
+      "p": [],
+      "art": "holding",
+      "imageSha256": "7ac0c980ff7714805af489b798ac64c5c6ec7ac7d854f594732077c9fc0a705b",
+      "senseSha256": "18ce3e913395b2360129e920a113d93e7ee66cd0772bad6d264fcb6cc7e1f3c8",
+      "codes": [
+        "image_first_sense_mismatch"
+      ],
+      "detail": "The boy visibly grasps a striped bowl with both hands. This directly depicts the later 持っている / grasping action. The fixed first noun pair 保持 / possession is ambiguous between physical keeping and property held; the image does not independently establish that intended possession sense.",
+      "status": "held"
+    },
+    {
+      "w": "member",
+      "p": [
+        "mēms-"
+      ],
+      "art": "member",
+      "imageSha256": "d08b74c6e467289fe1f41523d9822f7f15ef15b17e7e2182901bf857e7748cff",
+      "senseSha256": "9fe0f388bf3ec89cf5be82ac10d452ef80cbdb773c1120e5f19bd6e0e100041a",
+      "codes": [
+        "visual_or_caption_ambiguity"
+      ],
+      "detail": "Three smiling people welcome or surround a fourth person with a backpack. No club, membership card, badge, enrollment or institutional context establishes 会員, as opposed to friends or an informal group.",
+      "status": "held"
+    },
+    {
+      "w": "via",
+      "p": [
+        "wegh-"
+      ],
+      "art": "via",
+      "imageSha256": "b759f011edeaa2fb84925e03a2c8c4f139127140dfa8d9b3086c73adf663d76d",
+      "senseSha256": "82c8f04286b9c047ed1bf7c4638e02fd71226c7d6cc5600a7cacd9ce527de023",
+      "codes": [
+        "visual_or_caption_ambiguity"
+      ],
+      "detail": "A seated train passenger looks out at a station platform. Nothing establishes that this station is an intermediate point on a route to somewhere else. The canonical part-of-speech is also 副, although via in the relevant contemporary sense is a preposition.",
+      "status": "held"
+    },
+    {
+      "w": "cancer",
+      "p": [
+        "kar-"
+      ],
+      "art": "cancer",
+      "imageSha256": "c815cc7a379380fd7df9fc0413c5d3d289378df802129483d5b0f8e401046b01",
+      "senseSha256": "c319dff76ddeaf3f4f4ddfd7648ae47d0854eec2930d5733edd46288ee2789cf",
+      "codes": [
+        "canonical_source_mismatch"
+      ],
+      "detail": "The PNG schematically contrasts irregular dark pink cells with round pale cells. It can conventionally illustrate cancer, but it identifies no epithelial tissue or organ supporting the narrower fixed English carcinoma. NCI defines carcinoma as a particular tissue-origin type of cancer.",
+      "status": "held"
+    },
+    {
+      "w": "tax",
+      "p": [
+        "tag-"
+      ],
+      "art": "tax",
+      "imageSha256": "17b6f07cfb25989babc3c1922bc3e26f386ae33be5fbb30c56950fd87f434a64",
+      "senseSha256": "f6066a3bd149a0c5cc1efd6cd06515fbd8240ccdc60984603dc5bc0ab4f85274",
+      "codes": [
+        "visual_or_caption_ambiguity"
+      ],
+      "detail": "A man inserts a banknote into a collection box carrying a classical institutional-building symbol with a small flag. This shows a payment or deposit, but no tax label, assessed charge, revenue-office identifier or other distinct cue separates tax from donations or bank deposits.",
+      "status": "held"
+    },
+    {
+      "w": "goal",
+      "p": [],
+      "art": "goal",
+      "imageSha256": "721cef031afbe41f954b9f7a27b96048740f537901f5cefe7fac482cd62c7d42",
+      "senseSha256": "e74072a20dd0fcdaca5ddd650ae2d693dbc815f8a82e36633f033e59583c6d63",
+      "codes": [
+        "image_first_sense_mismatch"
+      ],
+      "detail": "The PNG shows a soccer ball in a goal net. That is the sports scoring structure, whereas the fixed first pair 目標 / target denotes an objective. No person or plan visibly establishes an intended future objective.",
+      "status": "held"
+    },
+    {
+      "w": "hadn't",
+      "p": [],
+      "art": "hadnt",
+      "imageSha256": "5832d873b652fb996fdf8962a0540662a0b5d1f0eadeff8b966e38b9a1fc0973",
+      "senseSha256": "429a093f5a0f41cf615a523014606289b0c6195464ba250b518833d9c3ded5e8",
+      "codes": [
+        "visual_or_caption_ambiguity"
+      ],
+      "detail": "The exact published hadnt.png shows a wilted plant in cracked soil, an unused watering can, a worried girl and a boy with travel luggage. It suggests missed care but does not establish that someone had not watered it before a particular past event; the cause and temporal sequence remain unshown.",
+      "status": "held"
+    },
+    {
+      "w": "hit",
+      "p": [],
+      "art": "hit",
+      "imageSha256": "95afbfa1590917c8305b25f60807fefcf7627a7a9014d1f8da095deadafbaf18",
+      "senseSha256": "e82a3f8b252c7c9fc2b73ce10227061bb62b706a18f1708fb6cfc7f52e7b8a16",
+      "codes": [
+        "canonical_source_mismatch"
+      ],
+      "detail": "The PNG shows a boy striking a girl with his fist. English hit / strike fits the action, but canonical first 撃つ ordinarily denotes firing or attacking, not the natural standalone Japanese verb for this punch. The official same-reading guide distinguishes 打つ for hitting and 撃つ for firing/attacking.",
+      "status": "held"
+    },
+    {
+      "w": "neck",
+      "p": [
+        "ken-4"
+      ],
+      "art": "neck",
+      "imageSha256": "4e91c8ddcfe6f87a60245a090549112f037123f4a233488d1b24eae8acf2bce1",
+      "senseSha256": "a9071423648f410b017b96039e1982e4dda975323f644bcc1f920f545e043bfe",
+      "codes": [
+        "canonical_source_mismatch"
+      ],
+      "detail": "A woman touches the side of her visible human neck. The fixed English gloss cervix has an attested anatomical neck sense in Merriam-Webster, so it is not nonexistent, but it is a technical and potentially misleading standalone learner gloss, commonly associated with the uterine cervix.",
+      "status": "held"
+    },
+    {
+      "w": "film",
+      "p": [
+        "pel-4"
+      ],
+      "art": "film",
+      "imageSha256": "bf36b90c89e676ea3356b158af7daade19e12a3aca12a2c31ef1704eae433249",
+      "senseSha256": "bdeddc95a4e97662023ffb0f0e1f089f5250387b1108aacb52f1a0b43910a487",
+      "codes": [
+        "image_first_sense_mismatch"
+      ],
+      "detail": "The exact PNG shows a photographic-film cartridge and unexposed-looking perforated strip, not a movie or a scene being projected. The first canonical pair is 映画 / movie. A caption about the roll would silently substitute the photographic-material sense.",
+      "status": "held"
+    },
+    {
+      "w": "spread",
+      "p": [
+        "sper-4"
+      ],
+      "art": "spread",
+      "imageSha256": "c6d820bef0c407d2cbb3b5cfad236b78fec36c9c47932d848f0933d0b93bbad9",
+      "senseSha256": "5a4557097a72676e77d8bc35bf6e0104ffb76eadbcb902f6032888ad62e5768d",
+      "codes": [
+        "visual_or_caption_ambiguity"
+      ],
+      "detail": "広げる is a valid core spread sense, but the sole English disperse emphasizes scattering or distribution, while the exact image specifically depicts applying a smooth layer of butter. This coating use needs explicit first-pair alignment review rather than treating all spread senses as interchangeable.",
+      "status": "held"
+    },
+    {
+      "w": "unit",
+      "p": [
+        "oi-no-"
+      ],
+      "art": "unit",
+      "imageSha256": "b76847042fbf83f381895ec7c908a19ac6f09fd7ffac86df317697d4968313aa",
+      "senseSha256": "87e500a76d0f11c335944a65d40985c243ebc7fdc2f64928f3f78e2fe341263e",
+      "codes": [
+        "image_first_sense_mismatch"
+      ],
+      "detail": "The exact PNG depicts four uniformed soldiers grouped as a military unit, directly matching later 部隊 / troop. It does not independently establish first 単位 / component or a measured unit; calling the squad a component would add an unshown larger whole.",
+      "status": "held"
+    },
+    {
+      "w": "board",
+      "p": [
+        "bherdh-"
+      ],
+      "art": "board",
+      "imageSha256": "adece6a283806035153269aca35271e969c7bdf343cd165399498de66e6d2035",
+      "senseSha256": "aa07c5e5b49224cbec9ba7afeeee549234f95c574ea298d6af3a7cb6797354cb",
+      "codes": [
+        "image_first_sense_mismatch"
+      ],
+      "detail": "The exact PNG depicts a girl boarding a bus. The canonical entry is a noun with first 板 / plank; it does not include that boarding verb. No representative plank is shown.",
+      "status": "held"
+    },
+    {
+      "w": "pattern",
+      "p": [
+        "pəter-"
+      ],
+      "art": "pattern",
+      "imageSha256": "fee651fcf713d937fab53583b020843858390bcf957ccec0da01b80387c726e8",
+      "senseSha256": "ecd65e3169fd9dec01cd89a1829016a6e2b2a8f10fae6441d31a95967e085df0",
+      "codes": [
+        "canonical_source_mismatch"
+      ],
+      "detail": "The Japanese 模様 and printed floral fabric show a decorative repeated design. The sole English template selects the model/pattern-for-making sense, which is not the same first meaning; no making template is shown.",
+      "status": "held"
+    },
+    {
+      "w": "hurt",
+      "p": [],
+      "art": "hurt",
+      "imageSha256": "b212c3c2731b22aa1ded848f420c44c7fe748d0d0c1c65a046e79c1ec6b12ebc",
+      "senseSha256": "f5be72ce0bad0a2543e8ec1e63d58db171befd7451fb87543048350729090804",
+      "codes": [
+        "image_first_sense_mismatch"
+      ],
+      "detail": "The fixed pair 傷つける / to inflict with physical pain : wound is causative/transitive. The PNG shows someone experiencing cheek or tooth pain, with no visible injury cause or actor inflicting it. An intransitive hurt caption would change the first meaning.",
+      "status": "held"
+    },
+    {
+      "w": "fit",
+      "p": [],
+      "art": "fit",
+      "imageSha256": "e25b4d9b92ea47b528202f222df348aa3db97094d70f7a9899ddb5116e0df290",
+      "senseSha256": "1a72886c95b8f0722fcac89625016e86411110c729c729769ef0599e2c499900",
+      "codes": [
+        "visual_or_caption_ambiguity"
+      ],
+      "detail": "The PNG shows a boy lifting or tugging a blue shirt and exposing his belly. It does not establish suitability (first 適当な / suitable); a sizing or physical-fitness caption could also rely on a different fit sense or an unshown comparison.",
+      "status": "held"
+    },
+    {
+      "w": "overall",
+      "p": [
+        "uper",
+        "al-5"
+      ],
+      "art": "overall",
+      "imageSha256": "9a555c6177cd1cdbe323b8e9fcd62af3408133cf6010e248eff8808c4baa0533",
+      "senseSha256": "00862360f5b1d37c3b3a9e8a58698b9c13e55fa36bdd427957be3a9b7e1cca16",
+      "codes": [
+        "canonical_source_mismatch"
+      ],
+      "detail": "Japanese 全体の is adjectival, while English generally and canonical pos 副 are adverbial. The PNG of a person surveying plans cannot repair this mismatch; an overall-plan caption would silently ignore the adverb tag and English gloss.",
+      "status": "held"
+    },
+    {
+      "w": "politics",
+      "p": [
+        "pelə-3"
+      ],
+      "art": "politics",
+      "imageSha256": "1ee522fab11849db64f694eedd01bec9c776485ae6246d16635ebba9273b9d09",
+      "senseSha256": "bf2c403eeef60cbf514ef77ca3dd00b52100f7c13959938ca994947dcb544265",
+      "codes": [
+        "visual_or_caption_ambiguity"
+      ],
+      "detail": "A diverse group discusses a town-like map, but no government office, election, vote, political symbol or public decision is established. Calling this politics would invent a political role or purpose beyond a generic planning meeting.",
+      "status": "held"
+    },
+    {
+      "w": "please",
+      "p": [
+        "plāk-1"
+      ],
+      "art": "please",
+      "imageSha256": "0f6155b475742a080563e14b6b83b3caa5a7e1120946ab1f237d0a723e443572",
+      "senseSha256": "9e4773d8cee603f63d1e58ef64bb91834a1b85be70e66b6f4dc4f8640a24a412",
+      "codes": [
+        "image_first_sense_mismatch"
+      ],
+      "detail": "The girl bows with hands pressed together toward a surprised boy, depicting a polite request. This supports later どうぞ / please, not first 喜ばせる / delight; no clear act of pleasing him is established.",
+      "status": "held"
+    },
+    {
+      "w": "served",
+      "p": [],
+      "art": "served",
+      "imageSha256": "16f5cb258bb397acb55d2bd3f496421ea6fe909daea7756ee7f3c6d7ef2a9374",
+      "senseSha256": "ea17ee3cffd84cca823eef4747ae8df7d1dd68775142c59f43316865d285f595",
+      "codes": [
+        "image_first_sense_mismatch"
+      ],
+      "detail": "The uniformed waiter with an empty tray beside a diner and soup illustrates provided/served food. The first pair is 仕えた / worked for. Serving a meal does not establish that the diner was his employer or master, and no such relationship may be invented.",
+      "status": "held"
+    },
+    {
+      "w": "drink",
+      "p": [
+        "dhreg-"
+      ],
+      "art": "drink",
+      "imageSha256": "f5186022f6c7e3d91535474b7b570d81771cadc386e53045d73b0296e717bf97",
+      "senseSha256": "c9ee43aed671da7982b69f8f162c1ba8083487f89e1f6df01e9635416349763c",
+      "codes": [
+        "image_first_sense_mismatch"
+      ],
+      "detail": "The PNG contains prepared beverages only. The first entry is the verb 飲む / imbibe, and no person, mouth or drinking action is shown. A caption listing drinks would switch to the noun; ready-to-drink phrasing would merely force a potential action.",
+      "status": "held"
+    },
+    {
+      "w": "send",
+      "p": [
+        "sent-"
+      ],
+      "art": "send",
+      "imageSha256": "7112bb6e0ce82b1bc01b34165eb64dbec3d307a08e21115e7882c9a978ee90b6",
+      "senseSha256": "2308c34ef02fc9e76cb0d14d0824b95f7530ff093f298f7c58f82d606951d4be",
+      "codes": [
+        "visual_or_caption_ambiguity"
+      ],
+      "detail": "The woman and courier both hold a parcel, and no arrow or other cue establishes which gives and which receives. The same PNG could show receipt of a delivery. A send/dispatch caption would infer an outgoing direction and intent that are not independently visible.",
+      "status": "held"
+    },
+    {
+      "w": "scene",
+      "p": [],
+      "art": "scene",
+      "imageSha256": "74d204c7ec43d3dc995280baccd0a491956cfe38623d7c286dba41c8dd69305b",
+      "senseSha256": "54da6cc4975406c7a9ce78ecffddf9394b7a9ef1ddbdc96450fb2b8505a182eb",
+      "codes": [
+        "image_first_sense_mismatch"
+      ],
+      "detail": "Actual PNG and caption show a dramatic episode being filmed. Fixed firstEN setting is valid but denotes location/background, which is not established by this episode-focused image.",
+      "status": "held"
+    },
+    {
+      "w": "dry",
+      "p": [
+        "dreug-"
+      ],
+      "art": "dry",
+      "imageSha256": "de31409e381a8996be146a0a0cff79a76da281a4cbfaa1fc9537517697ea63dd",
+      "senseSha256": "62d2fb4710a929ef802c8f790cabcc705e7cacf9cf8797991064c5d66fce4248",
+      "codes": [
+        "image_first_sense_mismatch"
+      ],
+      "detail": "The first pair 乾いた / dry and POS 形 describe an already dry state, but the shirt visibly drips while being hung on a line. A caption about drying would substitute the verb or an unrealized future result.",
+      "status": "held"
+    },
+    {
+      "w": "release",
+      "p": [
+        "re-",
+        "(s)lēg-"
+      ],
+      "art": "release",
+      "imageSha256": "3d4af8ab423bea3ff1b223c5025f018c54432a8e0d41b3f35be1c39643176fa1",
+      "senseSha256": "e22a663eaf0262ca2db111a54f129745ea4eefb0b139550833cbfaf8c425b40f",
+      "codes": [
+        "visual_or_caption_ambiguity"
+      ],
+      "detail": "The ball leaving an open hand directly depicts stop holding / let go. The fixed first pair 解放する / liberate is narrower and conventionally concerns freeing from restraint or confinement; forcing liberation language onto a thrown ball would be an unnatural first-pair caption.",
+      "status": "held"
+    },
+    {
+      "w": "tissue",
+      "p": [
+        "teks-"
+      ],
+      "art": "tissue",
+      "imageSha256": "0054985877aea08b6e828febef72d4cae41c633c78faf550645b3f43e706d5cc",
+      "senseSha256": "b0314697702c8fdceb2071e7e8d5e364b683b80856cb214a2bbcb4be8884df3e",
+      "codes": [
+        "image_first_sense_mismatch"
+      ],
+      "detail": "The image is a box of facial tissue paper, matching later ティッシュペーパー / tissue paper, while the fixed first Japanese gloss 組織 means biological tissue in this pairing.",
+      "status": "held"
+    },
+    {
+      "w": "domestic",
+      "p": [
+        "dem-"
+      ],
+      "art": "domestic",
+      "imageSha256": "6fe10a4dd5314be6d2cab54e0f9a236829712347f0004faa1287cb7fc4e1eea7",
+      "senseSha256": "1aa6f2f5a81bff85d274cde5f2c873590c2f4bec492bec2e5e01bfe029d3401b",
+      "codes": [
+        "image_first_sense_mismatch"
+      ],
+      "detail": "The map links settlements by airplane and truck, depicting travel or transport within one country. This supports later 国内の / national, not first 家庭の / household.",
+      "status": "held"
+    },
+    {
+      "w": "north",
+      "p": [
+        "ner-1"
+      ],
+      "art": "north",
+      "imageSha256": "11a9a960e5a90585859913857723609454e76780ace603d9f62d4ae7da7ca7de",
+      "senseSha256": "535941b3a4713b77727a417a86354db2f7e04889f00f3371666d513811c839c8",
+      "codes": [
+        "canonical_source_mismatch"
+      ],
+      "detail": "Japanese 北 is the compass direction noun, while English boreal is an adjective meaning northern or relating to the north. The mixed 名/形 tag does not make these two glosses a parallel first-sense pair. The unlettered compass supports the direction concept but cannot repair the mismatch.",
+      "status": "held"
+    },
+    {
+      "w": "maximum",
+      "p": [
+        "meg-"
+      ],
+      "art": "maximum",
+      "imageSha256": "5778d07d7ddda57ef81246e9faa31e6d6bf084facfd5ff8c3d6de91ef6908cf3",
+      "senseSha256": "0a55ac0c92247cdf4603c85f8d8d202dbb60e6e998d5b7494f126a17762de715",
+      "codes": [
+        "visual_or_caption_ambiguity"
+      ],
+      "detail": "A small cup, pitcher and large barrel give a size comparison, but there is no scale, limit marker or visibly exact fill limit establishing first 最大限 / utmost. Calling the barrel maximum-filled or its capacity maximal would add an unsupported bound.",
+      "status": "held"
+    },
+    {
+      "w": "usual",
+      "p": [
+        "oit-"
+      ],
+      "art": "usual",
+      "imageSha256": "197e6f1eefe55a597a179d16b29da62ac751ce9a1d42e42650e37989f9e46e45",
+      "senseSha256": "219fa5c72940b045d57e512f0532dd9043add722f4348030e54aadba53aefebc",
+      "codes": [
+        "visual_or_caption_ambiguity"
+      ],
+      "detail": "One meal with toast, eggs, sausages, vegetables and a mug does not show that it is the person's usual or customary meal. No recurring-calendar, repeated-panel or comparison cue establishes habit.",
+      "status": "held"
+    },
+    {
+      "w": "laid",
+      "p": [],
+      "art": "laid",
+      "imageSha256": "fab487750be10bd4fcf42c0a6e13fcc916a314ed2237f2f5051581ea6178d2d2",
+      "senseSha256": "2c06156945825c03f99792c51c935357a8b1e9912a0bcac07698bb24b47196cc",
+      "codes": [
+        "visual_or_caption_ambiguity"
+      ],
+      "detail": "The baby is resting in a bassinet while a woman's hands hover at its rim. The image does not independently show who laid the baby down or that a placement action has just occurred. A completed-action caption would supply an unseen event.",
+      "status": "held"
+    },
+    {
+      "w": "Richard",
+      "p": [
+        "reg-",
+        "kar-"
+      ],
+      "art": "Richard",
+      "imageSha256": "cc2248b3a4684cc903c326bcb440a228658fa7cb6bb79e412dece07d46ff5f21",
+      "senseSha256": "7c701d7178fc6a3e1428316215fede42b3a8cc238ea32799ae77b266dbe56444",
+      "codes": [
+        "visual_or_caption_ambiguity"
+      ],
+      "detail": "The cartoon shows a crowned, sword-holding king with a lion emblem, but no visible name identifies him as Richard. Calling him Richard, Richard I or a family member would invent identity.",
+      "status": "held"
+    },
+    {
+      "w": "bag",
+      "p": [],
+      "art": "bag",
+      "imageSha256": "b5203504ec863bd2019b8b82e89756df9a08a9ef68112bbe400308d69a156111",
+      "senseSha256": "cf60375cc1dcd8c31ed2bf6248f2cc61e79936748a2abc812f3a71017fdd631a",
+      "codes": [
+        "image_first_sense_mismatch"
+      ],
+      "detail": "The structured buckled satchel with a top handle and shoulder strap depicts かばん / bag. The fixed first pair 袋 / sack conventionally denotes a flexible sack, not this fitted satchel.",
+      "status": "held"
+    },
+    {
+      "w": "draw",
+      "p": [
+        "dhragh-"
+      ],
+      "art": "draw",
+      "imageSha256": "947d415ed4dafc651ab7dac157b25e8cc8406fde3a202ae2d38a0330e9f352a3",
+      "senseSha256": "330872c4f6bbbd497800f6c8b82abe954f3e35246e5dacb4464e24f7b9515049",
+      "codes": [
+        "image_first_sense_mismatch"
+      ],
+      "detail": "The girl is making a picture with a pencil, supporting later 描く / sketch. Nothing visibly depicts first 引く / pull; describing the pencil as pulled across paper would force a mechanical paraphrase of the drawing action.",
+      "status": "held"
+    },
+    {
+      "w": "lights",
+      "p": [],
+      "art": "lights",
+      "imageSha256": "3d30d0f68050aa340c75ee8912d61d2508d15711239dc9fc85708f0c53ee319e",
+      "senseSha256": "602761252b4a80af5003bafd96d4908ddfe4ae749c0b83274b7aee4da8ca4114",
+      "codes": [
+        "image_first_sense_mismatch"
+      ],
+      "detail": "No match to listed 明かり、照明; rare lights=lungs is separate sense",
+      "status": "held"
+    },
+    {
+      "w": "app",
+      "p": [],
+      "art": "app",
+      "imageSha256": "2aa2df41d318b76b67731bc0d75ef1751d96d1a2b61ce2b5148de7dd256ceea6",
+      "senseSha256": "160e95659f400e4bfa82d544fe8e8accaf38fd091801f306c288833a661e47d6",
+      "codes": [
+        "image_first_sense_mismatch"
+      ],
+      "detail": "No match to software application/mobile app in Japanese or English",
+      "status": "held"
+    },
+    {
+      "w": "board",
+      "p": [
+        "bherdh-"
+      ],
+      "art": "board",
+      "imageSha256": "adece6a283806035153269aca35271e969c7bdf343cd165399498de66e6d2035",
+      "senseSha256": "aa07c5e5b49224cbec9ba7afeeee549234f95c574ea298d6af3a7cb6797354cb",
+      "codes": [
+        "image_first_sense_mismatch"
+      ],
+      "detail": "Shows board vehicle verb, absent from all listed noun glosses",
+      "status": "held"
+    },
+    {
+      "w": "bar",
+      "p": [
+        "gʷerə-2"
+      ],
+      "art": "bar",
+      "imageSha256": "eee8b12d972db0a212fb0f554bef8e644a3d27fa675dd880c9755360f885843d",
+      "senseSha256": "97c28ad952a1fefaf4a16fc2f43a9ee09f5aeb0f78faf7ffc229b728e52ed9b5",
+      "codes": [
+        "image_first_sense_mismatch"
+      ],
+      "detail": "A drinking establishment is explicit; no isolated rod or courtroom is shown.",
+      "status": "held"
+    },
+    {
+      "w": "tissue",
+      "p": [
+        "teks-"
+      ],
+      "art": "tissue",
+      "imageSha256": "0054985877aea08b6e828febef72d4cae41c633c78faf550645b3f43e706d5cc",
+      "senseSha256": "b0314697702c8fdceb2071e7e8d5e364b683b80856cb214a2bbcb4be8884df3e",
+      "codes": [
+        "image_first_sense_mismatch"
+      ],
+      "detail": "This is unmistakably paper tissue, not biological tissue (組織), the first listed sense.",
+      "status": "held"
+    },
+    {
+      "w": "cool",
+      "p": [
+        "gel-2"
+      ],
+      "art": "cool",
+      "imageSha256": "8aa6f3c0a3e4492909555e3c63296c2d5af2297ba003efbc984f28a5fba0aa29",
+      "senseSha256": "1e4465c9b5f8c0163603ef1a70e164ddf2f341db09667b9e3b1b2f57cbe9686c",
+      "codes": [
+        "image_first_sense_mismatch"
+      ],
+      "detail": "Sunglasses, pose and sparkles illustrate social/style coolness. There is no breeze, thermometer, fan or temperature cue supporting 涼しい.",
+      "status": "held"
+    },
+    {
+      "w": "web",
+      "p": [
+        "webh-"
+      ],
+      "art": "web",
+      "imageSha256": "db0747b1d09278ab0a2dce8eec56082f812ff816e1b015ed66838295c5878a5b",
+      "senseSha256": "484e75ee9fee7a729fd0b7fd7a537799d13e439dc30a2b22da73d3b9ec8ab5da",
+      "codes": [
+        "image_first_sense_mismatch"
+      ],
+      "detail": "The global network graphic conventionally depicts the internet/web, not a spider’s silk web.",
+      "status": "held"
+    },
+    {
+      "w": "stick",
+      "p": [
+        "steig-"
+      ],
+      "art": "stick",
+      "imageSha256": "2539abc56be41573cf263059cfcab6991eab7adb7bbd2db2f877efc3c4134429",
+      "senseSha256": "f54c9799ded847117499de3c696dcc5af4004ee377252673e653c5ed040f1118",
+      "codes": [
+        "image_first_sense_mismatch"
+      ],
+      "detail": "The dominant action is gluing or making something adhere, a valid later stick sense. A glue-stick object is visible, but it is not an illustration of the generic rod meaning 棒.",
+      "status": "held"
+    },
+    {
+      "w": "grounds",
+      "p": [],
+      "art": "grounds",
+      "imageSha256": "d75c1e1e0f2f0d0c0178a385cd11038a34b46207f7ff3e2fa04a83c1f4618a73",
+      "senseSha256": "24b0f6c89598b82262c253bd292798053ce582ebbf78007587c261179efee6e9",
+      "codes": [
+        "image_first_sense_mismatch"
+      ],
+      "detail": "The bounded land around a building is a direct grounds/property illustration. No reason or evidence supporting a claim is visible.",
+      "status": "held"
+    },
+    {
+      "w": "checked",
+      "p": [],
+      "art": "checked",
+      "imageSha256": "91f00d3d696e130e2da3124f4214a15a4c5e80a94874da3840fd89877688453a",
+      "senseSha256": "44ccc974ada12b2352dbec39abc8dc58e48d7135291769aa5aea2b4251d760a0",
+      "codes": [
+        "image_first_sense_mismatch"
+      ],
+      "detail": "The repeated crossing color pattern directly shows checked fabric, not completed verification.",
+      "status": "held"
+    },
+    {
+      "w": "tied",
+      "p": [],
+      "art": "tied",
+      "imageSha256": "8f431e4a3c239237d87db2f3e28d55a53a61a0e5e669895a5a890440a47ce55c",
+      "senseSha256": "7c3808676f13e518ee160d182e8ee01be0c09d21e934b432d40c5f1ccb11a9be",
+      "codes": [
+        "image_first_sense_mismatch"
+      ],
+      "detail": "Balanced token totals and referee gesture suggest a draw or equal score. No knots, ropes or tying action is visible.",
+      "status": "held"
+    },
+    {
+      "w": "virtual",
+      "p": [
+        "wī̆-ro-"
+      ],
+      "art": "virtual",
+      "imageSha256": "22ac896f6a3506f7fcff9c6924f67674bbe2373b6478a56df1fd3f6fd88228e1",
+      "senseSha256": "6f27fd2e8b7513521c0c3f966e95263df8f79d86941aafff4fd8bf48d480f8ac",
+      "codes": [
+        "image_first_sense_mismatch"
+      ],
+      "detail": "Headset and simulated object clearly support a computer-generated virtual environment. They do not show an effective/de facto state.",
+      "status": "held"
+    },
+    {
+      "w": "domestic",
+      "p": [
+        "dem-"
+      ],
+      "art": "domestic",
+      "imageSha256": "6fe10a4dd5314be6d2cab54e0f9a236829712347f0004faa1287cb7fc4e1eea7",
+      "senseSha256": "1aa6f2f5a81bff85d274cde5f2c873590c2f4bec492bec2e5e01bfe029d3401b",
+      "codes": [
+        "image_first_sense_mismatch"
+      ],
+      "detail": "Internal transportation within a country-like outline supports 国内の, not the first listed 家庭の.",
+      "status": "held"
+    },
+    {
+      "w": "please",
+      "p": [
+        "plāk-1"
+      ],
+      "art": "please",
+      "imageSha256": "0f6155b475742a080563e14b6b83b3caa5a7e1120946ab1f237d0a723e443572",
+      "senseSha256": "9e4773d8cee603f63d1e58ef64bb91834a1b85be70e66b6f4dc4f8640a24a412",
+      "codes": [
+        "image_first_sense_mismatch"
+      ],
+      "detail": "The pose suggests asking or pleading, a valid polite-marker use of please. It does not show the first listed transitive verb 喜ばせる, and is not specifically an invitation meaning どうぞ.",
+      "status": "held"
+    },
+    {
+      "w": "dry",
+      "p": [
+        "dreug-"
+      ],
+      "art": "dry",
+      "imageSha256": "de31409e381a8996be146a0a0cff79a76da281a4cbfaa1fc9537517697ea63dd",
+      "senseSha256": "62d2fb4710a929ef802c8f790cabcc705e7cacf9cf8797991064c5d66fce4248",
+      "codes": [
+        "image_first_sense_mismatch"
+      ],
+      "detail": "This illustrates the action of drying wet laundry, not the listed adjective 乾いた. Visible water drops actively contradict the completed dry state. It does not show 辛口の.",
+      "status": "held"
+    },
+    {
+      "w": "lot",
+      "p": [],
+      "art": "lot",
+      "imageSha256": "71609917fa7bcb2b56ac254340e7982c3f79cca6e1e37f082f6cb93c273d25c4",
+      "senseSha256": "b5fecca4843ebf74455c427ba75a30d6570e62697509da8a83a3be62fc39d392",
+      "codes": [
+        "image_first_sense_mismatch"
+      ],
+      "detail": "Matches くじ secondary sense; quantity also incidental",
+      "status": "held"
+    },
+    {
+      "w": "film",
+      "p": [
+        "pel-4"
+      ],
+      "art": "film",
+      "imageSha256": "bf36b90c89e676ea3356b158af7daade19e12a3aca12a2c31ef1704eae433249",
+      "senseSha256": "bdeddc95a4e97662023ffb0f0e1f089f5250387b1108aacb52f1a0b43910a487",
+      "codes": [
+        "image_first_sense_mismatch"
+      ],
+      "detail": "Matches film stock sense, not clearly movie or thin coating",
+      "status": "held"
+    },
+    {
+      "w": "mortality",
+      "p": [
+        "mer-2"
+      ],
+      "art": "mortality",
+      "imageSha256": "5d89f5bd45cc0eda22946195a566126dc22a22d351c2860d0e0d812f952fa777",
+      "senseSha256": "c2183909a7f54d5a9540b1604a89bbf079e888fc2601ddcafde4b6817ca9e849",
+      "codes": [
+        "image_first_sense_mismatch"
+      ],
+      "detail": "Matches死を免れないこと secondary, not quantitative死亡率",
+      "status": "held"
+    },
+    {
+      "w": "speaker",
+      "p": [
+        "spreg-1"
+      ],
+      "art": "speaker",
+      "imageSha256": "a88d094fb7c1047210429d63885265ec96cd331dcafe0a0e6742445690a8dc4c",
+      "senseSha256": "bdf3bbe7515220262988ad7b83c0b8d9fa4632c6eab468c5c1d7894a90baf1a2",
+      "codes": [
+        "image_first_sense_mismatch"
+      ],
+      "detail": "Matchesスピーカー third sense, not話し手 first",
+      "status": "held"
+    },
+    {
+      "w": "shower",
+      "p": [
+        "kēw-(e)ro-"
+      ],
+      "art": "shower",
+      "imageSha256": "132b47ce4bedd0d164edd6caa2f5724de7a35a66f9e313a8fc6a4a47095debba",
+      "senseSha256": "ac20560cf229af56f33b40d8a39e0a049de2fc153e130aff1b7ab45751020ae0",
+      "codes": [
+        "image_first_sense_mismatch"
+      ],
+      "detail": "Matchesシャワー later sense, notにわか雨 first",
+      "status": "held"
+    },
+    {
+      "w": "pack",
+      "p": [],
+      "art": "pack",
+      "imageSha256": "a4a5b4a4a72073947bb1752bc53e2a89445ceb6046c664b33173dc994f8081a3",
+      "senseSha256": "bb3b37e926585974c14d4c0cc9dc53094b11a97e7b3bc7c1ca52bcec4a6078f9",
+      "codes": [
+        "image_first_sense_mismatch"
+      ],
+      "detail": "Matches荷物 later sense; not packing action",
+      "status": "held"
+    },
+    {
+      "w": "cab",
+      "p": [],
+      "art": "cab",
+      "imageSha256": "92a75e33a31c0baf1dd5d81912d616a68f34c0de1196218564089bedf0d9b124",
+      "senseSha256": "db22833f85d912cd355d1a8f2cdc580cb523a982ebaf909d84304b8a345d5a93",
+      "codes": [
+        "image_first_sense_mismatch"
+      ],
+      "detail": "Matches old Cabernet abbreviation, notタクシー/運転席",
+      "status": "held"
+    },
+    {
+      "w": "spark",
+      "p": [],
+      "art": "spark",
+      "imageSha256": "5a00f0cdb99388afcaa04ad70565a191dd90fa024062e67b2f3375439494b33f",
+      "senseSha256": "e1fa2745e7df5fb162956285fd091b84d952379254cd59cdeef956e3b85fc506",
+      "codes": [
+        "image_first_sense_mismatch"
+      ],
+      "detail": "Matches old courting/flirting sense, not literal火花 first",
+      "status": "held"
+    },
+    {
+      "w": "pipes",
+      "p": [],
+      "art": "pipes",
+      "imageSha256": "95aaecc44a202ef0feff036af30270dbdb5016d27610500e632c1fc6509354b5",
+      "senseSha256": "e128019070408501ae5e1f5f4292e64b920a0f47eeb3b8f72c52caf5a502db9f",
+      "codes": [
+        "image_first_sense_mismatch"
+      ],
+      "detail": "Matches chemical abbreviation-like prior gloss, notパイプ/管",
+      "status": "held"
+    },
+    {
+      "w": "house",
+      "p": [
+        "(s)keu-"
+      ],
+      "art": "house",
+      "imageSha256": "9f95f5a43c36d15d15b39dd047e4faa30aa244207673358abf6bb79345d172f1",
+      "senseSha256": "dfd43cc37b5183f2d38af5479d61c8bd3f9bff9e946214f3967a4ca403db1130",
+      "codes": [
+        "user_flagged_image_quality"
+      ],
+      "detail": "Current house/family/people PNG has a new user quality flag; independent replacement review pending. Earlier accepted QA cannot clear it.",
+      "status": "held"
+    },
+    {
+      "w": "family",
+      "p": [],
+      "art": "family",
+      "imageSha256": "c4844505db8abf37a5da357bbc243d273f7185c1b2ba40d9e4689cb8c6221554",
+      "senseSha256": "2f291a0dda6c8385d2c4c91c622af5b2ee2ab6a2bb5f5e0341457b9c9a62d3a1",
+      "codes": [
+        "user_flagged_image_quality"
+      ],
+      "detail": "Current house/family/people PNG has a new user quality flag; independent replacement review pending. Earlier accepted QA cannot clear it.",
+      "status": "held"
+    },
+    {
+      "w": "people",
+      "p": [],
+      "art": "people",
+      "imageSha256": "a76a7b101fbe19b0e445c8368050fb1cf339cd2d91470569417f37a8b973c348",
+      "senseSha256": "0f3a8f3afb2f5149c44ff3f87ee9ed39f0e9bd4af210fb986040155b48490fa1",
+      "codes": [
+        "user_flagged_image_quality"
+      ],
+      "detail": "Current house/family/people PNG has a new user quality flag; independent replacement review pending. Earlier accepted QA cannot clear it.",
+      "status": "held"
+    }
+  ],
+  "resolutions": [
+    {
+      "w": "house",
+      "p": [
+        "(s)keu-"
+      ],
+      "art": "house",
+      "imageSha256": "398c857017c470515084ca3f3da41ddbace7317ee74148db05b0f7e1e283bf09",
+      "senseSha256": "dfd43cc37b5183f2d38af5479d61c8bd3f9bff9e946214f3967a4ca403db1130",
+      "reviewed_at": "2026-10-04T15:15:07.266130+00:00",
+      "reason": "User-flagged original was replaced and independently approved on actual pixels, white/navy/pink backgrounds, first-sense and bilingual descriptions.",
+      "resolvesIssueSha256": [
+        "0b1889eee3018801bd45e7a3d4d5c4113e94b40837c603a221b3849b203298bf"
+      ]
+    },
+    {
+      "w": "family",
+      "p": [],
+      "art": "family",
+      "imageSha256": "e9809d485a1c1ad07f2e86d3f550f684b5de5756b12514a5850ac5537e42b7a4",
+      "senseSha256": "2f291a0dda6c8385d2c4c91c622af5b2ee2ab6a2bb5f5e0341457b9c9a62d3a1",
+      "reviewed_at": "2026-10-04T15:15:07.266130+00:00",
+      "reason": "User-flagged original was replaced and independently approved on actual pixels, white/navy/pink backgrounds, first-sense and bilingual descriptions.",
+      "resolvesIssueSha256": [
+        "8e8b6e018f70ec6a3e57f175a592b90576df4439792b2b41cdf0f5d6c34518c5"
+      ]
+    },
+    {
+      "w": "people",
+      "p": [],
+      "art": "people",
+      "imageSha256": "cad408e131aa54597793d20e01c4fb5a52573909aef17e817c48179a6ba7517b",
+      "senseSha256": "0f3a8f3afb2f5149c44ff3f87ee9ed39f0e9bd4af210fb986040155b48490fa1",
+      "reviewed_at": "2026-10-04T15:15:07.266130+00:00",
+      "reason": "User-flagged original was replaced and independently approved on actual pixels, white/navy/pink backgrounds, first-sense and bilingual descriptions.",
+      "resolvesIssueSha256": [
+        "8ba385eb3df1589d8fea7b612b0217f703eec257e1107e43df154535798020f7"
+      ]
+    }
+  ]
+}

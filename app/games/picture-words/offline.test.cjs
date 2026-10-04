@@ -1,6 +1,6 @@
 const {test}=require('node:test');const assert=require('node:assert/strict');const fs=require('node:fs'),vm=require('node:vm'),path=require('node:path');
 const reviewed=require('./reviewed-scenes.js'),crypto=require('node:crypto').webcrypto;
-const scope={window:{}};vm.runInNewContext(fs.readFileSync(__dirname+'/catalog.js','utf8'),scope);const words=scope.window.PICTURE_WORDS_CATALOG,word=words[0],other=words[1];
+const scope={window:{}};vm.runInNewContext(fs.readFileSync(__dirname+'/catalog.js','utf8'),scope);const words=scope.window.PICTURE_WORDS_CATALOG,word=words.find(w=>reviewed.hasPack(w)),other=words.find(w=>w.id!==word.id && reviewed.hasPack(w));
 const location=new URL('https://example.test/project/app/games/picture-words.html');
 function setup({online=true,files=[],fetcher=async()=>new Response('ok'),storage=false,protocol='https:',registration=Promise.resolve({})}={}){
  const handlers={},stored=new Map(files.map(url=>[url,new Response('cached')]));const cache={keys:async()=>{if(storage)throw Error('denied');return [...stored.keys()].map(url=>({url}));},match:async key=>stored.get(typeof key==='string'?key:key.url)?.clone(),put:async(key,value)=>stored.set(typeof key==='string'?key:key.url,value.clone())};

@@ -61,8 +61,8 @@ test('scores deduct only full wrong answers and charge a viewed answer once',()=
 test('narrowing the active pool preserves old stars, answer records and discovery IDs through reload',()=>{
  const scope={window:{}};vm.runInNewContext(fs.readFileSync(__dirname+'/catalog.js','utf8'),scope);
  const difficulty=require('./difficulty.js'),discovery=require('./progression.js');
- const originalCatalog=scope.window.PICTURE_WORDS_CATALOG,catalog=difficulty.bilingualCatalog(originalCatalog);
- assert.ok(!catalog.some(word=>['glasses','candy'].includes(word.id)));
+ const originalCatalog=scope.window.PICTURE_WORDS_CATALOG,catalog=difficulty.buildCatalog(originalCatalog);
+ assert.equal(catalog.length,originalCatalog.length);
  const raw={mode:'ja',routeVersion:2,ja:{wordId:'glasses',index:42,stars:{glasses:3,candy:2,car:1,bad:9}},en:{wordId:'candy',index:80,stars:{glasses:1,candy:3}},
   answerRecords:{glasses:{independent:2,assisted:1,en:{independent:3,assisted:0,bestScore:100}},candy:{ja:{independent:0,assisted:2,bestScore:70}}},
   discovery:{version:1,seen:{ja:['glasses','candy'],en:['candy','glasses']},days:{'2026-10-03':['glasses','candy']}}};
@@ -80,4 +80,30 @@ test('narrowing the active pool preserves old stars, answer records and discover
  assert.deepEqual(reloaded.answerRecords,raw.answerRecords);assert.deepEqual(reloaded.ja.stars,first.ja.stars);
  assert.deepEqual(reloaded.en.stars,first.en.stars);assert.deepEqual(reloaded.discovery.seen,raw.discovery.seen);
  assert.deepEqual(reloaded.discovery.days['2026-10-03'],['glasses','candy']);
+});
+
+
+test('an English-only one-letter answer has one exact tile and no fabricated Japanese answer',()=>{
+ const round=bilingualRound('I',undefined);assert.deepEqual(round.answers,{en:['I'],ja:[]});
+ assert.equal(finishLanguage(round,'en','I'),'partial');assert.equal(round.completed.en,true);
+});
+test('unsupported Japanese switch preserves the active English word, board, and saved identity',()=>{
+ const handlers={},entry={id:'said',en:'said',w:''},round=bilingualRound('said','');let feedback='';
+ const c={entry,round,phase:'playing',mode:'en',window:{WordBloomReviewedScenes:{supportsLanguage:()=>false,unavailableReason:()=> '日本語の読みは未確認です'}},setFeedback:value=>feedback=value,
+ document:{querySelectorAll:()=>[{dataset:{mode:'ja'},addEventListener:(_,fn)=>handlers.ja=fn}]}};
+ vm.runInNewContext(code.slice(code.indexOf("  document.querySelectorAll('[data-mode]')"),code.indexOf("  $('retryImage')")),c);
+ handlers.ja();assert.equal(c.mode,'en');assert.equal(c.entry,entry);assert.equal(c.round,round);assert.equal(feedback,'日本語の読みは未確認です');
+});
+
+test('an explicitly verified one-kana answer solves and switches on the same image',()=>{
+ const round=bilingualRound('eye','め');assert.deepEqual(round.answers.ja,['め']);
+ assert.equal(finishLanguage(round,'ja','め'),'partial');assert.equal(round.completed.ja,true);assert.equal(round.completed.en,false);
+ const handlers={},entry={id:'one-kana-fixture',en:'eye',w:'め'},calls=[];
+ const state={answers:{en:[...'EYE'],ja:['め']},viewed:{en:false,ja:false},mistakes:{en:0,ja:0}},noop=()=>{};
+ const c={entry,round:state,phase:'playing',mode:'en',mistakes:0,generation:0,window:{WordBloomReviewedScenes:{supportsLanguage:()=>true}},
+ cancelGesture:noop,clearPending:noop,speech:{stop:noop},$:()=>({dataset:{}}),updateLabels:noop,renderAnswers:noop,makeWheel:()=>calls.push('wheel'),updateAnswer:noop,drawTrail:noop,updateProgress:noop,persist:noop,setFeedback:noop,
+ document:{querySelectorAll:()=>['ja','en'].map(lang=>({dataset:{mode:lang},addEventListener:(_,fn)=>handlers[lang]=fn}))}};
+ vm.runInNewContext(code.slice(code.indexOf("  document.querySelectorAll('[data-mode]')"),code.indexOf("  $('retryImage')")),c);
+ handlers.ja();assert.equal(c.mode,'ja');assert.deepEqual(c.answer,['め']);assert.equal(c.entry,entry);
+ handlers.en();assert.equal(c.mode,'en');assert.deepEqual(c.answer,[...'EYE']);assert.equal(c.entry,entry);assert.equal(calls.length,2);
 });

@@ -1,5 +1,6 @@
 @echo off
 setlocal
+rem Refreshes both the image-complete puzzle and Pictpedia catalogs.
 rem Check that an interpreter runs; py.exe can exist with no Python installed.
 py -3 -c "import sys; sys.exit(sys.version_info.major != 3)" >nul 2>nul
 if not errorlevel 1 (

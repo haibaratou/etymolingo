@@ -26,7 +26,7 @@ test('honeycomb targets remain separated, inside the board and fixed between pha
   const code=fs.readFileSync(require.resolve('./game.js'),'utf8');
   const fn=code.slice(code.indexOf('  function tileStep('),code.indexOf('  function layoutNodes('));
   const context={};vm.runInNewContext(fn,context);
-  for(let length=2;length<=14;length++){
+  for(let length=1;length<=14;length++){
     const dual=length>8,inner=dual?Math.min(6,Math.ceil(length/2)):length;
     const points=[...context.letterPositions(inner,0,dual,length),...(dual?context.letterPositions(length-inner,1,dual,length):[])];
     for(const p of points){
@@ -38,7 +38,7 @@ test('honeycomb targets remain separated, inside the board and fixed between pha
 });
 test('every answer is complete in one or two rings, without paging or hiding letters', () => {
   for (const word of buildCatalog(scope.window.PICTURE_WORDS_CATALOG)) for (const language of ['ja','en']) {
-    if (language === 'ja' && !word.w) continue;
+    if (!require('./reviewed-scenes.js').supportsLanguage(word,language)) continue;
     const answer = [...(language === 'ja' ? word.w : word.en.toUpperCase())], profile = challenge(word, language);
     const { letters, batches } = planLetters(answer, Array(profile.decoys).fill('X'), profile.innerCount, profile.dual);
     let path = [];
@@ -101,7 +101,7 @@ test('every size and shuffle has an adjacent one-stroke solution, with no reused
  const {connectedPath,areNeighbours}=require('./gesture.js');
  const code=fs.readFileSync(require.resolve('./game.js'),'utf8'),ctx={};
  vm.runInNewContext(code.slice(code.indexOf('  function tileStep('),code.indexOf('  function arrangeNodes(')),ctx);
- for(let length=2;length<=14;length++){
+ for(let length=1;length<=14;length++){
   const dual=length>8,inner=dual?Math.min(6,Math.ceil(length/2)):length;
   const cells=[...ctx.letterPositions(inner,0,dual,length),...(dual?ctx.letterPositions(length-inner,1,dual,length):[])];
   const step=length<=4?100:length<=8?86:68;

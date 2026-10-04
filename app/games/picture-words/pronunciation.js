@@ -41,6 +41,7 @@
       if (!this.Utterance) return;
       for (const language of ['ja','en']) {
         const text = language === 'ja' ? word.w : word.en;
+        if (typeof text !== 'string' || !text.trim()) continue;
         try { this.prepared.set(`${language}:${text}`, new this.Utterance(text)); } catch {}
       }
     }
@@ -48,7 +49,7 @@
       return this.speakText({ wordId: word.id, text: language === 'ja' ? word.w : word.en, language, slow }, requested);
     }
     speakScene(word, result, language, slow = false) {
-      const text = result?.status === 'reviewed' ? result.entry?.scene?.[language] : '';
+      const text = result?.status === 'reviewed' && result.ttsAllowed === true ? result.entry?.scene?.[language] : '';
       if (typeof text !== 'string' || !text.trim()) {
         this.stop(); this.onState({ wordId: word?.id, text: '', language, slow, kind: 'scene', state: 'unavailable' });
         return false; // No fallback to a headword or an unreviewed draft.
@@ -58,6 +59,7 @@
     speakText(info, requested = false) {
       const {language, slow} = info;
       this.stop();
+      if (typeof info.text !== 'string' || !info.text.trim()) { this.onState({ ...info, state: 'unavailable' }); return false; }
       if (!this.voices.length) this.refreshVoices();
       if (!this.enabled && !requested) { this.onState({ ...info, state: 'muted' }); return false; }
       if (this.availability(language) !== 'ready') { this.onState({ ...info, state: 'unavailable' }); return false; }

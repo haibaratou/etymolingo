@@ -214,3 +214,14 @@ main{outline:none;min-width:0}
 
 /* The supplied hero artwork includes the visible Pictpedia title. */
 .hero-title{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* All generated artwork stays browsable; readiness is shown per entry. */
+.caption-status,.play-status{display:block;font:500 12px/1.6 var(--jp);color:var(--ink-2)}
+.caption-status{margin-top:4px}
+.puzzle-actions{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 16px}
+.puzzle-actions .play-status{flex-basis:100%}
+.btn:disabled{cursor:default;opacity:.5}
+.load-more{display:flex;margin:22px auto 0}
+.asset-name{font-size:13px;color:var(--ink-2);overflow-wrap:anywhere}
+.pending-title{font:900 clamp(23px,3vw,36px)/1.4 var(--jp)}
+.image-failed{font:500 12px var(--jp);color:var(--ink-3)}

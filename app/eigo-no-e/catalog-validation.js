@@ -16,7 +16,7 @@ function validDescription(scene){
   const bare=text.replace(/[.!?]+$/,'').trim().toLowerCase(),lower=head.toLowerCase();
   return ![lower,'a '+lower,'an '+lower,'the '+lower,'this is '+lower,'this is a '+lower,'this is an '+lower].includes(bare);
 }
-function buildCurrentCatalog(data,scenes,words,index){
+function buildLegacyCatalog(data,scenes,words,index){
   if(data?.schema!==3||!Array.isArray(data.words)||scenes?.schema!==1||!Array.isArray(scenes.entries)||!Array.isArray(words))throw Error('Unsupported picture dictionary data');
   const currentWords=new Map(words.map(w=>[wordKey(w),w]));
   const currentScenes=new Map();
@@ -48,11 +48,58 @@ function buildCurrentCatalog(data,scenes,words,index){
   }).filter(c=>c.subs.length);
   return {...data,words:output,categories,total_art:output.length,excluded};
 }
+const safeArt = art => typeof art==='string' && art.length>0 && art.length<512 && !/[\\/\x00-\x1f\x7f?#]/.test(art);
+const hex = (value,size) => typeof value==='string' && new RegExp('^[a-f0-9]{'+size+'}$').test(value);
+function validImage(row){return safeArt(row.art)&&row.image?.path===`assets/word/${row.art}.png`&&hex(row.image.sha256,64)&&hex(row.image.git_blob_sha,40);}
+function recount(data,output,excluded){
+  const counts=new Map(), members=new Map();
+  for(const row of output)for(const key of row.c){counts.set(key,(counts.get(key)||0)+1);const cid=key.split('/')[0];if(!members.has(cid))members.set(cid,[]);members.get(cid).push(row);}
+  const categories=(data.categories||[]).map(c=>({...c,subs:(c.subs||[]).map(s=>({...s,n:counts.get(`${c.id}/${s.id}`)||0})).filter(s=>s.n),icon:(members.get(c.id)||[]).some(w=>w.id===c.icon)?c.icon:members.get(c.id)?.[0]?.id})).filter(c=>c.subs.length);
+  const primary=output.filter(w=>w.bindingStatus==='bound');const description_counts={},playable_counts={en:0,ja:0};
+  for(const row of output){description_counts[row.description.status]=(description_counts[row.description.status]||0)+1;for(const lang of ['en','ja'])if(row.availability[lang].playable)playable_counts[lang]++;}
+  return {...data,words:output,categories,total_art:new Set(output.map(w=>w.image.path)).size,word_entry_count:primary.length,distinct_word_count:new Set(primary.map(w=>w.w)).size,ownership_pending_count:output.filter(w=>w.bindingStatus==='ownership_pending').length,alternate_image_count:output.filter(w=>w.bindingStatus==='alternate').length,description_counts,playable_counts,excluded};
+}
+function buildImageCatalog(data,scenes,words,index){
+  if(!Array.isArray(data.words)||!Array.isArray(data.categories)||scenes?.schema!==1||!Array.isArray(scenes.entries)||!Array.isArray(words))throw Error('Unsupported picture dictionary data');
+  const currentWords=new Map(words.filter(w=>w.w).map(w=>[wordKey(w),w])),currentScenes=new Map();
+  for(const entry of scenes.entries){const key=sceneKey(entry);if(currentScenes.has(key))throw Error('Duplicate scene identity');currentScenes.set(key,entry);}
+  const output=[],excluded=[],ids=new Set();
+  for(const row of data.words){
+    if(typeof row.id!=='string'||!row.id||ids.has(row.id))throw Error('Duplicate or invalid image identity');ids.add(row.id);
+    if(!validImage(row)){excluded.push({id:row.id,reason:'invalid_asset_binding'});continue;}
+    const next={...row,p:Array.isArray(row.p)?row.p:[],c:Array.isArray(row.c)?row.c:[],issues:Array.isArray(row.issues)?row.issues:[]};
+    for(const key of ['d','syn','h','rel','b'])delete next[key];
+    next.bindingStatus=['bound','alternate','ownership_pending'].includes(row.bindingStatus)?row.bindingStatus:'ownership_pending';
+    const word=currentWords.get(wordKey(row));let hold='';
+    if(next.bindingStatus==='bound'){
+      if(!word||!row.w){next.bindingStatus='ownership_pending';hold='missing_identity';}
+      else if(firstJa(word)!==normalize(row.sense?.ja)||firstEn(word)!==normalize(row.sense?.en)||row.sense?.index!==0)hold='stale_first_sense';
+      else if(index[indexKey(row)]&&index[indexKey(row)]!==row.art)hold='stale_art_mapping';
+      if(word){next.ja=firstJa(word);next.en=firstEn(word);next.pos=word.pos||'';next.r=Number.isFinite(word.r)?word.r:99999;if(word.tags!==undefined)next.tags=word.tags;}
+    }
+    if(next.bindingStatus!=='bound'){next.w='';next.ja='';next.en='';next.p=[];next.pos='';delete next.k;hold=hold||next.bindingStatus;}
+    if(!hold){const issue=next.issues.find(x=>x.imageSha256===row.image.sha256&&/mismatch|pending|unresolved|ambiguous|placeholder|superseded/.test(x.code||''));if(issue)hold=issue.code;}
+    const scene=currentScenes.get(sceneKey(row));
+    const reviewed=!hold&&row.description?.status==='reviewed'&&row.description?.ttsAllowed===true&&scene&&(scene.status||scene.review?.status)==='reviewed'&&scene.review?.status==='reviewed'&&validDescription(scene)&&scene.sense?.sha256===row.sense?.sha256&&scene.sense?.index===0&&normalize(scene.sense.ja)===next.ja&&normalize(scene.sense.en)===next.en&&scene.image?.path===row.image.path&&scene.image?.sha256===row.image.sha256&&scene.image?.git_blob_sha===row.image.git_blob_sha;
+    let status=reviewed?'reviewed':['held','stale'].includes(row.description?.status)?row.description.status:['stale_first_sense','stale_art_mapping','missing_identity'].includes(hold)?'held':scene?.status==='reviewed'?'stale':'missing';
+    next.description={status,en:reviewed?scene.scene.en:'',ja:reviewed?scene.scene.ja:'',reason:reviewed?'':hold||(row.description?.reason||'caption_not_created'),ttsAllowed:!!reviewed&&row.description?.ttsAllowed===true};
+    next.scene={en:next.description.en,ja:next.description.ja};next.status=status;next.review={status};
+    next.availability={};
+    for(const lang of ['en','ja']){const a=row.availability?.[lang]||{};const answer=typeof a.answer==='string'?a.answer:'';const validAnswer=lang==='en'?/^[A-Za-z]{1,14}$/.test(answer)&&answer===next.w:/^[ぁ-ゖァ-ヺー]{1,14}$/.test(answer);next.availability[lang]={playable:!hold&&a.playable===true&&validAnswer,answer,reason:hold||(a.reason||(!answer.trim()?'missing_answer':!validAnswer?'unsupported_format':''))};}
+    const t=row.thumb;const original=`../${row.image.path}`;
+    const safeThumb=t&&t.source_sha256===row.image.sha256&&hex(t.sha256,64)&&(t.path===original||(/^eigo-no-e\/thumbs\/[^/\\\x00-\x1f?#]+\.webp$/.test(t.path||'')));
+    next.thumb=safeThumb?t:{path:original,sha256:row.image.sha256,source_sha256:row.image.sha256,original:true};
+    output.push(next);
+  }
+  return recount(data,output,excluded);
+}
+function buildCurrentCatalog(data,scenes,words,index={}){return data?.schema===4?buildImageCatalog(data,scenes,words,index):buildLegacyCatalog(data,scenes,words,index);}
+
 const usesLocalSnapshot=protocol=>protocol==='file:';
 const snapshotWords=data=>data.words.map(w=>({...w,ja_readings:w.k?[{gloss:w.ja,kana:w.k}]:[]}));
 function buildSnapshotCatalog(data){
   if(!data?.sources||!['words_sha256','scenes_sha256','illustration_index_sha256'].every(k=>/^[a-f0-9]{64}$/.test(data.sources[k]||'')))throw Error('Generated snapshot provenance missing');
   return buildCurrentCatalog(data,{schema:1,entries:data.words},snapshotWords(data),{});
 }
-return {buildCurrentCatalog,buildSnapshotCatalog,usesLocalSnapshot,snapshotWords,wordKey,sceneKey,firstJa,firstEn,validDescription};
+return {buildCurrentCatalog,buildSnapshotCatalog,usesLocalSnapshot,snapshotWords,wordKey,sceneKey,firstJa,firstEn,validDescription,validImage};
 });

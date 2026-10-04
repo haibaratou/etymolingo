@@ -1,28 +1,44 @@
-# Refresh reviewed Picture Words
+# Refresh all generated images
 
-Run from a complete public-repository checkout after updating its generated dictionary, reviewed scenes and accepted PNGs:
+The historical command name remains compatible with existing shortcuts:
 
 ```bat
 app\games\picture-words\refresh_reviewed_catalog.cmd
 app\games\picture-words\refresh_reviewed_catalog.cmd --check
 ```
 
-Python 3 is required. The command checks that Python actually runs, trying `py -3`, `python`, `python3`, then the current user's bundled Codex Python runtime. A launcher without an installed Python is skipped. On other systems, run `python3 app/games/picture-words/refresh_reviewed_catalog.py` with the same options. No external packages or network access are required.
+Run in a complete public checkout. Both Picture Words and Pictpedia are rebuilt from the same current canonical words, scene sidecar, protected artwork index and actual `assets/word/*.png` bytes. The default command refreshes both applications, optimized reviewed thumbnails and their HTML data cache tokens. `--game-only` is available for isolated game tests. The interpreter fallback order remains `py -3`, `python`, `python3`, then the current user's bundled Codex Python. Python3 and Pillow are required for a normal combined rebuild; missing Pillow stops with an actionable error before outputs are written. No network or private source repository is needed.
 
-The unchanged `build_catalog.py` supplies normal word eligibility, readings, first-sense/image selection and stable IDs. The refresh filters those candidates to reviewed, exact bilingual scene bindings whose current canonical PNG bytes match both accepted hashes. Keep using the refresh command to generate the playable catalog; the older normal builder remains the candidate-selection component.
+## Inclusion and honest missing information
 
-Outputs are `catalog.js`, `reviewed-catalog-report.json` and immutable `scene-assets/<art>@<sha256>.js` files. Each row contains its exact `sceneBinding`, a compact `reviewedScene`, and the relative `sceneAsset` path. Catalog metadata binds the raw words, scenes and artwork-index bytes. Lazy scripts register only one PNG payload under its SHA256; the runtime loads a pack on demand. Old unreferenced packs may remain for cached snapshots and are never automatically deleted.
+Every observed PNG appears once in both browse catalogs. Exact canonical ownership is resolved independently from descriptions, date, part of speech, rarity, English case and Japanese-reading readiness. Protected exceptional aliases are preserved. A default image is never reused for conflicting homographs. Unresolved files remain visible as `画像の対応確認中`, without a fabricated headword or meaning. Alternate and immutable-copy images are visible as separate image records; word counts do not include them.
 
-The same command updates only the `catalog.js?v=` value in the current game HTML to the first 12 characters of the catalog's SHA256. Every other HTML byte is preserved, including newer UI edits. The script must occur exactly once; a missing or duplicate match stops the refresh before any output is written. The service worker revalidates its shell online, and this URL also refreshes catalog requests before a service worker controls the page. Offline behavior is unchanged.
+A reviewed description requires the exact current canonical first-sense digest and both PNG hashes. Missing, stale or held descriptions are empty data fields with an explicit status. The UI displays `解説未作成`; it never substitutes the dictionary definition or sends an empty/fallback narration utterance. Captions are spoken only after solving, in the selected language. Word-pronunciation controls remain separate.
 
-Existing surviving IDs retain their previous catalog order. Newly eligible IDs append in normal-builder order. Removed rows do not cause other IDs to be renumbered. The report accounts for all candidate exclusions and reviewed scenes not admitted by ordinary selection rules. It contains no build timestamp, machine-specific path or generated image data.
+Each language has its own `availability` object. English answer-format constraints and Japanese reading constraints do not hide the word from the dictionary. Candidate or needs-review readings are not approved automatically. Known image/sense problems are hash-bound in `app/data/generated-image-issues.json`, remain browsable with a reason, and are quarantined from play until explicitly resolved. A changed image does not inherit an obsolete caption. Historical date metadata is descriptive, never an inclusion gate, and is never derived from filesystem mtime.
 
-`--check` regenerates everything in memory and fails if the catalog, report, HTML catalog query or any currently referenced pack is missing or differs. It writes nothing. A stale public manifest, duplicate binding or empty verified result also fails. Individual unreviewed, stale, corrupt or missing scene/image bindings are excluded with reasons. Check failures require inspecting the report and source assets; they do not authorize approving readings or changing dictionary meanings.
+## Stable identities, outputs and offline use
 
-The repository’s narrow `.gitattributes` policy preserves LF for hash-bound generated JSON, index, catalog, report and pack files on Windows. If a pre-existing words/scenes/index input contains CRLF, the command stops before generating anything and names the affected file. Save that file with LF line endings while preserving its content, then retry. All generated output uses byte writes with explicit LF. The command does not change Git configuration or silently normalize input bytes. Regenerate outputs after accepted source changes, then publish the coherent dictionary, scenes, catalog and packs together. For HTTP, the runtime verifies current words/scenes manifest hashes, the actual index bytes and original PNG. For file/offline use, it verifies the lazy snapshot bytes before showing them.
+The original save key and IDs remain stable. `app/data/generated-image-legacy-ids.json` preserves existing verified exact answers/IDs; legacy IDs without safe canonical ownership remain image/history records. Current rows are not deduplicated by spelling, so homographs remain distinct. Exact-ID links never silently select a different word when an entry is unknown or unavailable in that language.
 
-Run producer tests with `python app/games/picture-words/test_refresh_reviewed_catalog.py` and `node --test app/games/picture-words/reviewed-catalog.test.cjs`. The browser loader, answer/description speech, UI and offline service-worker integration are separate runtime components.
+Outputs include `catalog.js`, `reviewed-catalog-report.json`, Pictpedia `data.js` and `build-manifest.json`, reviewed hash-bound `scene-assets/<art>@<sha256>.js` packs and optimized thumbnails. Other images use lazy exact original PNG paths. Neither catalog embeds PNG/base64 payloads. HTTP play verifies actual PNG bytes. Under `file://`, reviewed entries use lazy verified image packs; captionless originals load by exact relative path and carry no false caption-review claim. Old packs and thumbnails are not deleted automatically.
 
-Production tests derive expected membership and counts from the current canonical inputs, unchanged normal builder, generated metadata and exclusion report. Adding a qualifying reviewed description does not require editing test counts. A separate synthetic two-word fixture verifies that one newly reviewed, normally eligible description grows the catalog deterministically while preserving existing IDs, row data and order.
+Only the existing data/catalog query token in each current HTML file is replaced. Other user interface bytes are preserved, including concurrent local changes. `--check` regenerates in memory and writes nothing; any stale/missing current output fails. The combined command builds both applications before writing outputs. An empty but valid inventory is supported gracefully by the runtimes. A malformed PNG, conflicting protected binding or stale canonical manifest stops the build rather than inventing a replacement.
 
-For sparse QA only, `--root`, `--output-dir`, `--previous-catalog`, `--html-output` and `--inventory` select isolated inputs and outputs. HTML defaults to `picture-words.html` beside the catalog output directory. An existing HTML destination supplies the current UI bytes; otherwise the command copies the input root's current game HTML and changes only its catalog query. An inventory is JSON `{ "schema":1, "entries":[{"path":"assets/word/example.png"}] }` from an exact observed repository inventory; every emitted PNG must still exist locally and pass both hashes. `PICTURE_WORDS_TEST_ROOT` and optional `PICTURE_WORDS_TEST_INVENTORY` supply matching paths to the test suite. Ordinary full checkouts need none of these options.
+Hash-bound input JSON/index files must retain LF. CRLF inputs are rejected instead of silently normalized. Do not use the legacy `build_catalog.py` alone to replace the modern catalog; it is retained only for published historical filename/ID evidence. The portable current ownership resolver is `app/data/generated_image_resolver.py` and the shared producer is `app/data/build_generated_image_catalog.py`.
+
+Tests:
+
+```text
+python app/data/test_generated_image_resolver.py
+python app/games/picture-words/test_refresh_reviewed_catalog.py
+node --test app/games/picture-words/*.test.cjs
+python app/eigo-no-e/test_build.py
+node --test app/eigo-no-e/*.test.cjs
+```
+
+The tests derive live membership from the inventory and metadata, not a release count. They cover captionless inclusion, exact ownership, image tampering, stale scenes, unavailable languages, single-letter answers, unknown requests, stable saves, empty inventories and lazy loading. `--root`, `--output-dir`, `--html-output` and `--previous-catalog` support isolated QA. `--inventory` remains a compatibility argument, but a complete actual PNG directory is authoritative under the all-images policy.
+
+## Existing dictionary-link command
+
+The user-added `node app/games/picture-words/build-dictionary-links.cjs [--check]` remains available. It now produces a tiny lazy view of the current exact bound catalog, never copied rows or a bypass of per-language availability. The combined Python refresh updates/verifies the same constant view and exact cross-app identities/provenance without introducing a Node requirement for Windows refresh. Existing direct-link files and old snapshot packs remain preserved; URL requests cannot inject their old readings or images into the current catalog.

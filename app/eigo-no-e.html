@@ -10,11 +10,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,500..800,100&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap">
-<link rel="stylesheet" href="eigo-no-e/style.css?v=7e6130f18741">
-<script src="eigo-no-e/data.js?v=56bd3e70dfb1" defer></script>
+<link rel="stylesheet" href="eigo-no-e/style.css?v=d82bfe175fdc">
+<script src="eigo-no-e/data.js?v=02bfeaa0aeee" defer></script>
 <script src="shared/illustration-scenes.js?v=official1" defer></script>
-<script src="eigo-no-e/catalog-validation.js?v=official2-file" defer></script>
-<script src="eigo-no-e/app.js?v=c9f5cb4d3bdc" defer></script>
+<script src="eigo-no-e/catalog-validation.js?v=bf26464624ed" defer></script>
+<script src="eigo-no-e/app.js?v=c3384376440c" defer></script>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -29,18 +29,18 @@
 
 <header class="bar">
   <div class="bar-in">
-    <button class="menu-btn" id="menuBtn" type="button" aria-label="カテゴリー" aria-expanded="false"><svg><use href="#i-menu"/></svg></button>
+    <button class="menu-btn" id="menuBtn" type="button" disabled aria-label="カテゴリー" aria-expanded="false"><svg><use href="#i-menu"/></svg></button>
     <a class="logo" href="#/" aria-label="Pictpedia トップ">
       <span class="logo-mark" aria-hidden="true">P</span>
       <span class="logo-type"><b>Pictpedia</b><small>英単語のイラスト辞典</small></span>
     </a>
     <form class="search" id="barSearch" role="search" autocomplete="off">
       <div class="mode" role="tablist" aria-label="さがしかた">
-        <button type="button" role="tab" data-mode="word" aria-selected="true">単語検索</button>
-        <button type="button" role="tab" data-mode="text" aria-selected="false">あいまい検索</button>
+        <button type="button" role="tab" disabled data-mode="word" aria-selected="true">単語検索</button>
+        <button type="button" role="tab" disabled data-mode="text" aria-selected="false">あいまい検索</button>
       </div>
-      <input id="barInput" type="search" aria-label="さがす">
-      <button class="go" type="submit" aria-label="さがす"><svg><use href="#i-search"/></svg></button>
+      <input id="barInput" type="search" disabled aria-label="さがす">
+      <button class="go" type="submit" disabled aria-label="さがす"><svg><use href="#i-search"/></svg></button>
       <div class="suggest" id="barSuggest"></div>
     </form>
   </div>
@@ -53,7 +53,7 @@
 
 <footer class="foot">
   <div class="foot-in">
-    <p><b>Pictpedia</b> — エティモリンゴのイラストを、英語と日本語の説明文から探せる辞典です。絵の利用条件は準備中です。</p>
+    <p><b>Pictpedia</b> — 英単語のイラスト辞典。絵の利用条件は準備中です。</p>
     <a href="games/picture-words.html">ことばのパズルで遊ぶ</a>
   </div>
 </footer>

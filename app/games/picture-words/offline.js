@@ -33,7 +33,7 @@
     let readyTimer;
     try { await Promise.race([navigator.serviceWorker.ready, new Promise((_, reject) => { readyTimer=setTimeout(() => reject(new Error('timeout')), 15000); })]); }
     finally { clearTimeout(readyTimer); }
-    const pack = words.filter(word => word.updatedArt && word.w && word.en && root.WordBloomReviewedScenes.validRow(word)).slice(0,20);
+    const pack = words.filter(word => root.WordBloomReviewedScenes.hasPack(word) && root.WordBloomReviewedScenes.supportsLanguage(word,'en')).slice(0,20);
     const cache = await caches.open(CACHE);
     let done = 0, bytes = 0;
     for (const word of pack) {

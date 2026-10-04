@@ -10,9 +10,9 @@
     },
     "words": {
       "file": "words.json",
-      "bytes": 19977669,
+      "bytes": 19977893,
       "count": 49170,
-      "sha256": "1d367df1caa3fbae89c378b82ae46bd30e4367a1f40b3bf82e95b60452263a6a"
+      "sha256": "7f603dd5823d755472d2382cf8a7afbbb2844c1d941318f3d584a027cb213522"
     },
     "affixes": {
       "file": "affixes.json",
@@ -38,6 +38,12 @@
       "count": 47363,
       "sha256": "bea8d96709efe8bae910522a366314b2341b6705e1e7e0ffa54abcc1e49214a7"
     },
+    "illustration_scenes": {
+      "file": "illustration-scenes.json",
+      "bytes": 644644,
+      "count": 699,
+      "sha256": "34763e8e2ad92ebb08350cee6d7a227bbba3f7882476f66849764c2c99be61b4"
+    },
     "word_suika_words": {
       "file": "word-suika-words.json",
       "bytes": 2,
@@ -53,12 +59,6 @@
       "file": "eo/*.json",
       "bytes": 21243040,
       "count": 27
-    },
-    "illustration_scenes": {
-      "file": "illustration-scenes.json",
-      "bytes": 604571,
-      "count": 655,
-      "sha256": "6f7df39d4169fde28722f6f2d0780f93be2eed41cd933eab6c06dc32a0559723"
     }
   }
 }

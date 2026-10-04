@@ -1,0 +1,4917 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "car",
+      "en": "car",
+      "pic": "car",
+      "w": "くるま",
+      "ja": "車",
+      "sceneBinding": {
+        "w": "car",
+        "p": [
+          "kers-2"
+        ],
+        "ja": "自動車",
+        "en": "automobile"
+      }
+    },
+    {
+      "id": "be",
+      "en": "be",
+      "pic": "be",
+      "w": "である",
+      "ja": "である",
+      "roots": [
+        "bheuə-"
+      ],
+      "dictionaryIndex": 1529,
+      "sceneBinding": {
+        "w": "be",
+        "p": [
+          "bheuə-"
+        ],
+        "ja": "である",
+        "en": "exist"
+      }
+    },
+    {
+      "id": "do",
+      "en": "do",
+      "pic": "do",
+      "w": "する",
+      "ja": "する、役に立つ",
+      "roots": [
+        "dhē-"
+      ],
+      "dictionaryIndex": 4638,
+      "sceneBinding": {
+        "w": "do",
+        "p": [
+          "dhē-"
+        ],
+        "ja": "する、役に立つ",
+        "en": "perform / suffice"
+      }
+    },
+    {
+      "id": "one",
+      "en": "one",
+      "pic": "one",
+      "w": "ひとつ",
+      "ja": "一つ",
+      "roots": [
+        "oi-no-"
+      ],
+      "dictionaryIndex": 10820,
+      "sceneBinding": {
+        "w": "one",
+        "p": [
+          "oi-no-"
+        ],
+        "ja": "一つ",
+        "en": "single"
+      }
+    },
+    {
+      "id": "other",
+      "en": "other",
+      "pic": "other",
+      "w": "ほかの",
+      "ja": "ほかの",
+      "roots": [
+        "al-1"
+      ],
+      "dictionaryIndex": 11016,
+      "sceneBinding": {
+        "w": "other",
+        "p": [
+          "al-1"
+        ],
+        "ja": "ほかの",
+        "en": "different"
+      }
+    },
+    {
+      "id": "time",
+      "en": "time",
+      "pic": "time",
+      "w": "じかん",
+      "ja": "時間、回",
+      "roots": [
+        "dā-"
+      ],
+      "dictionaryIndex": 16010,
+      "sceneBinding": {
+        "w": "time",
+        "p": [
+          "dā-"
+        ],
+        "ja": "時間、回",
+        "en": "moment / occasion"
+      }
+    },
+    {
+      "id": "up",
+      "en": "up",
+      "pic": "up",
+      "w": "うえへ",
+      "ja": "上へ、起きて",
+      "roots": [
+        "upo"
+      ],
+      "dictionaryIndex": 16594,
+      "sceneBinding": {
+        "w": "up",
+        "p": [
+          "upo"
+        ],
+        "ja": "上へ、起きて",
+        "en": "aloft / awake"
+      }
+    },
+    {
+      "id": "could",
+      "en": "could",
+      "pic": "could",
+      "w": "できた",
+      "ja": "できた",
+      "roots": [
+        "gnō-"
+      ],
+      "dictionaryIndex": 17854,
+      "sceneBinding": {
+        "w": "could",
+        "p": [
+          "gnō-"
+        ],
+        "ja": "できた",
+        "en": "was able"
+      }
+    },
+    {
+      "id": "some",
+      "en": "some",
+      "pic": "some",
+      "w": "いくつかの",
+      "ja": "いくつかの",
+      "roots": [
+        "sem-1"
+      ],
+      "dictionaryIndex": 14757,
+      "sceneBinding": {
+        "w": "some",
+        "p": [
+          "sem-1"
+        ],
+        "ja": "いくつかの",
+        "en": "several"
+      }
+    },
+    {
+      "id": "two",
+      "en": "two",
+      "pic": "two",
+      "w": "ふたつ",
+      "ja": "二つ",
+      "roots": [
+        "dwo-"
+      ],
+      "dictionaryIndex": 16420,
+      "sceneBinding": {
+        "w": "two",
+        "p": [
+          "dwo-"
+        ],
+        "ja": "二つ",
+        "en": "pair"
+      }
+    },
+    {
+      "id": "see@sekw2",
+      "en": "see",
+      "pic": "see@sekw2",
+      "w": "みる",
+      "ja": "見る、わかる、会う",
+      "roots": [
+        "sekʷ-2"
+      ],
+      "dictionaryIndex": 14199,
+      "sceneBinding": {
+        "w": "see",
+        "p": [
+          "sekʷ-2"
+        ],
+        "ja": "見る、わかる、会う",
+        "en": "observe / understand / meet"
+      }
+    },
+    {
+      "id": "such",
+      "en": "such",
+      "pic": "such",
+      "w": "そのような",
+      "ja": "そのような",
+      "roots": [
+        "swo-",
+        "līk-"
+      ],
+      "dictionaryIndex": 15380,
+      "sceneBinding": {
+        "w": "such",
+        "p": [
+          "swo-",
+          "līk-"
+        ],
+        "ja": "そのような",
+        "en": "of that kind"
+      }
+    },
+    {
+      "id": "back",
+      "en": "back",
+      "pic": "back",
+      "w": "うしろ",
+      "ja": "後ろ、戻って、支える",
+      "roots": [],
+      "dictionaryIndex": 18878,
+      "sceneBinding": {
+        "w": "back",
+        "p": [],
+        "ja": "後ろ、戻って、支える",
+        "en": "rear / backward / support"
+      }
+    },
+    {
+      "id": "people",
+      "en": "people",
+      "pic": "people",
+      "w": "ひとびと",
+      "ja": "人々、国民",
+      "roots": [],
+      "dictionaryIndex": 18879,
+      "sceneBinding": {
+        "w": "people",
+        "p": [],
+        "ja": "人々、国民",
+        "en": "persons / population"
+      }
+    },
+    {
+      "id": "way",
+      "en": "way",
+      "pic": "way",
+      "w": "みち",
+      "ja": "道、方法",
+      "roots": [
+        "wegh-"
+      ],
+      "dictionaryIndex": 17107,
+      "sceneBinding": {
+        "w": "way",
+        "p": [
+          "wegh-"
+        ],
+        "ja": "道、方法",
+        "en": "path / method"
+      }
+    },
+    {
+      "id": "know",
+      "en": "know",
+      "pic": "know",
+      "w": "しる",
+      "ja": "知る",
+      "roots": [
+        "gnō-"
+      ],
+      "dictionaryIndex": 8670,
+      "sceneBinding": {
+        "w": "know",
+        "p": [
+          "gnō-"
+        ],
+        "ja": "知る",
+        "en": "understand"
+      }
+    },
+    {
+      "id": "even",
+      "en": "even",
+      "pic": "even",
+      "w": "さえ",
+      "ja": "さえ、平らな",
+      "roots": [
+        "apo-"
+      ],
+      "dictionaryIndex": 5576,
+      "sceneBinding": {
+        "w": "even",
+        "p": [
+          "apo-"
+        ],
+        "ja": "さえ、平らな",
+        "en": "surprising inclusion / flat"
+      }
+    },
+    {
+      "id": "most",
+      "en": "most",
+      "pic": "most",
+      "w": "もっとも",
+      "ja": "最も、大部分",
+      "roots": [
+        "mē-3"
+      ],
+      "dictionaryIndex": 10098,
+      "sceneBinding": {
+        "w": "most",
+        "p": [
+          "mē-3"
+        ],
+        "ja": "最も、大部分",
+        "en": "greatest extent / majority"
+      }
+    },
+    {
+      "id": "down@dheue",
+      "en": "down",
+      "pic": "down@dheue",
+      "w": "したへ",
+      "ja": "下へ",
+      "roots": [
+        "dheuə-"
+      ],
+      "dictionaryIndex": 4723,
+      "sceneBinding": {
+        "w": "down",
+        "p": [
+          "dheuə-"
+        ],
+        "ja": "下へ",
+        "en": "below"
+      }
+    },
+    {
+      "id": "work",
+      "en": "work",
+      "pic": "work",
+      "w": "しごと",
+      "ja": "仕事、作品",
+      "roots": [
+        "werg-"
+      ],
+      "dictionaryIndex": 17328,
+      "sceneBinding": {
+        "w": "work",
+        "p": [
+          "werg-"
+        ],
+        "ja": "仕事、作品",
+        "en": "labor / creation"
+      }
+    },
+    {
+      "id": "new",
+      "en": "new",
+      "pic": "new",
+      "w": "あたらしい",
+      "ja": "新しい",
+      "roots": [
+        "newo-"
+      ],
+      "dictionaryIndex": 10387,
+      "sceneBinding": {
+        "w": "new",
+        "p": [
+          "newo-"
+        ],
+        "ja": "新しい",
+        "en": "recent"
+      }
+    },
+    {
+      "id": "make",
+      "en": "make",
+      "pic": "make",
+      "w": "つくる",
+      "ja": "作る、させる",
+      "roots": [
+        "mag-"
+      ],
+      "dictionaryIndex": 9329,
+      "sceneBinding": {
+        "w": "make",
+        "p": [
+          "mag-"
+        ],
+        "ja": "作る、させる",
+        "en": "create / cause"
+      }
+    },
+    {
+      "id": "much",
+      "en": "much",
+      "pic": "much",
+      "w": "たくさんの",
+      "ja": "たくさんの",
+      "roots": [
+        "meg-"
+      ],
+      "dictionaryIndex": 10133,
+      "sceneBinding": {
+        "w": "much",
+        "p": [
+          "meg-"
+        ],
+        "ja": "たくさんの",
+        "en": "plenty"
+      }
+    },
+    {
+      "id": "use",
+      "en": "use",
+      "pic": "use",
+      "w": "つかう",
+      "ja": "使う",
+      "roots": [
+        "oit-"
+      ],
+      "dictionaryIndex": 16624,
+      "sceneBinding": {
+        "w": "use",
+        "p": [
+          "oit-"
+        ],
+        "ja": "使う",
+        "en": "utilize"
+      }
+    },
+    {
+      "id": "good",
+      "en": "good",
+      "pic": "good",
+      "w": "よい",
+      "ja": "良い",
+      "roots": [
+        "ghedh-"
+      ],
+      "dictionaryIndex": 6887,
+      "sceneBinding": {
+        "w": "good",
+        "p": [
+          "ghedh-"
+        ],
+        "ja": "良い",
+        "en": "fine"
+      }
+    },
+    {
+      "id": "man",
+      "en": "man",
+      "pic": "man",
+      "w": "だんせい",
+      "ja": "男性",
+      "roots": [
+        "man-1"
+      ],
+      "dictionaryIndex": 9372,
+      "sceneBinding": {
+        "w": "man",
+        "p": [
+          "man-1"
+        ],
+        "ja": "男性",
+        "en": "adult male"
+      }
+    },
+    {
+      "id": "long",
+      "en": "long",
+      "pic": "long",
+      "w": "ながい",
+      "ja": "長い、切望する",
+      "roots": [
+        "del-1"
+      ],
+      "dictionaryIndex": 9141,
+      "sceneBinding": {
+        "w": "long",
+        "p": [
+          "del-1"
+        ],
+        "ja": "長い、切望する",
+        "en": "lengthy / yearn"
+      }
+    },
+    {
+      "id": "different",
+      "en": "different",
+      "pic": "different",
+      "w": "ことなる",
+      "ja": "異なる、別の",
+      "roots": [],
+      "dictionaryIndex": 18881,
+      "sceneBinding": {
+        "w": "different",
+        "p": [],
+        "ja": "異なる、別の",
+        "en": "unlike / separate"
+      }
+    },
+    {
+      "id": "take",
+      "en": "take",
+      "pic": "take",
+      "w": "とる",
+      "ja": "取る、連れて行く、要する",
+      "roots": [
+        "tak-2"
+      ],
+      "dictionaryIndex": 15659,
+      "sceneBinding": {
+        "w": "take",
+        "p": [
+          "tak-2"
+        ],
+        "ja": "取る、連れて行く、要する",
+        "en": "grab / bring / require"
+      }
+    },
+    {
+      "id": "think",
+      "en": "think",
+      "pic": "think",
+      "w": "かんがえる",
+      "ja": "考える",
+      "roots": [
+        "tong-"
+      ],
+      "dictionaryIndex": 15932,
+      "sceneBinding": {
+        "w": "think",
+        "p": [
+          "tong-"
+        ],
+        "ja": "考える",
+        "en": "ponder"
+      }
+    },
+    {
+      "id": "world",
+      "en": "world",
+      "pic": "world",
+      "w": "せかい",
+      "ja": "世界",
+      "roots": [
+        "wī̆-ro-",
+        "al-3"
+      ],
+      "dictionaryIndex": 17332,
+      "sceneBinding": {
+        "w": "world",
+        "p": [
+          "wī̆-ro-",
+          "al-3"
+        ],
+        "ja": "世界",
+        "en": "earth"
+      }
+    },
+    {
+      "id": "data",
+      "en": "data",
+      "pic": "data",
+      "w": "でーた",
+      "ja": "データ",
+      "roots": [
+        "dō-"
+      ],
+      "dictionaryIndex": 17491,
+      "sceneBinding": {
+        "w": "data",
+        "p": [
+          "dō-"
+        ],
+        "ja": "データ",
+        "en": "facts"
+      }
+    },
+    {
+      "id": "want",
+      "en": "want",
+      "pic": "want",
+      "w": "ほしい",
+      "ja": "欲しい、不足",
+      "roots": [
+        "euə-"
+      ],
+      "dictionaryIndex": 17064,
+      "sceneBinding": {
+        "w": "want",
+        "p": [
+          "euə-"
+        ],
+        "ja": "欲しい、不足",
+        "en": "desire / lack"
+      }
+    },
+    {
+      "id": "part",
+      "en": "part",
+      "pic": "part",
+      "w": "ぶぶん",
+      "ja": "部分、役",
+      "roots": [
+        "perə-2"
+      ],
+      "dictionaryIndex": 11307,
+      "sceneBinding": {
+        "w": "part",
+        "p": [
+          "perə-2"
+        ],
+        "ja": "部分、役",
+        "en": "section / role"
+      }
+    },
+    {
+      "id": "place",
+      "en": "place",
+      "pic": "place",
+      "w": "ばしょ",
+      "ja": "場所",
+      "roots": [
+        "plat-"
+      ],
+      "dictionaryIndex": 11884,
+      "sceneBinding": {
+        "w": "place",
+        "p": [
+          "plat-"
+        ],
+        "ja": "場所",
+        "en": "location"
+      }
+    },
+    {
+      "id": "system",
+      "en": "system",
+      "pic": "system",
+      "w": "たいけい",
+      "ja": "体系",
+      "roots": [
+        "ksun",
+        "stā-"
+      ],
+      "dictionaryIndex": 15631,
+      "sceneBinding": {
+        "w": "system",
+        "p": [
+          "ksun",
+          "stā-"
+        ],
+        "ja": "体系",
+        "en": "framework"
+      }
+    },
+    {
+      "id": "head",
+      "en": "head",
+      "pic": "head",
+      "w": "あたま",
+      "ja": "頭、首長",
+      "roots": [
+        "kaput-"
+      ],
+      "dictionaryIndex": 7237,
+      "sceneBinding": {
+        "w": "head",
+        "p": [
+          "kaput-"
+        ],
+        "ja": "頭、首長",
+        "en": "top of body / chief"
+      }
+    },
+    {
+      "id": "say",
+      "en": "say",
+      "pic": "say",
+      "w": "いう",
+      "ja": "言う、発言権",
+      "roots": [
+        "sekʷ-3"
+      ],
+      "dictionaryIndex": 13981,
+      "sceneBinding": {
+        "w": "say",
+        "p": [
+          "sekʷ-3"
+        ],
+        "ja": "言う、発言権",
+        "en": "speak / right to speak"
+      }
+    },
+    {
+      "id": "thought",
+      "en": "thought",
+      "pic": "thought",
+      "w": "かんがえ",
+      "ja": "考え",
+      "roots": [
+        "tong-"
+      ],
+      "dictionaryIndex": 15952,
+      "sceneBinding": {
+        "w": "thought",
+        "p": [
+          "tong-"
+        ],
+        "ja": "考え",
+        "en": "idea"
+      }
+    },
+    {
+      "id": "high",
+      "en": "high",
+      "pic": "high",
+      "w": "たかい",
+      "ja": "高い",
+      "roots": [
+        "keu-2",
+        "gue-"
+      ],
+      "dictionaryIndex": 7400,
+      "sceneBinding": {
+        "w": "high",
+        "p": [
+          "keu-2",
+          "gue-"
+        ],
+        "ja": "高い",
+        "en": "tall"
+      }
+    },
+    {
+      "id": "case",
+      "en": "case",
+      "pic": "case",
+      "w": "ばあい",
+      "ja": "場合、事件",
+      "roots": [
+        "kad-"
+      ],
+      "dictionaryIndex": 2376,
+      "sceneBinding": {
+        "w": "case",
+        "p": [
+          "kad-"
+        ],
+        "ja": "場合、事件",
+        "en": "instance / lawsuit"
+      }
+    },
+    {
+      "id": "every",
+      "en": "every",
+      "pic": "every",
+      "w": "あらゆる",
+      "ja": "あらゆる",
+      "roots": [
+        "aiw-",
+        "līk-"
+      ],
+      "dictionaryIndex": 5584,
+      "sceneBinding": {
+        "w": "every",
+        "p": [
+          "aiw-",
+          "līk-"
+        ],
+        "ja": "あらゆる",
+        "en": "each"
+      }
+    },
+    {
+      "id": "number",
+      "en": "number",
+      "pic": "number",
+      "w": "かず",
+      "ja": "数、番号",
+      "roots": [
+        "nem-"
+      ],
+      "dictionaryIndex": 10593,
+      "sceneBinding": {
+        "w": "number",
+        "p": [
+          "nem-"
+        ],
+        "ja": "数、番号",
+        "en": "figure / numeral"
+      }
+    },
+    {
+      "id": "state",
+      "en": "state",
+      "pic": "state",
+      "w": "じょうたい",
+      "ja": "状態、国家、述べる",
+      "roots": [
+        "stā-"
+      ],
+      "dictionaryIndex": 15046,
+      "sceneBinding": {
+        "w": "state",
+        "p": [
+          "stā-"
+        ],
+        "ja": "状態、国家、述べる",
+        "en": "condition / nation / declare"
+      }
+    },
+    {
+      "id": "process",
+      "en": "process",
+      "pic": "process",
+      "w": "かてい",
+      "ja": "過程",
+      "roots": [
+        "per1",
+        "ked-"
+      ],
+      "dictionaryIndex": 12451,
+      "sceneBinding": {
+        "w": "process",
+        "p": [
+          "per1",
+          "ked-"
+        ],
+        "ja": "過程",
+        "en": "method"
+      }
+    },
+    {
+      "id": "power",
+      "en": "power",
+      "pic": "power",
+      "w": "ちから",
+      "ja": "力、電力",
+      "roots": [
+        "poti-"
+      ],
+      "dictionaryIndex": 12230,
+      "sceneBinding": {
+        "w": "power",
+        "p": [
+          "poti-"
+        ],
+        "ja": "力、電力",
+        "en": "strength / electricity"
+      }
+    },
+    {
+      "id": "body",
+      "en": "body",
+      "pic": "body",
+      "w": "しんたい",
+      "ja": "身体",
+      "roots": [],
+      "dictionaryIndex": 18885,
+      "sceneBinding": {
+        "w": "body",
+        "p": [],
+        "ja": "身体",
+        "en": "physical form"
+      }
+    },
+    {
+      "id": "find",
+      "en": "find",
+      "pic": "find",
+      "w": "みつける",
+      "ja": "見つける",
+      "roots": [
+        "pent-"
+      ],
+      "dictionaryIndex": 6088,
+      "sceneBinding": {
+        "w": "find",
+        "p": [
+          "pent-"
+        ],
+        "ja": "見つける",
+        "en": "discover"
+      }
+    },
+    {
+      "id": "set@sed",
+      "en": "set",
+      "pic": "set@sed",
+      "w": "おく",
+      "ja": "置く、沈む",
+      "roots": [
+        "sed-"
+      ],
+      "dictionaryIndex": 14352,
+      "sceneBinding": {
+        "w": "set",
+        "p": [
+          "sed-"
+        ],
+        "ja": "置く、沈む",
+        "en": "place / sink"
+      }
+    },
+    {
+      "id": "look",
+      "en": "look",
+      "pic": "look",
+      "w": "みる",
+      "ja": "見る、～に見える",
+      "roots": [],
+      "dictionaryIndex": 18886,
+      "sceneBinding": {
+        "w": "look",
+        "p": [],
+        "ja": "見る、～に見える",
+        "en": "see / appear"
+      }
+    },
+    {
+      "id": "information",
+      "en": "information",
+      "pic": "information",
+      "w": "じょうほう",
+      "ja": "情報",
+      "roots": [
+        "en",
+        "merph-"
+      ],
+      "dictionaryIndex": 8107,
+      "sceneBinding": {
+        "w": "information",
+        "p": [
+          "en",
+          "merph-"
+        ],
+        "ja": "情報",
+        "en": "data"
+      }
+    },
+    {
+      "id": "end",
+      "en": "end",
+      "pic": "end",
+      "w": "おわり",
+      "ja": "終わり、端",
+      "roots": [
+        "ant-"
+      ],
+      "dictionaryIndex": 5210,
+      "sceneBinding": {
+        "w": "end",
+        "p": [
+          "ant-"
+        ],
+        "ja": "終わり、端",
+        "en": "finish / tip"
+      }
+    },
+    {
+      "id": "old",
+      "en": "old",
+      "pic": "old",
+      "w": "ふるい",
+      "ja": "古い",
+      "roots": [
+        "al-3"
+      ],
+      "dictionaryIndex": 10781,
+      "sceneBinding": {
+        "w": "old",
+        "p": [
+          "al-3"
+        ],
+        "ja": "古い",
+        "en": "aged"
+      }
+    },
+    {
+      "id": "family",
+      "en": "family",
+      "pic": "family",
+      "w": "かぞく",
+      "ja": "家族",
+      "roots": [],
+      "dictionaryIndex": 18887,
+      "sceneBinding": {
+        "w": "family",
+        "p": [],
+        "ja": "家族",
+        "en": "household"
+      }
+    },
+    {
+      "id": "room",
+      "en": "room",
+      "pic": "room",
+      "w": "へや",
+      "ja": "部屋、余地",
+      "roots": [
+        "reuə-"
+      ],
+      "dictionaryIndex": 13712,
+      "sceneBinding": {
+        "w": "room",
+        "p": [
+          "reuə-"
+        ],
+        "ja": "部屋、余地",
+        "en": "chamber / space"
+      }
+    },
+    {
+      "id": "year",
+      "en": "year",
+      "pic": "year",
+      "w": "とし",
+      "ja": "年",
+      "roots": [
+        "yēr-"
+      ],
+      "dictionaryIndex": 17401,
+      "sceneBinding": {
+        "w": "year",
+        "p": [
+          "yēr-"
+        ],
+        "ja": "年",
+        "en": "annum"
+      }
+    },
+    {
+      "id": "order",
+      "en": "order",
+      "pic": "order",
+      "w": "じゅんじょ",
+      "ja": "順序、命令、注文",
+      "roots": [
+        "ōrd-"
+      ],
+      "dictionaryIndex": 10917,
+      "sceneBinding": {
+        "w": "order",
+        "p": [
+          "ōrd-"
+        ],
+        "ja": "順序、命令、注文",
+        "en": "sequence / command / purchase request"
+      }
+    },
+    {
+      "id": "better",
+      "en": "better",
+      "pic": "better",
+      "w": "よりよい",
+      "ja": "よりよい",
+      "roots": [
+        "bhad-"
+      ],
+      "dictionaryIndex": 1671,
+      "sceneBinding": {
+        "w": "better",
+        "p": [
+          "bhad-"
+        ],
+        "ja": "よりよい",
+        "en": "superior"
+      }
+    },
+    {
+      "id": "change",
+      "en": "change",
+      "pic": "change",
+      "w": "かえる",
+      "ja": "変える、小銭",
+      "roots": [
+        "kemb-"
+      ],
+      "dictionaryIndex": 2552,
+      "sceneBinding": {
+        "w": "change",
+        "p": [
+          "kemb-"
+        ],
+        "ja": "変える、小銭",
+        "en": "alter / coins"
+      }
+    },
+    {
+      "id": "put",
+      "en": "put",
+      "pic": "put",
+      "w": "おく",
+      "ja": "置く、入れる",
+      "roots": [],
+      "dictionaryIndex": 19186,
+      "sceneBinding": {
+        "w": "put",
+        "p": [],
+        "ja": "置く、入れる",
+        "en": "place / insert"
+      }
+    },
+    {
+      "id": "am",
+      "en": "am",
+      "pic": "am",
+      "w": "である",
+      "ja": "である",
+      "roots": [
+        "es-"
+      ],
+      "dictionaryIndex": 568,
+      "sceneBinding": {
+        "w": "am",
+        "p": [
+          "es-"
+        ],
+        "ja": "である",
+        "en": "be"
+      }
+    },
+    {
+      "id": "study",
+      "en": "study",
+      "pic": "study",
+      "w": "べんきょう",
+      "ja": "勉強、書斎",
+      "roots": [
+        "(s)teu-1"
+      ],
+      "dictionaryIndex": 15274,
+      "sceneBinding": {
+        "w": "study",
+        "p": [
+          "(s)teu-1"
+        ],
+        "ja": "勉強、書斎",
+        "en": "research / den"
+      }
+    },
+    {
+      "id": "let",
+      "en": "let",
+      "pic": "let",
+      "w": "させる",
+      "ja": "させる、貸す",
+      "roots": [
+        "lē-2"
+      ],
+      "dictionaryIndex": 8939,
+      "sceneBinding": {
+        "w": "let",
+        "p": [
+          "lē-2"
+        ],
+        "ja": "させる、貸す",
+        "en": "allow / rent"
+      }
+    },
+    {
+      "id": "felt",
+      "en": "felt",
+      "pic": "felt",
+      "w": "ふぇると",
+      "ja": "フェルト",
+      "roots": [
+        "pel-6"
+      ],
+      "dictionaryIndex": 5965,
+      "sceneBinding": {
+        "w": "felt",
+        "p": [
+          "pel-6"
+        ],
+        "ja": "フェルト",
+        "en": "matted fabric"
+      }
+    },
+    {
+      "id": "door",
+      "en": "door",
+      "pic": "door",
+      "w": "どあ",
+      "ja": "ドア",
+      "roots": [
+        "dhwer-"
+      ],
+      "dictionaryIndex": 4696,
+      "sceneBinding": {
+        "w": "door",
+        "p": [
+          "dhwer-"
+        ],
+        "ja": "ドア",
+        "en": "entrance"
+      }
+    },
+    {
+      "id": "book",
+      "en": "book",
+      "pic": "book",
+      "w": "ほん",
+      "ja": "本、予約する",
+      "roots": [
+        "bhāgo-"
+      ],
+      "dictionaryIndex": 1873,
+      "sceneBinding": {
+        "w": "book",
+        "p": [
+          "bhāgo-"
+        ],
+        "ja": "本、予約する",
+        "en": "volume / reserve"
+      }
+    },
+    {
+      "id": "heart",
+      "en": "heart",
+      "pic": "heart",
+      "w": "しんぞう",
+      "ja": "心臓、中心",
+      "roots": [
+        "kerd-"
+      ],
+      "dictionaryIndex": 7252,
+      "sceneBinding": {
+        "w": "heart",
+        "p": [
+          "kerd-"
+        ],
+        "ja": "心臓、中心",
+        "en": "vital organ / core"
+      }
+    },
+    {
+      "id": "business",
+      "en": "business",
+      "pic": "business",
+      "w": "しごと",
+      "ja": "仕事、事業",
+      "roots": [],
+      "dictionaryIndex": 18893,
+      "sceneBinding": {
+        "w": "business",
+        "p": [],
+        "ja": "仕事、事業",
+        "en": "work / enterprise"
+      }
+    },
+    {
+      "id": "support",
+      "en": "support",
+      "pic": "support",
+      "w": "ささえる",
+      "ja": "支える",
+      "roots": [
+        "upo",
+        "per-2"
+      ],
+      "dictionaryIndex": 15472,
+      "sceneBinding": {
+        "w": "support",
+        "p": [
+          "upo",
+          "per-2"
+        ],
+        "ja": "支える",
+        "en": "assist"
+      }
+    },
+    {
+      "id": "learning",
+      "en": "learning",
+      "pic": "learning",
+      "w": "がくしゅう",
+      "ja": "学習",
+      "roots": [
+        "leis-1"
+      ],
+      "dictionaryIndex": 18790,
+      "sceneBinding": {
+        "w": "learning",
+        "p": [
+          "leis-1"
+        ],
+        "ja": "学習",
+        "en": "study"
+      }
+    },
+    {
+      "id": "keep",
+      "en": "keep",
+      "pic": "keep",
+      "w": "たもつ",
+      "ja": "保つ、持ち続ける",
+      "roots": [],
+      "dictionaryIndex": 18895,
+      "sceneBinding": {
+        "w": "keep",
+        "p": [],
+        "ja": "保つ、持ち続ける",
+        "en": "preserve / retain"
+      }
+    },
+    {
+      "id": "question",
+      "en": "question",
+      "pic": "question",
+      "w": "しつもん",
+      "ja": "質問、疑問",
+      "roots": [],
+      "dictionaryIndex": 18896,
+      "sceneBinding": {
+        "w": "question",
+        "p": [],
+        "ja": "質問、疑問",
+        "en": "inquiry / doubt"
+      }
+    },
+    {
+      "id": "sense",
+      "en": "sense",
+      "pic": "sense",
+      "w": "かんかく",
+      "ja": "感覚、意味",
+      "roots": [
+        "sent-"
+      ],
+      "dictionaryIndex": 14278,
+      "sceneBinding": {
+        "w": "sense",
+        "p": [
+          "sent-"
+        ],
+        "ja": "感覚、意味",
+        "en": "perception / meaning"
+      }
+    },
+    {
+      "id": "energy",
+      "en": "energy",
+      "pic": "energy",
+      "w": "かつりょく",
+      "ja": "活力、エネルギー",
+      "roots": [
+        "en",
+        "werg-"
+      ],
+      "dictionaryIndex": 5235,
+      "sceneBinding": {
+        "w": "energy",
+        "p": [
+          "en",
+          "werg-"
+        ],
+        "ja": "活力、エネルギー",
+        "en": "vitality / capacity to do work"
+      }
+    },
+    {
+      "id": "government",
+      "en": "government",
+      "pic": "government",
+      "w": "せいふ",
+      "ja": "政府、統治",
+      "roots": [],
+      "dictionaryIndex": 18897,
+      "sceneBinding": {
+        "w": "government",
+        "p": [],
+        "ja": "政府、統治",
+        "en": "administration / rule"
+      }
+    },
+    {
+      "id": "knowledge",
+      "en": "knowledge",
+      "pic": "knowledge",
+      "w": "ちしき",
+      "ja": "知識",
+      "roots": [
+        "gnō-"
+      ],
+      "dictionaryIndex": 8671,
+      "sceneBinding": {
+        "w": "knowledge",
+        "p": [
+          "gnō-"
+        ],
+        "ja": "知識",
+        "en": "information"
+      }
+    },
+    {
+      "id": "area",
+      "en": "area",
+      "pic": "area",
+      "w": "くいき",
+      "ja": "区域、面積",
+      "roots": [
+        "as-"
+      ],
+      "dictionaryIndex": 1025,
+      "sceneBinding": {
+        "w": "area",
+        "p": [
+          "as-"
+        ],
+        "ja": "区域、面積",
+        "en": "region / surface measure"
+      }
+    },
+    {
+      "id": "terms",
+      "en": "terms",
+      "pic": "terms",
+      "w": "ようご",
+      "ja": "用語、条件",
+      "roots": [],
+      "dictionaryIndex": 47231,
+      "sceneBinding": {
+        "w": "terms",
+        "p": [],
+        "ja": "用語、条件",
+        "en": "words / conditions"
+      }
+    },
+    {
+      "id": "risk",
+      "en": "risk",
+      "pic": "risk",
+      "w": "きけん",
+      "ja": "危険",
+      "roots": [
+        "leuk-"
+      ],
+      "dictionaryIndex": 13657,
+      "sceneBinding": {
+        "w": "risk",
+        "p": [
+          "leuk-"
+        ],
+        "ja": "危険",
+        "en": "danger"
+      }
+    },
+    {
+      "id": "future",
+      "en": "future",
+      "pic": "future",
+      "w": "みらい",
+      "ja": "未来、先物",
+      "roots": [
+        "bheuə-"
+      ],
+      "dictionaryIndex": 6554,
+      "sceneBinding": {
+        "w": "future",
+        "p": [
+          "bheuə-"
+        ],
+        "ja": "未来、先物",
+        "en": "time to come / futures"
+      }
+    },
+    {
+      "id": "practice",
+      "en": "practice",
+      "pic": "practice",
+      "w": "れんしゅう",
+      "ja": "練習、訓練",
+      "roots": [],
+      "dictionaryIndex": 18904,
+      "sceneBinding": {
+        "w": "practice",
+        "p": [],
+        "ja": "練習、訓練",
+        "en": "training / exercise"
+      }
+    },
+    {
+      "id": "attention",
+      "en": "attention",
+      "pic": "attention",
+      "w": "ちゅうい",
+      "ja": "注意",
+      "roots": [
+        "ad-",
+        "ten-"
+      ],
+      "dictionaryIndex": 1236,
+      "sceneBinding": {
+        "w": "attention",
+        "p": [
+          "ad-",
+          "ten-"
+        ],
+        "ja": "注意",
+        "en": "focus"
+      }
+    },
+    {
+      "id": "understanding",
+      "en": "understanding",
+      "pic": "understanding",
+      "w": "りかい",
+      "ja": "理解、合意",
+      "roots": [
+        "n̥dher-",
+        "stā-"
+      ],
+      "dictionaryIndex": 16502,
+      "sceneBinding": {
+        "w": "understanding",
+        "p": [
+          "n̥dher-",
+          "stā-"
+        ],
+        "ja": "理解、合意",
+        "en": "comprehension / accord"
+      }
+    },
+    {
+      "id": "decision",
+      "en": "decision",
+      "pic": "decision",
+      "w": "けってい",
+      "ja": "決定",
+      "roots": [
+        "de-",
+        "kaə-id-"
+      ],
+      "dictionaryIndex": 3928,
+      "sceneBinding": {
+        "w": "decision",
+        "p": [
+          "de-",
+          "kaə-id-"
+        ],
+        "ja": "決定",
+        "en": "judgment"
+      }
+    },
+    {
+      "id": "loss",
+      "en": "loss",
+      "pic": "loss",
+      "w": "そんしつ",
+      "ja": "損失",
+      "roots": [
+        "leu-"
+      ],
+      "dictionaryIndex": 9159,
+      "sceneBinding": {
+        "w": "loss",
+        "p": [
+          "leu-"
+        ],
+        "ja": "損失",
+        "en": "deprivation"
+      }
+    },
+    {
+      "id": "pressure",
+      "en": "pressure",
+      "pic": "pressure",
+      "w": "あつりょく",
+      "ja": "圧力",
+      "roots": [
+        "per-4"
+      ],
+      "dictionaryIndex": 12357,
+      "sceneBinding": {
+        "w": "pressure",
+        "p": [
+          "per-4"
+        ],
+        "ja": "圧力",
+        "en": "force"
+      }
+    },
+    {
+      "id": "purpose",
+      "en": "purpose",
+      "pic": "purpose",
+      "w": "もくてき",
+      "ja": "目的",
+      "roots": [
+        "per1",
+        "paus-"
+      ],
+      "dictionaryIndex": 12771,
+      "sceneBinding": {
+        "w": "purpose",
+        "p": [
+          "per1",
+          "paus-"
+        ],
+        "ja": "目的",
+        "en": "aim"
+      }
+    },
+    {
+      "id": "difference",
+      "en": "difference",
+      "pic": "difference",
+      "w": "ちがい",
+      "ja": "違い",
+      "roots": [
+        "dwis-",
+        "bher-1"
+      ],
+      "dictionaryIndex": 4375,
+      "sceneBinding": {
+        "w": "difference",
+        "p": [
+          "dwis-",
+          "bher-1"
+        ],
+        "ja": "違い",
+        "en": "disparity"
+      }
+    },
+    {
+      "id": "respect",
+      "en": "respect",
+      "pic": "respect",
+      "w": "そんけい",
+      "ja": "尊敬、点",
+      "roots": [
+        "re-",
+        "spek-"
+      ],
+      "dictionaryIndex": 13467,
+      "sceneBinding": {
+        "w": "respect",
+        "p": [
+          "re-",
+          "spek-"
+        ],
+        "ja": "尊敬、点",
+        "en": "esteem / aspect"
+      }
+    },
+    {
+      "id": "arts",
+      "en": "arts",
+      "pic": "arts",
+      "w": "げいじゅつ",
+      "ja": "芸術、諸芸術",
+      "roots": [],
+      "dictionaryIndex": 20880,
+      "sceneBinding": {
+        "w": "arts",
+        "p": [],
+        "ja": "芸術、諸芸術",
+        "en": "arts / fine arts"
+      }
+    },
+    {
+      "id": "stimulus",
+      "en": "stimulus",
+      "pic": "stimulus",
+      "w": "しげき",
+      "ja": "刺激、促進要因、励み",
+      "roots": [],
+      "dictionaryIndex": 19443,
+      "sceneBinding": {
+        "w": "stimulus",
+        "p": [],
+        "ja": "刺激、促進要因、励み",
+        "en": "response trigger / impetus / encouragement"
+      }
+    },
+    {
+      "id": "well@wel2",
+      "en": "well",
+      "pic": "well@wel2",
+      "w": "よく",
+      "ja": "よく、健康な",
+      "roots": [
+        "wel-2"
+      ],
+      "dictionaryIndex": 17159,
+      "sceneBinding": {
+        "w": "well",
+        "p": [
+          "wel-2"
+        ],
+        "ja": "よく、健康な",
+        "en": "adequately / healthy"
+      }
+    },
+    {
+      "id": "right",
+      "en": "right",
+      "pic": "right",
+      "w": "ただしい",
+      "ja": "正しい、右、権利",
+      "roots": [
+        "reg-"
+      ],
+      "dictionaryIndex": 13632,
+      "sceneBinding": {
+        "w": "right",
+        "p": [
+          "reg-"
+        ],
+        "ja": "正しい、右、権利",
+        "en": "correct / rightward / entitlement"
+      }
+    },
+    {
+      "id": "less",
+      "en": "less",
+      "pic": "less",
+      "w": "よりすくない",
+      "ja": "より少ない",
+      "roots": [
+        "leis-2"
+      ],
+      "dictionaryIndex": 8933,
+      "sceneBinding": {
+        "w": "less",
+        "p": [
+          "leis-2"
+        ],
+        "ja": "より少ない",
+        "en": "smaller in amount"
+      }
+    },
+    {
+      "id": "mean@medhyo",
+      "en": "mean",
+      "pic": "mean@medhyo",
+      "w": "へいきん",
+      "ja": "平均",
+      "roots": [
+        "medhyo-"
+      ],
+      "dictionaryIndex": 9572,
+      "sceneBinding": {
+        "w": "mean",
+        "p": [
+          "medhyo-"
+        ],
+        "ja": "平均",
+        "en": "average"
+      }
+    },
+    {
+      "id": "short",
+      "en": "short",
+      "pic": "short",
+      "w": "みじかい",
+      "ja": "短い",
+      "roots": [
+        "(s)ker-1"
+      ],
+      "dictionaryIndex": 14448,
+      "sceneBinding": {
+        "w": "short",
+        "p": [
+          "(s)ker-1"
+        ],
+        "ja": "短い",
+        "en": "small in length or duration"
+      }
+    },
+    {
+      "id": "living",
+      "en": "living",
+      "pic": "living",
+      "w": "いきている",
+      "ja": "生きている",
+      "roots": [
+        "leip-"
+      ],
+      "dictionaryIndex": 9099,
+      "sceneBinding": {
+        "w": "living",
+        "p": [
+          "leip-"
+        ],
+        "ja": "生きている",
+        "en": "alive"
+      }
+    },
+    {
+      "id": "table",
+      "en": "table",
+      "pic": "table",
+      "w": "てーぶる",
+      "ja": "テーブル、表",
+      "roots": [],
+      "dictionaryIndex": 18905,
+      "sceneBinding": {
+        "w": "table",
+        "p": [],
+        "ja": "テーブル、表",
+        "en": "furniture with a flat top / chart"
+      }
+    },
+    {
+      "id": "trying",
+      "en": "trying",
+      "pic": "trying",
+      "w": "ひどくほねのおれる",
+      "ja": "ひどく骨の折れる",
+      "roots": [],
+      "dictionaryIndex": 49000,
+      "sceneBinding": {
+        "w": "trying",
+        "p": [],
+        "ja": "ひどく骨の折れる",
+        "en": "severely straining the powers of endurance"
+      }
+    },
+    {
+      "id": "function",
+      "en": "function",
+      "pic": "function",
+      "w": "きのう",
+      "ja": "機能、関数",
+      "roots": [
+        "bheug-2"
+      ],
+      "dictionaryIndex": 6516,
+      "sceneBinding": {
+        "w": "function",
+        "p": [
+          "bheug-2"
+        ],
+        "ja": "機能、関数",
+        "en": "role / mathematical function"
+      }
+    },
+    {
+      "id": "minutes",
+      "en": "minutes",
+      "pic": "minutes",
+      "w": "ふん",
+      "ja": "分、議事録",
+      "roots": [],
+      "dictionaryIndex": 46805,
+      "sceneBinding": {
+        "w": "minutes",
+        "p": [],
+        "ja": "分、議事録",
+        "en": "time units / meeting record"
+      }
+    },
+    {
+      "id": "step",
+      "en": "step",
+      "pic": "step",
+      "w": "いっぽ",
+      "ja": "一歩、段",
+      "roots": [
+        "stebh-"
+      ],
+      "dictionaryIndex": 15100,
+      "sceneBinding": {
+        "w": "step",
+        "p": [
+          "stebh-"
+        ],
+        "ja": "一歩、段",
+        "en": "stride / stair"
+      }
+    },
+    {
+      "id": "law",
+      "en": "law",
+      "pic": "law",
+      "w": "ほうりつ",
+      "ja": "法律",
+      "roots": [
+        "legh-"
+      ],
+      "dictionaryIndex": 8840,
+      "sceneBinding": {
+        "w": "law",
+        "p": [
+          "legh-"
+        ],
+        "ja": "法律",
+        "en": "regulation"
+      }
+    },
+    {
+      "id": "values",
+      "en": "values",
+      "pic": "values",
+      "w": "かち",
+      "ja": "価値、価値観",
+      "roots": [],
+      "dictionaryIndex": 47281,
+      "sceneBinding": {
+        "w": "values",
+        "p": [],
+        "ja": "価値、価値観",
+        "en": "worth / principles"
+      }
+    },
+    {
+      "id": "black",
+      "en": "black",
+      "pic": "black",
+      "w": "くろい",
+      "ja": "黒い",
+      "roots": [
+        "bhel-1"
+      ],
+      "dictionaryIndex": 1771,
+      "sceneBinding": {
+        "w": "black",
+        "p": [
+          "bhel-1"
+        ],
+        "ja": "黒い",
+        "en": "dark"
+      }
+    },
+    {
+      "id": "chapter",
+      "en": "chapter",
+      "pic": "chapter",
+      "w": "しょう",
+      "ja": "章、支部",
+      "roots": [
+        "kaput-"
+      ],
+      "dictionaryIndex": 2564,
+      "sceneBinding": {
+        "w": "chapter",
+        "p": [
+          "kaput-"
+        ],
+        "ja": "章、支部",
+        "en": "section / branch"
+      }
+    },
+    {
+      "id": "method",
+      "en": "method",
+      "pic": "method",
+      "w": "ほうほう",
+      "ja": "方法",
+      "roots": [
+        "me-2",
+        "sed-2"
+      ],
+      "dictionaryIndex": 9739,
+      "sceneBinding": {
+        "w": "method",
+        "p": [
+          "me-2",
+          "sed-2"
+        ],
+        "ja": "方法",
+        "en": "technique"
+      }
+    },
+    {
+      "id": "war",
+      "en": "war",
+      "pic": "war",
+      "w": "せんそう",
+      "ja": "戦争",
+      "roots": [
+        "wers-"
+      ],
+      "dictionaryIndex": 17067,
+      "sceneBinding": {
+        "w": "war",
+        "p": [
+          "wers-"
+        ],
+        "ja": "戦争",
+        "en": "conflict"
+      }
+    },
+    {
+      "id": "century",
+      "en": "century",
+      "pic": "century",
+      "w": "せいき",
+      "ja": "世紀、百人隊",
+      "roots": [
+        "dekm̥"
+      ],
+      "dictionaryIndex": 2494,
+      "sceneBinding": {
+        "w": "century",
+        "p": [
+          "dekm̥"
+        ],
+        "ja": "世紀、百人隊",
+        "en": "hundred years / troop"
+      }
+    },
+    {
+      "id": "top",
+      "en": "top",
+      "pic": "top",
+      "w": "ちょうじょう",
+      "ja": "頂上、最上部",
+      "roots": [],
+      "dictionaryIndex": 18907,
+      "sceneBinding": {
+        "w": "top",
+        "p": [],
+        "ja": "頂上、最上部",
+        "en": "summit / highest part"
+      }
+    },
+    {
+      "id": "thinking",
+      "en": "thinking",
+      "pic": "thinking",
+      "w": "しこう",
+      "ja": "思考、考えている",
+      "roots": [],
+      "dictionaryIndex": 48759,
+      "sceneBinding": {
+        "w": "thinking",
+        "p": [],
+        "ja": "思考、考えている",
+        "en": "thought / considering"
+      }
+    },
+    {
+      "id": "big",
+      "en": "big",
+      "pic": "big",
+      "w": "おおきい",
+      "ja": "大きい",
+      "roots": [
+        "beu-"
+      ],
+      "dictionaryIndex": 1704,
+      "sceneBinding": {
+        "w": "big",
+        "p": [
+          "beu-"
+        ],
+        "ja": "大きい",
+        "en": "large"
+      }
+    },
+    {
+      "id": "increase",
+      "en": "increase",
+      "pic": "increase",
+      "w": "ふえる",
+      "ja": "増える",
+      "roots": [
+        "en",
+        "ker-3"
+      ],
+      "dictionaryIndex": 7963,
+      "sceneBinding": {
+        "w": "increase",
+        "p": [
+          "en",
+          "ker-3"
+        ],
+        "ja": "増える",
+        "en": "expand"
+      }
+    },
+    {
+      "id": "ask",
+      "en": "ask",
+      "pic": "ask",
+      "w": "たずねる",
+      "ja": "尋ねる、頼む",
+      "roots": [
+        "ais-"
+      ],
+      "dictionaryIndex": 1118,
+      "sceneBinding": {
+        "w": "ask",
+        "p": [
+          "ais-"
+        ],
+        "ja": "尋ねる、頼む",
+        "en": "inquire / request"
+      }
+    },
+    {
+      "id": "structure",
+      "en": "structure",
+      "pic": "structure",
+      "w": "こうぞう",
+      "ja": "構造、建造物",
+      "roots": [
+        "sterə-"
+      ],
+      "dictionaryIndex": 15263,
+      "sceneBinding": {
+        "w": "structure",
+        "p": [
+          "sterə-"
+        ],
+        "ja": "構造、建造物",
+        "en": "framework / building"
+      }
+    },
+    {
+      "id": "response",
+      "en": "response",
+      "pic": "response",
+      "w": "へんとう",
+      "ja": "返答",
+      "roots": [
+        "re-",
+        "spend-"
+      ],
+      "dictionaryIndex": 13478,
+      "sceneBinding": {
+        "w": "response",
+        "p": [
+          "re-",
+          "spend-"
+        ],
+        "ja": "返答",
+        "en": "reply"
+      }
+    },
+    {
+      "id": "alone",
+      "en": "alone",
+      "pic": "alone",
+      "w": "ひとりで",
+      "ja": "ひとりで",
+      "roots": [
+        "al-5",
+        "oi-no-"
+      ],
+      "dictionaryIndex": 528,
+      "sceneBinding": {
+        "w": "alone",
+        "p": [
+          "al-5",
+          "oi-no-"
+        ],
+        "ja": "ひとりで",
+        "en": "solitary"
+      }
+    },
+    {
+      "id": "design",
+      "en": "design",
+      "pic": "design",
+      "w": "せっけい",
+      "ja": "設計、意図",
+      "roots": [
+        "de-",
+        "sāg-"
+      ],
+      "dictionaryIndex": 4200,
+      "sceneBinding": {
+        "w": "design",
+        "p": [
+          "de-",
+          "sāg-"
+        ],
+        "ja": "設計、意図",
+        "en": "plan / intent"
+      }
+    },
+    {
+      "id": "rest",
+      "en": "rest",
+      "pic": "rest",
+      "w": "のこり",
+      "ja": "残り、休息",
+      "roots": [
+        "re-",
+        "stā-"
+      ],
+      "dictionaryIndex": 13483,
+      "sceneBinding": {
+        "w": "rest",
+        "p": [
+          "re-",
+          "stā-"
+        ],
+        "ja": "残り、休息",
+        "en": "remainder / repose"
+      }
+    },
+    {
+      "id": "start",
+      "en": "start",
+      "pic": "start",
+      "w": "はじめる",
+      "ja": "始める、驚き",
+      "roots": [
+        "ster-1"
+      ],
+      "dictionaryIndex": 15038,
+      "sceneBinding": {
+        "w": "start",
+        "p": [
+          "ster-1"
+        ],
+        "ja": "始める、驚き",
+        "en": "begin / sudden movement"
+      }
+    },
+    {
+      "id": "cell",
+      "en": "cell",
+      "pic": "cell",
+      "w": "さいぼう",
+      "ja": "細胞、独房、電池",
+      "roots": [
+        "kel-2"
+      ],
+      "dictionaryIndex": 2460,
+      "sceneBinding": {
+        "w": "cell",
+        "p": [
+          "kel-2"
+        ],
+        "ja": "細胞、独房、電池",
+        "en": "unit / prison room / battery"
+      }
+    },
+    {
+      "id": "market",
+      "en": "market",
+      "pic": "market",
+      "w": "いちば",
+      "ja": "市場",
+      "roots": [
+        "merk-3"
+      ],
+      "dictionaryIndex": 9464,
+      "sceneBinding": {
+        "w": "market",
+        "p": [
+          "merk-3"
+        ],
+        "ja": "市場",
+        "en": "bazaar"
+      }
+    },
+    {
+      "id": "section",
+      "en": "section",
+      "pic": "section",
+      "w": "ぶぶん",
+      "ja": "部分",
+      "roots": [
+        "sek-"
+      ],
+      "dictionaryIndex": 14180,
+      "sceneBinding": {
+        "w": "section",
+        "p": [
+          "sek-"
+        ],
+        "ja": "部分",
+        "en": "segment"
+      }
+    },
+    {
+      "id": "strong",
+      "en": "strong",
+      "pic": "strong",
+      "w": "つよい",
+      "ja": "強い",
+      "roots": [
+        "strenk-"
+      ],
+      "dictionaryIndex": 15253,
+      "sceneBinding": {
+        "w": "strong",
+        "p": [
+          "strenk-"
+        ],
+        "ja": "強い",
+        "en": "powerful"
+      }
+    },
+    {
+      "id": "talk",
+      "en": "talk",
+      "pic": "talk",
+      "w": "はなす",
+      "ja": "話す",
+      "roots": [
+        "del-2"
+      ],
+      "dictionaryIndex": 15667,
+      "sceneBinding": {
+        "w": "talk",
+        "p": [
+          "del-2"
+        ],
+        "ja": "話す",
+        "en": "speak"
+      }
+    },
+    {
+      "id": "cause",
+      "en": "cause",
+      "pic": "cause",
+      "w": "げんいん",
+      "ja": "原因、引き起こす",
+      "roots": [],
+      "dictionaryIndex": 18910,
+      "sceneBinding": {
+        "w": "cause",
+        "p": [],
+        "ja": "原因、引き起こす",
+        "en": "reason / produce"
+      }
+    },
+    {
+      "id": "material",
+      "en": "material",
+      "pic": "material",
+      "w": "ざいりょう",
+      "ja": "材料、重要な",
+      "roots": [
+        "māter-"
+      ],
+      "dictionaryIndex": 9514,
+      "sceneBinding": {
+        "w": "material",
+        "p": [
+          "māter-"
+        ],
+        "ja": "材料、重要な",
+        "en": "substance / relevant"
+      }
+    },
+    {
+      "id": "building",
+      "en": "building",
+      "pic": "building",
+      "w": "たてもの",
+      "ja": "建物、建築している",
+      "roots": [],
+      "dictionaryIndex": 19051,
+      "sceneBinding": {
+        "w": "building",
+        "p": [],
+        "ja": "建物、建築している",
+        "en": "structure / constructing"
+      }
+    },
+    {
+      "id": "answer",
+      "en": "answer",
+      "pic": "answer",
+      "w": "こたえ",
+      "ja": "答え",
+      "roots": [
+        "ant-",
+        "swer-"
+      ],
+      "dictionaryIndex": 809,
+      "sceneBinding": {
+        "w": "answer",
+        "p": [
+          "ant-",
+          "swer-"
+        ],
+        "ja": "答え",
+        "en": "reply"
+      }
+    },
+    {
+      "id": "friend",
+      "en": "friend",
+      "pic": "friend",
+      "w": "ゆうじん",
+      "ja": "友人",
+      "roots": [
+        "prī-"
+      ],
+      "dictionaryIndex": 6446,
+      "sceneBinding": {
+        "w": "friend",
+        "p": [
+          "prī-"
+        ],
+        "ja": "友人",
+        "en": "companion"
+      }
+    },
+    {
+      "id": "party",
+      "en": "party",
+      "pic": "party",
+      "w": "ぱーてぃー",
+      "ja": "パーティー、政党、当事者",
+      "roots": [
+        "perə-2"
+      ],
+      "dictionaryIndex": 11326,
+      "sceneBinding": {
+        "w": "party",
+        "p": [
+          "perə-2"
+        ],
+        "ja": "パーティー、政党、当事者",
+        "en": "gathering / faction / side"
+      }
+    },
+    {
+      "id": "hear",
+      "en": "hear",
+      "pic": "hear",
+      "w": "きく",
+      "ja": "聞く",
+      "roots": [
+        "kous-"
+      ],
+      "dictionaryIndex": 7249,
+      "sceneBinding": {
+        "w": "hear",
+        "p": [
+          "kous-"
+        ],
+        "ja": "聞く",
+        "en": "listen"
+      }
+    },
+    {
+      "id": "environment",
+      "en": "environment",
+      "pic": "environment",
+      "w": "しぜんかんきょう",
+      "ja": "自然環境",
+      "challengeBand": 2,
+      "sceneBinding": {
+        "w": "environment",
+        "p": [
+          "en"
+        ],
+        "ja": "環境",
+        "en": "surroundings"
+      }
+    },
+    {
+      "id": "growth",
+      "en": "growth",
+      "pic": "growth",
+      "w": "せいちょう",
+      "ja": "成長、腫瘍",
+      "roots": [
+        "ghrē-"
+      ],
+      "dictionaryIndex": 7033,
+      "sceneBinding": {
+        "w": "growth",
+        "p": [
+          "ghrē-"
+        ],
+        "ja": "成長、腫瘍",
+        "en": "development / tumor"
+      }
+    },
+    {
+      "id": "activity",
+      "en": "activity",
+      "pic": "activity",
+      "w": "かつどう",
+      "ja": "活動",
+      "roots": [
+        "ag-"
+      ],
+      "dictionaryIndex": 192,
+      "sceneBinding": {
+        "w": "activity",
+        "p": [
+          "ag-"
+        ],
+        "ja": "活動",
+        "en": "pursuit"
+      }
+    },
+    {
+      "id": "bed",
+      "en": "bed",
+      "pic": "bed",
+      "w": "べっど",
+      "ja": "ベッド、花壇",
+      "roots": [
+        "bhedh-"
+      ],
+      "dictionaryIndex": 1555,
+      "sceneBinding": {
+        "w": "bed",
+        "p": [
+          "bhedh-"
+        ],
+        "ja": "ベッド、花壇",
+        "en": "bed / garden plot"
+      }
+    },
+    {
+      "id": "lower",
+      "en": "lower",
+      "pic": "lower",
+      "w": "さげる",
+      "ja": "下げる",
+      "roots": [
+        "legh-"
+      ],
+      "dictionaryIndex": 9174,
+      "sceneBinding": {
+        "w": "lower",
+        "p": [
+          "legh-"
+        ],
+        "ja": "下げる",
+        "en": "reduce"
+      }
+    },
+    {
+      "id": "disease",
+      "en": "disease",
+      "pic": "disease",
+      "w": "びょうき",
+      "ja": "病気",
+      "roots": [
+        "dwis-",
+        "yē-"
+      ],
+      "dictionaryIndex": 4511,
+      "sceneBinding": {
+        "w": "disease",
+        "p": [
+          "dwis-",
+          "yē-"
+        ],
+        "ja": "病気",
+        "en": "illness"
+      }
+    },
+    {
+      "id": "pain",
+      "en": "pain",
+      "pic": "pain",
+      "w": "いたみ",
+      "ja": "痛み",
+      "roots": [
+        "kʷei-1"
+      ],
+      "dictionaryIndex": 11133,
+      "sceneBinding": {
+        "w": "pain",
+        "p": [
+          "kʷei-1"
+        ],
+        "ja": "痛み",
+        "en": "agony"
+      }
+    },
+    {
+      "id": "focus",
+      "en": "focus",
+      "pic": "focus",
+      "w": "しょうてん",
+      "ja": "焦点、集中する",
+      "roots": [],
+      "dictionaryIndex": 18917,
+      "sceneBinding": {
+        "w": "focus",
+        "p": [],
+        "ja": "焦点、集中する",
+        "en": "center / concentrate"
+      }
+    },
+    {
+      "id": "size",
+      "en": "size",
+      "pic": "size",
+      "w": "おおきさ",
+      "ja": "大きさ",
+      "roots": [
+        "sed-"
+      ],
+      "dictionaryIndex": 14572,
+      "sceneBinding": {
+        "w": "size",
+        "p": [
+          "sed-"
+        ],
+        "ja": "大きさ",
+        "en": "dimension"
+      }
+    },
+    {
+      "id": "activities",
+      "en": "activities",
+      "pic": "activities",
+      "w": "かつどう",
+      "ja": "活動",
+      "roots": [],
+      "dictionaryIndex": 47103,
+      "sceneBinding": {
+        "w": "activities",
+        "p": [],
+        "ja": "活動",
+        "en": "actions"
+      }
+    },
+    {
+      "id": "lead",
+      "en": "lead",
+      "pic": "lead",
+      "w": "みちびく",
+      "ja": "導く",
+      "roots": [
+        "leit-2"
+      ],
+      "dictionaryIndex": 8849,
+      "sceneBinding": {
+        "w": "lead",
+        "p": [
+          "leit-2"
+        ],
+        "ja": "導く",
+        "en": "guide"
+      }
+    },
+    {
+      "id": "dark",
+      "en": "dark",
+      "pic": "dark",
+      "w": "くらい",
+      "ja": "暗い",
+      "roots": [
+        "dher-1"
+      ],
+      "dictionaryIndex": 3855,
+      "sceneBinding": {
+        "w": "dark",
+        "p": [
+          "dher-1"
+        ],
+        "ja": "暗い",
+        "en": "dim"
+      }
+    },
+    {
+      "id": "image",
+      "en": "image",
+      "pic": "image",
+      "w": "がぞう",
+      "ja": "画像、印象",
+      "roots": [
+        "aim-"
+      ],
+      "dictionaryIndex": 7745,
+      "sceneBinding": {
+        "w": "image",
+        "p": [
+          "aim-"
+        ],
+        "ja": "画像、印象",
+        "en": "picture / impression"
+      }
+    },
+    {
+      "id": "plan",
+      "en": "plan",
+      "pic": "plan",
+      "w": "けいかく",
+      "ja": "計画、図面",
+      "roots": [
+        "plat-"
+      ],
+      "dictionaryIndex": 11904,
+      "sceneBinding": {
+        "w": "plan",
+        "p": [
+          "plat-"
+        ],
+        "ja": "計画、図面",
+        "en": "scheme / blueprint"
+      }
+    },
+    {
+      "id": "training",
+      "en": "training",
+      "pic": "training",
+      "w": "くんれん",
+      "ja": "訓練",
+      "roots": [
+        "tragh-"
+      ],
+      "dictionaryIndex": 16141,
+      "sceneBinding": {
+        "w": "training",
+        "p": [
+          "tragh-"
+        ],
+        "ja": "訓練",
+        "en": "instruction"
+      }
+    },
+    {
+      "id": "act",
+      "en": "act",
+      "pic": "act",
+      "w": "こうい",
+      "ja": "行為、幕",
+      "roots": [
+        "ag-"
+      ],
+      "dictionaryIndex": 183,
+      "sceneBinding": {
+        "w": "act",
+        "p": [
+          "ag-"
+        ],
+        "ja": "行為、幕",
+        "en": "deed / play section"
+      }
+    },
+    {
+      "id": "methods",
+      "en": "methods",
+      "pic": "methods",
+      "w": "ほうほう",
+      "ja": "方法",
+      "roots": [
+        "sed-2"
+      ],
+      "dictionaryIndex": 9743,
+      "sceneBinding": {
+        "w": "methods",
+        "p": [
+          "sed-2"
+        ],
+        "ja": "方法",
+        "en": "techniques"
+      }
+    },
+    {
+      "id": "cost",
+      "en": "cost",
+      "pic": "cost",
+      "w": "ひよう",
+      "ja": "費用、犠牲",
+      "roots": [
+        "kom",
+        "stā-"
+      ],
+      "dictionaryIndex": 3519,
+      "sceneBinding": {
+        "w": "cost",
+        "p": [
+          "kom",
+          "stā-"
+        ],
+        "ja": "費用、犠牲",
+        "en": "expense / sacrifice"
+      }
+    },
+    {
+      "id": "culture",
+      "en": "culture",
+      "pic": "culture",
+      "w": "ぶんか",
+      "ja": "文化、培養",
+      "roots": [
+        "kʷel-1"
+      ],
+      "dictionaryIndex": 3732,
+      "sceneBinding": {
+        "w": "culture",
+        "p": [
+          "kʷel-1"
+        ],
+        "ja": "文化、培養",
+        "en": "civilization / growing"
+      }
+    },
+    {
+      "id": "range",
+      "en": "range",
+      "pic": "range",
+      "w": "はんい",
+      "ja": "範囲、山脈",
+      "roots": [
+        "(s)ker-3"
+      ],
+      "dictionaryIndex": 12977,
+      "sceneBinding": {
+        "w": "range",
+        "p": [
+          "(s)ker-3"
+        ],
+        "ja": "範囲、山脈",
+        "en": "scope / mountain chain"
+      }
+    },
+    {
+      "id": "try",
+      "en": "try",
+      "pic": "try",
+      "w": "ためす",
+      "ja": "試す",
+      "roots": [],
+      "dictionaryIndex": 18923,
+      "sceneBinding": {
+        "w": "try",
+        "p": [],
+        "ja": "試す",
+        "en": "attempt"
+      }
+    },
+    {
+      "id": "project",
+      "en": "project",
+      "pic": "project",
+      "w": "けいかく",
+      "ja": "計画、投影する",
+      "roots": [
+        "per1",
+        "yē-"
+      ],
+      "dictionaryIndex": 12506,
+      "sceneBinding": {
+        "w": "project",
+        "p": [
+          "per1",
+          "yē-"
+        ],
+        "ja": "計画、投影する",
+        "en": "plan / cast forth"
+      }
+    },
+    {
+      "id": "red",
+      "en": "red",
+      "pic": "red",
+      "w": "あかい",
+      "ja": "赤い",
+      "roots": [
+        "reudh-"
+      ],
+      "dictionaryIndex": 13162,
+      "sceneBinding": {
+        "w": "red",
+        "p": [
+          "reudh-"
+        ],
+        "ja": "赤い",
+        "en": "crimson"
+      }
+    },
+    {
+      "id": "technology",
+      "en": "technology",
+      "pic": "technology",
+      "w": "かがくぎじゅつ",
+      "ja": "科学技術",
+      "challengeBand": 2,
+      "sceneBinding": {
+        "w": "technology",
+        "p": [
+          "teks-",
+          "leg-"
+        ],
+        "ja": "科学技術",
+        "en": "applied science"
+      }
+    },
+    {
+      "id": "total",
+      "en": "total",
+      "pic": "total",
+      "w": "ごうけい",
+      "ja": "合計、完全な",
+      "roots": [
+        "teutā-"
+      ],
+      "dictionaryIndex": 16097,
+      "sceneBinding": {
+        "w": "total",
+        "p": [
+          "teutā-"
+        ],
+        "ja": "合計、完全な",
+        "en": "sum / complete"
+      }
+    },
+    {
+      "id": "bad",
+      "en": "bad",
+      "pic": "bad",
+      "w": "わるい",
+      "ja": "悪い",
+      "roots": [],
+      "dictionaryIndex": 18924,
+      "sceneBinding": {
+        "w": "bad",
+        "p": [],
+        "ja": "悪い",
+        "en": "poor"
+      }
+    },
+    {
+      "id": "team",
+      "en": "team",
+      "pic": "team",
+      "w": "ちーむ",
+      "ja": "チーム",
+      "roots": [
+        "deuk-"
+      ],
+      "dictionaryIndex": 15724,
+      "sceneBinding": {
+        "w": "team",
+        "p": [
+          "deuk-"
+        ],
+        "ja": "チーム",
+        "en": "group"
+      }
+    },
+    {
+      "id": "paper",
+      "en": "paper",
+      "pic": "paper",
+      "w": "かみ",
+      "ja": "紙、論文",
+      "roots": [],
+      "dictionaryIndex": 18927,
+      "sceneBinding": {
+        "w": "paper",
+        "p": [],
+        "ja": "紙、論文",
+        "en": "sheet material / article"
+      }
+    },
+    {
+      "id": "presence",
+      "en": "presence",
+      "pic": "presence",
+      "w": "そんざい",
+      "ja": "存在、出席",
+      "roots": [
+        "per1",
+        "es-"
+      ],
+      "dictionaryIndex": 12343,
+      "sceneBinding": {
+        "w": "presence",
+        "p": [
+          "per1",
+          "es-"
+        ],
+        "ja": "存在、出席",
+        "en": "existence / attendance"
+      }
+    },
+    {
+      "id": "smile",
+      "en": "smile",
+      "pic": "smile",
+      "w": "ほほえむ",
+      "ja": "微笑む",
+      "roots": [
+        "smei-"
+      ],
+      "dictionaryIndex": 14655,
+      "sceneBinding": {
+        "w": "smile",
+        "p": [
+          "smei-"
+        ],
+        "ja": "微笑む",
+        "en": "grin"
+      }
+    },
+    {
+      "id": "office",
+      "en": "office",
+      "pic": "office",
+      "w": "じむしょ",
+      "ja": "事務所、職務",
+      "roots": [
+        "op-",
+        "dhē-"
+      ],
+      "dictionaryIndex": 10765,
+      "sceneBinding": {
+        "w": "office",
+        "p": [
+          "op-",
+          "dhē-"
+        ],
+        "ja": "事務所、職務",
+        "en": "workplace / public post"
+      }
+    },
+    {
+      "id": "security",
+      "en": "security",
+      "pic": "security",
+      "w": "あんぜん",
+      "ja": "安全",
+      "roots": [
+        "s(w)e-",
+        "kʷei-3"
+      ],
+      "dictionaryIndex": 14187,
+      "sceneBinding": {
+        "w": "security",
+        "p": [
+          "s(w)e-",
+          "kʷei-3"
+        ],
+        "ja": "安全",
+        "en": "protection"
+      }
+    },
+    {
+      "id": "movement",
+      "en": "movement",
+      "pic": "movement",
+      "w": "うごき",
+      "ja": "動き、楽章",
+      "roots": [
+        "meuə-"
+      ],
+      "dictionaryIndex": 10126,
+      "sceneBinding": {
+        "w": "movement",
+        "p": [
+          "meuə-"
+        ],
+        "ja": "動き、楽章",
+        "en": "motion / musical part"
+      }
+    },
+    {
+      "id": "media",
+      "en": "media",
+      "pic": "media",
+      "w": "ますめでぃあ",
+      "ja": "マスメディア",
+      "roots": [
+        "medhyo-"
+      ],
+      "dictionaryIndex": 9592,
+      "sceneBinding": {
+        "w": "media",
+        "p": [
+          "medhyo-"
+        ],
+        "ja": "マスメディア",
+        "en": "mass communication"
+      }
+    },
+    {
+      "id": "source",
+      "en": "source",
+      "pic": "source",
+      "w": "みなもと",
+      "ja": "源",
+      "roots": [
+        "upo",
+        "reg-"
+      ],
+      "dictionaryIndex": 14817,
+      "sceneBinding": {
+        "w": "source",
+        "p": [
+          "upo",
+          "reg-"
+        ],
+        "ja": "源",
+        "en": "origin"
+      }
+    },
+    {
+      "id": "follow",
+      "en": "follow",
+      "pic": "follow",
+      "w": "つづく",
+      "ja": "続く、従う",
+      "roots": [],
+      "dictionaryIndex": 18929,
+      "sceneBinding": {
+        "w": "follow",
+        "p": [],
+        "ja": "続く、従う",
+        "en": "come after / obey"
+      }
+    },
+    {
+      "id": "court",
+      "en": "court",
+      "pic": "court",
+      "w": "さいばんしょ",
+      "ja": "裁判所、宮廷",
+      "roots": [
+        "kom",
+        "gher-1"
+      ],
+      "dictionaryIndex": 3553,
+      "sceneBinding": {
+        "w": "court",
+        "p": [
+          "kom",
+          "gher-1"
+        ],
+        "ja": "裁判所、宮廷",
+        "en": "tribunal / royal household"
+      }
+    },
+    {
+      "id": "phone",
+      "en": "phone",
+      "pic": "phone",
+      "w": "でんわ",
+      "ja": "電話",
+      "roots": [
+        "bhā-2"
+      ],
+      "dictionaryIndex": 11728,
+      "sceneBinding": {
+        "w": "phone",
+        "p": [
+          "bhā-2"
+        ],
+        "ja": "電話",
+        "en": "handset"
+      }
+    },
+    {
+      "id": "poor",
+      "en": "poor",
+      "pic": "poor",
+      "w": "まずしい",
+      "ja": "貧しい、下手な、かわいそうな",
+      "roots": [
+        "pau-",
+        "perə-1"
+      ],
+      "dictionaryIndex": 12134,
+      "sceneBinding": {
+        "w": "poor",
+        "p": [
+          "pau-",
+          "perə-1"
+        ],
+        "ja": "貧しい、下手な、かわいそうな",
+        "en": "impoverished / unskilled / pitiable"
+      }
+    },
+    {
+      "id": "stage",
+      "en": "stage",
+      "pic": "stage",
+      "w": "だんかい",
+      "ja": "段階、舞台",
+      "roots": [
+        "stā-"
+      ],
+      "dictionaryIndex": 14992,
+      "sceneBinding": {
+        "w": "stage",
+        "p": [
+          "stā-"
+        ],
+        "ja": "段階、舞台",
+        "en": "phase / platform"
+      }
+    },
+    {
+      "id": "property",
+      "en": "property",
+      "pic": "property",
+      "w": "ざいさん",
+      "ja": "財産、特性",
+      "roots": [
+        "per1"
+      ],
+      "dictionaryIndex": 12553,
+      "sceneBinding": {
+        "w": "property",
+        "p": [
+          "per1"
+        ],
+        "ja": "財産、特性",
+        "en": "assets / attribute"
+      }
+    },
+    {
+      "id": "features",
+      "en": "features",
+      "pic": "features",
+      "w": "とくちょう",
+      "ja": "特徴、機能、呼び物にする",
+      "roots": [],
+      "dictionaryIndex": 46544,
+      "sceneBinding": {
+        "w": "features",
+        "p": [],
+        "ja": "特徴、機能、呼び物にする",
+        "en": "characteristics / functions / highlight"
+      }
+    },
+    {
+      "id": "application",
+      "en": "application",
+      "pic": "application",
+      "w": "てきよう",
+      "ja": "適用、申請",
+      "roots": [
+        "ad-",
+        "plek-"
+      ],
+      "dictionaryIndex": 945,
+      "sceneBinding": {
+        "w": "application",
+        "p": [
+          "ad-",
+          "plek-"
+        ],
+        "ja": "適用、申請",
+        "en": "usage / request"
+      }
+    },
+    {
+      "id": "issue",
+      "en": "issue",
+      "pic": "issue",
+      "w": "もんだい",
+      "ja": "問題、発行する",
+      "roots": [
+        "eghs",
+        "ei-"
+      ],
+      "dictionaryIndex": 8464,
+      "sceneBinding": {
+        "w": "issue",
+        "p": [
+          "eghs",
+          "ei-"
+        ],
+        "ja": "問題、発行する",
+        "en": "topic / put out"
+      }
+    },
+    {
+      "id": "fear",
+      "en": "fear",
+      "pic": "fear",
+      "w": "おそれ",
+      "ja": "恐れ",
+      "roots": [
+        "per-3"
+      ],
+      "dictionaryIndex": 5928,
+      "sceneBinding": {
+        "w": "fear",
+        "p": [
+          "per-3"
+        ],
+        "ja": "恐れ",
+        "en": "dread"
+      }
+    },
+    {
+      "id": "product",
+      "en": "product",
+      "pic": "product",
+      "w": "せいひん",
+      "ja": "製品、積",
+      "roots": [
+        "per1",
+        "deuk-"
+      ],
+      "dictionaryIndex": 12474,
+      "sceneBinding": {
+        "w": "product",
+        "p": [
+          "per1",
+          "deuk-"
+        ],
+        "ja": "製品、積",
+        "en": "goods / math product"
+      }
+    },
+    {
+      "id": "church",
+      "en": "church",
+      "pic": "church",
+      "w": "きょうかい",
+      "ja": "教会",
+      "roots": [
+        "keuə-"
+      ],
+      "dictionaryIndex": 2700,
+      "sceneBinding": {
+        "w": "church",
+        "p": [
+          "keuə-"
+        ],
+        "ja": "教会",
+        "en": "chapel"
+      }
+    },
+    {
+      "id": "cut",
+      "en": "cut",
+      "pic": "cut",
+      "w": "きる",
+      "ja": "切る",
+      "roots": [
+        "(s)kel-1"
+      ],
+      "dictionaryIndex": 3786,
+      "sceneBinding": {
+        "w": "cut",
+        "p": [
+          "(s)kel-1"
+        ],
+        "ja": "切る",
+        "en": "slice"
+      }
+    },
+    {
+      "id": "report",
+      "en": "report",
+      "pic": "report",
+      "w": "ほうこく",
+      "ja": "報告、評判",
+      "roots": [
+        "re-",
+        "per-2"
+      ],
+      "dictionaryIndex": 13385,
+      "sceneBinding": {
+        "w": "report",
+        "p": [
+          "re-",
+          "per-2"
+        ],
+        "ja": "報告、評判",
+        "en": "account / reputation"
+      }
+    },
+    {
+      "id": "lines",
+      "en": "lines",
+      "pic": "lines",
+      "w": "せん",
+      "ja": "線、行",
+      "roots": [],
+      "dictionaryIndex": 47167,
+      "sceneBinding": {
+        "w": "lines",
+        "p": [],
+        "ja": "線、行",
+        "en": "strokes / rows"
+      }
+    },
+    {
+      "id": "temperature",
+      "en": "temperature",
+      "pic": "temperature",
+      "w": "おんど",
+      "ja": "温度",
+      "roots": [
+        "temp-"
+      ],
+      "dictionaryIndex": 15774,
+      "sceneBinding": {
+        "w": "temperature",
+        "p": [
+          "temp-"
+        ],
+        "ja": "温度",
+        "en": "heat"
+      }
+    },
+    {
+      "id": "week",
+      "en": "week",
+      "pic": "week",
+      "w": "しゅう",
+      "ja": "週",
+      "roots": [
+        "weik-4"
+      ],
+      "dictionaryIndex": 17139,
+      "sceneBinding": {
+        "w": "week",
+        "p": [
+          "weik-4"
+        ],
+        "ja": "週",
+        "en": "seven days"
+      }
+    },
+    {
+      "id": "direction",
+      "en": "direction",
+      "pic": "direction",
+      "w": "ほうこう",
+      "ja": "方向、指示",
+      "roots": [
+        "dwis-",
+        "reg-"
+      ],
+      "dictionaryIndex": 4443,
+      "sceneBinding": {
+        "w": "direction",
+        "p": [
+          "dwis-",
+          "reg-"
+        ],
+        "ja": "方向、指示",
+        "en": "orientation / instruction"
+      }
+    },
+    {
+      "id": "distance",
+      "en": "distance",
+      "pic": "distance",
+      "w": "きょり",
+      "ja": "距離",
+      "roots": [
+        "dwis-",
+        "stā-"
+      ],
+      "dictionaryIndex": 4587,
+      "sceneBinding": {
+        "w": "distance",
+        "p": [
+          "dwis-",
+          "stā-"
+        ],
+        "ja": "距離",
+        "en": "gap"
+      }
+    },
+    {
+      "id": "species",
+      "en": "species",
+      "pic": "species",
+      "w": "しゅ",
+      "ja": "種",
+      "roots": [
+        "spek-"
+      ],
+      "dictionaryIndex": 14861,
+      "sceneBinding": {
+        "w": "species",
+        "p": [
+          "spek-"
+        ],
+        "ja": "種",
+        "en": "type"
+      }
+    },
+    {
+      "id": "beginning",
+      "en": "beginning",
+      "pic": "beginning",
+      "w": "はじまり",
+      "ja": "始まり",
+      "roots": [],
+      "dictionaryIndex": 47291,
+      "sceneBinding": {
+        "w": "beginning",
+        "p": [],
+        "ja": "始まり",
+        "en": "start"
+      }
+    },
+    {
+      "id": "series",
+      "en": "series",
+      "pic": "series",
+      "w": "れんぞく",
+      "ja": "連続",
+      "roots": [
+        "ser-3"
+      ],
+      "dictionaryIndex": 14323,
+      "sceneBinding": {
+        "w": "series",
+        "p": [
+          "ser-3"
+        ],
+        "ja": "連続",
+        "en": "sequence"
+      }
+    },
+    {
+      "id": "allow",
+      "en": "allow",
+      "pic": "allow",
+      "w": "ゆるす",
+      "ja": "許す",
+      "roots": [
+        "ad-"
+      ],
+      "dictionaryIndex": 513,
+      "sceneBinding": {
+        "w": "allow",
+        "p": [
+          "ad-"
+        ],
+        "ja": "許す",
+        "en": "permit"
+      }
+    },
+    {
+      "id": "road",
+      "en": "road",
+      "pic": "road",
+      "w": "どうろ",
+      "ja": "道路",
+      "roots": [
+        "reidh-"
+      ],
+      "dictionaryIndex": 13672,
+      "sceneBinding": {
+        "w": "road",
+        "p": [
+          "reidh-"
+        ],
+        "ja": "道路",
+        "en": "route"
+      }
+    },
+    {
+      "id": "behavior",
+      "en": "behavior",
+      "pic": "behavior",
+      "w": "こうどう",
+      "ja": "行動",
+      "roots": [
+        "ambhi",
+        "kap-"
+      ],
+      "dictionaryIndex": 1578,
+      "sceneBinding": {
+        "w": "behavior",
+        "p": [
+          "ambhi",
+          "kap-"
+        ],
+        "ja": "行動",
+        "en": "conduct"
+      }
+    },
+    {
+      "id": "concept",
+      "en": "concept",
+      "pic": "concept",
+      "w": "がいねん",
+      "ja": "概念",
+      "roots": [
+        "kom",
+        "kap-"
+      ],
+      "dictionaryIndex": 3131,
+      "sceneBinding": {
+        "w": "concept",
+        "p": [
+          "kom",
+          "kap-"
+        ],
+        "ja": "概念",
+        "en": "idea"
+      }
+    },
+    {
+      "id": "direct",
+      "en": "direct",
+      "pic": "direct",
+      "w": "みちびく",
+      "ja": "導く、直接の",
+      "roots": [
+        "dwis-",
+        "reg-"
+      ],
+      "dictionaryIndex": 4442,
+      "sceneBinding": {
+        "w": "direct",
+        "p": [
+          "dwis-",
+          "reg-"
+        ],
+        "ja": "導く、直接の",
+        "en": "guide / straight"
+      }
+    },
+    {
+      "id": "meeting",
+      "en": "meeting",
+      "pic": "meeting",
+      "w": "かいぎ",
+      "ja": "会議",
+      "roots": [
+        "mōd-"
+      ],
+      "dictionaryIndex": 9617,
+      "sceneBinding": {
+        "w": "meeting",
+        "p": [
+          "mōd-"
+        ],
+        "ja": "会議",
+        "en": "assembly"
+      }
+    },
+    {
+      "id": "music",
+      "en": "music",
+      "pic": "music",
+      "w": "おんがく",
+      "ja": "音楽",
+      "roots": [
+        "men-1"
+      ],
+      "dictionaryIndex": 10187,
+      "sceneBinding": {
+        "w": "music",
+        "p": [
+          "men-1"
+        ],
+        "ja": "音楽",
+        "en": "melody"
+      }
+    },
+    {
+      "id": "fall",
+      "en": "fall",
+      "pic": "fall",
+      "w": "おちる",
+      "ja": "落ちる、秋",
+      "roots": [
+        "pō̆l-"
+      ],
+      "dictionaryIndex": 5849,
+      "sceneBinding": {
+        "w": "fall",
+        "p": [
+          "pō̆l-"
+        ],
+        "ja": "落ちる、秋",
+        "en": "drop / autumn"
+      }
+    },
+    {
+      "id": "heat",
+      "en": "heat",
+      "pic": "heat",
+      "w": "ねつ",
+      "ja": "熱、予選",
+      "roots": [
+        "kai-"
+      ],
+      "dictionaryIndex": 7256,
+      "sceneBinding": {
+        "w": "heat",
+        "p": [
+          "kai-"
+        ],
+        "ja": "熱、予選",
+        "en": "warmth / qualifying round"
+      }
+    },
+    {
+      "id": "region",
+      "en": "region",
+      "pic": "region",
+      "w": "ちいき",
+      "ja": "地域、部位",
+      "roots": [
+        "reg-"
+      ],
+      "dictionaryIndex": 13234,
+      "sceneBinding": {
+        "w": "region",
+        "p": [
+          "reg-"
+        ],
+        "ja": "地域、部位",
+        "en": "area / body part"
+      }
+    },
+    {
+      "id": "communication",
+      "en": "communication",
+      "pic": "communication",
+      "w": "でんたつ",
+      "ja": "伝達",
+      "roots": [
+        "kom",
+        "mei-1"
+      ],
+      "dictionaryIndex": 3026,
+      "sceneBinding": {
+        "w": "communication",
+        "p": [
+          "kom",
+          "mei-1"
+        ],
+        "ja": "伝達",
+        "en": "contact"
+      }
+    },
+    {
+      "id": "earth",
+      "en": "earth",
+      "pic": "earth",
+      "w": "ちきゅう",
+      "ja": "地球、土",
+      "roots": [
+        "er-2"
+      ],
+      "dictionaryIndex": 4891,
+      "sceneBinding": {
+        "w": "earth",
+        "p": [
+          "er-2"
+        ],
+        "ja": "地球、土",
+        "en": "globe / soil"
+      }
+    },
+    {
+      "id": "condition",
+      "en": "condition",
+      "pic": "condition",
+      "w": "じょうたい",
+      "ja": "状態、条件",
+      "roots": [
+        "kom",
+        "deik-"
+      ],
+      "dictionaryIndex": 3168,
+      "sceneBinding": {
+        "w": "condition",
+        "p": [
+          "kom",
+          "deik-"
+        ],
+        "ja": "状態、条件",
+        "en": "state / requirement"
+      }
+    },
+    {
+      "id": "standard",
+      "en": "standard",
+      "pic": "standard",
+      "w": "きじゅん",
+      "ja": "基準",
+      "roots": [
+        "stā-",
+        "kar-"
+      ],
+      "dictionaryIndex": 15022,
+      "sceneBinding": {
+        "w": "standard",
+        "p": [
+          "stā-",
+          "kar-"
+        ],
+        "ja": "基準",
+        "en": "norm"
+      }
+    },
+    {
+      "id": "note",
+      "en": "note",
+      "pic": "note",
+      "w": "めも",
+      "ja": "メモ、音符",
+      "roots": [
+        "gnō-"
+      ],
+      "dictionaryIndex": 10545,
+      "sceneBinding": {
+        "w": "note",
+        "p": [
+          "gnō-"
+        ],
+        "ja": "メモ、音符",
+        "en": "memo / musical tone"
+      }
+    },
+    {
+      "id": "stand",
+      "en": "stand",
+      "pic": "stand",
+      "w": "たつ",
+      "ja": "立つ、耐える、台",
+      "roots": [
+        "stā-"
+      ],
+      "dictionaryIndex": 15021,
+      "sceneBinding": {
+        "w": "stand",
+        "p": [
+          "stā-"
+        ],
+        "ja": "立つ、耐える、台",
+        "en": "be upright / endure / rack"
+      }
+    },
+    {
+      "id": "object",
+      "en": "object",
+      "pic": "object",
+      "w": "ぶったい",
+      "ja": "物体、反対する",
+      "roots": [
+        "epi",
+        "yē-"
+      ],
+      "dictionaryIndex": 10648,
+      "sceneBinding": {
+        "w": "object",
+        "p": [
+          "epi",
+          "yē-"
+        ],
+        "ja": "物体、反対する",
+        "en": "item / protest"
+      }
+    },
+    {
+      "id": "game",
+      "en": "game",
+      "pic": "game",
+      "w": "げーむ",
+      "ja": "ゲーム、試合",
+      "roots": [],
+      "dictionaryIndex": 18939,
+      "sceneBinding": {
+        "w": "game",
+        "p": [],
+        "ja": "ゲーム、試合",
+        "en": "play / contest"
+      }
+    },
+    {
+      "id": "beautiful",
+      "en": "beautiful",
+      "pic": "beautiful",
+      "w": "うつくしい",
+      "ja": "美しい",
+      "roots": [
+        "deu-2",
+        "pelə-1"
+      ],
+      "dictionaryIndex": 1546,
+      "sceneBinding": {
+        "w": "beautiful",
+        "p": [
+          "deu-2",
+          "pelə-1"
+        ],
+        "ja": "美しい",
+        "en": "lovely"
+      }
+    },
+    {
+      "id": "sea",
+      "en": "sea",
+      "pic": "sea",
+      "w": "うみ",
+      "ja": "海",
+      "sceneBinding": {
+        "w": "sea",
+        "p": [],
+        "ja": "海",
+        "en": "ocean"
+      }
+    },
+    {
+      "id": "industry",
+      "en": "industry",
+      "pic": "industry",
+      "w": "さんぎょう",
+      "ja": "産業、勤勉",
+      "roots": [
+        "en",
+        "sterə-"
+      ],
+      "dictionaryIndex": 8043,
+      "sceneBinding": {
+        "w": "industry",
+        "p": [
+          "en",
+          "sterə-"
+        ],
+        "ja": "産業、勤勉",
+        "en": "manufacturing / diligence"
+      }
+    },
+    {
+      "id": "science",
+      "en": "science",
+      "pic": "science",
+      "w": "かがく",
+      "ja": "科学",
+      "roots": [
+        "skei-"
+      ],
+      "dictionaryIndex": 14060,
+      "sceneBinding": {
+        "w": "science",
+        "p": [
+          "skei-"
+        ],
+        "ja": "科学",
+        "en": "knowledge"
+      }
+    },
+    {
+      "id": "boy",
+      "en": "boy",
+      "pic": "boy",
+      "w": "おとこのこ",
+      "ja": "男の子",
+      "roots": [],
+      "dictionaryIndex": 18940,
+      "sceneBinding": {
+        "w": "boy",
+        "p": [],
+        "ja": "男の子",
+        "en": "young male"
+      }
+    },
+    {
+      "id": "percent",
+      "en": "percent",
+      "pic": "percent",
+      "w": "ぱーせんと",
+      "ja": "パーセント",
+      "roots": [
+        "per1",
+        "dekm̥"
+      ],
+      "dictionaryIndex": 11525,
+      "sceneBinding": {
+        "w": "percent",
+        "p": [
+          "per1",
+          "dekm̥"
+        ],
+        "ja": "パーセント",
+        "en": "hundredth"
+      }
+    },
+    {
+      "id": "police",
+      "en": "police",
+      "pic": "police",
+      "w": "けいさつ",
+      "ja": "警察",
+      "roots": [
+        "pelə-3"
+      ],
+      "dictionaryIndex": 12072,
+      "sceneBinding": {
+        "w": "police",
+        "p": [
+          "pelə-3"
+        ],
+        "ja": "警察",
+        "en": "law enforcement"
+      }
+    },
+    {
+      "id": "author",
+      "en": "author",
+      "pic": "author",
+      "w": "ちょしゃ",
+      "ja": "著者",
+      "roots": [
+        "aug-"
+      ],
+      "dictionaryIndex": 1306,
+      "sceneBinding": {
+        "w": "author",
+        "p": [
+          "aug-"
+        ],
+        "ja": "著者",
+        "en": "writer"
+      }
+    },
+    {
+      "id": "blue",
+      "en": "blue",
+      "pic": "blue",
+      "w": "あおい",
+      "ja": "青い、憂うつな",
+      "roots": [
+        "bhel-1"
+      ],
+      "dictionaryIndex": 1829,
+      "sceneBinding": {
+        "w": "blue",
+        "p": [
+          "bhel-1"
+        ],
+        "ja": "青い、憂うつな",
+        "en": "azure / gloomy"
+      }
+    },
+    {
+      "id": "distribution",
+      "en": "distribution",
+      "pic": "distribution",
+      "w": "ぶんぱい",
+      "ja": "分配、分布",
+      "roots": [
+        "dwis-",
+        "trei-"
+      ],
+      "dictionaryIndex": 4606,
+      "sceneBinding": {
+        "w": "distribution",
+        "p": [
+          "dwis-",
+          "trei-"
+        ],
+        "ja": "分配、分布",
+        "en": "allocation / spread"
+      }
+    },
+    {
+      "id": "window",
+      "en": "window",
+      "pic": "window",
+      "w": "まど",
+      "ja": "窓",
+      "roots": [
+        "wē-",
+        "okʷ-"
+      ],
+      "dictionaryIndex": 17266,
+      "sceneBinding": {
+        "w": "window",
+        "p": [
+          "wē-",
+          "okʷ-"
+        ],
+        "ja": "窓",
+        "en": "aperture"
+      }
+    },
+    {
+      "id": "importance",
+      "en": "importance",
+      "pic": "importance",
+      "w": "じゅうようせい",
+      "ja": "重要性",
+      "roots": [
+        "en",
+        "per-2"
+      ],
+      "dictionaryIndex": 7843,
+      "sceneBinding": {
+        "w": "importance",
+        "p": [
+          "en",
+          "per-2"
+        ],
+        "ja": "重要性",
+        "en": "significance"
+      }
+    },
+    {
+      "id": "program",
+      "en": "program",
+      "pic": "program",
+      "w": "ばんぐみ",
+      "ja": "番組、計画",
+      "roots": [
+        "per1",
+        "gerbh-"
+      ],
+      "dictionaryIndex": 12500,
+      "sceneBinding": {
+        "w": "program",
+        "p": [
+          "per1",
+          "gerbh-"
+        ],
+        "ja": "番組、計画",
+        "en": "broadcast / schedule"
+      }
+    },
+    {
+      "id": "stress",
+      "en": "stress",
+      "pic": "stress",
+      "w": "すとれす",
+      "ja": "ストレス、強調",
+      "roots": [
+        "streig-"
+      ],
+      "dictionaryIndex": 15229,
+      "sceneBinding": {
+        "w": "stress",
+        "p": [
+          "streig-"
+        ],
+        "ja": "ストレス、強調",
+        "en": "tension / emphasis"
+      }
+    },
+    {
+      "id": "news",
+      "en": "news",
+      "pic": "news",
+      "w": "にゅーす",
+      "ja": "ニュース、知らせ",
+      "roots": [],
+      "dictionaryIndex": 47869,
+      "sceneBinding": {
+        "w": "news",
+        "p": [],
+        "ja": "ニュース、知らせ",
+        "en": "reports / information"
+      }
+    },
+    {
+      "id": "organization",
+      "en": "organization",
+      "pic": "organization",
+      "w": "そしき",
+      "ja": "組織",
+      "roots": [
+        "werg-"
+      ],
+      "dictionaryIndex": 10930,
+      "sceneBinding": {
+        "w": "organization",
+        "p": [
+          "werg-"
+        ],
+        "ja": "組織",
+        "en": "institution"
+      }
+    },
+    {
+      "id": "reality",
+      "en": "reality",
+      "pic": "reality",
+      "w": "げんじつ",
+      "ja": "現実",
+      "roots": [
+        "rē-"
+      ],
+      "dictionaryIndex": 13057,
+      "sceneBinding": {
+        "w": "reality",
+        "p": [
+          "rē-"
+        ],
+        "ja": "現実",
+        "en": "actuality"
+      }
+    },
+    {
+      "id": "date",
+      "en": "date",
+      "pic": "date",
+      "w": "ひづけ",
+      "ja": "日付、デート",
+      "roots": [
+        "dō-"
+      ],
+      "dictionaryIndex": 3859,
+      "sceneBinding": {
+        "w": "date",
+        "p": [
+          "dō-"
+        ],
+        "ja": "日付、デート",
+        "en": "day / romantic outing"
+      }
+    },
+    {
+      "id": "continue",
+      "en": "continue",
+      "pic": "continue",
+      "w": "つづける",
+      "ja": "続ける",
+      "roots": [
+        "kom",
+        "ten-"
+      ],
+      "dictionaryIndex": 3348,
+      "sceneBinding": {
+        "w": "continue",
+        "p": [
+          "kom",
+          "ten-"
+        ],
+        "ja": "続ける",
+        "en": "carry on"
+      }
+    },
+    {
+      "id": "correct",
+      "en": "correct",
+      "pic": "correct",
+      "w": "ただしい",
+      "ja": "正しい",
+      "roots": [
+        "kom",
+        "reg-"
+      ],
+      "dictionaryIndex": 3480,
+      "sceneBinding": {
+        "w": "correct",
+        "p": [
+          "kom",
+          "reg-"
+        ],
+        "ja": "正しい",
+        "en": "accurate"
+      }
+    },
+    {
+      "id": "event",
+      "en": "event",
+      "pic": "event",
+      "w": "できごと",
+      "ja": "出来事、種目",
+      "roots": [
+        "eghs",
+        "gʷā-"
+      ],
+      "dictionaryIndex": 5578,
+      "sceneBinding": {
+        "w": "event",
+        "p": [
+          "eghs",
+          "gʷā-"
+        ],
+        "ja": "出来事、種目",
+        "en": "occurrence / contest"
+      }
+    },
+    {
+      "id": "reach",
+      "en": "reach",
+      "pic": "reach",
+      "w": "たっする",
+      "ja": "達する",
+      "roots": [
+        "reig-2"
+      ],
+      "dictionaryIndex": 13043,
+      "sceneBinding": {
+        "w": "reach",
+        "p": [
+          "reig-2"
+        ],
+        "ja": "達する",
+        "en": "attain"
+      }
+    },
+    {
+      "id": "success",
+      "en": "success",
+      "pic": "success",
+      "w": "せいこう",
+      "ja": "成功",
+      "roots": [
+        "upo",
+        "ked-"
+      ],
+      "dictionaryIndex": 15369,
+      "sceneBinding": {
+        "w": "success",
+        "p": [
+          "upo",
+          "ked-"
+        ],
+        "ja": "成功",
+        "en": "achievement"
+      }
+    },
+    {
+      "id": "income",
+      "en": "income",
+      "pic": "income",
+      "w": "しゅうにゅう",
+      "ja": "収入",
+      "roots": [
+        "en",
+        "gʷā-"
+      ],
+      "dictionaryIndex": 7941,
+      "sceneBinding": {
+        "w": "income",
+        "p": [
+          "en",
+          "gʷā-"
+        ],
+        "ja": "収入",
+        "en": "earnings"
+      }
+    },
+    {
+      "id": "capacity",
+      "en": "capacity",
+      "pic": "capacity",
+      "w": "ようりょう",
+      "ja": "容量、能力",
+      "roots": [
+        "kap-"
+      ],
+      "dictionaryIndex": 2268,
+      "sceneBinding": {
+        "w": "capacity",
+        "p": [
+          "kap-"
+        ],
+        "ja": "容量、能力",
+        "en": "volume / ability"
+      }
+    },
+    {
+      "id": "faith",
+      "en": "faith",
+      "pic": "faith",
+      "w": "しんらい",
+      "ja": "信頼、信仰",
+      "roots": [
+        "bheidh-"
+      ],
+      "dictionaryIndex": 5844,
+      "sceneBinding": {
+        "w": "faith",
+        "p": [
+          "bheidh-"
+        ],
+        "ja": "信頼、信仰",
+        "en": "trust / religion"
+      }
+    },
+    {
+      "id": "phase",
+      "en": "phase",
+      "pic": "phase",
+      "w": "だんかい",
+      "ja": "段階",
+      "roots": [
+        "bhā-1"
+      ],
+      "dictionaryIndex": 11698,
+      "sceneBinding": {
+        "w": "phase",
+        "p": [
+          "bhā-1"
+        ],
+        "ja": "段階",
+        "en": "stage"
+      }
+    },
+    {
+      "id": "student",
+      "en": "student",
+      "pic": "student",
+      "w": "がくせい",
+      "ja": "学生",
+      "roots": [
+        "(s)teu-1"
+      ],
+      "dictionaryIndex": 15272,
+      "sceneBinding": {
+        "w": "student",
+        "p": [
+          "(s)teu-1"
+        ],
+        "ja": "学生",
+        "en": "learner"
+      }
+    },
+    {
+      "id": "volume",
+      "en": "volume",
+      "pic": "volume",
+      "w": "たいせき",
+      "ja": "体積、音量、巻",
+      "roots": [
+        "wel-3"
+      ],
+      "dictionaryIndex": 16990,
+      "sceneBinding": {
+        "w": "volume",
+        "p": [
+          "wel-3"
+        ],
+        "ja": "体積、音量、巻",
+        "en": "bulk / loudness / tome"
+      }
+    },
+    {
+      "id": "appear",
+      "en": "appear",
+      "pic": "appear",
+      "w": "あらわれる",
+      "ja": "現れる、思われる",
+      "roots": [
+        "ad-"
+      ],
+      "dictionaryIndex": 930,
+      "sceneBinding": {
+        "w": "appear",
+        "p": [
+          "ad-"
+        ],
+        "ja": "現れる、思われる",
+        "en": "come into view / seem"
+      }
+    },
+    {
+      "id": "glass",
+      "en": "glass",
+      "pic": "glass",
+      "w": "がらす",
+      "ja": "ガラス、眼鏡",
+      "roots": [
+        "ghel-2"
+      ],
+      "dictionaryIndex": 6805,
+      "sceneBinding": {
+        "w": "glass",
+        "p": [
+          "ghel-2"
+        ],
+        "ja": "ガラス、眼鏡",
+        "en": "glazing material / spectacles"
+      }
+    },
+    {
+      "id": "contact",
+      "en": "contact",
+      "pic": "contact",
+      "w": "せっしょく",
+      "ja": "接触",
+      "roots": [
+        "kom",
+        "tag-"
+      ],
+      "dictionaryIndex": 3321,
+      "sceneBinding": {
+        "w": "contact",
+        "p": [
+          "kom",
+          "tag-"
+        ],
+        "ja": "接触",
+        "en": "touch"
+      }
+    },
+    {
+      "id": "online",
+      "en": "online",
+      "pic": "online",
+      "w": "おんらいん",
+      "ja": "オンライン",
+      "roots": [],
+      "dictionaryIndex": 18948,
+      "sceneBinding": {
+        "w": "online",
+        "p": [],
+        "ja": "オンライン",
+        "en": "connected to the internet"
+      }
+    },
+    {
+      "id": "couple",
+      "en": "couple",
+      "pic": "couple",
+      "w": "いっつい",
+      "ja": "一対",
+      "roots": [
+        "kom",
+        "ap-1"
+      ],
+      "dictionaryIndex": 3546,
+      "sceneBinding": {
+        "w": "couple",
+        "p": [
+          "kom",
+          "ap-1"
+        ],
+        "ja": "一対",
+        "en": "pair"
+      }
+    },
+    {
+      "id": "plant",
+      "en": "plant",
+      "pic": "plant",
+      "w": "しょくぶつ",
+      "ja": "植物、工場",
+      "roots": [
+        "plat-"
+      ],
+      "dictionaryIndex": 11920,
+      "sceneBinding": {
+        "w": "plant",
+        "p": [
+          "plat-"
+        ],
+        "ja": "植物、工場",
+        "en": "vegetation / factory"
+      }
+    },
+    {
+      "id": "task",
+      "en": "task",
+      "pic": "task",
+      "w": "しごと",
+      "ja": "仕事",
+      "roots": [
+        "tag-"
+      ],
+      "dictionaryIndex": 15699,
+      "sceneBinding": {
+        "w": "task",
+        "p": [
+          "tag-"
+        ],
+        "ja": "仕事",
+        "en": "duty"
+      }
+    },
+    {
+      "id": "address",
+      "en": "address",
+      "pic": "address",
+      "w": "じゅうしょ",
+      "ja": "住所、演説",
+      "roots": [
+        "ad-",
+        "reg-"
+      ],
+      "dictionaryIndex": 218,
+      "sceneBinding": {
+        "w": "address",
+        "p": [
+          "ad-",
+          "reg-"
+        ],
+        "ja": "住所、演説",
+        "en": "location / speech"
+      }
+    },
+    {
+      "id": "opportunity",
+      "en": "opportunity",
+      "pic": "opportunity",
+      "w": "きかい",
+      "ja": "機会",
+      "roots": [
+        "epi",
+        "per-2"
+      ],
+      "dictionaryIndex": 10866,
+      "sceneBinding": {
+        "w": "opportunity",
+        "p": [
+          "epi",
+          "per-2"
+        ],
+        "ja": "機会",
+        "en": "chance"
+      }
+    },
+    {
+      "id": "manner",
+      "en": "manner",
+      "pic": "manner",
+      "w": "ほうほう",
+      "ja": "方法",
+      "roots": [
+        "man-2"
+      ],
+      "dictionaryIndex": 9407,
+      "sceneBinding": {
+        "w": "manner",
+        "p": [
+          "man-2"
+        ],
+        "ja": "方法",
+        "en": "style"
+      }
+    },
+    {
+      "id": "hot",
+      "en": "hot",
+      "pic": "hot",
+      "w": "あつい",
+      "ja": "熱い、辛い",
+      "roots": [
+        "kai-"
+      ],
+      "dictionaryIndex": 7549,
+      "sceneBinding": {
+        "w": "hot",
+        "p": [
+          "kai-"
+        ],
+        "ja": "熱い、辛い",
+        "en": "hot / spicy"
+      }
+    },
+    {
+      "id": "discussion",
+      "en": "discussion",
+      "pic": "discussion",
+      "w": "ぎろん",
+      "ja": "議論、話し合い",
+      "roots": [],
+      "dictionaryIndex": 18952,
+      "sceneBinding": {
+        "w": "discussion",
+        "p": [],
+        "ja": "議論、話し合い",
+        "en": "debate / conversation"
+      }
+    },
+    {
+      "id": "write",
+      "en": "write",
+      "pic": "write",
+      "w": "かく",
+      "ja": "書く",
+      "roots": [
+        "wreid-"
+      ],
+      "dictionaryIndex": 17368,
+      "sceneBinding": {
+        "w": "write",
+        "p": [
+          "wreid-"
+        ],
+        "ja": "書く",
+        "en": "compose"
+      }
+    },
+    {
+      "id": "wish",
+      "en": "wish",
+      "pic": "wish",
+      "w": "ねがう",
+      "ja": "願う",
+      "roots": [
+        "wen-1"
+      ],
+      "dictionaryIndex": 17281,
+      "sceneBinding": {
+        "w": "wish",
+        "p": [
+          "wen-1"
+        ],
+        "ja": "願う",
+        "en": "hope"
+      }
+    },
+    {
+      "id": "shoulder",
+      "en": "shoulder",
+      "pic": "shoulder",
+      "w": "かた",
+      "ja": "肩",
+      "roots": [],
+      "dictionaryIndex": 21103,
+      "sceneBinding": {
+        "w": "shoulder",
+        "p": [],
+        "ja": "肩",
+        "en": "upper body joint"
+      }
+    },
+    {
+      "id": "rise",
+      "en": "rise",
+      "pic": "rise",
+      "w": "あがる",
+      "ja": "上がる",
+      "roots": [
+        "er-1"
+      ],
+      "dictionaryIndex": 13654,
+      "sceneBinding": {
+        "w": "rise",
+        "p": [
+          "er-1"
+        ],
+        "ja": "上がる",
+        "en": "ascend"
+      }
+    },
+    {
+      "id": "economy",
+      "en": "economy",
+      "pic": "economy",
+      "w": "けいざい",
+      "ja": "経済、節約",
+      "roots": [
+        "weik-1",
+        "nem-"
+      ],
+      "dictionaryIndex": 4932,
+      "sceneBinding": {
+        "w": "economy",
+        "p": [
+          "weik-1",
+          "nem-"
+        ],
+        "ja": "経済、節約",
+        "en": "economy / thrift"
+      }
+    },
+    {
+      "id": "sun",
+      "en": "sun",
+      "pic": "sun",
+      "w": "たいよう",
+      "ja": "太陽",
+      "roots": [
+        "saəwel-"
+      ],
+      "dictionaryIndex": 15425,
+      "sceneBinding": {
+        "w": "sun",
+        "p": [
+          "saəwel-"
+        ],
+        "ja": "太陽",
+        "en": "solar body"
+      }
+    },
+    {
+      "id": "failure",
+      "en": "failure",
+      "pic": "failure",
+      "w": "しっぱい",
+      "ja": "失敗",
+      "roots": [],
+      "dictionaryIndex": 18958,
+      "sceneBinding": {
+        "w": "failure",
+        "p": [],
+        "ja": "失敗",
+        "en": "failure"
+      }
+    },
+    {
+      "id": "staff",
+      "en": "staff",
+      "pic": "staff",
+      "w": "しょくいん",
+      "ja": "職員、杖",
+      "roots": [
+        "stebh-"
+      ],
+      "dictionaryIndex": 14990,
+      "sceneBinding": {
+        "w": "staff",
+        "p": [
+          "stebh-"
+        ],
+        "ja": "職員、杖",
+        "en": "personnel / stick"
+      }
+    },
+    {
+      "id": "target",
+      "en": "target",
+      "pic": "target",
+      "w": "ひょうてき",
+      "ja": "標的",
+      "roots": [
+        "dergh-"
+      ],
+      "dictionaryIndex": 15694,
+      "sceneBinding": {
+        "w": "target",
+        "p": [
+          "dergh-"
+        ],
+        "ja": "標的",
+        "en": "aim"
+      }
+    },
+    {
+      "id": "center",
+      "en": "center",
+      "pic": "center",
+      "w": "ちゅうしん",
+      "ja": "中心",
+      "roots": [
+        "kent-"
+      ],
+      "dictionaryIndex": 2482,
+      "sceneBinding": {
+        "w": "center",
+        "p": [
+          "kent-"
+        ],
+        "ja": "中心",
+        "en": "core"
+      }
+    },
+    {
+      "id": "gas",
+      "en": "gas",
+      "pic": "gas",
+      "w": "きたい",
+      "ja": "気体、ガソリン",
+      "roots": [
+        "ghēu-"
+      ],
+      "dictionaryIndex": 6625,
+      "sceneBinding": {
+        "w": "gas",
+        "p": [
+          "ghēu-"
+        ],
+        "ja": "気体、ガソリン",
+        "en": "vapor / gasoline"
+      }
+    },
+    {
+      "id": "speed",
+      "en": "speed",
+      "pic": "speed",
+      "w": "そくど",
+      "ja": "速度",
+      "roots": [
+        "spē-"
+      ],
+      "dictionaryIndex": 14877,
+      "sceneBinding": {
+        "w": "speed",
+        "p": [
+          "spē-"
+        ],
+        "ja": "速度",
+        "en": "velocity"
+      }
+    },
+    {
+      "id": "add",
+      "en": "add",
+      "pic": "add",
+      "w": "くわえる",
+      "ja": "加える",
+      "roots": [
+        "ad-",
+        "dō-"
+      ],
+      "dictionaryIndex": 210,
+      "sceneBinding": {
+        "w": "add",
+        "p": [
+          "ad-",
+          "dō-"
+        ],
+        "ja": "加える",
+        "en": "append"
+      }
+    }
+  ]
+}

@@ -43,9 +43,21 @@ class EligibilityTests(unittest.TestCase):
         gen=self.root/'app/data/generated-etymon';gen.mkdir(parents=True)
         (gen/'words.json').write_text(json.dumps([self.word],ensure_ascii=False));(gen/'illustration-scenes.json').write_text(json.dumps({'schema':1,'entries':[self.entry]},ensure_ascii=False))
         (self.root/'assets/word/illustration-index.js').write_text('window.X={};')
+        # Complete public-only fixture for the shared all-image producer.
+        game=self.root/'app/games/picture-words';game.mkdir(parents=True)
+        (game/'build_catalog.py').write_text('LEDGER_SENSE_ART=[]\nLEGACY_CHOICES=[]\n')
+        (game/'updated-art.json').write_text('[]')
+        (self.root/'app/data/generated-image-issues.json').write_text('{"issues":[]}')
+        (self.root/'app/data/generated-image-legacy-ids.json').write_text('{"rows":[]}')
+        actual=Path(build.__file__).resolve().parents[1]/'data'
+        for name in ['build_generated_image_catalog.py','generated_image_resolver.py']:
+            (self.root/'app/data'/name).write_bytes((actual/name).read_bytes())
+        manifest={'files':{key:{'sha256':build.sha256((gen/name).read_bytes())} for key,name in [('words','words.json'),('illustration_scenes','illustration-scenes.json')]}}
+        (gen/'manifest.json').write_text(json.dumps(manifest))
+
         (self.root/'app/eigo-no-e.html').write_text('<script src="eigo-no-e/data.js?v=old"></script>')
         a,report=build.build(self.root);b,_=build.build(self.root)
-        self.assertEqual(a,b);self.assertEqual(report['eligible'],1)
+        self.assertEqual(a,b);self.assertEqual(report['eligible'],1);self.assertEqual(report['schema'],2)
         text=a['app/eigo-no-e/data.js'].decode();self.assertNotIn('"d":',text);self.assertNotIn('"b":',text)
         data=json.loads(text[text.index('{'):text.rindex('}')+1]);row=data['words'][0]
         self.assertEqual(row['ja'],'本');self.assertEqual(row['k'],'ほん');self.assertIn('c',row)
