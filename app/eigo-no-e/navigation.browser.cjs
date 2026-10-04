@@ -24,13 +24,29 @@ const previewDir=process.env.PICTPEDIA_PREVIEW_DIR || require('node:os').tmpdir(
     await page.waitForURL('**'+card.href);await page.locator('h1').filter({hasText:card.label}).waitFor();
    }
    await page.goto(base+'#/',{waitUntil:'domcontentloaded'});const sub=page.locator('.cat ul a').first(),subHref=await sub.getAttribute('href');await sub.click();await page.waitForURL('**'+subHref);
-   await page.goto(base+'#/w/book');await page.locator('.word-puzzle').waitFor();
+   await page.goto(base+'#/w/mother');await page.locator('.word-puzzle').waitFor();
    const pending=page.waitForEvent('popup');await page.locator('.word-puzzle').click();const popup=await pending;
-   await popup.locator('#puzzleLetters button').first().waitFor();assert(popup.url().endsWith('#/p/book'));assert(page.url().endsWith('#/w/book'));
-   for(const letter of 'book')await popup.locator('#puzzleLetters button:enabled').filter({hasText:new RegExp('^'+letter+'$')}).first().click();
-   await popup.locator('#puzzleFeedback').filter({hasText:'正解！ book'}).waitFor();
-   await popup.locator('#puzzleReset').click();assert.equal(await popup.locator('#puzzleLetters button:enabled').count(),4);
-   await popup.locator('#puzzleLetters button').first().click();await popup.locator('#puzzleUndo').click();assert.equal(await popup.locator('#puzzleLetters button:enabled').count(),4);
+   await popup.locator('#game[data-state="playing"]').waitFor();assert(popup.url().includes('/games/picture-words.html?word=mother'));assert(page.url().endsWith('#/w/mother'));
+   assert.equal(await popup.locator('#clueImage').getAttribute('data-scene-id'),'mother');
+   assert.equal(await popup.locator('#launchScreen').evaluate(e=>e.open),false);
+   await popup.screenshot({path:path.join(previewDir,'pictpedia-mother-game.png')});
+   await popup.locator('#hint').click();
+   await popup.locator('#game[data-state="playing"]').waitFor();
+   const letters=await popup.locator('#wheel button[data-lang="en"]').allTextContents();
+   assert.equal(letters.slice().sort().join(''),'MOTHER'.split('').sort().join(''));
+   await popup.bringToFront();
+   for(let i=0;i<6;i++)await popup.locator(`#wheel button[data-node="${i}"]`).press('Enter');
+   await popup.locator('#game[data-state="solved"]').waitFor();
+   assert(await popup.evaluate(()=>JSON.parse(localStorage.getItem('word-bloom-v1')).en.stars.mother>0));
+   await popup.locator('#advanceLabel').click();
+   await popup.waitForFunction(()=>document.querySelector('#game').dataset.state==='playing' && document.querySelector('#clueImage').dataset.sceneId!=='mother');
+   for(const id of ['book','got@x','to']){
+    await popup.goto(base.replace('eigo-no-e.html','games/picture-words.html')+'?word='+encodeURIComponent(id));
+    await popup.locator('#game[data-state="playing"]').waitFor();
+    assert.equal(await popup.locator('#clueImage').getAttribute('data-scene-id'),id);
+   }
+   await popup.goto(base.replace('eigo-no-e.html','games/picture-words.html')+'?word=missing-id');
+   await popup.locator('#offlineStatus').filter({hasText:'この単語のパズルを読み込めませんでした'}).waitFor();
    await popup.close();
    for(const width of [390,320]){
     await page.setViewportSize({width,height:844});await page.goto(base+'#/',{waitUntil:'domcontentloaded'});await page.locator('.hero-art').waitFor();
@@ -39,7 +55,7 @@ const previewDir=process.env.PICTPEDIA_PREVIEW_DIR || require('node:os').tmpdir(
     if(width===390 && base.startsWith('file:'))await page.screenshot({path:path.join(previewDir,'pictpedia-mobile.png'),fullPage:false,animations:'disabled'});
    }
    if(base.startsWith('file:')){await page.setViewportSize({width:1280,height:900});await page.screenshot({path:path.join(previewDir,'pictpedia-desktop.png')});}
-   assert.deepEqual(errors,[]);await page.close();console.log('PASS',base.split(':')[0],cards.length,'category cards, subcategory, exact-word popup, solve/reset/undo, mobile widths');
+   assert.deepEqual(errors,[]);await page.close();console.log('PASS',base.split(':')[0],cards.length,'category cards, exact-word game, mother completion/save/next, homograph and English-only entry, invalid ID, mobile widths');
   }
  }finally{await browser.close();server.close();}
 })().catch(e=>{console.error(e);process.exitCode=1;});

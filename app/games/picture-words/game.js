@@ -23,6 +23,22 @@
   let datasetUnavailable = !datasetState.ok;
   const failedEntries = new Set();
   const catalog = datasetState.ok ? difficulty.bilingualCatalog(window.WordBloomReviewedScenes.filterCatalog(originalCatalog)) : [];
+  const requestedId = new URLSearchParams(location.search).get('word');
+  let requestedIndex = -1;
+  if(requestedId && datasetState.ok){
+    try {
+      await new Promise((resolve,reject)=>{
+        const script=document.createElement('script');script.src='picture-words/dictionary-links.js?v=pictpedia2';
+        const timer=setTimeout(()=>{script.remove();reject(new Error('dictionary-link-timeout'));},15000);
+        script.onload=()=>{clearTimeout(timer);resolve();};script.onerror=()=>{clearTimeout(timer);reject(new Error('dictionary-link-unavailable'));};document.head.append(script);
+      });
+      const requested=window.PICTURE_WORDS_DICTIONARY_LINKS?.find(w=>w.id===requestedId);
+      if(requested && window.WordBloomReviewedScenes.validRow(requested)){
+        requestedIndex=catalog.findIndex(w=>w.id===requestedId && w.reviewedScene.image.sha256===requested.reviewedScene.image.sha256);
+        if(requestedIndex<0){requestedIndex=catalog.length;catalog.push(difficulty.buildCatalog([requested])[0]);}
+      }
+    }catch(error){console.warn('Requested puzzle unavailable',error);}
+  }
   const discovery = window.PictureWordsProgression;
   const byId = new Map(catalog.map(word => [word.id, word]));
   const supports = (word, lang) => !datasetUnavailable && !failedEntries.has(word.id) && offline.canPlay(word) && (lang === 'en' || !!word.w);
@@ -78,6 +94,7 @@
   }
   const saved = readSave();
   let mode = saved.mode;
+  if(requestedId)mode='en';
   let index = saved[mode].index;
   let round = null;
   let entry, roundScene = null, answer = [], nodes = [], selected = [], hintCount = 0, mistakes = 0;
@@ -325,6 +342,7 @@
     $('modeToggle').dataset.mode = mode === 'ja' ? 'en' : 'ja';
     $('modeToggle').setAttribute('aria-label', mode === 'ja' ? '英語に切り替える' : '日本語に切り替える');
     $('modeToggle').dataset.active = mode;
+    document.querySelectorAll('[data-mode="ja"]').forEach(button=>{button.disabled=!entry?.w;});
     $('modeLabel').innerHTML = `<span class="mode-ja">日本語</span><span aria-hidden="true">⇄</span><span class="mode-en">英語</span>`;
     const labels = { clueHeading: 'title', instruction: 'instruction', gestureNote: 'note', shuffleLabel: 'shuffle', hintLabel: 'hint',
       footerNote: 'footer', collectionLabel: 'collection', foundLabel: 'found',
@@ -937,6 +955,7 @@
   });
   window.addEventListener('resize', updateLayout);
   document.querySelectorAll('[data-mode]').forEach(button=>button.addEventListener('click',()=>{
+    if(button.dataset.mode==='ja' && !entry?.w)return;
     if(!entry || !['playing','answer-demo'].includes(phase) || mode===button.dataset.mode)return;
     round.mistakes[mode]=mistakes;
     cancelGesture();generation++;clearPending();speech.stop();
@@ -1174,7 +1193,13 @@
   $('closeGame').addEventListener('click', closePlay);
   $('launchScreen').addEventListener('cancel', event => event.preventDefault());
   window.visualViewport?.addEventListener('resize', () => { updateLayout(); petals.clear(); petals.resize(); cancelGesture(); });
-  if (catalog.length) {
+  if(requestedId && (requestedIndex<0 || !supports(catalog[requestedIndex],'en'))){
+    $('startPlay').hidden=true;$('saveOffline').hidden=true;
+    $('offlineStatus').textContent='この単語のパズルを読み込めませんでした。辞典とゲームのデータを更新して開き直してください。';
+    if(!$('launchScreen').open)$('launchScreen').showModal();
+  } else if(requestedId){
+    $('launchScreen').close();loadLevel(requestedIndex);
+  } else if (catalog.length) {
     loadLevel(nextUncollected(mode, index));
     const installed = matchMedia('(display-mode: fullscreen), (display-mode: standalone)').matches;
     if (effectiveLayout() === 'mobile' && !installed) closePlay();
