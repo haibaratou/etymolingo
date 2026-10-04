@@ -1,4 +1,4 @@
-/* えいごのえ — 英単語のイラスト辞典
+/* Pictpedia — 英単語のイラスト辞典
    build.py の審査済み出力を、公開中の辞書・場面文・画像対応表で再照合する。 */
 (async () => {
 'use strict';
@@ -222,21 +222,22 @@ function home() {
   side();
   const tries = [['s', 'book'], ['s', '本'], ['s', 'help'], ['t', '箱を持ち上げる'], ['t', '椅子の下'], ['t', 'a cat under a chair']];
   view.innerHTML = `<div class="page fade">
-    <section class="welcome"><h1>英単語を、イラストでさがす。</h1>
-      <p><b>${num(W.length)}</b> 枚のイラストを、短い英語と日本語の説明文でさがせます。</p></section>
+    <section class="pict-hero"><div class="hero-copy"><span class="hero-kicker">PICTURE × WORD × DISCOVERY</span><h1>Pictpedia</h1><h2>絵から、ことばの世界へ。</h2>
+      <p>見つけて、わかって、遊んで。<br><b>${num(W.length)}</b> 枚のイラストと出会う英単語の辞典。</p><a class="btn primary" href="#/c/animals">カテゴリーを探検する ${chev}</a></div><img class="hero-art" src="../assets/pictpedia/hero.png" width="1536" height="1024" alt="絵本を開く二人と、本や車などのことばの世界" fetchpriority="high"></section>
     <div class="tryline">たとえば ${tries.map(([m, q]) => `<a class="${m === 't' ? 'text' : ''}" href="#/${m}/${encodeURIComponent(q)}" title="${m === 't' ? '文章でさがす' : '単語でさがす'}">${esc(q)}</a>`).join('')}</div>
-    <h2 class="h2">カテゴリーからさがす<small>Categories</small></h2>
+    <h2 class="h2" id="categories">カテゴリーからさがす<small>Categories</small></h2>
     <div class="cats">${D.categories.map(c => {
       const icon = c.icon && byId.get(c.icon);
       return `<article class="cat"><a class="ic" href="#/c/${c.id}" tabindex="-1">${icon ? `<img src="${thumb(icon)}" alt="" loading="lazy">` : ''}</a>
-        <h3><a href="#/c/${c.id}">${esc(c.ja)}</a><small>${esc(c.en)}</small></h3>
+        <h3><a class="cat-main" href="#/c/${c.id}">${esc(c.ja)}</a><small>${esc(c.en)}</small></h3>
         <ul>${c.subs.filter(s => s.n).map(s => `<li><a href="#/c/${c.id}/${s.id}">${esc(s.ja)}</a></li>`).join('')}</ul></article>`;
     }).join('')}</div>
     <h2 class="h2">ピックアップ<small>Pick up</small><a href="#/" id="reshuffle">ほかの絵</a></h2>
     <div id="pick">${grid(shuffle(W).slice(0, 18))}</div>
   </div>`;
   $('#reshuffle').onclick = e => { e.preventDefault(); $('#pick').innerHTML = grid(shuffle(W).slice(0, 18)); };
-  document.title = 'えいごのえ — 英単語のイラスト辞典';
+  $('.hero-copy .btn').onclick = e => {e.preventDefault();$('#categories').scrollIntoView({behavior:'smooth',block:'start'});};
+  document.title = 'Pictpedia — 英単語のイラスト辞典';
 }
 
 function catPage(cid, sid) {
@@ -253,7 +254,7 @@ function catPage(cid, sid) {
     ${s ? `<div style="margin-top:18px">${grid(inSub.get(`${cid}/${sid}`) || [])}</div>`
         : subs.map(x => `<h2 class="h2">${esc(x.ja)}<small>${esc(x.en)}</small><a href="#/c/${cid}/${x.id}">${x.n} 枚すべて</a></h2>${grid((inSub.get(`${cid}/${x.id}`) || []).slice(0, 12))}`).join('')}
   </div>`;
-  document.title = `${s ? s.ja : c.ja}のイラスト — えいごのえ`;
+  document.title = `${s ? s.ja : c.ja}のイラスト — Pictpedia`;
 }
 
 function wordPage(id) {
@@ -274,7 +275,7 @@ function wordPage(id) {
         <div class="acts">
           <button class="btn primary" id="speak" type="button"><svg><use href="#i-sound"/></svg>発音をきく</button>
           <a class="btn" href="${full(w)}" download="${esc(w.id)}.png"><svg><use href="#i-down"/></svg>PNG</a>
-          <a class="btn" href="games/picture-words.html"><svg><use href="#i-puzzle"/></svg>パズル</a>
+          <a class="btn word-puzzle" href="#/p/${encodeURIComponent(w.id)}" target="_blank" rel="noopener"><svg><use href="#i-puzzle"/></svg>この単語のパズル ↗</a>
           <button class="btn" id="copy" type="button"><svg><use href="#i-link"/></svg>リンク</button>
         </div>
         <div class="box" id="sceneBox" aria-live="polite"><p>イラストを確認しています…</p></div>
@@ -298,8 +299,13 @@ function wordPage(id) {
     }
   });
   $('#speak').onclick = () => speak(w.w);
+  $('.word-puzzle').onclick = e => {
+    if(e.ctrlKey || e.metaKey || e.shiftKey || e.altKey)return;
+    e.preventDefault();
+    window.open(e.currentTarget.href, '_blank', 'popup,width=620,height=820,noopener');
+  };
   $('#copy').onclick = () => navigator.clipboard?.writeText(location.href).then(() => toast('リンクをコピーしました'), () => toast(location.href));
-  document.title = `${w.w}(${firstJa(w)})のイラスト — えいごのえ`;
+  document.title = `${w.w}(${firstJa(w)})のイラスト — Pictpedia`;
 }
 
 function resultPage(m, q) {
@@ -314,9 +320,52 @@ function resultPage(m, q) {
       <a href="#/${other}/${encodeURIComponent(q)}">${m === 't' ? '単語でさがす' : '文章でさがす(あいまい検索)'}でためす</a></p>
     ${list.length ? grid(list) : `<div class="empty"><b>見つかりませんでした</b>${m === 't' ? '短いことばに分けるか、英語の文でもためしてみてください。' : 'つづりを変えるか、「文章でさがす」をためしてみてください。'}<br>説明文のある ${num(W.length)} 枚を収録しています。</div>`}
   </div>`;
-  document.title = `「${q}」のイラスト — えいごのえ`;
+  document.title = `「${q}」のイラスト — Pictpedia`;
 }
 function notFound() { side(); view.innerHTML = `<div class="page empty"><b>ページが見つかりませんでした</b><a href="#/">トップへ</a></div>`; }
+
+async function puzzlePage(id) {
+  const w = byId.get(id); if (!w || w.unavailable) return notFound();
+  if(!localSnapshot){
+    const routeHash=location.hash;
+    view.innerHTML='<div class="page empty" role="status">イラストを確認しています…</div>';
+    const checked=await window.IllustrationScenes.verify(w,{imageUrl:full(w),word:w}).catch(()=>({status:'unavailable'}));
+    if(location.hash!==routeHash)return;
+    if(checked.status!=='reviewed'){view.innerHTML='<div class="page empty">このイラストは更新確認中です。<p><a href="#/">トップへ</a></p></div>';return;}
+  }
+  side();
+  document.body.classList.add('puzzle-mode');
+  document.title = 'ことばのパズル — Pictpedia';
+  view.innerHTML = `<div class="page puzzle-page"><a href="${href(w)}">← 単語のページ</a><h1>この絵、英語でなんていう？</h1><p>文字を順番にタップして、ことばをつくろう。</p><img class="puzzle-picture" src="${full(w)}" alt="出題のイラスト"><div class="puzzle-answer" id="puzzleAnswer" aria-label="選んだ文字"></div><div class="puzzle-letters" id="puzzleLetters"></div><p id="puzzleFeedback" role="status" aria-live="polite"></p><div class="puzzle-tools"><button class="btn" id="puzzleUndo">ひとつ戻す</button><button class="btn" id="puzzleHint">答えを見る</button><button class="btn" id="puzzleReset">もう一度</button></div><img class="puzzle-mascots" src="../assets/pictpedia/thinking.png" alt="一緒に考える二人" width="160" height="160"></div>`;
+  const answer = [...w.w.toLowerCase()];
+  let letters, selected, solved;
+  const feedback = $('#puzzleFeedback');
+  function render() {
+    $('#puzzleAnswer').textContent = selected.map(i=>letters[i]).join('') || '…';
+    $('#puzzleLetters').innerHTML = letters.map((c,i)=>`<button type="button" data-letter="${i}" ${solved || selected.includes(i) ? 'disabled' : ''} aria-label="${c === ' ' ? 'スペース' : esc(c)}">${c === ' ' ? '␣' : esc(c)}</button>`).join('');
+    $('#puzzleUndo').disabled = solved || !selected.length;
+  }
+  function reset() {
+    letters = shuffle(answer); selected=[]; solved=false;
+    if(letters.join('')===answer.join('') && new Set(answer).size>1)letters.push(letters.shift());
+    feedback.textContent=''; $('.puzzle-mascots').src='../assets/pictpedia/thinking.png'; render();
+  }
+  $('#puzzleLetters').onclick = e => {
+    const button=e.target.closest('button'); if(!button || button.disabled || solved)return;
+    selected.push(Number(button.dataset.letter));
+    if(selected.length===letters.length) {
+      solved=selected.map(i=>letters[i]).join('')===answer.join('');
+      feedback.textContent=solved ? `正解！ ${w.w} — ${firstJa(w)}` : 'おしい！「ひとつ戻す」で並べ直してみよう。';
+      if(solved){$('.puzzle-mascots').src='../assets/pictpedia/celebrate.png';speak(w.w);}
+    } else feedback.textContent='';
+    render();
+  };
+  $('#puzzleUndo').onclick=()=>{selected.pop();feedback.textContent='';render();};
+  $('#puzzleHint').onclick=()=>{feedback.textContent=`答えは ${w.w}。順番にタップしてみよう。`;};
+  $('#puzzleReset').onclick=reset;
+  $('.puzzle-picture').onerror=()=>{feedback.textContent='画像を読み込めませんでした。単語のページから開き直してください。';$('#puzzleLetters').replaceChildren();};
+  reset();
+}
 
 /* ───────── 共通 ───────── */
 let voice = null;
@@ -333,9 +382,12 @@ function route() {
   const h = decodeURIComponent(location.hash.replace(/^#\/?/, ''));
   const [kind, a, b] = h.split('/');
   document.body.classList.remove('menu-open');
+  document.body.classList.toggle('home-mode', !kind);
+  document.body.classList.remove('puzzle-mode');
   if (!kind) home();
   else if (kind === 'c') catPage(a, b);
   else if (kind === 'w') wordPage(h.slice(2));
+  else if (kind === 'p') puzzlePage(h.slice(2));
   else if (kind === 's' || kind === 't') resultPage(kind, h.slice(2));
   else notFound();
   scrollTo(0, 0);
