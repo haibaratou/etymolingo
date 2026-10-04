@@ -47,6 +47,19 @@ test('slow replay lowers the rate without changing the text, language or pitch',
   assert.ok(slow.rate < normal.rate); assert.equal(slow.text, normal.text); assert.equal(slow.lang, normal.lang); assert.equal(slow.pitch, 1);
 });
 
+test('prepared Japanese and English words restore normal speed after slow synthesis', () => {
+  for (const language of ['ja', 'en']) {
+    const x = setup(); x.speech.prepare(moon);
+    x.speech.speak(moon, language, true);
+    assert.equal(x.calls.at(-1).rate, .65);
+    assert.equal(x.calls.at(-1).pitch, 1);
+    x.calls.at(-1).onend();
+    x.speech.speak(moon, language, false);
+    assert.equal(x.calls.at(-1).rate, 1);
+    assert.equal(x.calls.at(-1).text, language === 'ja' ? 'つき' : 'moon');
+  }
+});
+
 test('muting cancels pending speech and prevents further speech until re-enabled', () => {
   const x = setup(); x.speech.speak(moon, 'ja'); x.speech.setEnabled(false);
   assert.equal(x.cancelled(), 1); assert.equal(x.timers.size, 0);

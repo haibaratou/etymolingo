@@ -67,7 +67,7 @@
       catch { this.onState({ ...info, state: 'unavailable' }); return false; }
       utterance.lang = language === 'ja' ? 'ja-JP' : 'en-US';
       const voice = chooseVoice(this.voices, language); if (voice) utterance.voice = voice;
-      utterance.rate = slow ? .65 : .92; utterance.pitch = 1; utterance.volume = 1;
+      utterance.rate = slow ? .65 : 1; utterance.pitch = 1; utterance.volume = 1;
       const finish = (state, error = '') => {
         if (serial !== this.serial || this.current?.utterance !== utterance) return;
         this.clearTimer(this.timer); this.timer = null; this.current = null;

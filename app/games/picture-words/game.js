@@ -246,10 +246,10 @@
     heading.innerHTML = '<span class="voice-bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>';
     const label = document.createElement('span'); label.textContent = narrating ? (language === 'ja' ? '日本語' : 'ENGLISH') : `${spoken} · ${language === 'ja' ? '日本語' : 'ENGLISH'}`; heading.append(label);
     const buttons = document.createElement('div'); buttons.className = 'pronunciation-buttons';
-    for (const slow of [false]) {
+    for (const slow of [false, true]) {
       const button = document.createElement('button'); button.type = 'button'; button.dataset.slow = String(slow);
-      button.innerHTML = icon('sound');
-      button.title = narrating ? '解説を再生' : '単語を再生';
+      button.innerHTML = icon('sound') + `<span>${slow ? '0.65×' : '1×'}</span>`;
+      button.title = `${narrating ? '解説' : '単語'}を${slow ? 'ゆっくり' : '通常速度で'}再生`;
       button.setAttribute('aria-label', mode === 'ja' ? `「${spoken}」を${slow ? 'ゆっくり' : 'もう一度'}聞く` : `${slow ? 'Listen slowly to' : 'Listen again to'} ${spoken}`);
       button.addEventListener('click', () => narrating ? speech.speakScene(word, sceneResult, language, slow) : speech.speak(word, language, slow)); buttons.append(button);
     }
