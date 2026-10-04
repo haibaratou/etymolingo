@@ -581,5 +581,11 @@ globalThis.ETYMON_WORD_ART = {
   "[\"sciaenoid\",\"skai-2+weid-\"]": "sciaenoid",
   "[\"supererogate\",\"uper+eghs-+reg-+eghs\"]": "supererogate",
   "[\"witticism\",\"weid-\"]": "witticism",
-  "[\"mortar\",\"mer-2\"]": "mortar@construction"
+  "[\"mortar\",\"mer-2\"]": "mortar@construction",
+  "[\"got\",\"\"]": "got@x",
+  "[\"seen\",\"\"]": "seen@x",
+  "[\"taken\",\"\"]": "taken@x",
+  "[\"says\",\"\"]": "says",
+  "[\"feet\",\"\"]": "feet@x"
 };
+
