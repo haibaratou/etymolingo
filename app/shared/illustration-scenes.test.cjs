@@ -36,3 +36,9 @@ test('network unavailable remains explicit',async()=>{
 test('every sample contains exact inflection; no excess length',()=>{
  for(const e of sample){assert(new RegExp('(?<![\\w])'+e.w+'(?![\\w])','i').test(e.scene.en),e.w);assert(e.scene.en.split(/\s+/).length<=18,e.w);}
 });
+
+test('shared renderer shows EN/JA directly without repeating the per-entry label',()=>{
+ const old=global.document;global.document={createElement:tag=>({tagName:tag,textContent:'',className:''})};
+ const node={children:[],dataset:{},classList:{add(){}},replaceChildren(){this.children=[]},append(el){this.children.push(el)}};
+ try{scenes.render(node,{status:'reviewed',entry:e});assert.deepEqual(node.children.map(x=>x.tagName),['p','p']);assert.deepEqual(node.children.map(x=>x.textContent),[e.scene.en,e.scene.ja]);assert.equal(node.dataset.sceneStatus,'reviewed');}finally{global.document=old;}
+});

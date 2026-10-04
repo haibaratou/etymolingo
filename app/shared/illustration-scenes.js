@@ -52,7 +52,6 @@
       container.append(node); return node;
     };
     if (result.status === 'reviewed') {
-      make('span', 'イラスト解説').className = 'illustration-explanation-label';
       make('p', result.entry.scene.en, 'en');
       make('p', result.entry.scene.ja, 'ja');
     } else {
