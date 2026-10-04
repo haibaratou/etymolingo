@@ -23,6 +23,7 @@ WORDS = Path('app/data/generated-etymon/words.json')
 SCENES = Path('app/data/generated-etymon/illustration-scenes.json')
 INDEX = Path('assets/word/illustration-index.js')
 MANIFEST = Path('app/data/generated-etymon/manifest.json')
+HTML = Path('app/games/picture-words.html')
 REPORT = 'reviewed-catalog-report.json'
 
 
@@ -306,26 +307,43 @@ def produce(root, inventory_path=None, previous_catalog=None):
     return files, report
 
 
+def bind_catalog_html(html_raw, catalog_raw):
+    """Replace only the existing catalog script's v value, preserving other bytes."""
+    pattern = rb'''(<script\b[^>]*?\bsrc\s*=\s*["']picture-words/catalog\.js\?v=)([^"'&\s<>]+)'''
+    matches = list(re.finditer(pattern, html_raw, re.I))
+    if len(matches) != 1:
+        raise ValueError('Expected exactly one picture-words/catalog.js?v= script in game HTML; '
+                         'inspect the current HTML before refreshing')
+    start, end = matches[0].span(2)
+    return html_raw[:start] + sha256(catalog_raw)[:12].encode('ascii') + html_raw[end:]
+
+
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--root', type=Path, default=Path(__file__).resolve().parents[3],
                         help='Public repository root; never a private source-data tree')
     parser.add_argument('--output-dir', type=Path, help='Defaults to app/games/picture-words under root')
+    parser.add_argument('--html-output', type=Path,
+                        help='Game HTML destination; defaults to picture-words.html beside the output directory')
     parser.add_argument('--previous-catalog', type=Path, help='Optional stable-ID/order seed; never changes eligibility')
     parser.add_argument('--inventory', type=Path, help='Optional schema1 exact Git filename inventory for sparse QA')
     parser.add_argument('--check', action='store_true', help='Verify deterministic outputs without writing any file')
     args = parser.parse_args(argv)
     out = args.output_dir or args.root / GAME
+    html_path = args.html_output or out.parent / HTML.name
     previous = args.previous_catalog or (out / 'catalog.js' if (out / 'catalog.js').exists() else args.root / GAME / 'catalog.js')
     try:
         files, report = produce(args.root, args.inventory, previous)
+        # Prefer the destination's current UI, including any concurrent local edits.
+        html_source = html_path if html_path.is_file() else args.root / HTML
+        html_raw = bind_catalog_html(html_source.read_bytes(), files['catalog.js'])
+        outputs = [(out / name, raw) for name, raw in files.items()] + [(html_path, html_raw)]
         if args.check:
-            bad = [name for name, raw in files.items() if not (out / name).is_file() or (out / name).read_bytes() != raw]
+            bad = [str(path) for path, raw in outputs if not path.is_file() or path.read_bytes() != raw]
             if bad:
                 raise ValueError('Generated files are missing or stale: ' + ', '.join(bad[:8]))
         else:
-            for name, raw in files.items():
-                path = out / name
+            for path, raw in outputs:
                 if path.is_file() and path.read_bytes() == raw:
                     continue
                 path.parent.mkdir(parents=True, exist_ok=True)

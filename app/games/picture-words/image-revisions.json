@@ -95,6 +95,12 @@
       ],
       "art": "mean@meino",
       "sha256": "ce0a4609b1ef0f596e8e491c82e3e00c61ee0fe098973b9fb00c8b4abf28dda0"
+    },
+    {
+      "w": "ways",
+      "p": [],
+      "art": "ways@x",
+      "sha256": "990ceca77d0757ecb29cc235afe8b5fc9d9abd7887092ba50728f863e14626ab"
     }
   ]
 }

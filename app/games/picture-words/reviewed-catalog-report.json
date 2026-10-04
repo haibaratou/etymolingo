@@ -2,35 +2,35 @@
   "schema": 1,
   "meta": {
     "schema": 1,
-    "sourceWordsSha256": "5c968720059a7a15beac4d42d05e8379c36ff80dd1ab5387d41979dc776be946",
-    "scenesSha256": "7842e3ed0aace69639850f5c1df65f470008da2b46399a2a4c3104ccf5c27c1b",
-    "indexSha256": "e78fd87d8290b9bcd6fbf4565c2e21f080fa64072fad602f942cb1024b381fe4",
-    "count": 95
+    "sourceWordsSha256": "1d367df1caa3fbae89c378b82ae46bd30e4367a1f40b3bf82e95b60452263a6a",
+    "scenesSha256": "bb0d2803831a6cbed764fcae27a5d9eb08261b3bd2b47e12b4cbbb32a317aa1d",
+    "indexSha256": "8f14ef961f3ff29788ff205b3af4dbb08e01f1004674f7c01b81df9d82ea8655",
+    "count": 99
   },
-  "normalCatalogRows": 4065,
-  "emittedRows": 95,
-  "excludedRowsCount": 3970,
-  "sceneEntries": 419,
-  "verifiedPngs": 95,
-  "lazyAssets": 95,
-  "lazyAssetBytes": 24795993,
+  "normalCatalogRows": 4066,
+  "emittedRows": 99,
+  "excludedRowsCount": 3967,
+  "sceneEntries": 423,
+  "verifiedPngs": 99,
+  "lazyAssets": 99,
+  "lazyAssetBytes": 25711125,
   "ordering": "Surviving existing IDs in previous order; new IDs appended in normal-builder order",
   "inputHashes": {
-    "app/data/generated-etymon/words.json": "5c968720059a7a15beac4d42d05e8379c36ff80dd1ab5387d41979dc776be946",
-    "app/data/generated-etymon/illustration-scenes.json": "7842e3ed0aace69639850f5c1df65f470008da2b46399a2a4c3104ccf5c27c1b",
-    "assets/word/illustration-index.js": "e78fd87d8290b9bcd6fbf4565c2e21f080fa64072fad602f942cb1024b381fe4",
+    "app/data/generated-etymon/words.json": "1d367df1caa3fbae89c378b82ae46bd30e4367a1f40b3bf82e95b60452263a6a",
+    "app/data/generated-etymon/illustration-scenes.json": "bb0d2803831a6cbed764fcae27a5d9eb08261b3bd2b47e12b4cbbb32a317aa1d",
+    "assets/word/illustration-index.js": "8f14ef961f3ff29788ff205b3af4dbb08e01f1004674f7c01b81df9d82ea8655",
     "app/games/picture-words/build_catalog.py": "42b868ac315092781f5abfcec19ed6a84670f0b390b6b0e8c150197c69a98ba8",
-    "app/games/picture-words/updated-art.json": "b41b9cf98c9f920b10a9981a8be9b4334709a253bd85c414597fc4379dc7da32",
+    "app/games/picture-words/updated-art.json": "c79f34f086fcd8c925420d44a8673d0b69f29be85c09be8f49cdf015fa39285d",
     "app/games/picture-words/readiness-review.json": "de9ddbf46fefadf6c30185c3c9b8ae8a44707f7af6b5a581a9661fa8ec219f39",
-    "app/games/picture-words/image-revisions.json": "7c2a81ebec781ee46ea49dcdecbb2a6478da1e06637f496d29c218e426e28771",
+    "app/games/picture-words/image-revisions.json": "be9b1c81860c8433cf746d6285f11e39e0e9fc39f6f681397c8fe03ebab3a8e8",
     "app/data/generated-etymon/word-suika-ja.json": "113a3a09a5005dc0ad53e6e8f9595a02f95e0471b672d0130f815b1bf819d91f",
     "app/data/ja/ja_index.json": "5526e20a7d07bd824f903d1bb4d46d7589813c82bf31f5737a78de7ad927b3f7"
   },
   "inventoryNamesSha256": "3d43c41628905a8724c2e9fc13dc481fce642db37274df839d4ea8abaf67d715",
   "exclusionCounts": {
     "art_not_completed_after_cutoff": 34,
-    "no_exact_scene_binding": 1847,
-    "normal_readiness_gate": 2089
+    "no_exact_scene_binding": 1846,
+    "normal_readiness_gate": 2087
   },
   "excludedRows": [
     {
@@ -853,36 +853,11 @@
       "reason": "no_exact_scene_binding"
     },
     {
-      "id": "living",
-      "w": "living",
-      "p": [
-        "leip-"
-      ],
-      "art": "living",
-      "reason": "normal_readiness_gate",
-      "detail": "first_reading_unavailable"
-    },
-    {
       "id": "values",
       "w": "values",
       "p": [],
       "art": "values",
       "reason": "no_exact_scene_binding"
-    },
-    {
-      "id": "table",
-      "w": "table",
-      "p": [],
-      "art": "table",
-      "reason": "no_exact_scene_binding"
-    },
-    {
-      "id": "trying",
-      "w": "trying",
-      "p": [],
-      "art": "trying",
-      "reason": "normal_readiness_gate",
-      "detail": "first_reading_unavailable"
     },
     {
       "id": "function",
@@ -34543,6 +34518,14 @@
       "reason": "normal_readiness_gate"
     },
     {
+      "w": "blood",
+      "p": [
+        "bhel-3"
+      ],
+      "art": "blood",
+      "reason": "not_selected_by_normal_art_date_or_homograph_rules"
+    },
+    {
       "w": "both",
       "p": [
         "ambhō-",
@@ -35487,14 +35470,6 @@
       "reason": "not_selected_by_normal_art_date_or_homograph_rules"
     },
     {
-      "w": "living",
-      "p": [
-        "leip-"
-      ],
-      "art": "living",
-      "reason": "normal_readiness_gate"
-    },
-    {
       "w": "local",
       "p": [],
       "art": "local",
@@ -36415,12 +36390,6 @@
       "reason": "not_selected_by_normal_art_date_or_homograph_rules"
     },
     {
-      "w": "trying",
-      "p": [],
-      "art": "trying",
-      "reason": "normal_readiness_gate"
-    },
-    {
       "w": "turn",
       "p": [
         "terə-1"
@@ -36546,6 +36515,12 @@
       ],
       "art": "water",
       "reason": "normal_readiness_gate"
+    },
+    {
+      "w": "ways",
+      "p": [],
+      "art": "ways@x",
+      "reason": "not_selected_by_normal_art_date_or_homograph_rules"
     },
     {
       "w": "ways",

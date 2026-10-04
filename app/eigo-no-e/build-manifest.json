@@ -2,22 +2,22 @@
   "schema": 1,
   "build_version": 3,
   "sources": {
-    "words_sha256": "5c968720059a7a15beac4d42d05e8379c36ff80dd1ab5387d41979dc776be946",
-    "scenes_sha256": "7842e3ed0aace69639850f5c1df65f470008da2b46399a2a4c3104ccf5c27c1b",
-    "illustration_index_sha256": "e78fd87d8290b9bcd6fbf4565c2e21f080fa64072fad602f942cb1024b381fe4"
+    "words_sha256": "1d367df1caa3fbae89c378b82ae46bd30e4367a1f40b3bf82e95b60452263a6a",
+    "scenes_sha256": "bb0d2803831a6cbed764fcae27a5d9eb08261b3bd2b47e12b4cbbb32a317aa1d",
+    "illustration_index_sha256": "8f14ef961f3ff29788ff205b3af4dbb08e01f1004674f7c01b81df9d82ea8655"
   },
-  "eligible": 419,
-  "input_scenes": 419,
+  "eligible": 423,
+  "input_scenes": 423,
   "excluded": [],
   "categories": 15,
-  "unclassified": 317,
+  "unclassified": 319,
   "thumbnail": {
     "size": 320,
     "quality": 82,
     "method": 4,
     "pillow": "12.3.0"
   },
-  "data_sha256": "8f064ea183ce09cfa79ae9024a77d3e170418bbee0c1047aa0861e3f54d7ff63",
+  "data_sha256": "2633740f288bcd5fa3cb0f1973d80ec546e90001cf284f6c1eb859bffc69a83f",
   "bindings": [
     {
       "art": "book",
@@ -3370,6 +3370,38 @@
       "image_git_blob": "3c22bb2f3ddadc93b50b36bab4825bcb158f4e90",
       "thumbnail_path": "app/eigo-no-e/thumbs/mean@meino.ce0a4609b1ef.webp",
       "thumbnail_sha256": "36ed07d68c72135cb704d38edb5d5cf2c66bfb45e5cde88733d756f4e25a2e8c"
+    },
+    {
+      "art": "blood",
+      "image_path": "assets/word/blood.png",
+      "image_sha256": "190c9ba2bb17d260c8097733a5343984135fb995054becb08a6a7523bc5fed44",
+      "image_git_blob": "f27596e9511394720b816483a20e034f63a1d7f4",
+      "thumbnail_path": "app/eigo-no-e/thumbs/blood.190c9ba2bb17.webp",
+      "thumbnail_sha256": "49b5c4071dea7395a6bc11261c9c97c2f8eea711286c8e0465d7eb17cf96a008"
+    },
+    {
+      "art": "short",
+      "image_path": "assets/word/short.png",
+      "image_sha256": "33a7663989956df7f64bf9cc045bb1f2e94e0476836cb135326db4018a4ae910",
+      "image_git_blob": "f29d19b2f0a3505ff4f84365db22a9ff7d6c5ae8",
+      "thumbnail_path": "app/eigo-no-e/thumbs/short.33a766398995.webp",
+      "thumbnail_sha256": "d8ce3add82552764b94c355aa50e2bcd6de4fcee748f7e5456117fcff937895b"
+    },
+    {
+      "art": "table",
+      "image_path": "assets/word/table.png",
+      "image_sha256": "ea6c6d5182fa6a5dcfc248d15d0c4374b0d1a3d88eea0215867d9d43cde96b94",
+      "image_git_blob": "18ae0e9a9e9f33b81896bc6ac41dd67c357bff7b",
+      "thumbnail_path": "app/eigo-no-e/thumbs/table.ea6c6d5182fa.webp",
+      "thumbnail_sha256": "260d8b4ef29c1d783e6440e5a9c875ab4d5ace5683c4d10dbc0c4161d98843b4"
+    },
+    {
+      "art": "ways@x",
+      "image_path": "assets/word/ways@x.png",
+      "image_sha256": "990ceca77d0757ecb29cc235afe8b5fc9d9abd7887092ba50728f863e14626ab",
+      "image_git_blob": "48e6c231f03eee7a4854450ee2065984ac6a1ab7",
+      "thumbnail_path": "app/eigo-no-e/thumbs/ways@x.990ceca77d07.webp",
+      "thumbnail_sha256": "56a80788a15ae5749c0fcb007dd9cdd4bf819b89588054dd7c94459ade85b01d"
     }
   ]
 }

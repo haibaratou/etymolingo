@@ -193,6 +193,7 @@ class ReviewedCatalogTests(unittest.TestCase):
             put_json(Path('app/data/generated-etymon/word-suika-ja.json'), japanese)
             put_json(Path('app/data/ja/ja_index.json'), [])
             put(R.INDEX, b'globalThis.ETYMON_WORD_ART = {};\n')
+            put(R.HTML, b'<script src="picture-words/catalog.js?v=fixture" defer></script>\n')
             put_json(R.GAME / 'updated-art.json', [[w['w'], '', w['w'] + '.png', '2099-01-01T00:00:00+09:00'] for w in words])
             put_json(R.GAME / 'readiness-review.json', {'rows': []})
             put_json(R.GAME / 'image-revisions.json', {'entries': []})
@@ -333,7 +334,9 @@ class ReviewedCatalogTests(unittest.TestCase):
             out=Path(td)
             for name,raw in self.files.items():
                 p=out/name;p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes(raw)
-            args=['--root',str(ROOT),'--output-dir',str(out),'--check']
+            html=out/'picture-words.html'
+            html.write_bytes(R.bind_catalog_html((ROOT/R.HTML).read_bytes(),self.files['catalog.js']))
+            args=['--root',str(ROOT),'--output-dir',str(out),'--html-output',str(html),'--check']
             if INVENTORY:args+=['--inventory',str(INVENTORY)]
             with redirect_stdout(io.StringIO()),redirect_stderr(io.StringIO()):self.assertEqual(R.main(args),0)
             asset=out/next(name for name in self.files if name.startswith('scene-assets/'))
@@ -343,6 +346,44 @@ class ReviewedCatalogTests(unittest.TestCase):
             self.assertEqual(before,{str(p.relative_to(out)):p.read_bytes() for p in out.rglob('*') if p.is_file()})
             asset.unlink()
             with redirect_stdout(io.StringIO()),redirect_stderr(io.StringIO()):self.assertEqual(R.main(args),1)
+
+
+    def test_catalog_HTML_update_changes_only_existing_query_value(self):
+        for original in [(ROOT/R.HTML).read_bytes(),
+                         b'<!doctype html>\r\n<script defer src=\'picture-words/catalog.js?v=old&amp;keep=1\'></script>\r\n<div>fresh UI</div>']:
+            token=R.sha256(self.files['catalog.js'])[:12].encode()
+            expected=re.sub(rb'(picture-words/catalog\.js\?v=)[^\s\'"&<>]+',lambda m:m[1]+token,original)
+            actual=R.bind_catalog_html(original,self.files['catalog.js'])
+            self.assertEqual(actual,expected)
+            self.assertEqual(R.bind_catalog_html(actual,self.files['catalog.js']),actual)
+            self.assertNotEqual(R.bind_catalog_html(actual,self.files['catalog.js']+b'\n'),actual)
+
+    def test_missing_or_duplicate_HTML_catalog_scripts_fail_closed(self):
+        script=b'<script src="picture-words/catalog.js?v=old"></script>'
+        for raw in [b'<html></html>',script+script]:
+            with self.assertRaisesRegex(ValueError,'exactly one'):
+                R.bind_catalog_html(raw,self.files['catalog.js'])
+
+    def test_check_detects_stale_HTML_without_writes_and_refresh_preserves_fresh_UI(self):
+        with tempfile.TemporaryDirectory() as td:
+            out=Path(td)/'picture-words';html=Path(td)/'picture-words.html'
+            for name,raw in self.files.items():
+                p=out/name;p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes(raw)
+            fresh=(ROOT/R.HTML).read_bytes()+b'\n<!-- concurrent fresh UI preserved -->\n'
+            stale=re.sub(rb'(picture-words/catalog\.js\?v=)[^\s\'"&<>]+',rb'\g<1>stale-token',fresh)
+            html.write_bytes(stale)
+            args=['--root',str(ROOT),'--output-dir',str(out)]
+            if INVENTORY:args+=['--inventory',str(INVENTORY)]
+            before={str(p.relative_to(td)):p.read_bytes() for p in Path(td).rglob('*') if p.is_file()}
+            with redirect_stdout(io.StringIO()),redirect_stderr(io.StringIO()):
+                self.assertEqual(R.main(args+['--check']),1)
+            self.assertEqual(before,{str(p.relative_to(td)):p.read_bytes() for p in Path(td).rglob('*') if p.is_file()})
+            with redirect_stdout(io.StringIO()),redirect_stderr(io.StringIO()):
+                self.assertEqual(R.main(args),0)
+                self.assertEqual(R.main(args+['--check']),0)
+            self.assertEqual(html.read_bytes(),R.bind_catalog_html(stale,self.files['catalog.js']))
+            self.assertTrue(html.read_bytes().endswith(b'<!-- concurrent fresh UI preserved -->\n'))
+            for name,raw in self.files.items():self.assertEqual((out/name).read_bytes(),raw)
 
 
 if __name__=='__main__':
