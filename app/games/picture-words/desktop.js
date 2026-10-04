@@ -5,7 +5,7 @@
   window.NICOLINGO_PHONE_HOST=true;
   document.documentElement.classList.add('phone-host');
   const host=document.createElement('main');host.className='desktop-phone-host';
-  const frame=document.createElement('iframe');frame.title='ニコリンゴのゲーム画面';
+  const frame=document.createElement('iframe');frame.title='Pictlingoのゲーム画面';
   url.searchParams.set('phone','1');frame.src=url.href;
   host.append(frame);document.body.append(host);
 })();

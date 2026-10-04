@@ -1,6 +1,6 @@
 {
-  "name": "ニコリンゴ",
-  "short_name": "ニコリンゴ",
+  "name": "Pictlingo",
+  "short_name": "Pictlingo",
   "start_url": "../picture-words.html",
   "scope": "../",
   "display": "standalone",

@@ -1,4 +1,4 @@
-/* WORD BLOOM — standalone play, browser voices, and a curated dictionary excerpt. */
+/* Pictlingo — standalone play, browser voices, and a curated dictionary excerpt. */
 (async () => {
   'use strict';
   if(window.NICOLINGO_PHONE_HOST)return;
@@ -321,7 +321,7 @@
     $('shuffle').setAttribute('aria-label', '文字をまぜる');
     $('hint').setAttribute('aria-label', '答えを見る');
     const t = text(); document.documentElement.lang = mode;
-    document.title = mode === 'ja' ? 'WORD BLOOM — ことばの庭' : 'WORD BLOOM — A garden of words';
+    document.title = 'Pictlingo';
     $('modeToggle').dataset.mode = mode === 'ja' ? 'en' : 'ja';
     $('modeToggle').setAttribute('aria-label', mode === 'ja' ? '英語に切り替える' : '日本語に切り替える');
     $('modeToggle').dataset.active = mode;
