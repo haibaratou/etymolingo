@@ -104,7 +104,7 @@
   const icon = name => `<svg aria-hidden="true"><use href="#i-${name}"/></svg>`;
   const imgURL = word => `../../assets/word/${encodeURIComponent(word.pic)}.png`;
   const sceneData = window.IllustrationScenes.load('../data/generated-etymon/illustration-scenes.json?v=1').catch(() => null);
-  let sceneRequest = 0;
+  let sceneRequest = 0, sceneReadingHold = false;
   async function explanationFor(word) {
     if (!word.sceneBinding) return {status:'unreviewed',entry:null};
     const data = await sceneData;
@@ -115,9 +115,14 @@
   async function showRewardExplanation(word) {
     const request = ++sceneRequest, panel = $('rewardExplanation');
     panel.hidden = true; panel.replaceChildren();
+    // Let readers finish a verified explanation at their own pace. Pending
+    // verification also holds briefly, so a slow image hash cannot lose the text.
+    sceneReadingHold = !!word.sceneBinding;
     const result = await explanationFor(word);
     if (request !== sceneRequest || phase !== 'solved' || entry.id !== word.id) return;
     window.IllustrationScenes.render(panel, result); panel.hidden = false;
+    sceneReadingHold = result.status === 'reviewed';
+    if (!sceneReadingHold) queueAdvance();
   }
 
   const shuffle = values => {
@@ -543,7 +548,7 @@
   }
   function queueAdvance(delay = REWARD_DURATION) {
     pauseAdvance();
-    if (phase !== 'solved' || $('modal').open || $('launchScreen').open || document.hidden) return;
+    if (phase !== 'solved' || sceneReadingHold || $('modal').open || $('launchScreen').open || document.hidden) return;
     advanceTimers.push(later(() => $('game').classList.add('stage-out'), delay - 180));
     advanceTimers.push(later(() => {
       // Keep the pace: a solved word always leads to a different picture.
@@ -570,7 +575,7 @@
     $('rewardBackdrop').hidden = true;
     $('rankUp').hidden = true;
     $('winPronunciation').hidden = true; $('winPronunciation').replaceChildren();
-    sceneRequest++; $('rewardExplanation').hidden = true; $('rewardExplanation').replaceChildren();
+    sceneRequest++; sceneReadingHold = false; $('rewardExplanation').hidden = true; $('rewardExplanation').replaceChildren();
     index = (nextIndex + catalog.length) % catalog.length; progress().index = index;
     entry = catalog[index];
     if (mode === 'ja' && !entry.w) mode = 'en';
