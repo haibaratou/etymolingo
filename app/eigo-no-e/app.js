@@ -222,8 +222,8 @@ function home() {
   side();
   const tries = [['s', 'book'], ['s', '本'], ['s', 'help'], ['t', '箱を持ち上げる'], ['t', '椅子の下'], ['t', 'a cat under a chair']];
   view.innerHTML = `<div class="page fade">
-    <section class="pict-hero"><div class="hero-copy"><span class="hero-kicker">PICTURE × WORD × DISCOVERY</span><h1>Pictpedia</h1><h2>絵から、ことばの世界へ。</h2>
-      <p>見つけて、わかって、遊んで。<br><b>${num(W.length)}</b> 枚のイラストと出会う英単語の辞典。</p><a class="btn primary" href="#/c/animals">カテゴリーを探検する ${chev}</a></div><img class="hero-art" src="../assets/pictpedia/hero-carnival.png" width="1536" height="1024" alt="空飛ぶ鉛筆とドラゴンに乗る二人。恐竜、タコ、ロボットたちのにぎやかなことばの世界" fetchpriority="high"></section>
+    <section class="pict-hero"><div class="hero-copy"><span class="hero-kicker">PICTURE × WORD × DISCOVERY</span><h1 class="hero-title">Pictpedia</h1><h2>絵から、ことばの世界へ。</h2>
+      <p>見つけて、わかって、遊んで。<br><b>${num(W.length)}</b> 枚のイラストと出会う英単語の辞典。</p><a class="btn primary" href="#/c/animals">カテゴリーを探検する ${chev}</a></div><img class="hero-art" src="../assets/pictpedia/hero-carnival.png?v=e139fd54677d" width="1536" height="1024" alt="Pictpedia：空飛ぶ鉛筆とドラゴンに乗る二人と、にぎやかなことばの世界" fetchpriority="high"></section>
     <div class="tryline">たとえば ${tries.map(([m, q]) => `<a class="${m === 't' ? 'text' : ''}" href="#/${m}/${encodeURIComponent(q)}" title="${m === 't' ? '文章でさがす' : '単語でさがす'}">${esc(q)}</a>`).join('')}</div>
     <h2 class="h2" id="categories">カテゴリーからさがす<small>Categories</small></h2>
     <div class="cats">${D.categories.map(c => {
@@ -275,7 +275,7 @@ function wordPage(id) {
         <div class="acts">
           <button class="btn primary" id="speak" type="button"><svg><use href="#i-sound"/></svg>発音をきく</button>
           <a class="btn" href="${full(w)}" download="${esc(w.id)}.png"><svg><use href="#i-down"/></svg>PNG</a>
-          <a class="btn word-puzzle" href="games/picture-words.html?word=${encodeURIComponent(w.id)}" target="_blank" rel="noopener"><svg><use href="#i-puzzle"/></svg>この単語のパズル ↗</a>
+          <button class="btn word-puzzle" type="button" disabled aria-disabled="true"><svg><use href="#i-puzzle"/></svg>パズル連携は準備中</button>
           <button class="btn" id="copy" type="button"><svg><use href="#i-link"/></svg>リンク</button>
         </div>
         <div class="box" id="sceneBox" aria-live="polite"><p>イラストを確認しています…</p></div>
@@ -299,11 +299,6 @@ function wordPage(id) {
     }
   });
   $('#speak').onclick = () => speak(w.w);
-  $('.word-puzzle').onclick = e => {
-    if(e.ctrlKey || e.metaKey || e.shiftKey || e.altKey)return;
-    e.preventDefault();
-    window.open(e.currentTarget.href, '_blank', 'popup,width=620,height=820,noopener');
-  };
   $('#copy').onclick = () => navigator.clipboard?.writeText(location.href).then(() => toast('リンクをコピーしました'), () => toast(location.href));
   document.title = `${w.w}(${firstJa(w)})のイラスト — Pictpedia`;
 }
@@ -343,7 +338,7 @@ function route() {
   if (!kind) home();
   else if (kind === 'c') catPage(a, b);
   else if (kind === 'w') wordPage(h.slice(2));
-  else if (kind === 'p') location.replace('games/picture-words.html?word='+encodeURIComponent(h.slice(2)));
+  else if (kind === 'p') { side(); view.innerHTML = '<div class="page empty"><b>パズル連携は準備中です。</b><a href="#/">辞典にもどる</a></div>'; }
   else if (kind === 's' || kind === 't') resultPage(kind, h.slice(2));
   else notFound();
   scrollTo(0, 0);
