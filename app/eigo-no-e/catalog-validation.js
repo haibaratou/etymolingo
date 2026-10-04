@@ -48,5 +48,11 @@ function buildCurrentCatalog(data,scenes,words,index){
   }).filter(c=>c.subs.length);
   return {...data,words:output,categories,total_art:output.length,excluded};
 }
-return {buildCurrentCatalog,wordKey,sceneKey,firstJa,firstEn,validDescription};
+const usesLocalSnapshot=protocol=>protocol==='file:';
+const snapshotWords=data=>data.words.map(w=>({...w,ja_readings:w.k?[{gloss:w.ja,kana:w.k}]:[]}));
+function buildSnapshotCatalog(data){
+  if(!data?.sources||!['words_sha256','scenes_sha256','illustration_index_sha256'].every(k=>/^[a-f0-9]{64}$/.test(data.sources[k]||'')))throw Error('Generated snapshot provenance missing');
+  return buildCurrentCatalog(data,{schema:1,entries:data.words},snapshotWords(data),{});
+}
+return {buildCurrentCatalog,buildSnapshotCatalog,usesLocalSnapshot,snapshotWords,wordKey,sceneKey,firstJa,firstEn,validDescription};
 });

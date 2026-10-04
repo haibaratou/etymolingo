@@ -4,6 +4,7 @@
 'use strict';
 const generated = window.EIGO_NO_E;
 let D;
+const localSnapshot=location.protocol==='file:';
 const $ = (s, p = document) => p.querySelector(s);
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const view = $('#view');
@@ -20,6 +21,9 @@ if (preview.searchParams.get('preview') === 'mobile' && window.self === window.t
 view.innerHTML='<div class="page empty" role="status">説明文付きのイラストを読み込んでいます…</div>';
 try {
   if (!generated || !window.EigoCatalogValidation || !window.IllustrationScenes) throw Error('Catalog scripts unavailable');
+  if(localSnapshot){
+    D=window.EigoCatalogValidation.buildSnapshotCatalog(generated);
+  } else {
   const [scenes, manifest, indexText] = await Promise.all([
     window.IllustrationScenes.load('data/generated-etymon/illustration-scenes.json'),
     fetch('data/generated-etymon/manifest.json',{cache:'no-cache'}).then(r=>{if(!r.ok)throw Error('Manifest unavailable');return r.json();}),
@@ -32,6 +36,7 @@ try {
     : await fetch('data/generated-etymon/words.json',{cache:'no-cache'}).then(r=>{if(!r.ok)throw Error('Words unavailable');return r.json();});
   const index=JSON.parse(indexText.slice(indexText.indexOf('{'),indexText.lastIndexOf('}')+1));
   D=window.EigoCatalogValidation.buildCurrentCatalog(generated,scenes,words,index);
+  }
   if(!D.words.length)throw Error('No current reviewed entries');
 } catch(error) {
   console.error('Eigo-no-e catalog:',error);
@@ -280,7 +285,11 @@ function wordPage(id) {
   </div>`;
   // Revalidate the exact currently served PNG before showing its description.
   const sceneBox=$('#sceneBox');
-  window.IllustrationScenes.verify(w,{imageUrl:full(w),word:w}).then(result=>{
+  // Direct-file viewing uses the build-verified snapshot; browsers block fetch(file:).
+  // HTTP/HTTPS always keeps the live byte/sense checks and never silently falls back.
+  const checked=localSnapshot ? Promise.resolve({status:'reviewed',entry:w})
+    : window.IllustrationScenes.verify(w,{imageUrl:full(w),word:w});
+  checked.then(result=>{
     if(!sceneBox.isConnected)return;
     if(result.status==='reviewed')sceneBox.innerHTML=`<h3>このイラスト</h3><p class="en" lang="en">${esc(w.scene.en)}</p><p lang="ja">${esc(w.scene.ja)}</p>`;
     else {
