@@ -479,6 +479,15 @@ def build_catalog(words, japanese, inventory, art_index, ledger):
         if len(matches) == 1:
             row['sceneBinding'] = {key: matches[0].get(key, [] if key == 'p' else '')
                                    for key in ('w', 'p', 'ja', 'en')}
+    revisions_path = HERE / 'image-revisions.json'
+    revisions = read_json(revisions_path).get('entries', []) if revisions_path.exists() else []
+    revisions = {(e['w'], tuple(e['p']), e['art']): e['sha256'] for e in revisions}
+    for row in selected:
+        revision = revisions.get((row['en'], tuple(row.get('roots', [])), row['pic']))
+        if revision:
+            if not re.fullmatch(r'[0-9a-f]{64}', revision):
+                raise ValueError('Invalid immutable artwork revision')
+            row['imageRevision'] = revision
     return selected
 
 

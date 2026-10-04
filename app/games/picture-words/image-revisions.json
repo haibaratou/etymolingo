@@ -1,0 +1,12 @@
+{
+  "schema": 1,
+  "purpose": "Immutable serving aliases for semantically repaired artwork; canonical art identity and saved progress IDs stay unchanged. Not additional dictionary illustrations.",
+  "entries": [
+    {
+      "w": "stimulus",
+      "p": [],
+      "art": "stimulus",
+      "sha256": "a5efea344f89bc40812040b6d30170d9db6760a970f57ce7cec0dfbd148a5f6a"
+    }
+  ]
+}

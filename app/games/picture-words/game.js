@@ -102,7 +102,8 @@
   };
   const clearPending = () => { for (const id of pending) clearTimeout(id); pending.clear(); clearTimeout(feedbackTimer); };
   const icon = name => `<svg aria-hidden="true"><use href="#i-${name}"/></svg>`;
-  const imgURL = word => `../../assets/word/${encodeURIComponent(word.pic)}.png`;
+  const imgStem = word => word.pic + (/^[0-9a-f]{64}$/.test(word.imageRevision || '') ? '@' + word.imageRevision : '');
+  const imgURL = word => `../../assets/word/${encodeURIComponent(imgStem(word))}.png`;
   const sceneData = window.IllustrationScenes.load('../data/generated-etymon/illustration-scenes.json?v=1').catch(() => null);
   let sceneRequest = 0, sceneReadingHold = false;
   async function explanationFor(word) {
@@ -599,7 +600,7 @@
     $('gestureNote').textContent = mode === 'ja' ? '途中で離すとキャンセル' : 'Release an unfinished word to cancel';
     const version = generation, image = $('clueImage');
     image.alt = mode === 'ja' ? '答えを考えるためのイラスト' : 'Picture clue. What does it show?';
-    if (keepPicture && image.complete && image.naturalWidth > 0 && image.src.endsWith(encodeURIComponent(entry.pic) + '.png')) {
+    if (keepPicture && image.complete && image.naturalWidth > 0 && image.src.endsWith(encodeURIComponent(imgStem(entry)) + '.png')) {
       image.style.opacity = '1';
       image.style.animation = 'none';
       phase = 'playing'; $('game').dataset.state = phase; recordDisplay();

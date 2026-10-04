@@ -2,13 +2,14 @@
 ((root) => {
   const CACHE = 'nicolingo-offline-v2';
   const state = {online:navigator.onLine, pictures:new Set(), supported:'serviceWorker' in navigator && 'caches' in root && root.isSecureContext};
-  const artURL = word => new URL('../../assets/word/' + encodeURIComponent(word.pic) + '.png', location.href).href;
+  const artStem = word => word.pic + (/^[0-9a-f]{64}$/.test(word.imageRevision || '') ? '@' + word.imageRevision : '');
+  const artURL = word => new URL('../../assets/word/' + encodeURIComponent(artStem(word)) + '.png', location.href).href;
   async function refresh() {
     if (!state.supported) return;
     const keys = await (await caches.open(CACHE)).keys();
     state.pictures = new Set(keys.filter(key => new URL(key.url).pathname.endsWith('.png')).map(key => decodeURIComponent(new URL(key.url).pathname.split('/').pop().slice(0,-4))));
   }
-  function canPlay(word) { return (state.online && navigator.onLine) || state.pictures.has(word.pic); }
+  function canPlay(word) { return (state.online && navigator.onLine) || state.pictures.has(artStem(word)); }
   async function bounded(task, milliseconds) {
     let timer;
     try { return await Promise.race([task, new Promise(resolve => { timer = setTimeout(resolve, milliseconds); })]); }
@@ -53,7 +54,7 @@
         if (bytes > 4500000) throw new Error('size');
         await cache.put(url, response);
       }
-      state.pictures.add(word.pic); progress(++done, pack.length);
+      state.pictures.add(artStem(word)); progress(++done, pack.length);
     }
     return done;
   }

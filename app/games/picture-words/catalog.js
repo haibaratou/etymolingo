@@ -1517,7 +1517,7 @@ window.PICTURE_WORDS_CATALOG = [
   {"w":"くい","ja":"くい","pic":"stake","en":"stake","id":"stake","rank":599,"roots":["steg-1"],"dictionaryIndex":15001,"updatedArt":true},
   {"w":"たんてい","ja":"探偵、刑事","pic":"detective","en":"detective","id":"detective","rank":599,"roots":[],"dictionaryIndex":19440,"updatedArt":true},
   {"w":"にんき","ja":"人気、受けが良いこと","pic":"popularity","en":"popularity","id":"popularity","rank":599,"roots":[],"dictionaryIndex":19441,"updatedArt":true},
-  {"w":"げきれい","ja":"激励、励み","pic":"stimulus","en":"stimulus","id":"stimulus","rank":599,"roots":[],"dictionaryIndex":19443,"updatedArt":true},
+  {"w":"しげき","ja":"刺激、促進要因、励み","pic":"stimulus","en":"stimulus","id":"stimulus","rank":599,"roots":[],"dictionaryIndex":19443,"updatedArt":true,"sceneBinding":{"w":"stimulus","p":[],"ja":"刺激、促進要因、励み","en":"response trigger / impetus / encouragement"},"imageRevision":"a5efea344f89bc40812040b6d30170d9db6760a970f57ce7cec0dfbd148a5f6a"},
   {"w":"くだけた","ja":"くだけた","pic":"casual","en":"casual","id":"casual","rank":600,"roots":["kad-"],"dictionaryIndex":2389,"updatedArt":true},
   {"w":"","ja":"脂肪の","pic":"fatty","en":"fatty","id":"fatty","rank":600,"roots":["peiə-"],"dictionaryIndex":5912,"reviewStatus":"first_reading_unavailable","updatedArt":true},
   {"w":"くつう","ja":"苦痛","pic":"torture","en":"torture","id":"torture","rank":600,"roots":["terkʷ-"],"dictionaryIndex":16094,"updatedArt":true},
