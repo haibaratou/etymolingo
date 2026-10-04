@@ -7,7 +7,7 @@ app\games\picture-words\refresh_reviewed_catalog.cmd
 app\games\picture-words\refresh_reviewed_catalog.cmd --check
 ```
 
-Python 3 is required; the command uses the Windows Python launcher when present. On other systems, run `python3 app/games/picture-words/refresh_reviewed_catalog.py` with the same options. No external packages or network access are required.
+Python 3 is required. The command checks that Python actually runs, trying `py -3`, `python`, `python3`, then the current user's bundled Codex Python runtime. A launcher without an installed Python is skipped. On other systems, run `python3 app/games/picture-words/refresh_reviewed_catalog.py` with the same options. No external packages or network access are required.
 
 The unchanged `build_catalog.py` supplies normal word eligibility, readings, first-sense/image selection and stable IDs. The refresh filters those candidates to reviewed, exact bilingual scene bindings whose current canonical PNG bytes match both accepted hashes. Keep using the refresh command to generate the playable catalog; the older normal builder remains the candidate-selection component.
 
