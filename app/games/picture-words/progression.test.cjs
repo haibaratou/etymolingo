@@ -201,3 +201,10 @@ test('calendar boundaries use local time instead of UTC and remain correct acros
   assert.equal(dayKey(new Date(2026, 11, 31, 23, 59)), '2026-12-31');
   assert.equal(dayKey(new Date(2027, 0, 1, 0, 0)), '2027-01-01');
 });
+
+test('NEW is shared across languages and never labels owned or previously displayed cards',()=>{
+ const {isFirstView}=require('./progression.js');const saved=fresh();assert.equal(isFirstView(saved,'cat'),true);
+ saved.discovery=markSeen(saved.discovery,'cat','ja');assert.equal(isFirstView(saved,'cat'),false);
+ saved.en.stars.dog=3;assert.equal(isFirstView(saved,'dog'),false);assert.equal(isFirstView(saved,'bird'),true);
+ const restored=JSON.parse(JSON.stringify(saved));assert.equal(isFirstView(restored,'cat'),false);
+});

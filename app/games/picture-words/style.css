@@ -951,3 +951,13 @@ html[data-layout=mobile] .play-toolbar #modeJa,html[data-layout=mobile] .play-to
 
 /* No connecting line, glow or finger-following tip at any gesture stage. */
 #wheel #trail{display:none!important;visibility:hidden!important}
+
+/* Centre the occupied hex board in all space between the answer and bottom dock. */
+@media(orientation:portrait){
+ html[data-layout=mobile]{--board-space:calc(var(--play-height) - var(--card) - 176px);--wheel:min(calc(100vw - 24px),calc(var(--board-space) / var(--board-ratio,1)))}
+ html[data-layout=mobile] .play-layout{grid-template-rows:var(--card) 40px var(--board-space)}
+ html[data-layout=mobile] .wheel{align-self:center;justify-self:center}
+}
+
+.new-card-badge{position:absolute;z-index:8;left:-14px;top:10px;width:84px;padding:5px 0;transform:rotate(-35deg);text-align:center;font-weight:900;font-size:16px;letter-spacing:1px;color:white;background:linear-gradient(135deg,#ff7950,#ed315d);border:2px solid #fff3cd;box-shadow:0 3px 0 #aa2442,0 4px 9px #9d284555;pointer-events:none}
+.new-card-badge[hidden]{display:none}

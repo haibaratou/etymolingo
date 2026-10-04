@@ -113,6 +113,9 @@
     return choices[Math.floor(fraction * choices.length)].index;
   }
 
+  function isFirstView(saved,wordId){
+    return !languages.some(lang=>saved?.[lang]?.stars?.[wordId] || saved?.discovery?.seen?.[lang]?.includes(wordId));
+  }
   function markSeen(discovery, wordId, language, now = new Date()) {
     const state = hydrate(discovery, now);
     if (!languages.includes(language) || !isId(wordId)) return state;
@@ -154,7 +157,7 @@
     };
   }
 
-  const api = { GOAL, dayKey, hydrate, supports, discoveryWeight, selectNext, markSeen, summary, collect };
+  const api = { isFirstView, GOAL, dayKey, hydrate, supports, discoveryWeight, selectNext, markSeen, summary, collect };
   if (typeof module === 'object' && module.exports) module.exports = api;
   else root.PictureWordsProgression = api;
 })(typeof window === 'undefined' ? globalThis : window);

@@ -557,7 +557,9 @@
     entry = catalog[index];
     if (mode === 'ja' && !entry.w) mode = 'en';
     progress().index = index; progress().wordId = entry.id;
-    saved.discovery = discovery.markSeen(saved.discovery, entry.id, mode); persist();
+    const firstView=discovery.isFirstView(saved,entry.id);
+    $('newCardBadge').hidden=true;
+    const recordDisplay=()=>{ if($('launchScreen').open)return; $('newCardBadge').hidden=!firstView; saved.discovery=discovery.markSeen(saved.discovery,entry.id,mode); persist(); };
     round=bilingualRound(entry.en,entry.w); round.viewed={en:false,ja:false}; round.mistakes={en:0,ja:0};
     answer=round.answers[mode];
     selected = []; hintCount = Math.min(retainedHintCount, answer.length); mistakes = 0; shuffleBusy = false; phase = 'loading';
@@ -577,14 +579,14 @@
     if (keepPicture && image.complete && image.naturalWidth > 0 && image.src.endsWith(encodeURIComponent(entry.pic) + '.png')) {
       image.style.opacity = '1';
       image.style.animation = 'none';
-      phase = 'playing'; $('game').dataset.state = phase;
+      phase = 'playing'; $('game').dataset.state = phase; recordDisplay();
       if (focusNext && keyboardNavigation) nodes[0]?.button.focus({ preventScroll: true });
     } else {
       image.style.opacity = '0';
       image.onload = () => {
         offline.refresh().then(updateOfflineStatus).catch(() => {});
         if (version !== generation) return;
-        image.style.opacity = '1'; phase = 'playing'; $('game').dataset.state = phase;
+        image.style.opacity = '1'; phase = 'playing'; $('game').dataset.state = phase; recordDisplay();
         // Restart the picture entrance only when the picture itself changes.
         image.style.animation = 'none'; void image.offsetWidth; image.style.animation = '';
         // Discovery mixes ranks, so a random harder word is not a rank-up event.
