@@ -465,6 +465,20 @@ def build_catalog(words, japanese, inventory, art_index, ledger):
     # Keep historical entries/IDs for save migration, but never offer old art.
     for row in selected:
         row['updatedArt'] = (row['en'], row['pic'] + '.png') in allowed
+    scenes_path = ROOT / 'app/data/generated-etymon/illustration-scenes.json'
+    scenes = read_json(scenes_path).get('entries', []) if scenes_path.exists() else []
+    scene_keys = {(e['w'], tuple(e['p']), e['art']) for e in scenes}
+    for row in selected:
+        matches = [source for _, source in by_spelling.get(row['en'], [])
+                   if (source['w'], tuple(source.get('p', [])), row['pic']) in scene_keys
+                   and ('roots' not in row or row['roots'] == source.get('p', []))
+                   and (first_meaning(row['ja']) == first_meaning(source['ja'])
+                        or ('roots' not in row and len(by_spelling[row['en']]) == 1))]
+        # Legacy car uses verified kana 車/くるま while the canonical gloss is 自動車.
+        # A unique canonical headword plus this exact reviewed image keeps its sense bound.
+        if len(matches) == 1:
+            row['sceneBinding'] = {key: matches[0].get(key, [] if key == 'p' else '')
+                                   for key in ('w', 'p', 'ja', 'en')}
     return selected
 
 
@@ -517,4 +531,5 @@ def main():
 
 if __name__ == '__main__':
     main()
+
 

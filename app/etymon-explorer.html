@@ -255,6 +255,8 @@ td.cMemo input.filled{border-color:var(--accent2);background:#f2fbf8}
   font-size:10px;font-weight:700;vertical-align:middle;cursor:help}
 .srcEO{display:inline-block;margin-left:5px;padding:1px 6px;border-radius:8px;background:#2c7a4b;color:#fff;font-size:10px;font-weight:700;vertical-align:middle;letter-spacing:.03em}
 </style>
+<link rel="stylesheet" href="shared/illustration-scenes.css?v=1">
+<script src="shared/illustration-scenes.js?v=1"></script>
 </head>
 <body>
 <header>
@@ -538,6 +540,7 @@ function baseWords(){
       else if(w.k&&w.k===q)s=3;          // カナでも引ける(プラムプト → prompt)
       else if(w.ja.includes(q))s=4;
       else if(w.k&&w.k.includes(q))s=4;
+      else if(sceneSearchText(w).includes(ql))s=5;
       else if(w.p.some(c=>c.toLowerCase().includes(ql)))s=5;
       else if(w.p.some(c=>ROOTS[c]&&ROOTS[c].ja&&ROOTS[c].ja.includes(q)))s=6;
       if(s>=0)hit.push([s,w]);
@@ -851,6 +854,36 @@ function affixChips(v){
     AFFIX_T.has(n)?`<span class="chip" data-af="${esc(n)}">${esc(n)}</span>`:esc(n)
   ).join(' ');
 }
+const illustrationSceneIndex=new Map();
+const sceneSearchText=w=>{
+  const entry=illustrationSceneIndex.get(JSON.stringify([w.w,w.p||[],w.pica||safeWordAssetName(w.w)]));
+  return entry&&window.IllustrationScenes.firstSenseMatches(entry,w)?(entry.scene.en+' '+entry.scene.ja).toLowerCase():'';
+};
+const illustrationSceneData = window.IllustrationScenes.load('data/generated-etymon/illustration-scenes.json?v=1').then(data=>{
+  for(const entry of data.entries)if((entry.status||entry.review.status)==='reviewed')illustrationSceneIndex.set(window.IllustrationScenes.key(entry),entry);
+  if(q&&WORDS.length)renderTable();
+  return data;
+}).catch(()=>null);
+const sceneObserver = new IntersectionObserver(items=>{
+  for(const item of items)if(item.isIntersecting){sceneObserver.unobserve(item.target);fillIllustrationScene(item.target);}
+},{rootMargin:'180px'});
+async function fillIllustrationScene(cell){
+  const w=WORDS[Number(cell.dataset.sceneWord)];
+  if(!w)return;
+  const data=await illustrationSceneData;
+  if(!cell.isConnected)return;
+  const art=w.pica||safeWordAssetName(w.w);
+  const entry=data&&window.IllustrationScenes.find(data,w,art);
+  if(!entry){cell.textContent='未作成・未確認';return;}
+  cell.textContent='画像と語義を照合中…';
+  const result=await window.IllustrationScenes.verify(entry,{word:w,imageUrl:'../assets/word/'+encodeURIComponent(art)+'.png'});
+  if(cell.isConnected)window.IllustrationScenes.render(cell,result);
+}
+function hydrateIllustrationScenes(parent){
+  parent.querySelectorAll('[data-scene-word]:not([data-scene-observed])').forEach(cell=>{
+    cell.dataset.sceneObserved='1';sceneObserver.observe(cell);
+  });
+}
 function rowHTML(w){
   const m=memos[w.w]||{};
   return `<tr data-i="${w.i}">
@@ -869,9 +902,11 @@ function rowHTML(w){
     ${mode==='sheet'?`<td class="cMemo"><input class="tag${m.tag?' filled':''}" data-w="${esc(w.w)}" value="${esc(m.tag||'')}" placeholder="意味タグ"></td>`:''}
     <td class="cMemo"><input class="note${m.note?' filled':''}" data-w="${esc(w.w)}" value="${esc(m.note||'')}" placeholder="メモ"></td>
     <td class="cGTag">${gameTagCell(w)}</td>
+    <td class="cScene" data-scene-word="${w.i}">未作成・未確認</td>
   </tr>`;
 }
 function renderTable(){
+  sceneObserver.disconnect();
   tblRows=applyFilters(baseWords());
   tblShown=0;
   const wrap=$('#tableWrap');
@@ -894,6 +929,7 @@ function renderTable(){
       <th class="cSplit sortable" data-c="af">接頭辞・接尾辞${arrow('af')}</th>
       ${mode==='sheet'?`<th class="cMemo">意味タグ</th>`:''}<th class="cMemo">メモ</th>
       <th class="cGTag">タグ</th>
+      <th class="cScene">イラスト解説（英語・日本語）</th>
     </tr></thead><tbody id="tblBody"></tbody></table>`;
   appendChunk();
 }
@@ -903,6 +939,7 @@ function appendChunk(){
   const next=tblRows.slice(tblShown,tblShown+CHUNK);
   tblShown+=next.length;
   tb.insertAdjacentHTML('beforeend',next.map(rowHTML).join(''));
+  hydrateIllustrationScenes(tb);
 }
 function fillDefs(){
   document.querySelectorAll('#tblBody tr[data-i]').forEach(tr=>{
@@ -992,7 +1029,7 @@ function toggleDetail(cell){
   if(next&&next.classList.contains('detRow')){next.remove();return;}
   document.querySelectorAll('tr.detRow').forEach(e=>e.remove());
   const word=cell.querySelector('.spk')?.dataset.say||cell.childNodes[0].textContent.trim();
-  const w=WORDS.find(x=>x.w===word);
+  const w=WORDS[Number(tr.dataset.i)];
   if(!w)return;
   detOf(w.w,w.i).then(d=>renderDetail(tr,w,d));
 }
@@ -1008,7 +1045,7 @@ function renderDetail(tr,w,d){
     return `<a class="eoLink" href="https://www.etymonline.com/word/${encodeURIComponent(cand)}" target="_blank" rel="noopener" title="etymonline で ${esc(cand)} を開く">${m}</a>`;
   });
   const sec=(label,val)=>val?`<div class="detSec"><b>${label}</b><span>${linkify(val)}</span></div>`:'';
-  det.innerHTML=`<td colspan="${cols}"><div class="detLayout">${wordSenseImagesHTML(w)}<div class="detText">${d?`
+  det.innerHTML=`<td colspan="${cols}"><div class="detLayout">${wordSenseImagesHTML(w)}<div class="detText"><div data-scene-word="${w.i}"></div>${d?`
     ${w.b?`<div class="detSec"><b>ひとこと</b><span class="blurb">${esc(w.b)}</span></div>`:''}
     ${gameTagHTML(w)}
     ${sec('語源解説(ハイパー英語語源辞書)',d[0])}
@@ -1024,6 +1061,7 @@ function renderDetail(tr,w,d){
         : 'https://www.etymonline.com/search?q='+encodeURIComponent(w.w)}" target="_blank" rel="noopener">etymonline で開く ↗</a></div>`
     :'<div class="detSec"><span>詳細データを読み込み中です(file://直開きでは表示できません。http経由で開いてください)</span></div>'}</div></div></td>`;
   tr.after(det);
+  hydrateIllustrationScenes(det);
   fillEO(w.w,det,w);
 }
 /* ダウンロードしたCSVを読み戻す。書いた内容はこのブラウザにしか残らないので、
@@ -1134,3 +1172,4 @@ loadData();
 </script>
 </body>
 </html>
+

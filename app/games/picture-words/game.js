@@ -103,6 +103,23 @@
   const clearPending = () => { for (const id of pending) clearTimeout(id); pending.clear(); clearTimeout(feedbackTimer); };
   const icon = name => `<svg aria-hidden="true"><use href="#i-${name}"/></svg>`;
   const imgURL = word => `../../assets/word/${encodeURIComponent(word.pic)}.png`;
+  const sceneData = window.IllustrationScenes.load('../data/generated-etymon/illustration-scenes.json?v=1').catch(() => null);
+  let sceneRequest = 0;
+  async function explanationFor(word) {
+    if (!word.sceneBinding) return {status:'unreviewed',entry:null};
+    const data = await sceneData;
+    if (!data) return {status:'unavailable',entry:null};
+    const scene = window.IllustrationScenes.find(data, word.sceneBinding, word.pic);
+    return window.IllustrationScenes.verify(scene, {word:word.sceneBinding,imageUrl:imgURL(word)});
+  }
+  async function showRewardExplanation(word) {
+    const request = ++sceneRequest, panel = $('rewardExplanation');
+    panel.hidden = true; panel.replaceChildren();
+    const result = await explanationFor(word);
+    if (request !== sceneRequest || phase !== 'solved' || entry.id !== word.id) return;
+    window.IllustrationScenes.render(panel, result); panel.hidden = false;
+  }
+
   const shuffle = values => {
     for (let i = values.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
@@ -553,6 +570,7 @@
     $('rewardBackdrop').hidden = true;
     $('rankUp').hidden = true;
     $('winPronunciation').hidden = true; $('winPronunciation').replaceChildren();
+    sceneRequest++; $('rewardExplanation').hidden = true; $('rewardExplanation').replaceChildren();
     index = (nextIndex + catalog.length) % catalog.length; progress().index = index;
     entry = catalog[index];
     if (mode === 'ja' && !entry.w) mode = 'en';
@@ -695,6 +713,7 @@
     $('rewardScene').dataset.rarity = difficulty.tiers[entry.tier].key;
     $('rewardWord').textContent = mode === 'ja' ? entry.ja : entry.en.toUpperCase();
     $('rewardReading').textContent = mode === 'ja' ? entry.w : entry.ja;
+    showRewardExplanation(entry);
     $('rewardBookName').textContent = mode === 'ja' ? `きょうの ${award.daily.pageNumber} ページ目` : `TODAY · PAGE ${award.daily.pageNumber}`;
     $('rewardArt').src = imgURL(entry);
     $('rewardPageNumber').textContent = `PAGE ${String(index + 1).padStart(3, '0')}`;
@@ -1057,7 +1076,10 @@
     const challenge = document.createElement('button'); challenge.type = 'button'; challenge.className = 'modal-primary';
     challenge.textContent = challengeLang === lang ? (mode === 'ja' ? 'もう一度、この単語で遊ぶ' : 'Play this word again') : mode === 'ja' ? `${other === 'ja' ? '日本語' : '英語'}でもゲットする` : `Collect it in ${other === 'ja' ? 'Japanese' : 'English'}`;
     challenge.addEventListener('click', () => beginDictionaryPuzzle(challengeLang, wordIndex));
-    container.append(back, image, heading, rarity, reading, translation, pronunciationPanel(word, lang), history, best, badges, challenge);
+    const explanation = document.createElement('div'); explanation.textContent = 'イラスト解説を確認中…';
+    // Dictionary detail is already an explicit reveal. The puzzle itself stays answer-free.
+    explanationFor(word).then(result => {if(explanation.isConnected)window.IllustrationScenes.render(explanation,result);});
+    container.append(back, image, heading, rarity, reading, explanation, translation, pronunciationPanel(word, lang), history, best, badges, challenge);
     openModal(bookName(lang), container); back.focus({ preventScroll: true });
   }
   document.addEventListener('keydown', event => {
@@ -1109,3 +1131,4 @@
   }
   else { $('game').dataset.state = 'error'; setFeedback('出題データを読み込めませんでした。ページを再読み込みしてください。', 'wrong'); }
 })();
+

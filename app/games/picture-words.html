@@ -19,7 +19,9 @@
   <script src="picture-words/pronunciation.js?v=speech-fast-start1" defer></script>
   <script src="picture-words/progression.js?v=new-card1" defer></script>
   <script src="picture-words/offline.js?v=start2" defer></script>
-  <script src="picture-words/game.js?v=new-card1" defer></script>
+  <link rel="stylesheet" href="../shared/illustration-scenes.css?v=1">
+  <script src="../shared/illustration-scenes.js?v=1" defer></script>
+  <script src="picture-words/game.js?v=scene1" defer></script>
 </head>
 <body>
   <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -134,6 +136,7 @@
                 <span class="book-right"><span class="book-page-number" id="rewardPageNumber"></span><span class="book-placeholder" aria-hidden="true">?</span><img id="rewardArt" class="book-word-art" alt="" width="120" height="120"><strong id="rewardWord" class="book-word"></strong><small id="rewardReading" class="book-reading"></small><span id="rewardStars" class="reward-stars" aria-hidden="true"></span><span id="rewardSeal" class="book-seal"></span></span>
               </button>
               <div id="winPronunciation" class="win-pronunciation" hidden></div>
+              <div id="rewardExplanation" class="reward-explanation" hidden></div>
               <button id="advanceLabel" class="advance-label" type="button">次の問題へ <span aria-hidden="true">→</span></button>
             </div>
   <canvas id="particles" aria-hidden="true"></canvas>
@@ -153,3 +156,4 @@
   <noscript>このパズルで遊ぶには JavaScript を有効にしてください。</noscript>
 </body>
 </html>
+
