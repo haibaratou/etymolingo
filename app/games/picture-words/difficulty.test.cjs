@@ -8,7 +8,7 @@ const source = JSON.parse(JSON.stringify(scope.window.PICTURE_WORDS_CATALOG));
 const ordered = buildCatalog(source);
 test('every playable picture has both English and kana answers, including restored saves', () => {
   const playable = bilingualCatalog(source);
-  assert.equal(playable.length, 1934); // First-meaning readings plus individually reviewed image exclusions.
+  assert.equal(playable.length, 1938); // First-meaning readings plus individually reviewed image exclusions.
   assert.ok(playable.every(word => word.updatedArt && word.en && /^[ぁ-ゔー]{2,14}$/.test(word.w)));
   assert.equal(playable.find(word => word.en === 'candy').w, 'きゃんでぃー');
   assert.ok(!playable.some(word => word.en === 'said'));

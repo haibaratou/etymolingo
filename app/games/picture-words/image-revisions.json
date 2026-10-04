@@ -22,6 +22,47 @@
       ],
       "art": "energy",
       "sha256": "261c807f56f8ab4285cc895a8a7e8c382c62e111f1b6fbb795023e948cbedbf6"
+    },
+    {
+      "w": "being",
+      "p": [
+        "bheuə-"
+      ],
+      "art": "being",
+      "sha256": "60b1be74c303597aad83da695bf2002ae08d1b24dbb4015bf1dda48969e67f11"
+    },
+    {
+      "w": "good",
+      "p": [
+        "ghedh-"
+      ],
+      "art": "good",
+      "sha256": "6c58dde93d757ac178dd9df70c42af184538aa70f5bbb4184296bc28ebba1ff9"
+    },
+    {
+      "w": "high",
+      "p": [
+        "keu-2",
+        "gue-"
+      ],
+      "art": "high",
+      "sha256": "dc84ab77b62ebefdaf26b244ddf5363cfe676c0f65a10be62f5842e9dacebf20"
+    },
+    {
+      "w": "power",
+      "p": [
+        "poti-"
+      ],
+      "art": "power",
+      "sha256": "6fc4ef70f88e1b1dbcfbfe6b1bcbe6c352e94f862ad8a6c93dfa13142537df4f"
+    },
+    {
+      "w": "I",
+      "p": [
+        "eg"
+      ],
+      "art": "i",
+      "sha256": "0b5abc97297e3da9f9cdf3141bf77118dadacbc0e45a6a6f0925ab74ba17127a"
     }
   ]
 }
