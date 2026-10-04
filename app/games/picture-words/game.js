@@ -656,6 +656,7 @@
     praise.classList.remove('show'); void praise.offsetWidth; praise.classList.add('show');
   }
   function win() {
+    speech.speak(entry, mode); // Start synthesis before reward DOM and storage work.
     $('rankUp').hidden = true;
     phase = 'solved'; $('game').dataset.state = phase; flyLetters(); vibrate([12, 35, 20]);
     if (comboEligible) { saved.combo++; saved.bestCombo = Math.max(saved.bestCombo, saved.combo); }
@@ -736,7 +737,6 @@
       if (award.added) later(animateAcquisition, 500);
     }, reducedMotion.matches ? 0 : PRAISE_TIME);
     $('winPronunciation').replaceChildren(pronunciationPanel(entry, mode)); $('winPronunciation').hidden = false;
-    speech.speak(entry, mode);
     queueAdvance(award.pageCompleted ? 4400 : REWARD_DURATION);
   }
 
@@ -845,7 +845,6 @@
   });
   $('listenClue').addEventListener('click', () => {
     if (!entry || !['playing', 'solved'].includes(phase)) return;
-    speech.stop();
     cluePlayback = true;
     speech.speak(entry, mode, false, true);
   });

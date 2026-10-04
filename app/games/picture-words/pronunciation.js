@@ -6,7 +6,7 @@
     const target = language === 'ja' ? 'ja-jp' : 'en-us';
     return voices.filter(voice => normalize(voice.lang).split('-')[0] === language)
       .sort((a, b) => {
-        const score = voice => (normalize(voice.lang) === target ? 4 : 0) + (voice.localService ? 2 : 0) + (voice.default ? 1 : 0);
+        const score = voice => (normalize(voice.lang) === target ? 4 : 0) + (voice.localService ? 8 : 0) + (voice.default ? 1 : 0);
         return score(b) - score(a);
       })[0] || null;
   }
@@ -37,7 +37,8 @@
       }
     }
     speak(word, language, slow = false, requested = false) {
-      this.stop(); this.refreshVoices();
+      this.stop();
+      if (!this.voices.length) this.refreshVoices();
       const info = { wordId: word.id, text: language === 'ja' ? word.w : word.en, language, slow };
       if (!this.enabled && !requested) { this.onState({ ...info, state: 'muted' }); return false; }
       if (this.availability(language) !== 'ready') { this.onState({ ...info, state: 'unavailable' }); return false; }

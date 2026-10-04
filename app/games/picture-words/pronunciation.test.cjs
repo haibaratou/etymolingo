@@ -93,3 +93,14 @@ test('unsupported engines are handled without breaking the reward', () => {
   const states = []; const speech = new Pronunciation({ synth: null, Utterance: null, onState: state => states.push(state) });
   assert.equal(speech.speak(moon, 'ja'), false); assert.equal(states[0].state, 'unavailable');
 });
+
+test('a local voice wins over a remote dialect match but never another language',()=>{
+ const local={lang:'en-GB',localService:true},remote={lang:'en-US',localService:false,default:true};
+ assert.equal(chooseVoice([remote,local,ja],'en'),local);
+ assert.equal(chooseVoice([remote,ja],'en'),remote);
+});
+test('known voices are reused and playback is submitted synchronously without waiting for timers',()=>{
+ const x=setup();let reads=0;x.synth.getVoices=()=>{reads++;return [ja,en]};
+ x.speech.speak(moon,'en');assert.equal(x.calls.length,1);assert.equal(reads,0);
+ x.changed();assert.equal(reads,1);x.speech.speak(moon,'ja');assert.equal(x.calls.length,2);assert.equal(reads,1);
+});
