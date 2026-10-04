@@ -1,14 +1,21 @@
 const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm'),path=require('node:path');
 const ctx={window:{},console};vm.createContext(ctx);vm.runInContext(fs.readFileSync(path.join(__dirname,'data.js'),'utf8'),ctx);
+// Synthetic tags verify the field without adding invented tags to production data.
+ctx.window.EIGO_NO_E.words.find(w=>w.w==='book').tags=['棚整理専用タグ',{label:'LibraryKeywordTag'}];
 const app=fs.readFileSync(path.join(__dirname,'app.js'),'utf8');const pure=app.slice(app.indexOf('/* ───────── index'),app.indexOf('/* 検索欄 */'));
 vm.runInContext('const D=window.EIGO_NO_E;const esc=s=>String(s);'+pure+';this.searchAPI={searchWord,searchText};',ctx);
 const S=ctx.searchAPI;
 test('English headword search finds reviewed book',()=>assert.equal(S.searchWord('book')[0].w,'book'));
 test('canonical Japanese gloss search finds book',()=>assert(S.searchWord('本').some(w=>w.w==='book')));
 test('canonical hiragana reading search finds book',()=>assert(S.searchWord('ほん').some(w=>w.w==='book')));
-test('Japanese illustrated action query finds help',()=>assert(S.searchText('箱を持ち上げる').some(w=>w.w==='help')));
-test('Japanese relation query finds under',()=>assert(S.searchText('椅子の下').some(w=>w.w==='under')));
-test('English relation query finds under first',()=>assert.equal(S.searchText('a cat under a chair')[0].w,'under'));
-test('English action query finds help',()=>assert(S.searchText('heavy box').some(w=>w.w==='help')));
-test('all search outputs carry reviewed English descriptions',()=>{for(const q of ['book','girl','work','本','人','a cat under a chair'])for(const w of [...S.searchWord(q),...S.searchText(q)])assert.equal(Boolean(w.scene?.en&&w.status==='reviewed'),true);});
-test('unknown query returns no fabricated result',()=>assert.equal(S.searchWord('zznonexistentzz').length,0));
+test('broad search finds literal English description fragments',()=>assert(S.searchText('wooden stand').some(w=>w.w==='book')));
+test('broad search finds literal Japanese description fragments',()=>assert(S.searchText('木の台').some(w=>w.w==='book')));
+test('broad search includes category tags',()=>assert(S.searchText('文房具').some(w=>w.w==='book')));
+test('broad search includes explicit nested tag values',()=>{assert(S.searchText('整理専用').some(w=>w.w==='book'));assert(S.searchText('KEYWORDTAG').some(w=>w.w==='book'));});
+test('word search does not expand to descriptions or tags',()=>{for(const q of ['木の台','wooden stand','整理専用'])assert(!S.searchWord(q).some(w=>w.w==='book'));});
+test('broad search normalizes width, case, and kana',()=>{assert.equal(S.searchText('ＢＯＯＫ')[0].w,'book');assert(S.searchText('ホン').some(w=>w.w==='book'));});
+test('broad search keeps the whole keyword literal without sentence parsing',()=>{assert(!S.searchText('please find a book on a wooden stand').some(w=>w.w==='book'));assert(!S.searchText('stand wooden').some(w=>w.w==='book'));});
+test('broad search does not infer synonyms or stem unrelated forms',()=>{assert(!S.searchText('wooden standing').some(w=>w.w==='book'));});
+test('all current results retain existing reviewed descriptions',()=>{for(const q of ['book','本','木の台','chair'])for(const w of [...S.searchWord(q),...S.searchText(q)])assert(w.scene?.en&&w.status==='reviewed');});
+test('blank and unknown queries return no fabricated result',()=>{assert.equal(S.searchText('  ').length,0);assert.equal(S.searchText('zznonexistentzz').length,0);assert.equal(S.searchWord('zznonexistentzz').length,0);});
+test('visible prompts use keywords rather than sentence instructions',()=>{assert(app.includes("text: 'タグ・解説も検索'"));assert(!app.includes('文章で:'));assert(!app.includes('a cat under a chair'));assert(!app.includes('英語の文でも'));});

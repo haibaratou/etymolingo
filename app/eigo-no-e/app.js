@@ -67,28 +67,17 @@ const chev = '<svg><use href="#i-chev"/></svg>';
 /* ───────── 検索 ───────── */
 const kata2hira = s => s.replace(/[ァ-ヶ]/g, c => String.fromCharCode(c.charCodeAt(0) - 0x60));
 const norm = s => kata2hira(String(s || '').normalize('NFKC').toLowerCase().trim());
-const isJa = s => /[぀-ヿ一-鿿]/.test(s);
-const STOP = new Set('a an the of to in on at for with and or is are was were be being been it its this that these those who which what how do does did can could will would should my your his her their our me you he she we they them us by from as into about up out not no so very just some any one two something someone thing things have has kind sort usually often where when'.split(' '));
-const stem = t => { if (t.length <= 3) return t; if (/ies$/.test(t)) return t.slice(0, -3) + 'y'; t = t.replace(t.length > 4 ? /(ing|ed|es|s)$/ : /s$/, ''); return t.length > 3 ? t.replace(/e$/, '') : t; };
-const enTokens = s => norm(s).split(/[^a-z']+/).filter(t => t && !STOP.has(t)).map(stem);
-// 日本語の文章を、助詞や語尾で区切った「かたまり」にする(形態素解析のかわりの簡易版)
-const JA_SPLIT = /(?:ている|ています|てる|でいる|ました|ます|です|だった|する|して|した|される|られる|から|まで|より|など|[をがはにでとのへやもね、。！？!?\s])/;
-const jaChunks = s => norm(s).split(JA_SPLIT).map(x => x.trim()).filter(x => x.length >= 1);
-const bigrams = s => { const o = new Set(); for (let i = 0; i < s.length - 1; i++) o.add(s.slice(i, i + 2)); if (s.length === 1) o.add(s); return o; };
-
+const tagText = value => Array.isArray(value) ? value.flatMap(tagText) : value && typeof value === 'object' ? Object.values(value).flatMap(tagText) : typeof value === 'string' ? [value] : [];
 const IDX = W.map(w => {
   const cats = w.c.map(k => SUB.get(k)).filter(Boolean);
   const jaList = [...String(w.ja || '').split('、'), ...String(w.k || '').split('、')].map(norm).filter(Boolean);
   return {
-    w, en: w.w.toLowerCase(), jaList,
-    jaText: norm([w.ja, w.scene?.ja, ...cats.map(s => s.ja + ' ' + s.cat.ja)].join(' ')),
-    enSet: new Set(enTokens(w.w)),
-    defSet: new Set([...enTokens(w.scene.en), ...cats.flatMap(s => enTokens(s.en + ' ' + s.cat.en))]),
-    catJa: norm(cats.map(s => s.ja + ' ' + s.cat.ja).join(' ')),
+    w, en: norm(w.w), jaList,
+    keywords: [w.w, w.ja, w.k, ...tagText(w.tags), ...cats.flatMap(s => [s.ja, s.en, s.cat.ja, s.cat.en]), w.scene?.en, w.scene?.ja].map(norm).filter(Boolean),
   };
 });
 
-// 単語でさがす: 英単語のつづり、または日本語の訳
+// 単語検索: 英単語のつづり、日本語の訳・読み。
 function searchWord(q) {
   q = norm(q); if (!q) return [];
   const out = [];
@@ -104,68 +93,22 @@ function searchWord(q) {
   }
   return out.sort((a, b) => b[0] - a[0]).map(a => a[1]);
 }
-// 文章でさがす(あいまい検索)
-// 日本語: 文の中に含まれる「訳」「読み」「カテゴリー名」を辞書引きで見つける(形態素解析のかわり)。
-//         見つけた語の英単語(「飛ぶ」→ fly)で、英語の説明・上位語とも照合する
-// 英語: 単語に分け、見出し語・確認済みの場面文・カテゴリー名と照合。定義文の代用はしない。
-const KANJI = /[\u4e00-\u9fff]/;
-function enScore(x, toks, sentence) {
-  let s = 0, hit = 0;
-  for (const t of toks) {
-    let v = 0;
-    if (stem(x.en) === t) v = sentence ? 6 : 10;
-    else if (x.enSet.has(t)) v = 7;
-    else if (x.defSet.has(t)) v = 3;
-    if (v) { s += v; hit++; }
-  }
-  return hit > 1 ? s * (1 + 0.6 * (hit - 1)) : s;
-}
-const HIRA = /^[\u3040-\u309fー〜]+$/;
-function glossHit(nq, g) {
-  if (!g) return 0;
-  if (nq === g) return 20;
-  if (HIRA.test(g) && g.length < 3) return 0;  // 短いかなは文の中で偶然一致しやすい(「あかいくだもの」の「いく」)
-  if (g.length >= 2 && nq.includes(g)) return 10 + g.length;
-  if (/する$/.test(g) && g.length >= 4 && nq.includes(g.slice(0, -2))) return 9;  // 「料理する」→「料理をする」
-  if (g.length === 1 && KANJI.test(g) && nq.includes(g)) return 8;
-  // 活用ゆれ: 「飛ぶ」→「飛」、「赤い」→「赤」(漢字で始まる語だけ)
-  if (g.length >= 2 && KANJI.test(g[0]) && /[るうくすつぬむぶぐいだ]$/.test(g) && nq.includes(g.slice(0, -1))) return 7;
-  return 0;
-}
-// カテゴリー名を文の中から拾うための語。「きほんのことば」は代名詞などで誤爆しやすいので除く
-const CAT_ALIAS = {people: ['人'], jobs: ['人', '仕事', '職業'], animals: ['生き物'], food: ['食べ物']};
-const SUBWORDS = [...SUB.entries()].filter(([, s]) => s.cat.id !== 'basics').map(([k, s]) =>
-  [k, [...new Set([...s.ja.split(/[・の]/), ...(CAT_ALIAS[s.cat.id] || [])].map(norm))].filter(p => p.length >= 2 || KANJI.test(p))]);
+// あいまい検索: 入力したキーワードの部分一致。文章解析・語幹化・意味の推測はしない。
+// #/t の既存リンクを保つため、内部関数名は searchText のままにする。
 function searchText(q) {
-  q = q.trim(); if (!q) return [];
+  q = norm(q); if (!q) return [];
   const out = [];
-  if (isJa(q)) {
-    const nq = norm(q).replace(/\s/g, '');
-    const direct = new Map();
-    for (const x of IDX) { if(x.w.unavailable)continue; const v = Math.max(0, ...x.jaList.map(g => glossHit(nq, g))); if (v) direct.set(x, v); }
-    const subHit = new Map(SUBWORDS.map(([k, ps]) => [k, ps.filter(p => nq.includes(p)).length]).filter(([, n]) => n));
-    const bridge = [...new Set([...direct.keys()].map(x => stem(x.en)))];
-    const qb = bigrams(nq);
-    for (const x of IDX) { if(x.w.unavailable)continue;
-      let s = direct.get(x) || 0;
-      s += 6 * Math.max(0, ...x.w.c.map(k => subHit.get(k) || 0));
-      if (bridge.length) s += 0.8 * enScore(x, bridge.filter(t => t !== stem(x.en)), false);
-      if (x.w.scene) { let hit = 0; for (const b of qb) if (x.jaText.includes(b)) hit++; s += 4 * hit / Math.max(1, qb.size); }
-      if (s >= 3) out.push([s - Math.min(2, x.w.r / 5000), x.w]);
-    }
-  } else {
-    const toks = enTokens(q), sentence = toks.length >= 2;
-    for (const x of IDX) { if(x.w.unavailable)continue;
-      const s = enScore(x, toks, sentence);
-      if (s >= 3) out.push([s - Math.min(2, x.w.r / 5000), x.w]);
-    }
+  for (const x of IDX) { if(x.w.unavailable)continue;
+    if (!x.keywords.some(text => text.includes(q))) continue;
+    const score = x.en === q ? 100 : x.jaList.includes(q) ? 95 : x.en.startsWith(q) ? 80 : x.keywords.some(text => text === q) ? 60 : 40;
+    out.push([score - Math.min(5, x.w.r / 3000), x.w]);
   }
-  return out.sort((a, b) => b[0] - a[0]).map(a => a[1]).slice(0, 240);
+  return out.sort((a, b) => b[0] - a[0]).map(a => a[1]);
 }
 
 /* 検索欄 */
 let mode = 'word';
-const PH = {word: '英単語か日本語で: book、本、help…', text: '文章で: 箱を運ぶ、a cat under a chair…'};
+const PH = {word: '単語を検索', text: 'タグ・解説も検索'};
 const form = $('#barSearch'), input = $('#barInput'), box = $('#barSuggest');
 function setMode(m) {
   mode = m;
@@ -220,10 +163,10 @@ document.addEventListener('click', e => { if (document.body.classList.contains('
 /* ───────── ページ ───────── */
 function home() {
   side();
-  const tries = [['s', 'book'], ['s', '本'], ['s', 'help'], ['t', '箱を持ち上げる'], ['t', '椅子の下'], ['t', 'a cat under a chair']];
+  const tries = [['s', 'book'], ['s', '本'], ['s', 'help'], ['t', '学校'], ['t', '木'], ['t', 'box']];
   view.innerHTML = `<div class="page fade">
     <section class="pict-hero"><h1 class="hero-title">Pictpedia</h1><img class="hero-art" src="../assets/pictpedia/hero-carnival.png?v=e139fd54677d" width="1536" height="1024" alt="Pictpedia：空飛ぶ鉛筆とドラゴンに乗る二人と、にぎやかなことばの世界" fetchpriority="high"></section>
-    <div class="tryline">たとえば ${tries.map(([m, q]) => `<a class="${m === 't' ? 'text' : ''}" href="#/${m}/${encodeURIComponent(q)}" title="${m === 't' ? '文章でさがす' : '単語でさがす'}">${esc(q)}</a>`).join('')}</div>
+    <div class="tryline">たとえば ${tries.map(([m, q]) => `<a class="${m === 't' ? 'text' : ''}" href="#/${m}/${encodeURIComponent(q)}" title="${m === 't' ? 'あいまい検索' : '単語検索'}">${esc(q)}</a>`).join('')}</div>
     <h2 class="h2" id="categories">カテゴリーからさがす<small>Categories</small></h2>
     <div class="cats">${D.categories.map(c => {
       const icon = c.icon && byId.get(c.icon);
@@ -311,11 +254,11 @@ function resultPage(m, q) {
   const list = m === 't' ? searchText(q) : searchWord(q);
   const other = m === 't' ? 's' : 't';
   view.innerHTML = `<div class="page fade">
-    <nav class="crumbs"><a href="#/">トップ</a>${chev}<span>${m === 't' ? '文章でさがす' : '単語でさがす'}</span></nav>
+    <nav class="crumbs"><a href="#/">トップ</a>${chev}<span>${m === 't' ? 'あいまい検索' : '単語検索'}</span></nav>
     <h1 class="h1">「${esc(q)}」のイラスト</h1>
-    <p class="hint">${list.length ? `${num(list.length)} 枚${m === 't' ? '(近い順)' : ''}` : ''}
-      <a href="#/${other}/${encodeURIComponent(q)}">${m === 't' ? '単語でさがす' : '文章でさがす(あいまい検索)'}でためす</a></p>
-    ${list.length ? grid(list) : `<div class="empty"><b>見つかりませんでした</b>${m === 't' ? '短いことばに分けるか、英語の文でもためしてみてください。' : 'つづりを変えるか、「文章でさがす」をためしてみてください。'}<br>説明文のある ${num(W.length)} 枚を収録しています。</div>`}
+    <p class="hint">${list.length ? `${num(list.length)} 枚${m === 't' ? '(部分一致)' : ''}` : ''}
+      <a href="#/${other}/${encodeURIComponent(q)}">${m === 't' ? '単語検索' : 'あいまい検索'}でためす</a></p>
+    ${list.length ? grid(list) : `<div class="empty"><b>見つかりませんでした</b>${m === 't' ? 'キーワードを変えてお試しください。' : 'つづりを変えるか、「あいまい検索」をためしてみてください。'}<br>説明文のある ${num(W.length)} 枚を収録しています。</div>`}
   </div>`;
   document.title = `「${q}」のイラスト — Pictpedia`;
 }
