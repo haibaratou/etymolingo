@@ -191,7 +191,7 @@ window.PICTURE_WORDS_CATALOG = [
   {"w":"よぶ","ja":"呼ぶ、電話をかける","pic":"call","en":"call","id":"call","rank":230,"roots":["gal-2"],"dictionaryIndex":2193,"updatedArt":true},
   {"w":"みらい","ja":"未来、先物","pic":"future","en":"future","id":"future","rank":232,"roots":["bheuə-"],"dictionaryIndex":6554,"updatedArt":true,"sceneBinding":{"w":"future","p":["bheuə-"],"ja":"未来、先物","en":"time to come / futures"}},
   {"w":"","ja":"生きている","pic":"living","en":"living","id":"living","rank":246,"roots":["leip-"],"dictionaryIndex":9099,"reviewStatus":"first_reading_unavailable","updatedArt":true},
-  {"w":"れんしゅう","ja":"練習、訓練","pic":"practice","en":"practice","id":"practice","rank":246,"roots":[],"dictionaryIndex":18904,"updatedArt":true},
+  {"w":"れんしゅう","ja":"練習、訓練","pic":"practice","en":"practice","id":"practice","rank":246,"roots":[],"dictionaryIndex":18904,"updatedArt":true,"sceneBinding":{"w":"practice","p":[],"ja":"練習、訓練","en":"training / exercise"}},
   {"w":"かち","ja":"価値、価値観","pic":"values","en":"values","id":"values","rank":249,"roots":[],"dictionaryIndex":47281,"updatedArt":true},
   {"w":"てーぶる","ja":"テーブル、表","pic":"table","en":"table","id":"table","rank":251,"roots":[],"dictionaryIndex":18905,"updatedArt":true},
   {"w":"","ja":"ひどく骨の折れる","pic":"trying","en":"trying","id":"trying","rank":251,"roots":[],"dictionaryIndex":49000,"reviewStatus":"first_reading_unavailable","updatedArt":true},
