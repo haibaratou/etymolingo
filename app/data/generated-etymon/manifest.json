@@ -10,9 +10,9 @@
     },
     "words": {
       "file": "words.json",
-      "bytes": 19974793,
+      "bytes": 19975406,
       "count": 49170,
-      "sha256": "b87f31570d0293159dfbb46304567493b41003b9c169eaeea14dd66169a8bd1f"
+      "sha256": "d9124458909dcbe6107d6950304870c2573f40ac603a42cc99eda1f09f2e2bf9"
     },
     "affixes": {
       "file": "affixes.json",
@@ -56,9 +56,9 @@
     },
     "illustration_scenes": {
       "file": "illustration-scenes.json",
-      "bytes": 157437,
-      "count": 193,
-      "sha256": "5ad348e9b05945a01683c376e2ce0b86c55f7598607721f38311f88ecb3da0ed"
+      "bytes": 159327,
+      "count": 194,
+      "sha256": "f47f4161863cf712ee2489b2a30158343490826e9b203499def058546e0cc2d6"
     }
   }
 }

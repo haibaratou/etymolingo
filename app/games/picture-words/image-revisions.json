@@ -7,6 +7,21 @@
       "p": [],
       "art": "stimulus",
       "sha256": "a5efea344f89bc40812040b6d30170d9db6760a970f57ce7cec0dfbd148a5f6a"
+    },
+    {
+      "w": "arts",
+      "p": [],
+      "art": "arts",
+      "sha256": "d90f96a03747bb6029d3424a5160e3dac082234d698faf2f6695c928bf15b725"
+    },
+    {
+      "w": "energy",
+      "p": [
+        "en",
+        "werg-"
+      ],
+      "art": "energy",
+      "sha256": "261c807f56f8ab4285cc895a8a7e8c382c62e111f1b6fbb795023e948cbedbf6"
     }
   ]
 }

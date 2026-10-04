@@ -785,7 +785,7 @@ window.PICTURE_WORDS_CATALOG = [
   {"w":"ぎじろく","ja":"議事録、手続き","pic":"proceedings","en":"proceedings","id":"proceedings","rank":509,"roots":[],"dictionaryIndex":19190,"updatedArt":true},
   {"w":"こうくうき","ja":"航空機","pic":"aircraft","en":"aircraft","id":"aircraft","rank":510,"roots":["wer-2"],"dictionaryIndex":421,"updatedArt":true},
   {"w":"","ja":"言語の","pic":"linguistic","en":"linguistic","id":"linguistic","rank":510,"roots":["dn̥ghū-"],"dictionaryIndex":9039,"reviewStatus":"first_reading_unavailable","updatedArt":true},
-  {"w":"","ja":"芸術、諸芸術","pic":"arts","en":"arts","id":"arts","rank":510,"roots":[],"dictionaryIndex":20880,"reviewStatus":"image_meaning_mismatch","updatedArt":true},
+  {"w":"げいじゅつ","ja":"芸術、諸芸術","pic":"arts","en":"arts","id":"arts","rank":510,"roots":[],"dictionaryIndex":20880,"updatedArt":true,"imageRevision":"d90f96a03747bb6029d3424a5160e3dac082234d698faf2f6695c928bf15b725","sceneBinding":{"w":"arts","p":[],"ja":"芸術、諸芸術","en":"arts / fine arts"}},
   {"w":"ぶんがく","ja":"文学","pic":"lit","en":"lit","id":"lit","rank":510,"roots":[],"dictionaryIndex":21343,"updatedArt":true},
   {"w":"","ja":"隠すこと、隠れていること","pic":"hiding","en":"hiding","id":"hiding","rank":510,"roots":[],"dictionaryIndex":46494,"reviewStatus":"first_reading_unavailable","updatedArt":true},
   {"w":"","ja":"死亡率、死を免れないこと","pic":"mortality","en":"mortality","id":"mortality","rank":511,"roots":["mer-2"],"dictionaryIndex":10086,"reviewStatus":"image_meaning_mismatch","updatedArt":true},

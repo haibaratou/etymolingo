@@ -4,18 +4,6 @@
   "scope": "Only individually visually confirmed mismatches. Other images remain unreviewed unless separately verified.",
   "rows": [
     {
-      "word": "arts",
-      "roots": "",
-      "filename": "arts.png",
-      "asset_sha": "474fe4d08e606c8c1bc353fa9525ce023effb459",
-      "first_meaning_ja": "芸術",
-      "status": "image_meaning_mismatch",
-      "observed_scene": "Microscope, petri dish cells and monitor showing uterus",
-      "reason": "No match to芸術; resembles assisted reproductive technology acronym ARTs",
-      "restore_when": "Confirm the representative meaning independently, visually review the exact image against that meaning, and bind the kana answer to the same sense. Retain the entry ID and saved progress. A filename, timestamp or image replacement alone is insufficient.",
-      "source_url": "https://github.com/haibaratou/etymolingo/blob/f2eb8e8d77fb2609c4934d8f6e66ab843d61b8fb/assets/word/arts.png"
-    },
-    {
       "word": "lights",
       "roots": "",
       "filename": "lights.png",
@@ -302,6 +290,68 @@
       "reason": "Matches chemical abbreviation-like prior gloss, notパイプ/管",
       "restore_when": "Confirm the representative meaning independently, visually review the exact image against that meaning, and bind the kana answer to the same sense. Retain the entry ID and saved progress. A filename, timestamp or image replacement alone is insufficient.",
       "source_url": "https://github.com/haibaratou/etymolingo/blob/f2eb8e8d77fb2609c4934d8f6e66ab843d61b8fb/assets/word/pipes.png"
+    }
+  ],
+  "resolved_rows": [
+    {
+      "word": "arts",
+      "roots": "",
+      "filename": "arts.png",
+      "asset_sha": "474fe4d08e606c8c1bc353fa9525ce023effb459",
+      "first_meaning_ja": "芸術",
+      "status": "image_meaning_mismatch",
+      "observed_scene": "Microscope, petri dish cells and monitor showing uterus",
+      "reason": "No match to芸術; resembles assisted reproductive technology acronym ARTs",
+      "restore_when": "Confirm the representative meaning independently, visually review the exact image against that meaning, and bind the kana answer to the same sense. Retain the entry ID and saved progress. A filename, timestamp or image replacement alone is insufficient.",
+      "source_url": "https://github.com/haibaratou/etymolingo/blob/f2eb8e8d77fb2609c4934d8f6e66ab843d61b8fb/assets/word/arts.png",
+      "resolution": {
+        "status": "resolved",
+        "resolved_at": "2026-10-04T03:56:00Z",
+        "reason": "Replacement image independently reviewed against unchanged representative first meaning and exact kana answer binding.",
+        "sense": {
+          "index": 0,
+          "ja": "芸術",
+          "en": "arts",
+          "sha256": "b6580a8cde46deb388b5dc7fdca368f6f519e2c842b8a5b18b742e45389e0284"
+        },
+        "word_identity": {
+          "w": "arts",
+          "p": [],
+          "art": "arts"
+        },
+        "replacement_image": {
+          "path": "assets/word/arts.png",
+          "sha256": "d90f96a03747bb6029d3424a5160e3dac082234d698faf2f6695c928bf15b725",
+          "git_blob_sha": "76651ea57e6ee1f8af85248c0c53739fd9cdb7af"
+        },
+        "observed_scene": "Painter actively painting a landscape beside violinist playing; two creative arts, no medical imagery.",
+        "scene": {
+          "en": "A painter and violinist practice their arts side by side.",
+          "ja": "二人が並んで、絵画と音楽という二つの芸術に取り組んでいる。"
+        },
+        "japanese_answer": "げいじゅつ",
+        "reading_evidence": {
+          "method": "Existing first_meaning_answer using fresh public ja_index unique 芸術→げいじゅつ lookup; canonical candidate readings unchanged.",
+          "path": "app/data/ja/ja_index.json",
+          "git_blob_sha": "e9099f676b0ba93318b306d866b1f9dc90f15e32",
+          "row": [
+            "芸術",
+            "げいじゅつ",
+            "名詞",
+            "art",
+            "art; the arts",
+            1,
+            "",
+            "",
+            "漢"
+          ]
+        },
+        "lexical_sources": [
+          "https://www.oxfordlearnersdictionaries.com/definition/english/art_1",
+          "https://www.merriam-webster.com/dictionary/arts"
+        ],
+        "review_evidence": "Full-resolution actual replacement PNG inspected independently by author, coordinator and second reviewer; confirmed exact image and sense hashes."
+      }
     }
   ]
 }
