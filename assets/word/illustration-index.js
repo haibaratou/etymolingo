@@ -587,5 +587,10 @@ globalThis.ETYMON_WORD_ART = {
   "[\"taken\",\"\"]": "taken@x",
   "[\"says\",\"\"]": "says",
   "[\"feet\",\"\"]": "feet@x",
-  "[\"ran\",\"\"]": "ran@x"
+  "[\"ran\",\"\"]": "ran@x",
+  "[\"school\",\"segh-\"]": "school@segh",
+  "[\"taken\",\"tak-2\"]": "taken@tak2",
+  "[\"heard\",\"kous-\"]": "heard@kous",
+  "[\"full\",\"pelə-1\"]": "full@pele1",
+  "[\"mean\",\"medhyo-\"]": "mean@medhyo"
 };
