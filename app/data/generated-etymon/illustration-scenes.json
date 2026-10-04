@@ -1,0 +1,1230 @@
+{
+  "schema": 1,
+  "sentence_policy": {
+    "english_max_words": 18,
+    "format": "one short phrase or sentence per language",
+    "exact_headword_required": true
+  },
+  "entries": [
+    {
+      "w": "book",
+      "p": [
+        "bhāgo-"
+      ],
+      "art": "book",
+      "sense": {
+        "index": 0,
+        "ja": "本",
+        "en": "volume",
+        "sha256": "715e1002726d8de0f2b461f1e1395940926f207e818a19ced90785be88e7c558"
+      },
+      "scene": {
+        "en": "An open book rests on a wooden stand.",
+        "ja": "開いた本が木の台に置かれている。"
+      },
+      "image": {
+        "path": "assets/word/book.png",
+        "sha256": "2156913d63f9f27bff1cca55694c6ab1f622378f4d994ffc7f693585a279a6ef",
+        "git_blob_sha": "021e3019e87b5e397f4869b79b22af14d45bab5a"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T01:24:00Z",
+        "method": "visual inspection of accepted PNG and canonical first sense",
+        "notes": "Actual accepted PNG visually inspected; depicted scene aligns with the canonical first meaning."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "door",
+      "p": [
+        "dhwer-"
+      ],
+      "art": "door",
+      "sense": {
+        "index": 0,
+        "ja": "ドア",
+        "en": "entrance",
+        "sha256": "1029be2e79e84b9f1b50672f2fe94b2e10265ee2fde31fcdba127a6e13ee9299"
+      },
+      "scene": {
+        "en": "The wooden door is open.",
+        "ja": "木のドアが開いている。"
+      },
+      "image": {
+        "path": "assets/word/door.png",
+        "sha256": "4a11fe1bad2d066f4b6c5dd5f93c913f5183f0cd970fe8785f976c2216e8d745",
+        "git_blob_sha": "4455eff755eed449a56bbe866b585b6fe827d9c6"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T01:24:00Z",
+        "method": "visual inspection of accepted PNG and canonical first sense",
+        "notes": "Actual accepted PNG visually inspected; depicted scene aligns with the canonical first meaning."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "house",
+      "p": [
+        "(s)keu-"
+      ],
+      "art": "house",
+      "sense": {
+        "index": 0,
+        "ja": "家",
+        "en": "home",
+        "sha256": "dfd43cc37b5183f2d38af5479d61c8bd3f9bff9e946214f3967a4ca403db1130"
+      },
+      "scene": {
+        "en": "The house has a red roof and a small garden.",
+        "ja": "その家には赤い屋根と小さな庭がある。"
+      },
+      "image": {
+        "path": "assets/word/house.png",
+        "sha256": "9f95f5a43c36d15d15b39dd047e4faa30aa244207673358abf6bb79345d172f1",
+        "git_blob_sha": "976a227599db7f0398c7e13da6c6637c47af5c6a"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T01:24:00Z",
+        "method": "visual inspection of accepted PNG and canonical first sense",
+        "notes": "Actual accepted PNG visually inspected; depicted scene aligns with the canonical first meaning."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "water",
+      "p": [
+        "wed-1"
+      ],
+      "art": "water",
+      "sense": {
+        "index": 0,
+        "ja": "水",
+        "en": "liquid",
+        "sha256": "8ae0c69b2e4c016380eedb06b5817c08f29f4d9f7639c66040dfb79ebb95ae80"
+      },
+      "scene": {
+        "en": "She pours water into a glass.",
+        "ja": "彼女はコップに水を注いでいる。"
+      },
+      "image": {
+        "path": "assets/word/water.png",
+        "sha256": "77ce361e5ef6730745045ab0bc259f5d02ff25f99f6e8194d3802f353d2c3b39",
+        "git_blob_sha": "f59258c40a5c3af42e01137feae2d5d01751ac91"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T01:24:00Z",
+        "method": "visual inspection of accepted PNG and canonical first sense",
+        "notes": "Actual accepted PNG visually inspected; depicted scene aligns with the canonical first meaning."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "food",
+      "p": [
+        "pā-"
+      ],
+      "art": "food",
+      "sense": {
+        "index": 0,
+        "ja": "食物",
+        "en": "nourishment",
+        "sha256": "d55db57d3fd5b3b97e23e1dd1a860b5a641ef52a941d47140aab179ae9b8dbe6"
+      },
+      "scene": {
+        "en": "Food on a plate: fish, rice, and vegetables.",
+        "ja": "皿に盛られた食べ物は、魚とご飯と野菜。"
+      },
+      "image": {
+        "path": "assets/word/food.png",
+        "sha256": "cd243db44705a94ed9776a98f22411d4caf4aa00b8aa37cf3ae9c4c60cfd8489",
+        "git_blob_sha": "f525c314fe9c64be07e1a8d7e85fc6cb2e51a683"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T01:24:00Z",
+        "method": "visual inspection of accepted PNG and canonical first sense",
+        "notes": "Actual accepted PNG visually inspected; depicted scene aligns with the canonical first meaning."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "car",
+      "p": [
+        "kers-2"
+      ],
+      "art": "car",
+      "sense": {
+        "index": 0,
+        "ja": "自動車",
+        "en": "automobile",
+        "sha256": "40b505e4423f9fa6f57b4f05dec3d4798e4e4d986366f8051d755bc6ab6398a0"
+      },
+      "scene": {
+        "en": "A small red car is parked.",
+        "ja": "小さな赤い自動車が止まっている。"
+      },
+      "image": {
+        "path": "assets/word/car.png",
+        "sha256": "70ed22fe6a12b9274dcb075a19902a5c4628a236339a33825ffa5c6869c96dc5",
+        "git_blob_sha": "63e41284b30764224daab7e4e7bbb51f35c2049f"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T01:24:00Z",
+        "method": "visual inspection of accepted PNG and canonical first sense",
+        "notes": "Actual accepted PNG visually inspected; depicted scene aligns with the canonical first meaning."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "arm",
+      "p": [
+        "ar-"
+      ],
+      "art": "arm",
+      "sense": {
+        "index": 0,
+        "ja": "腕",
+        "en": "upper limb",
+        "sha256": "f932b5251ae0e76e1f77b297c804d62d24df0c448a0ef0c91f9b0658215501cf"
+      },
+      "scene": {
+        "en": "She points to her outstretched arm.",
+        "ja": "彼女は伸ばした腕を指している。"
+      },
+      "image": {
+        "path": "assets/word/arm.png",
+        "sha256": "f889ae7fdb659f5e703a3bef3b33e4f81dbd7c4e03fee599224c5570f04d3622",
+        "git_blob_sha": "0616cedef569b38a0c6b24a39321b3596b6b3310"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T01:24:00Z",
+        "method": "visual inspection of accepted PNG and canonical first sense",
+        "notes": "Actual accepted PNG visually inspected; depicted scene aligns with the canonical first meaning."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "eye",
+      "p": [
+        "okʷ-"
+      ],
+      "art": "eye",
+      "sense": {
+        "index": 0,
+        "ja": "目",
+        "en": "optic",
+        "sha256": "6ec21d0edcace6a599d04b09b9ca41aea41e3384c440d436100c57ac7245035d"
+      },
+      "scene": {
+        "en": "She checks her eye in a hand mirror.",
+        "ja": "彼女は手鏡で自分の目を確かめている。"
+      },
+      "image": {
+        "path": "assets/word/eye.png",
+        "sha256": "6bf498fad333d6c43aaa7105279b7aca29c86b451406e76f7700e62603dd9621",
+        "git_blob_sha": "9b45a8c8a8c5a8b1d7a52764743c8ea24eb207dd"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T01:24:00Z",
+        "method": "visual inspection of accepted PNG and canonical first sense",
+        "notes": "Actual accepted PNG visually inspected; depicted scene aligns with the canonical first meaning."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "fire",
+      "p": [
+        "paəwr̥"
+      ],
+      "art": "fire",
+      "sense": {
+        "index": 0,
+        "ja": "火",
+        "en": "flame",
+        "sha256": "18c37756a699a30cfcf54a0280833730060e442415dbc3c5dd84a47dca28f33b"
+      },
+      "scene": {
+        "en": "A fire burns inside a ring of stones.",
+        "ja": "石で囲まれた中で火が燃えている。"
+      },
+      "image": {
+        "path": "assets/word/fire.png",
+        "sha256": "0c511febceea8459f072f406728284e32674d875abeb996cfcf16a3e7e1e33e7",
+        "git_blob_sha": "c19fbc6c7c23cccd72113b55da5e062900daa7d8"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T01:24:00Z",
+        "method": "visual inspection of accepted PNG and canonical first sense",
+        "notes": "Actual accepted PNG visually inspected; depicted scene aligns with the canonical first meaning."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "floor",
+      "p": [
+        "pelə-2"
+      ],
+      "art": "floor",
+      "sense": {
+        "index": 0,
+        "ja": "床",
+        "en": "ground",
+        "sha256": "9ea7203b78729bf2cd0e1561b6bdd2d3ca3d45c4e7a540c2c14bbbc294724be0"
+      },
+      "scene": {
+        "en": "She mops the wooden floor.",
+        "ja": "彼女は木の床をモップで掃除している。"
+      },
+      "image": {
+        "path": "assets/word/floor.png",
+        "sha256": "0167f96b5642dbe029d702b8d00c025632d83015bf35e2f2f6db8df305e372fc",
+        "git_blob_sha": "f18290a7173916ed395162e8642037322b55f612"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T01:24:00Z",
+        "method": "visual inspection of accepted PNG and canonical first sense",
+        "notes": "Actual accepted PNG visually inspected; depicted scene aligns with the canonical first meaning."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "heart",
+      "p": [
+        "kerd-"
+      ],
+      "art": "heart",
+      "sense": {
+        "index": 0,
+        "ja": "心臓",
+        "en": "vital organ",
+        "sha256": "188076dcd20fb664217efa45bc2046433ea0c307b2291051b4a73c7927f0c488"
+      },
+      "scene": {
+        "en": "Large blood vessels connect to the heart.",
+        "ja": "心臓に太い血管がつながっている。"
+      },
+      "image": {
+        "path": "assets/word/heart.png",
+        "sha256": "434045ab6370d58cf0460fd422016af8f8933b4cc8367fe4b195b0861ce03c0b",
+        "git_blob_sha": "bbdff92c44542b13b32c47910fc00eb9414d2d5f"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T01:24:00Z",
+        "method": "visual inspection of accepted PNG and canonical first sense",
+        "notes": "Actual accepted PNG visually inspected; depicted scene aligns with the canonical first meaning."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "room",
+      "p": [
+        "reuə-"
+      ],
+      "art": "room",
+      "sense": {
+        "index": 0,
+        "ja": "部屋",
+        "en": "chamber",
+        "sha256": "9bba062c15f288a9fdc63222645664bf99de5bdf4fed93f9eb0e77516c7a28cd"
+      },
+      "scene": {
+        "en": "The room has a sofa and a small round table.",
+        "ja": "その部屋にはソファと小さな丸いテーブルがある。"
+      },
+      "image": {
+        "path": "assets/word/room.png",
+        "sha256": "7ab5a91d4316634cf79bf5800b56a465c65f31719849e9857ed237a1b12dc5f1",
+        "git_blob_sha": "01c94ebe998202aea7f8fdac45b4943cce4e739b"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T01:24:00Z",
+        "method": "visual inspection of accepted PNG and canonical first sense",
+        "notes": "Actual accepted PNG visually inspected; depicted scene aligns with the canonical first meaning."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "ability",
+      "p": [
+        "ghabh-"
+      ],
+      "art": "ability",
+      "sense": {
+        "index": 0,
+        "ja": "能力",
+        "en": "capacity",
+        "sha256": "4cef2a6838667287600dae89fcccc77a008bf507b38d3bcaf4e08f320c96b6ce"
+      },
+      "scene": {
+        "en": "The violinist shows his musical ability as he plays.",
+        "ja": "バイオリン奏者が演奏を通して音楽の能力を発揮している。"
+      },
+      "image": {
+        "path": "assets/word/ability.png",
+        "sha256": "0b77b1d0e94903adeaf0a3d8c1136ce1d9f66e59f1efbfcfd1e1ae1038026078",
+        "git_blob_sha": "64bcc42b0b02a89a2100f0cc16572cfa5e0b8616"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T01:24:00Z",
+        "method": "visual inspection of accepted PNG and canonical first sense",
+        "notes": "Actual accepted PNG visually inspected; depicted scene aligns with the canonical first meaning."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "attention",
+      "p": [
+        "ad-",
+        "ten-"
+      ],
+      "art": "attention",
+      "sense": {
+        "index": 0,
+        "ja": "注意",
+        "en": "focus",
+        "sha256": "fbcb446e6c6c34ae1c8ae50db4c528766b9d7f4a8ba641e517d1b67ce43c8b6d"
+      },
+      "scene": {
+        "en": "The child pays close attention as the adult demonstrates how to tie a knot.",
+        "ja": "子どもは、大人が結び目の作り方を実演するのを注意深く見ている。"
+      },
+      "image": {
+        "path": "assets/word/attention.png",
+        "sha256": "0160eaaf48114aa5da377c3f5d76654e2e61baf334f71c4293e3c99504836136",
+        "git_blob_sha": "24fd116eb29c1332a290aa842a5b05cf6c28fa71"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T01:24:00Z",
+        "method": "visual inspection of accepted PNG and canonical first sense",
+        "notes": "Actual accepted PNG visually inspected; depicted scene aligns with the canonical first meaning."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "decision",
+      "p": [
+        "de-",
+        "kaə-id-"
+      ],
+      "art": "decision",
+      "sense": {
+        "index": 0,
+        "ja": "決定",
+        "en": "judgment",
+        "sha256": "2f41868be0bd1d49d3d45c17f87b538373c74e2a84cfe5953b5498d1b5e14ded"
+      },
+      "scene": {
+        "en": "The hiker makes a decision about which path to take.",
+        "ja": "道の分かれ目で、ハイカーがどちらへ進むかを決めている。"
+      },
+      "image": {
+        "path": "assets/word/decision.png",
+        "sha256": "9b9ad3f04b4b329ec8566baa8b442aedd105ab799f156e3995d49c6ff078b463",
+        "git_blob_sha": "39c11e97595a12e64dfea8164c6cbd5937f39b50"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T01:24:00Z",
+        "method": "visual inspection of accepted PNG and canonical first sense",
+        "notes": "Actual accepted PNG visually inspected; depicted scene aligns with the canonical first meaning."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "difference",
+      "p": [
+        "dwis-",
+        "bher-1"
+      ],
+      "art": "difference",
+      "sense": {
+        "index": 0,
+        "ja": "違い",
+        "en": "disparity",
+        "sha256": "ddaa443f9ff74256de50a0cbc372134bb75aa7b9bedb2697c4f8a2884d8e5160"
+      },
+      "scene": {
+        "en": "The tailor notices a difference between the buttons on the jacket.",
+        "ja": "仕立て屋が、上着についているボタンの違いに気づいている。"
+      },
+      "image": {
+        "path": "assets/word/difference.png",
+        "sha256": "fbd66c3991a9c3d612bcd6481809c3913343f841aaa01f9b25fddd41e96cc694",
+        "git_blob_sha": "ba1c918c65b6fc5f8ffe206624aaa8d968a36295"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T01:24:00Z",
+        "method": "visual inspection of accepted PNG and canonical first sense",
+        "notes": "Actual accepted PNG visually inspected; depicted scene aligns with the canonical first meaning."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "difficult",
+      "p": [
+        "dwis-",
+        "dhē-"
+      ],
+      "art": "difficult",
+      "sense": {
+        "index": 0,
+        "ja": "困難な",
+        "en": "challenging",
+        "sha256": "4d32d4548d8805f7ac147e252b539bb2acd2da23e0c8bb0d07d62ac2891161c8"
+      },
+      "scene": {
+        "en": "The climber struggles up a difficult rock face.",
+        "ja": "登山者が、登るのが難しい岩壁を懸命によじ登っている。"
+      },
+      "image": {
+        "path": "assets/word/difficult.png",
+        "sha256": "000765c41792870d3f826411bac8f595d360bf00a5057650131d68ff6e755a35",
+        "git_blob_sha": "ef0b1cbb6e41b75454a3a38b581cdc612dbe8e33"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T01:24:00Z",
+        "method": "visual inspection of accepted PNG and canonical first sense",
+        "notes": "Actual accepted PNG visually inspected; depicted scene aligns with the canonical first meaning."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "energy",
+      "p": [
+        "en",
+        "werg-"
+      ],
+      "art": "energy",
+      "sense": {
+        "index": 0,
+        "ja": "エネルギー",
+        "en": "vitality",
+        "sha256": "ec6c0ae9f2519400df2404c755217b804147abc90c060c584baa1fecd2e9df15"
+      },
+      "scene": {
+        "en": "The wound-up spring stores energy that turns the toy car's gears.",
+        "ja": "巻き上げたばねに蓄えられたエネルギーが、おもちゃの車の歯車を回す。"
+      },
+      "image": {
+        "path": "assets/word/energy.png",
+        "sha256": "9d12c14d19df7c62644934e73852d7d2c89813df12e02ea3c3489988cc0b2801",
+        "git_blob_sha": "43d3fd40fa90ba7f219e4198a5f9241abc387129"
+      },
+      "review": {
+        "status": "mismatch",
+        "reviewed_at": "2026-10-04T01:24:00Z",
+        "method": "visual inspection of accepted PNG and canonical first sense",
+        "notes": "Mechanical spring energy is depicted, but canonical first English gloss is vitality. Hold explanation pending bilingual sense correction or replacement illustration."
+      },
+      "status": "mismatch"
+    },
+    {
+      "w": "experience",
+      "p": [
+        "eghs",
+        "per-3"
+      ],
+      "art": "experience",
+      "sense": {
+        "index": 0,
+        "ja": "経験する",
+        "en": "undergo",
+        "sha256": "ee8c84b1a6e95134d4dfebdea5a027d2fdaf4aa278d78c288bb058a1cd6867c5"
+      },
+      "scene": {
+        "en": "The child gets to experience shaping clay on a pottery wheel.",
+        "ja": "子どもが、ろくろの上で粘土を形にする体験をしている。"
+      },
+      "image": {
+        "path": "assets/word/experience.png",
+        "sha256": "a8a3b6b23c14946c57c9cc196a2db22bf3e416481f751704963be5ed6645583a",
+        "git_blob_sha": "3a8d8c973b0d5c875427a6c0a48c1c1ec5ecb792"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T01:24:00Z",
+        "method": "visual inspection of accepted PNG and canonical first sense",
+        "notes": "Actual accepted PNG visually inspected; depicted scene aligns with the canonical first meaning."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "future",
+      "p": [
+        "bheuə-"
+      ],
+      "art": "future",
+      "sense": {
+        "index": 0,
+        "ja": "未来",
+        "en": "time to come",
+        "sha256": "6df869cdb5804029066b2e2c5acebe17e717efd6b334ebe103257b0ff2922dd8"
+      },
+      "scene": {
+        "en": "The bridge model shows what they plan to build in the future.",
+        "ja": "橋の模型は、これから建設しようとしている橋の姿を示している。"
+      },
+      "image": {
+        "path": "assets/word/future.png",
+        "sha256": "dbe2a1e888927f8f07e66ff90c1a16023992d537fe051d0244e04f3488373a6f",
+        "git_blob_sha": "04df066a5ca1282c982640812cfa7ba3f388d3a8"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T01:24:00Z",
+        "method": "visual inspection of accepted PNG and canonical first sense",
+        "notes": "Actual accepted PNG visually inspected; depicted scene aligns with the canonical first meaning."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "help",
+      "p": [
+        "kelb-"
+      ],
+      "art": "help",
+      "sense": {
+        "index": 0,
+        "ja": "助ける",
+        "en": "assist",
+        "sha256": "dc9f6448b9cd67aac32f110b5f8b7bbb8c2d161af3bfd05809fb45592718e35e"
+      },
+      "scene": {
+        "en": "They help each other lift a heavy box.",
+        "ja": "二人は助け合いながら、重い箱を持ち上げている。"
+      },
+      "image": {
+        "path": "assets/word/help.png",
+        "sha256": "e8c23725b96a9ce8f4197589bde84def042a9d685b59ae57f8d54c780da9b934",
+        "git_blob_sha": "3b03560c68c07d665154b361377430629f454cfc"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T01:24:00Z",
+        "method": "visual inspection of accepted PNG and canonical first sense",
+        "notes": "Actual accepted PNG visually inspected; depicted scene aligns with the canonical first meaning."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "knowledge",
+      "p": [
+        "gnō-"
+      ],
+      "art": "knowledge",
+      "sense": {
+        "index": 0,
+        "ja": "知識",
+        "en": "information",
+        "sha256": "70c9ec0715661d6edaadb5253871eae8ca7e6198867fc8c35502f249481ec37f"
+      },
+      "scene": {
+        "en": "Her knowledge of plants helps her identify the leaf in her guide.",
+        "ja": "彼女は植物の知識を使って、葉と図鑑の絵を照らし合わせている。"
+      },
+      "image": {
+        "path": "assets/word/knowledge.png",
+        "sha256": "b61e3cc7e833dcdaf679941b921528d5c7efd31333890980f27f6acf310d5bfb",
+        "git_blob_sha": "338ab416119b4236d1de46c4595ce03a525986a2"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T01:24:00Z",
+        "method": "visual inspection of accepted PNG and canonical first sense",
+        "notes": "Actual accepted PNG visually inspected; depicted scene aligns with the canonical first meaning."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "loss",
+      "p": [
+        "leu-"
+      ],
+      "art": "loss",
+      "sense": {
+        "index": 0,
+        "ja": "損失",
+        "en": "deprivation",
+        "sha256": "6f84121f2c21a1367554b566a8216f0f674d28dde48e28bb21f3e374b2689e64"
+      },
+      "scene": {
+        "en": "Grain spills through the torn sack, causing a loss.",
+        "ja": "袋に穴が開き、穀物が地面にこぼれて失われている。"
+      },
+      "image": {
+        "path": "assets/word/loss.png",
+        "sha256": "e992d8ebdc0fc8c85770e893c14d7ce47d2eee79b2fefd7ad67f27847157cb2f",
+        "git_blob_sha": "948f4a265ce41975aad4eb7718006e19b1b968ae"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T01:24:00Z",
+        "method": "visual inspection of accepted PNG and canonical first sense",
+        "notes": "Actual accepted PNG visually inspected; depicted scene aligns with the canonical first meaning."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "potential",
+      "p": [
+        "poti-",
+        "es-"
+      ],
+      "art": "potential",
+      "sense": {
+        "index": 0,
+        "ja": "潜在的な",
+        "en": "possible",
+        "sha256": "5b7e5558bbe6c34194e0a9c1c304ff45d7c8e8291a329a293fc02f15fca3fb2b"
+      },
+      "scene": {
+        "en": "The acorn is a potential oak tree, so she plants it in the soil.",
+        "ja": "どんぐりにはカシの木に育つ可能性があるので、彼女はそれを土に植えている。"
+      },
+      "image": {
+        "path": "assets/word/potential.png",
+        "sha256": "0533897378882fd18ba5e5c96d681f6cda46844a7f9371f122a63527c78f4e19",
+        "git_blob_sha": "4c0837d4d87363d1613082cf81547bcda14c9df9"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T01:24:00Z",
+        "method": "visual inspection of accepted PNG and canonical first sense",
+        "notes": "Actual accepted PNG visually inspected; depicted scene aligns with the canonical first meaning."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "pressure",
+      "p": [
+        "per-4"
+      ],
+      "art": "pressure",
+      "sense": {
+        "index": 0,
+        "ja": "圧力",
+        "en": "force",
+        "sha256": "69e4ed5d6708b37727c6f8b6eec579c7f0b1f1862e80f859c58ec69057c89af3"
+      },
+      "scene": {
+        "en": "The heavy weight puts pressure on the sponge and squashes it.",
+        "ja": "重いおもりがスポンジに圧力をかけ、押しつぶしている。"
+      },
+      "image": {
+        "path": "assets/word/pressure.png",
+        "sha256": "fb80a8936689b9da95fb1918a04ab0853aa6b71cb5b535e62c403dda8b5d5192",
+        "git_blob_sha": "6d4ce80a0893309c0d81fa131a03237b7c4d7a2d"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T01:24:00Z",
+        "method": "visual inspection of accepted PNG and canonical first sense",
+        "notes": "Actual accepted PNG visually inspected; depicted scene aligns with the canonical first meaning."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "purpose",
+      "p": [
+        "per1",
+        "paus-"
+      ],
+      "art": "purpose",
+      "sense": {
+        "index": 0,
+        "ja": "目的",
+        "en": "aim",
+        "sha256": "90415ebde65f0d719ed12a67cb9ef31473f515808c0f6f40f2804fca87464bb5"
+      },
+      "scene": {
+        "en": "The birdhouse serves a purpose: it gives birds a place to nest.",
+        "ja": "この小さな木の家は、鳥が巣を作れる場所を用意するためのものだ。"
+      },
+      "image": {
+        "path": "assets/word/purpose.png",
+        "sha256": "fa534021585b4d6700b81ad66a663cb682142aa95e755ae0af4bc0804b1ba190",
+        "git_blob_sha": "182b8db4c2d4f87ac4b28268517d2dadd546472c"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T01:24:00Z",
+        "method": "visual inspection of accepted PNG and canonical first sense",
+        "notes": "Actual accepted PNG visually inspected; depicted scene aligns with the canonical first meaning."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "quality",
+      "p": [
+        "kʷo-"
+      ],
+      "art": "quality",
+      "sense": {
+        "index": 0,
+        "ja": "良質の",
+        "en": "superior",
+        "sha256": "471474d9f9019603f399813809e38f6ff2f2dc8390367bd20fbbcbc7a1330beb"
+      },
+      "scene": {
+        "en": "The shoemaker proudly holds up a quality leather shoe with neat stitching.",
+        "ja": "靴職人が、縫い目の整った良質な革靴を誇らしげに掲げている。"
+      },
+      "image": {
+        "path": "assets/word/quality.png",
+        "sha256": "ed8f8e211618c613ef03390360d761c441488d782b9d35f736c621d59a4953e5",
+        "git_blob_sha": "38018e6b74bb6ff9491792094df57384be06df70"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T01:24:00Z",
+        "method": "visual inspection of accepted PNG and canonical first sense",
+        "notes": "Actual accepted PNG visually inspected; depicted scene aligns with the canonical first meaning."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "respect",
+      "p": [
+        "re-",
+        "spek-"
+      ],
+      "art": "respect",
+      "sense": {
+        "index": 0,
+        "ja": "尊敬",
+        "en": "esteem",
+        "sha256": "0fe70024ef599cc909b525622aaa93c57de6920cd0cc1ebea0745abc22d33486"
+      },
+      "scene": {
+        "en": "The child bows to show respect for the elderly potter.",
+        "ja": "子どもが年配の陶芸家への尊敬を表して、おじぎをしている。"
+      },
+      "image": {
+        "path": "assets/word/respect.png",
+        "sha256": "fc92f04c12425977886631d657b7cbc59e76bb078d942e2e15ec9708d661ae60",
+        "git_blob_sha": "bd576f3382f9c789a2a0db9a5c97628994ac4675"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T01:24:00Z",
+        "method": "visual inspection of accepted PNG and canonical first sense",
+        "notes": "Actual accepted PNG visually inspected; depicted scene aligns with the canonical first meaning."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "risk",
+      "p": [
+        "leuk-"
+      ],
+      "art": "risk",
+      "sense": {
+        "index": 0,
+        "ja": "危険",
+        "en": "danger",
+        "sha256": "03ce18a52c619f5073cca4633b53e3a9854342dd66e7a3f1cbc6ce8cae8855df"
+      },
+      "scene": {
+        "en": "The broken bridge creates a risk of falling into the river.",
+        "ja": "橋が壊れているため、川へ落ちる危険がある。"
+      },
+      "image": {
+        "path": "assets/word/risk.png",
+        "sha256": "77e3451a1758d085fd75d9dea076706f78bce5d63f829867a807cb2b06d8a72d",
+        "git_blob_sha": "80a7a11df9cab3d4e23bb77653966c7225ab96ea"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T01:24:00Z",
+        "method": "visual inspection of accepted PNG and canonical first sense",
+        "notes": "Actual accepted PNG visually inspected; depicted scene aligns with the canonical first meaning."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "support",
+      "p": [
+        "upo",
+        "per-2"
+      ],
+      "art": "support",
+      "sense": {
+        "index": 0,
+        "ja": "支える",
+        "en": "assist",
+        "sha256": "50175dead8db0da6111bc481e41da4791b67fcce109a41f28bffc092702c5831"
+      },
+      "scene": {
+        "en": "A wooden stake helps support the young tree and keeps it upright.",
+        "ja": "木の支柱が若い木を支え、まっすぐに立たせている。"
+      },
+      "image": {
+        "path": "assets/word/support.png",
+        "sha256": "d090809a954e68f35b7e65ee1e734b78df0ca5c92ea0dbd4027b1e0ed5c635f0",
+        "git_blob_sha": "52e387301d1b9376e83e8ea11b0aa96148d40ff7"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T01:24:00Z",
+        "method": "visual inspection of accepted PNG and canonical first sense",
+        "notes": "Actual accepted PNG visually inspected; depicted scene aligns with the canonical first meaning."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "understanding",
+      "p": [
+        "n̥dher-",
+        "stā-"
+      ],
+      "art": "understanding",
+      "sense": {
+        "index": 0,
+        "ja": "理解",
+        "en": "comprehension",
+        "sha256": "b26527811466a9dfcff236d563c6fac8b282839928171e783eb23809ce2aa8a9"
+      },
+      "scene": {
+        "en": "The child shows understanding by putting the puzzle piece in the right place.",
+        "ja": "子どもはピースを正しい場所にはめ、パズルのやり方を理解したことを示している。"
+      },
+      "image": {
+        "path": "assets/word/understanding.png",
+        "sha256": "dfab6f738a62131de4b95b47537d1c124252fbe9fb1e63af5d11421f8f636c4c",
+        "git_blob_sha": "ab8680d7627764ea1f9f2ccb564ec418790d7de1"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T01:24:00Z",
+        "method": "visual inspection of accepted PNG and canonical first sense",
+        "notes": "Actual accepted PNG visually inspected; depicted scene aligns with the canonical first meaning."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "going",
+      "p": [
+        "ghē-"
+      ],
+      "art": "going",
+      "sense": {
+        "index": 0,
+        "ja": "行くこと",
+        "en": "departure",
+        "sha256": "9d3e85c1b5fe84e6b4d5f6f4cbc1e9b8984a8ed03a4c1a3d9cce280c5456919e"
+      },
+      "scene": {
+        "en": "Going away can mean waving goodbye and boarding a bus.",
+        "ja": "出発するときには、手を振って別れを告げ、バスに乗ることもある。"
+      },
+      "image": {
+        "path": "assets/word/going.png",
+        "sha256": "791b403c721b8f40b2c00206d425979fe6bcd920bb620cc1f6212da482da4dda",
+        "git_blob_sha": "2ba25c21e0871285234e7814ca93ae652d4a1a7e"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T01:24:00Z",
+        "method": "visual inspection of accepted PNG and canonical first sense",
+        "notes": "Canonical noun departure; explanatory gerund construction preserves this sense."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "went",
+      "p": [
+        "wendh-"
+      ],
+      "art": "went",
+      "sense": {
+        "index": 0,
+        "ja": "行った",
+        "en": "traveled",
+        "sha256": "a05e6bf46490869132708bfed935590647e6e84d195bd19a36028a2677e32b9f"
+      },
+      "scene": {
+        "en": "They went on a trip and brought home a photograph and souvenirs.",
+        "ja": "二人は旅行に行き、写真やお土産を持ち帰った。"
+      },
+      "image": {
+        "path": "assets/word/went.png",
+        "sha256": "29ec9ab8e41b0b2e69088980ba1aa7790bd93445c783ae568432870957c032e8",
+        "git_blob_sha": "eb280d2bf74f03839ce5108fd57e88fbcfa03660"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T01:24:00Z",
+        "method": "visual inspection of accepted PNG and canonical first sense",
+        "notes": "Actual accepted PNG visually inspected; depicted scene aligns with the canonical first meaning."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "felt",
+      "p": [
+        "pel-6"
+      ],
+      "art": "felt",
+      "sense": {
+        "index": 0,
+        "ja": "フェルト",
+        "en": "matted fabric",
+        "sha256": "062fa50ea45ddeb66228cfc1b24e8db0c8e596d3424baee3aa34b397fafff711"
+      },
+      "scene": {
+        "en": "Scissors lie beside a sheet of red felt.",
+        "ja": "赤いフェルトのそばにはさみが置かれている。"
+      },
+      "image": {
+        "path": "assets/word/felt.png",
+        "sha256": "3efc2876819ba86c3194ecd48154b053458054102d7f410ba8248a8137384040",
+        "git_blob_sha": "023233c4c2250676c82845ad9af41cd00586ab00"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T01:24:00Z",
+        "method": "visual inspection of accepted PNG and canonical first sense",
+        "notes": "Fabric noun verified visually and against first sense; do not use the feel past tense."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "feet",
+      "p": [],
+      "art": "feet@x",
+      "sense": {
+        "index": 0,
+        "ja": "footの複数形",
+        "en": "plural of foot",
+        "sha256": "1567adeaee3b9437d66b183902886b35af6e64bb93ebe5e20bfd390f6c431a61"
+      },
+      "scene": {
+        "en": "She holds her bare feet up.",
+        "ja": "彼女は裸足の両足を持ち上げている。"
+      },
+      "image": {
+        "path": "assets/word/feet@x.png",
+        "sha256": "63bb490dedc004e1c9f4ad0ac0843845d919f00abf4ae2e750f3a10285298f33",
+        "git_blob_sha": "a91d74c8bece14f42ab623d03fd2385d78543f04"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T01:24:00Z",
+        "method": "visual inspection of accepted PNG and canonical first sense",
+        "notes": "Actual accepted PNG visually inspected; depicted scene aligns with the canonical first meaning."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "got",
+      "p": [],
+      "art": "got@x",
+      "sense": {
+        "index": 0,
+        "ja": "getの過去形",
+        "en": "past of get",
+        "sha256": "0ce1810a25835080279ed9107ffe7b122e5248b68cce5f6691b2fbb029002f35"
+      },
+      "scene": {
+        "en": "The boy got a red bicycle as a gift.",
+        "ja": "男の子は赤い自転車をプレゼントでもらった。"
+      },
+      "image": {
+        "path": "assets/word/got@x.png",
+        "sha256": "d058cb524e616179eed3a37d29c47303d0919881d39b9d6985086d961c7c38d6",
+        "git_blob_sha": "9eef9e6b15166b55f2f9f1105bd6f3139bba0436"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T01:24:00Z",
+        "method": "visual inspection of accepted PNG and canonical first sense",
+        "notes": "Actual accepted PNG visually inspected; depicted scene aligns with the canonical first meaning."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "says",
+      "p": [],
+      "art": "says",
+      "sense": {
+        "index": 0,
+        "ja": "sayの三人称単数現在",
+        "en": "third-person singular of say",
+        "sha256": "5675034f2368d87defe2b747438b65c5bc3c048995611f297dbf90cebc0e3244"
+      },
+      "scene": {
+        "en": "He says something to his friend, who listens with a smile.",
+        "ja": "彼が友達に何かを話し、友達は笑顔で聞いている。"
+      },
+      "image": {
+        "path": "assets/word/says.png",
+        "sha256": "b21c75fd9c5a47286b644ad52c265dd5b33c6e7ece9c3038eae7b27d9f3dd055",
+        "git_blob_sha": "9d131a21a074dd6a6e0565efeb3b069a590bb942"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T01:24:00Z",
+        "method": "visual inspection of accepted PNG and canonical first sense",
+        "notes": "Actual accepted PNG visually inspected; depicted scene aligns with the canonical first meaning."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "seen",
+      "p": [],
+      "art": "seen@x",
+      "sense": {
+        "index": 0,
+        "ja": "seeの過去分詞",
+        "en": "past participle of see",
+        "sha256": "b8d8fba4396ce8993a1a432ed93c3fb921d9bbe8671d7c37be1a2ee13f945c41"
+      },
+      "scene": {
+        "en": "The birdwatcher has seen this bird before and finds it in the guide.",
+        "ja": "野鳥観察をしている人が、以前見た鳥を図鑑の中に見つけている。"
+      },
+      "image": {
+        "path": "assets/word/seen@x.png",
+        "sha256": "258b990f0eafd5f9c3be3794bbd10b98b19d652c7a3abf9483e0daf2db0fdb91",
+        "git_blob_sha": "aee11698ee182c19fdd02c5683455b0a9f9c410c"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T01:24:00Z",
+        "method": "visual inspection of accepted PNG and canonical first sense",
+        "notes": "Actual accepted PNG visually inspected; depicted scene aligns with the canonical first meaning."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "taken",
+      "p": [],
+      "art": "taken@x",
+      "sense": {
+        "index": 0,
+        "ja": "takeの過去分詞",
+        "en": "past participle of take",
+        "sha256": "3edc1fca86ef071d002ae0416dea17e0ab224034aaba39b9df8a1f4262c13d82"
+      },
+      "scene": {
+        "en": "The child has taken a cookie from the plate and is eating it.",
+        "ja": "子どもが皿からクッキーを取り、食べている。"
+      },
+      "image": {
+        "path": "assets/word/taken@x.png",
+        "sha256": "70b6fa2bbbda9bafa71cc1cb70625ca0c54910bc3b22a6ea51f6e74ba2fff5f2",
+        "git_blob_sha": "4b8406373da379dcb3584340ee210a75ee566b99"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T01:24:00Z",
+        "method": "visual inspection of accepted PNG and canonical first sense",
+        "notes": "Actual accepted PNG visually inspected; depicted scene aligns with the canonical first meaning."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "between",
+      "p": [
+        "ambhi",
+        "dwo-"
+      ],
+      "art": "between",
+      "sense": {
+        "index": 0,
+        "ja": "〜の間に",
+        "en": "among",
+        "sha256": "c56c87b325c2187a8393a655a0db91f4a9c18f0c1e9bb1d10775046370ecb3b3"
+      },
+      "scene": {
+        "en": "The red ball sits between a blue block and a yellow block.",
+        "ja": "赤いボールが、青い積み木と黄色い積み木の間にある。"
+      },
+      "image": {
+        "path": "assets/word/between.png",
+        "sha256": "9abfd7f3c70ca834dd7861972c16cacb9d926b87d060c5d9d22345bf23b776f9",
+        "git_blob_sha": "b6e18bd4d8564c942ad0fba37e8ed4357b5f4ec1"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T01:24:00Z",
+        "method": "visual inspection of accepted PNG and canonical first sense",
+        "notes": "Actual accepted PNG visually inspected; depicted scene aligns with the canonical first meaning."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "under",
+      "p": [
+        "n̥dher-"
+      ],
+      "art": "under",
+      "sense": {
+        "index": 0,
+        "ja": "下に",
+        "en": "beneath",
+        "sha256": "f717d7244a86838330f2466fef36529054f664c17c0d7b6e4bc276dc578fd9fc"
+      },
+      "scene": {
+        "en": "The cat is curled up under the chair.",
+        "ja": "猫が椅子の下で丸くなっている。"
+      },
+      "image": {
+        "path": "assets/word/under.png",
+        "sha256": "682b3f6e46f80bb792682fdbf35f63559e4e33ef7da29ddebfd4d4016624b47c",
+        "git_blob_sha": "fb9db74331e03bf8b63c1253530bf155b4f6748e"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T01:24:00Z",
+        "method": "visual inspection of accepted PNG and canonical first sense",
+        "notes": "Actual accepted PNG visually inspected; depicted scene aligns with the canonical first meaning."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "through",
+      "p": [
+        "terə-2"
+      ],
+      "art": "through",
+      "sense": {
+        "index": 0,
+        "ja": "〜を通って",
+        "en": "via",
+        "sha256": "d498cecd9b188191addecc9503c2b511de22d614565d8aade7d33a2673ecf37d"
+      },
+      "scene": {
+        "en": "The cyclist rides through a stone tunnel.",
+        "ja": "自転車に乗った人が、石造りのトンネルを通り抜けている。"
+      },
+      "image": {
+        "path": "assets/word/through.png",
+        "sha256": "766c41745c05a6ded16471785f581eb72c45ddac1c5b56250278c7cf811cd9bf",
+        "git_blob_sha": "1b32fe0bcb9c16f2a692b4581254f7b582952b71"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T01:24:00Z",
+        "method": "visual inspection of accepted PNG and canonical first sense",
+        "notes": "Actual accepted PNG visually inspected; depicted scene aligns with the canonical first meaning."
+      },
+      "status": "reviewed"
+    }
+  ]
+}
