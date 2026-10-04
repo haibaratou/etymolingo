@@ -1,4 +1,4 @@
-/* One word at a time. Browser/OS voices only; no speech service or API key. */
+/* Reviewed scene narration and explicit dictionary pronunciation. Browser/OS voices only. */
 ((root) => {
   'use strict';
   const normalize = tag => String(tag || '').replaceAll('_', '-').toLowerCase();
@@ -37,9 +37,20 @@
       }
     }
     speak(word, language, slow = false, requested = false) {
+      return this.speakText({ wordId: word.id, text: language === 'ja' ? word.w : word.en, language, slow }, requested);
+    }
+    speakScene(word, result, language, slow = false) {
+      const text = result?.status === 'reviewed' ? result.entry?.scene?.[language] : '';
+      if (typeof text !== 'string' || !text.trim()) {
+        this.stop(); this.onState({ wordId: word?.id, text: '', language, slow, kind: 'scene', state: 'unavailable' });
+        return false; // No fallback to a headword or an unreviewed draft.
+      }
+      return this.speakText({ wordId: word.id, text, language, slow, kind: 'scene' }, false);
+    }
+    speakText(info, requested = false) {
+      const {language, slow} = info;
       this.stop();
       if (!this.voices.length) this.refreshVoices();
-      const info = { wordId: word.id, text: language === 'ja' ? word.w : word.en, language, slow };
       if (!this.enabled && !requested) { this.onState({ ...info, state: 'muted' }); return false; }
       if (this.availability(language) !== 'ready') { this.onState({ ...info, state: 'unavailable' }); return false; }
       const serial = this.serial;
@@ -64,7 +75,8 @@
       };
       utterance.onstart = () => {
         if (serial !== this.serial || this.current?.utterance !== utterance) return;
-        this.onState({ ...info, state: 'speaking' }); watch(15000);
+        this.onState({ ...info, state: 'speaking' });
+        watch(info.kind === 'scene' ? Math.min(60000, Math.max(15000, info.text.length * (slow ? 230 : 160))) : 15000);
       };
       utterance.onend = () => finish('finished');
       utterance.onerror = event => finish('error', event.error);

@@ -6,8 +6,12 @@ const { buildCatalog, challenge } = require('./difficulty.js');
 const scope = { window: {} }; vm.runInNewContext(fs.readFileSync(require.resolve('./catalog.js'), 'utf8'), scope);
 
 test('GLASSES shows all three S letters together; longer words never have a lone outer letter', () => {
-  const words = buildCatalog(scope.window.PICTURE_WORDS_CATALOG);
-  const glasses = words.find(word => word.en === 'glasses');
+  // Geometry fixtures deliberately do not carry reviewed-scene eligibility.
+  const words = buildCatalog([...scope.window.PICTURE_WORDS_CATALOG,
+    {id:'fixture-glasses',en:'glasses',w:'めがね'},
+    {id:'fixture-transformation',en:'transformation',w:'へんけい'},
+    {id:'fixture-unanimity',en:'unanimity',w:'まんじょういっち'}]);
+  const glasses = words.find(word => word.id === 'fixture-glasses');
   const profile = challenge(glasses, 'en');
   const plan = planLetters([...'GLASSES'], [], profile.innerCount, profile.dual);
   assert.equal(plan.batches.length,1);

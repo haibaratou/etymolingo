@@ -2,7 +2,7 @@ const {test}=require('node:test');
 const assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
 const {bilingualRound,finishLanguage,connectedPath,areNeighbours}=require('./gesture.js');
 const code=fs.readFileSync(__dirname+'/game.js','utf8');
-test('either language can be first; only both answers clear a fresh round',()=>{
+test('bilingual bookkeeping accepts either language first and records both independently',()=>{
  for(const order of [['en','ja'],['ja','en']]){
   const round=bilingualRound('cat','ねこ');assert.equal(finishLanguage(round,order[0],'wrong'),'incorrect');
   assert.equal(finishLanguage(round,order[0],round.answers[order[0]].join('')),'partial');
@@ -55,4 +55,29 @@ test('scores deduct only full wrong answers and charge a viewed answer once',()=
  assert.equal(c.clearScore(0,true),70);assert.equal(c.clearScore(2,true),50);
  assert.equal(c.clearScore(20,true),0);
  assert.match(c.scoreStamp(100,false),/はなまる/);assert.match(c.scoreStamp(70,true),/答えを見た/);
+});
+
+
+test('narrowing the active pool preserves old stars, answer records and discovery IDs through reload',()=>{
+ const scope={window:{}};vm.runInNewContext(fs.readFileSync(__dirname+'/catalog.js','utf8'),scope);
+ const difficulty=require('./difficulty.js'),discovery=require('./progression.js');
+ const originalCatalog=scope.window.PICTURE_WORDS_CATALOG,catalog=difficulty.bilingualCatalog(originalCatalog);
+ assert.ok(!catalog.some(word=>['glasses','candy'].includes(word.id)));
+ const raw={mode:'ja',routeVersion:2,ja:{wordId:'glasses',index:42,stars:{glasses:3,candy:2,car:1,bad:9}},en:{wordId:'candy',index:80,stars:{glasses:1,candy:3}},
+  answerRecords:{glasses:{independent:2,assisted:1,en:{independent:3,assisted:0,bestScore:100}},candy:{ja:{independent:0,assisted:2,bestScore:70}}},
+  discovery:{version:1,seen:{ja:['glasses','candy'],en:['candy','glasses']},days:{'2026-10-03':['glasses','candy']}}};
+ let serialized=JSON.stringify(raw);
+ const c={difficulty,discovery,originalCatalog,catalog,KEY:'word-bloom-v1',localStorage:{getItem:()=>serialized}};
+ vm.runInNewContext(code.slice(code.indexOf('  function readSave()'),code.indexOf('  const saved = readSave();')),c);
+ const first=JSON.parse(JSON.stringify(c.readSave()));
+ assert.deepEqual(first.ja.stars,{glasses:3,candy:2,car:1});assert.deepEqual(first.en.stars,raw.en.stars);
+ assert.deepEqual(first.answerRecords,raw.answerRecords);
+ assert.deepEqual(first.discovery.seen,raw.discovery.seen);
+ assert.deepEqual(first.discovery.days['2026-10-03'],['glasses','candy']);
+ assert.ok(catalog[first.ja.index]);assert.ok(catalog[first.en.index]);
+ serialized=JSON.stringify(first);
+ const reloaded=JSON.parse(JSON.stringify(c.readSave()));
+ assert.deepEqual(reloaded.answerRecords,raw.answerRecords);assert.deepEqual(reloaded.ja.stars,first.ja.stars);
+ assert.deepEqual(reloaded.en.stars,first.en.stars);assert.deepEqual(reloaded.discovery.seen,raw.discovery.seen);
+ assert.deepEqual(reloaded.discovery.days['2026-10-03'],['glasses','candy']);
 });

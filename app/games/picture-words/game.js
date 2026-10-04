@@ -9,12 +9,23 @@
     location.replace(url.href);
   });
   const originalCatalog = window.PICTURE_WORDS_CATALOG || [];
+  $('reloadReviewedData').addEventListener('click', () => $('reloadGame').click());
+  if (!window.WordBloomReviewedScenes || !window.PICTURE_WORDS_CATALOG_META) {
+    $('startPlay').disabled = true; $('startPlay').hidden = true; $('reloadReviewedData').hidden = false;
+    $('offlineStatus').textContent = '確認済みデータを読み込めません。フォルダ一式を更新して、もう一度開いてください。';
+    if (!$('launchScreen').open) $('launchScreen').showModal();
+    return;
+  }
   const difficulty = window.WordBloomDifficulty;
   const offline = await window.NicolingoOffline.ready();
-  const catalog = difficulty.bilingualCatalog(originalCatalog);
+  const sceneRuntime = new window.WordBloomReviewedScenes.Runtime({meta:window.PICTURE_WORDS_CATALOG_META,offline});
+  const datasetState = await sceneRuntime.checkDataset();
+  let datasetUnavailable = !datasetState.ok;
+  const failedEntries = new Set();
+  const catalog = datasetState.ok ? difficulty.bilingualCatalog(window.WordBloomReviewedScenes.filterCatalog(originalCatalog)) : [];
   const discovery = window.PictureWordsProgression;
   const byId = new Map(catalog.map(word => [word.id, word]));
-  const supports = (word, lang) => offline.canPlay(word) && (lang === 'en' || !!word.w);
+  const supports = (word, lang) => !datasetUnavailable && !failedEntries.has(word.id) && offline.canPlay(word) && (lang === 'en' || !!word.w);
   const availableCount = lang => catalog.filter(word => supports(word, lang)).length;
   const { bilingualRound, finishLanguage, areNeighbours, connectedPath, advanceSelection, sweptHits, activeBatch, canSelectRing, planLetters } = window.WordBloomGesture;
   const KEY = 'word-bloom-v1';
@@ -69,7 +80,7 @@
   let mode = saved.mode;
   let index = saved[mode].index;
   let round = null;
-  let entry, answer = [], nodes = [], selected = [], hintCount = 0, mistakes = 0;
+  let entry, roundScene = null, answer = [], nodes = [], selected = [], hintCount = 0, mistakes = 0;
   let phase = 'loading', generation = 0, pointer = null, wheelRect = null, shuffleBusy = false, boardHeight = 360;
   let feedbackTimer = 0;
   let dictionaryLanguage = mode, dictionaryFilter = 'all', lastAcquired = null, dictionaryPage = 0, dictionaryQuery = '';
@@ -104,27 +115,14 @@
   const clearPending = () => { for (const id of pending) clearTimeout(id); pending.clear(); clearTimeout(feedbackTimer); };
   const icon = name => `<svg aria-hidden="true"><use href="#i-${name}"/></svg>`;
   const imgStem = word => word.pic + (/^[0-9a-f]{64}$/.test(word.imageRevision || '') ? '@' + word.imageRevision : '');
-  const imgURL = word => `../../assets/word/${encodeURIComponent(imgStem(word))}.png`;
-  const sceneData = window.IllustrationScenes.load('../data/generated-etymon/illustration-scenes.json?v=1').catch(() => null);
+  const imgURL = word => sceneRuntime.imageURL(word);
   let sceneRequest = 0, sceneReadingHold = false;
-  async function explanationFor(word) {
-    if (!word.sceneBinding) return {status:'unreviewed',entry:null};
-    const data = await sceneData;
-    if (!data) return {status:'unavailable',entry:null};
-    const scene = window.IllustrationScenes.find(data, word.sceneBinding, word.pic);
-    return window.IllustrationScenes.verify(scene, {word:word.sceneBinding,imageUrl:imgURL(word)});
-  }
-  async function showRewardExplanation(word) {
-    const request = ++sceneRequest, panel = $('rewardExplanation');
-    panel.hidden = true; panel.replaceChildren();
-    // Let readers finish a verified explanation at their own pace. Pending
-    // verification also holds briefly, so a slow image hash cannot lose the text.
-    sceneReadingHold = !!word.sceneBinding;
-    const result = await explanationFor(word);
-    if (request !== sceneRequest || phase !== 'solved' || entry.id !== word.id) return;
-    window.IllustrationScenes.render(panel, result); panel.hidden = false;
-    sceneReadingHold = result.status === 'reviewed';
-    if (!sceneReadingHold) queueAdvance();
+  const explanationFor = word => sceneRuntime.prepare(word);
+  function showRewardExplanation(word) {
+    const panel = $('rewardExplanation'); panel.hidden = true; panel.replaceChildren();
+    if (phase !== 'solved' || entry.id !== word.id || roundScene?.status !== 'reviewed') return;
+    window.IllustrationScenes.render(panel, roundScene); panel.hidden = false;
+    sceneReadingHold = true; // Every offered puzzle now has a verified explanation.
   }
 
   const shuffle = values => {
@@ -206,6 +204,10 @@
   const speech = new window.WordBloomSpeech.Pronunciation({
     onState: event => {
       sound.duck(event.state === 'queued' || event.state === 'speaking');
+      if (event.kind === 'scene' && ['queued','speaking'].includes(event.state)) {
+        $('winPronunciation').dataset.utteranceText = event.text;
+        $('winPronunciation').dataset.utteranceLanguage = event.language;
+      }
       if (cluePlayback) {
         const busy = event.state === 'queued' || event.state === 'speaking';
         const failed = event.state === 'error' || event.state === 'unavailable';
@@ -214,18 +216,18 @@
         if (!busy) cluePlayback = false;
       }
       document.querySelectorAll('.pronunciation').forEach(panel => {
-        if (panel.dataset.word !== event.wordId || panel.dataset.language !== event.language) return;
+        if (panel.dataset.word !== event.wordId || panel.dataset.language !== event.language || (panel.dataset.kind === 'scene') !== (event.kind === 'scene')) return;
         panel.dataset.state = event.state;
         panel.classList.toggle('is-speaking', event.state === 'speaking');
         panel.setAttribute('aria-busy', String(event.state === 'queued' || event.state === 'speaking'));
         let message = '';
         if (event.state === 'queued') message = mode === 'ja' ? '発音を準備中…' : 'Getting the voice ready…';
-        if (event.state === 'speaking') message = mode === 'ja' ? `「${event.text}」を発音中` : `Listen: ${event.text}`;
+        if (event.state === 'speaking') message = event.kind === 'scene' ? (mode === 'ja' ? '説明を読み上げ中…' : 'Reading the description…') : (mode === 'ja' ? `「${event.text}」を発音中` : `Listen: ${event.text}`);
         if (event.state === 'finished') message = mode === 'ja' ? '聞けたら、まねして言ってみよう！' : 'Your turn. Say it out loud!';
         if (event.state === 'muted') message = mode === 'ja' ? '右上の音声をオンにすると聞けます' : 'Turn sound on at the top to listen';
         if (event.state === 'unavailable') message = mode === 'ja' ? 'この端末では、この言語の音声を利用できません' : 'This language’s voice is unavailable on this device';
         if (event.state === 'error') message = event.error === 'not-allowed'
-          ? (mode === 'ja' ? '「発音を聞く」を押してね' : 'Tap Listen to hear the word')
+          ? (mode === 'ja' ? '「もう一度聞く」を押してね' : 'Tap Listen to try again')
           : (mode === 'ja' ? '音声を再生できませんでした。ボタンでもう一度どうぞ' : 'Voice playback failed. Tap Listen to try again.');
         if (event.state === 'idle') message = mode === 'ja' ? '何度でも聞いて、声に出してみよう' : 'Listen again, then try saying it';
         panel.querySelector('.pronunciation-status').textContent = message;
@@ -234,20 +236,21 @@
   });
   speech.setEnabled(saved.sound);
 
-  function pronunciationPanel(word, language) {
+  function pronunciationPanel(word, language, sceneResult = null) {
+    const narrating = sceneResult?.status === 'reviewed';
     const panel = document.createElement('div'); panel.className = 'pronunciation';
-    panel.dataset.word = word.id; panel.dataset.language = language; panel.dataset.state = 'idle';
-    panel.setAttribute('role', 'group'); panel.setAttribute('aria-label', mode === 'ja' ? '発音を聞く' : 'Word pronunciation');
+    panel.dataset.word = word.id; panel.dataset.language = language; panel.dataset.state = 'idle'; panel.dataset.kind = narrating ? 'scene' : 'word';
+    panel.setAttribute('role', 'group'); panel.setAttribute('aria-label', narrating ? (mode === 'ja' ? '説明を聞く' : 'Description audio') : (mode === 'ja' ? '単語の発音を聞く' : 'Word pronunciation'));
     const heading = document.createElement('div'); heading.className = 'pronunciation-heading';
-    const spoken = language === 'ja' ? word.w : word.en;
+    const spoken = narrating ? sceneResult.entry.scene[language] : (language === 'ja' ? word.w : word.en);
     heading.innerHTML = '<span class="voice-bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>';
-    const label = document.createElement('span'); label.textContent = `${spoken} · ${language === 'ja' ? '日本語' : 'ENGLISH'}`; heading.append(label);
+    const label = document.createElement('span'); label.textContent = narrating ? (language === 'ja' ? '日本語' : 'ENGLISH') : `${spoken} · ${language === 'ja' ? '日本語' : 'ENGLISH'}`; heading.append(label);
     const buttons = document.createElement('div'); buttons.className = 'pronunciation-buttons';
     for (const slow of [false, true]) {
       const button = document.createElement('button'); button.type = 'button'; button.dataset.slow = String(slow);
-      button.innerHTML = `${icon('sound')}<span>${slow ? 'ゆっくり' : '発音を聞く'}</span>`;
-      button.setAttribute('aria-label', mode === 'ja' ? `「${spoken}」の発音を${slow ? 'ゆっくり' : ''}聞く` : `${slow ? 'Slow pronunciation' : 'Listen to'} ${spoken}`);
-      button.addEventListener('click', () => speech.speak(word, language, slow)); buttons.append(button);
+      button.innerHTML = `${icon('sound')}<span>${slow ? 'ゆっくり' : narrating ? 'もう一度聞く' : '発音を聞く'}</span>`;
+      button.setAttribute('aria-label', mode === 'ja' ? `「${spoken}」を${slow ? 'ゆっくり' : 'もう一度'}聞く` : `${slow ? 'Listen slowly to' : 'Listen again to'} ${spoken}`);
+      button.addEventListener('click', () => narrating ? speech.speakScene(word, sceneResult, language, slow) : speech.speak(word, language, slow)); buttons.append(button);
     }
     const status = document.createElement('span'); status.className = 'pronunciation-status'; status.setAttribute('role', 'status'); status.setAttribute('aria-live', 'polite');
     status.textContent = saved.sound ? (mode === 'ja' ? '何度でも聞いて、声に出してみよう' : 'Listen again, then try saying it') : (mode === 'ja' ? '右上の音声をオンにすると聞けます' : 'Turn sound on at the top to listen');
@@ -311,7 +314,8 @@
     if (reset) feedbackTimer = setTimeout(() => { if (phase === 'playing') setFeedback(text().release); }, 2300);
   }
   function updateLabels() {
-    $('listenClue').setAttribute('aria-label', mode === 'ja' ? '発音を聞く' : 'Listen to pronunciation');
+    $('listenClue').setAttribute('aria-label', mode === 'ja' ? (phase === 'solved' ? '説明をもう一度聞く' : '正解後に説明を聞く') : (phase === 'solved' ? 'Replay the description' : 'Description available after solving'));
+    $('listenClue').disabled = phase !== 'solved' || roundScene?.status !== 'reviewed' || !saved.sound;
     $('listenClueLabel').textContent = '聞く';
     $('shuffle').setAttribute('aria-label', text().shuffle);
     const t = text(); document.documentElement.lang = mode;
@@ -563,8 +567,9 @@
     else if (!catalog[nextIndex] || !offline.canPlay(catalog[nextIndex])) nextIndex = nextUncollected(mode, index);
     if (nextIndex < 0) { closePlay(); updateOfflineStatus(); return; }
     const retainedHintCount = keepHints ? hintCount : 0;
+    const retainedScene = keepPicture ? roundScene : null;
     pauseAdvance(); generation++; clearPending(); cancelGesture();
-    if (!keepPronunciation) speech.stop();
+    speech.stop(); // Sentence audio must not leak into the next puzzle.
     sound.stop(); petals.clear();
     document.querySelectorAll('.flying-letter, .collected-word, .collection-fly').forEach(el => el.remove());
     $('dailyCollection').classList.remove('just-collected');
@@ -574,7 +579,8 @@
     $('rewardBackdrop').hidden = true;
     $('rankUp').hidden = true;
     $('winPronunciation').hidden = true; $('winPronunciation').replaceChildren();
-    sceneRequest++; sceneReadingHold = false; $('rewardExplanation').hidden = true; $('rewardExplanation').replaceChildren();
+    delete $('winPronunciation').dataset.utteranceText; delete $('winPronunciation').dataset.utteranceLanguage;
+    sceneRequest++; roundScene = null; sceneReadingHold = false; $('rewardExplanation').hidden = true; $('rewardExplanation').replaceChildren();
     index = (nextIndex + catalog.length) % catalog.length; progress().index = index;
     entry = catalog[index];
     if (mode === 'ja' && !entry.w) mode = 'en';
@@ -598,7 +604,8 @@
     $('gestureNote').textContent = mode === 'ja' ? '途中で離すとキャンセル' : 'Release an unfinished word to cancel';
     const version = generation, image = $('clueImage');
     image.alt = mode === 'ja' ? '答えを考えるためのイラスト' : 'Picture clue. What does it show?';
-    if (keepPicture && image.complete && image.naturalWidth > 0 && image.src.endsWith(encodeURIComponent(imgStem(entry)) + '.png')) {
+    if (keepPicture && retainedScene?.status === 'reviewed' && image.complete && image.naturalWidth > 0 && image.dataset.sceneId === entry.id) {
+      roundScene = retainedScene;
       image.style.opacity = '1';
       image.style.animation = 'none';
       phase = 'playing'; $('game').dataset.state = phase; recordDisplay();
@@ -614,12 +621,23 @@
         // Discovery mixes ranks, so a random harder word is not a rank-up event.
         if (focusNext && keyboardNavigation) nodes[0]?.button.focus({ preventScroll: true });
       };
-      image.onerror = () => {
+      const word = entry;
+      const failScene = reason => {
         if (version !== generation) return;
-        phase = 'error'; $('game').dataset.state = phase; $('imageError').hidden = false;
-        $('hint').disabled = true; $('shuffle').disabled = true; setFeedback(text().error, 'wrong');
+        roundScene = null; failedEntries.add(word.id);
+        if (['stale-catalog','manifest-unavailable','missing-catalog-provenance'].includes(reason)) datasetUnavailable = true;
+        phase = 'error'; $('game').dataset.state = phase; $('imageError').hidden = false; $('imageError').dataset.reason = reason;
+        $('hint').disabled = true; $('shuffle').disabled = true; $('listenClue').disabled = true;
+        setFeedback(mode === 'ja' ? '画像と説明を確認できません。最新版に再読み込みしてください。' : 'The picture and description could not be verified. Reload the latest data.', 'wrong');
+        updateOfflineStatus();
       };
-      image.src = imgURL(entry);
+      image.onerror = () => failScene('image-decode-failed');
+      sceneRuntime.prepare(word).then(result => {
+        if (version !== generation || entry.id !== word.id) return;
+        if (result.status !== 'reviewed') { failScene(result.reason); return; }
+        roundScene = result; datasetUnavailable = false; failedEntries.delete(word.id);
+        image.dataset.sceneId = word.id; image.src = result.imageURL;
+      }).catch(() => failScene('image-unavailable'));
     }
   }
 
@@ -691,9 +709,10 @@
     return `<svg viewBox="0 0 200 200" aria-hidden="true">${outline}</svg><strong>${score}<small>点</small></strong><span>${score===100?'はなまる':viewed?'答えを見た':'正解'}</span>`;
   }
   function win() {
-    speech.speak(entry, mode); // Start synthesis before reward DOM and storage work.
+    if (roundScene?.status !== 'reviewed') return;
+    speech.speakScene(entry, roundScene, mode); // Already verified before play; keep the answer gesture's audio activation.
     $('rankUp').hidden = true;
-    phase = 'solved'; $('game').dataset.state = phase; flyLetters(); vibrate([12, 35, 20]);
+    phase = 'solved'; $('game').dataset.state = phase; updateLabels(); flyLetters(); vibrate([12, 35, 20]);
     if (comboEligible) { saved.combo++; saved.bestCombo = Math.max(saved.bestCombo, saved.combo); }
     const combo = comboEligible ? saved.combo : 0, newBest = combo >= 2 && combo === saved.bestCombo;
     sound.win(combo); renderCombo(combo ? 'bump' : '');
@@ -775,7 +794,7 @@
       later(() => { $('rewardScene').classList.add('page-filled'); updateProgress(); }, 420);
       if (award.added) later(animateAcquisition, 500);
     }, reducedMotion.matches ? 0 : PRAISE_TIME);
-    $('winPronunciation').replaceChildren(pronunciationPanel(entry, mode)); $('winPronunciation').hidden = false;
+    $('winPronunciation').replaceChildren(pronunciationPanel(entry, mode, roundScene)); $('winPronunciation').hidden = false;
     queueAdvance(award.pageCompleted ? 4400 : REWARD_DURATION);
   }
 
@@ -883,9 +902,9 @@
     later(() => { shuffleBusy = false; }, reducedMotion.matches ? 0 : 470);
   });
   $('listenClue').addEventListener('click', () => {
-    if (!entry || !['playing', 'solved'].includes(phase)) return;
+    if (!entry || phase !== 'solved' || roundScene?.status !== 'reviewed') return;
     cluePlayback = true;
-    speech.speak(entry, mode, false, true);
+    speech.speakScene(entry, roundScene, mode);
   });
   $('hint').addEventListener('click', () => {
     if (phase !== 'playing' || shuffleBusy) return;
@@ -906,7 +925,7 @@
     later(()=>{phase='playing';$('game').dataset.state=phase;$('hint').disabled=false;$('shuffle').disabled=false;setFeedback('答えを見た記録が残ります。なぞって辞書をゲット！');},tick*160);
   });
   $('sound').addEventListener('click', () => {
-    saved.sound = !saved.sound; speech.setEnabled(saved.sound); persist(); updateSound();
+    saved.sound = !saved.sound; speech.setEnabled(saved.sound); persist(); updateSound(); updateLabels();
     if (saved.sound) { sound.unlock(); sound.hint(); } else sound.stop();
   });
   $('theme').addEventListener('click', () => {
@@ -996,7 +1015,7 @@
   }
 
   function renderDictionary(focusControl = '') {
-    const lang = dictionaryLanguage, count = collectedCount(lang), totalWords = availableCount(lang), percent = Math.floor(count / totalWords * 100);
+    const lang = dictionaryLanguage, count = collectedCount(lang), totalWords = availableCount(lang), percent = totalWords ? Math.floor(count / totalWords * 100) : 0;
     const todayIds = new Set(discovery.summary(saved.discovery).todayIds);
     const container = document.createElement('div'); container.className = 'dictionary';
     const tabs = document.createElement('div'); tabs.className = 'dictionary-tabs'; tabs.setAttribute('role', 'group');
@@ -1095,7 +1114,7 @@
     const challenge = document.createElement('button'); challenge.type = 'button'; challenge.className = 'modal-primary';
     challenge.textContent = challengeLang === lang ? (mode === 'ja' ? 'もう一度、この単語で遊ぶ' : 'Play this word again') : mode === 'ja' ? `${other === 'ja' ? '日本語' : '英語'}でもゲットする` : `Collect it in ${other === 'ja' ? 'Japanese' : 'English'}`;
     challenge.addEventListener('click', () => beginDictionaryPuzzle(challengeLang, wordIndex));
-    const explanation = document.createElement('div'); explanation.textContent = 'イラスト解説を確認中…';
+    const explanation = document.createElement('div'); explanation.textContent = '説明を確認中…';
     // Dictionary detail is already an explicit reveal. The puzzle itself stays answer-free.
     explanationFor(word).then(result => {if(explanation.isConnected)window.IllustrationScenes.render(explanation,result);});
     container.append(back, image, heading, rarity, reading, explanation, translation, pronunciationPanel(word, lang), history, best, badges, challenge);
@@ -1121,14 +1140,21 @@
     loadLevel(phase === 'solved' ? nextUncollected(mode, index) : index, false, false, true, true);
   }
   function updateOfflineStatus() {
-    const count = catalog.filter(word => offline.state.pictures.has(word.pic)).length;
+    const count = catalog.filter(word => offline.hasSavedScene?.(word)).length;
     $('offlineStatus').textContent = count ? `${count}問を保存済み・圏外でも遊べます` : '通信できるときに保存すると、圏外でも遊べます。';
     $('saveOffline').disabled = !offline.state.supported || !offline.state.online;
-    $('startPlay').disabled = !catalog.some(word => offline.canPlay(word));
+    $('startPlay').disabled = !catalog.some(word => supports(word, mode));
+    $('startPlay').hidden = datasetUnavailable || !catalog.length;
+    $('reloadReviewedData').hidden = !(datasetUnavailable || !catalog.length);
+    if (datasetUnavailable || !catalog.length) $('saveOffline').disabled = true;
+    if (datasetUnavailable || !catalog.length) $('offlineStatus').textContent = '確認済みの説明つきデータがありません。最新版に再読み込みするか、refresh_reviewed_catalog.cmd で更新してください。';
+    else if (location.protocol === 'file:') $('offlineStatus').textContent = `${catalog.length}問の確認済みデータで遊べます。`; 
   }
   $('saveOffline').addEventListener('click', async () => {
     $('saveOffline').disabled = true;
     try {
+      const current = await sceneRuntime.checkDataset();
+      if (!current.ok) throw new Error(current.reason);
       await offline.save(catalog, (done, total) => { $('offlineStatus').textContent = `保存中 ${done} / ${total}問`; });
       updateOfflineStatus();
     } catch {
@@ -1148,6 +1174,6 @@
     const installed = matchMedia('(display-mode: fullscreen), (display-mode: standalone)').matches;
     if (effectiveLayout() === 'mobile' && !installed) closePlay();
   }
-  else { $('game').dataset.state = 'error'; setFeedback('出題データを読み込めませんでした。ページを再読み込みしてください。', 'wrong'); }
+  else { $('game').dataset.state = 'error'; $('startPlay').disabled = true; setFeedback('確認済みの画像と説明がある出題データを読み込めません。最新版に再読み込みしてください。', 'wrong'); if (!$('launchScreen').open) $('launchScreen').showModal(); }
 })();
 

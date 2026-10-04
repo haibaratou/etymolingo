@@ -1,1 +1,9 @@
 references/videos/*.mp4 filter=lfs diff=lfs merge=lfs -text
+# Preserve byte hashes used by reviewed Picture Words and its public manifest.
+app/data/generated-etymon/words.json text eol=lf
+app/data/generated-etymon/illustration-scenes.json text eol=lf
+app/data/generated-etymon/manifest.json text eol=lf
+assets/word/illustration-index.js text eol=lf
+app/games/picture-words/catalog.js text eol=lf
+app/games/picture-words/reviewed-catalog-report.json text eol=lf
+app/games/picture-words/scene-assets/*.js text eol=lf

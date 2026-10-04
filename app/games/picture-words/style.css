@@ -1003,3 +1003,8 @@ html.phone-host body> :not(.desktop-phone-host){display:none!important}
 @media(prefers-reduced-motion:reduce){#rewardScene[data-record] #rewardSeal{animation:none}}
 #gameActions.play-toolbar #listenClue{height:54px;min-height:54px;max-height:54px;font-size:13px}
 #gameActions #listenClue svg{width:30px;height:30px}
+
+/* Keep reviewed-description replay in the scroll flow, above the existing Next footer. */
+#rewardScroll .win-pronunciation:not([hidden]){display:block;width:100%;max-width:360px;margin:8px auto 14px}
+#rewardScroll .win-pronunciation .pronunciation{margin-top:0}
+#rewardScroll .pronunciation-buttons button:focus-visible{outline:3px solid var(--ink);outline-offset:3px}

@@ -1,82 +1,29 @@
-const {test} = require('node:test');
-const assert = require('node:assert/strict');
-const fs = require('node:fs');
-const vm = require('node:vm');
-
-for (const scenario of ['blocked-probe', 'stalled-registration-and-probe', 'denied-storage']) {
-  test(`online play remains available with ${scenario}`, async () => {
-    const never = new Promise(() => {});
-    const root = {isSecureContext:true,caches:{},addEventListener:()=>{}};
-    const navigator = {onLine:true,serviceWorker:{register:()=>never}};
-    vm.runInNewContext(fs.readFileSync(__dirname+'/offline.js','utf8'), {
-      window:root,navigator,URL,Set,setTimeout,clearTimeout,
-      caches:{open:async()=>{if(scenario==='denied-storage')throw new Error('denied');return {keys:async()=>[]};}},
-      fetch:()=>scenario==='stalled-registration-and-probe'?never:Promise.reject(new Error('blocked')),
-    });
-    const offline = await root.NicolingoOffline.ready();
-    assert.equal(offline.canPlay({pic:'cat'}),true);
-  });
+const {test}=require('node:test');const assert=require('node:assert/strict');const fs=require('node:fs'),vm=require('node:vm'),path=require('node:path');
+const reviewed=require('./reviewed-scenes.js'),crypto=require('node:crypto').webcrypto;
+const scope={window:{}};vm.runInNewContext(fs.readFileSync(__dirname+'/catalog.js','utf8'),scope);const words=scope.window.PICTURE_WORDS_CATALOG,word=words[0],other=words[1];
+const location=new URL('https://example.test/project/app/games/picture-words.html');
+function setup({online=true,files=[],fetcher=async()=>new Response('ok'),storage=false,protocol='https:',registration=Promise.resolve({})}={}){
+ const handlers={},stored=new Map(files.map(url=>[url,new Response('cached')]));const cache={keys:async()=>{if(storage)throw Error('denied');return [...stored.keys()].map(url=>({url}));},match:async key=>stored.get(typeof key==='string'?key:key.url)?.clone(),put:async(key,value)=>stored.set(typeof key==='string'?key:key.url,value.clone())};
+ const root={isSecureContext:protocol!=='file:',caches:{},addEventListener:(name,fn)=>handlers[name]=fn,WordBloomReviewedScenes:{...reviewed,verifyPackScript:(w,t)=>reviewed.verifyPackScript(w,t,crypto)}};
+ const navigator={onLine:online,serviceWorker:{register:()=>registration,ready:Promise.resolve({})}};const loc={href:protocol==='file:'?'file:///repo/app/games/picture-words.html':location.href,protocol};
+ vm.runInNewContext(fs.readFileSync(__dirname+'/offline.js','utf8'),{window:root,navigator,location:loc,URL,Set,AbortSignal,TextEncoder,setTimeout,clearTimeout,caches:{open:async()=>cache},fetch:fetcher});return{root,navigator,handlers,stored,api:root.NicolingoOffline};
 }
-
-test('Play closes the start screen and reuses the loaded picture without waiting for another image event', () => {
-  const source = fs.readFileSync(__dirname+'/game.js','utf8');
-  const fn = source.slice(source.indexOf('  function startPlay()'),source.indexOf('  function updateOfflineStatus()'));
-  const calls = [];
-  vm.runInNewContext(fn+';startPlay();', {
-    $:()=>({close:()=>calls.push('closed')}),window:{scrollTo:()=>{}},sound:{unlock:()=>{}},
-    phase:'playing',index:12,loadLevel:(...args)=>calls.push(args),
-  });
-  assert.deepEqual(calls,['closed',[12,false,false,true,true]]);
+for(const scenario of ['blocked-probe','stalled-registration-and-probe','denied-storage'])test(`reviewed online puzzles survive optional offline setup failure: ${scenario}`,async()=>{
+ const never=new Promise(()=>{}),x=setup({storage:scenario==='denied-storage',registration:never,fetcher:()=>scenario==='stalled-registration-and-probe'?never:Promise.reject(Error('probe'))});const offline=await x.api.ready();assert.equal(offline.canPlay(word),true);assert.equal(offline.canPlay({pic:'unreviewed'}),false);
 });
-
-test('offline selection permits cached pictures only, including after a failed network probe', async () => {
-  const handlers = {};
-  const root = {isSecureContext:true, caches:{}, addEventListener:(name, fn) => handlers[name] = fn};
-  const navigator = {onLine:true, serviceWorker:{register:async () => ({})}};
-  const caches = {open:async () => ({keys:async () => [{url:'https://example.test/assets/word/candy.png'}]})};
-  vm.runInNewContext(fs.readFileSync(__dirname+'/offline.js','utf8'), {
-    window:root,navigator,caches,URL,Set,AbortSignal,setTimeout,clearTimeout,location:{href:'https://example.test/app/games/picture-words.html'},
-    fetch:async () => {throw new Error('offline');},
-  });
-  const offline = await root.NicolingoOffline.ready();
-  assert.equal(offline.canPlay({pic:'candy'}),true);
-  assert.equal(offline.canPlay({pic:'missing'}),false);
-  handlers.online();
-  assert.equal(offline.canPlay({pic:'missing'}),true);
-  navigator.onLine = false;
-  handlers.offline();
-  assert.equal(offline.canPlay({pic:'missing'}),false);
+test('file viewing needs no service worker or network and only admits reviewed records',async()=>{const x=setup({online:false,protocol:'file:',fetcher:()=>{throw Error('no network');}});await x.api.ready();assert.equal(x.api.canPlay(word),true);assert.equal(x.api.canPlay({pic:'old'}),false);});
+test('offline availability requires the exact caption image pack; old PNG-only packs do not qualify',async()=>{
+ const pack=new URL(word.sceneAsset,location).href;const x=setup({files:[new URL('../../assets/word/'+other.pic+'.png',location).href,pack],fetcher:async()=>{throw Error('offline');}});await x.api.ready();assert.equal(x.api.canPlay(word),true);assert.equal(x.api.canPlay(other),false);x.handlers.online();assert.equal(x.api.canPlay(other),true);x.navigator.onLine=false;x.handlers.offline();assert.equal(x.api.canPlay(other),false);
 });
-
-test('service worker restores shell and illustration with the server unavailable', async () => {
-  const handlers = {}, stored = new Map();
-  const location = new URL('https://example.test/project/app/games/picture-words-sw.js');
-  const cache = {match:async key => stored.get(key.url)?.clone(), put:async (key,value) => stored.set(key.url,value)};
-  stored.set('https://example.test/project/app/games/picture-words/game.js',new Response('cached game'));
-  stored.set('https://example.test/project/assets/word/candy.png',new Response('cached picture'));
-  vm.runInNewContext(fs.readFileSync(__dirname+'/../picture-words-sw.js','utf8'), {
-    self:{location,addEventListener:(name,fn) => handlers[name]=fn},URL,Request,Response,Set,
-    caches:{open:async()=>cache},fetch:async()=>{throw new Error('offline');},
-  });
-  for (const [path,body] of [['app/games/picture-words/game.js?v=offline1','cached game'],['assets/word/candy.png','cached picture']]) {
-    let result;
-    handlers.fetch({request:new Request('https://example.test/project/'+path),respondWith:value=>result=value});
-    assert.equal(await (await result).text(),body);
-  }
-  let intercepted = false;
-  handlers.fetch({request:new Request('https://example.test/project/app/games/picture-words.html?connection-check'),respondWith:()=>intercepted=true});
-  assert.equal(intercepted,false);
+test('Play keeps the loaded verified picture when leaving the start screen',()=>{const code=fs.readFileSync(__dirname+'/game.js','utf8'),fn=code.slice(code.indexOf('  function startPlay()'),code.indexOf('  function updateOfflineStatus()'));const calls=[];vm.runInNewContext(fn+';startPlay();',{$:()=>({close:()=>calls.push('closed')}),window:{scrollTo(){}},sound:{unlock(){}},phase:'playing',index:12,loadLevel:(...args)=>calls.push(args)});assert.deepEqual(calls,['closed',[12,false,false,true,true]]);});
+test('service worker keeps saved immutable packs but never masks a strict current-data request',async()=>{
+ const handlers={},stored=new Map(),location=new URL('https://example.test/project/app/games/picture-words-sw.js');const cache={match:async key=>stored.get(key.url)?.clone(),put:async(key,v)=>stored.set(key.url,v)};
+ const paths=[['app/games/picture-words/game.js?v=scene1','cached game'],['app/games/'+word.sceneAsset,'cached reviewed pack']];for(const [p,body] of paths)stored.set('https://example.test/project/'+p.split('?')[0],new Response(body));
+ vm.runInNewContext(fs.readFileSync(__dirname+'/../picture-words-sw.js','utf8'),{self:{location,addEventListener:(n,f)=>handlers[n]=f},URL,Request,Response,Set,caches:{open:async()=>cache},fetch:async()=>{throw Error('offline');}});
+ for(const [p,body] of paths){let r;handlers.fetch({request:new Request('https://example.test/project/'+p),respondWith:x=>r=x});assert.equal(await(await r).text(),body);}
+ for(const p of ['app/games/picture-words.html?connection-check','assets/word/old.png?strictScene=1','app/data/generated-etymon/manifest.json?strictScene=1']){let intercepted=false;handlers.fetch({request:new Request('https://example.test/project/'+p),respondWith:()=>intercepted=true});assert.equal(intercepted,false);}
 });
-
-test('offline pack stays at twenty pictures and under five megabytes of artwork', () => {
-  const scope = {window:{}};
-  vm.runInNewContext(fs.readFileSync(__dirname+'/catalog.js','utf8'),scope);
-  const pool = require('./difficulty.js').bilingualCatalog(scope.window.PICTURE_WORDS_CATALOG);
-  const candy = pool.find(word => word.en === 'candy');
-  const pack = [candy,...pool.filter(word => word !== candy)].slice(0,20);
-  const path = require('node:path');
-  const bytes = pack.reduce((sum,word)=>sum+fs.statSync(path.join(__dirname,'../../../assets/word',word.pic+'.png')).size,0);
-  assert.equal(pack.length,20);
-  assert.ok(bytes < 4500000, `Artwork pack grew to ${bytes} bytes`);
-  assert.ok(fs.readFileSync(__dirname+'/../picture-words-sw.js','utf8').includes('if (shell) await cache.put'));
+test('explicit save verifies real packs and stays within20 entries and4.5MB without deleting old cache',async()=>{
+ const old=new URL('../../assets/word/old.png',location).href;
+ const x=setup({files:[old],fetcher:async url=>{const name=decodeURIComponent(new URL(url).pathname.split('/').pop());return new Response(fs.readFileSync(path.join(__dirname,'scene-assets',name),'utf8'));}});let progress=0;const count=await x.api.save(words,(n,total)=>{progress=n;assert.ok(total<=20);});assert.ok(count>0&&count<=20);assert.equal(progress,count);assert.ok(x.stored.has(old));let bytes=0;for(const [key,response] of x.stored){if(key===old)continue;bytes+=(await response.clone().arrayBuffer()).byteLength;}assert.ok(bytes<=4500000);assert.equal(x.api.state.sceneAssets.size,count);
 });
