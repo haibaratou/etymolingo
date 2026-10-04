@@ -56,9 +56,9 @@
     },
     "illustration_scenes": {
       "file": "illustration-scenes.json",
-      "bytes": 149653,
-      "count": 142,
-      "sha256": "246838c136f6eefbfa9f8c229cd58e8d44ff2327f20951263c4694f21da80773"
+      "bytes": 204156,
+      "count": 192,
+      "sha256": "edd85493b617a30779b9b33f5674b3907b5e01c276837e1016e9d68c598b80d8"
     }
   }
 }
