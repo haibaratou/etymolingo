@@ -3,24 +3,24 @@
   "meta": {
     "schema": 1,
     "sourceWordsSha256": "1d367df1caa3fbae89c378b82ae46bd30e4367a1f40b3bf82e95b60452263a6a",
-    "scenesSha256": "195d1d285eb359a13f7676ef0856dc0c3fe976a4164741cc1bdb36a844184097",
+    "scenesSha256": "ae6ec8a6938502d9ec86239bf60c116e0f18525c2b8c194bb80265c6de1e4f54",
     "indexSha256": "8f14ef961f3ff29788ff205b3af4dbb08e01f1004674f7c01b81df9d82ea8655",
-    "count": 102
+    "count": 132
   },
-  "normalCatalogRows": 4066,
-  "emittedRows": 102,
-  "excludedRowsCount": 3964,
-  "sceneEntries": 426,
-  "verifiedPngs": 102,
-  "lazyAssets": 102,
-  "lazyAssetBytes": 26405002,
+  "normalCatalogRows": 4092,
+  "emittedRows": 132,
+  "excludedRowsCount": 3960,
+  "sceneEntries": 475,
+  "verifiedPngs": 132,
+  "lazyAssets": 132,
+  "lazyAssetBytes": 34920580,
   "ordering": "Surviving existing IDs in previous order; new IDs appended in normal-builder order",
   "inputHashes": {
     "app/data/generated-etymon/words.json": "1d367df1caa3fbae89c378b82ae46bd30e4367a1f40b3bf82e95b60452263a6a",
-    "app/data/generated-etymon/illustration-scenes.json": "195d1d285eb359a13f7676ef0856dc0c3fe976a4164741cc1bdb36a844184097",
+    "app/data/generated-etymon/illustration-scenes.json": "ae6ec8a6938502d9ec86239bf60c116e0f18525c2b8c194bb80265c6de1e4f54",
     "assets/word/illustration-index.js": "8f14ef961f3ff29788ff205b3af4dbb08e01f1004674f7c01b81df9d82ea8655",
     "app/games/picture-words/build_catalog.py": "42b868ac315092781f5abfcec19ed6a84670f0b390b6b0e8c150197c69a98ba8",
-    "app/games/picture-words/updated-art.json": "c79f34f086fcd8c925420d44a8673d0b69f29be85c09be8f49cdf015fa39285d",
+    "app/games/picture-words/updated-art.json": "7b10da931dbfcb8561ae4f0fea0592454c3b020105fcb39f25d053987e5d3a04",
     "app/games/picture-words/readiness-review.json": "de9ddbf46fefadf6c30185c3c9b8ae8a44707f7af6b5a581a9661fa8ec219f39",
     "app/games/picture-words/image-revisions.json": "be9b1c81860c8433cf746d6285f11e39e0e9fc39f6f681397c8fe03ebab3a8e8",
     "app/data/generated-etymon/word-suika-ja.json": "113a3a09a5005dc0ad53e6e8f9595a02f95e0471b672d0130f815b1bf819d91f",
@@ -29,8 +29,8 @@
   "inventoryNamesSha256": "bee0d219247a2d85844afe0fbb1640d2b003e699eb4b7da2c9501052bf38a0ab",
   "exclusionCounts": {
     "art_not_completed_after_cutoff": 34,
-    "no_exact_scene_binding": 1843,
-    "normal_readiness_gate": 2087
+    "no_exact_scene_binding": 1828,
+    "normal_readiness_gate": 2098
   },
   "excludedRows": [
     {
@@ -712,6 +712,14 @@
       "detail": "first_reading_unavailable"
     },
     {
+      "id": "wanted",
+      "w": "wanted",
+      "p": [],
+      "art": "wanted",
+      "reason": "normal_readiness_gate",
+      "detail": "first_reading_unavailable"
+    },
+    {
       "id": "later",
       "w": "later",
       "p": [],
@@ -853,30 +861,45 @@
       "reason": "no_exact_scene_binding"
     },
     {
-      "id": "values",
-      "w": "values",
-      "p": [],
-      "art": "values",
-      "reason": "no_exact_scene_binding"
+      "id": "true",
+      "w": "true",
+      "p": [
+        "deru-"
+      ],
+      "art": "true",
+      "reason": "normal_readiness_gate",
+      "detail": "first_reading_unavailable"
     },
     {
-      "id": "method",
-      "w": "method",
+      "id": "available",
+      "w": "available",
       "p": [
-        "me-2",
-        "sed-2"
+        "ad-",
+        "wal-"
       ],
-      "art": "method",
-      "reason": "no_exact_scene_binding"
+      "art": "available",
+      "reason": "normal_readiness_gate",
+      "detail": "first_reading_unavailable"
     },
     {
-      "id": "war",
-      "w": "war",
+      "id": "similar",
+      "w": "similar",
       "p": [
-        "wers-"
+        "sem-1"
       ],
-      "art": "war",
-      "reason": "no_exact_scene_binding"
+      "art": "similar",
+      "reason": "normal_readiness_gate",
+      "detail": "first_reading_unavailable"
+    },
+    {
+      "id": "main",
+      "w": "main",
+      "p": [
+        "magh-"
+      ],
+      "art": "main",
+      "reason": "normal_readiness_gate",
+      "detail": "first_reading_unavailable"
     },
     {
       "id": "ground",
@@ -898,26 +921,12 @@
       "reason": "no_exact_scene_binding"
     },
     {
-      "id": "top",
-      "w": "top",
-      "p": [],
-      "art": "top",
-      "reason": "no_exact_scene_binding"
-    },
-    {
       "id": "required",
       "w": "required",
       "p": [],
       "art": "required",
       "reason": "normal_readiness_gate",
       "detail": "first_reading_unavailable"
-    },
-    {
-      "id": "thinking",
-      "w": "thinking",
-      "p": [],
-      "art": "thinking",
-      "reason": "no_exact_scene_binding"
     },
     {
       "id": "deep",
@@ -958,15 +967,6 @@
       "detail": "image_meaning_mismatch"
     },
     {
-      "id": "ask",
-      "w": "ask",
-      "p": [
-        "ais-"
-      ],
-      "art": "ask",
-      "reason": "no_exact_scene_binding"
-    },
-    {
       "id": "likely",
       "w": "likely",
       "p": [
@@ -976,6 +976,27 @@
       "reason": "no_exact_scene_binding"
     },
     {
+      "id": "necessary",
+      "w": "necessary",
+      "p": [
+        "ne",
+        "ked-"
+      ],
+      "art": "necessary",
+      "reason": "normal_readiness_gate",
+      "detail": "first_reading_unavailable"
+    },
+    {
+      "id": "natural",
+      "w": "natural",
+      "p": [
+        "genə-"
+      ],
+      "art": "natural",
+      "reason": "normal_readiness_gate",
+      "detail": "first_reading_unavailable"
+    },
+    {
       "id": "play",
       "w": "play",
       "p": [
@@ -983,6 +1004,16 @@
       ],
       "art": "play",
       "reason": "no_exact_scene_binding"
+    },
+    {
+      "id": "move",
+      "w": "move",
+      "p": [
+        "meuə-"
+      ],
+      "art": "move",
+      "reason": "normal_readiness_gate",
+      "detail": "first_reading_unavailable"
     },
     {
       "id": "longer",
@@ -1011,56 +1042,24 @@
       "detail": "first_reading_unavailable"
     },
     {
-      "id": "start",
-      "w": "start",
+      "id": "current",
+      "w": "current",
       "p": [
-        "ster-1"
+        "kers-2"
       ],
-      "art": "start",
-      "reason": "no_exact_scene_binding"
+      "art": "current",
+      "reason": "normal_readiness_gate",
+      "detail": "first_reading_unavailable"
     },
     {
-      "id": "market",
-      "w": "market",
+      "id": "physical",
+      "w": "physical",
       "p": [
-        "merk-3"
+        "bheuə-"
       ],
-      "art": "market",
-      "reason": "no_exact_scene_binding"
-    },
-    {
-      "id": "strong",
-      "w": "strong",
-      "p": [
-        "strenk-"
-      ],
-      "art": "strong",
-      "reason": "no_exact_scene_binding"
-    },
-    {
-      "id": "talk",
-      "w": "talk",
-      "p": [
-        "del-2"
-      ],
-      "art": "talk",
-      "reason": "no_exact_scene_binding"
-    },
-    {
-      "id": "cause",
-      "w": "cause",
-      "p": [],
-      "art": "cause",
-      "reason": "no_exact_scene_binding"
-    },
-    {
-      "id": "material",
-      "w": "material",
-      "p": [
-        "māter-"
-      ],
-      "art": "material",
-      "reason": "no_exact_scene_binding"
+      "art": "physical",
+      "reason": "normal_readiness_gate",
+      "detail": "first_reading_unavailable"
     },
     {
       "id": "patient",
@@ -1073,29 +1072,15 @@
       "detail": "first_reading_unavailable"
     },
     {
-      "id": "building",
-      "w": "building",
-      "p": [],
-      "art": "building",
-      "reason": "no_exact_scene_binding"
-    },
-    {
-      "id": "friend",
-      "w": "friend",
+      "id": "surface",
+      "w": "surface",
       "p": [
-        "prī-"
+        "uper",
+        "dhē-"
       ],
-      "art": "friend",
-      "reason": "no_exact_scene_binding"
-    },
-    {
-      "id": "hear",
-      "w": "hear",
-      "p": [
-        "kous-"
-      ],
-      "art": "hear",
-      "reason": "no_exact_scene_binding"
+      "art": "surface",
+      "reason": "normal_readiness_gate",
+      "detail": "first_reading_unavailable"
     },
     {
       "id": "personal",
@@ -34407,6 +34392,15 @@
       "reason": "normal_word_or_POS_gate"
     },
     {
+      "w": "available",
+      "p": [
+        "ad-",
+        "wal-"
+      ],
+      "art": "available",
+      "reason": "normal_readiness_gate"
+    },
+    {
       "w": "away",
       "p": [
         "ne",
@@ -34661,6 +34655,14 @@
       ],
       "art": "course",
       "reason": "not_selected_by_normal_art_date_or_homograph_rules"
+    },
+    {
+      "w": "current",
+      "p": [
+        "kers-2"
+      ],
+      "art": "current",
+      "reason": "normal_readiness_gate"
     },
     {
       "w": "day",
@@ -35176,6 +35178,15 @@
       "reason": "normal_word_or_POS_gate"
     },
     {
+      "w": "herself",
+      "p": [
+        "ko-",
+        "s(w)e-"
+      ],
+      "art": "herself",
+      "reason": "normal_word_or_POS_gate"
+    },
+    {
       "w": "him",
       "p": [
         "ko-"
@@ -35451,6 +35462,12 @@
       "reason": "normal_readiness_gate"
     },
     {
+      "w": "longer",
+      "p": [],
+      "art": "longer",
+      "reason": "normal_readiness_gate"
+    },
+    {
       "w": "love",
       "p": [
         "leubh-"
@@ -35465,6 +35482,14 @@
       ],
       "art": "made@mag",
       "reason": "not_selected_by_normal_art_date_or_homograph_rules"
+    },
+    {
+      "w": "main",
+      "p": [
+        "magh-"
+      ],
+      "art": "main",
+      "reason": "normal_readiness_gate"
     },
     {
       "w": "management",
@@ -35571,12 +35596,28 @@
       "reason": "not_selected_by_normal_art_date_or_homograph_rules"
     },
     {
+      "w": "morning",
+      "p": [
+        "mer-1"
+      ],
+      "art": "morning",
+      "reason": "normal_readiness_gate"
+    },
+    {
       "w": "mother",
       "p": [
         "māter-"
       ],
       "art": "mother",
       "reason": "not_selected_by_normal_art_date_or_homograph_rules"
+    },
+    {
+      "w": "move",
+      "p": [
+        "meuə-"
+      ],
+      "art": "move",
+      "reason": "normal_readiness_gate"
     },
     {
       "w": "must",
@@ -35595,6 +35636,15 @@
       "reason": "normal_word_or_POS_gate"
     },
     {
+      "w": "myself",
+      "p": [
+        "me-1",
+        "s(w)e-"
+      ],
+      "art": "myself",
+      "reason": "normal_word_or_POS_gate"
+    },
+    {
       "w": "name",
       "p": [
         "no-men"
@@ -35603,12 +35653,29 @@
       "reason": "not_selected_by_normal_art_date_or_homograph_rules"
     },
     {
+      "w": "natural",
+      "p": [
+        "genə-"
+      ],
+      "art": "natural",
+      "reason": "normal_readiness_gate"
+    },
+    {
       "w": "nature",
       "p": [
         "genə-"
       ],
       "art": "nature",
       "reason": "not_selected_by_normal_art_date_or_homograph_rules"
+    },
+    {
+      "w": "necessary",
+      "p": [
+        "ne",
+        "ked-"
+      ],
+      "art": "necessary",
+      "reason": "normal_readiness_gate"
     },
     {
       "w": "need",
@@ -35760,6 +35827,15 @@
       "reason": "normal_word_or_POS_gate"
     },
     {
+      "w": "outside",
+      "p": [
+        "ud-",
+        "sē-2"
+      ],
+      "art": "outside",
+      "reason": "normal_word_or_POS_gate"
+    },
+    {
       "w": "over",
       "p": [
         "uper"
@@ -35813,6 +35889,14 @@
       "p": [],
       "art": "person",
       "reason": "not_selected_by_normal_art_date_or_homograph_rules"
+    },
+    {
+      "w": "physical",
+      "p": [
+        "bheuə-"
+      ],
+      "art": "physical",
+      "reason": "normal_readiness_gate"
     },
     {
       "w": "point",
@@ -35905,6 +35989,14 @@
       ],
       "art": "quality",
       "reason": "normal_readiness_gate"
+    },
+    {
+      "w": "quite",
+      "p": [
+        "kʷeiə-"
+      ],
+      "art": "quite",
+      "reason": "normal_word_or_POS_gate"
     },
     {
       "w": "read",
@@ -36062,6 +36154,14 @@
       "reason": "not_selected_by_normal_art_date_or_homograph_rules"
     },
     {
+      "w": "similar",
+      "p": [
+        "sem-1"
+      ],
+      "art": "similar",
+      "reason": "normal_readiness_gate"
+    },
+    {
       "w": "since",
       "p": [
         "sē-2",
@@ -36118,6 +36218,12 @@
       "reason": "normal_word_or_POS_gate"
     },
     {
+      "w": "soon",
+      "p": [],
+      "art": "soon",
+      "reason": "normal_word_or_POS_gate"
+    },
+    {
       "w": "specific",
       "p": [
         "spek-",
@@ -36150,6 +36256,15 @@
       ],
       "art": "sure",
       "reason": "not_selected_by_normal_art_date_or_homograph_rules"
+    },
+    {
+      "w": "surface",
+      "p": [
+        "uper",
+        "dhē-"
+      ],
+      "art": "surface",
+      "reason": "normal_readiness_gate"
     },
     {
       "w": "taken",
@@ -36244,6 +36359,15 @@
         "to-"
       ],
       "art": "there",
+      "reason": "normal_word_or_POS_gate"
+    },
+    {
+      "w": "therefore",
+      "p": [
+        "to-",
+        "per1"
+      ],
+      "art": "therefore",
       "reason": "normal_word_or_POS_gate"
     },
     {
@@ -36365,6 +36489,14 @@
       "reason": "not_selected_by_normal_art_date_or_homograph_rules"
     },
     {
+      "w": "true",
+      "p": [
+        "deru-"
+      ],
+      "art": "true",
+      "reason": "normal_readiness_gate"
+    },
+    {
       "w": "turn",
       "p": [
         "terə-1"
@@ -36474,6 +36606,12 @@
       ],
       "art": "voice",
       "reason": "not_selected_by_normal_art_date_or_homograph_rules"
+    },
+    {
+      "w": "wanted",
+      "p": [],
+      "art": "wanted",
+      "reason": "normal_readiness_gate"
     },
     {
       "w": "was",
