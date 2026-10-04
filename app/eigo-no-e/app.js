@@ -1,12 +1,43 @@
-/* えいごのえ — 英単語のイラスト辞典(試作)
-   データは build.py が作る data.js (window.EIGO_NO_E)。file:// でも http でも動く。 */
-(() => {
+/* えいごのえ — 英単語のイラスト辞典
+   build.py の審査済み出力を、公開中の辞書・場面文・画像対応表で再照合する。 */
+(async () => {
 'use strict';
-const D = window.EIGO_NO_E;
+const generated = window.EIGO_NO_E;
+let D;
 const $ = (s, p = document) => p.querySelector(s);
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const view = $('#view');
-if (!D || !D.words) { view.innerHTML = '<div class="empty"><b>データが読み込めませんでした</b>app/eigo-no-e/build.py を実行してください。</div>'; return; }
+// A developer-only CSS viewport preview; normal navigation is unchanged.
+const preview = new URL(location.href);
+if (preview.searchParams.get('preview') === 'mobile' && window.self === window.top) {
+  preview.searchParams.delete('preview');
+  document.body.replaceChildren();
+  document.body.style.cssText='margin:0;padding:22px 10px;background:#ebe7df;display:flex;flex-direction:column;align-items:center;gap:10px;min-width:410px';
+  const label=document.createElement('p');label.textContent='Responsive preview · 390 × 844 CSS pixels';label.style.cssText='font:12px sans-serif;margin:0;color:#6a5f56';
+  const frame=document.createElement('iframe');frame.title='Mobile layout preview';frame.src=preview.href;frame.style.cssText='width:390px;height:844px;border:0;background:#fffdf8;box-shadow:0 8px 40px #2a231e22';
+  document.body.append(label,frame);return;
+}
+view.innerHTML='<div class="page empty" role="status">説明文付きのイラストを読み込んでいます…</div>';
+try {
+  if (!generated || !window.EigoCatalogValidation || !window.IllustrationScenes) throw Error('Catalog scripts unavailable');
+  const [scenes, manifest, indexText] = await Promise.all([
+    window.IllustrationScenes.load('data/generated-etymon/illustration-scenes.json'),
+    fetch('data/generated-etymon/manifest.json',{cache:'no-cache'}).then(r=>{if(!r.ok)throw Error('Manifest unavailable');return r.json();}),
+    fetch('../assets/word/illustration-index.js',{cache:'no-cache'}).then(r=>{if(!r.ok)throw Error('Artwork index unavailable');return r.text();})
+  ]);
+  // The exported manifest identifies the exact canonical words used by build.py.
+  // Avoid downloading the full ~20MB dictionary when that snapshot is unchanged.
+  const sameWords=manifest.files?.words?.sha256===generated.sources?.words_sha256;
+  const words=sameWords ? generated.words.map(w=>({...w,ja_readings:w.k?[{gloss:w.ja,kana:w.k}]:[]}))
+    : await fetch('data/generated-etymon/words.json',{cache:'no-cache'}).then(r=>{if(!r.ok)throw Error('Words unavailable');return r.json();});
+  const index=JSON.parse(indexText.slice(indexText.indexOf('{'),indexText.lastIndexOf('}')+1));
+  D=window.EigoCatalogValidation.buildCurrentCatalog(generated,scenes,words,index);
+  if(!D.words.length)throw Error('No current reviewed entries');
+} catch(error) {
+  console.error('Eigo-no-e catalog:',error);
+  view.innerHTML='<div class="page empty"><b>イラストを読み込めませんでした</b>接続を確認して、もう一度お試しください。<p><button class="btn" id="retry">もう一度読み込む</button></p></div>';
+  $('#retry').onclick=()=>location.reload();return;
+}
 
 /* ───────── index ───────── */
 const W = D.words;
@@ -14,9 +45,9 @@ const byId = new Map(W.map(w => [w.id, w]));
 const CAT = new Map(), SUB = new Map(), inSub = new Map();
 for (const c of D.categories) { CAT.set(c.id, c); for (const s of c.subs) SUB.set(`${c.id}/${s.id}`, {...s, cat: c}); }
 for (const w of W) for (const k of w.c) (inSub.get(k) || inSub.set(k, []).get(k)).push(w);
-const inCat = id => W.filter(w => w.c.some(k => k.startsWith(id + '/')));
-const thumb = w => `eigo-no-e/thumbs/${encodeURIComponent(w.id)}.webp`;
-const full = w => `../assets/word/${encodeURIComponent(w.id)}.png`;
+const inCat = id => W.filter(w => !w.unavailable && w.c.some(k => k.startsWith(id + '/')));
+const thumb = w => `${w.thumb.path}?v=${w.thumb.sha256.slice(0,12)}`;
+const full = w => `../${w.image.path}?v=${w.image.sha256.slice(0,12)}`;
 const href = w => `#/w/${encodeURIComponent(w.id)}`;
 const firstJa = w => String(w.ja || '').split('、')[0];
 const num = n => n.toLocaleString('ja-JP');
@@ -25,7 +56,7 @@ const posLabel = w => (w.pos || '').split('/').map(p => POS[p.charAt(0)] || p).j
 const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.random() * (i + 1) | 0; [a[i], a[j]] = [a[j], a[i]]; } return a; };
 
 const tile = w => `<a class="tile" href="${href(w)}"><span class="pic"><img src="${thumb(w)}" alt="${esc(w.w)} のイラスト" loading="lazy" decoding="async" width="320" height="320"></span><span class="cap"><span class="w">${esc(w.w)}</span><span class="j">${esc(firstJa(w))}</span></span></a>`;
-const grid = list => `<div class="grid">${list.map(tile).join('')}</div>`;
+const grid = list => `<div class="grid">${list.filter(w=>!w.unavailable).map(tile).join('')}</div>`;
 const chev = '<svg><use href="#i-chev"/></svg>';
 
 /* ───────── 検索 ───────── */
@@ -46,8 +77,8 @@ const IDX = W.map(w => {
   return {
     w, en: w.w.toLowerCase(), jaList,
     jaText: norm([w.ja, w.scene?.ja, ...cats.map(s => s.ja + ' ' + s.cat.ja)].join(' ')),
-    enSet: new Set([...enTokens(w.w), ...(w.syn || []).flatMap(enTokens)]),
-    defSet: new Set([...enTokens(w.d || ''), ...enTokens(w.scene?.en || ''), ...(w.h || []).flatMap(enTokens), ...(w.rel || []).flatMap(enTokens), ...cats.flatMap(s => enTokens(s.en + ' ' + s.cat.en))]),
+    enSet: new Set(enTokens(w.w)),
+    defSet: new Set([...enTokens(w.scene.en), ...cats.flatMap(s => enTokens(s.en + ' ' + s.cat.en))]),
     catJa: norm(cats.map(s => s.ja + ' ' + s.cat.ja).join(' ')),
   };
 });
@@ -56,7 +87,7 @@ const IDX = W.map(w => {
 function searchWord(q) {
   q = norm(q); if (!q) return [];
   const out = [];
-  for (const x of IDX) {
+  for (const x of IDX) { if(x.w.unavailable)continue;
     let s = 0;
     if (x.en === q) s = 100;
     else if (x.jaList.includes(q)) s = 95;
@@ -71,7 +102,7 @@ function searchWord(q) {
 // 文章でさがす(あいまい検索)
 // 日本語: 文の中に含まれる「訳」「読み」「カテゴリー名」を辞書引きで見つける(形態素解析のかわり)。
 //         見つけた語の英単語(「飛ぶ」→ fly)で、英語の説明・上位語とも照合する
-// 英語: 単語に分け、つづり・類義語・英語の説明・上位語(bird → eagle など)と照合。多くの語に当たるほど上位
+// 英語: 単語に分け、見出し語・確認済みの場面文・カテゴリー名と照合。定義文の代用はしない。
 const KANJI = /[\u4e00-\u9fff]/;
 function enScore(x, toks, sentence) {
   let s = 0, hit = 0;
@@ -106,11 +137,11 @@ function searchText(q) {
   if (isJa(q)) {
     const nq = norm(q).replace(/\s/g, '');
     const direct = new Map();
-    for (const x of IDX) { const v = Math.max(0, ...x.jaList.map(g => glossHit(nq, g))); if (v) direct.set(x, v); }
+    for (const x of IDX) { if(x.w.unavailable)continue; const v = Math.max(0, ...x.jaList.map(g => glossHit(nq, g))); if (v) direct.set(x, v); }
     const subHit = new Map(SUBWORDS.map(([k, ps]) => [k, ps.filter(p => nq.includes(p)).length]).filter(([, n]) => n));
     const bridge = [...new Set([...direct.keys()].map(x => stem(x.en)))];
     const qb = bigrams(nq);
-    for (const x of IDX) {
+    for (const x of IDX) { if(x.w.unavailable)continue;
       let s = direct.get(x) || 0;
       s += 6 * Math.max(0, ...x.w.c.map(k => subHit.get(k) || 0));
       if (bridge.length) s += 0.8 * enScore(x, bridge.filter(t => t !== stem(x.en)), false);
@@ -119,7 +150,7 @@ function searchText(q) {
     }
   } else {
     const toks = enTokens(q), sentence = toks.length >= 2;
-    for (const x of IDX) {
+    for (const x of IDX) { if(x.w.unavailable)continue;
       const s = enScore(x, toks, sentence);
       if (s >= 3) out.push([s - Math.min(2, x.w.r / 5000), x.w]);
     }
@@ -129,7 +160,7 @@ function searchText(q) {
 
 /* 検索欄 */
 let mode = 'word';
-const PH = {word: '英単語か日本語で: cat、ねこ、走る…', text: '文章で: 空を飛ぶ鳥、a person who cooks…'};
+const PH = {word: '英単語か日本語で: book、本、help…', text: '文章で: 箱を運ぶ、a cat under a chair…'};
 const form = $('#barSearch'), input = $('#barInput'), box = $('#barSuggest');
 function setMode(m) {
   mode = m;
@@ -184,10 +215,10 @@ document.addEventListener('click', e => { if (document.body.classList.contains('
 /* ───────── ページ ───────── */
 function home() {
   side();
-  const tries = [['s', 'cat'], ['s', 'ねこ'], ['s', '走る'], ['t', '空を飛ぶ'], ['t', '料理をする人'], ['t', 'something you wear on your head']];
+  const tries = [['s', 'book'], ['s', '本'], ['s', 'help'], ['t', '箱を持ち上げる'], ['t', '椅子の下'], ['t', 'a cat under a chair']];
   view.innerHTML = `<div class="page fade">
     <section class="welcome"><h1>英単語を、イラストでさがす。</h1>
-      <p><b>${num(D.total_art)}</b> 語ぶんの絵があります。試作版では ${num(W.length)} 語をカテゴリーに分けています。</p></section>
+      <p><b>${num(W.length)}</b> 枚のイラストを、短い英語と日本語の説明文でさがせます。</p></section>
     <div class="tryline">たとえば ${tries.map(([m, q]) => `<a class="${m === 't' ? 'text' : ''}" href="#/${m}/${encodeURIComponent(q)}" title="${m === 't' ? '文章でさがす' : '単語でさがす'}">${esc(q)}</a>`).join('')}</div>
     <h2 class="h2">カテゴリーからさがす<small>Categories</small></h2>
     <div class="cats">${D.categories.map(c => {
@@ -221,7 +252,7 @@ function catPage(cid, sid) {
 }
 
 function wordPage(id) {
-  const w = byId.get(id); if (!w) return notFound();
+  const w = byId.get(id); if (!w || w.unavailable) return notFound();
   const k = w.c[0], sub = SUB.get(k);
   side(sub?.cat.id, sub?.id);
   const jaAll = String(w.ja || '').split('、');
@@ -241,12 +272,22 @@ function wordPage(id) {
           <a class="btn" href="games/picture-words.html"><svg><use href="#i-puzzle"/></svg>パズル</a>
           <button class="btn" id="copy" type="button"><svg><use href="#i-link"/></svg>リンク</button>
         </div>
-        ${w.scene ? `<div class="box"><h3>このイラスト</h3><p class="en" lang="en">${esc(w.scene.en)}</p><p>${esc(w.scene.ja)}</p></div>` : ''}
+        <div class="box" id="sceneBox" aria-live="polite"><p>イラストを確認しています…</p></div>
         <div class="box"><h3>カテゴリー</h3><div class="tags">${w.c.map(x => SUB.get(x)).filter(Boolean).map(s => `<a href="#/c/${s.cat.id}/${s.id}">${esc(s.cat.ja)} › ${esc(s.ja)}</a>`).join('')}</div></div>
       </div>
     </article>
     ${related.length ? `<h2 class="h2">関連するイラスト<small>Related</small>${sub ? `<a href="#/c/${k}">${esc(sub.ja)}をすべて見る</a>` : ''}</h2>${grid(related.slice(0, 18))}` : ''}
   </div>`;
+  // Revalidate the exact currently served PNG before showing its description.
+  const sceneBox=$('#sceneBox');
+  window.IllustrationScenes.verify(w,{imageUrl:full(w),word:w}).then(result=>{
+    if(!sceneBox.isConnected)return;
+    if(result.status==='reviewed')sceneBox.innerHTML=`<h3>このイラスト</h3><p class="en" lang="en">${esc(w.scene.en)}</p><p lang="ja">${esc(w.scene.ja)}</p>`;
+    else {
+      w.unavailable=true;
+      view.innerHTML='<div class="page empty"><b>このイラストは更新確認中です</b>別のイラストをお選びください。<p><a class="btn" href="#/">トップへ</a></p></div>';
+    }
+  });
   $('#speak').onclick = () => speak(w.w);
   $('#copy').onclick = () => navigator.clipboard?.writeText(location.href).then(() => toast('リンクをコピーしました'), () => toast(location.href));
   document.title = `${w.w}(${firstJa(w)})のイラスト — えいごのえ`;
@@ -262,7 +303,7 @@ function resultPage(m, q) {
     <h1 class="h1">「${esc(q)}」のイラスト</h1>
     <p class="hint">${list.length ? `${num(list.length)} 枚${m === 't' ? '(近い順)' : ''}` : ''}
       <a href="#/${other}/${encodeURIComponent(q)}">${m === 't' ? '単語でさがす' : '文章でさがす(あいまい検索)'}でためす</a></p>
-    ${list.length ? grid(list) : `<div class="empty"><b>見つかりませんでした</b>${m === 't' ? '短いことばに分けるか、英語の文でもためしてみてください。' : 'つづりを変えるか、「文章でさがす」をためしてみてください。'}<br>試作版は ${num(W.length)} 語だけを収録しています。</div>`}
+    ${list.length ? grid(list) : `<div class="empty"><b>見つかりませんでした</b>${m === 't' ? '短いことばに分けるか、英語の文でもためしてみてください。' : 'つづりを変えるか、「文章でさがす」をためしてみてください。'}<br>説明文のある ${num(W.length)} 枚を収録しています。</div>`}
   </div>`;
   document.title = `「${q}」のイラスト — えいごのえ`;
 }
@@ -293,3 +334,4 @@ function route() {
 addEventListener('hashchange', route);
 route();
 })();
+

@@ -1,0 +1,25 @@
+const test=require('node:test');const assert=require('node:assert/strict');const fs=require('node:fs');const path=require('node:path');const vm=require('node:vm');
+const v=require('./catalog-validation.js');const clone=x=>JSON.parse(JSON.stringify(x));
+const ctx={window:{}};vm.runInNewContext(fs.readFileSync(path.join(__dirname,'data.js'),'utf8'),ctx);const full=JSON.parse(JSON.stringify(ctx.window.EIGO_NO_E));
+const row={id:'book',art:'book',w:'book',p:['test-root'],ja:'本',en:'volume',pos:'名',r:2,c:['things/paper'],sense:{index:0,ja:'本',en:'volume',sha256:'2'.repeat(64)},scene:{en:'An open book rests on a wooden stand.',ja:'開いた本が木の台に置かれている。'},image:{path:'assets/word/book.png',sha256:'1'.repeat(64),git_blob_sha:'3'.repeat(40)},thumb:{path:'eigo-no-e/thumbs/book.111111111111.webp',source_sha256:'1'.repeat(64),sha256:'4'.repeat(64)},status:'reviewed',review:{status:'reviewed'}};
+function fixture(){const r=clone(row);return {data:{schema:3,words:[r],categories:clone(full.categories)},scenes:{schema:1,entries:[clone(r)]},words:[{w:r.w,p:r.p,ja:r.ja+'、予約する',en:r.en+' / reserve',pos:r.pos,r:r.r,ja_readings:[{gloss:r.ja,kana:'ほん'}]}],index:{}};}
+const run=f=>v.buildCurrentCatalog(f.data,f.scenes,f.words,f.index);
+test('current composite identity passes',()=>assert.equal(run(fixture()).words.length,1));
+test('English description is mandatory, WordNet cannot fill it',()=>{const f=fixture();f.scenes.entries[0].scene.en='';f.data.words[0].d='a volume';assert.equal(run(f).words.length,0);});
+test('reviewed editorial record with stale exported status is excluded',()=>{const f=fixture();f.scenes.entries[0].status='stale_image';assert.equal(run(f).words.length,0);});
+test('unreviewed editorial status is excluded even if exported reviewed',()=>{const f=fixture();f.scenes.entries[0].review.status='unreviewed';assert.equal(run(f).words.length,0);});
+test('changed canonical first JA is excluded',()=>{const f=fixture();f.words[0].ja='予約する、本';assert.equal(run(f).words.length,0);});
+test('changed canonical first EN is excluded',()=>{const f=fixture();f.words[0].en='reserve / volume';assert.equal(run(f).words.length,0);});
+test('wrong root cannot match the same headword',()=>{const f=fixture();f.words[0].p=['other'];assert.equal(run(f).words.length,0);});
+test('changed image hash is excluded',()=>{const f=fixture();f.scenes.entries[0].image.sha256='0'.repeat(64);assert.equal(run(f).words.length,0);});
+test('outdated thumbnail binding is excluded',()=>{const f=fixture();f.data.words[0].thumb.source_sha256='0'.repeat(64);assert.equal(run(f).words.length,0);});
+test('changed exceptional filename mapping is excluded',()=>{const f=fixture();f.index[JSON.stringify([row.w,row.p.join('+')])]='book@other';assert.equal(run(f).words.length,0);});
+test('unsafe asset path is excluded',()=>{const f=fixture();f.data.words[0].thumb.path='https://wrong.example/image.webp';assert.equal(run(f).words.length,0);});
+test('no definition, synonym or etymology fallback survives',()=>{const f=fixture();Object.assign(f.data.words[0],{d:'def',syn:['syn'],h:['hyper'],rel:['rel'],b:'etymology'});const w=run(f).words[0];for(const k of ['d','syn','h','rel','b'])assert.equal(k in w,false);});
+test('current reviewed text replaces cached text without changing art',()=>{const f=fixture();f.scenes.entries[0].scene.en='A book lies open on a stand.';assert.equal(run(f).words[0].scene.en,'A book lies open on a stand.');});
+test('rootless and case sensitive identities remain distinct',()=>assert.notEqual(v.sceneKey({w:'I',p:['eg'],art:'i'}),v.sceneKey({w:'i',p:[],art:'i'})));
+test('headword substring is not sufficient',()=>assert.equal(v.validDescription({w:'book',scene:{en:'A textbook lies open.',ja:'教科書が開く。'}}),false));
+test('a short descriptive phrase is accepted',()=>assert.equal(v.validDescription({w:'book',scene:{en:'An open book.',ja:'開いた本。'}}),true));
+test('headword-only filler is rejected',()=>assert.equal(v.validDescription({w:'book',scene:{en:'This is a book.',ja:'本。'}}),false));
+test('empty categories removed and counts recomputed',()=>{const result=run(fixture());for(const c of result.categories)for(const s of c.subs)assert.equal(s.n,result.words.filter(w=>w.c.includes(`${c.id}/${s.id}`)).length);});
+test('real generated catalog contains only English-scene rows',()=>{const manifest=JSON.parse(fs.readFileSync(path.join(__dirname,'build-manifest.json'),'utf8'));assert.equal(full.words.length,manifest.eligible);assert(full.words.length>0);for(const w of full.words){assert.equal(w.status,'reviewed');assert(v.validDescription(w));assert(w.c.length);assert.equal(w.thumb.source_sha256,w.image.sha256);for(const k of ['d','syn','h','rel','b'])assert.equal(k in w,false);}});

@@ -1,0 +1,14 @@
+const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm'),path=require('node:path');
+const ctx={window:{},console};vm.createContext(ctx);vm.runInContext(fs.readFileSync(path.join(__dirname,'data.js'),'utf8'),ctx);
+const app=fs.readFileSync(path.join(__dirname,'app.js'),'utf8');const pure=app.slice(app.indexOf('/* ───────── index'),app.indexOf('/* 検索欄 */'));
+vm.runInContext('const D=window.EIGO_NO_E;const esc=s=>String(s);'+pure+';this.searchAPI={searchWord,searchText};',ctx);
+const S=ctx.searchAPI;
+test('English headword search finds reviewed book',()=>assert.equal(S.searchWord('book')[0].w,'book'));
+test('canonical Japanese gloss search finds book',()=>assert(S.searchWord('本').some(w=>w.w==='book')));
+test('canonical hiragana reading search finds book',()=>assert(S.searchWord('ほん').some(w=>w.w==='book')));
+test('Japanese illustrated action query finds help',()=>assert(S.searchText('箱を持ち上げる').some(w=>w.w==='help')));
+test('Japanese relation query finds under',()=>assert(S.searchText('椅子の下').some(w=>w.w==='under')));
+test('English relation query finds under first',()=>assert.equal(S.searchText('a cat under a chair')[0].w,'under'));
+test('English action query finds help',()=>assert(S.searchText('heavy box').some(w=>w.w==='help')));
+test('all search outputs carry reviewed English descriptions',()=>{for(const q of ['book','girl','work','本','人','a cat under a chair'])for(const w of [...S.searchWord(q),...S.searchText(q)])assert.equal(Boolean(w.scene?.en&&w.status==='reviewed'),true);});
+test('unknown query returns no fabricated result',()=>assert.equal(S.searchWord('zznonexistentzz').length,0));
