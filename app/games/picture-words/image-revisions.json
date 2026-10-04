@@ -63,6 +63,22 @@
       ],
       "art": "i",
       "sha256": "0b5abc97297e3da9f9cdf3141bf77118dadacbc0e45a6a6f0925ab74ba17127a"
+    },
+    {
+      "w": "well",
+      "p": [
+        "wel-2"
+      ],
+      "art": "well@wel2",
+      "sha256": "a25202d67f26fc161d5bf0a763ad7cbd816390b27dbee38745d721a6b2e78c84"
+    },
+    {
+      "w": "right",
+      "p": [
+        "reg-"
+      ],
+      "art": "right",
+      "sha256": "620fa82f8483b7b7821a46030278e7a553e805aaaa0dc7e1e4f4080f77942fda"
     }
   ]
 }
