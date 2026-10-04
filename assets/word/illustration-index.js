@@ -586,6 +586,6 @@ globalThis.ETYMON_WORD_ART = {
   "[\"seen\",\"\"]": "seen@x",
   "[\"taken\",\"\"]": "taken@x",
   "[\"says\",\"\"]": "says",
-  "[\"feet\",\"\"]": "feet@x"
+  "[\"feet\",\"\"]": "feet@x",
+  "[\"ran\",\"\"]": "ran@x"
 };
-
