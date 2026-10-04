@@ -12,8 +12,8 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=M+PLUS+Rounded+1c:wght@500;700;800&display=swap">
   <link rel="manifest" href="picture-words/manifest.webmanifest">
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <link rel="stylesheet" href="picture-words/style.css?v=phone-dock2">
-  <script src="picture-words/desktop.js?v=phone-dock2" defer></script>
+  <link rel="stylesheet" href="picture-words/style.css?v=reward-stamp3">
+  <script src="picture-words/desktop.js?v=reward-stamp3" defer></script>
   <script src="picture-words/catalog.js?v=reviewed-scenes-333" defer></script>
   <script src="picture-words/difficulty.js?v=visible-letters1" defer></script>
   <script src="picture-words/gesture.js?v=speech-fast-start1" defer></script>
@@ -22,7 +22,7 @@
   <script src="picture-words/offline.js?v=art-revision1" defer></script>
   <link rel="stylesheet" href="../shared/illustration-scenes.css?v=footer2">
   <script src="../shared/illustration-scenes.js?v=labels2" defer></script>
-  <script src="picture-words/game.js?v=phone-dock2" defer></script>
+  <script src="picture-words/game.js?v=reward-stamp3" defer></script>
 </head>
 <body>
   <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -129,12 +129,13 @@
   <div id="rewardBackdrop" class="reward-backdrop" hidden aria-hidden="true"></div>
   <div class="reward-scene" id="rewardScene" popover="manual" hidden>
     <div class="reward-scroll" id="rewardScroll" tabindex="0" role="region" aria-label="獲得したことばの説明">
+              <div class="result-stamp-slot"><span id="rewardSeal" class="result-stamp" role="status"></span></div>
               <div id="dailyReward" class="daily-reward" role="status"></div>
               <span id="rewardBadge" class="reward-badge">NEW WORD GET!</span>
               <span id="rewardCombo" class="reward-combo" hidden><b id="rewardComboCount">2</b><span>COMBO!</span><small id="rewardComboNote"></small></span>
               <button class="word-reward" id="wordReward" type="button" hidden>
                 <span class="book-left"><span id="rewardBookName" class="book-name"></span><span id="rewardShelf" class="book-shelf"></span><span class="book-count"><small id="rewardBefore"></small><strong id="rewardAfter"></strong><small id="rewardTotal"> / 80</small></span><span id="rewardProgress" class="book-progress"></span></span>
-                <span class="book-right"><span class="book-page-number" id="rewardPageNumber"></span><span class="book-placeholder" aria-hidden="true">?</span><img id="rewardArt" class="book-word-art" alt="" width="120" height="120"><strong id="rewardWord" class="book-word"></strong><small id="rewardReading" class="book-reading"></small><span id="rewardStars" class="reward-stars" aria-hidden="true"></span><span id="rewardSeal" class="book-seal"></span></span>
+                <span class="book-right"><span class="book-page-number" id="rewardPageNumber"></span><span class="book-placeholder" aria-hidden="true">?</span><img id="rewardArt" class="book-word-art" alt="" width="120" height="120"><strong id="rewardWord" class="book-word"></strong><small id="rewardReading" class="book-reading"></small><span id="rewardStars" class="reward-stars" aria-hidden="true"></span></span>
               </button>
               <div id="winPronunciation" class="win-pronunciation" hidden></div>
               <div id="rewardExplanation" class="reward-explanation" hidden></div>

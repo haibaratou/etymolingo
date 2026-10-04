@@ -703,10 +703,11 @@
     const complete = collectedCount(mode) === availableCount(mode);
     const both = !!saved.ja.stars[entry.id] && !!saved.en.stars[entry.id];
     setFeedback(first ? (complete ? `${bookName(mode)} ${mode === 'ja' ? 'コンプリート！' : 'complete!'}` : text().correct) : (mode === 'ja' ? '正解！ この単語は獲得済み' : 'Correct! Already collected.'), 'success');
-    $('pictureStamp').textContent = first ? 'WORD GET!' : 'GOT IT!';
+    $('game').dataset.record = recordKind;
+    $('pictureStamp').textContent = recordKind === 'independent' ? '自力正解' : '答えを見て\nクリア';
     $('rewardBadge').textContent = both ? 'BILINGUAL CLEAR!' : first ? (complete ? 'BOOK COMPLETE' : 'NEW WORD GET!') : (mode === 'ja' ? '獲得済み' : 'COLLECTED');
     if (award.pageCompleted) $('rewardBadge').textContent = mode === 'ja' ? 'ページ完成！' : 'PAGE COMPLETE!';
-    $('rewardBadge').textContent=round.viewed[mode]?'辞書ゲット！ · 答えを見て正解':'辞書ゲット！ · 自力で正解';
+    $('rewardBadge').textContent = first ? '辞書に登録！' : '辞書に記録！';
     $('rewardScene').dataset.record=recordKind;
     $('rewardScene').classList.toggle('page-complete', award.pageCompleted);
     $('dailyReward').classList.toggle('complete', award.pageCompleted);
@@ -724,7 +725,7 @@
     $('rewardAfter').textContent = String(award.daily.pageFilled);
     $('rewardTotal').textContent = ' / 10';
     $('rewardProgress').textContent = mode === 'ja' ? `辞書に ${uniqueCount()} 語 / ${catalog.length} 語` : `${uniqueCount()} / ${catalog.length} words discovered`;
-    $('rewardSeal').textContent = round.viewed[mode] ? '答えを見た' : '自力正解';
+    $('rewardSeal').textContent = recordKind === 'independent' ? '自力正解' : '答えを見て\nクリア';
     $('advanceLabel').textContent = mode === 'ja' ? '次の問題へ →' : 'Next picture →';
     const library = $('rewardShelf'); library.className = 'book-shelf book-library-grid';
     library.replaceChildren(...Array.from({length:10}, (_, pageIndex) => {
@@ -740,9 +741,9 @@
     $('wordReward').setAttribute('aria-label', `${bookName(mode)} ${mode === 'ja' ? 'を開く' : '— open'}`);
     $('rewardStars').replaceChildren(...[0, 1, 2].map(i => { const star = document.createElement('i'); star.textContent = '★'; star.style.setProperty('--i', i); star.className = i < stars ? 'on' : ''; return star; }));
     $('hint').disabled = true; $('shuffle').disabled = true;
-    showPraise(stars, combo);
+    if (recordKind === 'independent') showPraise(stars, combo);
     const wheelRect = $('wheel').getBoundingClientRect();
-    petals.burst(wheelRect.left + wheelRect.width / 2, wheelRect.top + wheelRect.height / 2, 60 + Math.min(combo, 8) * 8, combo >= COMBO_STEP ? 'gold' : true);
+    petals.burst(wheelRect.left + wheelRect.width / 2, wheelRect.top + wheelRect.height / 2, recordKind === 'independent' ? 100 : 12, recordKind === 'independent' ? 'gold' : true);
     $('centerLabel').textContent = 'bloom!';
     const comboBanner = $('rewardCombo'), milestone = combo >= COMBO_STEP && combo % COMBO_STEP === 0;
     comboBanner.hidden = combo < 2; comboBanner.dataset.level = String(comboLevel(combo)); comboBanner.classList.toggle('milestone', milestone);
@@ -756,8 +757,8 @@
       $('rewardScroll').scrollTop = 0;
       $('rewardScene').showPopover?.(); $('rewardBackdrop').hidden = false;
       const rect = $('wordReward').getBoundingClientRect();
-      petals.burst(rect.left + rect.width / 2, rect.top + rect.height / 3, 130 + Math.min(combo, 8) * 20, combo >= COMBO_STEP ? 'gold' : true);
-      if (milestone || award.pageCompleted) later(() => { petals.burst(innerWidth / 2, innerHeight * .25, 150, 'gold'); sound.win(10); }, 380);
+      petals.burst(rect.left + rect.width / 2, rect.top + rect.height / 3, recordKind === 'independent' ? 170 : 18, recordKind === 'independent' ? 'gold' : true);
+      if (recordKind === 'independent' && (milestone || award.pageCompleted)) later(() => { petals.burst(innerWidth / 2, innerHeight * .25, 150, 'gold'); sound.win(10); }, 380);
       later(() => { $('rewardScene').classList.add('page-filled'); updateProgress(); }, 420);
       if (award.added) later(animateAcquisition, 500);
     }, reducedMotion.matches ? 0 : PRAISE_TIME);
