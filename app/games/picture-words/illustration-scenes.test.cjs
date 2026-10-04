@@ -13,14 +13,14 @@ test('reviewed scene bindings never alter headwords, first-sense roots or art ID
  const scenes=JSON.parse(fs.readFileSync(__dirname+'/../../data/generated-etymon/illustration-scenes.json'));
  const helper=require('../../shared/illustration-scenes.js');
  const rows=scope.window.PICTURE_WORDS_CATALOG;
- const bound=rows.filter(row=>row.sceneBinding);assert.equal(bound.length,101);
+ const bound=rows.filter(row=>row.sceneBinding);assert.equal(bound.length,103);
  for(const row of bound){
   const entry=helper.find(scenes,row.sceneBinding,row.pic);assert(entry,row.id);
   assert.equal(entry.review.status,'reviewed');assert(helper.firstSenseMatches(entry,row.sceneBinding));
   assert.equal(row.en,row.sceneBinding.w);
  }
  const playable=require('./difficulty.js').bilingualCatalog(rows).filter(row=>row.sceneBinding);
- assert.equal(playable.length,80);
+ assert.equal(playable.length,82);
  assert(bound.some(row=>row.en==='energy' && row.w==='かつりょく' && /^[0-9a-f]{64}$/.test(row.imageRevision)));
 });
 
