@@ -2682,6 +2682,1461 @@
         "notes": "A man visibly addresses a woman who has her hand on her chest. The second-person illustrative caption addresses that woman; it does not claim a transcription of spoken words."
       },
       "status": "reviewed"
+    },
+    {
+      "w": "your",
+      "p": [
+        "yu-"
+      ],
+      "art": "your",
+      "sense": {
+        "index": 0,
+        "ja": "あなたの",
+        "en": "thy",
+        "sha256": "42a23cb91826283e969ddbfac66a75ed2cbeff8e763937b326d5e9fe5d2b05e7"
+      },
+      "scene": {
+        "en": "Your hands reach toward the blue scarf.",
+        "ja": "あなたの手が青いマフラーへ伸びている。"
+      },
+      "image": {
+        "path": "assets/word/your.png",
+        "sha256": "5c76bdc81821373d070c40679ac63fd137eede9266e39bebda521e6a46b2ca6f",
+        "git_blob_sha": "e09c0ede68bfb5d48bc473983d4cb77486202876"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T02:25:48Z",
+        "method": "visual inspection of actual PNG pixels in contact sheets and individual full-size images against canonical first sense",
+        "notes": "The man holds out a blue scarf while the woman extends her open hands toward it. Direct-address caption takes the woman as addressee and uses her visible hands; it does not infer ownership of the scarf."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "some",
+      "p": [
+        "sem-1"
+      ],
+      "art": "some",
+      "sense": {
+        "index": 0,
+        "ja": "いくつかの",
+        "en": "several",
+        "sha256": "928295907a7e836c1ffdfe898c6231d383034c8ef83947b50dcacb451c23f3c9"
+      },
+      "scene": {
+        "en": "The girl puts some strawberries in the bowl.",
+        "ja": "女の子がイチゴをいくつかボウルに入れている。"
+      },
+      "image": {
+        "path": "assets/word/some.png",
+        "sha256": "e82525f854148aaad33c99d80ebaa4db5d5c1968d7a9a90e73b441848230ce4a",
+        "git_blob_sha": "3b19d32e4eee2a0f7dd3fd191af2b1be1766a184"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T02:25:48Z",
+        "method": "visual inspection of actual PNG pixels in contact sheets and individual full-size images against canonical first sense",
+        "notes": "A few strawberries are in the bowl; she holds another above it, with many more remaining in the basket."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "our",
+      "p": [
+        "nes-2"
+      ],
+      "art": "our",
+      "sense": {
+        "index": 0,
+        "ja": "私たちの",
+        "en": "belonging to us",
+        "sha256": "ec4cb4f2518cc437542cc9c1d47170c28c1de76bb712b02927ea25a5bedc9fbe"
+      },
+      "scene": {
+        "en": "We hold the keys to our home.",
+        "ja": "私たちは自分たちの家の鍵を持っている。"
+      },
+      "image": {
+        "path": "assets/word/our.png",
+        "sha256": "ccef99be50d703d41600da9afdc6e94539eb6d28e98b4cbc462b696b4ddbc121",
+        "git_blob_sha": "cdb9b46d5f5cdc5cdb886217caa41cf64a0ae822"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T02:25:48Z",
+        "method": "visual inspection of actual PNG pixels in contact sheets and individual full-size images against canonical first sense",
+        "notes": "Two people stand together in an open home doorway, each showing a key with a matching house-shaped tag. First-person plural caption takes their viewpoint; no relationship or purchase history is asserted."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "over",
+      "p": [
+        "uper"
+      ],
+      "art": "over",
+      "sense": {
+        "index": 0,
+        "ja": "〜の上に",
+        "en": "above",
+        "sha256": "234dd511cd1c9e865ca60ef9b67a1899dd8077787e2faf21d334dd0c4ef9491b"
+      },
+      "scene": {
+        "en": "A bird flies over the bridge.",
+        "ja": "鳥が橋の上を飛んでいる。"
+      },
+      "image": {
+        "path": "assets/word/over.png",
+        "sha256": "fe5b8ed175644b295ccf1c9398fecbe7b67438a2dd9da3e7ad5bcc2a60c5cf57",
+        "git_blob_sha": "bba6ef55a7ef81665db3daca59847a575d4706ac"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T02:25:48Z",
+        "method": "visual inspection of actual PNG pixels in contact sheets and individual full-size images against canonical first sense",
+        "notes": "The bird is airborne above the arched bridge, with wings spread."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "two",
+      "p": [
+        "dwo-"
+      ],
+      "art": "two",
+      "sense": {
+        "index": 0,
+        "ja": "二つ",
+        "en": "pair",
+        "sha256": "fdf80122dadb9f431916127626730a5e18e5bfa2d16e500a26a2be39e644ef82"
+      },
+      "scene": {
+        "en": "Two yellow pears sit side by side.",
+        "ja": "黄色い梨が二つ並んでいる。"
+      },
+      "image": {
+        "path": "assets/word/two.png",
+        "sha256": "1fd6f329f015d191bd736bff1dc35178b6954e40ecba5bd0253d469cfa4f4c4d",
+        "git_blob_sha": "12c60c1d003e068a988df44320951dc54bcd6102"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T02:25:48Z",
+        "method": "visual inspection of actual PNG pixels in contact sheets and individual full-size images against canonical first sense",
+        "notes": "Exactly two yellow pears with leaves and stems are visible."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "these",
+      "p": [
+        "to-"
+      ],
+      "art": "these",
+      "sense": {
+        "index": 0,
+        "ja": "これら",
+        "en": "ones here",
+        "sha256": "b7d41653b4a1844490038d26cc48ebc13c97784cbc2ddb9f9884966821e9482f"
+      },
+      "scene": {
+        "en": "These shells rest on the tray in his hands.",
+        "ja": "これらの貝殻は彼が持つトレーに載っている。"
+      },
+      "image": {
+        "path": "assets/word/these.png",
+        "sha256": "7d01636fe2a876af0e62a9b5fc7359b46d821c32fbcaa6f579da3bd1e93be279",
+        "git_blob_sha": "08fae22ce3d9240e1c363c47f17c0d13dd4b0bbb"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T02:25:48Z",
+        "method": "visual inspection of actual PNG pixels in contact sheets and individual full-size images against canonical first sense",
+        "notes": "The man presents three nearby shells on a tray he holds, and gestures toward them."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "then",
+      "p": [
+        "to-"
+      ],
+      "art": "then",
+      "sense": {
+        "index": 0,
+        "ja": "そのとき",
+        "en": "at that time",
+        "sha256": "c24c17dd6b610e5d5846a45984226a320d07c40a5066debdd5d3287b31ab7ddd"
+      },
+      "scene": {
+        "en": "He was younger then, in the birthday photograph.",
+        "ja": "その誕生日の写真の頃、彼は今より幼かった。"
+      },
+      "image": {
+        "path": "assets/word/then.png",
+        "sha256": "d3ec52e25801f3b64015d32ba9daf41e89593a1c399a9df3db80007acc88671b",
+        "git_blob_sha": "87add4a59f9e3380bf3d6e456c9747a79317ce71"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T02:25:48Z",
+        "method": "visual inspection of actual PNG pixels in contact sheets and individual full-size images against canonical first sense",
+        "notes": "The current older figure points to a framed birthday photograph showing his smaller, younger figure with a cake. Then refers to that pictured past time, not sequence afterward."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "how",
+      "p": [
+        "kʷo-"
+      ],
+      "art": "how",
+      "sense": {
+        "index": 0,
+        "ja": "どうやって",
+        "en": "in what way",
+        "sha256": "857509d16668a88ffe2d75fcf187135cb87bb935eaa41b96ed4d42e4eff808d5"
+      },
+      "scene": {
+        "en": "The woman shows the boy how to tie his shoelaces.",
+        "ja": "女性が男の子に靴ひもの結び方を見せている。"
+      },
+      "image": {
+        "path": "assets/word/how.png",
+        "sha256": "2fe7da5762e002bb10a712507412d7e62f96bfd0936c0ce5e66e06b07d99a206",
+        "git_blob_sha": "5cd21e677a2b38d2349627bca97254eefea73b00"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T02:25:48Z",
+        "method": "visual inspection of actual PNG pixels in contact sheets and individual full-size images against canonical first sense",
+        "notes": "She ties her own shoelaces beside a boy holding loose laces and watching her hands."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "first",
+      "p": [
+        "per1"
+      ],
+      "art": "first",
+      "sense": {
+        "index": 0,
+        "ja": "第一の",
+        "en": "primary",
+        "sha256": "6f98658d5aaf6be7b3897323e094515149924ce5d50682920682ce09df40c22f"
+      },
+      "scene": {
+        "en": "The boy is first across the finish line.",
+        "ja": "男の子が一番にゴールを通過している。"
+      },
+      "image": {
+        "path": "assets/word/first.png",
+        "sha256": "94baac457c996db12b8405bdbf9dc4af11ba8a455272b878bac3d6637da98fd7",
+        "git_blob_sha": "5d993f340a8ce1d6c46a761644b279b77de007f5"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T02:25:48Z",
+        "method": "visual inspection of actual PNG pixels in contact sheets and individual full-size images against canonical first sense",
+        "notes": "The central runner crosses the finish tape ahead of the two runners behind him."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "way",
+      "p": [
+        "wegh-"
+      ],
+      "art": "way",
+      "sense": {
+        "index": 0,
+        "ja": "道",
+        "en": "path",
+        "sha256": "8b0b9a4c07a37d3bb6ad6d7be62b034f90606d5781137f01bdafca101530f7eb"
+      },
+      "scene": {
+        "en": "Flowers line the way to the wooden gate.",
+        "ja": "木の門へ続く道の両側に花が咲いている。"
+      },
+      "image": {
+        "path": "assets/word/way.png",
+        "sha256": "0bdeb2ae22397f3cd48819017c6b0bf8dfc513fff1190b6ff3cbf9d810d537fa",
+        "git_blob_sha": "ae249b0bd3aef9ba4f3f3f0bb1ca6af23ebe95f6"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T02:25:48Z",
+        "method": "visual inspection of actual PNG pixels in contact sheets and individual full-size images against canonical first sense",
+        "notes": "Flowers and shrubs border a stone path leading to a wooden gate; way is the visible path, not a method."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "know",
+      "p": [
+        "gnō-"
+      ],
+      "art": "know",
+      "sense": {
+        "index": 0,
+        "ja": "知る",
+        "en": "understand",
+        "sha256": "4ca52bae9cc33fa93fa1f9cf608267598c341df4969b70d8bf4b1ead5c59c333"
+      },
+      "scene": {
+        "en": "The girl seems to know which key opens the door.",
+        "ja": "女の子はどの鍵でドアが開くか知っているようだ。"
+      },
+      "image": {
+        "path": "assets/word/know.png",
+        "sha256": "1dc8e9a3417776b4d28acf0c17309eae6d17eb75ae21ccbd8e96e7c457d18ed8",
+        "git_blob_sha": "8b9c89143b123b455db628513236b1380809613c"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T02:25:48Z",
+        "method": "visual inspection of actual PNG pixels in contact sheets and individual full-size images against canonical first sense",
+        "notes": "She inserts a key from a key ring into the door lock. Seems marks knowledge as inferred from the visible purposeful action."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "where",
+      "p": [
+        "kʷo-"
+      ],
+      "art": "where",
+      "sense": {
+        "index": 0,
+        "ja": "どこに",
+        "en": "in what place",
+        "sha256": "732f3c7ba3febf4d1e04f10ac82ce78c05aeab0f7c63c59cfecd1628eff5d61e"
+      },
+      "scene": {
+        "en": "Where is the boy searching as he lifts the hat?",
+        "ja": "帽子を持ち上げる男の子は、どこを探しているのだろう。"
+      },
+      "image": {
+        "path": "assets/word/where.png",
+        "sha256": "7973e0a57ffb2e0a631bb8c949adbfab417b2f54ec4bda2c1dcf7d140014b721",
+        "git_blob_sha": "0ec182f0a07dbf1b59b7e571209060aa98783f6f"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T02:25:48Z",
+        "method": "visual inspection of actual PNG pixels in contact sheets and individual full-size images against canonical first sense",
+        "notes": "The boy lifts a hat from a table and makes a questioning gesture near an empty hook board. The question avoids inventing what object is missing."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "even",
+      "p": [
+        "apo-"
+      ],
+      "art": "even",
+      "sense": {
+        "index": 0,
+        "ja": "さえ",
+        "en": "still",
+        "sha256": "2c7869c59ee2d965cf069a6808e766dac223a50b4f18815996478757d21a34e9"
+      },
+      "scene": {
+        "en": "Even the small child waters the flowers.",
+        "ja": "小さな子どもさえ花に水をやっている。"
+      },
+      "image": {
+        "path": "assets/word/even.png",
+        "sha256": "6046523f3b2876cf4a612d22d30c7bb414d5bcf19d80a685e97acdc29662ce95",
+        "git_blob_sha": "09531975f586cefe14b22bf0fe3ceb3f42b87a9e"
+      },
+      "review": {
+        "status": "mismatch",
+        "reviewed_at": "2026-10-04T02:25:48Z",
+        "method": "visual inspection of actual PNG pixels in contact sheets and individual full-size images against canonical first sense",
+        "notes": "MISMATCH: the small child waters flowers alongside two larger figures, supporting inclusive even / さえ. Canonical English first gloss still does not express this inclusive sense in the depicted scene. Both canonical first glosses are preserved; the draft is not approved for display."
+      },
+      "status": "mismatch"
+    },
+    {
+      "w": "us",
+      "p": [
+        "nes-2"
+      ],
+      "art": "us",
+      "sense": {
+        "index": 0,
+        "ja": "私たちを",
+        "en": "our group",
+        "sha256": "25755699745d7ec0faf5e4c362576ea8eb7be90d45dbc70282ff49a448b36a28"
+      },
+      "scene": {
+        "en": "The hiker is taking a photograph of us.",
+        "ja": "ハイカーが私たちを撮影している。"
+      },
+      "image": {
+        "path": "assets/word/us.png",
+        "sha256": "bf69a1019bcdf02418f4a600641ddbaf06f1b11228b185917b04aa17a2b4dfff",
+        "git_blob_sha": "bd0f0aeb46eee8b882d614694c5807e925d161f2"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T02:25:48Z",
+        "method": "visual inspection of actual PNG pixels in contact sheets and individual full-size images against canonical first sense",
+        "notes": "A foreground hiker aims a camera at two backpacked people posing together. First-person caption takes the photographed pair’s viewpoint, without claiming literal spoken words."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "before",
+      "p": [
+        "ambhi",
+        "per1"
+      ],
+      "art": "before",
+      "sense": {
+        "index": 0,
+        "ja": "〜の前に",
+        "en": "prior to",
+        "sha256": "0a8c2ec336a4c3a4fc56aa4db8753c152bbb56b8f3f993c16cbc99b462465f13"
+      },
+      "scene": {
+        "en": "The boy washes his hands before eating.",
+        "ja": "男の子が食事の前に手を洗っている。"
+      },
+      "image": {
+        "path": "assets/word/before.png",
+        "sha256": "8376be83c29666feb7517eef1323189d5bd74f3d830ac47c89db71617541c8e0",
+        "git_blob_sha": "a55aa0c05b0f44f1ef1d68389797a2e32a199124"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T02:25:48Z",
+        "method": "visual inspection of actual PNG pixels in contact sheets and individual full-size images against canonical first sense",
+        "notes": "The boy washes soapy hands at a sink beside an untouched plated meal and place setting."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "now",
+      "p": [
+        "nu-"
+      ],
+      "art": "now",
+      "sense": {
+        "index": 0,
+        "ja": "今",
+        "en": "currently",
+        "sha256": "28655127c3c50c25802f112427450e7a7af698f1b67c5384e247cdcb8feeb505"
+      },
+      "scene": {
+        "en": "The boy is tying his shoelaces now.",
+        "ja": "男の子は今、靴ひもを結んでいる。"
+      },
+      "image": {
+        "path": "assets/word/now.png",
+        "sha256": "2ad22e62340c61ddd350c0d2d268abb3bb4ae87bf44c8e3a53999d5f42693e78",
+        "git_blob_sha": "4e760cc3fb0058c5ab6ee64ff2090f02a966d2f3"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T02:25:48Z",
+        "method": "visual inspection of actual PNG pixels in contact sheets and individual full-size images against canonical first sense",
+        "notes": "The boy’s hands are actively tying his shoe while a woman stands beside him holding a coat; now refers only to the depicted present action."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "after",
+      "p": [
+        "apo-"
+      ],
+      "art": "after",
+      "sense": {
+        "index": 0,
+        "ja": "〜のあとに",
+        "en": "following",
+        "sha256": "c2f007733a943db327431c7979aecfd0542cb6714a1554939cfbb6262b38684c"
+      },
+      "scene": {
+        "en": "The girl washes dishes after the meal.",
+        "ja": "女の子が食事のあとで皿を洗っている。"
+      },
+      "image": {
+        "path": "assets/word/after.png",
+        "sha256": "90a5a3c7ea156e972fb06a10b25c23411208370b0099a2659fdc8860d68249f1",
+        "git_blob_sha": "49f896d2dc4bbb02587a8698d9f86d7293076fef"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T02:25:48Z",
+        "method": "visual inspection of actual PNG pixels in contact sheets and individual full-size images against canonical first sense",
+        "notes": "She scrubs a plate beside used dishes with crumbs, utensils, and crumpled napkins, supporting the post-meal sequence."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "because",
+      "p": [
+        "ambhi"
+      ],
+      "art": "because",
+      "sense": {
+        "index": 0,
+        "ja": "なぜなら",
+        "en": "since",
+        "sha256": "8c1c5159fa5757226fd584ccc7d377365e21a3e62c9a77cd48b6c9d228562279"
+      },
+      "scene": {
+        "en": "The girl wears a raincoat because it is raining.",
+        "ja": "雨が降っているので、女の子はレインコートを着ている。"
+      },
+      "image": {
+        "path": "assets/word/because.png",
+        "sha256": "950cb1ad558b83f8a9bff2a15bf6a01502888e26a7ba305b6829c3e572bc0f63",
+        "git_blob_sha": "8e87e370e1eb0d0c047981baf05fcfacd2c40bb5"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T02:25:48Z",
+        "method": "visual inspection of actual PNG pixels in contact sheets and individual full-size images against canonical first sense",
+        "notes": "The girl wears a raincoat and holds an umbrella at a doorway opening onto falling rain and puddles."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "life",
+      "p": [
+        "leip-"
+      ],
+      "art": "life",
+      "sense": {
+        "index": 0,
+        "ja": "命",
+        "en": "existence",
+        "sha256": "d7d90495d6e18b781640038080d76d21aaa6e68b4e831a3c2170bc4ec08da19a"
+      },
+      "scene": {
+        "en": "New life sprouts from the soil in the cupped hands.",
+        "ja": "両手で包んだ土から新しい命が芽吹いている。"
+      },
+      "image": {
+        "path": "assets/word/life.png",
+        "sha256": "bed664fc839414763348a779ea8dae536371a6082b33e27c8e5e6432be2000e1",
+        "git_blob_sha": "958045a51056483ae2332dd142c744e157774386"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T02:25:48Z",
+        "method": "visual inspection of actual PNG pixels in contact sheets and individual full-size images against canonical first sense",
+        "notes": "A living green seedling with two leaves rises from soil held in cupped hands; life refers to the sprouting organism."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "work",
+      "p": [
+        "werg-"
+      ],
+      "art": "work",
+      "sense": {
+        "index": 0,
+        "ja": "仕事",
+        "en": "labor",
+        "sha256": "c73e63afb88ecb248d79316c4ece21c0a8fbb4a34186160fa57143f3ee5ab688"
+      },
+      "scene": {
+        "en": "The carpenter is at work, planing a wooden board.",
+        "ja": "大工が木の板にかんなをかけて働いている。"
+      },
+      "image": {
+        "path": "assets/word/work.png",
+        "sha256": "add2bcdf551e3070e7e2e4acfddd2571d42b2b5c768a0e8516cd37d205d72a5b",
+        "git_blob_sha": "573e9adea29d0f4555b6c7089b40bffb99abd9b7"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T02:25:48Z",
+        "method": "visual inspection of actual PNG pixels in contact sheets and individual full-size images against canonical first sense",
+        "notes": "A worker operates a hand plane over a board on a workbench; a curled shaving is visible."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "being",
+      "p": [
+        "bheuə-"
+      ],
+      "art": "being",
+      "sense": {
+        "index": 0,
+        "ja": "存在",
+        "en": "existence",
+        "sha256": "42e68611e8735a6a0a51404f379e2e81398fcfc2b905124096c296c4702b1446"
+      },
+      "scene": {
+        "en": "A living being with long ears sits on the grass.",
+        "ja": "耳の長い生き物が草の上に座っている。"
+      },
+      "image": {
+        "path": "assets/word/being.png",
+        "sha256": "b828a1550f61e0df152147597ed53ebe1b18940030b5a60c8474ba57dc9083f0",
+        "git_blob_sha": "8e0ac7aef429cedc36c54f1b6e94817c32969013"
+      },
+      "review": {
+        "status": "mismatch",
+        "reviewed_at": "2026-10-04T02:25:48Z",
+        "method": "visual inspection of actual PNG pixels in contact sheets and individual full-size images against canonical first sense",
+        "notes": "MISMATCH: the actual PNG depicts a rabbit, suitable for being in the concrete creature/entity sense. Canonical first sense is abstract existence / 存在; the draft uses an adjacent concrete sense rather than falsely claiming that abstract first sense is visually established."
+      },
+      "status": "mismatch"
+    },
+    {
+      "w": "get",
+      "p": [
+        "ghend-"
+      ],
+      "art": "get",
+      "sense": {
+        "index": 0,
+        "ja": "得る",
+        "en": "obtain",
+        "sha256": "2b520144c58234af16973900e94fc4c65c490bd7f302c04b70c6fa5fa8cee1af"
+      },
+      "scene": {
+        "en": "The boy reaches out to get the red book.",
+        "ja": "男の子が赤い本を受け取ろうと手を伸ばしている。"
+      },
+      "image": {
+        "path": "assets/word/get.png",
+        "sha256": "8246f0470e49477a2f48b004af94b4b118e1552952934c35dbf9a63d4321c542",
+        "git_blob_sha": "10736c7c8201454d73134b895dc72ed3b1e52562"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T02:25:48Z",
+        "method": "visual inspection of actual PNG pixels in contact sheets and individual full-size images against canonical first sense",
+        "notes": "A woman offers a red book over a counter, and the boy reaches to receive it; no purchase or borrowing arrangement is asserted."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "new",
+      "p": [
+        "newo-"
+      ],
+      "art": "new",
+      "sense": {
+        "index": 0,
+        "ja": "新しい",
+        "en": "recent",
+        "sha256": "e2d8b378c02a71e635d26174038c8b49be91ac36683563cc7abe79cfff424a8a"
+      },
+      "scene": {
+        "en": "He lifts his new shoes from the box.",
+        "ja": "彼が箱から新しい靴を取り出している。"
+      },
+      "image": {
+        "path": "assets/word/new.png",
+        "sha256": "6829dbca3994de907fe4fea5ddec0c6e9c8620a8de93ad511cc9eddac871ef8c",
+        "git_blob_sha": "0f9948f372147c462ac5822d7ce62fb1a5d76b66"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T02:25:48Z",
+        "method": "visual inspection of actual PNG pixels in contact sheets and individual full-size images against canonical first sense",
+        "notes": "The shoes are clean and highlighted with sparkles above an open box containing packing tissue."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "here",
+      "p": [
+        "ko-"
+      ],
+      "art": "here",
+      "sense": {
+        "index": 0,
+        "ja": "ここに",
+        "en": "in this place",
+        "sha256": "af37486edd76d0f207003cf1fc26b2400f9648d2306e5d586e728ba9ff31810f"
+      },
+      "scene": {
+        "en": "The man points here, to the spot beneath his feet.",
+        "ja": "男性が自分の足元のここを指さしている。"
+      },
+      "image": {
+        "path": "assets/word/here.png",
+        "sha256": "f48f656735681f8a671c2aef94face2bab68060a6b470792fbdb71ce3950dc2f",
+        "git_blob_sha": "59877a08cdb71df600029feb4904626be421e50f"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T02:25:48Z",
+        "method": "visual inspection of actual PNG pixels in contact sheets and individual full-size images against canonical first sense",
+        "notes": "The man points downward at the highlighted oval directly under his own feet, showing the proximal location here."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "make",
+      "p": [
+        "mag-"
+      ],
+      "art": "make",
+      "sense": {
+        "index": 0,
+        "ja": "作る",
+        "en": "create",
+        "sha256": "5e22610b7fb37c3d455d9c0fdb0930158253aaabcc742e0b31198a56acb8682c"
+      },
+      "scene": {
+        "en": "His hands shape the clay to make a bowl.",
+        "ja": "彼は両手で粘土を整えて器を作っている。"
+      },
+      "image": {
+        "path": "assets/word/make.png",
+        "sha256": "0ae674266e590db5054792fcc6c12a52aa6f21b13c3a769d99cb5de6ad20915a",
+        "git_blob_sha": "7ad49595604123c6c6492c2d5778e804bf2bd9d2"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T02:25:48Z",
+        "method": "visual inspection of actual PNG pixels in contact sheets and individual full-size images against canonical first sense",
+        "notes": "The potter’s hands shape the sides and inside of a clay bowl on a pottery wheel."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "many",
+      "p": [
+        "menegh-"
+      ],
+      "art": "many",
+      "sense": {
+        "index": 0,
+        "ja": "多くの",
+        "en": "numerous",
+        "sha256": "efb45841d87462d81e22d72c847ccb64ebf1b55d37360554f3ece960ecf8ba26"
+      },
+      "scene": {
+        "en": "Many red apples fill the basket and lie around it.",
+        "ja": "たくさんの赤いリンゴがかごを満たし、その周りにも置かれている。"
+      },
+      "image": {
+        "path": "assets/word/many.png",
+        "sha256": "5c1b64dc204a1d5f68a33904f6d743002c617692b76ccfd300c2b7c7a9b764cc",
+        "git_blob_sha": "af6bf438d1281fb0e529318ea425d2807929093f"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T02:25:48Z",
+        "method": "visual inspection of actual PNG pixels in contact sheets and individual full-size images against canonical first sense",
+        "notes": "Numerous apples are piled above the basket rim, with additional apples on the ground outside it."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "those",
+      "p": [
+        "to-"
+      ],
+      "art": "those",
+      "sense": {
+        "index": 0,
+        "ja": "それら",
+        "en": "ones there",
+        "sha256": "27115d154b926817bb8831d61caa6428bc2914ac240613d5b8554279fdd3083e"
+      },
+      "scene": {
+        "en": "The man points to those red balloons by the railing.",
+        "ja": "男性が手すりのそばにある、あの赤い風船を指さしている。"
+      },
+      "image": {
+        "path": "assets/word/those.png",
+        "sha256": "094521f596dd7dfd8866780f8476f9d573931c1e88b7dcefc9beb675452439f9",
+        "git_blob_sha": "95d9a9d27361c39ede80cc0e27c117db4292550b"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T02:25:48Z",
+        "method": "visual inspection of actual PNG pixels in contact sheets and individual full-size images against canonical first sense",
+        "notes": "The man points past the nearer child to three red balloons at the farther railing; those identifies the distal plural objects."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "much",
+      "p": [
+        "meg-"
+      ],
+      "art": "much",
+      "sense": {
+        "index": 0,
+        "ja": "たくさんの",
+        "en": "plenty",
+        "sha256": "e45dd31fde542f62a9ae70889786a67de968b5e1e7e6da3a739e455ab82d3c2f"
+      },
+      "scene": {
+        "en": "So much rice is piled in the large bowl.",
+        "ja": "大きな茶わんに、ご飯がこんなにたくさん盛られている。"
+      },
+      "image": {
+        "path": "assets/word/much.png",
+        "sha256": "da0c6f347935bb1b1016b4c37b3e863fd357eb2aff5dfdb002a53fab5b1edfc9",
+        "git_blob_sha": "f75af89adcd3ea0b683d90bc6320f649cfc3f262"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T02:25:48Z",
+        "method": "visual inspection of actual PNG pixels in contact sheets and individual full-size images against canonical first sense",
+        "notes": "The large bowl contains a heaped mound of rice with a paddle; a smaller empty bowl sits beside it. Much expresses the quantity of rice."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "use",
+      "p": [
+        "oit-"
+      ],
+      "art": "use",
+      "sense": {
+        "index": 0,
+        "ja": "使う",
+        "en": "utilize",
+        "sha256": "69f34e4798f21a7b6a5e40e762ca7d9bd094341644f6a95b9324845d2cb04cf2"
+      },
+      "scene": {
+        "en": "I use a screwdriver to tighten the stool's screw.",
+        "ja": "私はドライバーを使って椅子のねじを締めている。"
+      },
+      "image": {
+        "path": "assets/word/use.png",
+        "sha256": "5ceef0f9f7ef5ab8c458411d6723d55a99cfeb81d3568f5986cd2549dddf5535",
+        "git_blob_sha": "d153669f295dbd26a03a28506d24bcfb72695ce4"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T02:25:48Z",
+        "method": "visual inspection of actual PNG pixels in contact sheets and individual full-size images against canonical first sense",
+        "notes": "The man grips a screwdriver engaged with a screw in the wooden stool leg. First-person illustrative caption takes his viewpoint; no unseen instruction or learning history is asserted."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "both",
+      "p": [
+        "ambhō-",
+        "to-"
+      ],
+      "art": "both",
+      "sense": {
+        "index": 0,
+        "ja": "両方の",
+        "en": "two together",
+        "sha256": "eb6262b124828133df9e3513aa6d800796ee0108526dba19d6c45c9b852c56e4"
+      },
+      "scene": {
+        "en": "Both of the boy's hands are covered by red mittens.",
+        "ja": "男の子は両手に赤いミトンをはめている。"
+      },
+      "image": {
+        "path": "assets/word/both.png",
+        "sha256": "d2c41328ed8f2967406993e4c9003b64d3ef05fb530c1046439520db1e4e655d",
+        "git_blob_sha": "d1cb2532dfb4c79e894f3b13706e951f5fd3c9c3"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T02:25:48Z",
+        "method": "visual inspection of actual PNG pixels in contact sheets and individual full-size images against canonical first sense",
+        "notes": "The boy holds up both hands wearing matching red mittens; cuffs and thumb shapes were inspected at full size."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "same",
+      "p": [
+        "sem-1"
+      ],
+      "art": "same",
+      "sense": {
+        "index": 0,
+        "ja": "同じ",
+        "en": "identical",
+        "sha256": "580982e5b8767adb1f04854745b44c5debb59e8957bb20a6a7d0f8aedab9e352"
+      },
+      "scene": {
+        "en": "The two cups have the same blue-and-white pattern.",
+        "ja": "二つのカップは同じ青と白の模様だ。"
+      },
+      "image": {
+        "path": "assets/word/same.png",
+        "sha256": "c729bc60957ff0585106aa3a107212612fea0dc649bb6a3e895605c742a8951a",
+        "git_blob_sha": "9ba77fafa060a7715a5f22b079ca5084984cccdd"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T02:25:48Z",
+        "method": "visual inspection of actual PNG pixels in contact sheets and individual full-size images against canonical first sense",
+        "notes": "The cups match in shape, blue color, and five visible white dots, with matching handle orientation."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "good",
+      "p": [
+        "ghedh-"
+      ],
+      "art": "good",
+      "sense": {
+        "index": 0,
+        "ja": "良い",
+        "en": "fine",
+        "sha256": "2736d2c880fc05e26e4068594f386d7ae18da740409e1b0d3259a30f8d8ddf40"
+      },
+      "scene": {
+        "en": "The girl does a good deed by returning a wallet.",
+        "ja": "女の子が財布を返して良い行いをしている。"
+      },
+      "image": {
+        "path": "assets/word/good.png",
+        "sha256": "fac98e6402e86a01e21baff9491fc5dc6df49fdfc20f9819962903b66c124eea",
+        "git_blob_sha": "8fe331fd23c417b4f00f9b78276b44c8ad62e9e5"
+      },
+      "review": {
+        "status": "unreviewed",
+        "reviewed_at": "2026-10-04T02:25:48Z",
+        "method": "visual inspection of actual PNG pixels in contact sheets and individual full-size images against canonical first sense",
+        "notes": "UNREVIEWED: the actual PNG shows a wallet handover and a smiling older recipient, but does not establish prior loss, ownership, or that the wallet is being returned. The moral-good-deed draft depends on that unseen history, so it is retained for editorial review and not approved for display."
+      },
+      "status": "unreviewed"
+    },
+    {
+      "w": "each",
+      "p": [
+        "aiw-",
+        "līk-"
+      ],
+      "art": "each",
+      "sense": {
+        "index": 0,
+        "ja": "それぞれの",
+        "en": "every",
+        "sha256": "76c3068883fe577dbea3f4958867bd1824ca2b404fa08e674f4a67dcd8de848d"
+      },
+      "scene": {
+        "en": "Each plate has one red apple.",
+        "ja": "それぞれの皿に赤いリンゴが一つ載っている。"
+      },
+      "image": {
+        "path": "assets/word/each.png",
+        "sha256": "f1295c97733b197e255b497f0ab9bc61ec84c038b6ac8c785a079e8b489ffae0",
+        "git_blob_sha": "5ce9b57d4ec0b9bec78cbbf227622c0383a6b560"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T02:25:48Z",
+        "method": "visual inspection of actual PNG pixels in contact sheets and individual full-size images against canonical first sense",
+        "notes": "There are three plates around the table, each with one red apple; the woman’s hands are around the third apple."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "man",
+      "p": [
+        "man-1"
+      ],
+      "art": "man",
+      "sense": {
+        "index": 0,
+        "ja": "男性",
+        "en": "adult male",
+        "sha256": "b8449e21421a75bfd67202eebf82ff30ff9a1627663f5b3fa3b6f7cff6639923"
+      },
+      "scene": {
+        "en": "The bearded man waves one hand.",
+        "ja": "ひげのある男性が片手を振っている。"
+      },
+      "image": {
+        "path": "assets/word/man.png",
+        "sha256": "c61dd9a95faa7635ef8e0a60b8446d07f0ef0bd119cd95e759ddef8c66db1ee2",
+        "git_blob_sha": "333f9ab5ee331218aae4ba5df83cec5160ccbe2b"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T02:25:48Z",
+        "method": "visual inspection of actual PNG pixels in contact sheets and individual full-size images against canonical first sense",
+        "notes": "An adult male figure with a beard raises an open hand in greeting."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "own",
+      "p": [
+        "aik-1"
+      ],
+      "art": "own",
+      "sense": {
+        "index": 0,
+        "ja": "自分の",
+        "en": "personal",
+        "sha256": "c8dd0bdf48027a3546dd28b200b5fcc479fe5d5d291ba3650cf364b61329b2e0"
+      },
+      "scene": {
+        "en": "She polishes her own red bicycle with a cloth.",
+        "ja": "彼女は自分の赤い自転車を布で磨いている。"
+      },
+      "image": {
+        "path": "assets/word/own.png",
+        "sha256": "f7cb49c785801fc40b2eb85f64adb686d9186dfd1866ce2a4a506f7210c4108a",
+        "git_blob_sha": "a31cac0b90e62131c0d2c70091a9562d16be7331"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T02:25:48Z",
+        "method": "visual inspection of actual PNG pixels in contact sheets and individual full-size images against canonical first sense",
+        "notes": "A cyclist in riding clothes kneels beside a red bicycle and wipes its frame; her cycling helmet hangs from the bicycle. Own uses the personal-possession reading supported by this single-cyclist scene, without asserting a purchase history."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "long",
+      "p": [
+        "del-1"
+      ],
+      "art": "long",
+      "sense": {
+        "index": 0,
+        "ja": "長い",
+        "en": "lengthy",
+        "sha256": "b5bacd0009dae5ac13ee63d8a780c19043b2e29a7abccdb863a6d27ae2db304e"
+      },
+      "scene": {
+        "en": "The long striped scarf stretches across the bench.",
+        "ja": "長いしま模様のマフラーがベンチを横切って伸びている。"
+      },
+      "image": {
+        "path": "assets/word/long.png",
+        "sha256": "9cac78bea744d4b6bd1156b87d88c78a86fc3976ec28e5aa8f0cea92589a363f",
+        "git_blob_sha": "88d5d61593e5ca2ca3dae7e6c661b15387611093"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T02:25:48Z",
+        "method": "visual inspection of actual PNG pixels in contact sheets and individual full-size images against canonical first sense",
+        "notes": "The red-and-white striped scarf extends from the girl’s raised hand across a bench and down the far side."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "need",
+      "p": [
+        "nāu-1"
+      ],
+      "art": "need",
+      "sense": {
+        "index": 0,
+        "ja": "必要",
+        "en": "require",
+        "sha256": "00b20f72d9af598895b50e697fbb3a7478adbb29c6c94ee24ba47fc61a3a60f7"
+      },
+      "scene": {
+        "en": "With his bottle empty, the boy is in need of water.",
+        "ja": "水筒が空で、男の子には水が必要だ。"
+      },
+      "image": {
+        "path": "assets/word/need.png",
+        "sha256": "0beb23551d33a96e94194d6f016ea86d2efe9ac18e152104d1420f18d9d969d3",
+        "git_blob_sha": "ac0add9b601c87ddafe714e26e8ff15ec45e7fe1"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T02:25:48Z",
+        "method": "visual inspection of actual PNG pixels in contact sheets and individual full-size images against canonical first sense",
+        "notes": "The sweating boy holds a bottle upside down with no liquid coming out, sticks out his tongue, and reaches toward the girl’s visibly full blue bottle."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "around",
+      "p": [
+        "ret-"
+      ],
+      "art": "around",
+      "sense": {
+        "index": 0,
+        "ja": "周りに",
+        "en": "surrounding",
+        "sha256": "5a896ef166150c83622d69c9da0a28cf545a4ad7c5e6edf9d90591aad2552955"
+      },
+      "scene": {
+        "en": "The children hold hands around the tree.",
+        "ja": "子どもたちが木の周りで手をつないでいる。"
+      },
+      "image": {
+        "path": "assets/word/around.png",
+        "sha256": "4463a3666f641d0f7dd94011b523797d50329354a340f5ae7cabd4e6ee62eed5",
+        "git_blob_sha": "32a923593257f17e5cb867335140798d9bd0ea47"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T02:25:48Z",
+        "method": "visual inspection of actual PNG pixels in contact sheets and individual full-size images against canonical first sense",
+        "notes": "Four children form a ring around the trunk, linking hands as they move."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "day",
+      "p": [
+        "agh-2"
+      ],
+      "art": "day",
+      "sense": {
+        "index": 0,
+        "ja": "日",
+        "en": "24 hours",
+        "sha256": "3c10d9389188850dd04eaf7583fcfbf99b694e308b3730a4717a732c98a57f0a"
+      },
+      "scene": {
+        "en": "The boy plays football on a sunny day.",
+        "ja": "男の子が晴れた日にサッカーをしている。"
+      },
+      "image": {
+        "path": "assets/word/day.png",
+        "sha256": "aa62300e94172ca521b644d7e6e2e3f6767cf3a262f91628827cf7617445c010",
+        "git_blob_sha": "7112ae9a5ba4aa12212e708a379c51271c632e19"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T02:25:48Z",
+        "method": "visual inspection of actual PNG pixels in contact sheets and individual full-size images against canonical first sense",
+        "notes": "The boy kicks a football on grass under a visible sun; day names the day containing this daytime activity, without claiming a full day-long duration."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "still",
+      "p": [
+        "stel-"
+      ],
+      "art": "still",
+      "sense": {
+        "index": 0,
+        "ja": "静かな",
+        "en": "motionless",
+        "sha256": "3a6183398c61cd7f86f3324fde6e5fadafa3d467b2bf745a850fdfef57c76778"
+      },
+      "scene": {
+        "en": "The sleeping cat lies still beside the armchair.",
+        "ja": "眠っている猫が肘掛け椅子のそばでじっと横たわっている。"
+      },
+      "image": {
+        "path": "assets/word/still.png",
+        "sha256": "7a5448ffdfb826be9ace16b92d150773c94ffbba786b112b09e78e652da3bfd0",
+        "git_blob_sha": "340337930bb79bfd52c2ec4b4cdd5f07ee890baf"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T02:25:48Z",
+        "method": "visual inspection of actual PNG pixels in contact sheets and individual full-size images against canonical first sense",
+        "notes": "The cat is curled up with closed eyes on a rug beside the reading woman’s armchair; still is the motionless first sense, not continuing yet."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "while",
+      "p": [
+        "kʷeiə-"
+      ],
+      "art": "while",
+      "sense": {
+        "index": 0,
+        "ja": "〜する間に",
+        "en": "during",
+        "sha256": "1a62e2253b43e9f5db2f5ef6cdfccec157ff32397e4cbfa96c10abcb6fc044d2"
+      },
+      "scene": {
+        "en": "The boy draws while the woman stirs the pot.",
+        "ja": "女性が鍋をかき混ぜている間、男の子が絵を描いている。"
+      },
+      "image": {
+        "path": "assets/word/while.png",
+        "sha256": "d4992bdc2ba2cc39d5722f2a5b2bc2949ddf66f34d713a3fc592c44f0e5611c7",
+        "git_blob_sha": "a82b1a9aaa6c465580185731ae1b0ca5b4f49599"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T02:25:48Z",
+        "method": "visual inspection of actual PNG pixels in contact sheets and individual full-size images against canonical first sense",
+        "notes": "In the same scene the boy draws with a crayon at the table while the woman stirs food in a pot on the stove."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "go",
+      "p": [
+        "ghē-"
+      ],
+      "art": "go",
+      "sense": {
+        "index": 0,
+        "ja": "行く",
+        "en": "move",
+        "sha256": "41532e94d3806b9244a6cf8aa70da233f75ad4acd78e63f103a15057ed1c6606"
+      },
+      "scene": {
+        "en": "The boy takes the winding path to go uphill.",
+        "ja": "男の子が曲がりくねった道を進んで丘を上っていく。"
+      },
+      "image": {
+        "path": "assets/word/go.png",
+        "sha256": "26c66869681e08f5aafe129dc2bd94c3e5b222c88f6da8d86a3e0fde0d4c050c",
+        "git_blob_sha": "039b7b82660c2aaf387672f9bc761e6a2390d318"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T02:25:48Z",
+        "method": "visual inspection of actual PNG pixels in contact sheets and individual full-size images against canonical first sense",
+        "notes": "The backpacked boy walks along a winding path that leads away from a house and up a green hill."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "too",
+      "p": [
+        "de-"
+      ],
+      "art": "too",
+      "sense": {
+        "index": 0,
+        "ja": "〜もまた",
+        "en": "also",
+        "sha256": "6122eaded942e1aee6c309bea5bfa6b3c583418bf969f95caf74d3c6284e651f"
+      },
+      "scene": {
+        "en": "The boy eats an apple, and the girl does too.",
+        "ja": "男の子がリンゴを食べ、女の子も食べている。"
+      },
+      "image": {
+        "path": "assets/word/too.png",
+        "sha256": "d429b3868c6779a9d34ba989d62c50a2362d8b0fd8f4a30b4f8a5df24b4e7eda",
+        "git_blob_sha": "359901f175420dda39e9ba68c51de7c9f353864e"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T02:25:48Z",
+        "method": "visual inspection of actual PNG pixels in contact sheets and individual full-size images against canonical first sense",
+        "notes": "Both seated children hold bitten apples at their mouths; too expresses the shared action, not excessive degree."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "take",
+      "p": [
+        "tak-2"
+      ],
+      "art": "take",
+      "sense": {
+        "index": 0,
+        "ja": "取る",
+        "en": "grab",
+        "sha256": "922e389a9b091e01d7de786e47ece9ac5dd7a40725b3424ec2aad8ab76b0af56"
+      },
+      "scene": {
+        "en": "The boy reaches to take a cookie from the plate.",
+        "ja": "男の子が皿からクッキーを取ろうと手を伸ばしている。"
+      },
+      "image": {
+        "path": "assets/word/take.png",
+        "sha256": "ac19ffe738688f7d7efe6b7e7a7af8d2219ac593cead61eda9b5586e782a022b",
+        "git_blob_sha": "1b299f769189dfce585945b3e89c1d9a1c37d4a1"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T02:25:48Z",
+        "method": "visual inspection of actual PNG pixels in contact sheets and individual full-size images against canonical first sense",
+        "notes": "The boy’s fingers grip one cookie above a plate containing more cookies."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "off",
+      "p": [
+        "apo-"
+      ],
+      "art": "off",
+      "sense": {
+        "index": 0,
+        "ja": "離れて",
+        "en": "away",
+        "sha256": "7593bc77259a64c7e59af5a64be9ea22b8e0a95c3909b30c4120e770b87c7dfb"
+      },
+      "scene": {
+        "en": "The cook lifts the lid off the steaming pot.",
+        "ja": "料理人が湯気の立つ鍋からふたを持ち上げている。"
+      },
+      "image": {
+        "path": "assets/word/off.png",
+        "sha256": "f8e7e1fb4b1000ce7747d60e2715ba5f83a2c6eab324f2438bb55be0066db2dc",
+        "git_blob_sha": "ffad5a2386dbb3deb3afdd142b715bec1f80a6ca"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T02:25:48Z",
+        "method": "visual inspection of actual PNG pixels in contact sheets and individual full-size images against canonical first sense",
+        "notes": "The cook holds the lid separated above and to the side of the open pot; steam rises from the uncovered food."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "think",
+      "p": [
+        "tong-"
+      ],
+      "art": "think",
+      "sense": {
+        "index": 0,
+        "ja": "考える",
+        "en": "ponder",
+        "sha256": "0a020dac318cfaf1ca8cccc983fa527a6e09532e20c14bfe0dcfab62398c42b8"
+      },
+      "scene": {
+        "en": "The boy pauses to think about where the puzzle piece fits.",
+        "ja": "男の子が手を止め、パズルのピースをどこにはめるか考えている。"
+      },
+      "image": {
+        "path": "assets/word/think.png",
+        "sha256": "ad48b6c3ac2c50d6af2e0a6957b5ca2c1471f1087ffef1161f44d8f49178f39e",
+        "git_blob_sha": "6956722266be47bf450752b6fce3b8ef2035033e"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T02:25:48Z",
+        "method": "visual inspection of actual PNG pixels in contact sheets and individual full-size images against canonical first sense",
+        "notes": "The boy holds a triangular puzzle piece above an incomplete shape puzzle, with his other hand at his chin and a thoughtful brow."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "world",
+      "p": [
+        "wī̆-ro-",
+        "al-3"
+      ],
+      "art": "world",
+      "sense": {
+        "index": 0,
+        "ja": "世界",
+        "en": "earth",
+        "sha256": "d545ec77100dcec105e273e91a6f3dca97358901e7706e976bb100389130adcf"
+      },
+      "scene": {
+        "en": "Blue oceans surround the continents of the world.",
+        "ja": "世界の大陸を青い海が囲んでいる。"
+      },
+      "image": {
+        "path": "assets/word/world.png",
+        "sha256": "0139dbe9bc14d330e32ef33d5cb9536ed5bbe7a28122eb1f4dcef17f13695ad2",
+        "git_blob_sha": "efd33e60a9ddc42e61f958519d2634cf5b4c4101"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T02:25:48Z",
+        "method": "visual inspection of actual PNG pixels in contact sheets and individual full-size images against canonical first sense",
+        "notes": "A spherical Earth shows blue oceans around green-and-yellow landmasses; world is Earth, not a social domain."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "might",
+      "p": [
+        "magh-"
+      ],
+      "art": "might",
+      "sense": {
+        "index": 0,
+        "ja": "力",
+        "en": "power",
+        "sha256": "a8ad08c10c4887af9f1bbd3f81af21c243ce8df2e9aa8a7056b102f2e64fb5a4"
+      },
+      "scene": {
+        "en": "The man lifts the heavy rock with all his might.",
+        "ja": "男性が全力を振り絞って重い岩を持ち上げている。"
+      },
+      "image": {
+        "path": "assets/word/might.png",
+        "sha256": "d76096dc70c0a53d2fefdc2706429cb74e4f2a95891f40bc3cf930b121c0af90",
+        "git_blob_sha": "caa0a3b10a3eda00bc6aba44f4655097ac81d9b5"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T02:25:48Z",
+        "method": "visual inspection of actual PNG pixels in contact sheets and individual full-size images against canonical first sense",
+        "notes": "The muscular man strains and sweats while gripping a large rock; might is physical power, not modal possibility."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "never",
+      "p": [
+        "ne",
+        "aiw-"
+      ],
+      "art": "never",
+      "sense": {
+        "index": 0,
+        "ja": "決して〜ない",
+        "en": "at no time",
+        "sha256": "017f1663d39523b61584e2cdc5f6ab3568395a515fe53fc1a40217bd2ad2199a"
+      },
+      "scene": {
+        "en": "She never drinks coffee; every calendar cup is crossed out.",
+        "ja": "彼女は決してコーヒーを飲まず、カレンダーのカップは全てばつ印になっている。"
+      },
+      "image": {
+        "path": "assets/word/never.png",
+        "sha256": "ec98968a1261e399bdc623b808b2d7998897c41bacf407e78ee2dfbb31503859",
+        "git_blob_sha": "9b8f0fabdb1a2b392e854677469b6ae957ebfbcb"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T02:25:48Z",
+        "method": "visual inspection of actual PNG pixels in contact sheets and individual full-size images against canonical first sense",
+        "notes": "The woman refuses a dark drink while holding water; all seven calendar panels have crossed-out cup icons. Never is supported by this explicit repeated-time symbolism, not inferred from a single refusal alone."
+      },
+      "status": "reviewed"
+    },
+    {
+      "w": "want",
+      "p": [
+        "euə-"
+      ],
+      "art": "want",
+      "sense": {
+        "index": 0,
+        "ja": "欲しい",
+        "en": "desire",
+        "sha256": "fe913e2dfecccbc1d97b19d2f8e73369f0fc54cebdbe6fe9293176fbcd91e92d"
+      },
+      "scene": {
+        "en": "The boy seems to want the toy boat in the window.",
+        "ja": "男の子はショーウィンドーの船のおもちゃが欲しいようだ。"
+      },
+      "image": {
+        "path": "assets/word/want.png",
+        "sha256": "ede6665fe8f15cd4e042e45b5ee8c3b28207e06d114332570ea77091137ab132",
+        "git_blob_sha": "bada74b21a7aff1b49ee7010bd094118ce04f5cb"
+      },
+      "review": {
+        "status": "reviewed",
+        "reviewed_at": "2026-10-04T02:25:48Z",
+        "method": "visual inspection of actual PNG pixels in contact sheets and individual full-size images against canonical first sense",
+        "notes": "The boy leans toward a displayed toy sailboat with clasped hands, a smile, and bright emphasis marks. Seems marks desire as inferred from these visible cues."
+      },
+      "status": "reviewed"
     }
   ]
 }

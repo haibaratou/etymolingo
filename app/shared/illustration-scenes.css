@@ -1,1 +1,6 @@
 .illustration-explanation{font-size:14px;line-height:1.55;text-align:left;overflow-wrap:anywhere}.illustration-explanation p{margin:5px 0}.illustration-explanation p[lang=en]{color:#294236;font-weight:650}.illustration-explanation p[lang=ja]{color:#645b50}.illustration-explanation-label{font-size:11px;font-weight:750;letter-spacing:.05em;color:#726951}.illustration-explanation-status{color:#807666;font-weight:400}.reward-explanation{max-width:440px;margin:10px auto;padding:12px 16px;border-radius:16px;background:#fffaf0;border:1px solid #dfd5c2;flex-shrink:0}.reward-explanation[hidden]{display:none}.cScene{min-width:240px;max-width:340px}.cScene .illustration-explanation{font-size:12px}.detText .illustration-explanation{padding:12px;background:#fff8e9;border-radius:12px;margin-bottom:12px}
+/* Keep the existing Next action visible while readers scroll a long reward. */
+#rewardScene{scroll-padding-block-end:84px}
+#rewardScene:has(.reward-explanation:not([hidden])){padding-bottom:76px}
+#rewardScene .advance-label{position:sticky;bottom:0;z-index:3;background:#fffaf0;border:1px solid #d7c9b4;box-shadow:0 -7px 14px #fffaf0e6,0 3px 0 #c6b294}
+#rewardScene .advance-label:focus-visible{outline:3px solid #4f4a9c;outline-offset:3px}
