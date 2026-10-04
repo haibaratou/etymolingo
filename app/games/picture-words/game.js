@@ -704,7 +704,7 @@
     const both = !!saved.ja.stars[entry.id] && !!saved.en.stars[entry.id];
     setFeedback(first ? (complete ? `${bookName(mode)} ${mode === 'ja' ? 'コンプリート！' : 'complete!'}` : text().correct) : (mode === 'ja' ? '正解！ この単語は獲得済み' : 'Correct! Already collected.'), 'success');
     $('game').dataset.record = recordKind;
-    $('pictureStamp').textContent = recordKind === 'independent' ? '自力正解' : '答えを見て\nクリア';
+    $('pictureStamp').textContent = recordKind === 'independent' ? 'おみごと！' : '答えを見て\nクリア';
     $('rewardBadge').textContent = both ? 'BILINGUAL CLEAR!' : first ? (complete ? 'BOOK COMPLETE' : 'NEW WORD GET!') : (mode === 'ja' ? '獲得済み' : 'COLLECTED');
     if (award.pageCompleted) $('rewardBadge').textContent = mode === 'ja' ? 'ページ完成！' : 'PAGE COMPLETE!';
     $('rewardBadge').textContent = first ? '辞書に登録！' : '辞書に記録！';
@@ -725,7 +725,7 @@
     $('rewardAfter').textContent = String(award.daily.pageFilled);
     $('rewardTotal').textContent = ' / 10';
     $('rewardProgress').textContent = mode === 'ja' ? `辞書に ${uniqueCount()} 語 / ${catalog.length} 語` : `${uniqueCount()} / ${catalog.length} words discovered`;
-    $('rewardSeal').textContent = recordKind === 'independent' ? '自力正解' : '答えを見て\nクリア';
+    $('rewardSeal').textContent = recordKind === 'independent' ? 'おみごと！' : '答えを見て\nクリア';
     $('advanceLabel').textContent = mode === 'ja' ? '次の問題へ →' : 'Next picture →';
     const library = $('rewardShelf'); library.className = 'book-shelf book-library-grid';
     library.replaceChildren(...Array.from({length:10}, (_, pageIndex) => {
