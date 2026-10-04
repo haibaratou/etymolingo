@@ -99,7 +99,7 @@
   const rarityStars = tier => `<span class="art-stars" role="img" aria-label="${tier+1} stars">${Array.from({length:tier+1},()=>'<img src="../../assets/ui/word_et_star.png" alt="" width="64" height="64">').join('')}</span>`;
   const collectedCount = lang => catalog.filter(word => supports(word, lang) && saved[lang].stars[word.id]).length;
   const uniqueCount = () => catalog.filter(word => saved.ja.stars[word.id] || saved.en.stars[word.id]).length;
-  const bookName = lang => mode === 'ja' ? (lang === 'ja' ? '日本語辞書' : '英語辞書') : (lang === 'ja' ? 'Japanese dictionary' : 'English dictionary');
+  const bookName = lang => lang === 'ja' ? '日本語' : '英語';
   const nextUncollected = (lang, after) => {
     const available = catalog.filter(word => supports(word, lang));
     const next = discovery.selectNext(available, saved, { language: lang, targetTier: saved.targetTier, afterId: catalog[after]?.id });
@@ -246,15 +246,16 @@
     heading.innerHTML = '<span class="voice-bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>';
     const label = document.createElement('span'); label.textContent = narrating ? (language === 'ja' ? '日本語' : 'ENGLISH') : `${spoken} · ${language === 'ja' ? '日本語' : 'ENGLISH'}`; heading.append(label);
     const buttons = document.createElement('div'); buttons.className = 'pronunciation-buttons';
-    for (const slow of [false, true]) {
+    for (const slow of [false]) {
       const button = document.createElement('button'); button.type = 'button'; button.dataset.slow = String(slow);
-      button.innerHTML = `${icon('sound')}<span>${slow ? 'ゆっくり' : narrating ? 'もう一度聞く' : '発音を聞く'}</span>`;
+      button.innerHTML = icon('sound');
+      button.title = narrating ? '解説を再生' : '単語を再生';
       button.setAttribute('aria-label', mode === 'ja' ? `「${spoken}」を${slow ? 'ゆっくり' : 'もう一度'}聞く` : `${slow ? 'Listen slowly to' : 'Listen again to'} ${spoken}`);
       button.addEventListener('click', () => narrating ? speech.speakScene(word, sceneResult, language, slow) : speech.speak(word, language, slow)); buttons.append(button);
     }
     const status = document.createElement('span'); status.className = 'pronunciation-status'; status.setAttribute('role', 'status'); status.setAttribute('aria-live', 'polite');
     status.textContent = saved.sound ? (mode === 'ja' ? '何度でも聞いて、声に出してみよう' : 'Listen again, then try saying it') : (mode === 'ja' ? '右上の音声をオンにすると聞けます' : 'Turn sound on at the top to listen');
-    panel.append(heading, buttons, status);
+    panel.append(buttons, status);
     buttons.querySelectorAll('button').forEach(button => { button.disabled = !saved.sound; });
     return panel;
   }
@@ -314,15 +315,17 @@
     if (reset) feedbackTimer = setTimeout(() => { if (phase === 'playing') setFeedback(text().release); }, 2300);
   }
   function updateLabels() {
-    $('listenClue').setAttribute('aria-label', mode === 'ja' ? (phase === 'solved' ? '説明をもう一度聞く' : '正解後に説明を聞く') : (phase === 'solved' ? 'Replay the description' : 'Description available after solving'));
-    $('listenClue').disabled = phase !== 'solved' || roundScene?.status !== 'reviewed' || !saved.sound;
-    $('listenClueLabel').textContent = '聞く';
-    $('shuffle').setAttribute('aria-label', text().shuffle);
+    $('listenClue').setAttribute('aria-label', '単語の発音を聞く');
+    $('listenClue').disabled = !entry || !['playing','answer-demo','solved'].includes(phase);
+    $('listenClueLabel').textContent = '';
+    $('shuffle').setAttribute('aria-label', '文字をまぜる');
+    $('hint').setAttribute('aria-label', '答えを見る');
     const t = text(); document.documentElement.lang = mode;
     document.title = mode === 'ja' ? 'WORD BLOOM — ことばの庭' : 'WORD BLOOM — A garden of words';
     $('modeToggle').dataset.mode = mode === 'ja' ? 'en' : 'ja';
     $('modeToggle').setAttribute('aria-label', mode === 'ja' ? '英語に切り替える' : '日本語に切り替える');
-    $('modeLabel').textContent = mode === 'ja' ? '日本語' : '英語';
+    $('modeToggle').dataset.active = mode;
+    $('modeLabel').innerHTML = `<span class="mode-ja">日本語</span><span aria-hidden="true">⇄</span><span class="mode-en">英語</span>`;
     const labels = { clueHeading: 'title', instruction: 'instruction', gestureNote: 'note', shuffleLabel: 'shuffle', hintLabel: 'hint',
       footerNote: 'footer', collectionLabel: 'collection', foundLabel: 'found',
       imageErrorText: 'error', retryImage: 'retry', skipImage: 'skip' };
@@ -583,6 +586,7 @@
     sceneRequest++; roundScene = null; sceneReadingHold = false; $('rewardExplanation').hidden = true; $('rewardExplanation').replaceChildren();
     index = (nextIndex + catalog.length) % catalog.length; progress().index = index;
     entry = catalog[index];
+    speech.prepare?.(entry);
     if (mode === 'ja' && !entry.w) mode = 'en';
     progress().index = index; progress().wordId = entry.id;
     const firstView=discovery.isFirstView(saved,entry.id);
@@ -608,14 +612,14 @@
       roundScene = retainedScene;
       image.style.opacity = '1';
       image.style.animation = 'none';
-      phase = 'playing'; $('game').dataset.state = phase; recordDisplay();
+      phase = 'playing'; $('game').dataset.state = phase; updateLabels(); recordDisplay();
       if (focusNext && keyboardNavigation) nodes[0]?.button.focus({ preventScroll: true });
     } else {
       image.style.opacity = '0';
       image.onload = () => {
         offline.refresh().then(updateOfflineStatus).catch(() => {});
         if (version !== generation) return;
-        image.style.opacity = '1'; phase = 'playing'; $('game').dataset.state = phase; recordDisplay();
+        image.style.opacity = '1'; phase = 'playing'; $('game').dataset.state = phase; updateLabels(); recordDisplay();
         // Restart the picture entrance only when the picture itself changes.
         image.style.animation = 'none'; void image.offsetWidth; image.style.animation = '';
         // Discovery mixes ranks, so a random harder word is not a rank-up event.
@@ -902,9 +906,9 @@
     later(() => { shuffleBusy = false; }, reducedMotion.matches ? 0 : 470);
   });
   $('listenClue').addEventListener('click', () => {
-    if (!entry || phase !== 'solved' || roundScene?.status !== 'reviewed') return;
+    if (!entry || !['playing','answer-demo','solved'].includes(phase)) return;
     cluePlayback = true;
-    speech.speakScene(entry, roundScene, mode);
+    speech.speak(entry, mode, false, true);
   });
   $('hint').addEventListener('click', () => {
     if (phase !== 'playing' || shuffleBusy) return;
@@ -983,12 +987,12 @@
     }));
     updateLayout();
   });
-  $('difficulty').addEventListener('click', () => {
-    const title = mode === 'ja' ? '挑戦する難易度を選ぶ' : 'Choose your challenge';
-    const intro = document.createElement('p'); intro.className = 'modal-copy'; intro.textContent = mode === 'ja' ? '未獲得のことばを優先。選んだランクを集めきると、別のランクも発見できます。' : 'Discover missing words first. When a rank is collected, explore the other ranks.';
+  function openDifficulty() {
+    const title = '難易度';
+    const intro = document.createElement('p'); intro.className = 'modal-copy'; intro.textContent = '星が少ないほど簡単な単語です。';
     const grid = document.createElement('div'); grid.className = 'difficulty-grid';
     const automatic = document.createElement('button'); automatic.type = 'button'; automatic.className = 'difficulty-choice';
-    automatic.setAttribute('aria-pressed', String(saved.targetTier === -1)); automatic.textContent = mode === 'ja' ? '✦ おまかせ発見 · いろいろなことばに出会う' : '✦ Discovery · a fresh mix of words';
+    automatic.setAttribute('aria-pressed', String(saved.targetTier === -1)); automatic.textContent = 'おまかせ';
     automatic.addEventListener('click', () => { saved.targetTier = -1; persist(); $('modal').close(); loadLevel(nextUncollected(mode, index), true); }); grid.append(automatic);
     difficulty.tiers.forEach((tier, tierIndex) => {
       const button = document.createElement('button'); button.type = 'button'; button.className = 'difficulty-choice';
@@ -1002,11 +1006,13 @@
       grid.append(button);
     });
     const panel = document.createElement('div'); panel.append(intro, grid); openModal(title, panel);
-  });
+  }
+  $('difficulty').addEventListener('click', openDifficulty);
+  $('launchDifficulty').addEventListener('click', openDifficulty);
   $('levels').addEventListener('click', () => { dictionaryLanguage = mode; dictionaryFilter = 'missing'; dictionaryPage = 0; dictionaryQuery = ''; renderDictionary(); });
   function openDictionary() { dictionaryLanguage = mode; dictionaryFilter = 'owned'; dictionaryPage = 0; dictionaryQuery = ''; renderDictionary(); }
   $('collection').addEventListener('click', openDictionary);
-  $('dailyCollection').addEventListener('click', () => { dictionaryLanguage = mode; dictionaryFilter = 'today'; dictionaryPage = 0; dictionaryQuery = ''; renderDictionary(); });
+  $('dailyCollection').addEventListener('click', () => { dictionaryLanguage = mode; dictionaryFilter = 'owned'; dictionaryPage = 0; dictionaryQuery = ''; renderDictionary(); });
   $('wordReward').addEventListener('click', openDictionary);
 
   function beginDictionaryPuzzle(lang, targetIndex) {
@@ -1027,22 +1033,21 @@
       button.addEventListener('click', () => { dictionaryLanguage = language; dictionaryPage = 0; renderDictionary('book'); }); tabs.append(button);
     }
     const summary = document.createElement('div'); summary.className = 'dictionary-summary';
-    summary.innerHTML = `<div><span class="eyebrow">${count === totalWords ? 'DICTIONARY COMPLETE' : 'GROW YOUR DICTIONARY'}</span><p><b>${count}</b> / ${totalWords} <span>${mode === 'ja' ? '語ゲット' : 'words collected'}</span></p></div><strong>${percent}<small>%</small></strong>`;
+    summary.innerHTML = `<div><span class="eyebrow">コレクション</span><p><b>${count}</b> / ${totalWords} <span>語</span></p></div><strong>${percent}<small>%</small></strong>`;
     const meter = document.createElement('div'); meter.className = 'dictionary-meter'; meter.setAttribute('role', 'progressbar');
     meter.setAttribute('aria-label', bookName(lang)); meter.setAttribute('aria-valuenow', String(count)); meter.setAttribute('aria-valuemin', '0'); meter.setAttribute('aria-valuemax', String(totalWords));
     const fill = document.createElement('span'); fill.style.width = `${percent}%`; meter.append(fill);
     const caption = document.createElement('p'); caption.className = 'dictionary-caption';
     const daily = discovery.summary(saved.discovery);
-    caption.textContent = mode === 'ja' ? `今日の発見 ${daily.count} 語 · ${daily.pagesCompleted} ページ完成 · これまで ${daily.totalDays} 日の記録` : `${daily.count} discoveries today · ${daily.pagesCompleted} ${daily.pagesCompleted === 1 ? 'page' : 'pages'} filled · ${daily.totalDays} ${daily.totalDays === 1 ? 'day' : 'days'} of discoveries`;
-    caption.textContent += ` · 自力 ${Object.values(saved.answerRecords).filter(r=>r[lang]?.independent>0).length}語 · 答えを見て ${Object.values(saved.answerRecords).filter(r=>r[lang]?.assisted>0).length}語`;
+    caption.textContent = `獲得 ${count}語`;
     const filters = document.createElement('div'); filters.className = 'dictionary-filters'; filters.setAttribute('role', 'group');
     filters.setAttribute('aria-label', mode === 'ja' ? '獲得状況で絞り込む' : 'Filter by collection status');
-    for (const [value, label, total] of [['today', mode === 'ja' ? '今日' : 'Today', catalog.filter(w => supports(w,lang) && todayIds.has(w.id)).length], ['owned', mode === 'ja' ? '獲得済み' : 'Collected', count], ['missing', mode === 'ja' ? '未獲得' : 'Missing', totalWords - count], ['all', mode === 'ja' ? 'すべて' : 'All', totalWords], ['independent','自力',Object.values(saved.answerRecords).filter(r=>r[lang]?.independent>0).length], ['assisted','答えを見た',Object.values(saved.answerRecords).filter(r=>r[lang]?.assisted>0).length]]) {
+    for (const [value, label, total] of [['owned', '獲得済み', count], ['missing', '未獲得', totalWords - count], ['all', 'すべて', totalWords], ['independent','自力',Object.values(saved.answerRecords).filter(r=>r[lang]?.independent>0).length], ['assisted','答えを見た',Object.values(saved.answerRecords).filter(r=>r[lang]?.assisted>0).length]]) {
       const button = document.createElement('button'); button.type = 'button'; button.textContent = `${label} ${total}`; button.dataset.filter = value;
       button.setAttribute('aria-pressed', String(dictionaryFilter === value)); button.addEventListener('click', () => { dictionaryFilter = value; dictionaryPage = 0; renderDictionary('filter'); }); filters.append(button);
     }
     const search = document.createElement('input'); search.type = 'search'; search.className = 'dictionary-search'; search.value = dictionaryQuery;
-    search.placeholder = mode === 'ja' ? 'ことばを探す' : 'Find a word'; search.setAttribute('aria-label', search.placeholder);
+    search.placeholder = 'ことばを探す'; search.setAttribute('aria-label', search.placeholder);
     const updateSearch = event => { if (event.isComposing) return; dictionaryQuery = search.value; dictionaryPage = 0; renderDictionary('search'); };
     search.addEventListener('input', updateSearch); search.addEventListener('compositionend', updateSearch);
     const grid = document.createElement('div'); grid.className = 'dictionary-grid';
@@ -1085,7 +1090,7 @@
     }
     container.append(tabs, summary, meter, caption, filters, search, paging, grid);
     if (!grid.childElementCount) { const empty = document.createElement('p'); empty.className = 'dictionary-empty'; empty.textContent = query ? (mode === 'ja' ? '見つかりませんでした。別のことばで探してみよう。' : 'No matching words. Try another search.') : (mode === 'ja' ? '新しい絵を解いて、このページを埋めよう。' : 'Solve a new picture to fill this page.'); container.append(empty); }
-    openModal(text().collection, container);
+    openModal('コレクション', container);
     if (focusControl === 'book') tabs.querySelector('[aria-pressed="true"]').focus({ preventScroll: true });
     if (focusControl === 'filter') filters.querySelector('[aria-pressed="true"]').focus({ preventScroll: true });
     if (focusControl === 'search') { search.focus({preventScroll:true}); search.setSelectionRange(search.value.length, search.value.length); }
@@ -1117,7 +1122,7 @@
     const explanation = document.createElement('div'); explanation.textContent = '説明を確認中…';
     // Dictionary detail is already an explicit reveal. The puzzle itself stays answer-free.
     explanationFor(word).then(result => {if(explanation.isConnected)window.IllustrationScenes.render(explanation,result);});
-    container.append(back, image, heading, rarity, reading, explanation, translation, pronunciationPanel(word, lang), history, best, badges, challenge);
+    container.append(back, image, explanation, heading, rarity, reading, translation, pronunciationPanel(word, lang), history, best, challenge);
     openModal(bookName(lang), container); back.focus({ preventScroll: true });
   }
   document.addEventListener('keydown', event => {

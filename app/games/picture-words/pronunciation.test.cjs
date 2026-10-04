@@ -104,3 +104,11 @@ test('known voices are reused and playback is submitted synchronously without wa
  x.speech.speak(moon,'en');assert.equal(x.calls.length,1);assert.equal(reads,0);
  x.changed();assert.equal(reads,1);x.speech.speak(moon,'ja');assert.equal(x.calls.length,2);assert.equal(reads,1);
 });
+
+
+test('prepared word utterances are reused on the immediate user request',()=>{
+ const x=setup();x.speech.prepare(moon);
+ const prepared=x.speech.prepared.get(`en:${moon.en}`);
+ x.speech.setEnabled(false);x.speech.speak(moon,'en',false,true);
+ assert.equal(x.calls.length,1);assert.equal(x.calls[0],prepared);
+});

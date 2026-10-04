@@ -1008,3 +1008,17 @@ html.phone-host body> :not(.desktop-phone-host){display:none!important}
 #rewardScroll .win-pronunciation:not([hidden]){display:block;width:100%;max-width:360px;margin:8px auto 14px}
 #rewardScroll .win-pronunciation .pronunciation{margin-top:0}
 #rewardScroll .pronunciation-buttons button:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+
+/* Icon-only controls; the language switch always shows both choices. */
+#gameActions #listenClueLabel,#gameActions #shuffleLabel,#gameActions #collectionLabel,#gameActions #hintLabel,#gameActions #freeTag{display:none!important}
+#gameActions button svg{width:28px;height:28px}
+#gameActions #listenClue svg{width:38px;height:38px}
+#gameActions #modeLabel{display:flex;align-items:center;justify-content:center;gap:3px;font-size:10px;white-space:nowrap}
+#gameActions #modeToggle{background:#e7edf6;color:#53657e;border:1px solid #9eb1ca}
+#modeToggle .mode-ja,#modeToggle .mode-en{padding:4px 2px;border-radius:4px}
+#modeToggle[data-active=ja] .mode-ja,#modeToggle[data-active=en] .mode-en{background:#145da0;color:white;font-weight:900}
+#dailyReward,#rewardPageNumber,#rewardBookName,#rewardBefore,#rewardAfter,#rewardTotal,#rewardProgress,#rewardScene .book-left{display:none!important}
+#rewardExplanation{margin:14px 0 8px;padding:14px;background:#fffaf0;border-radius:16px;text-align:left}
+.pronunciation-status{display:none}
+.pronunciation-buttons button{min-width:54px;min-height:44px}
+#launchDifficulty{background:#f4e6c5;color:#392652;border:2px solid #bb944e}

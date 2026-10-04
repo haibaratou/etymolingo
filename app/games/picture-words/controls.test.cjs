@@ -26,18 +26,14 @@ test('central shuffle responds to a tap but ignores dragging and a live letter g
   context.pointer={id:1};handlers.pointerdown({clientX:10,clientY:10});handlers.click({detail:1});assert.equal(layouts,1);
 });
 
-test('Listen is silent before solving and replays the verified current-language description afterward',()=>{
-  let handler;const calls=[];
-  const entry={id:'glasses',en:'glasses',w:'めがね'};
-  const roundScene={status:'reviewed',entry:{scene:{en:'Glasses with round lenses.',ja:'丸いレンズの眼鏡。'}}};
-  const context={$:()=>({addEventListener:(_,fn)=>handler=fn}),entry,roundScene,mode:'en',phase:'playing',cluePlayback:false,
-    speech:{stop:()=>{},speak:()=>{throw Error('No word fallback');},speakScene:(...args)=>calls.push(args)}};
-  const start=code.indexOf("  $('listenClue').addEventListener");
-  vm.runInNewContext(code.slice(start,code.indexOf("  $('hint').addEventListener",start)),context);
-  handler();assert.equal(calls.length,0);
-  context.phase='solved';handler();context.mode='ja';handler();
-  assert.deepEqual(calls,[[entry,roundScene,'en'],[entry,roundScene,'ja']]);
-  context.roundScene=null;handler();assert.equal(calls.length,2);assert.equal(context.entry,entry);
+test('Listen immediately requests the current word before or after solving, even without a scene',()=>{
+ let handler;const calls=[],entry={id:'glasses',en:'glasses',w:'めがね'};
+ const c={$:()=>({addEventListener:(_,fn)=>handler=fn}),entry,mode:'en',phase:'playing',cluePlayback:false,speech:{speak:(...args)=>calls.push(args)}};
+ const start=code.indexOf("  $('listenClue').addEventListener");
+ vm.runInNewContext(code.slice(start,code.indexOf("  $('hint').addEventListener",start)),c);
+ handler();c.mode='ja';handler();c.phase='solved';handler();
+ assert.deepEqual(calls,[[entry,'en',false,true],[entry,'ja',false,true],[entry,'ja',false,true]]);
+ c.phase='loading';handler();assert.equal(calls.length,3);assert.equal(c.entry,entry);
 });
 test('reload changes the URL without deleting saved progress',()=>{
   let handler,target;

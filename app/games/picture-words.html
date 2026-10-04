@@ -12,18 +12,18 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=M+PLUS+Rounded+1c:wght@500;700;800&display=swap">
   <link rel="manifest" href="picture-words/manifest.webmanifest">
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <link rel="stylesheet" href="picture-words/style.css?v=scene-audio1">
-  <script src="picture-words/desktop.js?v=score-stamp6" defer></script>
+  <link rel="stylesheet" href="picture-words/style.css?v=simple-audio7">
+  <script src="picture-words/desktop.js?v=simple-audio7" defer></script>
   <script src="picture-words/catalog.js?v=b3e969990a3c" defer></script>
   <script src="picture-words/difficulty.js?v=visible-letters1" defer></script>
   <script src="picture-words/gesture.js?v=speech-fast-start1" defer></script>
-  <script src="picture-words/pronunciation.js?v=scene-narration1" defer></script>
+  <script src="picture-words/pronunciation.js?v=simple-audio7" defer></script>
   <script src="picture-words/progression.js?v=new-card1" defer></script>
   <script src="picture-words/reviewed-scenes.js?v=reviewed-scene1" defer></script>
   <script src="picture-words/offline.js?v=reviewed-pack1" defer></script>
   <link rel="stylesheet" href="../shared/illustration-scenes.css?v=footer2">
   <script src="../shared/illustration-scenes.js?v=labels2" defer></script>
-  <script src="picture-words/game.js?v=reviewed-scene1" defer></script>
+  <script src="picture-words/game.js?v=simple-audio7" defer></script>
 </head>
 <body>
   <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -115,8 +115,8 @@
           <p class="gesture-note" id="gestureNote" hidden></p>
         </section>
         <div class="play-toolbar" id="gameActions" role="group" aria-label="ゲーム操作">
-          <button id="modeToggle" type="button" data-mode="en" aria-label="英語に切り替える"><span aria-hidden="true">⇄</span><span id="modeLabel">日本語</span></button>
-          <button id="listenClue" class="action-button" type="button" aria-label="正解後に説明を聞く" disabled><svg><use href="#i-sound"/></svg><span id="listenClueLabel" aria-live="polite">聞く</span></button>
+          <button id="modeToggle" type="button" data-mode="en" aria-label="英語に切り替える"><span id="modeLabel"><span class="mode-ja">日本語</span><span aria-hidden="true">⇄</span><span class="mode-en">英語</span></span></button>
+          <button id="listenClue" class="action-button" type="button" aria-label="単語の発音を聞く"><svg><use href="#i-sound"/></svg><span id="listenClueLabel" aria-live="polite">聞く</span></button>
           <button id="shuffle" class="action-button shuffle-button" type="button" aria-label="まぜる"><svg><use href="#i-shuffle"/></svg><span id="shuffleLabel">まぜる</span><span id="centerLabel" hidden></span></button>
           <button id="collection" class="action-button collection-button" type="button"><svg><use href="#i-book"/></svg><span id="collectionLabel">辞書</span><span id="collectionCount">0</span></button>
           <button id="hint" class="action-button hint-button" type="button"><svg><use href="#i-bulb"/></svg><span id="hintLabel">答え</span><span class="free-tag" id="freeTag">FREE</span></button>
@@ -146,6 +146,7 @@
     <h1 id="launchTitle">ニコリンゴ</h1>
     <p>絵を見て、かなと英語をつなごう。</p>
     <img src="../../assets/word/candy.png" alt="カラフルなキャンディー" width="220" height="220">
+    <button id="launchDifficulty" class="modal-primary" type="button">難易度設定</button>
     <button id="startPlay" class="modal-primary" type="button">遊ぶ</button>
     <button id="reloadReviewedData" class="modal-primary" type="button" hidden>データを再読み込み</button>
     <button id="saveOffline" class="modal-primary" type="button">20問を保存（約5MB）</button>

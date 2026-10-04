@@ -81,20 +81,14 @@ test('correct-answer narration uses the verified sentence synchronously before r
  assert.doesNotMatch(prefix,/await|later\(|setTimeout\(|explanationFor\(/);
 });
 
-test('Listen is disabled before answering and replays only a verified solved description',()=>{
+test('word audio is enabled during play independently of description readiness and automatic sound',()=>{
  const controls={listenClue:{setAttribute(){}},listenClueLabel:{}};
  const start=game.indexOf('  function updateLabels()'),end=game.indexOf("    $('shuffle').setAttribute",start);
- const prefix=game.slice(start,end)+'\n  }';
- const c={phase:'playing',mode:'en',roundScene:{status:'reviewed'},saved:{sound:true},$:id=>controls[id]};
- vm.runInNewContext(prefix,c);c.updateLabels();assert.equal(controls.listenClue.disabled,true);
+ const c={entry:{id:'book'},phase:'playing',mode:'en',saved:{sound:false},$:id=>controls[id]};
+ vm.runInNewContext(game.slice(start,end)+'\n  }',c);
+ c.updateLabels();assert.equal(controls.listenClue.disabled,false);
  c.phase='solved';c.updateLabels();assert.equal(controls.listenClue.disabled,false);
- c.saved.sound=false;c.updateLabels();assert.equal(controls.listenClue.disabled,true);
- c.saved.sound=true;c.roundScene=null;c.updateLabels();assert.equal(controls.listenClue.disabled,true);
- let handler;const calls=[];const entry={id:'book'},roundScene={status:'reviewed'};
- const h={entry,phase:'playing',mode:'en',roundScene,cluePlayback:false,speech:{speakScene:(...args)=>calls.push(args)},$:()=>({addEventListener:(_,fn)=>handler=fn})};
- vm.runInNewContext(game.slice(game.indexOf("  $('listenClue').addEventListener"),game.indexOf("  $('hint').addEventListener")),h);
- handler();assert.equal(calls.length,0);assert.equal(h.cluePlayback,false);
- h.phase='solved';handler();assert.deepEqual(calls,[[entry,roundScene,'en']]);assert.equal(h.cluePlayback,true);
+ c.phase='loading';c.updateLabels();assert.equal(controls.listenClue.disabled,true);
 });
 
 test('every offered puzzle waits for the existing Next control rather than automatic advance',()=>{

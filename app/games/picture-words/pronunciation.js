@@ -14,7 +14,7 @@
     constructor({ synth = root.speechSynthesis, Utterance = root.SpeechSynthesisUtterance, onState = () => {}, onVoices = () => {}, setTimer = (fn, delay) => setTimeout(fn, delay), clearTimer = id => clearTimeout(id) } = {}) {
       this.synth = synth; this.Utterance = Utterance; this.onState = onState; this.onVoices = onVoices;
       this.setTimer = setTimer; this.clearTimer = clearTimer; this.timer = null; this.current = null; this.serial = 0;
-      this.enabled = true; this.voices = [];
+      this.enabled = true; this.voices = []; this.prepared = new Map();
       this.refreshVoices = () => {
         try { this.voices = Array.from(this.synth?.getVoices?.() || []); } catch { this.voices = []; }
         this.onVoices();
@@ -36,6 +36,14 @@
         this.onState({ ...previous.info, state: 'idle' });
       }
     }
+    prepare(word) {
+      this.prepared.clear();
+      if (!this.Utterance) return;
+      for (const language of ['ja','en']) {
+        const text = language === 'ja' ? word.w : word.en;
+        try { this.prepared.set(`${language}:${text}`, new this.Utterance(text)); } catch {}
+      }
+    }
     speak(word, language, slow = false, requested = false) {
       return this.speakText({ wordId: word.id, text: language === 'ja' ? word.w : word.en, language, slow }, requested);
     }
@@ -55,7 +63,7 @@
       if (this.availability(language) !== 'ready') { this.onState({ ...info, state: 'unavailable' }); return false; }
       const serial = this.serial;
       let utterance;
-      try { utterance = new this.Utterance(info.text); }
+      try { utterance = this.prepared.get(`${language}:${info.text}`) || new this.Utterance(info.text); }
       catch { this.onState({ ...info, state: 'unavailable' }); return false; }
       utterance.lang = language === 'ja' ? 'ja-JP' : 'en-US';
       const voice = chooseVoice(this.voices, language); if (voice) utterance.voice = voice;
