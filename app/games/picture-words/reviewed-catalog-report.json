@@ -3,24 +3,24 @@
   "meta": {
     "schema": 1,
     "sourceWordsSha256": "1d367df1caa3fbae89c378b82ae46bd30e4367a1f40b3bf82e95b60452263a6a",
-    "scenesSha256": "8551536162c3aa9aae7d868f75a1108e478fc23749bb3f60220972cb7fda3e58",
+    "scenesSha256": "0f6ea808eb1198bb06483a8f9722fcd76f1bf3c7418d9c037b1d0cb26cde7110",
     "indexSha256": "8f14ef961f3ff29788ff205b3af4dbb08e01f1004674f7c01b81df9d82ea8655",
-    "count": 208
+    "count": 239
   },
-  "normalCatalogRows": 4168,
-  "emittedRows": 208,
-  "excludedRowsCount": 3960,
-  "sceneEntries": 609,
-  "verifiedPngs": 208,
-  "lazyAssets": 208,
-  "lazyAssetBytes": 56710000,
+  "normalCatalogRows": 4200,
+  "emittedRows": 239,
+  "excludedRowsCount": 3961,
+  "sceneEntries": 655,
+  "verifiedPngs": 239,
+  "lazyAssets": 239,
+  "lazyAssetBytes": 66098633,
   "ordering": "Surviving existing IDs in previous order; new IDs appended in normal-builder order",
   "inputHashes": {
     "app/data/generated-etymon/words.json": "1d367df1caa3fbae89c378b82ae46bd30e4367a1f40b3bf82e95b60452263a6a",
-    "app/data/generated-etymon/illustration-scenes.json": "8551536162c3aa9aae7d868f75a1108e478fc23749bb3f60220972cb7fda3e58",
+    "app/data/generated-etymon/illustration-scenes.json": "0f6ea808eb1198bb06483a8f9722fcd76f1bf3c7418d9c037b1d0cb26cde7110",
     "assets/word/illustration-index.js": "8f14ef961f3ff29788ff205b3af4dbb08e01f1004674f7c01b81df9d82ea8655",
     "app/games/picture-words/build_catalog.py": "42b868ac315092781f5abfcec19ed6a84670f0b390b6b0e8c150197c69a98ba8",
-    "app/games/picture-words/updated-art.json": "f627e18b5df526c1d346d0cb18e2d63cb3b196891d05d4751e78386b4d9f24cd",
+    "app/games/picture-words/updated-art.json": "c1dbb0ac859da674da61c89e1f7c8375fdf48457f322f3f83c654bec93c304a2",
     "app/games/picture-words/readiness-review.json": "de9ddbf46fefadf6c30185c3c9b8ae8a44707f7af6b5a581a9661fa8ec219f39",
     "app/games/picture-words/image-revisions.json": "be9b1c81860c8433cf746d6285f11e39e0e9fc39f6f681397c8fe03ebab3a8e8",
     "app/data/generated-etymon/word-suika-ja.json": "113a3a09a5005dc0ad53e6e8f9595a02f95e0471b672d0130f815b1bf819d91f",
@@ -29,8 +29,8 @@
   "inventoryNamesSha256": "bee0d219247a2d85844afe0fbb1640d2b003e699eb4b7da2c9501052bf38a0ab",
   "exclusionCounts": {
     "art_not_completed_after_cutoff": 32,
-    "no_exact_scene_binding": 1802,
-    "normal_readiness_gate": 2126
+    "no_exact_scene_binding": 1794,
+    "normal_readiness_gate": 2135
   },
   "excludedRows": [
     {
@@ -319,13 +319,6 @@
       "p": [],
       "art": "mountain",
       "reason": "art_not_completed_after_cutoff"
-    },
-    {
-      "id": "sea",
-      "w": "sea",
-      "p": [],
-      "art": "sea",
-      "reason": "no_exact_scene_binding"
     },
     {
       "id": "river",
@@ -1710,29 +1703,25 @@
       "detail": "first_reading_unavailable"
     },
     {
-      "id": "boy",
-      "w": "boy",
-      "p": [],
-      "art": "boy",
-      "reason": "no_exact_scene_binding"
+      "id": "recent",
+      "w": "recent",
+      "p": [
+        "re-",
+        "ken-2"
+      ],
+      "art": "recent",
+      "reason": "normal_readiness_gate",
+      "detail": "first_reading_unavailable"
     },
     {
-      "id": "police",
-      "w": "police",
+      "id": "primary",
+      "w": "primary",
       "p": [
-        "pelə-3"
+        "per1"
       ],
-      "art": "police",
-      "reason": "no_exact_scene_binding"
-    },
-    {
-      "id": "author",
-      "w": "author",
-      "p": [
-        "aug-"
-      ],
-      "art": "author",
-      "reason": "no_exact_scene_binding"
+      "art": "primary",
+      "reason": "normal_readiness_gate",
+      "detail": "first_reading_unavailable"
     },
     {
       "id": "memory",
@@ -1754,22 +1743,6 @@
       "detail": "first_reading_unavailable"
     },
     {
-      "id": "stress",
-      "w": "stress",
-      "p": [
-        "streig-"
-      ],
-      "art": "stress",
-      "reason": "no_exact_scene_binding"
-    },
-    {
-      "id": "news",
-      "w": "news",
-      "p": [],
-      "art": "news",
-      "reason": "no_exact_scene_binding"
-    },
-    {
       "id": "moving",
       "w": "moving",
       "p": [
@@ -1780,22 +1753,15 @@
       "detail": "first_reading_unavailable"
     },
     {
-      "id": "reality",
-      "w": "reality",
+      "id": "appropriate",
+      "w": "appropriate",
       "p": [
-        "rē-"
+        "ad-",
+        "per1"
       ],
-      "art": "reality",
-      "reason": "no_exact_scene_binding"
-    },
-    {
-      "id": "reach",
-      "w": "reach",
-      "p": [
-        "reig-2"
-      ],
-      "art": "reach",
-      "reason": "no_exact_scene_binding"
+      "art": "appropriate",
+      "reason": "normal_readiness_gate",
+      "detail": "first_reading_unavailable"
     },
     {
       "id": "price",
@@ -1805,6 +1771,58 @@
       ],
       "art": "price",
       "reason": "no_exact_scene_binding"
+    },
+    {
+      "id": "safe",
+      "w": "safe",
+      "p": [
+        "sol-"
+      ],
+      "art": "safe",
+      "reason": "normal_readiness_gate",
+      "detail": "first_reading_unavailable"
+    },
+    {
+      "id": "traditional",
+      "w": "traditional",
+      "p": [
+        "terə-2",
+        "dō-"
+      ],
+      "art": "traditional",
+      "reason": "normal_readiness_gate",
+      "detail": "first_reading_unavailable"
+    },
+    {
+      "id": "active",
+      "w": "active",
+      "p": [
+        "ag-"
+      ],
+      "art": "active",
+      "reason": "normal_readiness_gate",
+      "detail": "first_reading_unavailable"
+    },
+    {
+      "id": "instance",
+      "w": "instance",
+      "p": [
+        "en",
+        "stā-"
+      ],
+      "art": "instance",
+      "reason": "normal_readiness_gate",
+      "detail": "first_reading_unavailable"
+    },
+    {
+      "id": "develop",
+      "w": "develop",
+      "p": [
+        "dwis-"
+      ],
+      "art": "develop",
+      "reason": "normal_readiness_gate",
+      "detail": "first_reading_unavailable"
     },
     {
       "id": "loved",
@@ -1830,6 +1848,17 @@
       "p": [],
       "art": "online",
       "reason": "no_exact_scene_binding"
+    },
+    {
+      "id": "couple",
+      "w": "couple",
+      "p": [
+        "kom",
+        "ap-1"
+      ],
+      "art": "couple",
+      "reason": "normal_readiness_gate",
+      "detail": "first_reading_unavailable"
     },
     {
       "id": "covered",
@@ -34250,6 +34279,14 @@
       "reason": "not_selected_by_normal_art_date_or_homograph_rules"
     },
     {
+      "w": "active",
+      "p": [
+        "ag-"
+      ],
+      "art": "active",
+      "reason": "normal_readiness_gate"
+    },
+    {
       "w": "after",
       "p": [
         "apo-"
@@ -34422,6 +34459,15 @@
       ],
       "art": "approach",
       "reason": "not_selected_by_normal_art_date_or_homograph_rules"
+    },
+    {
+      "w": "appropriate",
+      "p": [
+        "ad-",
+        "per1"
+      ],
+      "art": "appropriate",
+      "reason": "normal_readiness_gate"
     },
     {
       "w": "are",
@@ -34711,6 +34757,14 @@
       "reason": "not_selected_by_normal_art_date_or_homograph_rules"
     },
     {
+      "w": "clearly",
+      "p": [
+        "kelə-2"
+      ],
+      "art": "clearly",
+      "reason": "normal_word_or_POS_gate"
+    },
+    {
       "w": "close",
       "p": [
         "klāu-"
@@ -34754,6 +34808,15 @@
       "reason": "not_selected_by_normal_art_date_or_homograph_rules"
     },
     {
+      "w": "completely",
+      "p": [
+        "kom",
+        "pelə-1"
+      ],
+      "art": "completely",
+      "reason": "normal_word_or_POS_gate"
+    },
+    {
       "w": "complex",
       "p": [
         "kom",
@@ -34795,6 +34858,15 @@
       "reason": "not_selected_by_normal_art_date_or_homograph_rules"
     },
     {
+      "w": "couple",
+      "p": [
+        "kom",
+        "ap-1"
+      ],
+      "art": "couple",
+      "reason": "normal_readiness_gate"
+    },
+    {
       "w": "course",
       "p": [
         "kers-2"
@@ -34833,6 +34905,14 @@
       ],
       "art": "day",
       "reason": "not_selected_by_normal_art_date_or_homograph_rules"
+    },
+    {
+      "w": "develop",
+      "p": [
+        "dwis-"
+      ],
+      "art": "develop",
+      "reason": "normal_readiness_gate"
     },
     {
       "w": "development",
@@ -35311,6 +35391,14 @@
       "reason": "not_selected_by_normal_art_date_or_homograph_rules"
     },
     {
+      "w": "green",
+      "p": [
+        "ghrē-"
+      ],
+      "art": "green",
+      "reason": "normal_readiness_gate"
+    },
+    {
       "w": "group",
       "p": [
         "g(e)r-2"
@@ -35547,6 +35635,15 @@
       "reason": "normal_word_or_POS_gate"
     },
     {
+      "w": "instance",
+      "p": [
+        "en",
+        "stā-"
+      ],
+      "art": "instance",
+      "reason": "normal_readiness_gate"
+    },
+    {
       "w": "interest",
       "p": [
         "en",
@@ -35710,6 +35807,12 @@
       "reason": "not_selected_by_normal_art_date_or_homograph_rules"
     },
     {
+      "w": "loved",
+      "p": [],
+      "art": "loved",
+      "reason": "normal_readiness_gate"
+    },
+    {
       "w": "made",
       "p": [
         "mag-"
@@ -35796,6 +35899,14 @@
       ],
       "art": "men@man1",
       "reason": "not_selected_by_normal_art_date_or_homograph_rules"
+    },
+    {
+      "w": "mental",
+      "p": [
+        "men-1"
+      ],
+      "art": "mental@men1",
+      "reason": "normal_readiness_gate"
     },
     {
       "w": "might",
@@ -36263,6 +36374,14 @@
       "reason": "normal_readiness_gate"
     },
     {
+      "w": "primary",
+      "p": [
+        "per1"
+      ],
+      "art": "primary",
+      "reason": "normal_readiness_gate"
+    },
+    {
       "w": "private",
       "p": [
         "per1"
@@ -36367,6 +36486,15 @@
       "reason": "not_selected_by_normal_art_date_or_homograph_rules"
     },
     {
+      "w": "recent",
+      "p": [
+        "re-",
+        "ken-2"
+      ],
+      "art": "recent",
+      "reason": "normal_readiness_gate"
+    },
+    {
       "w": "related",
       "p": [],
       "art": "related",
@@ -36438,6 +36566,14 @@
         "reiə-"
       ],
       "art": "run",
+      "reason": "normal_readiness_gate"
+    },
+    {
+      "w": "safe",
+      "p": [
+        "sol-"
+      ],
+      "art": "safe",
       "reason": "normal_readiness_gate"
     },
     {
@@ -36915,6 +37051,15 @@
       "reason": "normal_word_or_POS_gate"
     },
     {
+      "w": "throughout",
+      "p": [
+        "terə-2",
+        "ud-"
+      ],
+      "art": "throughout",
+      "reason": "normal_word_or_POS_gate"
+    },
+    {
       "w": "thus",
       "p": [
         "to-"
@@ -36955,6 +37100,15 @@
       ],
       "art": "toward",
       "reason": "normal_word_or_POS_gate"
+    },
+    {
+      "w": "traditional",
+      "p": [
+        "terə-2",
+        "dō-"
+      ],
+      "art": "traditional",
+      "reason": "normal_readiness_gate"
     },
     {
       "w": "treatment",
