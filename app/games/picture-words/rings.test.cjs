@@ -110,3 +110,13 @@ test('every size and shuffle has an adjacent one-stroke solution, with no reused
   assert.equal(areNeighbours({x:0,y:0},{x:step*2,y:0},step),false);
  }
 });
+
+
+test('three tiles form a compact triangle with one above two and every pair adjacent',()=>{
+ const code=fs.readFileSync(require.resolve('./game.js'),'utf8'),ctx={};
+ vm.runInNewContext(code.slice(code.indexOf('  function tileStep('),code.indexOf('  function arrangeNodes(')),ctx);
+ const points=ctx.letterPositions(3,0,false,3),top=Math.min(...points.map(p=>p.y));
+ assert.equal(points.filter(p=>p.y===top).length,1);
+ assert.equal(points.filter(p=>p.y>top).length,2);
+ for(let i=0;i<3;i++)for(let j=i+1;j<3;j++)assert.ok(Math.abs(Math.hypot(points[i].x-points[j].x,points[i].y-points[j].y)-100)<1e-8);
+});

@@ -210,7 +210,7 @@
         const busy = event.state === 'queued' || event.state === 'speaking';
         const failed = event.state === 'error' || event.state === 'unavailable';
         $('listenClue').setAttribute('aria-busy', String(busy));
-        $('listenClueLabel').textContent = busy ? (mode === 'ja' ? '再生中' : 'Playing') : failed ? (mode === 'ja' ? '再試行' : 'Retry') : (mode === 'ja' ? '聞く' : 'Listen');
+        $('listenClueLabel').textContent = busy ? '再生中' : failed ? '再試行' : '聞く';
         if (!busy) cluePlayback = false;
       }
       document.querySelectorAll('.pronunciation').forEach(panel => {
@@ -245,7 +245,7 @@
     const buttons = document.createElement('div'); buttons.className = 'pronunciation-buttons';
     for (const slow of [false, true]) {
       const button = document.createElement('button'); button.type = 'button'; button.dataset.slow = String(slow);
-      button.innerHTML = `${icon('sound')}<span>${mode === 'ja' ? (slow ? 'ゆっくり' : '発音を聞く') : (slow ? 'Slow' : 'Listen')}</span>`;
+      button.innerHTML = `${icon('sound')}<span>${slow ? 'ゆっくり' : '発音を聞く'}</span>`;
       button.setAttribute('aria-label', mode === 'ja' ? `「${spoken}」の発音を${slow ? 'ゆっくり' : ''}聞く` : `${slow ? 'Slow pronunciation' : 'Listen to'} ${spoken}`);
       button.addEventListener('click', () => speech.speak(word, language, slow)); buttons.append(button);
     }
@@ -312,17 +312,18 @@
   }
   function updateLabels() {
     $('listenClue').setAttribute('aria-label', mode === 'ja' ? '発音を聞く' : 'Listen to pronunciation');
-    $('listenClueLabel').textContent = mode === 'ja' ? '聞く' : 'Listen';
+    $('listenClueLabel').textContent = '聞く';
     $('shuffle').setAttribute('aria-label', text().shuffle);
     const t = text(); document.documentElement.lang = mode;
     document.title = mode === 'ja' ? 'WORD BLOOM — ことばの庭' : 'WORD BLOOM — A garden of words';
     $('modeToggle').dataset.mode = mode === 'ja' ? 'en' : 'ja';
     $('modeToggle').setAttribute('aria-label', mode === 'ja' ? '英語に切り替える' : '日本語に切り替える');
-    $('modeLabel').textContent = mode === 'ja' ? '日本語' : 'English';
+    $('modeLabel').textContent = mode === 'ja' ? '日本語' : '英語';
     const labels = { clueHeading: 'title', instruction: 'instruction', gestureNote: 'note', shuffleLabel: 'shuffle', hintLabel: 'hint',
       footerNote: 'footer', collectionLabel: 'collection', foundLabel: 'found',
       imageErrorText: 'error', retryImage: 'retry', skipImage: 'skip' };
     for (const [id, key] of Object.entries(labels)) $(id).textContent = t[key];
+    $('shuffleLabel').textContent = 'まぜる'; $('hintLabel').textContent = '答え'; $('collectionLabel').textContent = '辞書';
     $('levels').setAttribute('aria-label', t.choose); $('help').setAttribute('aria-label', t.help);
     $('stageSelectLabel').textContent = t.stageSelect;
     $('difficulty').setAttribute('aria-label', mode === 'ja' ? '難易度を選ぶ' : 'Choose difficulty');
@@ -425,7 +426,7 @@
   // A close-packed hexagonal lattice keeps strokes short without moving targets.
   function tileStep(total){return total<=4?100:total<=8?86:total<=14?68:total<=20?58:48;}
   function letterPositions(count, batch, dual, total = count) {
-    const rowsByCount = {2:[2],3:[3],4:[2,2],5:[2,3],6:[3,3],7:[2,3,2],8:[3,2,3],9:[3,3,3],10:[3,4,3],11:[4,3,4],12:[4,4,4],13:[3,4,3,3],14:[3,4,3,4]};
+    const rowsByCount = {2:[2],3:[1,2],4:[2,2],5:[2,3],6:[3,3],7:[2,3,2],8:[3,2,3],9:[3,3,3],10:[3,4,3],11:[4,3,4],12:[4,4,4],13:[3,4,3,3],14:[3,4,3,4]};
     const rowCount=Math.ceil(total/(total>20?6:5));
     const rows=rowsByCount[total] || Array.from({length:rowCount},(_,i)=>Math.floor(total/rowCount)+(i<total%rowCount?1:0)), step=tileStep(total);
     const points=[];
@@ -726,7 +727,7 @@
     $('rewardTotal').textContent = ' / 10';
     $('rewardProgress').textContent = mode === 'ja' ? `辞書に ${uniqueCount()} 語 / ${catalog.length} 語` : `${uniqueCount()} / ${catalog.length} words discovered`;
     $('rewardSeal').textContent = recordKind === 'independent' ? 'おみごと！' : '答えを見て\nクリア';
-    $('advanceLabel').textContent = mode === 'ja' ? '次の問題へ →' : 'Next picture →';
+    $('advanceLabel').textContent = '次の問題へ →';
     const library = $('rewardShelf'); library.className = 'book-shelf book-library-grid';
     library.replaceChildren(...Array.from({length:10}, (_, pageIndex) => {
       const word = byId.get(award.daily.pageIds[pageIndex]);
