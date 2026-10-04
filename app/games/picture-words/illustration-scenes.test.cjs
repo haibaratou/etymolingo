@@ -34,3 +34,15 @@ test('reviewed explanation waits for existing Next; normal rounds retain auto ad
  assert(code.includes("sceneReadingHold = result.status === 'reviewed'"));
  assert(code.includes('if (!sceneReadingHold) queueAdvance();'));
 });
+
+test('reward has one normal-flow Next outside the keyboard-scrollable content',()=>{
+ const html=fs.readFileSync(__dirname+'/../picture-words.html','utf8');
+ const css=fs.readFileSync(__dirname+'/../../shared/illustration-scenes.css','utf8');
+ assert.equal((html.match(/id="advanceLabel"/g)||[]).length,1);
+ assert(html.includes('id="rewardScroll" tabindex="0"'));
+ assert(html.indexOf('id="rewardScroll"')<html.indexOf('id="rewardExplanation"'));
+ assert(html.slice(html.indexOf('id="rewardExplanation"'),html.indexOf('id="advanceLabel"')).includes('</div>'));
+ assert(css.includes('#rewardScene .advance-label{position:static;flex:0 0 auto'));
+ assert(css.includes('#rewardScroll{flex:1 1 auto;min-height:0;overflow-y:auto'));
+ assert(css.includes('.advance-label:focus-visible'));
+});

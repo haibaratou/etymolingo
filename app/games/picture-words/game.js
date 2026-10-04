@@ -755,6 +755,7 @@
     $('rewardScene').classList.toggle('has-combo', combo >= 2);
     later(() => {
       $('wordReward').hidden = false; $('rewardScene').hidden = false;
+      $('rewardScroll').scrollTop = 0;
       $('rewardScene').showPopover?.(); $('rewardBackdrop').hidden = false;
       const rect = $('wordReward').getBoundingClientRect();
       petals.burst(rect.left + rect.width / 2, rect.top + rect.height / 3, 130 + Math.min(combo, 8) * 20, combo >= COMBO_STEP ? 'gold' : true);

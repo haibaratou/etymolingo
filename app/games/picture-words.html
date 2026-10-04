@@ -12,16 +12,16 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=M+PLUS+Rounded+1c:wght@500;700;800&display=swap">
   <link rel="manifest" href="picture-words/manifest.webmanifest">
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <link rel="stylesheet" href="picture-words/style.css?v=new-card1">
+  <link rel="stylesheet" href="picture-words/style.css?v=footer2-new-card1">
   <script src="picture-words/catalog.js?v=mobile2" defer></script>
   <script src="picture-words/difficulty.js?v=visible-letters1" defer></script>
   <script src="picture-words/gesture.js?v=speech-fast-start1" defer></script>
   <script src="picture-words/pronunciation.js?v=speech-fast-start1" defer></script>
   <script src="picture-words/progression.js?v=new-card1" defer></script>
   <script src="picture-words/offline.js?v=start2" defer></script>
-  <link rel="stylesheet" href="../shared/illustration-scenes.css?v=1">
+  <link rel="stylesheet" href="../shared/illustration-scenes.css?v=footer2">
   <script src="../shared/illustration-scenes.js?v=1" defer></script>
-  <script src="picture-words/game.js?v=scene1" defer></script>
+  <script src="picture-words/game.js?v=scene-footer2" defer></script>
 </head>
 <body>
   <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -128,6 +128,7 @@
   </div>
   <div id="rewardBackdrop" class="reward-backdrop" hidden aria-hidden="true"></div>
   <div class="reward-scene" id="rewardScene" popover="manual" hidden>
+    <div class="reward-scroll" id="rewardScroll" tabindex="0" role="region" aria-label="獲得したことばの説明">
               <div id="dailyReward" class="daily-reward" role="status"></div>
               <span id="rewardBadge" class="reward-badge">NEW WORD GET!</span>
               <span id="rewardCombo" class="reward-combo" hidden><b id="rewardComboCount">2</b><span>COMBO!</span><small id="rewardComboNote"></small></span>
@@ -137,6 +138,7 @@
               </button>
               <div id="winPronunciation" class="win-pronunciation" hidden></div>
               <div id="rewardExplanation" class="reward-explanation" hidden></div>
+    </div>
               <button id="advanceLabel" class="advance-label" type="button">次の問題へ <span aria-hidden="true">→</span></button>
             </div>
   <canvas id="particles" aria-hidden="true"></canvas>

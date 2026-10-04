@@ -283,8 +283,8 @@ html[data-theme=dark] .reward-backdrop{background:radial-gradient(circle at 50% 
 .reward-scene[popover]{z-index:2147483647}
 .reward-scene:before{content:"";position:absolute;z-index:-1;left:50%;top:44%;width:760px;height:760px;margin:-380px;border-radius:50%;
   background:repeating-conic-gradient(from 0deg,#fff6 0 9deg,transparent 9deg 18deg);mask-image:radial-gradient(circle,#000 18%,transparent 62%);animation:spin 18s linear infinite,fade-in .4s both;pointer-events:none}
-.reward-scene>.reward-badge{display:block;position:relative;margin:0 auto 14px;text-align:center;font-size:36px;font-weight:700;line-height:1.05;color:#fff;-webkit-text-stroke:7px var(--rarity);paint-order:stroke fill;text-shadow:0 6px 0 color-mix(in srgb,var(--rarity) 60%,#000);animation:badge-in .5s var(--pop) both}
-.reward-scene.bilingual-clear>.reward-badge{-webkit-text-stroke-color:#e08a00;color:#fff6c2}
+.reward-scroll>.reward-badge{display:block;position:relative;margin:0 auto 14px;text-align:center;font-size:36px;font-weight:700;line-height:1.05;color:#fff;-webkit-text-stroke:7px var(--rarity);paint-order:stroke fill;text-shadow:0 6px 0 color-mix(in srgb,var(--rarity) 60%,#000);animation:badge-in .5s var(--pop) both}
+.reward-scene.bilingual-clear .reward-scroll>.reward-badge{-webkit-text-stroke-color:#e08a00;color:#fff6c2}
 @keyframes badge-in{0%{opacity:0;transform:scale(.3) rotate(-10deg)}100%{opacity:1;transform:none}}
 .word-reward{position:relative;display:flex;flex-direction:column;width:100%;padding:0;border-radius:30px;overflow:visible;background:#fff;text-align:center;
   box-shadow:0 0 0 6px color-mix(in srgb,var(--rarity) 60%,#fff),0 14px 0 6px color-mix(in srgb,var(--rarity) 70%,#000 12%),0 30px 60px #0005;animation:card-in .55s .05s var(--pop) both}
@@ -331,7 +331,7 @@ html[data-theme=dark] .reward-backdrop{background:radial-gradient(circle at 50% 
 .reward-combo.milestone{animation:combo-stamp .5s .35s var(--pop) both,combo-wiggle .5s .9s ease-in-out 3}
 @keyframes combo-stamp{0%{opacity:0;transform:rotate(-30deg) scale(2.6)}100%{opacity:1;transform:rotate(-10deg) scale(1)}}
 @keyframes combo-wiggle{50%{transform:rotate(-2deg) scale(1.12)}}
-.reward-scene.has-combo>.reward-badge{top:auto}
+.reward-scene.has-combo .reward-scroll>.reward-badge{top:auto}
 .win-pronunciation,.advance-label{display:none}
 
 /* Flying bits */
@@ -447,7 +447,7 @@ dialog h2{font-size:26px;font-weight:700;margin:6px 0 18px}
 /* Phone reward card */
 @media(max-width:700px){
   .reward-scene{width:min(340px,calc(100vw - 40px))}
-  .reward-scene>.reward-badge{font-size:28px;-webkit-text-stroke-width:6px;margin-bottom:10px}
+  .reward-scroll>.reward-badge{font-size:28px;-webkit-text-stroke-width:6px;margin-bottom:10px}
   .book-word-art{width:128px;height:128px}
   .book-word{font-size:26px}
   .book-reading{font-size:13px}
@@ -576,7 +576,7 @@ html[data-theme=dark] .letter{box-shadow:0 5px 0 #a8927f,0 0 18px #ffffff1a}
 .reward-scene{width:min(380px,calc(100vw - 40px));max-height:calc(100dvh - 30px);overflow-y:auto;overflow-x:clip;padding:12px 10px 22px;scrollbar-width:none}
 .reward-scene::-webkit-scrollbar{display:none}
 .reward-scene:before{position:fixed;top:40%;width:640px;height:640px;margin:-320px;opacity:.6}
-.reward-scene>.reward-badge{font-size:30px;margin-bottom:13px;-webkit-text-stroke-width:6px}
+.reward-scroll>.reward-badge{font-size:30px;margin-bottom:13px;-webkit-text-stroke-width:6px}
 .word-reward{border-radius:22px;box-shadow:0 0 0 4px color-mix(in srgb,var(--rarity) 55%,#fff),0 7px 0 4px color-mix(in srgb,var(--rarity) 60%,#000 12%),0 18px 38px #0003;transform-origin:50% 75%}
 .book-right{padding:27px 14px 12px;background:radial-gradient(ellipse at 50% 65%,#fffaf0,#fff 72%);border-radius:22px 22px 0 0}
 .book-word-art{width:128px;height:128px}
@@ -716,11 +716,11 @@ html[data-layout=mobile] .praise{font-size:43px;-webkit-text-stroke-width:7px}
   .dictionary-tabs button{padding:10px;gap:6px}
   .dictionary-tabs button span{font-size:12px}
   .reward-scene{width:calc(100vw - 28px)}
-  .reward-scene>.reward-badge{font-size:25px}
+  .reward-scroll>.reward-badge{font-size:25px}
 }
 @media(max-height:680px){
   .reward-scene{padding-top:8px;padding-bottom:15px}
-  .reward-scene>.reward-badge{font-size:26px;margin-bottom:9px}
+  .reward-scroll>.reward-badge{font-size:26px;margin-bottom:9px}
   .book-right{padding-top:24px;padding-bottom:8px}
   .book-word-art{width:88px;height:88px}
   .book-word{font-size:24px;margin-top:4px}
