@@ -275,7 +275,7 @@ function wordPage(id) {
         <div class="acts">
           <button class="btn primary" id="speak" type="button"><svg><use href="#i-sound"/></svg>発音をきく</button>
           <a class="btn" href="${full(w)}" download="${esc(w.id)}.png"><svg><use href="#i-down"/></svg>PNG</a>
-          <button class="btn word-puzzle" type="button" disabled aria-disabled="true"><svg><use href="#i-puzzle"/></svg>パズル連携は準備中</button>
+          <a class="btn word-puzzle" href="games/picture-words.html?word=${encodeURIComponent(w.id)}" target="_blank" rel="noopener"><svg><use href="#i-puzzle"/></svg>この単語のパズル ↗</a>
           <button class="btn" id="copy" type="button"><svg><use href="#i-link"/></svg>リンク</button>
         </div>
         <div class="box" id="sceneBox" aria-live="polite"><p>イラストを確認しています…</p></div>
@@ -299,6 +299,7 @@ function wordPage(id) {
     }
   });
   $('#speak').onclick = () => speak(w.w);
+  $('.word-puzzle').onclick=e=>{if(e.ctrlKey||e.metaKey||e.shiftKey||e.altKey)return;e.preventDefault();window.open(e.currentTarget.href,'_blank','popup,width=620,height=820,noopener');};
   $('#copy').onclick = () => navigator.clipboard?.writeText(location.href).then(() => toast('リンクをコピーしました'), () => toast(location.href));
   document.title = `${w.w}(${firstJa(w)})のイラスト — Pictpedia`;
 }
@@ -338,7 +339,7 @@ function route() {
   if (!kind) home();
   else if (kind === 'c') catPage(a, b);
   else if (kind === 'w') wordPage(h.slice(2));
-  else if (kind === 'p') { side(); view.innerHTML = '<div class="page empty"><b>パズル連携は準備中です。</b><a href="#/">辞典にもどる</a></div>'; }
+  else if (kind === 'p') location.replace('games/picture-words.html?word='+encodeURIComponent(h.slice(2)));
   else if (kind === 's' || kind === 't') resultPage(kind, h.slice(2));
   else notFound();
   scrollTo(0, 0);

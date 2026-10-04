@@ -7,7 +7,8 @@
   const hex = bytes => Array.from(new Uint8Array(bytes), x => x.toString(16).padStart(2,'0')).join('');
   const hashPattern = /^[0-9a-f]{64}$/;
   function validRow(word) {
-    if (!word || typeof word.id !== 'string' || !word.id || word.updatedArt !== true || word.reviewStatus || typeof word.w !== 'string' || !/^[ぁ-ゔー]{2,14}$/.test(word.w)) return false;
+    if (!word || typeof word.id !== 'string' || !word.id || (word.updatedArt !== true && word.dictionaryRequested !== true) || word.reviewStatus || typeof word.w !== 'string' || !(word.dictionaryRequested ? /^([ぁ-ゔー]{1,14})?$/:/^[ぁ-ゔー]{2,14}$/).test(word.w)) return false;
+    if(word.dictionaryRequested && !['words_sha256','scenes_sha256','illustration_index_sha256'].every(k=>hashPattern.test(word.dictionarySources?.[k]||'')))return false;
     const e = word.reviewedScene, b = word.sceneBinding;
     if (!e || e.schema !== 1 || e.status !== 'reviewed' || !b || !Array.isArray(e.p)) return false;
     if (word.en !== e.w || word.pic !== e.art || b.w !== e.w || JSON.stringify(b.p) !== JSON.stringify(e.p)) return false;
@@ -73,6 +74,7 @@
     }
     async prepare(word) {
       if(!validRow(word)) return {status:'unavailable',reason:'unreviewed-or-invalid-scene'};
+      if(word.dictionaryRequested && (word.dictionarySources.words_sha256!==this.meta?.sourceWordsSha256 || word.dictionarySources.scenes_sha256!==this.meta?.scenesSha256 || word.dictionarySources.illustration_index_sha256!==this.meta?.indexSha256))return {status:'unavailable',reason:'stale-dictionary-link'};
       const dataset=await this.checkDataset(); if(!dataset.ok) return {status:'unavailable',reason:dataset.reason};
       try {
         const e=JSON.parse(JSON.stringify(word.reviewedScene));
