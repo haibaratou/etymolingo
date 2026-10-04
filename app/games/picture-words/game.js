@@ -26,6 +26,18 @@
   const discovery = window.PictureWordsProgression;
   const byId = new Map(catalog.map(word => [word.id, word]));
   const supports = (word, lang) => !datasetUnavailable && !failedEntries.has(word.id) && offline.canPlay(word) && (lang === 'en' || !!word.w);
+  // Explicit dictionary requests only select from the unchanged verified pool.
+  function resolveRequestedWord(search, eligible, canPlay) {
+    const params = new URLSearchParams(search);
+    if (!params.has('word')) return { present: false, index: -1 };
+    const ids = params.getAll('word');
+    if (ids.length !== 1 || !ids[0]) return { present: true, index: -1, reason: 'invalid-request' };
+    const index = eligible.findIndex(word => word.id === ids[0]);
+    if (index < 0) return { present: true, index: -1, reason: 'not-eligible' };
+    if (!canPlay(eligible[index])) return { present: true, index: -1, reason: 'unavailable' };
+    return { present: true, index };
+  }
+  const requestedWord = resolveRequestedWord(location.search, catalog, word => supports(word, 'en'));
   const availableCount = lang => catalog.filter(word => supports(word, lang)).length;
   const { bilingualRound, finishLanguage, areNeighbours, connectedPath, advanceSelection, sweptHits, activeBatch, canSelectRing, planLetters } = window.WordBloomGesture;
   const KEY = 'word-bloom-v1';
@@ -77,7 +89,7 @@
     return value;
   }
   const saved = readSave();
-  let mode = saved.mode;
+  let mode = requestedWord.present ? 'en' : saved.mode;
   let index = saved[mode].index;
   let round = null;
   let entry, roundScene = null, answer = [], nodes = [], selected = [], hintCount = 0, mistakes = 0;
@@ -1154,6 +1166,14 @@
     if (datasetUnavailable || !catalog.length) $('saveOffline').disabled = true;
     if (datasetUnavailable || !catalog.length) $('offlineStatus').textContent = '確認済みの説明つきデータがありません。最新版に再読み込みするか、refresh_reviewed_catalog.cmd で更新してください。';
     else if (location.protocol === 'file:') $('offlineStatus').textContent = `${catalog.length}問の確認済みデータで遊べます。`; 
+    if (requestedWord.present && requestedWord.index < 0) {
+      $('startPlay').disabled = true; $('startPlay').hidden = true;
+      $('saveOffline').disabled = true; $('saveOffline').hidden = true;
+      $('launchDifficulty').hidden = true; $('reloadReviewedData').hidden = false;
+      $('offlineStatus').textContent = datasetUnavailable || requestedWord.reason === 'unavailable'
+        ? 'この単語の確認済みパズルを現在読み込めません。通信できる状態で最新版に再読み込みしてください。'
+        : 'この単語は現在の確認済みパズルの対象ではありません。辞典に戻るか、最新版に再読み込みしてください。';
+    }
   }
   $('saveOffline').addEventListener('click', async () => {
     $('saveOffline').disabled = true;
@@ -1170,11 +1190,20 @@
   window.addEventListener('online', updateOfflineStatus);
   window.addEventListener('offline', () => { offline.refresh().then(updateOfflineStatus).catch(() => {}); });
   updateOfflineStatus();
-  $('startPlay').addEventListener('click', startPlay);
+  $('startPlay').addEventListener('click', () => { if (!requestedWord.present || requestedWord.index >= 0) startPlay(); });
   $('closeGame').addEventListener('click', closePlay);
   $('launchScreen').addEventListener('cancel', event => event.preventDefault());
   window.visualViewport?.addEventListener('resize', () => { updateLayout(); petals.clear(); petals.resize(); cancelGesture(); });
-  if (catalog.length) {
+  if (requestedWord.present) {
+    if (requestedWord.index < 0) {
+      $('game').dataset.state = 'error';
+      updateOfflineStatus();
+      if (!$('launchScreen').open) $('launchScreen').showModal();
+    } else {
+      $('launchScreen').close();
+      loadLevel(requestedWord.index);
+    }
+  } else if (catalog.length) {
     loadLevel(nextUncollected(mode, index));
     const installed = matchMedia('(display-mode: fullscreen), (display-mode: standalone)').matches;
     if (effectiveLayout() === 'mobile' && !installed) closePlay();
