@@ -3,21 +3,21 @@
   "meta": {
     "schema": 1,
     "sourceWordsSha256": "1d367df1caa3fbae89c378b82ae46bd30e4367a1f40b3bf82e95b60452263a6a",
-    "scenesSha256": "bb0d2803831a6cbed764fcae27a5d9eb08261b3bd2b47e12b4cbbb32a317aa1d",
+    "scenesSha256": "195d1d285eb359a13f7676ef0856dc0c3fe976a4164741cc1bdb36a844184097",
     "indexSha256": "8f14ef961f3ff29788ff205b3af4dbb08e01f1004674f7c01b81df9d82ea8655",
-    "count": 99
+    "count": 102
   },
   "normalCatalogRows": 4066,
-  "emittedRows": 99,
-  "excludedRowsCount": 3967,
-  "sceneEntries": 423,
-  "verifiedPngs": 99,
-  "lazyAssets": 99,
-  "lazyAssetBytes": 25711125,
+  "emittedRows": 102,
+  "excludedRowsCount": 3964,
+  "sceneEntries": 426,
+  "verifiedPngs": 102,
+  "lazyAssets": 102,
+  "lazyAssetBytes": 26405002,
   "ordering": "Surviving existing IDs in previous order; new IDs appended in normal-builder order",
   "inputHashes": {
     "app/data/generated-etymon/words.json": "1d367df1caa3fbae89c378b82ae46bd30e4367a1f40b3bf82e95b60452263a6a",
-    "app/data/generated-etymon/illustration-scenes.json": "bb0d2803831a6cbed764fcae27a5d9eb08261b3bd2b47e12b4cbbb32a317aa1d",
+    "app/data/generated-etymon/illustration-scenes.json": "195d1d285eb359a13f7676ef0856dc0c3fe976a4164741cc1bdb36a844184097",
     "assets/word/illustration-index.js": "8f14ef961f3ff29788ff205b3af4dbb08e01f1004674f7c01b81df9d82ea8655",
     "app/games/picture-words/build_catalog.py": "42b868ac315092781f5abfcec19ed6a84670f0b390b6b0e8c150197c69a98ba8",
     "app/games/picture-words/updated-art.json": "c79f34f086fcd8c925420d44a8673d0b69f29be85c09be8f49cdf015fa39285d",
@@ -26,10 +26,10 @@
     "app/data/generated-etymon/word-suika-ja.json": "113a3a09a5005dc0ad53e6e8f9595a02f95e0471b672d0130f815b1bf819d91f",
     "app/data/ja/ja_index.json": "5526e20a7d07bd824f903d1bb4d46d7589813c82bf31f5737a78de7ad927b3f7"
   },
-  "inventoryNamesSha256": "3d43c41628905a8724c2e9fc13dc481fce642db37274df839d4ea8abaf67d715",
+  "inventoryNamesSha256": "bee0d219247a2d85844afe0fbb1640d2b003e699eb4b7da2c9501052bf38a0ab",
   "exclusionCounts": {
     "art_not_completed_after_cutoff": 34,
-    "no_exact_scene_binding": 1846,
+    "no_exact_scene_binding": 1843,
     "normal_readiness_gate": 2087
   },
   "excludedRows": [
@@ -860,15 +860,6 @@
       "reason": "no_exact_scene_binding"
     },
     {
-      "id": "function",
-      "w": "function",
-      "p": [
-        "bheug-2"
-      ],
-      "art": "function",
-      "reason": "no_exact_scene_binding"
-    },
-    {
       "id": "method",
       "w": "method",
       "p": [
@@ -1063,13 +1054,6 @@
       "reason": "no_exact_scene_binding"
     },
     {
-      "id": "minutes",
-      "w": "minutes",
-      "p": [],
-      "art": "minutes",
-      "reason": "no_exact_scene_binding"
-    },
-    {
       "id": "material",
       "w": "material",
       "p": [
@@ -1237,15 +1221,6 @@
         "pāl-"
       ],
       "art": "feeling",
-      "reason": "no_exact_scene_binding"
-    },
-    {
-      "id": "step",
-      "w": "step",
-      "p": [
-        "stebh-"
-      ],
-      "art": "step",
       "reason": "no_exact_scene_binding"
     },
     {

@@ -3,21 +3,21 @@
   "build_version": 3,
   "sources": {
     "words_sha256": "1d367df1caa3fbae89c378b82ae46bd30e4367a1f40b3bf82e95b60452263a6a",
-    "scenes_sha256": "bb0d2803831a6cbed764fcae27a5d9eb08261b3bd2b47e12b4cbbb32a317aa1d",
+    "scenes_sha256": "195d1d285eb359a13f7676ef0856dc0c3fe976a4164741cc1bdb36a844184097",
     "illustration_index_sha256": "8f14ef961f3ff29788ff205b3af4dbb08e01f1004674f7c01b81df9d82ea8655"
   },
-  "eligible": 423,
-  "input_scenes": 423,
+  "eligible": 426,
+  "input_scenes": 426,
   "excluded": [],
   "categories": 15,
-  "unclassified": 319,
+  "unclassified": 322,
   "thumbnail": {
     "size": 320,
     "quality": 82,
     "method": 4,
     "pillow": "12.3.0"
   },
-  "data_sha256": "2633740f288bcd5fa3cb0f1973d80ec546e90001cf284f6c1eb859bffc69a83f",
+  "data_sha256": "faae94f0d38d89f6941b6f137671c4f556fe63c1d30cdf7df0af1e59b8c21a02",
   "bindings": [
     {
       "art": "book",
@@ -3402,6 +3402,30 @@
       "image_git_blob": "48e6c231f03eee7a4854450ee2065984ac6a1ab7",
       "thumbnail_path": "app/eigo-no-e/thumbs/ways@x.990ceca77d07.webp",
       "thumbnail_sha256": "56a80788a15ae5749c0fcb007dd9cdd4bf819b89588054dd7c94459ade85b01d"
+    },
+    {
+      "art": "function",
+      "image_path": "assets/word/function.png",
+      "image_sha256": "87a6121c05ea42fd692bb7e138bd0918079c89f5b7aed75bf6cd855df2c41b84",
+      "image_git_blob": "1397ca664a29d284a0f69af1abc020d64ff85057",
+      "thumbnail_path": "app/eigo-no-e/thumbs/function.87a6121c05ea.webp",
+      "thumbnail_sha256": "99e7dfa59aac054bb7401eed1c2f06b0d79ef87ae130ac70c48c448de14586e3"
+    },
+    {
+      "art": "minutes",
+      "image_path": "assets/word/minutes.png",
+      "image_sha256": "614f56e095e45c4b6b90351635b5d002985fd22e1a71e30f35026ff0eaccb9ef",
+      "image_git_blob": "e7663a907d149d135ae96450da471cbd03a88ba0",
+      "thumbnail_path": "app/eigo-no-e/thumbs/minutes.614f56e095e4.webp",
+      "thumbnail_sha256": "923df6789e112f882d80f99aa6d6339cbebcec85e288c3ae2a08906a75d51663"
+    },
+    {
+      "art": "step",
+      "image_path": "assets/word/step.png",
+      "image_sha256": "2b2a3ebd0c33860e1a4711f8ef277233096c384b2053d355197a4f0f9e90ceed",
+      "image_git_blob": "348a2944512141021920a8be21e0f582de6558da",
+      "thumbnail_path": "app/eigo-no-e/thumbs/step.2b2a3ebd0c33.webp",
+      "thumbnail_sha256": "cb3a90c030d35343c53c253eaa3e05c97f648b87cb886eb0699487b263373605"
     }
   ]
 }
