@@ -1,27 +1,32 @@
 const test=require('node:test'),assert=require('node:assert/strict');
 const {boot}=require('./test-support/bootstrap-fixture.cjs');
-const fs=require('node:fs'),path=require('node:path');
+const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),crypto=require('node:crypto'),{fileURLToPath}=require('node:url');
+const catalogScope={window:{}};vm.runInNewContext(fs.readFileSync(path.join(__dirname,'catalog.js'),'utf8'),catalogScope);
+const captionless=catalogScope.window.PICTURE_WORDS_CATALOG.find(w=>w.description.status==='missing'&&w.availability.en.playable&&!w.availability.ja.playable);
+assert.ok(captionless,'catalog needs an actual missing-caption English-only row');
+const captionlessQuery='?word='+encodeURIComponent(captionless.id);
+const captionlessLetters=[...captionless.availability.en.answer.toUpperCase()];
 const pngCount=fs.readdirSync(path.resolve(__dirname,'../../../assets/word')).filter(name=>name.endsWith('.png')).length;
 test('actual file bootstrap uses all image rows but loads only selected captionless image, never fetches or eagerly loads packs',async()=>{
- const app=await boot({query:'?word=said'});assert.equal(app.window.PICTURE_WORDS_CATALOG.length,pngCount);assert.equal(app.window.PICTURE_WORDS_CATALOG_META.count,pngCount);assert.ok(pngCount>12000);
- assert.equal(app.snapshot().id,'said');assert.equal(app.snapshot().state,'playing');assert.equal(app.snapshot().mode,'en');assert.deepEqual(app.snapshot().letters,[...'SAID']);
- assert.equal(app.fetches.length,0);assert.equal(app.scripts.length,0);assert.equal(app.images.length,1);assert.match(app.images[0].url,/\/said\.png\?/);assert.equal(app.speech.length,0);
+ const app=await boot({query:captionlessQuery});assert.equal(app.window.PICTURE_WORDS_CATALOG.length,pngCount);assert.equal(app.window.PICTURE_WORDS_CATALOG_META.count,pngCount);assert.ok(pngCount>12000);
+ assert.equal(app.snapshot().id,captionless.id);assert.equal(app.snapshot().state,'playing');assert.equal(app.snapshot().mode,'en');assert.deepEqual(app.snapshot().letters,captionlessLetters);
+ assert.equal(app.fetches.length,0);assert.equal(app.scripts.length,0);assert.equal(app.images.length,1);assert.ok(decodeURIComponent(new URL(app.images[0].url).pathname).endsWith('/'+captionless.image.path));assert.equal(new URL(app.images[0].url).searchParams.get('v'),captionless.image.sha256);assert.equal(app.speech.length,0);
 });
 
 test('actual captionless solve preserves old saved IDs and displays 解説未作成 without any automatic TTS',async()=>{
- const old={mode:'en',routeVersion:2,en:{wordId:'said',stars:{legacyRemoved:3,car:2}},ja:{stars:{legacyRemoved:1}},answerRecords:{legacyRemoved:{en:{independent:2}}}};
- const app=await boot({query:'?word=said',saved:old});app.solve();
+ const old={mode:'en',routeVersion:2,en:{wordId:captionless.id,stars:{legacyRemoved:3,car:2}},ja:{stars:{legacyRemoved:1}},answerRecords:{legacyRemoved:{en:{independent:2}}}};
+ const app=await boot({query:captionlessQuery,saved:old});app.solve();
  assert.equal(app.snapshot().state,'solved');assert.equal(app.snapshot().caption,'解説未作成');assert.equal(app.get('winPronunciation').hidden,true);assert.equal(app.speech.length,0);
- const saved=app.save();assert.equal(saved.en.stars.said,3);assert.equal(saved.en.stars.legacyRemoved,3);assert.equal(saved.en.stars.car,2);assert.equal(saved.ja.stars.legacyRemoved,1);assert.equal(saved.answerRecords.legacyRemoved.en.independent,2);assert.equal(saved.en.wordId,'said');
+ const saved=app.save();assert.equal(saved.en.stars[captionless.id],3);assert.equal(saved.en.stars.legacyRemoved,3);assert.equal(saved.en.stars.car,2);assert.equal(saved.ja.stars.legacyRemoved,1);assert.equal(saved.answerRecords.legacyRemoved.en.independent,2);assert.equal(saved.en.wordId,captionless.id);
  assert.equal(app.get('advanceLabel').textContent,'次の問題へ →');assert.equal(app.get('rewardScene').hidden,false);
- app.get('listenClue').click();assert.equal(app.speech.length,1);assert.equal(app.speech[0].text,'said');assert(app.speech.every(u=>u.text?.trim()));
+ app.get('listenClue').click();assert.equal(app.speech.length,1);assert.equal(app.speech[0].text,captionless.availability.en.answer);assert(app.speech.every(u=>u.text?.trim()));
 });
 
 test('actual English-only language switch is disabled and a dispatched request gives an honest prompt without changing image',async()=>{
- const app=await boot({query:'?word=said'}),before=app.snapshot();
+ const app=await boot({query:captionlessQuery}),before=app.snapshot();
  assert.equal(app.get('modeToggle').disabled,true);assert.match(app.get('modeToggle').title,/読みは未確認/);
  app.get('modeToggle').click();assert.deepEqual(app.snapshot(),before);
- app.get('modeToggle').dispatch('click');assert.equal(app.snapshot().mode,'en');assert.equal(app.snapshot().id,'said');assert.deepEqual(app.snapshot().letters,[...'SAID']);assert.match(app.get('feedback').textContent,/読みは未確認/);assert.equal(app.speech.length,0);
+ app.get('modeToggle').dispatch('click');assert.equal(app.snapshot().mode,'en');assert.equal(app.snapshot().id,captionless.id);assert.deepEqual(app.snapshot().letters,captionlessLetters);assert.match(app.get('feedback').textContent,/読みは未確認/);assert.equal(app.speech.length,0);
 });
 
 test('actual one-letter English and one-kana Japanese puzzles solve with exactly one tile',async()=>{
@@ -31,7 +36,7 @@ test('actual one-letter English and one-kana Japanese puzzles solve with exactly
 });
 
 test('actual unknown or unavailable exact IDs never initialize a random image or a substituted language',async()=>{
- for(const query of ['?word=unknown-exact-id','?word=said&lang=ja','?word=car&word=said']){
+ for(const query of ['?word=unknown-exact-id',captionlessQuery+'&lang=ja','?word=car&word='+encodeURIComponent(captionless.id)]){
   const app=await boot({query});assert.equal(app.snapshot().state,'error');assert.equal(app.snapshot().id,undefined);assert.equal(app.images.length,0);assert.equal(app.scripts.length,0);assert.equal(app.speech.length,0);assert.equal(app.get('startPlay').disabled,true);assert.equal(app.get('launchScreen').open,true);
   app.get('startPlay').click();assert.equal(app.images.length,0);assert.equal(app.snapshot().state,'error');
  }
@@ -42,6 +47,14 @@ test('actual reviewed caption starts only after solve and uses the exact selecte
   const app=await boot({query:'?word=car&lang='+lang});const word=app.window.PICTURE_WORDS_CATALOG.find(w=>w.id==='car');assert.equal(app.snapshot().id,'car');assert.equal(app.snapshot().mode,lang);assert.equal(app.scripts.length,1);assert.equal(app.fetches.length,0);assert.equal(app.speech.length,0);
   app.solve();assert.equal(app.snapshot().state,'solved');assert.equal(app.speech.length,1);assert.equal(app.speech[0].text,word.description[lang]);assert.equal(app.speech[0].lang,lang==='ja'?'ja-JP':'en-US');assert.equal(app.get('winPronunciation').hidden,false);assert.equal(app.snapshot().caption,word.description.en+word.description.ja);
  }
+});
+
+test('repaired said image uses its reviewed farewell caption and hash-verified pack only after solve',async()=>{
+ const app=await boot({query:'?word=said'}),word=app.window.PICTURE_WORDS_CATALOG.find(w=>w.id==='said');
+ assert.equal(word.description.status,'reviewed');assert.equal(word.description.ttsAllowed,true);assert.equal(word.description.en,'She said goodbye and waved.');assert.equal(word.description.ja,'彼女はさようならと言って手を振った。');
+ assert.equal(word.image.sha256,'25645de93d2f6c6f3340b0a35abbc2b5721039a66ebcbd2d4c547c96983159ab');assert.equal(crypto.createHash('sha256').update(fs.readFileSync(path.resolve(__dirname,'../../..',word.image.path))).digest('hex'),word.image.sha256);assert.equal(word.reviewedScene.image.sha256,word.image.sha256);
+ assert.equal(app.snapshot().id,'said');assert.deepEqual(app.snapshot().letters,[...'SAID']);assert.equal(app.snapshot().state,'playing');assert.equal(app.scripts.length,1);assert.equal(fileURLToPath(app.scripts[0]),path.join(__dirname,'scene-assets','said@'+word.image.sha256+'.js'));assert.equal(app.images.length,1);assert.equal(app.fetches.length,0);assert.equal(app.speech.length,0);
+ app.solve();assert.equal(app.snapshot().state,'solved');assert.equal(app.snapshot().caption,word.description.en+word.description.ja);assert.equal(app.get('winPronunciation').hidden,false);assert.equal(app.speech.length,1);assert.equal(app.speech[0].text,word.description.en);assert.equal(app.speech[0].lang,'en-US');
 });
 
 test('actual repeated language switches keep one image, cancel prior audio, and Next ignores repeat clicks while loading',async()=>{

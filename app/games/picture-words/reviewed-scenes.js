@@ -14,9 +14,30 @@
       word.generatedImage===true && ['bound','ownership_pending','alternate'].includes(word.bindingStatus) &&
       hashPattern.test(image?.sha256||'') && /^[0-9a-f]{40}$/.test(image?.git_blob_sha||'') && image.path==='assets/word/'+word.pic+'.png';
   }
+  const nonempty = value => typeof value==='string' && !!value.trim();
+  function captionOnlyIssue(issue,word) {
+    const r=issue?.scopeReview,e=r?.evidence,s=word?.sense,b=word?.sceneBinding;
+    return issue?.scope==='caption_only' && issue.blocksPlay===false && r?.schema===1 && r.status==='reviewed' && r.scope==='caption_only' && r.blocksPlay===false &&
+      hashPattern.test(issue.issueSha256||'') && r.targetIssueSha256===issue.issueSha256 &&
+      r.w===word.en && r.art===word.pic && Array.isArray(r.p) && JSON.stringify(r.p)===JSON.stringify(word.roots) &&
+      r.imageSha256===word.image.sha256 && issue.imageSha256===word.image.sha256 &&
+      hashPattern.test(s?.sha256||'') && r.senseSha256===s.sha256 && issue.senseSha256===s.sha256 && s.index===0 &&
+      b?.w===word.en && JSON.stringify(b.p)===JSON.stringify(word.roots) && firstJa(b.ja)===s.ja && firstEn(b.en)===s.en &&
+      nonempty(r.reason) && typeof r.reviewed_at==='string' && /T.*(?:Z|[+-]\d{2}:\d{2})$/.test(r.reviewed_at) && Number.isFinite(Date.parse(r.reviewed_at)) &&
+      e?.imageInspected===true && ['source','reviewer','observation'].every(k=>nonempty(e[k]));
+  }
+  // An issue stays a caption hold. Only a complete exact reviewed scope can
+  // remove its play block; legacy issues and malformed flags fail closed.
+  const hasIssues = word => word?.issues!==undefined && (!Array.isArray(word.issues) || word.issues.length>0);
+  function playBlocker(word) {
+    if(word?.issues===undefined)return null;
+    if(!Array.isArray(word.issues))return {code:'known_issue_needs_review'};
+    for(const issue of word.issues)if(!captionOnlyIssue(issue,word))return issue || {code:'known_issue_needs_review'};
+    return null;
+  }
   function supportsLanguage(word,language) {
     const a=word?.availability?.[language];
-    if(!validRow(word) || word.bindingStatus!=='bound' || a?.playable!==true || word.issues?.some(issue=>issue.code==='known_image_mismatch')) return false;
+    if(!validRow(word) || word.bindingStatus!=='bound' || a?.playable!==true || playBlocker(word)) return false;
     if(language==='en') return a.answer===word.en && /^[A-Za-z]{1,14}$/.test(a.answer);
     return language==='ja' && a.answer===word.w && /^[ぁ-ゔー]{1,14}$/.test(a.answer);
   }
@@ -33,7 +54,7 @@
   };
   function validCaption(word) {
     const e=word?.reviewedScene,b=word?.sceneBinding,d=word?.description,image=imageFor(word);
-    if(!validRow(word) || d?.status!=='reviewed' || d.ttsAllowed!==true || e?.schema!==1 || e.status!=='reviewed' || !b || !Array.isArray(e.p)) return false;
+    if(!validRow(word) || hasIssues(word) || d?.status!=='reviewed' || d.ttsAllowed!==true || e?.schema!==1 || e.status!=='reviewed' || !b || !Array.isArray(e.p)) return false;
     if(word.en!==e.w || word.pic!==e.art || b.w!==e.w || JSON.stringify(b.p)!==JSON.stringify(e.p) || JSON.stringify(word.roots)!==JSON.stringify(e.p)) return false;
     if(e.image?.sha256!==image.sha256 || e.image?.git_blob_sha!==image.git_blob_sha || e.image?.path!==image.path || e.sense?.index!==0 || !hashPattern.test(e.sense.sha256||'')) return false;
     if(!e.sense.ja || !e.sense.en || firstJa(b.ja)!==e.sense.ja || firstEn(b.en)!==e.sense.en || d.en!==e.scene?.en || d.ja!==e.scene?.ja) return false;
@@ -93,6 +114,8 @@
     }
     async prepare(word) {
       if(!validRow(word))return {status:'unavailable',reason:'invalid-image-binding',playable:false};
+      const blocker=playBlocker(word);
+      if(blocker)return {status:'held',reason:blocker.code||'known_issue_needs_review',playable:false,ttsAllowed:false,entry:null};
       const dataset=await this.checkDataset();if(!dataset.ok)return {status:'unavailable',reason:dataset.reason,playable:false};
       try {
         let imageURL,imageVerified=false;
@@ -106,7 +129,7 @@
         this.images.set(word.id,imageURL);
         let captionReady=dataset.captionsCurrent && imageVerified && validCaption(word);
         if(captionReady) {const e=word.reviewedScene,senseBytes=new TextEncoder().encode(JSON.stringify([normalize(e.w),e.p,e.sense.ja,e.sense.en]));captionReady=await this.digest('SHA-256',senseBytes)===e.sense.sha256;}
-        const status=captionReady?'reviewed':(word.description?.status==='reviewed'?'stale':word.description?.status||'missing');
+        const status=hasIssues(word)?'held':captionReady?'reviewed':(word.description?.status==='reviewed'?'stale':word.description?.status||'missing');
         return freeze({status,playable:true,captionStatus:status,ttsAllowed:captionReady,entry:captionReady?JSON.parse(JSON.stringify(word.reviewedScene)):null,imageURL,imageVerified,mode:dataset.mode});
       } catch(error){return {status:'unavailable',reason:error.message||'image-unavailable',playable:false};}
     }
@@ -118,6 +141,6 @@
     const pack=JSON.parse(source.slice(prefix.length,-1));if(pack.mime!=='image/png' || typeof pack.base64!=='string')throw new Error('invalid-pack');
     const bytes=Uint8Array.from(root.atob(pack.base64),c=>c.charCodeAt(0));await new Runtime({crypto}).verifyImage(word,bytes);return true;
   }
-  const api={validRow,filterCatalog,supportsLanguage,unavailableReason,validCaption,imageFor,hasPack,Runtime,normalize,verifyPackScript};
+  const api={validRow,filterCatalog,supportsLanguage,unavailableReason,validCaption,captionOnlyIssue,imageFor,hasPack,Runtime,normalize,verifyPackScript};
   if(typeof module==='object' && module.exports)module.exports=api;else root.WordBloomReviewedScenes=api;
 })(typeof window==='undefined'?globalThis:window);

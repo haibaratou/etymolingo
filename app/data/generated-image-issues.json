@@ -1585,6 +1585,279 @@
       ],
       "detail": "Current house/family/people PNG has a new user quality flag; independent replacement review pending. Earlier accepted QA cannot clear it.",
       "status": "held"
+    },
+    {
+      "w": "rather",
+      "p": [
+        "kret-1"
+      ],
+      "art": "rather",
+      "imageSha256": "e5d2cd8843dff4111f20e2a46c58bb419380f1514f3f1bce67cf13766c085dec",
+      "senseSha256": "ea5db3ad39f753fbf621d8d3c6b8626d3b2813da40949d68974ea4cf8cac7996",
+      "codes": [
+        "image_first_sense_mismatch"
+      ],
+      "detail": "An unlabelled gauge has a green-to-yellow-to-orange-to-red segmented arc; its needle points near the red/high end. The positive visual content is degree/intensity, which corresponds to the alternate かなり / fairly usage. The first sense むしろ / instead concerns preference or substitution, and the image contains no alternative or selection.",
+      "status": "held",
+      "reviewed_at": "2026-10-04T17:36:32.898154+00:00",
+      "review_method": "Independent current original-PNG and exact canonical first-sense inspection; source distinctions separately checked against primary dictionaries where applicable"
+    },
+    {
+      "w": "call",
+      "p": [
+        "gal-2"
+      ],
+      "art": "call",
+      "imageSha256": "76fcb4e342623dccfa984a560b3e75f93ce02e52eb6659d145572df1aca8a125",
+      "senseSha256": "a5dd5a1094a614a3ea4d5474c958251a4c6a2fae369914a109d0df7e9d08b8f9",
+      "codes": [
+        "image_first_sense_mismatch"
+      ],
+      "detail": "A woman holds a phone to her ear. A speech bubble shows a man also holding a phone to his ear. This explicitly depicts telephoning, the secondary sense 電話をかける / phone. The canonical first sense is 呼ぶ / summon; no person is being beckoned or summoned. The content of the phone conversation is not known.",
+      "status": "held",
+      "reviewed_at": "2026-10-04T17:36:32.898154+00:00",
+      "review_method": "Independent current original-PNG and exact canonical first-sense inspection; source distinctions separately checked against primary dictionaries where applicable"
+    },
+    {
+      "w": "ground",
+      "p": [
+        "ghrendh-"
+      ],
+      "art": "ground",
+      "imageSha256": "0dc72e79479091bb92b63bc37fc7fc0f955abb508811e9e75b1ca123e955c2d5",
+      "senseSha256": "a7b4df99c7815911078fdbf1f38f723ed84cc2335b4117cb12ca48ff2fd55c28",
+      "codes": [
+        "image_first_sense_mismatch"
+      ],
+      "detail": "Two brown shoes and blue trouser legs stand on a patch of soil containing stones and grass. This depicts ground as earth. The exact ghrendh- record is the past participle of grind, ひいて粉にした / milled; no grinding or milled material is shown.",
+      "status": "held",
+      "reviewed_at": "2026-10-04T17:36:32.898154+00:00",
+      "review_method": "Independent current original-PNG and exact canonical first-sense inspection; source distinctions separately checked against primary dictionaries where applicable"
+    },
+    {
+      "w": "play",
+      "p": [
+        "dlegh-"
+      ],
+      "art": "play",
+      "imageSha256": "35bac9c12ec6b5000bb78aeb608be8e82a01637537a3315c4c10076d49d8ff9d",
+      "senseSha256": "af1924d778dc96ce6d3b81ce6d34fce734052efd5de365415f0c267ffa2cedb7",
+      "codes": [
+        "image_first_sense_mismatch"
+      ],
+      "detail": "Two children in ordinary casual clothes run and kick a soccer ball; motion marks appear at the ball. This specifically depicts playing a game/recreation, the secondary entry sense. The canonical first sense is 劇 / drama; there is no stage, performance, or theatrical scene.",
+      "status": "held",
+      "reviewed_at": "2026-10-04T17:36:32.898154+00:00",
+      "review_method": "Independent current original-PNG and exact canonical first-sense inspection; source distinctions separately checked against primary dictionaries where applicable"
+    },
+    {
+      "w": "patient",
+      "p": [
+        "pē(i)-"
+      ],
+      "art": "patient",
+      "imageSha256": "dac42de935102cc8b4aa18d4431f0cae8be96054fc857e5254c154fcc18a6d51",
+      "senseSha256": "bb92b9ba73751d89585f20465b2efef21b16af9bc4587ccdd30d685ed251b47a",
+      "codes": [
+        "image_first_sense_mismatch"
+      ],
+      "detail": "A child sits on an examination bed while a white-coated adult applies a stethoscope to the child’s chest. The concrete, conventional subject is a medical patient (the secondary noun sense). The canonical first sense is the adjective 忍耐強い / tolerant. A calm smile during an examination is not evidence of endurance or patience, and cannot repair the noun/adjective mismatch.",
+      "status": "held",
+      "reviewed_at": "2026-10-04T17:36:32.898154+00:00",
+      "review_method": "Independent current original-PNG and exact canonical first-sense inspection; source distinctions separately checked against primary dictionaries where applicable"
+    },
+    {
+      "w": "subject",
+      "p": [
+        "upo",
+        "yē-"
+      ],
+      "art": "subject",
+      "imageSha256": "829489ce95a61b16739354e66c57f495701a7856f352c4789244545673d7fe0c",
+      "senseSha256": "a740697c4325bc49648d22dbd872fc9bbe59804fe12482e16a81787f6a0b1d1e",
+      "codes": [
+        "image_first_sense_mismatch"
+      ],
+      "detail": "A white-coated person holds a magnifying glass over a rabbit, enlarging the rabbit’s face. The rabbit is depicted as an object of examination/test subject, an alternate subject meaning. The canonical first sense is 主題 / topic. There is no discussion, writing, or other depicted topic-bearing context; treating the specimen as a discussed topic would invent that context.",
+      "status": "held",
+      "reviewed_at": "2026-10-04T17:36:32.898154+00:00",
+      "review_method": "Independent current original-PNG and exact canonical first-sense inspection; source distinctions separately checked against primary dictionaries where applicable"
+    },
+    {
+      "w": "key",
+      "p": [
+        "kagh-"
+      ],
+      "art": "key",
+      "imageSha256": "1b647748d23d6a5df6f364b76fcfc200fd3e8a4cb055c574bbbe9f5074c9f3fb",
+      "senseSha256": "3929e6dcd3436e0aae1c0a54ed5040abcc8c582d55401bb5697d38352bcd9036",
+      "codes": [
+        "image_first_sense_mismatch"
+      ],
+      "detail": "A large metal toothed key appears next to a yellow padlock with a keyhole. This is the lock-opening key homograph. The exact kagh- record is 小島 / islet; there is no island, land, or water.",
+      "status": "held",
+      "reviewed_at": "2026-10-04T17:36:32.898154+00:00",
+      "review_method": "Independent current original-PNG and exact canonical first-sense inspection; source distinctions separately checked against primary dictionaries where applicable"
+    },
+    {
+      "w": "said",
+      "p": [],
+      "art": "said",
+      "imageSha256": "de498421e8d59eed60a3f6c9163a1b066d7ca9bea92df4d1e571da356038e5a8",
+      "senseSha256": "2da5712ef1ef3dcdf8c837f66505fa91ad231d1d2d7cf8f97c2fdd05bca4d9b9",
+      "codes": [
+        "image_first_sense_mismatch"
+      ],
+      "detail": "A three-stage sequence shows the same backpacked child standing, striding, then stepping up onto a gray rock; two arrows connect the stages. There is no interlocutor or speech bubble. The dominant content is bodily movement/climbing. It is unrelated to the canonical inflection of say; inventing past speech would add an event absent from the image.",
+      "status": "held",
+      "reviewed_at": "2026-10-04T17:36:32.898154+00:00",
+      "review_method": "Independent current original-PNG and exact canonical first-sense inspection; source distinctions separately checked against primary dictionaries where applicable"
+    },
+    {
+      "w": "de",
+      "p": [],
+      "art": "de",
+      "imageSha256": "0bcf0f0cd353ba9fd056a5a99494adcd7c432637764280dc94e039997fc466bc",
+      "senseSha256": "da9116ce029548af9202be6eab4e279af6b1ee593333f8ece5a869d5412b1669",
+      "codes": [
+        "canonical_source_mismatch"
+      ],
+      "detail": "The current JA first sense 「下降」の意 describes a downward prefix meaning, but EN defensive end belongs to the distinct abbreviation DE. The PNG shows a downward arrow between platforms, not a football position. Preserve the visible entry and its image, but quarantine play pending an explicit canonical-sense correction.",
+      "status": "held",
+      "reviewed_at": "2026-10-04T17:36:32.898154+00:00",
+      "review_method": "Independent current original-PNG and exact canonical first-sense inspection; source distinctions separately checked against primary dictionaries where applicable"
+    },
+    {
+      "w": "John",
+      "p": [],
+      "art": "John",
+      "imageSha256": "cd81dc750d4d716e30be833e6451ec978a5ef2008226807978a29db18bbb721e",
+      "senseSha256": "454b8665925119afda22dcc38c2e495c967a17d17269efd9ce5e907c7402c8e7",
+      "codes": [
+        "canonical_source_mismatch"
+      ],
+      "detail": "The current JA first sense ヨハネ is the proper name, while EN toilet is the distinct lowercase john common-noun sense. The PNG depicts a robed, bearded person holding a scroll and no toilet. Preserve the visible entry; quarantine play until the proper-name/common-noun source conflation is resolved.",
+      "status": "held",
+      "reviewed_at": "2026-10-04T17:36:32.898154+00:00",
+      "review_method": "Independent current original-PNG and exact canonical first-sense inspection; source distinctions separately checked against primary dictionaries where applicable"
+    },
+    {
+      "w": "York",
+      "p": [],
+      "art": "York",
+      "imageSha256": "f04af14ba6ed5b61b31a468312489e7330ce5e12b0cf6118f66cf6a527825faa",
+      "senseSha256": "77ea20c3181b695e4381bb53eb27c296646d719c91c37705bae3e5e0dfd5d871",
+      "codes": [
+        "image_first_sense_mismatch"
+      ],
+      "detail": "The fixed EN first sense names Alvin Cullum York, the American soldier. The current PNG is a walled riverside cityscape with a Gothic cathedral, houses and gate, with no soldier. Japanese ヨーク alone does not distinguish the person from the place. Preserve catalog inclusion, but quarantine the exact image/first-sense mismatch pending editorial resolution.",
+      "status": "held",
+      "reviewed_at": "2026-10-04T17:36:32.898154+00:00",
+      "review_method": "Independent current original-PNG and exact canonical first-sense inspection; source distinctions separately checked against primary dictionaries where applicable"
+    },
+    {
+      "w": "working",
+      "p": [],
+      "art": "working",
+      "imageSha256": "89a567f4fd68a84959fc4854b3e5f30d0f64284b28c593a55556dd539650e71b",
+      "senseSha256": "317cb78c9d246685efac987599b4ec6812f069a1ae1fd112c4751d5da4ec117f",
+      "codes": [
+        "canonical_source_mismatch"
+      ],
+      "detail": "JA 働く and the PNG depict a person doing work: hammering a birdhouse at a workbench. The fixed EN definition instead denotes the manner of operation, typically workings, and the record labels it a noun. This is an established action/nominal-operation source mismatch; keep the visible PNG and entry while quarantining play pending canonical review.",
+      "status": "held",
+      "reviewed_at": "2026-10-04T17:36:32.898154+00:00",
+      "review_method": "Independent current original-PNG and exact canonical first-sense inspection; source distinctions separately checked against primary dictionaries where applicable"
+    },
+    {
+      "w": "English",
+      "p": [
+        "ank-"
+      ],
+      "art": "English",
+      "imageSha256": "33c840b8df7b644a19650a99314590a777e7d5f2657e2aa02434f2381b2cdc6e",
+      "senseSha256": "a69716f65d5f0505c826e8aea43e2ba8117bcfe28239672119dd4c6598e3a456",
+      "codes": [
+        "canonical_source_mismatch"
+      ],
+      "detail": "The current JA first sense 英語 is the English language noun. The EN paraphrase anglo refers to an Anglo identity/adjective or the Anglo- combining form, not the same language noun. The ABC-book PNG is compatible with language learning but cannot resolve the canonical pairing. Preserve its visible entry while quarantining play pending source review.",
+      "status": "held",
+      "reviewed_at": "2026-10-04T17:36:32.898154+00:00",
+      "review_method": "Independent current original-PNG and exact canonical first-sense inspection; source distinctions separately checked against primary dictionaries where applicable"
+    },
+    {
+      "w": "heard",
+      "p": [],
+      "art": "heard@x",
+      "imageSha256": "763dcd2bdc516b349d31246d6793980312d3d1c616562e6d819925fc28545ff0",
+      "senseSha256": "761ff03f8920e34b2747a3c8b33b33d2aac35256ab4c315a7721cc623cba3e9e",
+      "codes": [
+        "image_first_sense_mismatch"
+      ],
+      "detail": "The image depicts a snowy volcanic island with a plume and ocean waves. It does not depict listening or auditory perception required by the current past/participle-of-hear sense. No place-name identification is asserted.",
+      "status": "held",
+      "reviewed_at": "2026-10-04T17:36:32.898154+00:00",
+      "review_method": "Independent current original-PNG and exact canonical first-sense inspection; source distinctions separately checked against primary dictionaries where applicable"
+    },
+    {
+      "w": "sent",
+      "p": [],
+      "art": "sent@x",
+      "imageSha256": "f279d56633ffd7d854017b4b5ade1df38500c6ab8589d49c294a93248aa15af8",
+      "senseSha256": "122a32b224777aed779821a0a297935e08c24f5a5f7bce5634a871d3a240cec0",
+      "codes": [
+        "image_first_sense_mismatch"
+      ],
+      "detail": "The image depicts a copper-colored coin decorated with three lions, not dispatch or transfer for the past/participle of send. The coin denomination is not readable and no currency name is asserted.",
+      "status": "held",
+      "reviewed_at": "2026-10-04T17:36:32.898154+00:00",
+      "review_method": "Independent current original-PNG and exact canonical first-sense inspection; source distinctions separately checked against primary dictionaries where applicable"
+    },
+    {
+      "w": "met",
+      "p": [],
+      "art": "met@x",
+      "imageSha256": "d07f7742cc52821138ae6659b3aefbaf1a528e18129790be6a24bcbc95a48830",
+      "senseSha256": "9e13bb06f61ab24a6d2cd52354f53706082b158a848751b57e34e451a0c98b68",
+      "codes": [
+        "image_first_sense_mismatch"
+      ],
+      "detail": "The image depicts a wind vane, thermometer and rain gauge, rather than an encounter corresponding to the past/participle of meet.",
+      "status": "held",
+      "reviewed_at": "2026-10-04T17:36:32.898154+00:00",
+      "review_method": "Independent current original-PNG and exact canonical first-sense inspection; source distinctions separately checked against primary dictionaries where applicable"
+    },
+    {
+      "w": "mental",
+      "p": [
+        "men-2"
+      ],
+      "art": "mental",
+      "imageSha256": "4739c843c4650eaca87e19d7bedfda23f45c8dc8d2fd0cbfce1248e5f407e4c3",
+      "senseSha256": "4d59f0240044c94c559112605dc0ac5b41c7976b4f9f6b82b708f1225e6c4c5c",
+      "codes": [
+        "image_first_sense_mismatch"
+      ],
+      "detail": "A seated child has a lightbulb thought bubble. Although a hand rests near the chin, the explicit scene emphasizes mental activity rather than the current chin-related adjective sense あごの / genial. The separate men-1 record must not be substituted.",
+      "status": "held",
+      "reviewed_at": "2026-10-04T17:36:32.898154+00:00",
+      "review_method": "Independent current original-PNG and exact canonical first-sense inspection; source distinctions separately checked against primary dictionaries where applicable"
+    },
+    {
+      "w": "setting",
+      "p": [
+        "sed-"
+      ],
+      "art": "setting",
+      "imageSha256": "749a92e2669aa400ee4bf7a4d92953197aed1e991d6c13d800738dab7aa5bb48",
+      "senseSha256": "43eef6ff2a9f9f8c5235176fb32e9adc1d38fab000f4b4c6674accc65775a5ac",
+      "codes": [
+        "image_first_sense_mismatch"
+      ],
+      "detail": "The image depicts a hill, tree and cloud landscape, matching backdrop rather than the current first pair 設定 / configuration. Preserve the exact first sense and visible record while reviewing its image correspondence.",
+      "status": "held",
+      "reviewed_at": "2026-10-04T17:36:32.898154+00:00",
+      "review_method": "Independent current original-PNG and exact canonical first-sense inspection; source distinctions separately checked against primary dictionaries where applicable"
     }
   ],
   "resolutions": [
@@ -1625,6 +1898,916 @@
       "resolvesIssueSha256": [
         "8ba385eb3df1589d8fea7b612b0217f703eec257e1107e43df154535798020f7"
       ]
+    },
+    {
+      "w": "said",
+      "p": [],
+      "art": "said",
+      "imageSha256": "25645de93d2f6c6f3340b0a35abbc2b5721039a66ebcbd2d4c547c96983159ab",
+      "senseSha256": "2da5712ef1ef3dcdf8c837f66505fa91ad231d1d2d7cf8f97c2fdd05bca4d9b9",
+      "reviewed_at": "2026-10-04T17:08:12.737718+00:00",
+      "reason": "Fresh ordinary adult farewell scene independently accepted against exact PNG bytes, canonical said first sense and EN/JA description, including white/navy/pink alpha inspection.",
+      "resolvesIssueSha256": [
+        "7066d1afffef6477a7ee58f9341c395e2f1def117aea526776df6d76c4e3ec58"
+      ]
+    }
+  ],
+  "scope_reviews": [
+    {
+      "schema": 1,
+      "status": "reviewed",
+      "scope": "caption_only",
+      "blocksPlay": false,
+      "w": "test",
+      "p": [],
+      "art": "test",
+      "imageSha256": "22689f492d9ece79f16ed86ed716b6b2dfe7b8454428316b26d704a5649cde22",
+      "senseSha256": "ab6c86cafc2b6df746c9e4e8122d1d13c8912a9bf70503f432a9c4e41b6bd8cb",
+      "targetIssueSha256": "5507875c1f6b8b363659238ac93d72f8d205eba73cd6071fb1e5d8e7dde05e53",
+      "reviewed_at": "2026-10-04T17:01:43Z",
+      "reason": "This is a conventional plausible exam/test scene. Whether the paper is a test or ordinary schoolwork is a caption-certainty limitation, not a conflicting sense. Do not invent exam instructions or results.",
+      "evidence": {
+        "source": "Independent current-image and first-sense scope audit, 2026-10-04",
+        "reviewer": "Independent editorial reviewer",
+        "observation": "A frowning child holds a pencil over a sheet of short lines and answer-like circles while seated at a school desk.",
+        "imageInspected": true
+      }
+    },
+    {
+      "schema": 1,
+      "status": "reviewed",
+      "scope": "caption_only",
+      "blocksPlay": false,
+      "w": "return",
+      "p": [
+        "re-",
+        "terə-1"
+      ],
+      "art": "return",
+      "imageSha256": "9ce2b83b1e762e42a87527ea85b7917997a3761c36c0afa0793df00bf97bbd69",
+      "senseSha256": "a97655f23ad6d3df40967e66b83e2c5038be0c83bcd88bc9e1450cf8a3eb4420",
+      "targetIssueSha256": "8cadb8ee16e99cb0b45903fc884509764fd335b0978ae676771ff40553573112",
+      "reviewed_at": "2026-10-04T17:01:43Z",
+      "reason": "A homecoming/come-back interpretation is directly plausible. Missing proof of the earlier departure prevents a factual return caption, but does not make the illustration incompatible with returning.",
+      "evidence": {
+        "source": "Independent current-image and first-sense scope audit, 2026-10-04",
+        "reviewer": "Independent editorial reviewer",
+        "observation": "A traveler with a backpack and wheeled suitcase approaches an open home doorway where a smiling woman and excited dog welcome him.",
+        "imageInspected": true
+      }
+    },
+    {
+      "schema": 1,
+      "status": "reviewed",
+      "scope": "caption_only",
+      "blocksPlay": false,
+      "w": "theory",
+      "p": [],
+      "art": "theory",
+      "imageSha256": "1edea099f0eb4c2a42cd0cc286b5c57a3f7d31454479d1d13f692a62e2c0946e",
+      "senseSha256": "463f297d0484d75a63093df05ffb6c4535572b5c0e363651a8aa64f32c77bb1b",
+      "targetIssueSha256": "36a705d8663d2cea9cfe1e847be7b3f7f4e2bace537864d17ab397ab1ea31c0a",
+      "reviewed_at": "2026-10-04T17:01:43Z",
+      "reason": "This is a plausible symbolic explanation/framework. No particular theory or causal claim should be invented, but a complete readable scientific account is not required for image plausibility.",
+      "evidence": {
+        "source": "Independent current-image and first-sense scope audit, 2026-10-04",
+        "reviewer": "Independent editorial reviewer",
+        "observation": "A white-coated person points to a board with plant, sun, cloud and water pictures connected by arrows to a light-bulb icon.",
+        "imageInspected": true
+      }
+    },
+    {
+      "schema": 1,
+      "status": "reviewed",
+      "scope": "caption_only",
+      "blocksPlay": false,
+      "w": "usually",
+      "p": [
+        "oit-"
+      ],
+      "art": "usually",
+      "imageSha256": "71ec4924176bb425defa45291c3b26a7a24efce937813d19290589bf1e599a58",
+      "senseSha256": "ff8b39e768167fa6260d4374c113dd738757fc153a3ed9bfa96a4f2730e23749",
+      "targetIssueSha256": "0dddf7f14181dee0b7736796e1944371f8339d9b8b575d3fd500fd6a607a712d",
+      "reviewed_at": "2026-10-04T17:01:43Z",
+      "reason": "An ordinary routine is a plausible typically/usually illustration. The still frame cannot prove frequency; that limits narration, not all-image play.",
+      "evidence": {
+        "source": "Independent current-image and first-sense scope audit, 2026-10-04",
+        "reviewer": "Independent editorial reviewer",
+        "observation": "A child in blue pajamas brushes teeth at a sink with a clock nearby.",
+        "imageInspected": true
+      }
+    },
+    {
+      "schema": 1,
+      "status": "reviewed",
+      "scope": "caption_only",
+      "blocksPlay": false,
+      "w": "late",
+      "p": [
+        "lē-2"
+      ],
+      "art": "late",
+      "imageSha256": "7c4aaa74a1d43de51cd5bc23eec360004c43e5a06d6f3bb7a1b20ccb67997683",
+      "senseSha256": "ff78250282415588d4fcb08a1f3253bc3fb88586649ca34910268bb4438b84ca",
+      "targetIssueSha256": "50894b56f11a8042df5619f723304e5780d632b840e3c1abee37a584d3821a05",
+      "reviewed_at": "2026-10-04T17:01:43Z",
+      "reason": "The combined rushing, concern and clock are conventional lateness cues. An expected appointment time is unverified, but no opposite sense is depicted.",
+      "evidence": {
+        "source": "Independent current-image and first-sense scope audit, 2026-10-04",
+        "reviewer": "Independent editorial reviewer",
+        "observation": "A worried backpacked child runs with motion lines and a sweat mark beside an emphasized clock.",
+        "imageInspected": true
+      }
+    },
+    {
+      "schema": 1,
+      "status": "reviewed",
+      "scope": "caption_only",
+      "blocksPlay": false,
+      "w": "today",
+      "p": [
+        "de-",
+        "agh-2"
+      ],
+      "art": "today",
+      "imageSha256": "e0b728d5818e0e94f66aa32c78bcf6a4e5510277193a7bb1e17c1b018ea5180d",
+      "senseSha256": "498389f021a48e30d57b7c51dccf854e5bc6660da26265653e30090a66284c39",
+      "targetIssueSha256": "ba444f77be9efbe9a1faadc4a024a94e6569019be6148e98e072573f3019ca41",
+      "reviewed_at": "2026-10-04T17:01:43Z",
+      "reason": "A highlighted current day is a plausible today symbol. The incomplete sequence and lack of actual date anchoring prevent a literal dated assertion but do not establish the wrong meaning.",
+      "evidence": {
+        "source": "Independent current-image and first-sense scope audit, 2026-10-04",
+        "reviewer": "Independent editorial reviewer",
+        "observation": "A woman holds a calendar and red marker; 1–5 are crossed out and 9 is circled, with a clock beside it.",
+        "imageInspected": true
+      }
+    },
+    {
+      "schema": 1,
+      "status": "reviewed",
+      "scope": "caption_only",
+      "blocksPlay": false,
+      "w": "situation",
+      "p": [
+        "tkei-"
+      ],
+      "art": "situation",
+      "imageSha256": "0baf366e8d1a3d6b9c057494aef36e4a044fb81f466db86462bc61e1d5093143",
+      "senseSha256": "0d2c59802aea169e6257acedb6b1fcc1867b3f13d4d922e172d1f7936b790305",
+      "targetIssueSha256": "1ddd6b1f4ae1f31574de6fa6887db9b4d31ce985d2b4c82c1939a0c7c178fcfa",
+      "reviewed_at": "2026-10-04T17:01:43Z",
+      "reason": "The visible set of circumstances is compatible with situation. Its abstractness and broad applicability do not justify withholding otherwise plausible image play.",
+      "evidence": {
+        "source": "Independent current-image and first-sense scope audit, 2026-10-04",
+        "reviewer": "Independent editorial reviewer",
+        "observation": "A worried woman stands in a messy room with a dog, damaged cushions, overturned flowerpot, spilled soil, a tipped cup and scattered items.",
+        "imageInspected": true
+      }
+    },
+    {
+      "schema": 1,
+      "status": "reviewed",
+      "scope": "caption_only",
+      "blocksPlay": false,
+      "w": "addition",
+      "p": [
+        "ad-",
+        "dō-"
+      ],
+      "art": "addition",
+      "imageSha256": "ebe64f9915c688d5336167b0bb1c6ceb273f68a72ca3e09db24120f1a8e17923",
+      "senseSha256": "2ff8ae44afd064cd29d09bd31446d6e893daf9fd9ff790b617130c6ec4244047",
+      "targetIssueSha256": "58d0c29166a6c23c44985f1f821198cbb5489653c23c1a226374049fa9522be6",
+      "reviewed_at": "2026-10-04T17:01:43Z",
+      "reason": "Adding a further toy is a plausible interpretation. The absent motion direction also allows removal, so no directional event caption is approved; that ambiguity alone is not a hard image mismatch.",
+      "evidence": {
+        "source": "Independent current-image and first-sense scope audit, 2026-10-04",
+        "reviewer": "Independent editorial reviewer",
+        "observation": "A hand holds a red toy car just above an open box already containing a teddy bear, ball and toy duck.",
+        "imageInspected": true
+      }
+    },
+    {
+      "schema": 1,
+      "status": "reviewed",
+      "scope": "caption_only",
+      "blocksPlay": false,
+      "w": "feeling",
+      "p": [
+        "pāl-"
+      ],
+      "art": "feeling",
+      "imageSha256": "0bef3ad0593118d3a2c235b4ee9c0bad4788719e41bf5156d6cc397a1bfdb3d3",
+      "senseSha256": "89878d4721542fc321c7487ff8d8b7ed7882f211de576e814f9208a69ead7710",
+      "targetIssueSha256": "ca6520eddcee608fbd8647b342ab1a7605d4d614961cc2539ac58804a329df3a",
+      "reviewed_at": "2026-10-04T17:01:43Z",
+      "reason": "Hand-to-chest expression is a plausible emotion/feeling depiction. A specific emotion or its cause must not be fabricated in narration.",
+      "evidence": {
+        "source": "Independent current-image and first-sense scope audit, 2026-10-04",
+        "reviewer": "Independent editorial reviewer",
+        "observation": "A woman with raised curved eyebrows rests a hand on her chest and wears a small smile.",
+        "imageInspected": true
+      }
+    },
+    {
+      "schema": 1,
+      "status": "reviewed",
+      "scope": "caption_only",
+      "blocksPlay": false,
+      "w": "job",
+      "p": [],
+      "art": "job",
+      "imageSha256": "6a544153474c2282dbaf281205ebfee66f7eafc8eeb012fb7af179e7fcc14ecd",
+      "senseSha256": "0a23c1e7586540879a5a3652afa0072105735dee74d9d2a0152d00b11d23f9dc",
+      "targetIssueSha256": "bc775b2e00ff3bf91f7b2cba85c12117a8d14d252977a92b0a891f940c183786",
+      "reviewed_at": "2026-10-04T17:01:43Z",
+      "reason": "The workplace cues make a job/regular paid position plausible. Employer, pay, and specific duties remain unverified caption facts; their absence does not make the picture wrong.",
+      "evidence": {
+        "source": "Independent current-image and first-sense scope audit, 2026-10-04",
+        "reviewer": "Independent editorial reviewer",
+        "observation": "A woman in a dark business suit sits at a desk using a laptop, with binders and a potted plant beside her.",
+        "imageInspected": true
+      }
+    },
+    {
+      "schema": 1,
+      "status": "reviewed",
+      "scope": "caption_only",
+      "blocksPlay": false,
+      "w": "son",
+      "p": [
+        "seuə-1"
+      ],
+      "art": "son",
+      "imageSha256": "518ba6f829849cbf67d7a211ba0ffe5f579f79d956b5373f474e5f37ed0bc898",
+      "senseSha256": "e8a9aeb9b013dcb7361b3bdff143d5f5ad153cfefbcfc3a9ba84ab2fe28c3452",
+      "targetIssueSha256": "67faccfc2fd3d9d496070df18589489a3acae13d14d75271b6904fc06f0417fc",
+      "reviewed_at": "2026-10-04T17:01:43Z",
+      "reason": "A father-and-son relationship is a plausible intended illustration. Pixels cannot establish kinship, so no offspring fact is certified, but that is not a contrary meaning or a hard image block.",
+      "evidence": {
+        "source": "Independent current-image and first-sense scope audit, 2026-10-04",
+        "reviewer": "Independent editorial reviewer",
+        "observation": "An adult man kneels with an arm around a smiling boy who holds both hands near his chest.",
+        "imageInspected": true
+      }
+    },
+    {
+      "schema": 1,
+      "status": "reviewed",
+      "scope": "caption_only",
+      "blocksPlay": false,
+      "w": "context",
+      "p": [
+        "kom",
+        "teks-"
+      ],
+      "art": "context",
+      "imageSha256": "7e360fd2536a9e9c2816355949aacf23f7ea3b0c12dc476ee41233e80e410777",
+      "senseSha256": "f16d800920de23e9c1273eb9183ce60e6cc7e59a9c1e3c5f650148b3376e50c4",
+      "targetIssueSha256": "7515249da7853415bfd8e9f3f7257a714166bb1e57f9b8f09524107f6db53ccd",
+      "reviewed_at": "2026-10-04T17:01:43Z",
+      "reason": "A passage within surrounding text is a direct plausible context symbol. Because the text is unreadable, no specific interpretation or meaning-changing sentence is approved.",
+      "evidence": {
+        "source": "Independent current-image and first-sense scope audit, 2026-10-04",
+        "reviewer": "Independent editorial reviewer",
+        "observation": "A child points to a yellow-highlighted passage surrounded by other line-like text in an open book.",
+        "imageInspected": true
+      }
+    },
+    {
+      "schema": 1,
+      "status": "reviewed",
+      "scope": "caption_only",
+      "blocksPlay": false,
+      "w": "truth",
+      "p": [
+        "deru-"
+      ],
+      "art": "truth",
+      "imageSha256": "c53cbf940df983c7c1d24b5b27340c68f5fcd3753476e3ea17b6ef6c2c3c095c",
+      "senseSha256": "1a0ce2e46e284bed27f2bfc0e07e36ecd278ca2994ed75047cfcf9cfb3f22d2e",
+      "targetIssueSha256": "c293bbed74a94ed9870a56b5e4803e8e675ad803a428fa402f1d373823c7ce6f",
+      "reviewed_at": "2026-10-04T17:01:43Z",
+      "reason": "An admission of what happened is a plausible truth illustration. The actual truth value and who broke the pot are not established and should not be invented in a caption.",
+      "evidence": {
+        "source": "Independent current-image and first-sense scope audit, 2026-10-04",
+        "reviewer": "Independent editorial reviewer",
+        "observation": "A worried boy points toward his chest beside a broken flowerpot and soccer ball while a seated woman listens.",
+        "imageInspected": true
+      }
+    },
+    {
+      "schema": 1,
+      "status": "reviewed",
+      "scope": "caption_only",
+      "blocksPlay": false,
+      "w": "wife",
+      "p": [],
+      "art": "wife",
+      "imageSha256": "254274790bf2030f5cc8dd11a7287b5c8ddfbf1273d15c72a625853ae2084d4a",
+      "senseSha256": "efc205291f6253e037897577564aa5f0f3334f6dde6f8fb3998b46e268cb952a",
+      "targetIssueSha256": "7b8b6323602058a482a172fe8e53b640261b06856a770d95e3a6ba821db61530",
+      "reviewed_at": "2026-10-04T17:01:43Z",
+      "reason": "A wife with her partner is plausible. Absence of a wedding ring or marriage label is insufficient reason for a hard image hold; marital status remains unverified for narration.",
+      "evidence": {
+        "source": "Independent current-image and first-sense scope audit, 2026-10-04",
+        "reviewer": "Independent editorial reviewer",
+        "observation": "A smiling woman embraces the arm of a smiling man; a heart appears above them.",
+        "imageInspected": true
+      }
+    },
+    {
+      "schema": 1,
+      "status": "reviewed",
+      "scope": "caption_only",
+      "blocksPlay": false,
+      "w": "amount",
+      "p": [
+        "ad-",
+        "men-2"
+      ],
+      "art": "amount",
+      "imageSha256": "44daecd31cc32b848d12f3f19d42b6a8b25fc1d70b24ebfeb9dddb646b64a5f8",
+      "senseSha256": "fa49aeb81d4ddc87a0a88d2f6a1051c5e52f5682a3374cb95ef8a90929f4baa3",
+      "targetIssueSha256": "fc1227fa6dfd0dcde3d9259a5fccdd122c8044c859ef33758d70ea380ca1a54d",
+      "reviewed_at": "2026-10-04T17:01:43Z",
+      "reason": "A total/amount of money is plausibly represented by the grouped coins. No exact sum or completed counting result is supplied or approved.",
+      "evidence": {
+        "source": "Independent current-image and first-sense scope audit, 2026-10-04",
+        "reviewer": "Independent editorial reviewer",
+        "observation": "A woman gathers gold-colored coins toward a rectangular tray on a counter.",
+        "imageInspected": true
+      }
+    },
+    {
+      "schema": 1,
+      "status": "reviewed",
+      "scope": "caption_only",
+      "blocksPlay": false,
+      "w": "instead",
+      "p": [
+        "en",
+        "stā-",
+        "apo-"
+      ],
+      "art": "instead",
+      "imageSha256": "f6959ec74fcd5c22ebdd760a685ac0c38dff9902ad810c0b84e62e302cf64d50",
+      "senseSha256": "25d16dd56584500390ac4ac080da05c18feec3074d586f592987e3c54ed40cac",
+      "targetIssueSha256": "3825852f6f0dcc5ab5c64aa240e7590d9118d2e404f5cc6cede3097dafce2c13",
+      "reviewed_at": "2026-10-04T17:01:43Z",
+      "reason": "The two distinct cups and transfer gesture make a substitute/alternative plausible. Clearing and serving are also possible; no specific replacement or drink choice should be invented in a caption.",
+      "evidence": {
+        "source": "Independent current-image and first-sense scope audit, 2026-10-04",
+        "reviewer": "Independent editorial reviewer",
+        "observation": "A server holds a cup of dark liquid on a saucer and reaches toward another cup containing an orange-colored liquid in front of a gesturing customer.",
+        "imageInspected": true
+      }
+    },
+    {
+      "schema": 1,
+      "status": "reviewed",
+      "scope": "caption_only",
+      "blocksPlay": false,
+      "w": "actually",
+      "p": [
+        "ag-"
+      ],
+      "art": "actually",
+      "imageSha256": "c00b77086044d1d4452746ca32ae4f98d283d74a9927dca2e4edae86105cff1b",
+      "senseSha256": "1713e3e6e70257e18187a88941edf44d47bf9d5c614403fd536d2a15f736b9fa",
+      "targetIssueSha256": "2ca131520ff23eb237769d86596b0d93a850d8158c4f1b43287f014ac56f5b8a",
+      "reviewed_at": "2026-10-04T17:01:43Z",
+      "reason": "Demonstrating what an object is really like is a plausible actually/really metaphor. Whether it is a sponge or rock-shaped prop and what anyone previously believed remain unverified.",
+      "evidence": {
+        "source": "Independent current-image and first-sense scope audit, 2026-10-04",
+        "reviewer": "Independent editorial reviewer",
+        "observation": "A smiling man visibly squeezes a gray, pitted, flexible object with both hands; motion marks emphasize the deformation.",
+        "imageInspected": true
+      }
+    },
+    {
+      "schema": 1,
+      "status": "reviewed",
+      "scope": "caption_only",
+      "blocksPlay": false,
+      "w": "perhaps",
+      "p": [
+        "per1",
+        "kob-"
+      ],
+      "art": "perhaps",
+      "imageSha256": "0d73200957d4a2ba89fe1769119adb94521fc263f6fdb2fdb9e9706adb270aff",
+      "senseSha256": "1d73a3211381802196b0f32f15117ea6b02af081f82e2929cccc9289207ba1b3",
+      "targetIssueSha256": "063b79cc38464e58ad1ee00268267c7d95cd26fba890b462c14e655a84904595",
+      "reviewed_at": "2026-10-04T17:01:43Z",
+      "reason": "The uncertain expression and shrug plausibly symbolize maybe/perhaps. The contemplated proposition, contents or intended recipient should not be invented.",
+      "evidence": {
+        "source": "Independent current-image and first-sense scope audit, 2026-10-04",
+        "reviewer": "Independent editorial reviewer",
+        "observation": "A boy shrugs with raised brows while holding a wrapped gift beside a toy car on a table.",
+        "imageInspected": true
+      }
+    },
+    {
+      "schema": 1,
+      "status": "reviewed",
+      "scope": "caption_only",
+      "blocksPlay": false,
+      "w": "cultural",
+      "p": [
+        "kʷel-1"
+      ],
+      "art": "cultural",
+      "imageSha256": "c176b66f4875f0f511bdc22722d2e746b6edf23cd0d4c9b3d9db8fb68171e32d",
+      "senseSha256": "4d975ab590f9e2573a02990bf052b48042bc2bb07fa0eed52da5c172279c9187",
+      "targetIssueSha256": "0df9aecf828aa9beefcf5fdb5751c427bd5a5c4a93e7b3946cdfd91dcb20f311",
+      "reviewed_at": "2026-10-04T17:01:43Z",
+      "reason": "Art/craft learning across generations is a plausible cultural/societal illustration. A named culture, inherited tradition, or family relationship is not established and should stay out of a caption.",
+      "evidence": {
+        "source": "Independent current-image and first-sense scope audit, 2026-10-04",
+        "reviewer": "Independent editorial reviewer",
+        "observation": "An older man points as a younger woman paints a decorative pattern on pottery; similarly patterned bowls and vases stand behind them.",
+        "imageInspected": true
+      }
+    },
+    {
+      "schema": 1,
+      "status": "reviewed",
+      "scope": "caption_only",
+      "blocksPlay": false,
+      "w": "remember",
+      "p": [
+        "re-",
+        "(s)mer-1"
+      ],
+      "art": "remember",
+      "imageSha256": "81d1c3dfafd53bce07f861d201f72bc5991db053e235d9859465d4c9bb884f7f",
+      "senseSha256": "090528373b2dd1d877f9cac0e629557ba58ba434d8884b7385e5b57ee6c21661",
+      "targetIssueSha256": "2d226ab75762f734fc84921909e8be57cfe43059cb0ee3f44c813bcc5d24f686",
+      "reviewed_at": "2026-10-04T17:01:43Z",
+      "reason": "Remembering the keys or their location is a plausible interpretation. Finding or taking them is also possible, so no exact remembered history is certified.",
+      "evidence": {
+        "source": "Independent current-image and first-sense scope audit, 2026-10-04",
+        "reviewer": "Independent editorial reviewer",
+        "observation": "A man reaches for keys protruding from a hanging coat pocket, with emphasis marks by his head and the keys.",
+        "imageInspected": true
+      }
+    },
+    {
+      "schema": 1,
+      "status": "reviewed",
+      "scope": "caption_only",
+      "blocksPlay": false,
+      "w": "influence",
+      "p": [
+        "en",
+        "bhleu-"
+      ],
+      "art": "influence",
+      "imageSha256": "4addb065d6843e35460c3fdef3dda3c95dd35120d3bd9bedfada40c9bf814454",
+      "senseSha256": "077c8df43f76fc0523883084b3ac530730e5c6f8849cc3a17a226f7412dc5959",
+      "targetIssueSha256": "3e48d183efb7e611b9f670759213d466f26c36c93c3c23428d82edc2faf49ae1",
+      "reviewed_at": "2026-10-04T17:01:43Z",
+      "reason": "One person’s visible enjoyment influencing another choice is plausible. The causal connection is not proved, so no cause or internal intention should be asserted in narration.",
+      "evidence": {
+        "source": "Independent current-image and first-sense scope audit, 2026-10-04",
+        "reviewer": "Independent editorial reviewer",
+        "observation": "A boy visibly enjoys a bitten pear while a girl next to him selects another pear from the same bowl.",
+        "imageInspected": true
+      }
+    },
+    {
+      "schema": 1,
+      "status": "reviewed",
+      "scope": "caption_only",
+      "blocksPlay": false,
+      "w": "network",
+      "p": [],
+      "art": "network",
+      "imageSha256": "7397554bcfba46417d0286d70395e39ead1979348109784878d96df5dacf32b2",
+      "senseSha256": "bad58531b17db1dd335315066033c7adb6431b33a31ed93723bb8041002012b3",
+      "targetIssueSha256": "67dc30ca98e8354a29277f098a47afce5714bf6660c8b8956346f5d6bab79433",
+      "reviewed_at": "2026-10-04T17:01:43Z",
+      "reason": "The interconnected web is compatible with broad 網 / web, as well as the later technological system sense. No material-mesh qualifier appears in the first gloss, so the image is plausibly aligned without requiring a literal woven net. Preserve lexical nuance for caption review; no hard block is justified.",
+      "evidence": {
+        "source": "Independent current-image and first-sense scope audit, 2026-10-04",
+        "reviewer": "Independent editorial reviewer",
+        "observation": "A central wireless router is connected by blue lines to six computer or phone devices, forming a visibly linked system.",
+        "imageInspected": true
+      }
+    },
+    {
+      "schema": 1,
+      "status": "reviewed",
+      "scope": "caption_only",
+      "blocksPlay": false,
+      "w": "finally",
+      "p": [],
+      "art": "finally",
+      "imageSha256": "8954e02a5a71ccafab4338327ce2dcb898de0826e079b35d0929f4d27c19827f",
+      "senseSha256": "ae6cc959dcb13ace7211d5c8ca59f95a94835b86ed67860dd5ea4dbc0a6311ee",
+      "targetIssueSha256": "db82f10aeebc61f9d297596323a5a8671591923548a59c7f1dc17a2f393f155c",
+      "reviewed_at": "2026-10-04T17:01:43Z",
+      "reason": "A completed task with celebration is a conventional finally/eventually scene. The duration or delay cannot be narrated as fact, but absence of a timeline is only a caption-certainty limitation.",
+      "evidence": {
+        "source": "Independent current-image and first-sense scope audit, 2026-10-04",
+        "reviewer": "Independent editorial reviewer",
+        "observation": "A woman raises both fists over a fully assembled jigsaw puzzle and smiles.",
+        "imageInspected": true
+      }
+    },
+    {
+      "schema": 1,
+      "status": "reviewed",
+      "scope": "caption_only",
+      "blocksPlay": false,
+      "w": "generally",
+      "p": [
+        "genə-"
+      ],
+      "art": "generally",
+      "imageSha256": "726522040083f82dc634bc9903d1d5fd5233a7a76ce7d37c91ac3c4af3af6f10",
+      "senseSha256": "1a0385d39972afc6816bace8e6d63f00a9a9b777df4307ecfda66c570517f60f",
+      "targetIssueSha256": "42007a64a2006b71716fa7143bf2fa73a1c9b9fe1813c82c1046e494efe203db",
+      "reviewed_at": "2026-10-04T17:01:43Z",
+      "reason": "A common practice with an exception plausibly symbolizes generally/typically. A statistically proven habit or frequency should not be invented from this group.",
+      "evidence": {
+        "source": "Independent current-image and first-sense scope audit, 2026-10-04",
+        "reviewer": "Independent editorial reviewer",
+        "observation": "Five people walk in rain: four use umbrellas while the central child wears a hooded raincoat.",
+        "imageInspected": true
+      }
+    },
+    {
+      "schema": 1,
+      "status": "reviewed",
+      "scope": "caption_only",
+      "blocksPlay": false,
+      "w": "normal",
+      "p": [
+        "gnō-"
+      ],
+      "art": "normal",
+      "imageSha256": "9dd07f7a4be0e34c3a9f21b86135be9997c72973350c02413351b4fb8e2bc45e",
+      "senseSha256": "7961b507332bff0b1775408ba847b5cebcbed810de5705a28f85ce208e616676",
+      "targetIssueSha256": "25143fcc4df6c710c28d142c9ede58e8c888c969e235e63b13c13c6b71073a63",
+      "reviewed_at": "2026-10-04T17:01:43Z",
+      "reason": "An ordinary, successful-looking loaf is plausible as normal/typical. No exact standard, size norm or comparison is approved for narration.",
+      "evidence": {
+        "source": "Independent current-image and first-sense scope audit, 2026-10-04",
+        "reviewer": "Independent editorial reviewer",
+        "observation": "A smiling baker in a chef hat holds an evenly browned loaf in a rectangular baking tin.",
+        "imageInspected": true
+      }
+    },
+    {
+      "schema": 1,
+      "status": "reviewed",
+      "scope": "caption_only",
+      "blocksPlay": false,
+      "w": "immediately",
+      "p": [
+        "ne",
+        "medhyo-"
+      ],
+      "art": "immediately",
+      "imageSha256": "f32c4f87594e7d68bd0fd8f965820c885c36f99f74324e1270e651815a857263",
+      "senseSha256": "b929b2df3a16da1f110435d3fb4b3ca75b4a4b53c46d89da3c1c82f80d22f4bc",
+      "targetIssueSha256": "05bdfaeff9d20425c032ca0479081f7d41a271d968f55dcf30bf2d14423553fb",
+      "reviewed_at": "2026-10-04T17:01:43Z",
+      "reason": "An immediate response to the bell is a plausible conventional reading. Exact elapsed time is not proven and must not be added to a factual caption.",
+      "evidence": {
+        "source": "Independent current-image and first-sense scope audit, 2026-10-04",
+        "reviewer": "Independent editorial reviewer",
+        "observation": "A person rises from an armchair and reaches for a door handle with motion lines; an emphasized doorbell is beside the open door.",
+        "imageInspected": true
+      }
+    },
+    {
+      "schema": 1,
+      "status": "reviewed",
+      "scope": "caption_only",
+      "blocksPlay": false,
+      "w": "memory",
+      "p": [
+        "(s)mer-1"
+      ],
+      "art": "memory",
+      "imageSha256": "abefda5ba14292d64c193da64a5c7f1bc34e70be01ed40310b47c7c456913cfc",
+      "senseSha256": "bf0f02809ee808d2ae00fe35534ae104bac0775bcecf1d27027fac5020608481",
+      "targetIssueSha256": "3e1e2aa1198594af21511cf212e3cb5850f0422ab3b983f6af09a69418569ad9",
+      "reviewed_at": "2026-10-04T17:01:43Z",
+      "reason": "A photograph prompting recollection is plausible. The pictured event, people and remembered content should remain unasserted.",
+      "evidence": {
+        "source": "Independent current-image and first-sense scope audit, 2026-10-04",
+        "reviewer": "Independent editorial reviewer",
+        "observation": "A smiling girl touches her cheek while looking at a small photograph showing two people.",
+        "imageInspected": true
+      }
+    },
+    {
+      "schema": 1,
+      "status": "reviewed",
+      "scope": "caption_only",
+      "blocksPlay": false,
+      "w": "husband",
+      "p": [
+        "bheuə-"
+      ],
+      "art": "husband",
+      "imageSha256": "7332cf1214d9e380c870df74e3b4ea8d0666dffd9e4e7b7202dcebeceabae1db",
+      "senseSha256": "ab1d27d2d621444e8327491906fa13ca8a00375fbff1ee1477faadd4668fbed1",
+      "targetIssueSha256": "8d072a7ee2fb58cdffbd846b8f7a600ab23cd691ffdf4287d109c3fd04133545",
+      "reviewed_at": "2026-10-04T17:01:43Z",
+      "reason": "A husband helping his spouse is a plausible illustration. The relationship is not established by pixels, but the missing marriage proof alone is caption uncertainty, not a hard mismatch.",
+      "evidence": {
+        "source": "Independent current-image and first-sense scope audit, 2026-10-04",
+        "reviewer": "Independent editorial reviewer",
+        "observation": "A smiling man helps a smiling woman put on a coat at an open doorway.",
+        "imageInspected": true
+      }
+    },
+    {
+      "schema": 1,
+      "status": "reviewed",
+      "scope": "caption_only",
+      "blocksPlay": false,
+      "w": "price",
+      "p": [
+        "per-5"
+      ],
+      "art": "price",
+      "imageSha256": "9e003fe4f7adcfcaf1fdffac02d5f6a55909efc59e1cc709a6476da5a23105fa",
+      "senseSha256": "c4b6f6a476096ef7fe38ab66cbec7e7ce31a36219fe0926de0fc8aa9a646948b",
+      "targetIssueSha256": "6338316be81085da8db2983a074220e3319cffbace6f448dd5ef78a1b15c22c0",
+      "reviewed_at": "2026-10-04T17:01:43Z",
+      "reason": "Goods shown with money plausibly symbolize cost/price. The absence of a tag does not make the image wrong; no exact price or currency is approved.",
+      "evidence": {
+        "source": "Independent current-image and first-sense scope audit, 2026-10-04",
+        "reviewer": "Independent editorial reviewer",
+        "observation": "A teddy bear stands on a counter beside a stack of three gold-colored coins highlighted by small marks.",
+        "imageInspected": true
+      }
+    },
+    {
+      "schema": 1,
+      "status": "reviewed",
+      "scope": "caption_only",
+      "blocksPlay": false,
+      "w": "former",
+      "p": [
+        "per1"
+      ],
+      "art": "former",
+      "imageSha256": "705cf5307404fa98f62bcee7b882299c4aa40568bf64477b4f96771bd7fc6ed3",
+      "senseSha256": "15d94ffff67b2c7e84f5e2893d76554105d2301f23e1898d3639273d76a12f51",
+      "targetIssueSha256": "c7a585cc79c5f1ecd6f5097da78fd0643c698cfc7a47751d0371f055ea8f6600",
+      "reviewed_at": "2026-10-04T17:01:43Z",
+      "reason": "A past connection or earlier state is plausible from the old-picture/revisit composition. Whether he was a former resident, pupil, or something else is unknown and should not be invented.",
+      "evidence": {
+        "source": "Independent current-image and first-sense scope audit, 2026-10-04",
+        "reviewer": "Independent editorial reviewer",
+        "observation": "A man with a shoulder bag holds a small picture of a child at the doorway of a house while a woman welcomes him.",
+        "imageInspected": true
+      }
+    },
+    {
+      "schema": 1,
+      "status": "reviewed",
+      "scope": "caption_only",
+      "blocksPlay": false,
+      "w": "ran",
+      "p": [],
+      "art": "ran@x",
+      "imageSha256": "01c5da019d72c27d4768f09b93a30141ab37a183a78fe56f76be415e8f28bf36",
+      "senseSha256": "058040b1743c4b1896dfbce8225e70a40cbcadd542368fcfa4451f99a27db7ff",
+      "targetIssueSha256": "35272720bd0dda85667774a293130ec48ee2b95b2f29494648a1dd2912cdca62",
+      "reviewed_at": "2026-10-04T17:01:43Z",
+      "reason": "This is a coherent running-afterward illustration for past ran. The actual preceding action cannot be certified in a caption, but it is strongly plausible and not a competing verb such as climbing.",
+      "evidence": {
+        "source": "Independent current-image and first-sense scope audit, 2026-10-04",
+        "reviewer": "Independent editorial reviewer",
+        "observation": "A sweaty boy wearing sports clothes and a towel sits on a bench beside a running track and points to the track while a girl offers water.",
+        "imageInspected": true
+      }
+    },
+    {
+      "schema": 1,
+      "status": "reviewed",
+      "scope": "caption_only",
+      "blocksPlay": false,
+      "w": "member",
+      "p": [
+        "mēms-"
+      ],
+      "art": "member",
+      "imageSha256": "d08b74c6e467289fe1f41523d9822f7f15ef15b17e7e2182901bf857e7748cff",
+      "senseSha256": "9fe0f388bf3ec89cf5be82ac10d452ef80cbdb773c1120e5f19bd6e0e100041a",
+      "targetIssueSha256": "9c92923e775732cb296093177a7d03a9af83bc05043c8bf60ce05eb9f6d5eb66",
+      "reviewed_at": "2026-10-04T17:01:43Z",
+      "reason": "A person belonging to or joining a group is a plausible member/participant depiction. A specific organization, membership card, or enrollment is not established.",
+      "evidence": {
+        "source": "Independent current-image and first-sense scope audit, 2026-10-04",
+        "reviewer": "Independent editorial reviewer",
+        "observation": "Three smiling people surround and welcome a fourth backpacked person, touching shoulders and gesturing openly.",
+        "imageInspected": true
+      }
+    },
+    {
+      "schema": 1,
+      "status": "reviewed",
+      "scope": "caption_only",
+      "blocksPlay": false,
+      "w": "via",
+      "p": [
+        "wegh-"
+      ],
+      "art": "via",
+      "imageSha256": "b759f011edeaa2fb84925e03a2c8c4f139127140dfa8d9b3086c73adf663d76d",
+      "senseSha256": "82c8f04286b9c047ed1bf7c4638e02fd71226c7d6cc5600a7cacd9ce527de023",
+      "targetIssueSha256": "d3505acf3f5db6eb5850ff66d7f3dee5c6336f68fa5141a2c4909e5b485c76af",
+      "reviewed_at": "2026-10-04T17:01:43Z",
+      "reason": "Train travel through a station is compatible with via/through. Whether the station is intermediate and what destination follows cannot be stated in a caption. The stored POS question is a separate source editorial matter and does not establish a wrong image.",
+      "evidence": {
+        "source": "Independent current-image and first-sense scope audit, 2026-10-04",
+        "reviewer": "Independent editorial reviewer",
+        "observation": "A train passenger sits by a window looking toward a platform, tracks and a distant city.",
+        "imageInspected": true
+      }
+    },
+    {
+      "schema": 1,
+      "status": "reviewed",
+      "scope": "caption_only",
+      "blocksPlay": false,
+      "w": "tax",
+      "p": [
+        "tag-"
+      ],
+      "art": "tax",
+      "imageSha256": "17b6f07cfb25989babc3c1922bc3e26f386ae33be5fbb30c56950fd87f434a64",
+      "senseSha256": "f6066a3bd149a0c5cc1efd6cd06515fbd8240ccdc60984603dc5bc0ab4f85274",
+      "targetIssueSha256": "62632cbe099888c6e854ff45384cf25376d4df4f2b445b07386ec4265224a282",
+      "reviewed_at": "2026-10-04T17:01:43Z",
+      "reason": "Payment to a government-symbol container is a plausible tax/levy metaphor. It does not verify a particular assessed tax, but missing fiscal detail alone should not block the image.",
+      "evidence": {
+        "source": "Independent current-image and first-sense scope audit, 2026-10-04",
+        "reviewer": "Independent editorial reviewer",
+        "observation": "A suited man puts a banknote into a box bearing a classical institutional building with a flag while holding a wallet.",
+        "imageInspected": true
+      }
+    },
+    {
+      "schema": 1,
+      "status": "reviewed",
+      "scope": "caption_only",
+      "blocksPlay": false,
+      "w": "hadn't",
+      "p": [],
+      "art": "hadnt",
+      "imageSha256": "5832d873b652fb996fdf8962a0540662a0b5d1f0eadeff8b966e38b9a1fc0973",
+      "senseSha256": "429a093f5a0f41cf615a523014606289b0c6195464ba250b518833d9c3ded5e8",
+      "targetIssueSha256": "d9f05ad98cd085f39fe1fd788cd441cdbd55270c76e1197318f777cc1c008a14",
+      "reviewed_at": "2026-10-04T17:01:43Z",
+      "reason": "Failure to do something before a return is a plausible past-negative scene. The actual cause, who failed to water, and timing should not be invented. Independent English answer-format restrictions for the apostrophe remain in place.",
+      "evidence": {
+        "source": "Independent current-image and first-sense scope audit, 2026-10-04",
+        "reviewer": "Independent editorial reviewer",
+        "observation": "A wilted potted plant in cracked soil sits beside a watering can; a worried girl and a surprised boy with travel luggage stand nearby.",
+        "imageInspected": true
+      }
+    },
+    {
+      "schema": 1,
+      "status": "reviewed",
+      "scope": "caption_only",
+      "blocksPlay": false,
+      "w": "politics",
+      "p": [
+        "pelə-3"
+      ],
+      "art": "politics",
+      "imageSha256": "1ee522fab11849db64f694eedd01bec9c776485ae6246d16635ebba9273b9d09",
+      "senseSha256": "bf2c403eeef60cbf514ef77ca3dd00b52100f7c13959938ca994947dcb544265",
+      "targetIssueSha256": "3c0d1bdd8ff7e84ec24070dc8db92fe198ef40815868e831edab2c2c94d72528",
+      "reviewed_at": "2026-10-04T17:01:43Z",
+      "reason": "A civic/public decision-making meeting is a plausible politics/government illustration. The precise authority, political office and decision are unknown and should not be supplied in narration.",
+      "evidence": {
+        "source": "Independent current-image and first-sense scope audit, 2026-10-04",
+        "reviewer": "Independent editorial reviewer",
+        "observation": "A group with different professional clothing discusses a map of a town or public area around a table; a suited person gestures at the center.",
+        "imageInspected": true
+      }
+    },
+    {
+      "schema": 1,
+      "status": "reviewed",
+      "scope": "caption_only",
+      "blocksPlay": false,
+      "w": "send",
+      "p": [
+        "sent-"
+      ],
+      "art": "send",
+      "imageSha256": "7112bb6e0ce82b1bc01b34165eb64dbec3d307a08e21115e7882c9a978ee90b6",
+      "senseSha256": "2308c34ef02fc9e76cb0d14d0824b95f7530ff093f298f7c58f82d606951d4be",
+      "targetIssueSha256": "cde4b0df7aba10876d3f3f770231449819eb2c5864c5f4bb0e19b28f78a50642",
+      "reviewed_at": "2026-10-04T17:01:43Z",
+      "reason": "Dispatching a parcel through a courier is plausible. Receipt is also possible because direction is not explicit; preserve the caption hold without a hard image block.",
+      "evidence": {
+        "source": "Independent current-image and first-sense scope audit, 2026-10-04",
+        "reviewer": "Independent editorial reviewer",
+        "observation": "A woman and a blue-uniformed courier both hold a taped cardboard parcel between them.",
+        "imageInspected": true
+      }
+    },
+    {
+      "schema": 1,
+      "status": "reviewed",
+      "scope": "caption_only",
+      "blocksPlay": false,
+      "w": "maximum",
+      "p": [
+        "meg-"
+      ],
+      "art": "maximum",
+      "imageSha256": "5778d07d7ddda57ef81246e9faa31e6d6bf084facfd5ff8c3d6de91ef6908cf3",
+      "senseSha256": "0a55ac0c92247cdf4603c85f8d8d202dbb60e6e998d5b7494f126a17762de715",
+      "targetIssueSha256": "7d0614bdb008a60d0c4e7ae09fd94c580a34fd638d30815fc535fae4efc9bc78",
+      "reviewed_at": "2026-10-04T17:01:43Z",
+      "reason": "The greatest quantity/capacity among the shown options plausibly symbolizes maximum/utmost. No exact fill limit or globally largest container is asserted.",
+      "evidence": {
+        "source": "Independent current-image and first-sense scope audit, 2026-10-04",
+        "reviewer": "Independent editorial reviewer",
+        "observation": "A small cup, a medium pitcher and a much larger water-filled barrel form a clear three-size comparison.",
+        "imageInspected": true
+      }
+    },
+    {
+      "schema": 1,
+      "status": "reviewed",
+      "scope": "caption_only",
+      "blocksPlay": false,
+      "w": "usual",
+      "p": [
+        "oit-"
+      ],
+      "art": "usual",
+      "imageSha256": "197e6f1eefe55a597a179d16b29da62ac751ce9a1d42e42650e37989f9e46e45",
+      "senseSha256": "219fa5c72940b045d57e512f0532dd9043add722f4348030e54aadba53aefebc",
+      "targetIssueSha256": "7fd4a1cb9e58b3bb66ff800b0450ad51ef9dda39a670e497262ec86700146aad",
+      "reviewed_at": "2026-10-04T17:01:43Z",
+      "reason": "An ordinary breakfast routine is plausible for usual/customary. The picture cannot establish this person’s actual repeated meal and that fact is not approved for a caption.",
+      "evidence": {
+        "source": "Independent current-image and first-sense scope audit, 2026-10-04",
+        "reviewer": "Independent editorial reviewer",
+        "observation": "A smiling man in a shirt and tie holds a mug at a breakfast table with toast, an egg, sausages and vegetables.",
+        "imageInspected": true
+      }
+    },
+    {
+      "schema": 1,
+      "status": "reviewed",
+      "scope": "caption_only",
+      "blocksPlay": false,
+      "w": "Richard",
+      "p": [
+        "reg-",
+        "kar-"
+      ],
+      "art": "Richard",
+      "imageSha256": "cc2248b3a4684cc903c326bcb440a228658fa7cb6bb79e412dece07d46ff5f21",
+      "senseSha256": "7c701d7178fc6a3e1428316215fede42b3a8cc238ea32799ae77b266dbe56444",
+      "targetIssueSha256": "e7a1a331448c8bde8ae5592ef3ec69b2ea4093a788010da796dc16693debb301",
+      "reviewed_at": "2026-10-04T17:01:43Z",
+      "reason": "A Richard-associated royal/lion motif is plausible for this male-name record. The image does not certify a named historical person; do not invent Richard I’s identity or biography in a caption. Missing text labels alone are not a demonstrated mismatch.",
+      "evidence": {
+        "source": "Independent current-image and first-sense scope audit, 2026-10-04",
+        "reviewer": "Independent editorial reviewer",
+        "observation": "A bearded king wears a crown, an ermine-trimmed red cape and a blue tunic with a gold lion emblem, holding a sword.",
+        "imageInspected": true
+      }
+    },
+    {
+      "schema": 1,
+      "status": "reviewed",
+      "scope": "caption_only",
+      "blocksPlay": false,
+      "w": "laid",
+      "p": [],
+      "art": "laid",
+      "imageSha256": "fab487750be10bd4fcf42c0a6e13fcc916a314ed2237f2f5051581ea6178d2d2",
+      "senseSha256": "2c06156945825c03f99792c51c935357a8b1e9912a0bcac07698bb24b47196cc",
+      "targetIssueSha256": "1e25a69911f083a194165b965bee35e85432c9f5121e9e90b74083b598881005",
+      "reviewed_at": "2026-10-04T17:01:43Z",
+      "reason": "A just-completed placement of the baby is a plausible past-of-lay illustration. The actor and placement moment are not independently verified for narration; no incompatible action is depicted.",
+      "evidence": {
+        "source": "Independent current-image and first-sense scope audit, 2026-10-04",
+        "reviewer": "Independent editorial reviewer",
+        "observation": "A sleeping baby lies under a blanket in a bassinet while a woman leans over with her hands near the rim.",
+        "imageInspected": true
+      }
     }
   ]
 }

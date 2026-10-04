@@ -5,6 +5,8 @@ ctx.window.EIGO_NO_E.words.find(w=>w.w==='book').tags=['棚整理専用タグ',{
 const app=fs.readFileSync(path.join(__dirname,'app.js'),'utf8');const pure=app.slice(app.indexOf('/* ───────── index'),app.indexOf('/* 検索欄 */'));
 vm.runInContext('const D=window.EIGO_NO_E;const esc=s=>String(s);'+pure+';this.searchAPI={searchWord,searchText};',ctx);
 const S=ctx.searchAPI;
+const captionless=ctx.window.EIGO_NO_E.words.find(w=>w.description.status==='missing'&&w.availability.en.playable&&!w.availability.ja.playable);
+assert.ok(captionless,'catalog needs an actual missing-caption English-only row');
 test('English headword search finds reviewed book',()=>assert.equal(S.searchWord('book')[0].w,'book'));
 test('canonical Japanese gloss search finds book',()=>assert(S.searchWord('本').some(w=>w.w==='book')));
 test('canonical hiragana reading search finds book',()=>assert(S.searchWord('ほん').some(w=>w.w==='book')));
@@ -16,6 +18,6 @@ test('word search does not expand to descriptions or tags',()=>{for(const q of [
 test('broad search normalizes width, case, and kana',()=>{assert.equal(S.searchText('ＢＯＯＫ')[0].w,'book');assert(S.searchText('ホン').some(w=>w.w==='book'));});
 test('broad search keeps the whole keyword literal without sentence parsing',()=>{assert(!S.searchText('please find a book on a wooden stand').some(w=>w.w==='book'));assert(!S.searchText('stand wooden').some(w=>w.w==='book'));});
 test('broad search does not infer synonyms or stem unrelated forms',()=>{assert(!S.searchText('wooden standing').some(w=>w.w==='book'));});
-test('captionless rows remain searchable without invented descriptions',()=>{assert(S.searchWord('said').some(w=>w.w==='said'));for(const q of ['book','本','木の台','chair','said'])for(const w of [...S.searchWord(q),...S.searchText(q)])if(w.description?.status!=='reviewed')assert.equal(w.scene.en,'');});
+test('captionless rows remain searchable without invented descriptions',()=>{assert(S.searchWord(captionless.w).some(w=>w.id===captionless.id));assert.equal(captionless.scene.en,'');assert.equal(captionless.scene.ja,'');assert.equal(captionless.description.ttsAllowed,false);for(const q of ['book','本','木の台','chair',captionless.w])for(const w of [...S.searchWord(q),...S.searchText(q)])if(w.description?.status!=='reviewed')assert.equal(w.scene.en,'');});
 test('blank and unknown queries return no fabricated result',()=>{assert.equal(S.searchText('  ').length,0);assert.equal(S.searchText('zznonexistentzz').length,0);assert.equal(S.searchWord('zznonexistentzz').length,0);});
 test('visible prompts use keywords rather than sentence instructions',()=>{assert(app.includes("text: 'タグ・解説も検索'"));assert(!app.includes('文章で:'));assert(!app.includes('a cat under a chair'));assert(!app.includes('英語の文でも'));});

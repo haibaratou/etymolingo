@@ -26,6 +26,30 @@ def sense_of(w):
 def load_module(name,path):
  spec=importlib.util.spec_from_file_location(name,path);m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m);return m
 
+def caption_only_scope(issue,scope_reviews,word,art,image,sense):
+ """Only the latest append-only review for this exact issue can narrow its hold.
+
+ Scope reviews never resolve an issue or approve a caption. Missing, malformed,
+ superseded or stale reviews are blocking, including after image/meaning edits.
+ """
+ fingerprint=issue_digest(issue)
+ candidates=[x for x in scope_reviews if isinstance(x,dict) and x.get('targetIssueSha256')==fingerprint]
+ if not candidates:return None
+ review=candidates[-1]
+ if type(review.get('schema')) is not int or review['schema']!=1 or review.get('status')!='reviewed' or review.get('scope')!='caption_only' or review.get('blocksPlay') is not False:return None
+ expected={'w':word['w'],'p':word.get('p',[]),'art':art,'imageSha256':image['sha256'],'senseSha256':sense['sha256']}
+ if any(review.get(k)!=v for k,v in expected.items()):return None
+ if not all(isinstance(review.get(k),str) and review[k].strip() for k in ['reason','reviewed_at']):return None
+ if not re.search(r'T.*(?:Z|[+-]\d{2}:\d{2})$',review['reviewed_at']):return None
+ try:
+  stamp=datetime.fromisoformat(review['reviewed_at'].replace('Z','+00:00'))
+  if not stamp.tzinfo or 'T' not in review['reviewed_at']:return None
+ except (ValueError,TypeError):return None
+ evidence=review.get('evidence')
+ if not isinstance(evidence,dict) or evidence.get('imageInspected') is not True:return None
+ if not all(isinstance(evidence.get(k),str) and evidence[k].strip() for k in ['source','reviewer','observation']):return None
+ return copy.deepcopy(review)
+
 def after_cutoff(dates):
  for date in dates:
   try:
@@ -99,8 +123,11 @@ def build_catalog_rows(root=ROOT,include_packs=True):
   key=(e['w'],tuple(e.get('p',[])),e['art'])
   if key in scene_map:raise ValueError('Duplicate scene identity')
   scene_map[key]=e
- issue_data=read(root/'app/data/generated-image-issues.json');known=issue_data.get('issues',[]);resolutions=issue_data.get('resolutions',[]);issues=defaultdict(list)
- for issue in known:issues[(issue['w'],tuple(issue['p']),issue['art'])].append(issue)
+ issue_data=read(root/'app/data/generated-image-issues.json');known=issue_data.get('issues',[]);resolutions=issue_data.get('resolutions',[]);scope_reviews=issue_data.get('scope_reviews',[]);issues=defaultdict(list)
+ if not isinstance(scope_reviews,list):scope_reviews=[]
+ for issue in known:
+  if not isinstance(issue.get('codes'),list) or not issue['codes'] or not all(isinstance(c,str) and c.strip() for c in issue['codes']):raise ValueError('Issue must retain at least one nonempty code: '+str(issue.get('art')))
+  issues[(issue['w'],tuple(issue['p']),issue['art'])].append(issue)
  owned={r['art']:r for r in resolved['safe_primary']};assets={r['art']:r for r in resolved['assets']};rows=[];used_ids=set();packs={}
  seed_ids={r['id'] for r in seeds};legacy_ids={pic for _,pic in legacy.LEGACY_CHOICES};reserved=seed_ids|legacy_ids
  for art,binding in owned.items():
@@ -114,16 +141,21 @@ def build_catalog_rows(root=ROOT,include_packs=True):
    cleared=any((x['w'],tuple(x['p']),x['art'])==key and x['imageSha256']==image['sha256'] and x['senseSha256']==sense['sha256'] and x.get('reviewed_at') and x.get('reason') and issue_digest(issue) in x.get('resolvesIssueSha256',[]) for x in resolutions)
    if cleared:continue
    exact=issue['imageSha256']==image['sha256'] and issue['senseSha256']==sense['sha256']
-   active += [{'code':c if exact else 'known_issue_needs_review','detail':issue['detail'] if exact else 'Previously held image/sense changed; a fresh explicit resolution is required. '+issue['detail'],'imageSha256':image['sha256']} for c in issue['codes']]
+   scope_review=caption_only_scope(issue,scope_reviews,word,art,image,sense)
+   for code in issue['codes']:
+    current={'code':code if exact else 'known_issue_needs_review','detail':issue['detail'] if exact else 'Previously held image/sense changed; a fresh explicit review is required. '+issue['detail'],'imageSha256':image['sha256'],'senseSha256':sense['sha256'],'issueSha256':issue_digest(issue),'scope':'caption_only' if scope_review else 'play_blocking','blocksPlay':not bool(scope_review)}
+    if scope_review:current['scopeReview']=scope_review
+    active.append(current)
+  blockers=[issue for issue in active if issue['blocksPlay']]
   reviewed,status,reason=validate_caption(scene_map.get(key),word,art,image)
   if active:
    reviewed=None;status='held';reason=active[0]['code']
   answer,evidence=japanese_answer(word,old);ja_ok=bool(re.fullmatch('[ぁ-ゔー]{1,14}',answer) and re.search('[ぁ-ゔ]',answer))
   en_ok=bool(re.fullmatch('[A-Za-z]{1,14}',word['w']))
-  en_reason=active[0]['code'] if active else '' if en_ok else 'unsupported_english_answer_format'
-  ja_reason=active[0]['code'] if active else '' if ja_ok else evidence if not answer else 'unsupported_japanese_answer_length'
+  en_reason=blockers[0]['code'] if blockers else '' if en_ok else 'unsupported_english_answer_format'
+  ja_reason=blockers[0]['code'] if blockers else '' if ja_ok else evidence if not answer else 'unsupported_japanese_answer_length'
   description={'status':status,'en':reviewed['scene']['en'] if reviewed else '', 'ja':reviewed['scene']['ja'] if reviewed else '', 'reason':reason,'ttsAllowed':bool(reviewed)}
-  dates=meta['recordedUpdatedAt'];row={'id':candidate,'pic':art,'en':word['w'],'w':answer if ja_ok else '', 'ja':sense['ja'],'roots':word.get('p',[]),'dictionaryIndex':binding['dictionaryIndex'],'rank':word.get('r') or 99999,'generatedImage':True,'updatedArt':after_cutoff(dates),'bindingStatus':'bound','image':image,'sense':sense,'sceneBinding':{k:word.get(k,[] if k=='p' else '') for k in ['w','p','ja','en']},'description':description,'availability':{'en':{'playable':en_ok and not active,'answer':word['w'],'reason':en_reason},'ja':{'playable':ja_ok and not active,'answer':answer if ja_ok else '', 'reason':ja_reason}},'issues':active,'recordedUpdatedAt':max(dates) if dates else None,'readingEvidence':evidence,'imageDateProvenance':{'source':'published_image_date_ledger','commit':date_rows[art].get('LatestUpdatedCommit'),'createdAt':date_rows[art].get('CreatedAtJST')} if art in date_rows else {'source':'recorded_exact_tuple' if dates else 'unknown'},'pos':word.get('pos','')}
+  dates=meta['recordedUpdatedAt'];row={'id':candidate,'pic':art,'en':word['w'],'w':answer if ja_ok else '', 'ja':sense['ja'],'roots':word.get('p',[]),'dictionaryIndex':binding['dictionaryIndex'],'rank':word.get('r') or 99999,'generatedImage':True,'updatedArt':after_cutoff(dates),'bindingStatus':'bound','image':image,'sense':sense,'sceneBinding':{k:word.get(k,[] if k=='p' else '') for k in ['w','p','ja','en']},'description':description,'availability':{'en':{'playable':en_ok and not blockers,'answer':word['w'],'reason':en_reason},'ja':{'playable':ja_ok and not blockers,'answer':answer if ja_ok else '', 'reason':ja_reason}},'issues':active,'recordedUpdatedAt':max(dates) if dates else None,'readingEvidence':evidence,'imageDateProvenance':{'source':'published_image_date_ledger','commit':date_rows[art].get('LatestUpdatedCommit'),'createdAt':date_rows[art].get('CreatedAtJST')} if art in date_rows else {'source':'recorded_exact_tuple' if dates else 'unknown'},'pos':word.get('pos','')}
   if word.get('tags') is not None:row['tags']=word['tags']
   if old and old.get('challengeBand'):row['challengeBand']=old['challengeBand']
   if reviewed:
@@ -139,7 +171,7 @@ def build_catalog_rows(root=ROOT,include_packs=True):
   candidate=art if art in legacy_ids and art not in used_ids else 'asset:'+art
   if candidate in used_ids:raise ValueError('Duplicate asset ID')
   used_ids.add(candidate);role=meta['assetRole'];status='alternate' if meta['canonicalOwner'] else 'ownership_pending';reason=meta['reason'] or role;dates=meta['recordedUpdatedAt'];image={k:inv[art][k] for k in ['path','sha256','git_blob_sha']}
-  rows.append({'id':candidate,'pic':art,'en':'','w':'','ja':'','roots':[],'dictionaryIndex':None,'rank':99999,'generatedImage':True,'updatedArt':after_cutoff(dates),'bindingStatus':status,'assetRole':role,'primaryArt':meta['primaryArt'],'image':image,'description':{'status':'missing','en':'','ja':'','reason':'ownership_pending' if status=='ownership_pending' else 'alternate_image','ttsAllowed':False},'availability':{l:{'playable':False,'answer':'','reason':reason} for l in ['en','ja']},'issues':[{'code':reason,'detail':'画像の対応確認中' if status=='ownership_pending' else '別の画像・旧版','imageSha256':image['sha256']}],'recordedUpdatedAt':max(dates) if dates else None,'imageDateProvenance':{'source':'published_image_date_ledger','commit':date_rows[art].get('LatestUpdatedCommit'),'createdAt':date_rows[art].get('CreatedAtJST')} if art in date_rows else {'source':'recorded_exact_tuple' if dates else 'unknown'},'pos':''})
+  rows.append({'id':candidate,'pic':art,'en':'','w':'','ja':'','roots':[],'dictionaryIndex':None,'rank':99999,'generatedImage':True,'updatedArt':after_cutoff(dates),'bindingStatus':status,'assetRole':role,'primaryArt':meta['primaryArt'],'image':image,'description':{'status':'missing','en':'','ja':'','reason':'ownership_pending' if status=='ownership_pending' else 'alternate_image','ttsAllowed':False},'availability':{l:{'playable':False,'answer':'','reason':reason} for l in ['en','ja']},'issues':[{'code':reason,'detail':'画像の対応確認中' if status=='ownership_pending' else '別の画像・旧版','imageSha256':image['sha256'],'scope':'play_blocking','blocksPlay':True}],'recordedUpdatedAt':max(dates) if dates else None,'imageDateProvenance':{'source':'published_image_date_ledger','commit':date_rows[art].get('LatestUpdatedCommit'),'createdAt':date_rows[art].get('CreatedAtJST')} if art in date_rows else {'source':'recorded_exact_tuple' if dates else 'unknown'},'pos':''})
  # Freeze existing sequence before adding new entries. No spelling-based deduplication.
  order={r['id']:n for n,r in enumerate(seeds)};rows.sort(key=lambda r:(0,order[r['id']]) if r['id'] in order else (1,r['rank'],r['en'],r['pic']))
  if len(rows)!=len(inv) or len(used_ids)!=len(inv):raise ValueError('Every physical PNG must appear exactly once')

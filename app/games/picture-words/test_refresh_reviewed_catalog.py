@@ -25,6 +25,57 @@ class ProducerTests(unittest.TestCase):
    (self.root/'app/data'/file).write_bytes((ROOT/'app/data'/file).read_bytes())
  def reviewed(self):
   w=self.words[0];return {'w':w['w'],'p':[],'art':'cat','sense':C.sense_of(w),'scene':{'en':'A cat sits on a chair.','ja':'ねこがいすに座っている。'},'image':self.images['cat'],'status':'reviewed','review':{'status':'reviewed'}}
+ def issue(self):
+  return {'w':'cat','p':[],'art':'cat','imageSha256':self.images['cat']['sha256'],'senseSha256':C.sense_of(self.words[0])['sha256'],'codes':['visual_or_caption_ambiguity'],'detail':'A plausible cat image; caption remains held.','status':'held'}
+ def scope(self,issue):
+  return {**{k:copy.deepcopy(issue[k]) for k in ['w','p','art','imageSha256','senseSha256']},'schema':1,'status':'reviewed','scope':'caption_only','blocksPlay':False,'targetIssueSha256':C.issue_digest(issue),'reviewed_at':'2026-10-04T17:00:00Z','reason':'Exact image remains independently suitable for play.','evidence':{'source':'fixture-pixel-review','reviewer':'independent-fixture-reviewer','observation':'The current image plausibly shows a cat; no caption is accepted.','imageInspected':True}}
+ def held_row(self,issues,scopes=None,resolutions=None):
+  dump(self.root/'app/data/generated-image-issues.json',{'issues':issues,'scope_reviews':scopes or [],'resolutions':resolutions or []})
+  rows,_,packs,_=C.build_catalog_rows(self.root)
+  row=next(r for r in rows if r['en']=='cat')
+  self.assertEqual(len(rows),3);self.assertEqual(row['description']['status'],'held');self.assertEqual(row['description']['en'],'');self.assertEqual(row['description']['ja'],'');self.assertFalse(row['description']['ttsAllowed']);self.assertNotIn('reviewedScene',row);self.assertNotIn('sceneAsset',row);self.assertEqual(packs,{})
+  return row
+ def test_caption_only_scope_keeps_identity_playability_and_caption_hold(self):
+  issue=self.issue();scope=self.scope(issue);before=copy.deepcopy(issue)
+  self.scenes=[self.reviewed()];self.save()
+  row=self.held_row([issue],[scope]);self.assertTrue(row['availability']['en']['playable']);self.assertTrue(row['availability']['ja']['playable']);self.assertEqual(row['availability']['en']['reason'],'');self.assertEqual(row['issues'][0]['scope'],'caption_only');self.assertIs(row['issues'][0]['blocksPlay'],False);self.assertEqual(row['issues'][0]['scopeReview'],scope);self.assertEqual(issue,before)
+ def test_valid_caption_or_another_scoped_issue_cannot_clear_a_hard_hold(self):
+  issue=self.issue();hard={**issue,'codes':['image_first_sense_mismatch'],'detail':'Current pixels have the wrong meaning.'}
+  self.scenes=[self.reviewed()];self.save()
+  row=self.held_row([issue,hard],[self.scope(issue)]);self.assertFalse(row['availability']['en']['playable']);self.assertFalse(row['availability']['ja']['playable']);self.assertEqual(row['availability']['en']['reason'],'image_first_sense_mismatch');self.assertIs(row['issues'][1]['blocksPlay'],True)
+ def test_flags_on_original_issue_are_not_a_review(self):
+  issue={**self.issue(),'blocksPlay':False,'scope':'caption_only'}
+  row=self.held_row([issue]);self.assertFalse(row['availability']['en']['playable']);self.assertEqual(row['issues'][0]['scope'],'play_blocking')
+ def test_malformed_or_forged_scope_reviews_fail_closed(self):
+  issue=self.issue();scope=self.scope(issue)
+  mutations=[lambda s:s.update(schema=True),lambda s:s.update(status='candidate'),lambda s:s.update(scope='other'),lambda s:s.update(blocksPlay=0),lambda s:s.update(blocksPlay='false'),lambda s:s.update(targetIssueSha256='f'*64),lambda s:s.update(w='dog'),lambda s:s.update(p=['new-root']),lambda s:s.update(art='other'),lambda s:s.update(imageSha256='f'*64),lambda s:s.update(senseSha256='f'*64),lambda s:s.update(reviewed_at='yesterday'),lambda s:s.update(reviewed_at='2026-10-04'),lambda s:s.update(reason=' '),lambda s:s.pop('evidence'),lambda s:s['evidence'].update(imageInspected=False),lambda s:s['evidence'].update(reviewer=''),lambda s:s['evidence'].update(source=''),lambda s:s['evidence'].update(observation='')]
+  for mutate in mutations:
+   with self.subTest(mutation=mutations.index(mutate)):
+    invalid=copy.deepcopy(scope);mutate(invalid);self.assertFalse(self.held_row([issue],[invalid])['availability']['en']['playable'])
+  for invalid in [None,True,'caption_only',[]]:
+   with self.subTest(invalid=invalid):self.assertFalse(self.held_row([issue],[invalid])['availability']['en']['playable'])
+ def test_latest_review_can_revoke_scope_without_rewriting_history(self):
+  issue=self.issue();scope=self.scope(issue);revoke={**scope,'scope':'play_blocking','blocksPlay':True,'reason':'Fresh review found a mismatch.'}
+  self.assertFalse(self.held_row([issue],[scope,revoke])['availability']['en']['playable'])
+  self.assertTrue(self.held_row([issue],[scope,revoke,scope])['availability']['en']['playable'])
+ def test_changed_issue_fingerprint_invalidates_the_review(self):
+  issue=self.issue();scope=self.scope(issue)
+  for changed in [{**issue,'detail':'A new issue detail.'},{**issue,'codes':['image_first_sense_mismatch']},{**issue,'status':'needs_review'}]:
+   self.assertFalse(self.held_row([changed],[scope])['availability']['en']['playable'])
+ def test_empty_or_malformed_issue_codes_cannot_silently_clear_a_hold(self):
+  issue=self.issue();scope=self.scope(issue)
+  for codes in [[],None,'visual_or_caption_ambiguity',['']]:
+   with self.subTest(codes=codes),self.assertRaisesRegex(ValueError,'Issue must retain'):
+    self.held_row([{**issue,'codes':codes}],[scope])
+ def test_changed_current_image_meaning_root_or_art_requires_fresh_scope(self):
+  issue=self.issue();scope=self.scope(issue);word=self.words[0];image=self.images['cat'];sense=C.sense_of(word)
+  for current_word,current_art,current_image,current_sense in [({**word,'w':'dog'},'cat',image,sense),({**word,'p':['other']},'cat',image,C.sense_of({**word,'p':['other']})),(word,'cat@other',image,sense),(word,'cat',{**image,'sha256':'f'*64},sense),({**word,'en':'other'},'cat',image,C.sense_of({**word,'en':'other'}))]:
+   self.assertIsNone(C.caption_only_scope(issue,[scope],current_word,current_art,current_image,current_sense))
+  self.words[0]['en']='feline';self.save();self.assertFalse(self.held_row([issue],[scope])['availability']['en']['playable'])
+ def test_three_existing_repair_resolutions_are_byte_equivalent_records(self):
+  ledger=json.loads((ROOT/'app/data/generated-image-issues.json').read_text())
+  self.assertGreaterEqual(len(ledger['resolutions']),3)
+  self.assertEqual(C.issue_digest(ledger['resolutions'][:3]),'77663d0bcc428dfabadd109dd3efd126b62877e1bac86a8caf9b1a49797e8450')
  def test_all_images_present_without_any_caption(self):
   rows,meta,_,_=C.build_catalog_rows(self.root);self.assertEqual(len(rows),3);self.assertEqual(meta['wordEntryCount'],2);self.assertEqual(meta['descriptionCounts'],{'missing':3});self.assertTrue(next(r for r in rows if r['en']=='I')['availability']['en']['playable'])
  def test_caption_addition_changes_status_not_membership(self):
