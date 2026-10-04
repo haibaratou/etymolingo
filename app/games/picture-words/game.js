@@ -1,6 +1,7 @@
 /* WORD BLOOM — standalone play, browser voices, and a curated dictionary excerpt. */
 (async () => {
   'use strict';
+  if(window.NICOLINGO_PHONE_HOST)return;
   const $ = id => document.getElementById(id);
   $('reloadGame').addEventListener('click', () => {
     const url = new URL(location.href);
@@ -315,7 +316,9 @@
     $('shuffle').setAttribute('aria-label', text().shuffle);
     const t = text(); document.documentElement.lang = mode;
     document.title = mode === 'ja' ? 'WORD BLOOM — ことばの庭' : 'WORD BLOOM — A garden of words';
-    $('modeJa').setAttribute('aria-pressed', String(mode === 'ja')); $('modeEn').setAttribute('aria-pressed', String(mode === 'en'));
+    $('modeToggle').dataset.mode = mode === 'ja' ? 'en' : 'ja';
+    $('modeToggle').setAttribute('aria-label', mode === 'ja' ? '英語に切り替える' : '日本語に切り替える');
+    $('modeLabel').textContent = mode === 'ja' ? '日本語' : 'English';
     const labels = { clueHeading: 'title', instruction: 'instruction', gestureNote: 'note', shuffleLabel: 'shuffle', hintLabel: 'hint',
       footerNote: 'footer', collectionLabel: 'collection', foundLabel: 'found',
       imageErrorText: 'error', retryImage: 'retry', skipImage: 'skip' };
@@ -342,7 +345,7 @@
     $('themeColor').content = dark ? '#071126' : '#f6f4ec';
   }
   // "auto" uses the compact one-screen board on phones and the regular board elsewhere.
-  const effectiveLayout = () => saved.layout !== 'auto' ? saved.layout : (innerWidth <= 860 ? 'mobile' : 'auto');
+  const effectiveLayout = () => new URLSearchParams(location.search).has('phone') ? 'mobile' : saved.layout !== 'auto' ? saved.layout : (innerWidth <= 860 ? 'mobile' : 'auto');
   function updateLayout() {
     document.documentElement.style.setProperty('--viewport-height', `${window.visualViewport?.height || innerHeight}px`);
     document.documentElement.dataset.layout = effectiveLayout();
@@ -387,12 +390,6 @@
     $('chapterName').textContent = mode === 'ja' ? profile.ja : profile.en;
     $('rarityBadge').innerHTML = rarityStars(entry.tier);
     $('rarityBadge').setAttribute('aria-label', `${profile.rank} stars`);
-    const jaOwned = !!saved.ja.stars[entry.id], enOwned = !!saved.en.stars[entry.id];
-    $('jaClearMark').textContent = jaOwned ? '✓' : '';
-    $('enClearMark').textContent = enOwned ? '✓' : '';
-    $('modeJa').dataset.cleared = String(jaOwned); $('modeEn').dataset.cleared = String(enOwned);
-    $('modeJa').disabled = false;
-    $('modeJa').title = '日本語で遊ぶ';
     $('connectLabel').textContent = `${profile.name} CHALLENGE`;
     $('levelText').textContent = availableCount(mode).toLocaleString();
     $('pictureNumber').textContent = `NO. ${String(index + 1).padStart(3, '0')}`;

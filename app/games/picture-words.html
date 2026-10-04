@@ -12,7 +12,8 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=M+PLUS+Rounded+1c:wght@500;700;800&display=swap">
   <link rel="manifest" href="picture-words/manifest.webmanifest">
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <link rel="stylesheet" href="picture-words/style.css?v=footer2-new-card1">
+  <link rel="stylesheet" href="picture-words/style.css?v=phone-dock2">
+  <script src="picture-words/desktop.js?v=phone-dock2" defer></script>
   <script src="picture-words/catalog.js?v=reviewed-scenes-g01" defer></script>
   <script src="picture-words/difficulty.js?v=visible-letters1" defer></script>
   <script src="picture-words/gesture.js?v=speech-fast-start1" defer></script>
@@ -21,7 +22,7 @@
   <script src="picture-words/offline.js?v=art-revision1" defer></script>
   <link rel="stylesheet" href="../shared/illustration-scenes.css?v=footer2">
   <script src="../shared/illustration-scenes.js?v=labels2" defer></script>
-  <script src="picture-words/game.js?v=art-revision1" defer></script>
+  <script src="picture-words/game.js?v=phone-dock2" defer></script>
 </head>
 <body>
   <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -113,8 +114,7 @@
           <p class="gesture-note" id="gestureNote" hidden></p>
         </section>
         <div class="play-toolbar" id="gameActions" role="group" aria-label="ゲーム操作">
-          <button id="modeJa" type="button" data-mode="ja" aria-label="日本語で遊ぶ" aria-pressed="true"><span>日本語</span><small id="jaClearMark"></small></button>
-          <button id="modeEn" type="button" data-mode="en" aria-label="英語で遊ぶ" aria-pressed="false"><span>English</span><small id="enClearMark"></small></button>
+          <button id="modeToggle" type="button" data-mode="en" aria-label="英語に切り替える"><span aria-hidden="true">⇄</span><span id="modeLabel">日本語</span></button>
           <button id="listenClue" class="action-button" type="button" aria-label="発音を聞く"><svg><use href="#i-sound"/></svg><span id="listenClueLabel" aria-live="polite">聞く</span></button>
           <button id="shuffle" class="action-button shuffle-button" type="button" aria-label="まぜる"><svg><use href="#i-shuffle"/></svg><span id="shuffleLabel">まぜる</span><span id="centerLabel" hidden></span></button>
           <button id="collection" class="action-button collection-button" type="button"><svg><use href="#i-book"/></svg><span id="collectionLabel">辞書</span><span id="collectionCount">0</span></button>
