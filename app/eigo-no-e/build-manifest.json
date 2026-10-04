@@ -3,7 +3,7 @@
   "build_version": 3,
   "sources": {
     "words_sha256": "1d367df1caa3fbae89c378b82ae46bd30e4367a1f40b3bf82e95b60452263a6a",
-    "scenes_sha256": "0f6ea808eb1198bb06483a8f9722fcd76f1bf3c7418d9c037b1d0cb26cde7110",
+    "scenes_sha256": "6f7df39d4169fde28722f6f2d0780f93be2eed41cd933eab6c06dc32a0559723",
     "illustration_index_sha256": "8f14ef961f3ff29788ff205b3af4dbb08e01f1004674f7c01b81df9d82ea8655"
   },
   "eligible": 655,
@@ -17,7 +17,7 @@
     "method": 4,
     "pillow": "12.3.0"
   },
-  "data_sha256": "3c551a7ba7a3c2abd85436567c07eedd7fca0a9edf4d4ecc9f66bcb8b0fa1ffc",
+  "data_sha256": "56bd3e70dfb15eb04fc58df61d6730e76d26d0918503e34b8cbaf0818b229841",
   "bindings": [
     {
       "art": "book",
@@ -38,10 +38,10 @@
     {
       "art": "house",
       "image_path": "assets/word/house.png",
-      "image_sha256": "9f95f5a43c36d15d15b39dd047e4faa30aa244207673358abf6bb79345d172f1",
-      "image_git_blob": "976a227599db7f0398c7e13da6c6637c47af5c6a",
-      "thumbnail_path": "app/eigo-no-e/thumbs/house.9f95f5a43c36.webp",
-      "thumbnail_sha256": "11fd08bdb12abe3653e02a4973b16633ca94e6d8a9f66a6a7d677f8f42a4a32c"
+      "image_sha256": "398c857017c470515084ca3f3da41ddbace7317ee74148db05b0f7e1e283bf09",
+      "image_git_blob": "9c340c43081cf67ed671f623d7cd172208d95c61",
+      "thumbnail_path": "app/eigo-no-e/thumbs/house.398c857017c4.webp",
+      "thumbnail_sha256": "81544327b3e453968145ebec9520b96b5f3ea48dc507ce3a46aca14991ba883d"
     },
     {
       "art": "water",
@@ -1718,10 +1718,10 @@
     {
       "art": "people",
       "image_path": "assets/word/people.png",
-      "image_sha256": "a76a7b101fbe19b0e445c8368050fb1cf339cd2d91470569417f37a8b973c348",
-      "image_git_blob": "e2988ca18b1ca025f37a34d8c7680788170c6ff9",
-      "thumbnail_path": "app/eigo-no-e/thumbs/people.a76a7b101fbe.webp",
-      "thumbnail_sha256": "6bfe5b36271216d9db753a2df72d1e562d7a4d5d19baab7c2019090d11a2beff"
+      "image_sha256": "cad408e131aa54597793d20e01c4fb5a52573909aef17e817c48179a6ba7517b",
+      "image_git_blob": "0c40c3a1007bcc8cb47ed4aa87be5acc9d5f9bd7",
+      "thumbnail_path": "app/eigo-no-e/thumbs/people.cad408e131aa.webp",
+      "thumbnail_sha256": "9a4594bb5280677a054057f520949beeadf2d6e3723264f8309a704e5a893e96"
     },
     {
       "art": "should",
@@ -1878,10 +1878,10 @@
     {
       "art": "family",
       "image_path": "assets/word/family.png",
-      "image_sha256": "c4844505db8abf37a5da357bbc243d273f7185c1b2ba40d9e4689cb8c6221554",
-      "image_git_blob": "43cae96dc92f7b11346185bf3f25c2e0d7900701",
-      "thumbnail_path": "app/eigo-no-e/thumbs/family.c4844505db8a.webp",
-      "thumbnail_sha256": "3f6e5d7643756b9409d1ad5ceafe23464be4c142db479508c924a88af439528a"
+      "image_sha256": "e9809d485a1c1ad07f2e86d3f550f684b5de5756b12514a5850ac5537e42b7a4",
+      "image_git_blob": "8daaf8b07dcd436c70552bfaaf4c1d5424fe45de",
+      "thumbnail_path": "app/eigo-no-e/thumbs/family.e9809d485a1c.webp",
+      "thumbnail_sha256": "77847ef9e7c20d53666e94c59bc5873e945f76dfbda900fd61174b94a8d4a02e"
     },
     {
       "art": "following",

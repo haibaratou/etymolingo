@@ -3,7 +3,7 @@
   "meta": {
     "schema": 1,
     "sourceWordsSha256": "1d367df1caa3fbae89c378b82ae46bd30e4367a1f40b3bf82e95b60452263a6a",
-    "scenesSha256": "0f6ea808eb1198bb06483a8f9722fcd76f1bf3c7418d9c037b1d0cb26cde7110",
+    "scenesSha256": "6f7df39d4169fde28722f6f2d0780f93be2eed41cd933eab6c06dc32a0559723",
     "indexSha256": "8f14ef961f3ff29788ff205b3af4dbb08e01f1004674f7c01b81df9d82ea8655",
     "count": 239
   },
@@ -13,11 +13,11 @@
   "sceneEntries": 655,
   "verifiedPngs": 239,
   "lazyAssets": 239,
-  "lazyAssetBytes": 66098633,
+  "lazyAssetBytes": 65873325,
   "ordering": "Surviving existing IDs in previous order; new IDs appended in normal-builder order",
   "inputHashes": {
     "app/data/generated-etymon/words.json": "1d367df1caa3fbae89c378b82ae46bd30e4367a1f40b3bf82e95b60452263a6a",
-    "app/data/generated-etymon/illustration-scenes.json": "0f6ea808eb1198bb06483a8f9722fcd76f1bf3c7418d9c037b1d0cb26cde7110",
+    "app/data/generated-etymon/illustration-scenes.json": "6f7df39d4169fde28722f6f2d0780f93be2eed41cd933eab6c06dc32a0559723",
     "assets/word/illustration-index.js": "8f14ef961f3ff29788ff205b3af4dbb08e01f1004674f7c01b81df9d82ea8655",
     "app/games/picture-words/build_catalog.py": "42b868ac315092781f5abfcec19ed6a84670f0b390b6b0e8c150197c69a98ba8",
     "app/games/picture-words/updated-art.json": "c1dbb0ac859da674da61c89e1f7c8375fdf48457f322f3f83c654bec93c304a2",
