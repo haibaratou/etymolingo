@@ -13,3 +13,10 @@
 :root{--muted:#596d60}
 .result-count,.word-meaning,.card-scene,.intro-text,.nav-label,.download-note,.detail-id,.art-caption,.section-label,.detail-meaning,.sentence-ja,footer{color:#596d60}
 .mode-switch button,.background-toggle,.detail-tags button,.detail-bottom{color:#536756}
+
+/* Final viewport polish verified at desktop and phone-sized widths. */
+.search input::placeholder{color:#596d60}
+@media(min-width:761px){.category-button{padding-left:18px;padding-right:10px;gap:9px;font-size:13px}.category-button>span:nth-child(2){white-space:nowrap}.category-button .category-icon{width:20px;flex-shrink:0}.category-button .count{font-size:10px}.category-button.active .count{color:#dce5de}}
+@media(min-width:761px) and (max-width:1050px){.category-button{padding-left:12px;padding-right:8px;gap:6px;font-size:11px}.category-button .category-icon{width:17px;font-size:16px}.category-button .count{font-size:9px}}
+@media(max-width:760px){h1{font-size:25px}.search input{font-size:16px}.card-scene{font-size:13px;min-height:43px}.word-card.is-hidden .word-name{color:#536756}}
+@media(max-width:370px){h1{font-size:22px}}
