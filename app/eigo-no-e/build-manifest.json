@@ -5,7 +5,7 @@
     "words_sha256": "7f603dd5823d755472d2382cf8a7afbbb2844c1d941318f3d584a027cb213522",
     "scenes_sha256": "acb4ab146f5d7b4afad291c75838bf685917f4565c975146c0cfa98e778653ef",
     "illustration_index_sha256": "8f14ef961f3ff29788ff205b3af4dbb08e01f1004674f7c01b81df9d82ea8655",
-    "image_dates_sha256": "3c9226a36d2b6a59473b31e23d7f1ae67fd8412e2528ca28d06dc7722e5b5c1e"
+    "image_dates_sha256": "47ed4d4ceb28fe9a7a2cd4568b4c0d1c03800f0ad2353be886788bd54737edfe"
   },
   "eligible": 12344,
   "word_entries": 11027,
@@ -20,7 +20,7 @@
     "pillow": "12.3.0",
     "unreviewed_fallback": "lazy exact original PNG"
   },
-  "data_sha256": "8c96d819034774e568c192a21157ccfd1bb0e06c8d3c7fd4acff25850253b851",
+  "data_sha256": "281329bcd057040f3290f3a2506f050e7ef9c750f5a9e5213a614de1b3afe94b",
   "bindings": [
     {
       "id": "car",
