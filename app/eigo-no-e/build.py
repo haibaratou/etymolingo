@@ -154,6 +154,11 @@ def build(root=ROOT,thumb_size=320):
         source=html.read_text(encoding='utf-8');updated,n=re.subn(r'eigo-no-e/data\.js(?:\?[^"\s]*)?',f"eigo-no-e/data.js?v={sha256(script)[:12]}",source)
         if n!=1:raise ValueError('Expected exactly one data.js reference')
         outputs['app/eigo-no-e.html']=updated.encode()
+    # 別名の入口 Pictpedia(app/pictpedia.html)も同じ data.js を読むので、版を合わせる
+    alias=root/'app/pictpedia.html'
+    if alias.exists():
+        source=alias.read_text(encoding='utf-8');updated,n=re.subn(r'eigo-no-e/data\.js(?:\?[^"\s]*)?',f"eigo-no-e/data.js?v={sha256(script)[:12]}",source)
+        if n==1:outputs['app/pictpedia.html']=updated.encode()
     return outputs,report
 
 def main():

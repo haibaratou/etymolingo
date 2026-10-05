@@ -22,6 +22,6 @@
 - [prompt_rows_026.csv](prompt_rows_026.csv)
 - [prompt_rows_027.csv](prompt_rows_027.csv)
 
-007・008・012はユーザーから完了報告あり。010は担当割当済み。013〜027は引継ぎ用で、実際の画像生成完了は別途確認する。
+007・008・010・012はユーザーから完了報告あり。
 
 CSVの存在を生成完了と混同しない。画風参照は共通の[invidious.png](../etymopedia_sample/references/invidious.png)を1枚だけ使う。CSV内の参照パス・画像名・画像保存先は変更しない。
