@@ -6,7 +6,7 @@
 CATEGORIES = [
   ('animals', '動物', 'Animals', 'cat', [
     ('pets', 'ペット・家畜', 'Pets & farm', 'dog cat puppy rabbit pet horse cow pig sheep goat lamb calf cattle hen chicken duck goose mouse rat hamster'),
-    ('wild', '野生の動物', 'Wild animals', 'lion elephant monkey wolf fox deer bear giraffe panda tiger zebra meerkat bat snake frog dinosaur kangaroo koala gorilla squirrel'),
+    ('wild', '野生の動物', 'Wild animals', 'lion elephant monkey wolf fox deer giraffe panda tiger zebra meerkat bat snake frog dinosaur kangaroo koala gorilla squirrel'),
     ('birds', '鳥', 'Birds', 'bird eagle owl crow hawk pigeon sparrow penguin parrot swan cormorant'),
     ('sea', '海・水の生き物', 'Sea life', 'fish shark octopus squid crab salmon trout eel mackerel turtle whale dolphin jellyfish prawn shellfish'),
     ('bugs', '虫', 'Bugs', 'fly insect butterfly ant spider mosquito cockroach mantis cicada worm beetle'),

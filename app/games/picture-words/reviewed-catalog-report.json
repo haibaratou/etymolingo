@@ -3,20 +3,20 @@
   "meta": {
     "schema": 2,
     "sourceWordsSha256": "7f603dd5823d755472d2382cf8a7afbbb2844c1d941318f3d584a027cb213522",
-    "scenesSha256": "acb4ab146f5d7b4afad291c75838bf685917f4565c975146c0cfa98e778653ef",
-    "indexSha256": "8f14ef961f3ff29788ff205b3af4dbb08e01f1004674f7c01b81df9d82ea8655",
-    "imageDatesSha256": "bc5c792a4c8789f72411774e1b2d46a47dc09fd26928aaec9eb6e2baf61b400b",
+    "scenesSha256": "cfb962576e54f712927899621c0bc1efcd9a75fc89932981b1a97a3397455373",
+    "indexSha256": "37788f028493da8ad72a689c2e76c09ecf5bad62c03ab443ff9401343b3c4c52",
+    "imageDatesSha256": "05956d7e06565001eab75de2e03d653b1af499ed45b5fdea039153034a524c99",
     "count": 13104,
     "wordEntryCount": 11787,
     "ownershipPendingCount": 1292,
     "descriptionCounts": {
-      "reviewed": 752,
-      "missing": 12228,
-      "held": 124
+      "reviewed": 1493,
+      "held": 147,
+      "missing": 11464
     },
     "playableCounts": {
-      "en": 11503,
-      "ja": 11527
+      "en": 11477,
+      "ja": 11501
     }
   },
   "ownership": {
@@ -28,29 +28,29 @@
     "ownershipPendingPngPaths": 1292,
     "immutableAliases": 13,
     "conflictingFiles": 15,
-    "preservedProtectedBindings": 597
+    "preservedProtectedBindings": 599
   },
-  "sceneEntries": 752,
-  "existingIdsPreserved": 261,
+  "sceneEntries": 1493,
+  "existingIdsPreserved": 262,
   "legacyIdsPreserved": 80,
-  "imageBytes": 2726809871,
+  "imageBytes": 2726764995,
   "emittedRows": 13104,
-  "lazyAssets": 752,
-  "lazyAssetBytes": 205493116,
-  "inventoryNamesSha256": "89f1c24f0aa4c760b165a3b57083c0980de76879018e7b1ea6724f49d5d1229f",
+  "lazyAssets": 1493,
+  "lazyAssetBytes": 378400967,
+  "inventoryNamesSha256": "98eabafbb9285920246647fa74d4bb67307bd408bd2cc1bbf1f9493eed2ed734",
   "inclusionPolicy": "all_observed_generated_PNGs",
   "dateGateApplied": false,
   "captionGateApplied": false,
   "posGateApplied": false,
   "exclusionCounts": {},
   "inputHashes": {
-    "app/data/generated-image-issues.json": "f232b40b69bbc4b14f8a573503f2b6b55a9a3b839fad161901f17c0a13de4adc",
-    "app/data/generated-image-legacy-ids.json": "864d1faffd3760aa74bf83a94c44ebfa53c253b6ce851ff9e8c4b3c4b1360bb0",
-    "app/data/generated_image_resolver.py": "337c59868fc8db3912f5fe5d62e522de6e7b191223880959d116ceb04a0b6441",
-    "app/data/build_generated_image_catalog.py": "653143425990d5994db35b3862a37d84c50175a1707dfd83cbccce7a3ba48027",
-    "app/games/picture-words/updated-art.json": "3fa4c8c8ba4ac61f759cd1327c151d77f70957aa1764d23bad488d9bea91c890",
-    "app/games/picture-words/build_catalog.py": "85779d250cfbfb77b7bf4194c56fdb35159774617b58181ada5897d864c3848f",
-    "app/data/puzzle-ja-answers.json": "98cceb6b96f90c71cc0f2cacf54ae6f61754bf1db2fe4a9a94f66d28d2e3bcdd"
+    "app/data/generated-image-issues.json": "1107d9d763059df6324b37ade81b6a7de42fee9b6cfd38c767370c4d58fad7de",
+    "app/data/generated-image-legacy-ids.json": "7b44746ab933c1e1390cb3b11e5f898806e9fe3482d69b96a5058c17776f9ea0",
+    "app/data/generated_image_resolver.py": "e2254d42722c48d63b008bd843b830d67fcd1312d66bd31fc4dc64ee0f8f9cf8",
+    "app/data/build_generated_image_catalog.py": "eeede4b0ec0d085a1ee8448aaed6933a1e1d3542533d31e9e89e2689925dc113",
+    "app/data/puzzle-ja-answers.json": "98cceb6b96f90c71cc0f2cacf54ae6f61754bf1db2fe4a9a94f66d28d2e3bcdd",
+    "app/games/picture-words/updated-art.json": "39603ee422b14dca3c31a90fdc725c49dc0425c44fb42c027d420fcab32ea9d7",
+    "app/games/picture-words/build_catalog.py": "42b868ac315092781f5abfcec19ed6a84670f0b390b6b0e8c150197c69a98ba8"
   },
   "ownershipPending": [
     {
@@ -8147,6 +8147,21 @@
   ],
   "issues": [
     {
+      "id": "Reading",
+      "pic": "reading",
+      "issues": [
+        {
+          "code": "image_first_sense_mismatch",
+          "detail": "The image depicts a woman portrait without a book or reading action, not 読むこと / the act of reading.",
+          "imageSha256": "0eb70520d8e6bffaa5117dad22f78dbe31d4b456a2ebf7a2655971a65437be8e",
+          "senseSha256": "d5e404ea945bb1e67a2e41eee16bcf2e7c5cf445eeb0c98d453df89dda31a8a7",
+          "issueSha256": "9eeb36ac94a8478a2cc70c8cc1244222df25dbb49ea444ff930e0d5201948ca8",
+          "scope": "play_blocking",
+          "blocksPlay": true
+        }
+      ]
+    },
+    {
       "id": "de",
       "pic": "de",
       "issues": [
@@ -8252,21 +8267,6 @@
       ]
     },
     {
-      "id": "ground",
-      "pic": "ground",
-      "issues": [
-        {
-          "code": "image_first_sense_mismatch",
-          "detail": "Two brown shoes and blue trouser legs stand on a patch of soil containing stones and grass. This depicts ground as earth. The exact ghrendh- record is the past participle of grind, ひいて粉にした / milled; no grinding or milled material is shown.",
-          "imageSha256": "0dc72e79479091bb92b63bc37fc7fc0f955abb508811e9e75b1ca123e955c2d5",
-          "senseSha256": "a7b4df99c7815911078fdbf1f38f723ed84cc2335b4117cb12ca48ff2fd55c28",
-          "issueSha256": "5837f28c264499010cac57a7eccae8317c9e2b64ed596ef55319fbb5282348b2",
-          "scope": "play_blocking",
-          "blocksPlay": true
-        }
-      ]
-    },
-    {
       "id": "English",
       "pic": "English",
       "issues": [
@@ -8297,21 +8297,6 @@
       ]
     },
     {
-      "id": "play",
-      "pic": "play",
-      "issues": [
-        {
-          "code": "image_first_sense_mismatch",
-          "detail": "Two children in ordinary casual clothes run and kick a soccer ball; motion marks appear at the ball. This specifically depicts playing a game/recreation, the secondary entry sense. The canonical first sense is 劇 / drama; there is no stage, performance, or theatrical scene.",
-          "imageSha256": "35bac9c12ec6b5000bb78aeb608be8e82a01637537a3315c4c10076d49d8ff9d",
-          "senseSha256": "af1924d778dc96ce6d3b81ce6d34fce734052efd5de365415f0c267ffa2cedb7",
-          "issueSha256": "6e4b1d71931c2d5774f39289a3f75618f7eac56b04ec3f8310a26d784df9d342",
-          "scope": "play_blocking",
-          "blocksPlay": true
-        }
-      ]
-    },
-    {
       "id": "patient",
       "pic": "patient",
       "issues": [
@@ -8336,21 +8321,6 @@
           "imageSha256": "829489ce95a61b16739354e66c57f495701a7856f352c4789244545673d7fe0c",
           "senseSha256": "a740697c4325bc49648d22dbd872fc9bbe59804fe12482e16a81787f6a0b1d1e",
           "issueSha256": "4757990403796d1c84c9d8b73c44b2f72bf6b296292d501a6bb0278204a1a964",
-          "scope": "play_blocking",
-          "blocksPlay": true
-        }
-      ]
-    },
-    {
-      "id": "key",
-      "pic": "key",
-      "issues": [
-        {
-          "code": "image_first_sense_mismatch",
-          "detail": "A large metal toothed key appears next to a yellow padlock with a keyhole. This is the lock-opening key homograph. The exact kagh- record is 小島 / islet; there is no island, land, or water.",
-          "imageSha256": "1b647748d23d6a5df6f364b76fcfc200fd3e8a4cb055c574bbbe9f5074c9f3fb",
-          "senseSha256": "3929e6dcd3436e0aae1c0a54ed5040abcc8c582d55401bb5697d38352bcd9036",
-          "issueSha256": "680b55de0a1e6012746e47c0dcb71cdacef43d57f39c33912bc526c574ecf73d",
           "scope": "play_blocking",
           "blocksPlay": true
         }
@@ -8592,43 +8562,6 @@
       ]
     },
     {
-      "id": "situation",
-      "pic": "situation",
-      "issues": [
-        {
-          "code": "visual_or_caption_ambiguity",
-          "detail": "A worried woman stands in a messy room with a dog, torn cushions, fallen objects, and spilled soil. These are concrete circumstances, but merely adding the generic label situation to any scene would not independently teach or identify the first sense. Hold rather than assert an invisible abstraction.",
-          "imageSha256": "0baf366e8d1a3d6b9c057494aef36e4a044fb81f466db86462bc61e1d5093143",
-          "senseSha256": "0d2c59802aea169e6257acedb6b1fcc1867b3f13d4d922e172d1f7936b790305",
-          "issueSha256": "1ddd6b1f4ae1f31574de6fa6887db9b4d31ce985d2b4c82c1939a0c7c178fcfa",
-          "scope": "caption_only",
-          "blocksPlay": false,
-          "scopeReview": {
-            "schema": 1,
-            "status": "reviewed",
-            "scope": "caption_only",
-            "blocksPlay": false,
-            "w": "situation",
-            "p": [
-              "tkei-"
-            ],
-            "art": "situation",
-            "imageSha256": "0baf366e8d1a3d6b9c057494aef36e4a044fb81f466db86462bc61e1d5093143",
-            "senseSha256": "0d2c59802aea169e6257acedb6b1fcc1867b3f13d4d922e172d1f7936b790305",
-            "targetIssueSha256": "1ddd6b1f4ae1f31574de6fa6887db9b4d31ce985d2b4c82c1939a0c7c178fcfa",
-            "reviewed_at": "2026-10-04T17:01:43Z",
-            "reason": "The visible set of circumstances is compatible with situation. Its abstractness and broad applicability do not justify withholding otherwise plausible image play.",
-            "evidence": {
-              "source": "Independent current-image and first-sense scope audit, 2026-10-04",
-              "reviewer": "Independent editorial reviewer",
-              "observation": "A worried woman stands in a messy room with a dog, damaged cushions, overturned flowerpot, spilled soil, a tipped cup and scattered items.",
-              "imageInspected": true
-            }
-          }
-        }
-      ]
-    },
-    {
       "id": "provided",
       "pic": "provided",
       "issues": [
@@ -8799,44 +8732,6 @@
               "source": "Independent current-image and first-sense scope audit, 2026-10-04",
               "reviewer": "Independent editorial reviewer",
               "observation": "An adult man kneels with an arm around a smiling boy who holds both hands near his chest.",
-              "imageInspected": true
-            }
-          }
-        }
-      ]
-    },
-    {
-      "id": "context",
-      "pic": "context",
-      "issues": [
-        {
-          "code": "visual_or_caption_ambiguity",
-          "detail": "A child points to yellow-highlighted lines in an open book. The remaining lines are unreadable marks, so no meaning-changing relation between passage and surrounding text can be verified. A context claim would label ordinary highlighted reading rather than establish the first linguistic sense.",
-          "imageSha256": "7e360fd2536a9e9c2816355949aacf23f7ea3b0c12dc476ee41233e80e410777",
-          "senseSha256": "f16d800920de23e9c1273eb9183ce60e6cc7e59a9c1e3c5f650148b3376e50c4",
-          "issueSha256": "7515249da7853415bfd8e9f3f7257a714166bb1e57f9b8f09524107f6db53ccd",
-          "scope": "caption_only",
-          "blocksPlay": false,
-          "scopeReview": {
-            "schema": 1,
-            "status": "reviewed",
-            "scope": "caption_only",
-            "blocksPlay": false,
-            "w": "context",
-            "p": [
-              "kom",
-              "teks-"
-            ],
-            "art": "context",
-            "imageSha256": "7e360fd2536a9e9c2816355949aacf23f7ea3b0c12dc476ee41233e80e410777",
-            "senseSha256": "f16d800920de23e9c1273eb9183ce60e6cc7e59a9c1e3c5f650148b3376e50c4",
-            "targetIssueSha256": "7515249da7853415bfd8e9f3f7257a714166bb1e57f9b8f09524107f6db53ccd",
-            "reviewed_at": "2026-10-04T17:01:43Z",
-            "reason": "A passage within surrounding text is a direct plausible context symbol. Because the text is unreadable, no specific interpretation or meaning-changing sentence is approved.",
-            "evidence": {
-              "source": "Independent current-image and first-sense scope audit, 2026-10-04",
-              "reviewer": "Independent editorial reviewer",
-              "observation": "A child points to a yellow-highlighted passage surrounded by other line-like text in an open book.",
               "imageInspected": true
             }
           }
@@ -9079,43 +8974,6 @@
           "issueSha256": "071c810cfee0ec270810de38d63e23ff01fa6ef49969584773d5ce9211176bc1",
           "scope": "play_blocking",
           "blocksPlay": true
-        }
-      ]
-    },
-    {
-      "id": "actually",
-      "pic": "actually",
-      "issues": [
-        {
-          "code": "visual_or_caption_ambiguity",
-          "detail": "A smiling man squeezes a gray porous object. The object could be a sponge or a soft rock-shaped prop; the supposed contrast between appearance and reality is not independently established.",
-          "imageSha256": "c00b77086044d1d4452746ca32ae4f98d283d74a9927dca2e4edae86105cff1b",
-          "senseSha256": "1713e3e6e70257e18187a88941edf44d47bf9d5c614403fd536d2a15f736b9fa",
-          "issueSha256": "2ca131520ff23eb237769d86596b0d93a850d8158c4f1b43287f014ac56f5b8a",
-          "scope": "caption_only",
-          "blocksPlay": false,
-          "scopeReview": {
-            "schema": 1,
-            "status": "reviewed",
-            "scope": "caption_only",
-            "blocksPlay": false,
-            "w": "actually",
-            "p": [
-              "ag-"
-            ],
-            "art": "actually",
-            "imageSha256": "c00b77086044d1d4452746ca32ae4f98d283d74a9927dca2e4edae86105cff1b",
-            "senseSha256": "1713e3e6e70257e18187a88941edf44d47bf9d5c614403fd536d2a15f736b9fa",
-            "targetIssueSha256": "2ca131520ff23eb237769d86596b0d93a850d8158c4f1b43287f014ac56f5b8a",
-            "reviewed_at": "2026-10-04T17:01:43Z",
-            "reason": "Demonstrating what an object is really like is a plausible actually/really metaphor. Whether it is a sponge or rock-shaped prop and what anyone previously believed remain unverified.",
-            "evidence": {
-              "source": "Independent current-image and first-sense scope audit, 2026-10-04",
-              "reviewer": "Independent editorial reviewer",
-              "observation": "A smiling man visibly squeezes a gray, pitted, flexible object with both hands; motion marks emphasize the deformation.",
-              "imageInspected": true
-            }
-          }
         }
       ]
     },
@@ -10196,6 +10054,21 @@
       ]
     },
     {
+      "id": "notice",
+      "pic": "notice",
+      "issues": [
+        {
+          "code": "image_first_sense_mismatch",
+          "detail": "The image shows a person with a magnifying glass, not the first sense 通知 / announcement.",
+          "imageSha256": "37868181988f1fdfb5790a8bb135ae9792f7971444058a3a6634892559d05fa4",
+          "senseSha256": "e0e0101b18494bc0c265fdc41164f9f68d6327ad1aa8cb7f56b5fd8b92654676",
+          "issueSha256": "6d7e98d9b87caac438baae2da539a1dd1141b8dc0c6d03bfae571475490b6b56",
+          "scope": "play_blocking",
+          "blocksPlay": true
+        }
+      ]
+    },
+    {
       "id": "board",
       "pic": "board",
       "issues": [
@@ -10274,6 +10147,21 @@
           "imageSha256": "e25b4d9b92ea47b528202f222df348aa3db97094d70f7a9899ddb5116e0df290",
           "senseSha256": "1a72886c95b8f0722fcac89625016e86411110c729c729769ef0599e2c499900",
           "issueSha256": "c97c4bc277b800bbb4a874b16e38d65585e194ae7b27865a93f8175e1b6daa22",
+          "scope": "play_blocking",
+          "blocksPlay": true
+        }
+      ]
+    },
+    {
+      "id": "thousand",
+      "pic": "thousand",
+      "issues": [
+        {
+          "code": "image_first_sense_mismatch",
+          "detail": "The image shows ten unlabelled circles, with no numeral or scale representing 1,000.",
+          "imageSha256": "58f51a44bf676e0ac705d9c44f09dc3550774eddc1abdb3870d7aed01cbab090",
+          "senseSha256": "24cfd1cbbbd5e92b9e2773419047dd97c7f915e1dd04e0ceaddfce5ff5d37999",
+          "issueSha256": "444f2b341f1cad840acb497b7a2553e56b95ed0700dccaa0130ca4acc2b0a667",
           "scope": "play_blocking",
           "blocksPlay": true
         }
@@ -10525,6 +10413,21 @@
       ]
     },
     {
+      "id": "tone",
+      "pic": "tone",
+      "issues": [
+        {
+          "code": "canonical_source_mismatch",
+          "detail": "The first-sense pair 音色 / pitch mixes timbre with pitch and needs source review.",
+          "imageSha256": "c60a2bf411ba87e66cf63f0ea6b4878e1c1afbe374a9e43b01eb19b54b4ad3a0",
+          "senseSha256": "dba42705618f7e2aa9b2c504d2aacab6cb80703795767c79c8b9617ada71399a",
+          "issueSha256": "cab3973874ff85248e8126cc9e10ba58f7222ef10216155e58d52df63db593d1",
+          "scope": "play_blocking",
+          "blocksPlay": true
+        }
+      ]
+    },
+    {
       "id": "north",
       "pic": "north",
       "issues": [
@@ -10536,43 +10439,6 @@
           "issueSha256": "6824b44a4344153d96453e8ea020ceea07aabb1f6462abf4ec9a780b202b1932",
           "scope": "play_blocking",
           "blocksPlay": true
-        }
-      ]
-    },
-    {
-      "id": "maximum",
-      "pic": "maximum",
-      "issues": [
-        {
-          "code": "visual_or_caption_ambiguity",
-          "detail": "A small cup, pitcher and large barrel give a size comparison, but there is no scale, limit marker or visibly exact fill limit establishing first 最大限 / utmost. Calling the barrel maximum-filled or its capacity maximal would add an unsupported bound.",
-          "imageSha256": "5778d07d7ddda57ef81246e9faa31e6d6bf084facfd5ff8c3d6de91ef6908cf3",
-          "senseSha256": "0a55ac0c92247cdf4603c85f8d8d202dbb60e6e998d5b7494f126a17762de715",
-          "issueSha256": "7d0614bdb008a60d0c4e7ae09fd94c580a34fd638d30815fc535fae4efc9bc78",
-          "scope": "caption_only",
-          "blocksPlay": false,
-          "scopeReview": {
-            "schema": 1,
-            "status": "reviewed",
-            "scope": "caption_only",
-            "blocksPlay": false,
-            "w": "maximum",
-            "p": [
-              "meg-"
-            ],
-            "art": "maximum",
-            "imageSha256": "5778d07d7ddda57ef81246e9faa31e6d6bf084facfd5ff8c3d6de91ef6908cf3",
-            "senseSha256": "0a55ac0c92247cdf4603c85f8d8d202dbb60e6e998d5b7494f126a17762de715",
-            "targetIssueSha256": "7d0614bdb008a60d0c4e7ae09fd94c580a34fd638d30815fc535fae4efc9bc78",
-            "reviewed_at": "2026-10-04T17:01:43Z",
-            "reason": "The greatest quantity/capacity among the shown options plausibly symbolizes maximum/utmost. No exact fill limit or globally largest container is asserted.",
-            "evidence": {
-              "source": "Independent current-image and first-sense scope audit, 2026-10-04",
-              "reviewer": "Independent editorial reviewer",
-              "observation": "A small cup, a medium pitcher and a much larger water-filled barrel form a clear three-size comparison.",
-              "imageInspected": true
-            }
-          }
         }
       ]
     },
@@ -10687,6 +10553,21 @@
       ]
     },
     {
+      "id": "spot",
+      "pic": "spot",
+      "issues": [
+        {
+          "code": "image_first_sense_mismatch",
+          "detail": "The image depicts a stain or mark on cloth, not the first sense 場所 / place.",
+          "imageSha256": "c4ce24d3ceb0106f48874667a66bcdcfaa15affc855c110f8beee8dbe553e31b",
+          "senseSha256": "9a3e0f97f9ec98aebb62f1ea23850e189306c22e97b51f2d5b7db35faff10eec",
+          "issueSha256": "8cec3c91de0e6cb0030a67f668aa55868ea05205437859bf45a369f9c1e7d760",
+          "scope": "play_blocking",
+          "blocksPlay": true
+        }
+      ]
+    },
+    {
       "id": "bag",
       "pic": "bag",
       "issues": [
@@ -10696,6 +10577,21 @@
           "imageSha256": "b5203504ec863bd2019b8b82e89756df9a08a9ef68112bbe400308d69a156111",
           "senseSha256": "cf60375cc1dcd8c31ed2bf6248f2cc61e79936748a2abc812f3a71017fdd631a",
           "issueSha256": "903fa24d344f5a3dad80dc0fbffa0257be81b15c1b702d49c026ee31824a6cb8",
+          "scope": "play_blocking",
+          "blocksPlay": true
+        }
+      ]
+    },
+    {
+      "id": "station",
+      "pic": "station",
+      "issues": [
+        {
+          "code": "image_first_sense_mismatch",
+          "detail": "The image shows a train without a station or depot.",
+          "imageSha256": "1ead498dcd63d1ba20a342d58a991a4d68f0d3f2bc0c522a88ee31373193a6c1",
+          "senseSha256": "1d8099576d7400bbe8079ea48944f101aaacdeab227f19475dec64d1a6adda28",
+          "issueSha256": "e906d640b9d596d9dc32e0d1ae006e3aafbd2dbe04965e92f5fd551f649396a4",
           "scope": "play_blocking",
           "blocksPlay": true
         }
@@ -10717,6 +10613,36 @@
       ]
     },
     {
+      "id": "screen",
+      "pic": "screen",
+      "issues": [
+        {
+          "code": "image_first_sense_mismatch",
+          "detail": "The image shows an electronic display, not the first sense ついたて / partition.",
+          "imageSha256": "25d4531770212a102abf0376c037d17f8b6870d4da51b7d9aa1dba0e33ad6685",
+          "senseSha256": "24710de9ff2bcac1c3a404fe7e7254ee6c6d3420b28201ed1e56582663c3e1c1",
+          "issueSha256": "bc8a2a6a9be322fe0dacfec678b8f2baf5f7c66b9287e6a010c7f30ba5d32688",
+          "scope": "play_blocking",
+          "blocksPlay": true
+        }
+      ]
+    },
+    {
+      "id": "drop",
+      "pic": "drop",
+      "issues": [
+        {
+          "code": "image_first_sense_mismatch",
+          "detail": "The image shows keys falling from a hand, not the liquid noun しずく / drip.",
+          "imageSha256": "24650b9f49de7b174705d07e2f4442e3920bfc5339c3192e1d6563efa264de96",
+          "senseSha256": "7e8c4e3328f0377a8240f0953c0f0712bf8b5d37d3851ff73b48469802da2c7e",
+          "issueSha256": "61a5b8bad1277703013c2624723350b175b2574efb1dd6bf1a8181a7db5a9b9d",
+          "scope": "play_blocking",
+          "blocksPlay": true
+        }
+      ]
+    },
+    {
       "id": "cool",
       "pic": "cool",
       "issues": [
@@ -10732,6 +10658,36 @@
       ]
     },
     {
+      "id": "hall",
+      "pic": "hall",
+      "issues": [
+        {
+          "code": "image_first_sense_mismatch",
+          "detail": "The image depicts a narrow corridor, not the first sense ホール / auditorium.",
+          "imageSha256": "1c8540351aad9a6cbf472ce9ec8580fb9ce946adf2679df40231dd1a58cca24c",
+          "senseSha256": "a994c11d47ce6ea3256eede55bc79f4ef035712696f4d8b2acbdc9156729eac1",
+          "issueSha256": "95d8e119adb964be9f8babf6fe095b36733057a28232cc183381e7d65780b724",
+          "scope": "play_blocking",
+          "blocksPlay": true
+        }
+      ]
+    },
+    {
+      "id": "regulation",
+      "pic": "regulation",
+      "issues": [
+        {
+          "code": "image_first_sense_mismatch",
+          "detail": "The image depicts adjusting a water valve, not the first sense 規則 / rule.",
+          "imageSha256": "9ad4cc04d5460e90351fe67eaa3aa8b1de65e98140d2f290346bd15fcc6c4241",
+          "senseSha256": "8f2bc3820b3f7eca842be245587a5f339eab5e00a93c8593622f65b697b5b9e2",
+          "issueSha256": "c16905c9caac05741f6614b0fad579ce60487fa2b44cc5ed0cf49f502ede308e",
+          "scope": "play_blocking",
+          "blocksPlay": true
+        }
+      ]
+    },
+    {
       "id": "lights",
       "pic": "lights",
       "issues": [
@@ -10741,6 +10697,276 @@
           "imageSha256": "3d30d0f68050aa340c75ee8912d61d2508d15711239dc9fc85708f0c53ee319e",
           "senseSha256": "602761252b4a80af5003bafd96d4908ddfe4ae749c0b83274b7aee4da8ca4114",
           "issueSha256": "90968b53fea2760e3a03cbbe5ec01a593b09a7a3625bd091627264d5ab9ce225",
+          "scope": "play_blocking",
+          "blocksPlay": true
+        }
+      ]
+    },
+    {
+      "id": "bought",
+      "pic": "bought",
+      "issues": [
+        {
+          "code": "canonical_source_mismatch",
+          "detail": "The verb bought is paired with the shop noun 店 / store; this first-sense pairing needs source review.",
+          "imageSha256": "4d100d9a6e7a5f99fb8e3927f7b6b89da2fa99f1275a85dd811dc210d678a7d9",
+          "senseSha256": "6e10bfce9a330dd40dc401d1374770133f6fcbd5319a0651df5d6e89eb98834b",
+          "issueSha256": "11ece99b9b8fbbdec0fe43a4b8b2218197c23f2fb25c21a32a1c30fb60970222",
+          "scope": "play_blocking",
+          "blocksPlay": true
+        }
+      ]
+    },
+    {
+      "id": "channel",
+      "pic": "channel",
+      "issues": [
+        {
+          "code": "image_first_sense_mismatch",
+          "detail": "The image shows a metal U-section, not the first sense 海峡 / strait.",
+          "imageSha256": "6fd0cc5755a69588feedf33a95bfc17a4e492c73839223c83c1531eb94058d77",
+          "senseSha256": "01cbe8dd91632c8c77a10e57dd9ea9b28a99672800fe652666158cdd4e67f681",
+          "issueSha256": "e305211cbc300a7a208164a14efee8135e8002d251535f8ee0bbe8d98b8bd9fd",
+          "scope": "play_blocking",
+          "blocksPlay": true
+        }
+      ]
+    },
+    {
+      "id": "card",
+      "pic": "card",
+      "issues": [
+        {
+          "code": "image_first_sense_mismatch",
+          "detail": "The image depicts a paper card, not the first sense すきぐし / wool comb.",
+          "imageSha256": "f5e9f74680aed1db2ad2a55d7d7c3c20e42f838a5d199189262cb4ed1c726be8",
+          "senseSha256": "e7a6af4b8eb98eba1846b5956b4374e6bdfc87c560cb8f07518667b101ac7b7e",
+          "issueSha256": "192ec84225179aa5baa63c719ad737dbe6aabe37910228094dcca5430e4af8cf",
+          "scope": "play_blocking",
+          "blocksPlay": true
+        }
+      ]
+    },
+    {
+      "id": "hung@x",
+      "pic": "hung@x",
+      "issues": [
+        {
+          "code": "image_first_sense_mismatch",
+          "detail": "The image shows a suspended crate, not the first sense 結論の出ない / unable to reach a decision.",
+          "imageSha256": "c775900a78674145138c3543a33f56dce28eafd2b53cd76d450ca8083b0d102f",
+          "senseSha256": "3cf42985a5eb98886b4c89d566e0988e9a20f1fb86d2729ea47a3339dc602ae0",
+          "issueSha256": "6112594b4284896fe45afc338792f9a6d52a952b2174a88ee8393f960ba2df08",
+          "scope": "play_blocking",
+          "blocksPlay": true
+        }
+      ]
+    },
+    {
+      "id": "composed",
+      "pic": "composed",
+      "issues": [
+        {
+          "code": "image_first_sense_mismatch",
+          "detail": "The image depicts a skull-marked bottle, with no visible cue for 落ち着いた / calm.",
+          "imageSha256": "a4e4f273d67791e12bed79b3e0dfaef3a7a2723732aefa67eaac85f6ec80b913",
+          "senseSha256": "49b26017c89ed89b635e1723ae3e19192aef398035f217ba750e78a126c0b8b3",
+          "issueSha256": "c973d7f2cdc1c4cd233e0e60fa9408ed13e57c9c52dc3f8e04b1eafff93334ee",
+          "scope": "play_blocking",
+          "blocksPlay": true
+        }
+      ]
+    },
+    {
+      "id": "depression",
+      "pic": "depression",
+      "issues": [
+        {
+          "code": "image_first_sense_mismatch",
+          "detail": "The cartoon depicts a smiling meditation or prayer emblem, without a visual cue for the first sense 憂鬱 / gloom.",
+          "imageSha256": "7f4378d423ff63dcd69b33b31ad946926bd1e3542bd9991033922ef838358470",
+          "senseSha256": "922067183f6bd7334816868b7bef31b6b25449606c1931403cb0f1000dd58b1b",
+          "issueSha256": "7c8d74c9488fe399e747842a2803d1bf3021327ce653a7ac7cfe6e4e4fc9218b",
+          "scope": "play_blocking",
+          "blocksPlay": true
+        }
+      ]
+    },
+    {
+      "id": "ethical",
+      "pic": "ethical",
+      "issues": [
+        {
+          "code": "image_composition_defect",
+          "detail": "The balance-scale symbol is substantially cropped and incomplete, with detached elements.",
+          "imageSha256": "bb1680bf9b57f6076435e655edf79265036bee0847bb0e941382a9a627ddf3d0",
+          "senseSha256": "0a3615774b1f706d80686d7c162f16b9a35525371c6e2e908139b1c7dfd49dd0",
+          "issueSha256": "70e32814f8d750651e1346b047daab9417c6a95785c600d7e85f557434e12ac8",
+          "scope": "play_blocking",
+          "blocksPlay": true
+        }
+      ]
+    },
+    {
+      "id": "fifty",
+      "pic": "fifty",
+      "issues": [
+        {
+          "code": "image_composition_defect",
+          "detail": "The number-bearing disk is cropped, so the complete numeral 50 is not visible.",
+          "imageSha256": "a818e1441aea33687bd15c6d5305e4de8347e6d8df29e960aa4d78e1849bba89",
+          "senseSha256": "439c11ecdcae68346f80bb6c30bd6ebdf7039e31d10703acfa93be68901d5a9f",
+          "issueSha256": "7adecfe2ab4b35023bc4b5bd43204efdc463555b98215be719ebd52209246d11",
+          "scope": "play_blocking",
+          "blocksPlay": true
+        }
+      ]
+    },
+    {
+      "id": "sub",
+      "pic": "sub",
+      "issues": [
+        {
+          "code": "image_first_sense_mismatch",
+          "detail": "The image depicts a submarine, not the first sense 補欠 / stand-in.",
+          "imageSha256": "89b5dec5dcb804ee6e8b107859458f1ff50093e79c9e444206fde14ca8a1e25f",
+          "senseSha256": "1774935225b9bce4ea59bcacc9380718735cb76f38ec3585591579ad0d09d220",
+          "issueSha256": "08d4d517388f8774291768ed10b636fb43a4f8b075271f97b7a779350a643ccb",
+          "scope": "play_blocking",
+          "blocksPlay": true
+        }
+      ]
+    },
+    {
+      "id": "forty",
+      "pic": "forty",
+      "issues": [
+        {
+          "code": "image_first_sense_mismatch",
+          "detail": "The image contains 39 cars rather than 40, with no other representation of forty.",
+          "imageSha256": "190f7f944a8a6d04e96fdf9e17af5d4624cae0251713825cda4dbeab18152f4d",
+          "senseSha256": "eab2dc6f9db97705856b3d37397f6495c82e61c71a4dcb2e914a679f1c6ea27f",
+          "issueSha256": "bce4aa0a91fab72015139f81bdfae8859dc0c3d35cf351ac78ecda9da4d746ee",
+          "scope": "play_blocking",
+          "blocksPlay": true
+        }
+      ]
+    },
+    {
+      "id": "twelve",
+      "pic": "twelve",
+      "issues": [
+        {
+          "code": "image_first_sense_mismatch",
+          "detail": "The image shows nine circles in a three-by-three grid rather than twelve.",
+          "imageSha256": "0434d82d4caa58e77033bfed01a0b46bdad756ca08e2d61115f035f285b0a75f",
+          "senseSha256": "b70d89ca7b360de5847e5040b1493c53f87279be13bd1bda3b75c17cb20b7047",
+          "issueSha256": "0862bfee47cb412a4770a0501a60529f0249656fe3248edcf37849404e2e882a",
+          "scope": "play_blocking",
+          "blocksPlay": true
+        }
+      ]
+    },
+    {
+      "id": "superior",
+      "pic": "superior",
+      "issues": [
+        {
+          "code": "image_first_sense_mismatch",
+          "detail": "The image depicts an eye, with no higher-rank or senior relationship.",
+          "imageSha256": "13b6c59a83c16294f5a25825e8cbbc1e22464ac97f88c79196d177305b079265",
+          "senseSha256": "4fceda506caa8bdd0fc6542338c0d6c0a822244d70b61c143adf99ab6719d7b4",
+          "issueSha256": "1817cb249c9cf58952dbcb76a3cfadb207c4857820e1b2bae1ebe692f72300e1",
+          "scope": "play_blocking",
+          "blocksPlay": true
+        }
+      ]
+    },
+    {
+      "id": "Joe",
+      "pic": "Joe",
+      "issues": [
+        {
+          "code": "canonical_source_mismatch",
+          "detail": "Capitalized Joe and Japanese ジョー are paired with English coffee; the name and coffee senses need source review.",
+          "imageSha256": "30841f80a262ab161400e653d56d4ecbf9e00d72992a229c5bd4fadf2ebc4e8e",
+          "senseSha256": "a6af0d06fff38d43598bab5e6f76c17e10d290ca76f46a84dee7ad47a090a2a1",
+          "issueSha256": "ff9d81bed16c1b3ce51eac041ce6242002edc13c75bb8cf2bd62e1d107cf61e9",
+          "scope": "play_blocking",
+          "blocksPlay": true
+        }
+      ]
+    },
+    {
+      "id": "miss",
+      "pic": "miss",
+      "issues": [
+        {
+          "code": "image_first_sense_mismatch",
+          "detail": "The image shows a visible sprout under a magnifying glass, with no missed object or failed contact.",
+          "imageSha256": "0d79f136724a4d08542ef4e4a717bbee38bce24b5f71e6585eff1caa83c5b166",
+          "senseSha256": "8c25c6d3b0e5ea3cf6988b293238715c397b88ab472b82cb0da00a153f0f25b1",
+          "issueSha256": "e78bc84942ef66d06b850703bd9a69f191d9a2d5c3306a101d8cc77b25dba6e2",
+          "scope": "play_blocking",
+          "blocksPlay": true
+        }
+      ]
+    },
+    {
+      "id": "admitted",
+      "pic": "admitted",
+      "issues": [
+        {
+          "code": "image_first_sense_mismatch",
+          "detail": "The image depicts being allowed to enter, not the first sense 認めた / acknowledged.",
+          "imageSha256": "5c895c6584cdb2aeac6a23336941fb1c986841d923dd380a6401843007fff874",
+          "senseSha256": "03bc436b71c10dca604bce40ebdcbc11974d7879801a7575006194c8b13ed933",
+          "issueSha256": "1794180ceb4de572b2b71186322f95bd5c5498e293c70a0d7a6113606e2bb5e1",
+          "scope": "play_blocking",
+          "blocksPlay": true
+        }
+      ]
+    },
+    {
+      "id": "billion",
+      "pic": "billion",
+      "issues": [
+        {
+          "code": "image_first_sense_mismatch",
+          "detail": "The image depicts buildings without a numeral or scale representing 1,000,000,000.",
+          "imageSha256": "f8c3b8c25c9feb71d51cd656797532d5eacbeab357f05e3e8f6f66ffc427308b",
+          "senseSha256": "e12feff97d2e9619d64051de76d7d666ce40c8a59f3d948abab0f399d850c476",
+          "issueSha256": "24af370eb8417bc65fcf0aaacf7ebbd321875e81bce9612099a2f5f0684f9226",
+          "scope": "play_blocking",
+          "blocksPlay": true
+        }
+      ]
+    },
+    {
+      "id": "sub-",
+      "pic": "sub-",
+      "issues": [
+        {
+          "code": "canonical_source_mismatch",
+          "detail": "The hyphenated prefix sub- is paired with noun POS and 代理人 / substitute; its form and sense need source review.",
+          "imageSha256": "42cbfd9365799526ba0416f77dca33f81721b3c29e70b097dfd4fee596e3b136",
+          "senseSha256": "ad86b5c726c48781a3b38f7cea0b734d51119eb2c9d134128c412129f5be2730",
+          "issueSha256": "147d10c3172c4d3217454d8d4b72617d3dc4da436d2eb41de858e9b612451448",
+          "scope": "play_blocking",
+          "blocksPlay": true
+        }
+      ]
+    },
+    {
+      "id": "Frank_cap",
+      "pic": "Frank_cap",
+      "issues": [
+        {
+          "code": "canonical_source_mismatch",
+          "detail": "The noun Frank is paired with Japanese adjective 率直な and English Westerner; the first-sense pairing needs source review.",
+          "imageSha256": "9b28091357bc85b596f59960eb0615302e495f4b2614533cc2b7e722e108edb4",
+          "senseSha256": "fcff3b72e5c87d33ced1ee2ca4042e6609c5f1613fe941cd32c0a30e6a272710",
+          "issueSha256": "7d20aeefb52636e8099785f028633b39a272edc91524e04efc4afec3ecaa4365",
           "scope": "play_blocking",
           "blocksPlay": true
         }
@@ -10786,6 +11012,36 @@
           "imageSha256": "d75c1e1e0f2f0d0c0178a385cd11038a34b46207f7ff3e2fa04a83c1f4618a73",
           "senseSha256": "24b0f6c89598b82262c253bd292798053ce582ebbf78007587c261179efee6e9",
           "issueSha256": "2fe6dd968fc358a004b668e5f486905e497a33a60f37ae4b496cf95c0c268430",
+          "scope": "play_blocking",
+          "blocksPlay": true
+        }
+      ]
+    },
+    {
+      "id": "a@an",
+      "pic": "a@an",
+      "issues": [
+        {
+          "code": "canonical_source_mismatch",
+          "detail": "The prepositional first sense 〜につき / per is paired with the separate article meaning one; the source pairing needs review.",
+          "imageSha256": "ca041b05881fa8a47b8431b69a5ce84d751f74e78fa2cabad75fbf53b9306c64",
+          "senseSha256": "4e4b4f7e3f4ef609a0af9f7a2ffa32898b62810334175c2e2346acd295da842d",
+          "issueSha256": "1cef828f4496582e66f1b9db58761b6543e37bdb9ae6ccbc7ac7d15764b0cfc1",
+          "scope": "play_blocking",
+          "blocksPlay": true
+        }
+      ]
+    },
+    {
+      "id": "a@apo",
+      "pic": "a@apo",
+      "issues": [
+        {
+          "code": "canonical_source_mismatch",
+          "detail": "The prepositional first sense 〜の / of is paired with the separate article meaning one; the source pairing needs review.",
+          "imageSha256": "4e1ea3cb660557e38c4a69e6c817475113463d927301d3428febf7cb18ac4307",
+          "senseSha256": "145da645af6fe5a271217764fa7d862179496477b4cadcdcb3e001ff994c1626",
+          "issueSha256": "adc17134a62dace4bf529af36237d3512738f3c9c47303b59ccfa1b55122f83f",
           "scope": "play_blocking",
           "blocksPlay": true
         }

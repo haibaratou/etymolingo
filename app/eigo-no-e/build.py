@@ -112,6 +112,7 @@ def render_thumbnail(raw,size):
 def build(root=ROOT,thumb_size=320):
     root=Path(root);sys.path.insert(0,str(root/'app/data'))
     from build_generated_image_catalog import build_catalog_rows
+    from semantic_classifications import apply_to_catalog
     game_rows,meta,packs,common=build_catalog_rows(root,include_packs=False)
     rows=[];thumb_outputs={};bindings=[]
     for g in game_rows:
@@ -135,6 +136,13 @@ def build(root=ROOT,thumb_size=320):
         rows.append(row);bindings.append({'id':g['id'],'art':g['pic'],'image_path':image['path'],'image_sha256':image['sha256'],'image_git_blob':image['git_blob_sha'],'thumbnail_path':row['thumb']['path'],'thumbnail_sha256':row['thumb']['sha256']})
     rows.sort(key=lambda r:(r['bindingStatus']!='bound',r['r'],r['w'],r['art']))
     primary=[r for r in rows if r['bindingStatus']=='bound'];cats=category_memberships(primary)
+    semantic_path=root/'app/data/generated-etymon/semantic-classifications.json'
+    semantic_raw=semantic_path.read_bytes();semantic_payload=json.loads(semantic_raw)
+    source_manifest=json.loads((root/'app/data/generated-etymon/manifest.json').read_bytes())
+    if source_manifest['files']['semantic_classifications']['sha256']!=sha256(semantic_raw):raise ValueError('Stale semantic source manifest')
+    canonical_words=json.loads((root/'app/data/generated-etymon/words.json').read_bytes())
+    primary,cats=apply_to_catalog(primary,cats,semantic_payload,canonical_words)
+    primary_by_id={r['id']:r for r in primary};rows=[primary_by_id.get(r['id'],r) for r in rows]
     art_ids={r['art']:r['id'] for r in rows}
     for cat in cats:cat['icon']=art_ids.get(cat['icon'],cat['icon'])
     asset_subs=[]
@@ -142,10 +150,10 @@ def build(root=ROOT,thumb_size=320):
         members=[r for r in rows if r['c']==['assets/'+sid]]
         if members:asset_subs.append({'id':sid,'ja':ja,'en':en,'n':len(members)})
     if asset_subs:cats.append({'id':'assets','ja':'画像の確認','en':'Image records','icon':next(r['id'] for r in rows if r['bindingStatus']!='bound'),'subs':asset_subs})
-    sources={'words_sha256':meta['sourceWordsSha256'],'scenes_sha256':meta['scenesSha256'],'illustration_index_sha256':meta['indexSha256'],'image_dates_sha256':meta.get('imageDatesSha256')}
+    sources={'words_sha256':meta['sourceWordsSha256'],'scenes_sha256':meta['scenesSha256'],'illustration_index_sha256':meta['indexSha256'],'image_dates_sha256':meta.get('imageDatesSha256'),'semantic_classifications_sha256':sha256(semantic_raw)}
     data={'schema':4,'build_version':4,'total_art':len(rows),'word_entry_count':len(primary),'distinct_word_count':len({r['w'] for r in primary}),
           'ownership_pending_count':sum(r['bindingStatus']=='ownership_pending' for r in rows),'alternate_image_count':sum(r['bindingStatus']=='alternate' for r in rows),
-          'description_counts':meta['descriptionCounts'],'playable_counts':meta['playableCounts'],'sources':sources,'categories':cats,'words':rows}
+          'description_counts':meta['descriptionCounts'],'playable_counts':meta['playableCounts'],'sources':sources,'categories':cats,'words':rows,'semanticClassifications':semantic_payload}
     script=('// Generated image-complete Pictpedia snapshot. Missing descriptions remain explicit.\nwindow.EIGO_NO_E='+compact(data)+';\n').encode()
     report={'schema':2,'build_version':4,'sources':sources,'eligible':len(rows),'word_entries':len(primary),'input_scenes':common['sceneEntries'],'excluded':[],'categories':len(cats),'unclassified':sum(r['c']==['more/words'] for r in rows),'thumbnail':{'size':thumb_size,'quality':82,'method':4,'pillow':PILLOW_VERSION,'unreviewed_fallback':'lazy exact original PNG'},'data_sha256':sha256(script),'bindings':bindings,'ownership':common['ownership'],'description_counts':meta['descriptionCounts'],'playable_counts':meta['playableCounts']}
     outputs={'app/eigo-no-e/data.js':script,'app/eigo-no-e/build-manifest.json':(json.dumps(report,ensure_ascii=False,indent=2)+'\n').encode(),**thumb_outputs}

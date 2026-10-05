@@ -4912,6 +4912,21 @@
         "ja": "加える",
         "en": "append"
       }
+    },
+    {
+      "id": "Reading",
+      "en": "Reading",
+      "pic": "reading",
+      "roots": [],
+      "w": "",
+      "ja": "読むこと",
+      "dictionaryIndex": 47910,
+      "sceneBinding": {
+        "w": "Reading",
+        "p": [],
+        "ja": "読むこと",
+        "en": "the act of reading"
+      }
     }
   ]
 }

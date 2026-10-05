@@ -40,17 +40,28 @@ test('all rows keep image eligibility; captions separately require exact reviewe
  const original=rows.find(row=>gate.validCaption(row));
  for(const mutate of [row=>delete row.reviewedScene,row=>row.reviewedScene.status='pending',row=>row.reviewedScene.scene.en='',row=>row.reviewedScene.p=['wrong']]){const row=plain(original);mutate(row);assert.equal(gate.validRow(row),true);assert.equal(gate.validCaption(row),false);}
 });
-test('correct-answer narration uses the verified sentence synchronously before reward timers',()=>{
- const start=game.indexOf('  function win() {'),end=game.indexOf("    $('rankUp').hidden",start);
- assert.ok(start>=0&&end>start);const prefix=game.slice(start,end)+'\n  }';
- for(const mode of ['en','ja']){
-  const calls=[],entry={id:'book'},roundScene={status:'reviewed',playable:true,ttsAllowed:true,entry:{scene:{en:'An open book.',ja:'開いた本。'}}};
-  const c={entry,roundScene,mode,speech:{speakScene:(...args)=>calls.push(args)}};
-  vm.runInNewContext(prefix,c);c.win();assert.equal(calls.length,1);assert.deepEqual(calls[0],[entry,roundScene,mode]);
-  c.roundScene=null;c.win();assert.equal(calls.length,1);
-  c.roundScene={status:'unavailable'};c.win();assert.equal(calls.length,1);
+test('correct-answer narration waits for the fanfare and cancels when the solved picture is no longer active',()=>{
+ const winStart=game.indexOf('  function win() {'),start=game.indexOf("    if (roundScene.status === 'reviewed' && roundScene.ttsAllowed === true) {",winStart),end=game.indexOf('    queueAdvance(',start);
+ const timerStart=game.indexOf('  const later = '),timerEnd=game.indexOf('  const icon = ',timerStart);
+ assert.ok(winStart>=0&&start>winStart&&end>start&&timerEnd>timerStart);
+ const schedule=game.slice(timerStart,timerEnd)+'\nthis.clearNarration=clearPending;\nfunction scheduleNarration(){if(!roundScene?.playable)return;\n'+game.slice(start,end)+'\n}';
+ function setup(mode,scenario={recordKind:'independent',milestone:false,combo:1,award:{pageCompleted:false}}){
+  const calls=[],timers=new Map(),entry={id:'book'},roundScene={status:'reviewed',playable:true,ttsAllowed:true,entry:{scene:{en:'An open book.',ja:'開いた本。'}}};let serial=0;
+  const c={entry,roundScene,mode,phase:'solved',document:{hidden:false},saved:{sound:true},generation:0,pending:new Set(),feedbackTimer:0,COMBO_STEP:5,...scenario,speech:{speakScene:(...args)=>calls.push(args)},setTimeout:(fn,ms)=>{timers.set(++serial,{fn,ms});return serial;},clearTimeout:id=>timers.delete(id)};
+  vm.runInNewContext(schedule,c);return {c,calls,timers,entry,roundScene};
  }
- assert.doesNotMatch(prefix,/await|later\(|setTimeout\(|explanationFor\(/);
+ for(const mode of ['en','ja']){
+  for(const [scenario,delay] of [[{recordKind:'independent',milestone:false,combo:1,award:{pageCompleted:false}},1400],[{recordKind:'independent',milestone:true,combo:5,award:{pageCompleted:false}},2700],[{recordKind:'independent',milestone:false,combo:1,award:{pageCompleted:true}},2700],[{recordKind:'assisted',milestone:true,combo:5,award:{pageCompleted:false}},2050]]){
+   const x=setup(mode,scenario);x.c.scheduleNarration();assert.equal(x.calls.length,0);assert.equal(x.timers.size,1);const timer=[...x.timers.values()][0];assert.equal(timer.ms,delay);timer.fn();assert.equal(x.calls.length,1);assert.deepEqual(x.calls[0],[x.entry,x.roundScene,mode]);
+  }
+  for(const cancel of [c=>c.phase='playing',c=>c.document.hidden=true,c=>c.saved.sound=false,c=>c.generation++]){
+   const x=setup(mode);x.c.scheduleNarration();cancel(x.c);[...x.timers.values()][0].fn();assert.equal(x.calls.length,0);
+  }
+  const cleared=setup(mode);cleared.c.scheduleNarration();cleared.c.clearNarration();assert.equal(cleared.timers.size,0);assert.equal(cleared.calls.length,0);
+  for(const result of [null,{status:'unavailable',playable:false},{status:'missing',playable:true,ttsAllowed:false},{status:'held',playable:true,ttsAllowed:false},{status:'reviewed',playable:true,ttsAllowed:false}]){
+   const x=setup(mode);x.c.roundScene=result;x.c.scheduleNarration();assert.equal(x.timers.size,0);assert.equal(x.calls.length,0);
+  }
+ }
 });
 
 test('word audio is enabled during play independently of description readiness and automatic sound',()=>{

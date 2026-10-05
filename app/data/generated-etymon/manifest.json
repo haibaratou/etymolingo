@@ -40,9 +40,9 @@
     },
     "illustration_scenes": {
       "file": "illustration-scenes.json",
-      "bytes": 699288,
-      "count": 752,
-      "sha256": "acb4ab146f5d7b4afad291c75838bf685917f4565c975146c0cfa98e778653ef"
+      "bytes": 1739024,
+      "count": 1493,
+      "sha256": "cfb962576e54f712927899621c0bc1efcd9a75fc89932981b1a97a3397455373"
     },
     "word_suika_words": {
       "file": "word-suika-words.json",
@@ -59,6 +59,12 @@
       "file": "eo/*.json",
       "bytes": 21243040,
       "count": 27
+    },
+    "semantic_classifications": {
+      "file": "semantic-classifications.json",
+      "bytes": 2617,
+      "count": 2,
+      "sha256": "1924e89f321178ca63e149427afb81d6c37c6d2e5ed368fb73b41985d24bca64"
     }
   }
 }

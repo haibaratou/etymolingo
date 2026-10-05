@@ -41,12 +41,13 @@
     if(language==='en') return a.answer===word.en && /^[A-Za-z]{1,14}$/.test(a.answer);
     return language==='ja' && a.answer===word.w && /^[ぁ-ゔー]{1,14}$/.test(a.answer);
   }
-  function unavailableReason(word,language) {
+  function unavailableReason(word,language,displayLanguage=language) {
     if(supportsLanguage(word,language)) return '';
     if (word?.bindingStatus === 'ownership_pending') return '画像の対応確認中';
     const reason=word?.availability?.[language]?.reason;
-    const labels={unsupported_english_answer_format:'このつづりの形式は未対応です',unsupported_japanese_answer_length:'この読みの文字数は未対応です',reading_candidate:'日本語の読みは未確認です',reading_needs_review:'日本語の読みは未確認です',reading_missing:'日本語の読みは未確認です',image_first_sense_mismatch:'画像と第一語義の対応を確認中です',visual_or_caption_ambiguity:'画像の内容を確認中です',canonical_source_mismatch:'辞書データの対応を確認中です',owned_alternate_or_superseded:'別の画像・旧版のため出題対象外です',immutable_revision_alias:'保存用の画像のため出題対象外です',unsupported_format:'このつづりの形式は未対応です',reading_unreviewed:'日本語の読みは未確認です',first_reading_unavailable:'日本語の読みは未確認です',known_image_mismatch:'画像と語義の対応を確認中です',image_meaning_mismatch:'画像と語義の対応を確認中です',ownership_pending:'画像と単語の対応を確認中です',alternate:'別画像のため出題対象外です'};
-    return labels[reason] || (language==='ja'?'日本語の読みは未確認です':'この画像の出題は確認中です');
+    if(reason==='image_composition_defect')return displayLanguage==='ja'?'画像の構図を確認中':'Image composition is under review';
+    const labels={__proto__:null,unsupported_english_answer_format:'このつづりの形式は未対応です',unsupported_japanese_answer_length:'この読みの文字数は未対応です',reading_candidate:'日本語の読みは未確認です',reading_needs_review:'日本語の読みは未確認です',reading_missing:'日本語の読みは未確認です',image_first_sense_mismatch:'画像と第一語義の対応を確認中です',visual_or_caption_ambiguity:'画像の内容を確認中です',canonical_source_mismatch:'辞書データの対応を確認中です',owned_alternate_or_superseded:'別の画像・旧版のため出題対象外です',immutable_revision_alias:'保存用の画像のため出題対象外です',unsupported_format:'このつづりの形式は未対応です',reading_unreviewed:'日本語の読みは未確認です',first_reading_unavailable:'日本語の読みは未確認です',known_image_mismatch:'画像と語義の対応を確認中です',image_meaning_mismatch:'画像と語義の対応を確認中です',ownership_pending:'画像と単語の対応を確認中です',alternate:'別画像のため出題対象外です'};
+    return labels[reason] || (displayLanguage==='ja'?'この問題は現在利用できません':'This puzzle is currently unavailable');
   }
   const filterCatalog = words => {
     const ids=new Map(); for(const word of words) ids.set(word?.id,(ids.get(word?.id)||0)+1);

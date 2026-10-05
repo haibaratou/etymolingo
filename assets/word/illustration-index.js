@@ -595,5 +595,7 @@ globalThis.ETYMON_WORD_ART = {
   "[\"mean\",\"medhyo-\"]": "mean@medhyo",
   "[\"ways\",\"wegh-\"]": "ways@wegh",
   "[\"mean\",\"mei-no-\"]": "mean@meino",
-  "[\"ways\",\"\"]": "ways@x"
+  "[\"ways\",\"\"]": "ways@x",
+  "[\"bear\",\"bher-1\"]": "bear@bher1",
+  "[\"bear\",\"bher-3\"]": "bear@bher3"
 };

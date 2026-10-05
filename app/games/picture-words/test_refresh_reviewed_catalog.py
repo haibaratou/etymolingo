@@ -17,6 +17,7 @@ class ProducerTests(unittest.TestCase):
    (self.root/f'assets/word/{art}.png').write_bytes(png);self.images[art]={'path':f'assets/word/{art}.png','sha256':C.digest(png),'git_blob_sha':C.blob(png)}
   (self.root/'assets/word/illustration-index.js').write_text('globalThis.ETYMON_WORD_ART = '+json.dumps({'["I","eg"]':'i'})+';')
   g=self.root/R.GAME;g.mkdir(parents=True);(g/'build_catalog.py').write_text('LEDGER_SENSE_ART=[]\nLEGACY_CHOICES=[]\n');dump(g/'updated-art.json',[])
+  dump(self.root/'app/data/puzzle-ja-answers.json',{'schema':1,'rows':[]})
   dump(self.root/'app/data/generated-image-legacy-ids.json',{'schema':1,'rows':[]});dump(self.root/'app/data/generated-image-issues.json',{'schema':1,'issues':[]});self.scenes=[];self.save()
  def save(self):
   gen=self.root/C.GEN;dump(gen/'words.json',self.words);dump(gen/'illustration-scenes.json',{'schema':1,'entries':self.scenes});dump(gen/'manifest.json',{'files':{k:{'sha256':C.digest((gen/f).read_bytes())} for k,f in [('words','words.json'),('illustration_scenes','illustration-scenes.json')]}})

@@ -49,15 +49,26 @@ class EligibilityTests(unittest.TestCase):
         (game/'updated-art.json').write_text('[]')
         (self.root/'app/data/generated-image-issues.json').write_text('{"issues":[]}')
         (self.root/'app/data/generated-image-legacy-ids.json').write_text('{"rows":[]}')
+        (self.root/'app/data/puzzle-ja-answers.json').write_text('{"schema":1,"rows":[]}')
         actual=Path(build.__file__).resolve().parents[1]/'data'
-        for name in ['build_generated_image_catalog.py','generated_image_resolver.py']:
+        for name in ['build_generated_image_catalog.py','generated_image_resolver.py','semantic_classifications.py']:
             (self.root/'app/data'/name).write_bytes((actual/name).read_bytes())
         manifest={'files':{key:{'sha256':build.sha256((gen/name).read_bytes())} for key,name in [('words','words.json'),('illustration_scenes','illustration-scenes.json')]}}
+        semantic_raw=b'{"schema":1,"taxonomy":[],"entries":[]}'
+        (gen/'semantic-classifications.json').write_bytes(semantic_raw)
+        manifest['files']['semantic_classifications']={'sha256':build.sha256(semantic_raw)}
         (gen/'manifest.json').write_text(json.dumps(manifest))
 
         (self.root/'app/eigo-no-e.html').write_text('<script src="eigo-no-e/data.js?v=old"></script>')
+        (self.root/'app/pictpedia.html').write_text('<script src="eigo-no-e/data.js?v=old"></script>')
         a,report=build.build(self.root);b,_=build.build(self.root)
         self.assertEqual(a,b);self.assertEqual(report['eligible'],1);self.assertEqual(report['schema'],2)
+        for entry in ['app/eigo-no-e.html','app/pictpedia.html']:
+            self.assertIn('eigo-no-e/data.js?v='+build.sha256(a['app/eigo-no-e/data.js'])[:12],a[entry].decode())
+        (self.root/'app/eigo-no-e.html').unlink()
+        renamed,_=build.build(self.root)
+        self.assertIn('app/pictpedia.html',renamed);self.assertNotIn('app/eigo-no-e.html',renamed)
+        self.assertEqual(renamed['app/pictpedia.html'],a['app/pictpedia.html'])
         text=a['app/eigo-no-e/data.js'].decode();self.assertNotIn('"d":',text);self.assertNotIn('"b":',text)
         data=json.loads(text[text.index('{'):text.rindex('}')+1]);row=data['words'][0]
         self.assertEqual(row['ja'],'本');self.assertEqual(row['k'],'ほん');self.assertIn('c',row)

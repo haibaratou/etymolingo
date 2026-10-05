@@ -4,6 +4,22 @@
 'use strict';
 const generated = window.EIGO_NO_E;
 let D;
+function semanticFallback(data){
+  const protectedKeys=new Set((generated.semanticClassifications?.entries||[]).map(e=>JSON.stringify([e.w,e.p,e.art])));
+  const words=data.words.map(row=>{
+    if(!protectedKeys.has(JSON.stringify([row.w,row.p,row.art])))return row;
+    const next={...row,c:['more/words'],semanticUnavailable:true};
+    for(const k of ['semanticTags','semanticDistinction','semanticCanonical','baseCategories'])delete next[k];
+    return next;
+  });
+  const categories=data.categories.map(c=>{
+    const subs=c.subs.map(s=>({...s,n:words.filter(w=>w.c.includes(c.id+'/'+s.id)).length})).filter(s=>s.n);
+    const members=words.filter(w=>w.c.some(k=>k.startsWith(c.id+'/')));
+    return {...c,subs,icon:members.some(w=>w.id===c.icon)?c.icon:members[0]?.id};
+  }).filter(c=>c.subs.length);
+  return {...data,words,categories};
+}
+
 const localSnapshot=location.protocol==='file:';
 const $ = (s, p = document) => p.querySelector(s);
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -23,6 +39,8 @@ try {
   if (!generated || !window.EigoCatalogValidation || !window.IllustrationScenes) throw Error('Catalog scripts unavailable');
   if(localSnapshot){
     D=window.EigoCatalogValidation.buildSnapshotCatalog(generated);
+    try{D=await window.SemanticClassifications.applyToCatalog(D,generated.semanticClassifications,window.SemanticClassifications.canonicalWords(generated));}
+    catch(error){console.warn('Semantic classification unavailable:',error);D=semanticFallback(D);}
   } else {
   const [scenes, manifest, indexText] = await Promise.all([
     window.IllustrationScenes.load('data/generated-etymon/illustration-scenes.json'),
@@ -32,10 +50,14 @@ try {
   // The exported manifest identifies the exact canonical words used by build.py.
   // Avoid downloading the full ~20MB dictionary when that snapshot is unchanged.
   const sameWords=manifest.files?.words?.sha256===generated.sources?.words_sha256;
-  const words=sameWords ? generated.words.map(w=>({...w,ja_readings:w.k?[{gloss:w.ja,kana:w.k}]:[]}))
+  const words=sameWords ? generated.words.map(w=>({...w,...(w.semanticCanonical||{}),ja_readings:w.k?[{gloss:w.ja,kana:w.k}]:[]}))
     : await fetch('data/generated-etymon/words.json',{cache:'no-cache'}).then(r=>{if(!r.ok)throw Error('Words unavailable');return r.json();});
   const index=JSON.parse(indexText.slice(indexText.indexOf('{'),indexText.lastIndexOf('}')+1));
   D=window.EigoCatalogValidation.buildCurrentCatalog(generated,scenes,words,index);
+  try{
+    const semantics=await window.SemanticClassifications.load('data/generated-etymon/semantic-classifications.json',manifest.files?.semantic_classifications?.sha256);
+    D=await window.SemanticClassifications.applyToCatalog(D,semantics,words);
+  }catch(error){console.warn('Semantic classification unavailable:',error);D=semanticFallback(D);}
   }
   if(!D.words.length){view.innerHTML='<div class="page empty">登録画像がありません</div>';return;}
 } catch(error) {
@@ -70,7 +92,7 @@ const grid = list => {
   return `<div class="paged-grid" data-grid="${token}"><div class="grid">${list.slice(0,shown).map(tile).join('')}</div>${list.length>shown?`<button class="btn load-more" type="button" data-grid="${token}">もっと見る（残り ${num(list.length-shown)} 枚）</button>`:''}</div>`;
 };
 const chev = '<svg><use href="#i-chev"/></svg>';
-const reasonLabel = reason => ({reading_candidate:'日本語の読みを確認中',reading_needs_review:'日本語の読みを確認中',reading_unreviewed:'日本語の読みを確認中',missing_answer:'答えを確認中',unsupported_format:'この表記はパズル未対応',image_first_sense_mismatch:'画像と語義を確認中',known_image_mismatch:'画像と語義を確認中',ownership_pending:'画像の対応確認中',alternate:'別の画像・旧版',owned_alternate_or_superseded:'別の画像・旧版',stale_first_sense:'語義を確認中',stale_art_mapping:'画像の対応確認中',missing_identity:'画像の対応確認中'}[reason] || 'パズルの対応確認中');
+const reasonLabel = reason => ({__proto__:null,image_composition_defect:'画像の構図を確認中',reading_candidate:'日本語の読みを確認中',reading_needs_review:'日本語の読みを確認中',reading_unreviewed:'日本語の読みを確認中',missing_answer:'答えを確認中',unsupported_format:'この表記はパズル未対応',image_first_sense_mismatch:'画像と語義を確認中',known_image_mismatch:'画像と語義を確認中',ownership_pending:'画像の対応確認中',alternate:'別の画像・旧版',owned_alternate_or_superseded:'別の画像・旧版',stale_first_sense:'語義を確認中',stale_art_mapping:'画像の対応確認中',missing_identity:'画像の対応確認中'}[reason] || 'この問題は現在利用できません');
 function puzzleActions(w, imageReady){
   const reasons=[];
   const actions=['en','ja'].map(lang=>{
@@ -99,7 +121,7 @@ const IDX = W.map(w => {
   const jaList = [...String(w.ja || '').split('、'), ...String(w.k || '').split('、')].map(norm).filter(Boolean);
   return {
     w, en: norm(w.w), jaList,
-    keywords: [w.w, w.ja, w.k, ...(w.w?[]:[w.art]), ...tagText(w.tags), ...cats.flatMap(s => [s.ja, s.en, s.cat.ja, s.cat.en]), ...(hasCaption(w)?[w.scene?.en,w.scene?.ja]:[])].map(norm).filter(Boolean),
+    keywords: [w.w, w.ja, w.k, ...(w.w?[]:[w.art]), ...tagText(w.tags), ...tagText(w.semanticTags), ...cats.flatMap(s => [s.ja, s.en, s.cat.ja, s.cat.en]), ...(hasCaption(w)?[w.scene?.en,w.scene?.ja]:[])].map(norm).filter(Boolean),
   };
 });
 
@@ -237,6 +259,8 @@ function wordPage(id) {
         ${posLabel(w) ? `<span class="pos">${esc(posLabel(w))}</span>` : ''}
         <h1 class="word-title${w.w?'':' pending-title'}"${w.w?' lang="en"':''}>${esc(titleOf(w))}</h1>
         ${w.ja?`<p class="word-ja">${esc(firstJa(w))}</p>`:`<p class="asset-name">画像ファイル：${esc(w.art)}.png</p>`}
+        ${w.semanticUnavailable?'<p class="word-semantic">意味の分類を確認できません</p>':w.semanticDistinction?`<p class="word-semantic">${esc(w.semanticDistinction.ja)}</p>`:''}
+        ${w.semanticTags?`<p class="semantic-tags">${w.semanticTags.map(esc).join(' · ')}</p>`:''}
         <div class="acts">
           ${w.w?'<button class="btn primary" id="speak" type="button"><svg><use href="#i-sound"/></svg>発音をきく</button>':''}
           <a class="btn" href="${esc(full(w))}" download="${esc(w.art)}.png"><svg><use href="#i-down"/></svg>PNG</a>

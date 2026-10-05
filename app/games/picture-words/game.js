@@ -353,7 +353,7 @@
     $('modeToggle').disabled = !entry || !['playing','answer-demo','solved'].includes(phase);
     $('modeToggle').setAttribute('aria-disabled', String($('modeToggle').disabled));
     $('modeToggle').dataset.unavailable = canSwitch ? '' : otherLanguage;
-    $('modeToggle').title = entry && !canSwitch ? window.WordBloomReviewedScenes.unavailableReason(entry, otherLanguage).replace('日本語の読みは未確認です', '日本語の答えは未確認です') : '';
+    $('modeToggle').title = entry && !canSwitch ? window.WordBloomReviewedScenes.unavailableReason(entry, otherLanguage, mode).replace('日本語の読みは未確認です', '日本語の答えは未確認です') : '';
     if (!canSwitch && entry) $('modeToggle').setAttribute('aria-label', `${$('modeToggle').title}。タップして理由を確認`);
     $('modeLabel').innerHTML = `<span class="mode-ja">日本語${!canSwitch && otherLanguage === 'ja' ? `<small>${$('modeToggle').title.includes('未確認') ? '未確認' : '未対応'}</small>` : ''}</span><span aria-hidden="true">⇄</span><span class="mode-en">英語${!canSwitch && otherLanguage === 'en' ? '<small>未対応</small>' : ''}</span>`;
     const labels = { clueHeading: 'title', instruction: 'instruction', gestureNote: 'note', shuffleLabel: 'shuffle', hintLabel: 'hint',
@@ -981,7 +981,7 @@
   window.addEventListener('resize', updateLayout);
   document.querySelectorAll('[data-mode]').forEach(button=>button.addEventListener('click',()=>{
     if(!entry || !['playing','answer-demo','solved'].includes(phase) || mode===button.dataset.mode)return;
-    if(!window.WordBloomReviewedScenes.supportsLanguage(entry,button.dataset.mode)){setFeedback(window.WordBloomReviewedScenes.unavailableReason(entry,button.dataset.mode).replace('日本語の読みは未確認です', '日本語の答えは未確認です'));return;}
+    if(!window.WordBloomReviewedScenes.supportsLanguage(entry,button.dataset.mode)){setFeedback(window.WordBloomReviewedScenes.unavailableReason(entry,button.dataset.mode,mode).replace('日本語の読みは未確認です', '日本語の答えは未確認です'));return;}
     if (phase === 'solved') { mode = button.dataset.mode; loadLevel(index, true, false, false, true); return; }
     round.mistakes[mode]=mistakes;
     cancelGesture();generation++;clearPending();speech.stop();
@@ -1122,7 +1122,7 @@
         const art = document.createElement('span'); art.className = 'dictionary-art';
         const image = document.createElement('img'); image.src = imgURL(word); image.alt = ''; image.loading = 'lazy'; art.append(image);
         const stamp = dictionaryScoreStamp(word); if (stamp) art.append(stamp); card.append(art);
-        title.textContent = word.en || word.ja || word.pic; subtitle.textContent = playable ? (word.ja || word.w || '') : window.WordBloomReviewedScenes.unavailableReason(word,lang);
+        title.textContent = word.en || word.ja || word.pic; subtitle.textContent = playable ? (word.ja || word.w || '') : window.WordBloomReviewedScenes.unavailableReason(word,lang,mode);
         const mark = document.createElement('span'); mark.className = 'dictionary-owned-mark'; mark.innerHTML = owned ? icon('check') : ''; card.append(mark);
         const bestScore = dictionaryBestScore(word);
         card.setAttribute('aria-label', `${title.textContent} · ${owned ? '獲得済み' : '出題準備中'}${owned && bestScore !== null ? `、最高 ${bestScore}点` : ''}、詳細を見る`);
@@ -1166,7 +1166,7 @@
     const challengeLang = dictionaryPlayLanguage(word);
     const challenge = document.createElement('button'); challenge.type = 'button'; challenge.className = 'modal-primary';
     challenge.disabled = !supports(word, challengeLang);
-    challenge.textContent = challenge.disabled ? window.WordBloomReviewedScenes.unavailableReason(word, challengeLang) : (mode === 'ja' ? 'もう一度、この単語で遊ぶ' : 'Play this word again');
+    challenge.textContent = challenge.disabled ? window.WordBloomReviewedScenes.unavailableReason(word, challengeLang, mode) : (mode === 'ja' ? 'もう一度、この単語で遊ぶ' : 'Play this word again');
     challenge.addEventListener('click', () => beginDictionaryPuzzle(challengeLang, wordIndex));
     const explanation = document.createElement('div'); explanation.textContent = '説明を確認中…';
     // Dictionary detail is already an explicit reveal. The puzzle itself stays answer-free.
@@ -1211,8 +1211,10 @@
       $('saveOffline').disabled = true; $('saveOffline').hidden = true;
       $('launchDifficulty').hidden = true; $('reloadReviewedData').hidden = false;
       const requestedEntry = catalog.find(word => word.id === requestedWord.wordId);
-      $('offlineStatus').textContent = requestedEntry && !window.WordBloomReviewedScenes.supportsLanguage(requestedEntry,requestedWord.language || 'en')
-        ? window.WordBloomReviewedScenes.unavailableReason(requestedEntry,requestedWord.language || 'en') + '。辞典でこの画像を確認できます。'
+      const requestedReason = requestedEntry && !window.WordBloomReviewedScenes.supportsLanguage(requestedEntry,requestedWord.language || 'en')
+        ? window.WordBloomReviewedScenes.unavailableReason(requestedEntry,requestedWord.language || 'en') : '';
+      $('offlineStatus').textContent = requestedReason
+        ? requestedReason + (['Image composition is under review','This puzzle is currently unavailable'].includes(requestedReason) ? '. You can view this image in the dictionary.' : '。辞典でこの画像を確認できます。')
         : datasetUnavailable || requestedWord.reason === 'unavailable'
         ? 'この単語の確認済みパズルを現在読み込めません。通信できる状態で最新版に再読み込みしてください。'
         : 'この単語は現在の確認済みパズルの対象ではありません。辞典に戻るか、最新版に再読み込みしてください。';
