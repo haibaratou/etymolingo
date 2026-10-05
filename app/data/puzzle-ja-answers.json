@@ -1,0 +1,3387 @@
+{
+  "schema": 1,
+  "description": "Exact first-gloss puzzle readings. Source meanings and source reading statuses remain unchanged.",
+  "rows": [
+    {
+      "w": "I",
+      "p": [
+        "eg"
+      ],
+      "gloss": "私は",
+      "answer": "わたしは",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "a",
+      "p": [
+        "oi-no-"
+      ],
+      "gloss": "一つの",
+      "answer": "ひとつの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "an",
+      "p": [
+        "oi-no-"
+      ],
+      "gloss": "一つの",
+      "answer": "ひとつの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "first",
+      "p": [
+        "per1"
+      ],
+      "gloss": "第一の",
+      "answer": "だいいちの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "just",
+      "p": [
+        "yeug-"
+      ],
+      "gloss": "馬上槍試合",
+      "answer": "ばじょうやりしあい",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "United",
+      "p": [],
+      "gloss": "結ばれた",
+      "answer": "むすばれた",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "States",
+      "p": [],
+      "gloss": "州",
+      "answer": "しゅう",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "single",
+      "p": [
+        "sem-1"
+      ],
+      "gloss": "たった一つの",
+      "answer": "たったひとつの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "field",
+      "p": [
+        "pelə-2"
+      ],
+      "gloss": "野原",
+      "answer": "のはら",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "set",
+      "p": [
+        "sekʷ-1"
+      ],
+      "gloss": "一組",
+      "answer": "ひとくみ",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "hundred",
+      "p": [
+        "dekm̥",
+        "rē(i)-"
+      ],
+      "gloss": "百",
+      "answer": "ひゃく",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "gold",
+      "p": [
+        "ghel-2"
+      ],
+      "gloss": "金",
+      "answer": "きん",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "thousand",
+      "p": [
+        "teuə-2",
+        "dekm̥",
+        "rē(i)-"
+      ],
+      "gloss": "千",
+      "answer": "せん",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "double",
+      "p": [
+        "dwo-",
+        "pel-3"
+      ],
+      "gloss": "二重の",
+      "answer": "にじゅうの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "secondary",
+      "p": [
+        "sekʷ-1"
+      ],
+      "gloss": "二次的な",
+      "answer": "にじてきな",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "pair",
+      "p": [
+        "perə-2"
+      ],
+      "gloss": "一対",
+      "answer": "いっつい",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "twice",
+      "p": [
+        "dwo-"
+      ],
+      "gloss": "二度",
+      "answer": "にど",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "AI",
+      "p": [],
+      "gloss": "人工知能",
+      "answer": "じんこうちのう",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "IEEE",
+      "p": [],
+      "gloss": "米国電気電子学会",
+      "answer": "べいこくでんきでんしがっかい",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "stream",
+      "p": [
+        "sreu-"
+      ],
+      "gloss": "小川",
+      "answer": "おがわ",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Frank",
+      "p": [
+        "Frankon-"
+      ],
+      "gloss": "率直な",
+      "answer": "そっちょくな",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Sunday",
+      "p": [
+        "saəwel-",
+        "agh-2"
+      ],
+      "gloss": "日曜日",
+      "answer": "にちようび",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Muslim",
+      "p": [],
+      "gloss": "イスラム教徒の",
+      "answer": "いすらむきょうとの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Christianity",
+      "p": [
+        "ghrēi-"
+      ],
+      "gloss": "キリスト教",
+      "answer": "きりすときょう",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Texas",
+      "p": [],
+      "gloss": "テキサス州",
+      "answer": "てきさすしゅう",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "glance",
+      "p": [
+        "ghel-2"
+      ],
+      "gloss": "輝鉱",
+      "answer": "あきらこう",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Virginia",
+      "p": [],
+      "gloss": "バージニア州",
+      "answer": "ばーじにあしゅう",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Acts",
+      "p": [],
+      "gloss": "使徒言行録",
+      "answer": "しとげんこうろく",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Mrs",
+      "p": [
+        "meg-"
+      ],
+      "gloss": "夫人",
+      "answer": "ふじん",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "RNA",
+      "p": [],
+      "gloss": "リボ核酸",
+      "answer": "りぼかくさん",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "wing",
+      "p": [
+        "wē-"
+      ],
+      "gloss": "翼",
+      "answer": "つばさ",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Korea",
+      "p": [],
+      "gloss": "朝鮮半島",
+      "answer": "ちょうせんはんとう",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Arab",
+      "p": [],
+      "gloss": "アラブ人",
+      "answer": "あらぶじん",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Islam",
+      "p": [],
+      "gloss": "イスラム教",
+      "answer": "いすらむきょう",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "shore",
+      "p": [
+        "(s)ker-1"
+      ],
+      "gloss": "岸",
+      "answer": "きし",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Atlantic",
+      "p": [
+        "telə-"
+      ],
+      "gloss": "大西洋の",
+      "answer": "たいせいようの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Hebrew",
+      "p": [],
+      "gloss": "ヘブライ語",
+      "answer": "へぶらいご",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Saturday",
+      "p": [],
+      "gloss": "土曜日",
+      "answer": "どようび",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "HIV",
+      "p": [],
+      "gloss": "ヒト免疫不全ウイルス",
+      "answer": "ひとめんえきふぜんういるす",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Florida",
+      "p": [],
+      "gloss": "フロリダ州",
+      "answer": "ふろりだしゅう",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "devil",
+      "p": [
+        "gʷelə-"
+      ],
+      "gloss": "悪魔",
+      "answer": "あくま",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Friday",
+      "p": [
+        "prī-",
+        "agh-2"
+      ],
+      "gloss": "金曜日",
+      "answer": "きんようび",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "OK",
+      "p": [],
+      "gloss": "大丈夫",
+      "answer": "だいじょうぶ",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Zealand",
+      "p": [
+        "lendh-2"
+      ],
+      "gloss": "シェラン島",
+      "answer": "しぇらんとう",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "PhD",
+      "p": [],
+      "gloss": "博士号",
+      "answer": "はくしごう",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Scripture",
+      "p": [
+        "skrībh-"
+      ],
+      "gloss": "聖書",
+      "answer": "せいしょ",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "dual",
+      "p": [
+        "dwo-"
+      ],
+      "gloss": "二重の",
+      "answer": "にじゅうの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Korean",
+      "p": [],
+      "gloss": "韓国人",
+      "answer": "かんこくじん",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Monday",
+      "p": [
+        "mē-2",
+        "agh-2"
+      ],
+      "gloss": "月曜日",
+      "answer": "げつようび",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "loyalty",
+      "p": [
+        "leg-"
+      ],
+      "gloss": "忠義",
+      "answer": "ちゅうぎ",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Ohio",
+      "p": [],
+      "gloss": "オハイオ州",
+      "answer": "おはいおしゅう",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Beijing",
+      "p": [],
+      "gloss": "北京",
+      "answer": "ぺきん",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Han",
+      "p": [],
+      "gloss": "漢",
+      "answer": "かん",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Illinois",
+      "p": [],
+      "gloss": "イリノイ州",
+      "answer": "いりのいしゅう",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Satan",
+      "p": [],
+      "gloss": "悪魔",
+      "answer": "あくま",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Massachusetts",
+      "p": [],
+      "gloss": "マサチューセッツ州",
+      "answer": "まさちゅーせっつしゅう",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "crash",
+      "p": [
+        "ker-4"
+      ],
+      "gloss": "粗い麻布",
+      "answer": "あらいあさぬの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "demon",
+      "p": [
+        "dā-"
+      ],
+      "gloss": "悪魔",
+      "answer": "あくま",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Taiwan",
+      "p": [],
+      "gloss": "台湾",
+      "answer": "たいわん",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Madame",
+      "p": [
+        "dem-",
+        "me-1"
+      ],
+      "gloss": "夫人",
+      "answer": "ふじん",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Michigan",
+      "p": [],
+      "gloss": "ミシガン州",
+      "answer": "みしがんしゅう",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Buddhist",
+      "p": [
+        "bheudh-"
+      ],
+      "gloss": "仏教徒",
+      "answer": "ぶっきょうと",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Dave",
+      "p": [],
+      "gloss": "友好的な",
+      "answer": "ゆうこうてきな",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "CEO",
+      "p": [],
+      "gloss": "最高経営責任者",
+      "answer": "さいこうけいえいせきにんしゃ",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Ottoman",
+      "p": [],
+      "gloss": "オスマン帝国の",
+      "answer": "おすまんていこくの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "UV",
+      "p": [],
+      "gloss": "紫外",
+      "answer": "しがい",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "fog",
+      "p": [
+        "pū̆-2"
+      ],
+      "gloss": "二番草",
+      "answer": "にばんそう",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Tokyo",
+      "p": [],
+      "gloss": "東京",
+      "answer": "とうきょう",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "overnight",
+      "p": [
+        "uper",
+        "nekʷ-t-"
+      ],
+      "gloss": "一晩",
+      "answer": "ひとばん",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "individually",
+      "p": [
+        "ne",
+        "dwis-",
+        "weidh-"
+      ],
+      "gloss": "一つ一つ",
+      "answer": "ひとつひとつ",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Mississippi",
+      "p": [],
+      "gloss": "ミシシッピー州",
+      "answer": "みししっぴーしゅう",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "FBI",
+      "p": [],
+      "gloss": "連邦捜査局",
+      "answer": "れんぽうそうさきょく",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Palestine",
+      "p": [],
+      "gloss": "パレスチナ王国",
+      "answer": "ぱれすちなおうこく",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Colorado",
+      "p": [],
+      "gloss": "コロラド州",
+      "answer": "ころらどしゅう",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Victorian",
+      "p": [
+        "weik-5"
+      ],
+      "gloss": "ビクトリア朝の",
+      "answer": "びくとりあちょうの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "batch",
+      "p": [],
+      "gloss": "一束",
+      "answer": "ひとたば",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "BCE",
+      "p": [],
+      "gloss": "化学工学士",
+      "answer": "かがくこうがくし",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Kentucky",
+      "p": [],
+      "gloss": "ケンタッキー州",
+      "answer": "けんたっきーしゅう",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Shanghai",
+      "p": [],
+      "gloss": "上海",
+      "answer": "しゃんはい",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "procedural",
+      "p": [
+        "per1",
+        "ked-"
+      ],
+      "gloss": "手続上の",
+      "answer": "てつづきじょうの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Philippines",
+      "p": [
+        "ekwo-"
+      ],
+      "gloss": "フィリピン共和国",
+      "answer": "ふぃりぴんきょうわこく",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Negro",
+      "p": [
+        "nekʷ-t-"
+      ],
+      "gloss": "黒人",
+      "answer": "こくじん",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "interpersonal",
+      "p": [],
+      "gloss": "個人間の",
+      "answer": "こじんかんの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "affinity",
+      "p": [
+        "ad-"
+      ],
+      "gloss": "親近性",
+      "answer": "しんきんせい",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "nutritional",
+      "p": [
+        "(s)nāu-"
+      ],
+      "gloss": "栄養上の",
+      "answer": "えいようじょうの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Baptist",
+      "p": [
+        "gʷābh-"
+      ],
+      "gloss": "バプテスト派",
+      "answer": "ばぷてすとは",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "darling",
+      "p": [],
+      "gloss": "最愛の人",
+      "answer": "さいあいのひと",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "occupational",
+      "p": [
+        "epi",
+        "kap-"
+      ],
+      "gloss": "職業上の",
+      "answer": "しょくぎょうじょうの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Minnesota",
+      "p": [],
+      "gloss": "ミネソタ州",
+      "answer": "みねそたしゅう",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Tuesday",
+      "p": [
+        "dyeu-",
+        "agh-2"
+      ],
+      "gloss": "火曜日",
+      "answer": "かようび",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Buddha",
+      "p": [
+        "bheudh-"
+      ],
+      "gloss": "仏陀",
+      "answer": "ぶっだ",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Arizona",
+      "p": [],
+      "gloss": "アリゾナ州",
+      "answer": "ありぞなしゅう",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Judaism",
+      "p": [],
+      "gloss": "ユダヤ教",
+      "answer": "ゆだやきょう",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Thursday",
+      "p": [
+        "(s)tenə-",
+        "agh-2"
+      ],
+      "gloss": "木曜日",
+      "answer": "もくようび",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "modernity",
+      "p": [],
+      "gloss": "近代性",
+      "answer": "きんだいせい",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Jew",
+      "p": [],
+      "gloss": "ユダヤ人",
+      "answer": "ゆだやじん",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "LLC",
+      "p": [],
+      "gloss": "有限責任会社",
+      "answer": "ゆうげんせきにんかいしゃ",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "horn",
+      "p": [
+        "ker-1"
+      ],
+      "gloss": "角",
+      "answer": "つの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Buddhism",
+      "p": [],
+      "gloss": "仏教",
+      "answer": "ぶっきょう",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Kansas",
+      "p": [],
+      "gloss": "カンザス州",
+      "answer": "かんざすしゅう",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Missouri",
+      "p": [],
+      "gloss": "ミズーリ州",
+      "answer": "みずーりしゅう",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "morrow",
+      "p": [
+        "mer-1"
+      ],
+      "gloss": "明日",
+      "answer": "あす",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "ATP",
+      "p": [],
+      "gloss": "アデノシン三リン酸",
+      "answer": "あでのしんさんりんさん",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Biblical",
+      "p": [],
+      "gloss": "聖書の",
+      "answer": "せいしょの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Tennessee",
+      "p": [],
+      "gloss": "テネシー州",
+      "answer": "てねしーしゅう",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "contextual",
+      "p": [],
+      "gloss": "文脈上の",
+      "answer": "ぶんみゃくじょうの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "therein",
+      "p": [],
+      "gloss": "その中に",
+      "answer": "そのなかに",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Maryland",
+      "p": [],
+      "gloss": "メリーランド州",
+      "answer": "めりーらんどしゅう",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Au",
+      "p": [],
+      "gloss": "金",
+      "answer": "きん",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "permeability",
+      "p": [],
+      "gloss": "浸透性",
+      "answer": "しんとうせい",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "triple",
+      "p": [
+        "trei-",
+        "pel-3"
+      ],
+      "gloss": "三重の",
+      "answer": "さんじゅうの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "BBC",
+      "p": [],
+      "gloss": "英国放送協会",
+      "answer": "えいこくほうそうきょうかい",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "linen",
+      "p": [
+        "lī̆no-"
+      ],
+      "gloss": "亜麻布",
+      "answer": "あまぬの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Wisconsin",
+      "p": [],
+      "gloss": "ウィスコンシン州",
+      "answer": "うぃすこんしんしゅう",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "openness",
+      "p": [],
+      "gloss": "開放性",
+      "answer": "かいほうせい",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "TM",
+      "p": [],
+      "gloss": "商標",
+      "answer": "しょうひょう",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Austrian",
+      "p": [
+        "aus-"
+      ],
+      "gloss": "オーストリア人の",
+      "answer": "おーすとりあじんの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "ISO",
+      "p": [],
+      "gloss": "国際標準化機構",
+      "answer": "こくさいひょうじゅんかきこう",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Ontario",
+      "p": [],
+      "gloss": "オンタリオ州",
+      "answer": "おんたりおしゅう",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "GPS",
+      "p": [],
+      "gloss": "全地球測位システム",
+      "answer": "ぜんちきゅうそくいしすてむ",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Alabama",
+      "p": [],
+      "gloss": "アラバマ州",
+      "answer": "あらばましゅう",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "MP",
+      "p": [],
+      "gloss": "国会議員",
+      "answer": "こっかいぎいん",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Java",
+      "p": [],
+      "gloss": "ジャワ島",
+      "answer": "じゃわとう",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Alaska",
+      "p": [],
+      "gloss": "アラスカ州",
+      "answer": "あらすかしゅう",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Oregon",
+      "p": [],
+      "gloss": "オレゴン州",
+      "answer": "おれごんしゅう",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Saxon",
+      "p": [
+        "sek-"
+      ],
+      "gloss": "サクソン人",
+      "answer": "さくそんじん",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Po",
+      "p": [],
+      "gloss": "ポー川",
+      "answer": "ぽーがわ",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "heterogeneity",
+      "p": [],
+      "gloss": "不均質性",
+      "answer": "ふきんしつせい",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "undergraduate",
+      "p": [],
+      "gloss": "学部生",
+      "answer": "がくぶせい",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Iowa",
+      "p": [],
+      "gloss": "アイオワ州",
+      "answer": "あいおわしゅう",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "contractual",
+      "p": [],
+      "gloss": "契約上の",
+      "answer": "けいやくじょうの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "fountain",
+      "p": [
+        "dhen-1"
+      ],
+      "gloss": "泉",
+      "answer": "いずみ",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "RV",
+      "p": [],
+      "gloss": "右心室",
+      "answer": "うしんしつ",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "squared",
+      "p": [],
+      "gloss": "二乗した",
+      "answer": "にじょうした",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "ABC",
+      "p": [],
+      "gloss": "基礎",
+      "answer": "きそ",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Tamil",
+      "p": [],
+      "gloss": "タミル語",
+      "answer": "たみるご",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "meanwhile",
+      "p": [
+        "medhyo-",
+        "kʷeiə-"
+      ],
+      "gloss": "その間に",
+      "answer": "そのあいだに",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Olympic",
+      "p": [],
+      "gloss": "オリュンポス山の",
+      "answer": "おりゅんぽすやまの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "USSR",
+      "p": [],
+      "gloss": "ソビエト連邦",
+      "answer": "そびえとれんぽう",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "burn",
+      "p": [
+        "bhreuə-"
+      ],
+      "gloss": "小川",
+      "answer": "おがわ",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Marxist",
+      "p": [],
+      "gloss": "マルクス主義者",
+      "answer": "まるくすしゅぎしゃ",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "CB",
+      "p": [],
+      "gloss": "積乱雲",
+      "answer": "せきらんうん",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Gothic",
+      "p": [],
+      "gloss": "ゴシック様式の",
+      "answer": "ごしっくようしきの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Sabbath",
+      "p": [],
+      "gloss": "安息日",
+      "answer": "あんそくにち",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "BS",
+      "p": [],
+      "gloss": "理学士",
+      "answer": "りがくし",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Nile",
+      "p": [],
+      "gloss": "ナイル川",
+      "answer": "ないるがわ",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "explosive",
+      "p": [
+        "eghs"
+      ],
+      "gloss": "爆発性の",
+      "answer": "ばくはつせいの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "pending",
+      "p": [
+        "(s)pen-"
+      ],
+      "gloss": "係属中の",
+      "answer": "けいぞくちゅうの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Connecticut",
+      "p": [],
+      "gloss": "コネティカット州",
+      "answer": "こねてぃかっとしゅう",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Hawaii",
+      "p": [],
+      "gloss": "ハワイ州",
+      "answer": "はわいしゅう",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "USD",
+      "p": [],
+      "gloss": "米ドル",
+      "answer": "べいどる",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "managerial",
+      "p": [],
+      "gloss": "経営上の",
+      "answer": "けいえいじょうの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Shannon",
+      "p": [
+        "sen-"
+      ],
+      "gloss": "シャノン川",
+      "answer": "しゃのんがわ",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Americas",
+      "p": [],
+      "gloss": "南北アメリカ大陸",
+      "answer": "なんぼくあめりかたいりく",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Jupiter",
+      "p": [
+        "dyeu-",
+        "pəter-"
+      ],
+      "gloss": "木星",
+      "answer": "もくせい",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Utah",
+      "p": [],
+      "gloss": "ユタ州",
+      "answer": "ゆたしゅう",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "creek",
+      "p": [
+        "g(e)r-2"
+      ],
+      "gloss": "小川",
+      "answer": "おがわ",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "footage",
+      "p": [
+        "ped-"
+      ],
+      "gloss": "フィート数",
+      "answer": "ふぃーとすう",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "marketplace",
+      "p": [
+        "merk-3",
+        "plat-"
+      ],
+      "gloss": "市場",
+      "answer": "しじょう",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Oklahoma",
+      "p": [],
+      "gloss": "オクラホマ州",
+      "answer": "おくらほましゅう",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "tertiary",
+      "p": [
+        "trei-"
+      ],
+      "gloss": "第三の",
+      "answer": "だいさんの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Indies",
+      "p": [],
+      "gloss": "諸島",
+      "answer": "しょとう",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Ming",
+      "p": [],
+      "gloss": "明",
+      "answer": "みん",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Thai",
+      "p": [],
+      "gloss": "タイ人",
+      "answer": "たいじん",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "CDC",
+      "p": [],
+      "gloss": "疾病対策センター",
+      "answer": "しっぺいたいさくせんたー",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "proton",
+      "p": [
+        "per1"
+      ],
+      "gloss": "陽子",
+      "answer": "ようし",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Deuteronomy",
+      "p": [
+        "deu-1",
+        "nem-"
+      ],
+      "gloss": "申命記",
+      "answer": "しんめいき",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "bipolar",
+      "p": [],
+      "gloss": "二極の",
+      "answer": "にきょくの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "herein",
+      "p": [],
+      "gloss": "この中に",
+      "answer": "このなかに",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Pb",
+      "p": [],
+      "gloss": "鉛",
+      "answer": "なまり",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "limp",
+      "p": [
+        "kel-1"
+      ],
+      "gloss": "足を引きずる",
+      "answer": "あしをひきずる",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "contingency",
+      "p": [],
+      "gloss": "偶然性",
+      "answer": "ぐうぜんせい",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Belgian",
+      "p": [],
+      "gloss": "ベルギー人",
+      "answer": "べるぎーじん",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "tan",
+      "p": [],
+      "gloss": "黄褐色",
+      "answer": "こうかっしょく",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "applicability",
+      "p": [],
+      "gloss": "適用性",
+      "answer": "てきようせい",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Nordic",
+      "p": [
+        "ner-1"
+      ],
+      "gloss": "北欧の",
+      "answer": "ほくおうの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Vatican",
+      "p": [],
+      "gloss": "ローマ教皇庁",
+      "answer": "ろーまきょうこうちょう",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "fluorescent",
+      "p": [
+        "bhleu-"
+      ],
+      "gloss": "螢光性の",
+      "answer": "けいこうせいの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Phillip",
+      "p": [],
+      "gloss": "フィリップ島",
+      "answer": "ふぃりっぷとう",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "plateau",
+      "p": [
+        "plat-"
+      ],
+      "gloss": "高原",
+      "answer": "こうげん",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "foliage",
+      "p": [
+        "bhel-3"
+      ],
+      "gloss": "群葉",
+      "answer": "ぐんよう",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Reich",
+      "p": [
+        "reg-"
+      ],
+      "gloss": "ドイツ帝国",
+      "answer": "どいつていこく",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "biosynthesis",
+      "p": [],
+      "gloss": "生合成",
+      "answer": "せいごうせい",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "millennium",
+      "p": [
+        "gheslo-",
+        "at-"
+      ],
+      "gloss": "千年",
+      "answer": "せんねん",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "endemic",
+      "p": [
+        "en",
+        "dā-"
+      ],
+      "gloss": "風土性の",
+      "answer": "ふうどせいの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Finnish",
+      "p": [],
+      "gloss": "フィンランド人",
+      "answer": "ふぃんらんどじん",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Thames",
+      "p": [],
+      "gloss": "テムズ川",
+      "answer": "てむずがわ",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "stitch",
+      "p": [
+        "steig-"
+      ],
+      "gloss": "一針",
+      "answer": "ひとはり",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Baltic",
+      "p": [],
+      "gloss": "バルト海の",
+      "answer": "ばるとかいの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Sol",
+      "p": [
+        "saəwel-"
+      ],
+      "gloss": "ペルーの通貨単位",
+      "answer": "ぺるーのつうかたんい",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Arkansas",
+      "p": [],
+      "gloss": "アーカンソー州",
+      "answer": "あーかんそーしゅう",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "additionally",
+      "p": [
+        "dō-",
+        "ad-"
+      ],
+      "gloss": "その上",
+      "answer": "そのうえ",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Delaware",
+      "p": [],
+      "gloss": "デラウェア州",
+      "answer": "でらうぇあしゅう",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Sicily",
+      "p": [],
+      "gloss": "シチリア島",
+      "answer": "しちりあとう",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Capitol",
+      "p": [
+        "kaput-"
+      ],
+      "gloss": "議事堂",
+      "answer": "ぎじどう",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "bondage",
+      "p": [
+        "bheuə-"
+      ],
+      "gloss": "隷属性",
+      "answer": "れいぞくせい",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "republican",
+      "p": [],
+      "gloss": "共和党の",
+      "answer": "きょうわとうの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "caregiver",
+      "p": [],
+      "gloss": "世話をする人",
+      "answer": "せわをするひと",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Nebraska",
+      "p": [],
+      "gloss": "ネブラスカ州",
+      "answer": "ねぶらすかしゅう",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "tandem",
+      "p": [
+        "to-"
+      ],
+      "gloss": "縦一列に",
+      "answer": "たていちれつに",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "intercultural",
+      "p": [],
+      "gloss": "異文化間の",
+      "answer": "いぶんかかんの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Malay",
+      "p": [],
+      "gloss": "マレー人の",
+      "answer": "まれーじんの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Babylonian",
+      "p": [],
+      "gloss": "バビロニア人の",
+      "answer": "ばびろにあじんの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Englishman",
+      "p": [],
+      "gloss": "イングランド人",
+      "answer": "いんぐらんどじん",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "responsiveness",
+      "p": [
+        "re-",
+        "spend-"
+      ],
+      "gloss": "感応性",
+      "answer": "かんおうせい",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Afghan",
+      "p": [],
+      "gloss": "アフガニスタン人",
+      "answer": "あふがにすたんじん",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Jesuit",
+      "p": [],
+      "gloss": "イエズス会員",
+      "answer": "いえずすかいいん",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Zen",
+      "p": [
+        "dheiə-"
+      ],
+      "gloss": "禅宗",
+      "answer": "ぜんしゅう",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Dominican",
+      "p": [
+        "dem-"
+      ],
+      "gloss": "ドミニカ共和国の",
+      "answer": "どみにかきょうわこくの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "dresser",
+      "p": [],
+      "gloss": "服装の人",
+      "answer": "ふくそうのひと",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "furthermore",
+      "p": [
+        "per1",
+        "mē-3"
+      ],
+      "gloss": "その上",
+      "answer": "そのうえ",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "dichotomy",
+      "p": [
+        "dwo-",
+        "temə-1"
+      ],
+      "gloss": "二分",
+      "answer": "にぶん",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "eligibility",
+      "p": [],
+      "gloss": "適任性",
+      "answer": "てきにんせい",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "helper",
+      "p": [],
+      "gloss": "助ける人",
+      "answer": "たすけるひと",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "inert",
+      "p": [
+        "ne",
+        "ar-"
+      ],
+      "gloss": "不活性の",
+      "answer": "ふかつせいの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Jain",
+      "p": [
+        "gʷeiə-2"
+      ],
+      "gloss": "ジャイナ教徒の",
+      "answer": "じゃいなきょうとの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "quarrel",
+      "p": [
+        "kʷetwer-"
+      ],
+      "gloss": "太矢",
+      "answer": "たや",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Athenian",
+      "p": [],
+      "gloss": "アテナイ人の",
+      "answer": "あてないじんの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Celtic",
+      "p": [],
+      "gloss": "ケルト族の",
+      "answer": "けるとぞくの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "bearer",
+      "p": [],
+      "gloss": "運ぶ人",
+      "answer": "はこぶひと",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "regularity",
+      "p": [],
+      "gloss": "規則性",
+      "answer": "きそくせい",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "secondly",
+      "p": [],
+      "gloss": "第二に",
+      "answer": "だいにに",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Afro",
+      "p": [],
+      "gloss": "アフリカ系アメリカ人",
+      "answer": "あふりかけいあめりかじん",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "NGO",
+      "p": [],
+      "gloss": "非政府組織",
+      "answer": "ひせいふそしき",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "brutality",
+      "p": [],
+      "gloss": "残忍性",
+      "answer": "ざんにんせい",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "estimator",
+      "p": [],
+      "gloss": "見積もる人",
+      "answer": "みつもるひと",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Presbyterian",
+      "p": [
+        "per1"
+      ],
+      "gloss": "長老派の",
+      "answer": "ちょうろうはの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "poker",
+      "p": [],
+      "gloss": "つつく人",
+      "answer": "つつくひと",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Lutheran",
+      "p": [],
+      "gloss": "ルター派",
+      "answer": "るたーは",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "fraudulent",
+      "p": [],
+      "gloss": "人をだます",
+      "answer": "ひとをだます",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Galatians",
+      "p": [],
+      "gloss": "ガラテヤ人への手紙",
+      "answer": "がらてやじんへのてがみ",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Lucifer",
+      "p": [
+        "leuk-"
+      ],
+      "gloss": "魔王",
+      "answer": "まおう",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "disseminated",
+      "p": [
+        "dwis-",
+        "sē-"
+      ],
+      "gloss": "播種性の",
+      "answer": "はしゅせいの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "biodegradable",
+      "p": [],
+      "gloss": "生分解性の",
+      "answer": "せいぶんかいせいの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "conductive",
+      "p": [
+        "kom",
+        "deuk-"
+      ],
+      "gloss": "導電性の",
+      "answer": "どうでんせいの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "sufficiency",
+      "p": [],
+      "gloss": "十分な数",
+      "answer": "じゅうぶんなかず",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "paw",
+      "p": [],
+      "gloss": "足",
+      "answer": "あし",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "duality",
+      "p": [],
+      "gloss": "二重性",
+      "answer": "にじゅうせい",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Dane",
+      "p": [
+        "dan-"
+      ],
+      "gloss": "デンマーク人",
+      "answer": "でんまーくじん",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "lunar",
+      "p": [
+        "leuk-"
+      ],
+      "gloss": "月の",
+      "answer": "つきの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Rhine",
+      "p": [
+        "reiə-"
+      ],
+      "gloss": "ライン川",
+      "answer": "らいんがわ",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "diner",
+      "p": [],
+      "gloss": "食事をする人",
+      "answer": "しょくじをするひと",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "materiality",
+      "p": [],
+      "gloss": "物質性",
+      "answer": "ぶっしつせい",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Aristotelian",
+      "p": [],
+      "gloss": "アリストテレス学徒",
+      "answer": "ありすとてれすがくと",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Idaho",
+      "p": [],
+      "gloss": "アイダホ州",
+      "answer": "あいだほしゅう",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "militant",
+      "p": [],
+      "gloss": "交戦中の",
+      "answer": "こうせんちゅうの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "parasitic",
+      "p": [],
+      "gloss": "寄生性の",
+      "answer": "きせいせいの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "doctrinal",
+      "p": [],
+      "gloss": "教義上の",
+      "answer": "きょうぎじょうの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "puff",
+      "p": [
+        "beu-"
+      ],
+      "gloss": "一吹き",
+      "answer": "ひとふき",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "twofold",
+      "p": [
+        "dwo-"
+      ],
+      "gloss": "二倍の",
+      "answer": "にばいの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "agility",
+      "p": [],
+      "gloss": "機敏性",
+      "answer": "きびんせい",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "fancied",
+      "p": [
+        "bhā-1"
+      ],
+      "gloss": "想像上の",
+      "answer": "そうぞうじょうの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Anthropocene",
+      "p": [],
+      "gloss": "人新世",
+      "answer": "じんしんせい",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Somalia",
+      "p": [],
+      "gloss": "ソマリア民主共和国",
+      "answer": "そまりあみんしゅきょうわこく",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "healer",
+      "p": [],
+      "gloss": "治療する人",
+      "answer": "ちりょうするひと",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Alps",
+      "p": [],
+      "gloss": "アルプス山脈",
+      "answer": "あるぷすさんみゃく",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Ethiopian",
+      "p": [],
+      "gloss": "エチオピア人",
+      "answer": "えちおぴあじん",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Hinduism",
+      "p": [],
+      "gloss": "ヒンズー教",
+      "answer": "ひんずーきょう",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "fiduciary",
+      "p": [
+        "bheidh-"
+      ],
+      "gloss": "信用上の",
+      "answer": "しんようじょうの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "coordinator",
+      "p": [],
+      "gloss": "調整するもの人",
+      "answer": "ちょうせいするものひと",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "quadrant",
+      "p": [
+        "kʷetwer-",
+        "-nt-"
+      ],
+      "gloss": "四分円",
+      "answer": "しぶんえん",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "quadratic",
+      "p": [
+        "kʷetwer-"
+      ],
+      "gloss": "二次の",
+      "answer": "にじの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Leviticus",
+      "p": [],
+      "gloss": "レビ記",
+      "answer": "れびき",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "UNICEF",
+      "p": [],
+      "gloss": "国連児童基金",
+      "answer": "こくれんじどうききん",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Semitic",
+      "p": [],
+      "gloss": "セム語",
+      "answer": "せむご",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "predatory",
+      "p": [
+        "per1",
+        "ghend-"
+      ],
+      "gloss": "捕食性の",
+      "answer": "ほしょくせいの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Wyoming",
+      "p": [],
+      "gloss": "ワイオミング州",
+      "answer": "わいおみんぐしゅう",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "pane",
+      "p": [
+        "pet-"
+      ],
+      "gloss": "金づちの頭",
+      "answer": "かなづちのあたま",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Aramaic",
+      "p": [],
+      "gloss": "アラム語",
+      "answer": "あらむご",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Manila",
+      "p": [],
+      "gloss": "マニラ紙で作られた",
+      "answer": "まにらしでつくられた",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "agonist",
+      "p": [],
+      "gloss": "闘う人",
+      "answer": "たたかうひと",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "caller",
+      "p": [
+        "gal-2"
+      ],
+      "gloss": "呼び出し人",
+      "answer": "よびだしにん",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "prima",
+      "p": [],
+      "gloss": "第一の",
+      "answer": "だいいちの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Passover",
+      "p": [],
+      "gloss": "過越の祭り",
+      "answer": "すぎこしのまつり",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "redhead",
+      "p": [
+        "reudh-",
+        "kaput-"
+      ],
+      "gloss": "髪の毛が赤い人",
+      "answer": "かみのけがあかいひと",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "catcher",
+      "p": [],
+      "gloss": "捕まえる人",
+      "answer": "つかまえるひと",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "cadet",
+      "p": [
+        "kaput-"
+      ],
+      "gloss": "士官学校生",
+      "answer": "しかんがっこうせい",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "hexagon",
+      "p": [
+        "genu-1",
+        "s(w)eks"
+      ],
+      "gloss": "六角形",
+      "answer": "ろくかくけい",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Mesozoic",
+      "p": [
+        "gwei-",
+        "medhyo-"
+      ],
+      "gloss": "中生代の",
+      "answer": "ちゅうせいだいの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Vedanta",
+      "p": [
+        "weid-",
+        "ant-"
+      ],
+      "gloss": "ベーダーンタ学派",
+      "answer": "べーだーんたがくは",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "mindlessly",
+      "p": [
+        "men-1",
+        "leu-"
+      ],
+      "gloss": "何も考えずに",
+      "answer": "なにもかんがえずに",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Protozoa",
+      "p": [
+        "per1",
+        "gwei-"
+      ],
+      "gloss": "原生動物",
+      "answer": "げんせいどうぶつ",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Cenozoic",
+      "p": [
+        "ken-2",
+        "gwei-"
+      ],
+      "gloss": "新生代の",
+      "answer": "しんせいだいの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "provident",
+      "p": [
+        "per1",
+        "weid-"
+      ],
+      "gloss": "先見の明のある",
+      "answer": "せんけんのめいのある",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "purveyor",
+      "p": [
+        "per1",
+        "weid-"
+      ],
+      "gloss": "調達人",
+      "answer": "ちょうたつにん",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Risorgimento",
+      "p": [
+        "re-",
+        "upo",
+        "reg-"
+      ],
+      "gloss": "復興",
+      "answer": "ふっこう",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Proterozoic",
+      "p": [
+        "per1",
+        "gwei-"
+      ],
+      "gloss": "原生代",
+      "answer": "げんせいだい",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "nonentity",
+      "p": [
+        "ne",
+        "es-",
+        "oi-no-"
+      ],
+      "gloss": "取るに足りない人",
+      "answer": "とるにたりないひと",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "improvident",
+      "p": [
+        "ne",
+        "per1",
+        "weid-"
+      ],
+      "gloss": "先見の明がない",
+      "answer": "せんけんのめいがない",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Phanerozoic",
+      "p": [
+        "bhā-1",
+        "gwei-"
+      ],
+      "gloss": "顕生代",
+      "answer": "けんせいだい",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "hammerhead",
+      "p": [
+        "ak-",
+        "kaput-"
+      ],
+      "gloss": "ハンマーの頭",
+      "answer": "はんまーのあたま",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "mare",
+      "p": [
+        "mori-"
+      ],
+      "gloss": "月や火星の海",
+      "answer": "つきやかせいのうみ",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Uniate",
+      "p": [
+        "oi-no-"
+      ],
+      "gloss": "合同教会派",
+      "answer": "ごうどうきょうかいは",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "quincunx",
+      "p": [
+        "oi-no-",
+        "penkʷe"
+      ],
+      "gloss": "五つ目型",
+      "answer": "いつつめがた",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "heptagon",
+      "p": [
+        "genu-1"
+      ],
+      "gloss": "七角形",
+      "answer": "ななかくけい",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "kleptomaniac",
+      "p": [
+        "klep-",
+        "men-1"
+      ],
+      "gloss": "窃盗癖のある人",
+      "answer": "せっとうへきのあるひと",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "witting",
+      "p": [
+        "weid-"
+      ],
+      "gloss": "承知の上の",
+      "answer": "しょうちのうえの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "superjacent",
+      "p": [
+        "uper",
+        "yē-"
+      ],
+      "gloss": "すぐ上にある",
+      "answer": "すぐうえにある",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "aerobe",
+      "p": [
+        "wer-2",
+        "gwei-"
+      ],
+      "gloss": "好気性生物",
+      "answer": "こうきせいせいぶつ",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "wiseacre",
+      "p": [
+        "weid-"
+      ],
+      "gloss": "知ったかぶりをする人",
+      "answer": "しったかぶりをするひと",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "decagon",
+      "p": [
+        "dekm̥",
+        "genu-1"
+      ],
+      "gloss": "十角形",
+      "answer": "じゅうかくけい",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "agonic",
+      "p": [
+        "genu-1",
+        "ne"
+      ],
+      "gloss": "無角の",
+      "answer": "むかくの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Mazdaism",
+      "p": [
+        "men-1",
+        "dhē-"
+      ],
+      "gloss": "ゾロアスター教",
+      "answer": "ぞろあすたーきょう",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "nonagon",
+      "p": [
+        "newn̥",
+        "genu-1"
+      ],
+      "gloss": "九角形",
+      "answer": "きゅうかくけい",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "quadraphonic",
+      "p": [
+        "bhā-2",
+        "kʷetwer-"
+      ],
+      "gloss": "四チャンネル方式の",
+      "answer": "よんちゃんねるほうしきの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "gonion",
+      "p": [
+        "genu-1"
+      ],
+      "gloss": "顎角点",
+      "answer": "がっかくてん",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "balletomane",
+      "p": [
+        "gʷelə-",
+        "men-1"
+      ],
+      "gloss": "バレエ狂の人",
+      "answer": "ばれえきょうのひと",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "bifarious",
+      "p": [
+        "bhā-2"
+      ],
+      "gloss": "二分された",
+      "answer": "にぶんされた",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "fluviomarine",
+      "p": [
+        "bhleu-",
+        "mori-"
+      ],
+      "gloss": "河口海洋の",
+      "answer": "かこうかいようの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "biostrome",
+      "p": [
+        "gwei-",
+        "sterə-"
+      ],
+      "gloss": "層状生礁",
+      "answer": "そうじょうせいしょう",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "three",
+      "p": [
+        "trei-"
+      ],
+      "gloss": "3",
+      "answer": "さん",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "four",
+      "p": [
+        "kʷetwer-"
+      ],
+      "gloss": "4",
+      "answer": "よん",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "five",
+      "p": [
+        "penkʷe"
+      ],
+      "gloss": "5",
+      "answer": "ご",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "third",
+      "p": [
+        "trei-"
+      ],
+      "gloss": "3番目",
+      "answer": "さんばんめ",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "six",
+      "p": [
+        "s(w)eks"
+      ],
+      "gloss": "6",
+      "answer": "ろく",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "ten",
+      "p": [
+        "dekm̥"
+      ],
+      "gloss": "10",
+      "answer": "じゅう",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "twenty",
+      "p": [
+        "dwo-",
+        "dekm̥"
+      ],
+      "gloss": "20",
+      "answer": "にじゅう",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "thirty",
+      "p": [
+        "trei-",
+        "dekm̥"
+      ],
+      "gloss": "30",
+      "answer": "さんじゅう",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "nine",
+      "p": [
+        "newn̥"
+      ],
+      "gloss": "9",
+      "answer": "きゅう",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "fourth",
+      "p": [
+        "kʷetwer-"
+      ],
+      "gloss": "第4の",
+      "answer": "だいよんの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "fifty",
+      "p": [
+        "penkʷe",
+        "dekm̥"
+      ],
+      "gloss": "50",
+      "answer": "ごじゅう",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "forty",
+      "p": [
+        "kʷetwer-"
+      ],
+      "gloss": "40",
+      "answer": "よんじゅう",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "twelve",
+      "p": [
+        "dwo-",
+        "leikʷ-"
+      ],
+      "gloss": "12",
+      "answer": "じゅうに",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "billion",
+      "p": [
+        "dwo-",
+        "gheslo-"
+      ],
+      "gloss": "10億",
+      "answer": "じゅうおく",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "pH",
+      "p": [],
+      "gloss": "pH",
+      "answer": "ぴーえいち",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "fifteen",
+      "p": [
+        "penkʷe",
+        "dekm̥"
+      ],
+      "gloss": "15",
+      "answer": "じゅうご",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "nineteenth",
+      "p": [],
+      "gloss": "第19の",
+      "answer": "だいじゅうきゅうの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "twentieth",
+      "p": [],
+      "gloss": "第20の",
+      "answer": "だいにじゅうの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "fifth",
+      "p": [
+        "penkʷe"
+      ],
+      "gloss": "第5の",
+      "answer": "だいごの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "sixty",
+      "p": [
+        "s(w)eks",
+        "dekm̥"
+      ],
+      "gloss": "60",
+      "answer": "ろくじゅう",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "binary",
+      "p": [
+        "dwo-"
+      ],
+      "gloss": "2進法の",
+      "answer": "にしんほうの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "em",
+      "p": [],
+      "gloss": "アルファベットのM",
+      "answer": "あるふぁべっとのえむ",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "eleven",
+      "p": [
+        "oi-no-",
+        "leikʷ-"
+      ],
+      "gloss": "11",
+      "answer": "じゅういち",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "eighteen",
+      "p": [
+        "oktō(u)",
+        "dekm̥"
+      ],
+      "gloss": "18",
+      "answer": "じゅうはち",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "CD",
+      "p": [],
+      "gloss": "400",
+      "answer": "よんひゃく",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "eighteenth",
+      "p": [],
+      "gloss": "第18の",
+      "answer": "だいじゅうはちの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "sixth",
+      "p": [
+        "s(w)eks",
+        "-to-"
+      ],
+      "gloss": "第6の",
+      "answer": "だいろくの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "weekly",
+      "p": [
+        "weik-4"
+      ],
+      "gloss": "週に1度の",
+      "answer": "しゅうにいちどの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "sixteen",
+      "p": [
+        "s(w)eks",
+        "dekm̥"
+      ],
+      "gloss": "16",
+      "answer": "じゅうろく",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "seventy",
+      "p": [
+        "septm̥",
+        "dekm̥"
+      ],
+      "gloss": "70",
+      "answer": "ななじゅう",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "fourteen",
+      "p": [
+        "kʷetwer-",
+        "dekm̥"
+      ],
+      "gloss": "14",
+      "answer": "じゅうよん",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "seventh",
+      "p": [
+        "septm̥"
+      ],
+      "gloss": "第7の",
+      "answer": "だいななの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "thirteen",
+      "p": [
+        "trei-",
+        "dekm̥"
+      ],
+      "gloss": "13",
+      "answer": "じゅうさん",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "seventeenth",
+      "p": [],
+      "gloss": "第17の",
+      "answer": "だいじゅうななの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Windows",
+      "p": [],
+      "gloss": "Windows",
+      "answer": "うぃんどうず",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "seventeen",
+      "p": [
+        "septm̥",
+        "dekm̥"
+      ],
+      "gloss": "17",
+      "answer": "じゅうなな",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "eighth",
+      "p": [
+        "oktō(u)"
+      ],
+      "gloss": "第8の",
+      "answer": "だいはちの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "sixteenth",
+      "p": [],
+      "gloss": "第16の",
+      "answer": "だいじゅうろくの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "ninety",
+      "p": [
+        "newn̥",
+        "dekm̥"
+      ],
+      "gloss": "90",
+      "answer": "きゅうじゅう",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "tenth",
+      "p": [
+        "dekm̥"
+      ],
+      "gloss": "第10の",
+      "answer": "だいじゅうの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "teenager",
+      "p": [],
+      "gloss": "10代の若者",
+      "answer": "じゅうだいのわかもの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "IBM",
+      "p": [],
+      "gloss": "IBM",
+      "answer": "あいびーえむ",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "teenage",
+      "p": [],
+      "gloss": "10代の",
+      "answer": "じゅうだいの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "ninth",
+      "p": [
+        "newn̥"
+      ],
+      "gloss": "第9の",
+      "answer": "だいきゅうの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "nineteen",
+      "p": [
+        "newn̥",
+        "dekm̥"
+      ],
+      "gloss": "19",
+      "answer": "じゅうきゅう",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "LP",
+      "p": [],
+      "gloss": "LPレコード",
+      "answer": "えるぴーれこーど",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "teens",
+      "p": [],
+      "gloss": "10代",
+      "answer": "じゅうだい",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "yearly",
+      "p": [
+        "yēr-"
+      ],
+      "gloss": "年1回の",
+      "answer": "ねんいっかいの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "fifteenth",
+      "p": [],
+      "gloss": "第15の",
+      "answer": "だいじゅうごの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "Brexit",
+      "p": [],
+      "gloss": "英EU離脱",
+      "answer": "えいいーゆーりだつ",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "twelfth",
+      "p": [
+        "dwo-",
+        "leikʷ-"
+      ],
+      "gloss": "12番目",
+      "answer": "じゅうにばんめ",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "bilingual",
+      "p": [
+        "dwo-",
+        "dn̥ghū-"
+      ],
+      "gloss": "2言語を話す",
+      "answer": "にげんごをはなす",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "teen",
+      "p": [],
+      "gloss": "10 代の",
+      "answer": "じゅうだいの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "thirteenth",
+      "p": [],
+      "gloss": "第13の",
+      "answer": "だいじゅうさんの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "nickel",
+      "p": [],
+      "gloss": "5セント白銅貨",
+      "answer": "ごせんとはくどうか",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "trillion",
+      "p": [],
+      "gloss": "1兆",
+      "answer": "いっちょう",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "fourteenth",
+      "p": [],
+      "gloss": "第14の",
+      "answer": "だいじゅうよんの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "notch",
+      "p": [],
+      "gloss": "V字型の刻み目",
+      "answer": "ぶいじがたのきざみめ",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "eleventh",
+      "p": [],
+      "gloss": "第11番の",
+      "answer": "だいじゅういちばんの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "fin",
+      "p": [
+        "penkʷe"
+      ],
+      "gloss": "5ドル紙幣",
+      "answer": "ごどるしへい",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "decimal",
+      "p": [
+        "dekm̥"
+      ],
+      "gloss": "10進法の",
+      "answer": "じゅっしんほうの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "fortnight",
+      "p": [
+        "kʷetwer-",
+        "dekm̥",
+        "nekʷ-t-"
+      ],
+      "gloss": "2週間",
+      "answer": "にしゅうかん",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "quarterly",
+      "p": [
+        "kʷetwer-"
+      ],
+      "gloss": "年4回の",
+      "answer": "ねんよんかいの",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "trimester",
+      "p": [
+        "trei-",
+        "mē-2"
+      ],
+      "gloss": "3カ月間",
+      "answer": "さんかげつかん",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "doubly",
+      "p": [],
+      "gloss": "2倍に",
+      "answer": "にばいに",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "jess",
+      "p": [
+        "yē-"
+      ],
+      "gloss": "足緒(あしお)",
+      "answer": "あしお",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "dodecagon",
+      "p": [
+        "dwo-",
+        "dekm̥",
+        "genu-1"
+      ],
+      "gloss": "12辺形",
+      "answer": "じゅうにへんけい",
+      "source": "first_gloss_reading_review_2026-10-05"
+    },
+    {
+      "w": "came",
+      "p": [
+        "gʷā-"
+      ],
+      "gloss": "来た(come の過去)",
+      "answer": "きた",
+      "source": "first_gloss_puzzle_answer_review_2026-10-05"
+    },
+    {
+      "w": "men",
+      "p": [
+        "man-1"
+      ],
+      "gloss": "男たち(man の複数)",
+      "answer": "おとこたち",
+      "source": "first_gloss_puzzle_answer_review_2026-10-05"
+    },
+    {
+      "w": "got",
+      "p": [
+        "ghend-"
+      ],
+      "gloss": "得た(get の過去・過去分詞)",
+      "answer": "えた",
+      "source": "first_gloss_puzzle_answer_review_2026-10-05"
+    },
+    {
+      "w": "seen",
+      "p": [
+        "sekʷ-2"
+      ],
+      "gloss": "見た(see の過去分詞)",
+      "answer": "みた",
+      "source": "first_gloss_puzzle_answer_review_2026-10-05"
+    },
+    {
+      "w": "taken",
+      "p": [
+        "tak-2"
+      ],
+      "gloss": "取った(take の過去分詞)",
+      "answer": "とった",
+      "source": "first_gloss_puzzle_answer_review_2026-10-05"
+    },
+    {
+      "w": "heard",
+      "p": [
+        "kous-"
+      ],
+      "gloss": "聞いた(hear の過去・過去分詞)",
+      "answer": "きいた",
+      "source": "first_gloss_puzzle_answer_review_2026-10-05"
+    },
+    {
+      "w": "feet",
+      "p": [
+        "ped-"
+      ],
+      "gloss": "足(foot の複数)",
+      "answer": "あし",
+      "source": "first_gloss_puzzle_answer_review_2026-10-05"
+    },
+    {
+      "w": "sent",
+      "p": [
+        "sent-"
+      ],
+      "gloss": "送った(send の過去・過去分詞)",
+      "answer": "おくった",
+      "source": "first_gloss_puzzle_answer_review_2026-10-05"
+    },
+    {
+      "w": "May",
+      "p": [
+        "magh-"
+      ],
+      "gloss": "〜かもしれない",
+      "answer": "かもしれない",
+      "source": "first_gloss_puzzle_answer_review_2026-10-05"
+    },
+    {
+      "w": "met",
+      "p": [
+        "mōd-"
+      ],
+      "gloss": "会った(meet の過去・過去分詞)",
+      "answer": "あった",
+      "source": "first_gloss_puzzle_answer_review_2026-10-05"
+    },
+    {
+      "w": "added",
+      "p": [
+        "ad-",
+        "dō-"
+      ],
+      "gloss": "加えた(add の過去・過去分詞)",
+      "answer": "くわえた",
+      "source": "first_gloss_puzzle_answer_review_2026-10-05"
+    },
+    {
+      "w": "written",
+      "p": [
+        "wreid-"
+      ],
+      "gloss": "書いた(write の過去分詞)",
+      "answer": "かいた",
+      "source": "first_gloss_puzzle_answer_review_2026-10-05"
+    },
+    {
+      "w": "spoken",
+      "p": [
+        "spreg-1"
+      ],
+      "gloss": "話した(speak の過去分詞)",
+      "answer": "はなした",
+      "source": "first_gloss_puzzle_answer_review_2026-10-05"
+    },
+    {
+      "w": "ate",
+      "p": [
+        "ed-"
+      ],
+      "gloss": "食べた(eat の過去)",
+      "answer": "たべた",
+      "source": "first_gloss_puzzle_answer_review_2026-10-05"
+    },
+    {
+      "w": "woke",
+      "p": [
+        "weg-2"
+      ],
+      "gloss": "目覚めた(wake の過去)",
+      "answer": "めざめた",
+      "source": "first_gloss_puzzle_answer_review_2026-10-05"
+    },
+    {
+      "w": "blessed",
+      "p": [
+        "bhel-3"
+      ],
+      "gloss": "祝福された(bless の過去分詞)",
+      "answer": "しゅくふくされた",
+      "source": "first_gloss_puzzle_answer_review_2026-10-05"
+    },
+    {
+      "w": "Dan",
+      "p": [
+        "dem-"
+      ],
+      "gloss": "~さん",
+      "answer": "さん",
+      "source": "first_gloss_puzzle_answer_review_2026-10-05"
+    },
+    {
+      "w": "frozen",
+      "p": [
+        "preus-"
+      ],
+      "gloss": "凍らせた(freeze の過去分詞)",
+      "answer": "こおらせた",
+      "source": "first_gloss_puzzle_answer_review_2026-10-05"
+    },
+    {
+      "w": "rode",
+      "p": [
+        "reidh-"
+      ],
+      "gloss": "乗った(ride の過去)",
+      "answer": "のった",
+      "source": "first_gloss_puzzle_answer_review_2026-10-05"
+    },
+    {
+      "w": "dug",
+      "p": [
+        "dhīgʷ-"
+      ],
+      "gloss": "掘った(dig の過去・過去分詞)",
+      "answer": "ほった",
+      "source": "first_gloss_puzzle_answer_review_2026-10-05"
+    },
+    {
+      "w": "th",
+      "p": [],
+      "gloss": "木曜日(Thursday の略)",
+      "answer": "もくようび",
+      "source": "first_gloss_puzzle_answer_review_2026-10-05"
+    },
+    {
+      "w": "Kings",
+      "p": [],
+      "gloss": "列王記(旧約聖書の二書)",
+      "answer": "れつおうき",
+      "source": "first_gloss_puzzle_answer_review_2026-10-05"
+    },
+    {
+      "w": "Rogers",
+      "p": [],
+      "gloss": "ロジャーズ(カール・ロジャーズ。20世紀アメリカの心理学者)",
+      "answer": "ろじゃーず",
+      "source": "first_gloss_puzzle_answer_review_2026-10-05"
+    },
+    {
+      "w": "fungi",
+      "p": [],
+      "gloss": "菌類(fungus の複数)",
+      "answer": "きんるい",
+      "source": "first_gloss_puzzle_answer_review_2026-10-05"
+    },
+    {
+      "w": "sprang",
+      "p": [
+        "spergh-"
+      ],
+      "gloss": "跳ねた(spring の過去)",
+      "answer": "はねた",
+      "source": "first_gloss_puzzle_answer_review_2026-10-05"
+    },
+    {
+      "w": "blown",
+      "p": [
+        "bhlē-2"
+      ],
+      "gloss": "吹いた(blow の過去分詞)",
+      "answer": "ふいた",
+      "source": "first_gloss_puzzle_answer_review_2026-10-05"
+    },
+    {
+      "w": "Monsieur",
+      "p": [
+        "me-1"
+      ],
+      "gloss": "...様",
+      "answer": "さま",
+      "source": "first_gloss_puzzle_answer_review_2026-10-05"
+    },
+    {
+      "w": "amidst",
+      "p": [],
+      "gloss": "〜の中で",
+      "answer": "のなかで",
+      "source": "first_gloss_puzzle_answer_review_2026-10-05"
+    },
+    {
+      "w": "sunk",
+      "p": [
+        "sengʷ-"
+      ],
+      "gloss": "沈んだ(sink の過去分詞)",
+      "answer": "しずんだ",
+      "source": "first_gloss_puzzle_answer_review_2026-10-05"
+    },
+    {
+      "w": "Herr",
+      "p": [
+        "kei-2"
+      ],
+      "gloss": "...氏",
+      "answer": "し",
+      "source": "first_gloss_puzzle_answer_review_2026-10-05"
+    },
+    {
+      "w": "Mister",
+      "p": [
+        "meg-"
+      ],
+      "gloss": "〜さん",
+      "answer": "さん",
+      "source": "first_gloss_puzzle_answer_review_2026-10-05"
+    },
+    {
+      "w": "Dorian",
+      "p": [
+        "dō-"
+      ],
+      "gloss": "ドーリア(人)の",
+      "answer": "どーりあじんの",
+      "source": "first_gloss_puzzle_answer_review_2026-10-05"
+    },
+    {
+      "w": "no",
+      "p": [
+        "ne",
+        "oi-no-"
+      ],
+      "gloss": "一つも〜ない",
+      "answer": "ひとつもない",
+      "source": "first_gloss_puzzle_answer_review_2026-10-05"
+    }
+  ]
+}

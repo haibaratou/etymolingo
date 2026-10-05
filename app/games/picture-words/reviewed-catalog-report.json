@@ -5,27 +5,27 @@
     "sourceWordsSha256": "7f603dd5823d755472d2382cf8a7afbbb2844c1d941318f3d584a027cb213522",
     "scenesSha256": "acb4ab146f5d7b4afad291c75838bf685917f4565c975146c0cfa98e778653ef",
     "indexSha256": "8f14ef961f3ff29788ff205b3af4dbb08e01f1004674f7c01b81df9d82ea8655",
-    "imageDatesSha256": "47ed4d4ceb28fe9a7a2cd4568b4c0d1c03800f0ad2353be886788bd54737edfe",
-    "count": 12344,
-    "wordEntryCount": 11027,
-    "ownershipPendingCount": 1293,
+    "imageDatesSha256": "bc5c792a4c8789f72411774e1b2d46a47dc09fd26928aaec9eb6e2baf61b400b",
+    "count": 13104,
+    "wordEntryCount": 11787,
+    "ownershipPendingCount": 1292,
     "descriptionCounts": {
       "reviewed": 752,
-      "missing": 11468,
+      "missing": 12228,
       "held": 124
     },
     "playableCounts": {
-      "en": 10766,
-      "ja": 2420
+      "en": 11503,
+      "ja": 11527
     }
   },
   "ownership": {
-    "pngPaths": 12344,
-    "primaryIdentities": 11027,
-    "primaryDistinctWords": 10923,
-    "primaryPngPaths": 11027,
-    "ownedPngPaths": 11051,
-    "ownershipPendingPngPaths": 1293,
+    "pngPaths": 13104,
+    "primaryIdentities": 11787,
+    "primaryDistinctWords": 11679,
+    "primaryPngPaths": 11787,
+    "ownedPngPaths": 11812,
+    "ownershipPendingPngPaths": 1292,
     "immutableAliases": 13,
     "conflictingFiles": 15,
     "preservedProtectedBindings": 597
@@ -33,23 +33,24 @@
   "sceneEntries": 752,
   "existingIdsPreserved": 261,
   "legacyIdsPreserved": 80,
-  "imageBytes": 2525968218,
-  "emittedRows": 12344,
+  "imageBytes": 2726809871,
+  "emittedRows": 13104,
   "lazyAssets": 752,
   "lazyAssetBytes": 205493116,
-  "inventoryNamesSha256": "94fafc99a497d42ab6442db314d6ec311c617fc56f3a12e29b3a85cfb3bddab3",
+  "inventoryNamesSha256": "89f1c24f0aa4c760b165a3b57083c0980de76879018e7b1ea6724f49d5d1229f",
   "inclusionPolicy": "all_observed_generated_PNGs",
   "dateGateApplied": false,
   "captionGateApplied": false,
   "posGateApplied": false,
   "exclusionCounts": {},
   "inputHashes": {
-    "app/data/generated-image-issues.json": "0ff6f71457a2e9ac0b82b7040a7c0805688a965e65546e16101229f2824a9e8b",
-    "app/data/generated-image-legacy-ids.json": "5d4ef6cf115bcb57962d8f0063a144c4fe2630423a241291fc0107cfacbe4323",
-    "app/data/generated_image_resolver.py": "e2254d42722c48d63b008bd843b830d67fcd1312d66bd31fc4dc64ee0f8f9cf8",
-    "app/data/build_generated_image_catalog.py": "fe05a929843cc28f7f0f517729b2dac8d35767f001c7dce515c00a73f5dbab8f",
-    "app/games/picture-words/updated-art.json": "b679d791b812efd6eeeee73828f49cfb0b2b4fb29e1d85aaa2caabc4fbf28781",
-    "app/games/picture-words/build_catalog.py": "42b868ac315092781f5abfcec19ed6a84670f0b390b6b0e8c150197c69a98ba8"
+    "app/data/generated-image-issues.json": "f232b40b69bbc4b14f8a573503f2b6b55a9a3b839fad161901f17c0a13de4adc",
+    "app/data/generated-image-legacy-ids.json": "864d1faffd3760aa74bf83a94c44ebfa53c253b6ce851ff9e8c4b3c4b1360bb0",
+    "app/data/generated_image_resolver.py": "337c59868fc8db3912f5fe5d62e522de6e7b191223880959d116ceb04a0b6441",
+    "app/data/build_generated_image_catalog.py": "653143425990d5994db35b3862a37d84c50175a1707dfd83cbccce7a3ba48027",
+    "app/games/picture-words/updated-art.json": "3fa4c8c8ba4ac61f759cd1327c151d77f70957aa1764d23bad488d9bea91c890",
+    "app/games/picture-words/build_catalog.py": "85779d250cfbfb77b7bf4194c56fdb35159774617b58181ada5897d864c3848f",
+    "app/data/puzzle-ja-answers.json": "98cceb6b96f90c71cc0f2cacf54ae6f61754bf1db2fe4a9a94f66d28d2e3bcdd"
   },
   "ownershipPending": [
     {
@@ -5915,12 +5916,6 @@
       "art": "rays_of_the_sun",
       "path": "assets/word/rays_of_the_sun.png",
       "reason": "phrase_or_derived_asset_without_canonical_binding",
-      "candidateIdentities": []
-    },
-    {
-      "art": "reading",
-      "path": "assets/word/reading.png",
-      "reason": "no_exact_canonical_filename_or_binding",
       "candidateIdentities": []
     },
     {
@@ -14479,6 +14474,19 @@
           "code": "ambiguous_default_homograph_or_filename_collision",
           "detail": "画像の対応確認中",
           "imageSha256": "cf36ccb26c2be0c9d608da2df66dbb469f92b5b7f0049080727b61288ec59ed7",
+          "scope": "play_blocking",
+          "blocksPlay": true
+        }
+      ]
+    },
+    {
+      "id": "asset:constable",
+      "pic": "constable",
+      "issues": [
+        {
+          "code": "owned_alternate_or_superseded",
+          "detail": "別の画像・旧版",
+          "imageSha256": "7b6b94f26318e9db9848e80538d4d044b3685098e7242b8f95fac1a3cf41158b",
           "scope": "play_blocking",
           "blocksPlay": true
         }
@@ -23397,19 +23405,6 @@
           "code": "phrase_or_derived_asset_without_canonical_binding",
           "detail": "画像の対応確認中",
           "imageSha256": "293fab8e8a92becf0cecd3e6c46ee1df89380608271d632403a8ec44b4f7e010",
-          "scope": "play_blocking",
-          "blocksPlay": true
-        }
-      ]
-    },
-    {
-      "id": "asset:reading",
-      "pic": "reading",
-      "issues": [
-        {
-          "code": "no_exact_canonical_filename_or_binding",
-          "detail": "画像の対応確認中",
-          "imageSha256": "0eb70520d8e6bffaa5117dad22f78dbe31d4b456a2ebf7a2655971a65437be8e",
           "scope": "play_blocking",
           "blocksPlay": true
         }

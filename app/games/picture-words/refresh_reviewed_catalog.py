@@ -10,7 +10,7 @@ def sha256(raw):return hashlib.sha256(raw).hexdigest()
 def json_bytes(data,pretty=False):return (json.dumps(data,ensure_ascii=False,indent=2 if pretty else None,separators=None if pretty else (',',':'))+'\n').encode()
 def read_previous_catalog(path):
  if not Path(path).is_file():return []
- text=Path(path).read_text();m=re.search(r'window\.PICTURE_WORDS_CATALOG\s*=\s*',text)
+ text=Path(path).read_text(encoding='utf-8');m=re.search(r'window\.PICTURE_WORDS_CATALOG\s*=\s*',text)
  if not m:raise ValueError('Missing catalog assignment')
  return json.JSONDecoder().raw_decode(text[m.end():])[0]
 def bind_catalog_html(html_raw,catalog_raw):

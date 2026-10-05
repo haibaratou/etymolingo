@@ -748,7 +748,6 @@
   }
   function win() {
     if (!roundScene?.playable) return;
-    if (roundScene.status === 'reviewed' && roundScene.ttsAllowed === true) speech.speakScene(entry, roundScene, mode);
     $('rankUp').hidden = true;
     phase = 'solved'; $('game').dataset.state = phase; updateLabels(); flyLetters(); vibrate([12, 35, 20]);
     if (comboEligible) { saved.combo++; saved.bestCombo = Math.max(saved.bestCombo, saved.combo); }
@@ -835,6 +834,14 @@
     $('winPronunciation').replaceChildren();
     $('winPronunciation').hidden = roundScene.status !== 'reviewed' || roundScene.ttsAllowed !== true;
     if (!$('winPronunciation').hidden) $('winPronunciation').append(pronunciationPanel(entry, mode, roundScene));
+    if (roundScene.status === 'reviewed' && roundScene.ttsAllowed === true) {
+      // Let the success fanfare (including the delayed collection bonus) finish.
+      const bonusFanfare = recordKind === 'independent' && (milestone || award.pageCompleted);
+      const narrationDelay = bonusFanfare ? 2700 : combo >= 2 && combo % COMBO_STEP === 0 ? 2050 : 1400;
+      later(() => {
+        if (phase === 'solved' && !document.hidden && saved.sound) speech.speakScene(entry, roundScene, mode);
+      }, narrationDelay);
+    }
     queueAdvance(award.pageCompleted ? 4400 : REWARD_DURATION);
   }
 
@@ -957,12 +964,12 @@
     for(const language of [mode]) {
       const route=nodes.filter(node=>node.lang===language).sort((a,b)=>a.answerIndex-b.answerIndex);
       for(const node of route) {
-        const at=tick++ * 160;
+        const at=tick++ * 280;
         later(()=>{node.button.classList.add('answer-wave');setFeedback(`${language==='en'?'ENGLISH':'かな'} ${node.answerIndex+1} / ${route.length}`);},at);
-        later(()=>node.button.classList.remove('answer-wave'),at+210);
+        later(()=>node.button.classList.remove('answer-wave'),at+620);
       }
     }
-    later(()=>{phase='playing';$('game').dataset.state=phase;$('hint').disabled=false;$('shuffle').disabled=false;setFeedback('答えを見た記録が残ります。なぞって辞書をゲット！');},tick*160);
+    later(()=>{phase='playing';$('game').dataset.state=phase;$('hint').disabled=false;$('shuffle').disabled=false;setFeedback('答えを見た記録が残ります。なぞって辞書をゲット！');},tick*280+650);
   });
   $('sound').addEventListener('click', () => {
     saved.sound = !saved.sound; speech.setEnabled(saved.sound); persist(); updateSound(); updateLabels();

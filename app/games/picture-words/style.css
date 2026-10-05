@@ -938,7 +938,8 @@ html[data-layout=mobile] .play-toolbar #modeJa,html[data-layout=mobile] .play-to
 #rankUp>small{display:none}
 .single-answer .answer-tile{min-width:0;flex:0 1 34px}
 #rewardScene .book-page-number{font-size:10px}
-#wheel #letters .letter.answer-wave[data-lang]{transition:scale .07s ease,background .07s ease}
+#wheel #letters .letter.answer-wave[data-lang]{transition:scale .42s cubic-bezier(.2,.7,.25,1),background .48s ease,color .48s ease,filter .42s ease}
+@media(prefers-reduced-motion:reduce){#wheel #letters .letter.answer-wave[data-lang]{transition:none}}
 
 /* No connecting line, glow or finger-following tip at any gesture stage. */
 #wheel #trail{display:none!important;visibility:hidden!important}

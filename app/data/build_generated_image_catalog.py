@@ -83,14 +83,25 @@ def validate_caption(entry,word,art,image):
  return result,'reviewed',''
 
 def kana(s):return ''.join(chr(ord(c)-0x60) if 'ァ'<=c<='ヶ' else c for c in normalize(s))
-def japanese_answer(word,prior):
+def puzzle_kana(s):
+ # Grammatical placeholders and separators are not letters on the puzzle board.
+ # The complete original gloss remains in ja/sceneBinding and in source data.
+ return re.sub(r'[〜～~…・\s]','',kana(s))
+def japanese_answer(word,prior,answers=None):
  first=first_senses(word)[0]
+ override=(answers or {}).get((word['w'],tuple(word.get('p',[])),first))
+ if override:return override,'reviewed_puzzle_first_reading'
  if prior and prior.get('w') and prior.get('sceneBinding')=={k:word.get(k,[] if k=='p' else '') for k in ['w','p','ja','en']}:
   return prior['w'],'verified_existing_exact_game_answer'
  rows=word.get('ja_readings') or []
- if rows and normalize(rows[0].get('gloss'))==first and rows[0].get('status')=='reviewed' and rows[0].get('kana'):
-  return rows[0]['kana'],'reviewed_first_reading'
- literal=kana(first)
+ if rows and normalize(rows[0].get('gloss'))==first and rows[0].get('kana'):
+  reading=rows[0]
+  if reading.get('status')=='reviewed':return reading['kana'],'reviewed_first_reading'
+  # Candidate is a provenance label, not absence of a Japanese answer.
+  # Use exact first-gloss dictionary readings without relabelling them reviewed.
+  if reading.get('status')=='candidate' and reading.get('source','').startswith('sudachi:') and not reading.get('note'):
+   return puzzle_kana(reading['kana']),'automatic_first_reading'
+ literal=puzzle_kana(first)
  if re.fullmatch('[ぁ-ゔー]+',literal):return literal,'literal_kana_first_gloss'
  return '', 'reading_'+(rows[0].get('status','missing') if rows else 'missing')
 
@@ -105,6 +116,13 @@ def build_catalog_rows(root=ROOT,include_packs=True):
  legacy=load_module('legacy_image_names',root/GAME/'build_catalog.py')
  ledger=read(root/GAME/'updated-art.json')+[{'w':w,'roots':p,'file':f,'source':'published_exceptional_tuple','priority':3} for w,p,f in legacy.LEDGER_SENSE_ART]
  resolved=resolve_bindings(words,inv,index,ledger,payload)
+ answer_path=root/'app/data/puzzle-ja-answers.json'
+ answers={}
+ if answer_path.is_file():
+  for r in read(answer_path)['rows']:
+   key=(r['w'],tuple(r['p']),r['gloss'])
+   if key in answers and answers[key]!=r['answer']:raise ValueError('Conflicting Japanese puzzle answer')
+   answers[key]=r['answer']
  date_path=root/'work/etymopedia/png_creation_dates.csv';date_rows={}
  if date_path.is_file():
   for item in csv.DictReader(date_path.open(encoding='utf-8-sig',newline='')):
@@ -150,7 +168,7 @@ def build_catalog_rows(root=ROOT,include_packs=True):
   reviewed,status,reason=validate_caption(scene_map.get(key),word,art,image)
   if active:
    reviewed=None;status='held';reason=active[0]['code']
-  answer,evidence=japanese_answer(word,old);ja_ok=bool(re.fullmatch('[ぁ-ゔー]{1,14}',answer) and re.search('[ぁ-ゔ]',answer))
+  answer,evidence=japanese_answer(word,old,answers);ja_ok=bool(re.fullmatch('[ぁ-ゔー]{1,14}',answer) and re.search('[ぁ-ゔ]',answer))
   en_ok=bool(re.fullmatch('[A-Za-z]{1,14}',word['w']))
   en_reason=blockers[0]['code'] if blockers else '' if en_ok else 'unsupported_english_answer_format'
   ja_reason=blockers[0]['code'] if blockers else '' if ja_ok else evidence if not answer else 'unsupported_japanese_answer_length'
@@ -178,5 +196,5 @@ def build_catalog_rows(root=ROOT,include_packs=True):
  if not seed_ids.issubset(used_ids):raise ValueError('Existing catalog IDs disappeared')
  if not legacy_ids.issubset(used_ids):raise ValueError('Legacy IDs disappeared')
  meta={'schema':2,'sourceWordsSha256':digest(words_raw),'scenesSha256':digest(scenes_raw),'indexSha256':digest(index_raw),'imageDatesSha256':digest(date_path.read_bytes()) if date_path.is_file() else None,'count':len(rows),'wordEntryCount':len(owned),'ownershipPendingCount':sum(r['bindingStatus']=='ownership_pending' for r in rows),'descriptionCounts':dict(Counter(r['description']['status'] for r in rows)),'playableCounts':{l:sum(bool(r['availability'][l]['playable']) for r in rows) for l in ['en','ja']}}
- report={'schema':2,'meta':meta,'ownership':resolved['summary'],'sceneEntries':len(payload['entries']),'existingIdsPreserved':len(seed_ids),'legacyIdsPreserved':len(legacy_ids),'imageBytes':sum(r['bytes'] for r in inv.values()),'emittedRows':len(rows),'lazyAssets':len(packs),'lazyAssetBytes':sum(len(b) for b in packs.values()),'inventoryNamesSha256':digest(compact(sorted(inv)).encode()),'inclusionPolicy':'all_observed_generated_PNGs','dateGateApplied':False,'captionGateApplied':False,'posGateApplied':False,'exclusionCounts':{},'inputHashes':{p:digest((root/p).read_bytes()) for p in ['app/data/generated-image-issues.json','app/data/generated-image-legacy-ids.json','app/data/generated_image_resolver.py','app/data/build_generated_image_catalog.py','app/games/picture-words/updated-art.json','app/games/picture-words/build_catalog.py']},'ownershipPending':[{k:r.get(k) for k in ['art','path','reason','candidateIdentities']} for r in resolved['assets'] if r['bindingStatus']=='ownership_pending'],'issues':[{k:r[k] for k in ['id','pic','issues']} for r in rows if r['issues']]}
+ report={'schema':2,'meta':meta,'ownership':resolved['summary'],'sceneEntries':len(payload['entries']),'existingIdsPreserved':len(seed_ids),'legacyIdsPreserved':len(legacy_ids),'imageBytes':sum(r['bytes'] for r in inv.values()),'emittedRows':len(rows),'lazyAssets':len(packs),'lazyAssetBytes':sum(len(b) for b in packs.values()),'inventoryNamesSha256':digest(compact(sorted(inv)).encode()),'inclusionPolicy':'all_observed_generated_PNGs','dateGateApplied':False,'captionGateApplied':False,'posGateApplied':False,'exclusionCounts':{},'inputHashes':{p:digest((root/p).read_bytes()) for p in ['app/data/generated-image-issues.json','app/data/generated-image-legacy-ids.json','app/data/generated_image_resolver.py','app/data/build_generated_image_catalog.py','app/data/puzzle-ja-answers.json','app/games/picture-words/updated-art.json','app/games/picture-words/build_catalog.py']},'ownershipPending':[{k:r.get(k) for k in ['art','path','reason','candidateIdentities']} for r in resolved['assets'] if r['bindingStatus']=='ownership_pending'],'issues':[{k:r[k] for k in ['id','pic','issues']} for r in rows if r['issues']]}
  return rows,meta,packs,report

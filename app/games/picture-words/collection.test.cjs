@@ -148,11 +148,11 @@ test('language control is disabled while the selected picture loads and resumes 
 });
 
 test('post-solve language replay then Next ignores repeated clicks and stale narration callbacks', async () => {
-  const app=await boot({query:'?word=family'});app.solve();await app.settle();
+  const app=await boot({query:'?word=family'});app.solve();await app.settle();app.flushTimers(3000);
   const firstSpeech=app.speech.at(-1);app.get('modeToggle').click();
   assert.equal(app.snapshot().mode,'ja');assert.equal(app.snapshot().state,'playing');
   firstSpeech?.onend?.();app.flushTimers();assert.equal(app.snapshot().id,'family');assert.equal(app.snapshot().mode,'ja');
-  app.solve();await app.settle();const japaneseSpeech=app.speech.at(-1);
+  app.solve();await app.settle();app.flushTimers(3000);const japaneseSpeech=app.speech.at(-1);
   const word=app.window.PICTURE_WORDS_CATALOG.find(word=>word.id==='family');
   assert.equal(japaneseSpeech.text,word.description.ja);
   app.get('advanceLabel').click();app.get('advanceLabel').click();
