@@ -92,7 +92,7 @@ test('unsupported Japanese switch preserves the active English word, board, and 
  const c={entry,round,phase:'playing',mode:'en',window:{WordBloomReviewedScenes:{supportsLanguage:()=>false,unavailableReason:()=> '日本語の読みは未確認です'}},setFeedback:value=>feedback=value,
  document:{querySelectorAll:()=>[{dataset:{mode:'ja'},addEventListener:(_,fn)=>handlers.ja=fn}]}};
  vm.runInNewContext(code.slice(code.indexOf("  document.querySelectorAll('[data-mode]')"),code.indexOf("  $('retryImage')")),c);
- handlers.ja();assert.equal(c.mode,'en');assert.equal(c.entry,entry);assert.equal(c.round,round);assert.equal(feedback,'日本語の読みは未確認です');
+ handlers.ja();assert.equal(c.mode,'en');assert.equal(c.entry,entry);assert.equal(c.round,round);assert.equal(feedback,'日本語の答えは未確認です');
 });
 
 test('an explicitly verified one-kana answer solves and switches on the same image',()=>{

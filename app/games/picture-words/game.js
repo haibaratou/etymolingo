@@ -98,7 +98,7 @@
   let entry, roundScene = null, answer = [], nodes = [], selected = [], hintCount = 0, mistakes = 0;
   let phase = 'loading', generation = 0, pointer = null, wheelRect = null, shuffleBusy = false, boardHeight = 360;
   let feedbackTimer = 0;
-  let dictionaryLanguage = mode, dictionaryFilter = 'all', lastAcquired = null, dictionaryPage = 0, dictionaryQuery = '';
+  let dictionaryFilter = 'all', lastAcquired = null, dictionaryPage = 0, dictionaryQuery = '';
   const DICTIONARY_PAGE_SIZE = 48;
   let advanceTimers = [];
   let keyboardNavigation = false;
@@ -348,10 +348,14 @@
     $('modeToggle').setAttribute('aria-label', mode === 'ja' ? '英語に切り替える' : '日本語に切り替える');
     $('modeToggle').dataset.active = mode;
     const otherLanguage = mode === 'ja' ? 'en' : 'ja';
-    $('modeToggle').disabled = !!entry && !window.WordBloomReviewedScenes.supportsLanguage(entry, otherLanguage);
-    $('modeToggle').title = entry ? window.WordBloomReviewedScenes.unavailableReason(entry, otherLanguage) : '';
-    if ($('modeToggle').disabled) $('modeToggle').setAttribute('aria-label', $('modeToggle').title);
-    $('modeLabel').innerHTML = `<span class="mode-ja">日本語</span><span aria-hidden="true">⇄</span><span class="mode-en">英語</span>`;
+    const canSwitch = !!entry && window.WordBloomReviewedScenes.supportsLanguage(entry, otherLanguage);
+    // Keep unavailable language taps explainable on touch screens (no hover title).
+    $('modeToggle').disabled = !entry || !['playing','answer-demo','solved'].includes(phase);
+    $('modeToggle').setAttribute('aria-disabled', String($('modeToggle').disabled));
+    $('modeToggle').dataset.unavailable = canSwitch ? '' : otherLanguage;
+    $('modeToggle').title = entry && !canSwitch ? window.WordBloomReviewedScenes.unavailableReason(entry, otherLanguage).replace('日本語の読みは未確認です', '日本語の答えは未確認です') : '';
+    if (!canSwitch && entry) $('modeToggle').setAttribute('aria-label', `${$('modeToggle').title}。タップして理由を確認`);
+    $('modeLabel').innerHTML = `<span class="mode-ja">日本語${!canSwitch && otherLanguage === 'ja' ? `<small>${$('modeToggle').title.includes('未確認') ? '未確認' : '未対応'}</small>` : ''}</span><span aria-hidden="true">⇄</span><span class="mode-en">英語${!canSwitch && otherLanguage === 'en' ? '<small>未対応</small>' : ''}</span>`;
     const labels = { clueHeading: 'title', instruction: 'instruction', gestureNote: 'note', shuffleLabel: 'shuffle', hintLabel: 'hint',
       footerNote: 'footer', collectionLabel: 'collection', foundLabel: 'found',
       imageErrorText: 'error', retryImage: 'retry', skipImage: 'skip' };
@@ -734,13 +738,13 @@
   function clearScore(missCount, viewed) {
     return Math.max(0, 100 - 10 * missCount - (viewed ? 30 : 0));
   }
-  function scoreStamp(score, viewed) {
+  function scoreStamp(score, viewed, label = '') {
     const petals = Array.from({length:16}, (_,i) => {
       const a=i*Math.PI/8, b=(i+.5)*Math.PI/8, c=(i+1)*Math.PI/8;
       return `${i?'':'M '+(100+77*Math.cos(a))+' '+(100+77*Math.sin(a))} Q ${100+106*Math.cos(b)} ${100+106*Math.sin(b)} ${100+77*Math.cos(c)} ${100+77*Math.sin(c)}`;
     }).join(' ');
     const outline = score===100 ? `<path d="${petals} Z"/><circle cx="100" cy="100" r="65"/>` : '<circle cx="100" cy="100" r="82"/><circle cx="100" cy="100" r="73"/>';
-    return `<svg viewBox="0 0 200 200" aria-hidden="true">${outline}</svg><strong>${score}<small>点</small></strong><span>${score===100?'はなまる':viewed?'答えを見た':'正解'}</span>`;
+    return `<svg viewBox="0 0 200 200" aria-hidden="true">${outline}</svg><strong>${score}<small>点</small></strong><span>${label || (score===100?'はなまる':viewed?'答えを見た':'正解')}</span>`;
   }
   function win() {
     if (!roundScene?.playable) return;
@@ -969,8 +973,9 @@
   });
   window.addEventListener('resize', updateLayout);
   document.querySelectorAll('[data-mode]').forEach(button=>button.addEventListener('click',()=>{
-    if(!entry || !['playing','answer-demo'].includes(phase) || mode===button.dataset.mode)return;
-    if(!window.WordBloomReviewedScenes.supportsLanguage(entry,button.dataset.mode)){setFeedback(window.WordBloomReviewedScenes.unavailableReason(entry,button.dataset.mode));return;}
+    if(!entry || !['playing','answer-demo','solved'].includes(phase) || mode===button.dataset.mode)return;
+    if(!window.WordBloomReviewedScenes.supportsLanguage(entry,button.dataset.mode)){setFeedback(window.WordBloomReviewedScenes.unavailableReason(entry,button.dataset.mode).replace('日本語の読みは未確認です', '日本語の答えは未確認です'));return;}
+    if (phase === 'solved') { mode = button.dataset.mode; loadLevel(index, true, false, false, true); return; }
     round.mistakes[mode]=mistakes;
     cancelGesture();generation++;clearPending();speech.stop();
     mode=button.dataset.mode;answer=round.answers[mode];hintCount=0;mistakes=round.mistakes[mode];
@@ -1002,12 +1007,12 @@
     const steps = mode === 'ja' ? [
       '英語か日本語を選び、絵を見て答えを考えます。途中で言語を変えても同じ絵のままです。',
       '隣り合う六角形を一筆でつなぎます。途中で離すと取り消します。',
-      '選んだ言語を正解すると、その言語の辞書に登録します。',
+      '英語でも日本語でも、正解した単語が同じコレクションに登録されます。',
       '答えボタンは正解の順に文字を光らせます。自力と答えを見た記録は言語ごとに保存します。'
     ] : [
       'Choose English or Japanese. Switching language keeps the same picture.',
       'Connect neighbouring hex tiles in one stroke. An unfinished stroke is cancelled.',
-      'Solve the selected language to collect its dictionary entry.',
+      'Solve in English or Japanese to add the word to the same collection.',
       'Answer demonstrates the current solution. Independent and assisted clears are recorded per language.'
     ];
     const note=mode==='ja'?'同じ文字も別々のマスとしてつなぎます。離れたマスや別の言語のマスには飛べません。':'Repeated letters have separate tiles. You cannot jump to a distant tile or switch languages during a stroke.';
@@ -1042,10 +1047,10 @@
   }
   $('difficulty').addEventListener('click', openDifficulty);
   $('launchDifficulty').addEventListener('click', openDifficulty);
-  $('levels').addEventListener('click', () => { dictionaryLanguage = mode; dictionaryFilter = 'missing'; dictionaryPage = 0; dictionaryQuery = ''; renderDictionary(); });
-  function openDictionary() { dictionaryLanguage = mode; dictionaryFilter = 'owned'; dictionaryPage = 0; dictionaryQuery = ''; renderDictionary(); }
+  $('levels').addEventListener('click', () => { dictionaryFilter = 'missing'; dictionaryPage = 0; dictionaryQuery = ''; renderDictionary(); });
+  function openDictionary() { dictionaryFilter = 'owned'; dictionaryPage = 0; dictionaryQuery = ''; renderDictionary(); }
   $('collection').addEventListener('click', openDictionary);
-  $('dailyCollection').addEventListener('click', () => { dictionaryLanguage = mode; dictionaryFilter = 'owned'; dictionaryPage = 0; dictionaryQuery = ''; renderDictionary(); });
+  $('dailyCollection').addEventListener('click', () => { dictionaryFilter = 'owned'; dictionaryPage = 0; dictionaryQuery = ''; renderDictionary(); });
   $('wordReward').addEventListener('click', openDictionary);
 
   function beginDictionaryPuzzle(lang, targetIndex) {
@@ -1054,29 +1059,39 @@
     $('clueHeading').scrollIntoView({ behavior: reducedMotion.matches ? 'instant' : 'smooth', block: 'start' });
   }
 
+  // One collection per exact catalog ID; language-specific progress stays unchanged.
+  const dictionaryOwned = word => !!(saved.ja.stars[word.id] || saved.en.stars[word.id]);
+  function dictionaryBestScore(word) {
+    const records = saved.answerRecords[word.id];
+    // Older saves may have stars or a shared record but no actual score.
+    const scores = [records?.ja?.bestScore, records?.en?.bestScore, records?.bestScore]
+      .filter(score => Number.isInteger(score) && score >= 0 && score <= 100);
+    return scores.length ? Math.max(...scores) : null;
+  }
+  function dictionaryScoreStamp(word) {
+    const score = dictionaryBestScore(word);
+    if (score === null || !dictionaryOwned(word)) return null;
+    const stamp = document.createElement('span'); stamp.className = 'result-stamp collection-score-stamp';
+    stamp.dataset.score = String(score); stamp.setAttribute('role', 'img');
+    stamp.setAttribute('aria-label', `最高 ${score}点`);
+    stamp.innerHTML = scoreStamp(score, false, '最高');
+    return stamp;
+  }
+  const dictionaryPlayLanguage = word => supports(word, mode) ? mode : supports(word, mode === 'ja' ? 'en' : 'ja') ? (mode === 'ja' ? 'en' : 'ja') : mode;
+
   function renderDictionary(focusControl = '') {
-    const lang = dictionaryLanguage, count = catalog.filter(word => saved[lang].stars[word.id]).length, totalWords = catalog.length, percent = totalWords ? Math.floor(count / totalWords * 100) : 0;
-    const todayIds = new Set(discovery.summary(saved.discovery).todayIds);
+    const count = uniqueCount(), totalWords = catalog.length, percent = totalWords ? Math.floor(count / totalWords * 100) : 0;
     const container = document.createElement('div'); container.className = 'dictionary';
-    const tabs = document.createElement('div'); tabs.className = 'dictionary-tabs'; tabs.setAttribute('role', 'group');
-    tabs.setAttribute('aria-label', mode === 'ja' ? '表示する辞書' : 'Choose a dictionary');
-    for (const language of ['ja', 'en']) {
-      const button = document.createElement('button'); button.type = 'button'; button.dataset.book = language;
-      button.setAttribute('aria-pressed', String(language === lang));
-      button.innerHTML = `${icon('book')}<span>${bookName(language)}<small>${collectedCount(language)} / ${availableCount(language)}</small></span>`;
-      button.addEventListener('click', () => { dictionaryLanguage = language; dictionaryPage = 0; renderDictionary('book'); }); tabs.append(button);
-    }
     const summary = document.createElement('div'); summary.className = 'dictionary-summary';
     summary.innerHTML = `<div><span class="eyebrow">コレクション</span><p><b>${count}</b> / ${totalWords} <span>語</span></p></div><strong>${percent}<small>%</small></strong>`;
     const meter = document.createElement('div'); meter.className = 'dictionary-meter'; meter.setAttribute('role', 'progressbar');
-    meter.setAttribute('aria-label', bookName(lang)); meter.setAttribute('aria-valuenow', String(count)); meter.setAttribute('aria-valuemin', '0'); meter.setAttribute('aria-valuemax', String(totalWords));
+    meter.setAttribute('aria-label', 'コレクション'); meter.setAttribute('aria-valuenow', String(count)); meter.setAttribute('aria-valuemin', '0'); meter.setAttribute('aria-valuemax', String(totalWords));
     const fill = document.createElement('span'); fill.style.width = `${percent}%`; meter.append(fill);
     const caption = document.createElement('p'); caption.className = 'dictionary-caption';
-    const daily = discovery.summary(saved.discovery);
     caption.textContent = `獲得 ${count}語`;
     const filters = document.createElement('div'); filters.className = 'dictionary-filters'; filters.setAttribute('role', 'group');
     filters.setAttribute('aria-label', mode === 'ja' ? '獲得状況で絞り込む' : 'Filter by collection status');
-    for (const [value, label, total] of [['owned', '獲得済み', count], ['missing', '未獲得', totalWords - count], ['all', 'すべて', totalWords], ['independent','自力',Object.values(saved.answerRecords).filter(r=>r[lang]?.independent>0).length], ['assisted','答えを見た',Object.values(saved.answerRecords).filter(r=>r[lang]?.assisted>0).length]]) {
+    for (const [value, label, total] of [['owned', '獲得済み', count], ['missing', '未獲得', totalWords - count], ['all', 'すべて', totalWords]]) {
       const button = document.createElement('button'); button.type = 'button'; button.textContent = `${label} ${total}`; button.dataset.filter = value;
       button.setAttribute('aria-pressed', String(dictionaryFilter === value)); button.addEventListener('click', () => { dictionaryFilter = value; dictionaryPage = 0; renderDictionary('filter'); }); filters.append(button);
     }
@@ -1085,26 +1100,26 @@
     const updateSearch = event => { if (event.isComposing) return; dictionaryQuery = search.value; dictionaryPage = 0; renderDictionary('search'); };
     search.addEventListener('input', updateSearch); search.addEventListener('compositionend', updateSearch);
     const grid = document.createElement('div'); grid.className = 'dictionary-grid';
-    const collator = new Intl.Collator(lang);
+    const collator = new Intl.Collator('en');
     const query = dictionaryQuery.trim().toLocaleLowerCase();
-    const words = catalog.map((word, wordIndex) => ({ word, wordIndex })).filter(({word}) => (!['independent','assisted'].includes(dictionaryFilter) || saved.answerRecords[word.id]?.[lang]?.[dictionaryFilter]>0) && (dictionaryFilter !== 'today' || todayIds.has(word.id)) && (dictionaryFilter !== 'owned' || saved[lang].stars[word.id]) && (dictionaryFilter !== 'missing' || !saved[lang].stars[word.id]) && (!query || `${word.en} ${word.ja} ${word.w}`.toLocaleLowerCase().includes(query))).sort((a, b) => collator.compare(lang === 'ja' ? a.word.w : a.word.en, lang === 'ja' ? b.word.w : b.word.en));
+    const words = catalog.map((word, wordIndex) => ({ word, wordIndex })).filter(({word}) => (dictionaryFilter !== 'owned' || dictionaryOwned(word)) && (dictionaryFilter !== 'missing' || !dictionaryOwned(word)) && (!query || `${word.en} ${word.ja} ${word.w}`.toLocaleLowerCase().includes(query))).sort((a, b) => collator.compare(a.word.en || a.word.ja || a.word.pic, b.word.en || b.word.ja || b.word.pic));
     const pages = Math.max(1, Math.ceil(words.length / DICTIONARY_PAGE_SIZE)); dictionaryPage = Math.min(dictionaryPage, pages - 1);
     for (const { word, wordIndex } of words.slice(dictionaryPage * DICTIONARY_PAGE_SIZE, (dictionaryPage + 1) * DICTIONARY_PAGE_SIZE)) {
-      const owned = !!saved[lang].stars[word.id], playable = supports(word,lang);
+      const owned = dictionaryOwned(word), lang = dictionaryPlayLanguage(word), playable = supports(word,lang);
       const card = document.createElement('button'); card.type = 'button'; card.className = `dictionary-card ${owned ? 'owned' : 'missing'}`; card.dataset.wordId = word.id;
       const rarity = difficulty.tiers[word.tier]; card.dataset.rarity = rarity.key; card.style.setProperty('--rarity', rarity.color);
       const number = document.createElement('span'); number.className = 'dictionary-number'; number.textContent = `NO. ${String(wordIndex + 1).padStart(3, '0')}`;
       const title = document.createElement('strong'), subtitle = document.createElement('small');
       card.append(number);
       if (owned || !playable) {
-        const image = document.createElement('img'); image.src = imgURL(word); image.alt = ''; image.loading = 'lazy'; card.append(image);
-        title.textContent = (lang === 'ja' ? word.ja : word.en) || word.pic; subtitle.textContent = playable ? (lang === 'ja' ? word.w : word.ja) : window.WordBloomReviewedScenes.unavailableReason(word,lang);
+        const art = document.createElement('span'); art.className = 'dictionary-art';
+        const image = document.createElement('img'); image.src = imgURL(word); image.alt = ''; image.loading = 'lazy'; art.append(image);
+        const stamp = dictionaryScoreStamp(word); if (stamp) art.append(stamp); card.append(art);
+        title.textContent = word.en || word.ja || word.pic; subtitle.textContent = playable ? (word.ja || word.w || '') : window.WordBloomReviewedScenes.unavailableReason(word,lang);
         const mark = document.createElement('span'); mark.className = 'dictionary-owned-mark'; mark.innerHTML = owned ? icon('check') : ''; card.append(mark);
-        const recordLabel=document.createElement('small');recordLabel.className='answer-record';
-        const record=saved.answerRecords[word.id]?.[lang];
-        recordLabel.textContent=record?`自力 ${record.independent||0}回 / 答えを見た ${record.assisted||0}回`:saved.answerRecords[word.id]?.last?'旧・両言語の獲得記録あり':owned?'以前の獲得（記録なし）':'未獲得';if(record && Number.isFinite(record.bestScore))recordLabel.textContent += ` · 最高 ${record.bestScore}点`;card.append(recordLabel);
-        card.setAttribute('aria-label', `${title.textContent} · ${owned ? '獲得済み' : '出題準備中'}、詳細を見る`);
-        if (lastAcquired?.lang === lang && lastAcquired.id === word.id) card.classList.add('just-collected');
+        const bestScore = dictionaryBestScore(word);
+        card.setAttribute('aria-label', `${title.textContent} · ${owned ? '獲得済み' : '出題準備中'}${owned && bestScore !== null ? `、最高 ${bestScore}点` : ''}、詳細を見る`);
+        if (lastAcquired?.id === word.id) card.classList.add('just-collected');
         card.addEventListener('click', () => showDictionaryEntry(word, wordIndex, lang));
       } else {
         const placeholder = document.createElement('span'); placeholder.className = 'dictionary-placeholder'; placeholder.textContent = '?'; card.append(placeholder);
@@ -1122,10 +1137,9 @@
       button.addEventListener('click', () => { dictionaryPage += delta; renderDictionary(); }); paging.append(button);
       if (delta < 0) { const label = document.createElement('span'); label.textContent = `${dictionaryPage + 1} / ${pages} · ${words.length.toLocaleString()}`; paging.append(label); }
     }
-    container.append(tabs, summary, meter, caption, filters, search, paging, grid);
+    container.append(summary, meter, caption, filters, search, paging, grid);
     if (!grid.childElementCount) { const empty = document.createElement('p'); empty.className = 'dictionary-empty'; empty.textContent = query ? (mode === 'ja' ? '見つかりませんでした。別のことばで探してみよう。' : 'No matching words. Try another search.') : (mode === 'ja' ? '新しい絵を解いて、このページを埋めよう。' : 'Solve a new picture to fill this page.'); container.append(empty); }
     openModal('コレクション', container);
-    if (focusControl === 'book') tabs.querySelector('[aria-pressed="true"]').focus({ preventScroll: true });
     if (focusControl === 'filter') filters.querySelector('[aria-pressed="true"]').focus({ preventScroll: true });
     if (focusControl === 'search') { search.focus({preventScroll:true}); search.setSelectionRange(search.value.length, search.value.length); }
   }
@@ -1134,34 +1148,27 @@
     const container = document.createElement('div'); container.className = 'dictionary-entry';
     const back = document.createElement('button'); back.type = 'button'; back.className = 'dictionary-back'; back.textContent = mode === 'ja' ? '← 辞書にもどる' : '← Back to dictionary';
     back.addEventListener('click', () => { renderDictionary(); $('modalBody').querySelector(`[data-word-id="${word.id}"]`)?.focus(); });
-    const image = document.createElement('img'); image.src = imgURL(word); image.alt = word.ja;
-    const heading = document.createElement('h3'); heading.textContent = (lang === 'ja' ? word.ja : word.en) || word.pic;
+    const art = document.createElement('div'); art.className = 'dictionary-entry-art';
+    const image = document.createElement('img'); image.src = imgURL(word); image.alt = word.ja || word.en || ''; art.append(image);
+    const stamp = dictionaryScoreStamp(word); if (stamp) art.append(stamp);
+    const heading = document.createElement('h3'); heading.textContent = word.en || word.ja || word.pic;
     const profile = difficulty.challenge(word, lang), rarity = document.createElement('p'); rarity.className = 'entry-rarity'; rarity.style.setProperty('--rarity', profile.color);
     rarity.innerHTML = rarityStars(word.tier);
-    const reading = document.createElement('p'); reading.className = 'entry-reading'; reading.textContent = lang === 'ja' ? word.w : word.ja;
+    const reading = document.createElement('p'); reading.className = 'entry-reading'; reading.textContent = word.ja || word.w || '';
     const translation = document.createElement('a'); translation.className = 'entry-translation'; translation.textContent = mode === 'ja' ? '語源辞書で詳しく見る ↗' : 'Explore this word in the dictionary ↗'; translation.href = `../etymon-explorer.html#words/q=${encodeURIComponent(word.en)}`; translation.target = '_blank'; translation.rel = 'noopener';
-    const badges = document.createElement('div'); badges.className = 'entry-books';
-    for (const language of ['ja', 'en']) {
-      if (!supports(word, language)) continue;
-      const owned = !!saved[language].stars[word.id], badge = document.createElement('span'); badge.className = owned ? 'owned' : '';
-      badge.textContent = `${bookName(language)} · ${mode === 'ja' ? (owned ? '獲得済み' : '未獲得') : (owned ? 'collected' : 'missing')}`; badges.append(badge);
-    }
-    const history=document.createElement('p');history.className='answer-record';const record=saved.answerRecords[word.id]?.[lang];history.textContent=record?`自力正解 ${record.independent||0}回 · 答えを見て正解 ${record.assisted||0}回`:saved[lang].stars[word.id]?'以前の獲得：答えを見たかどうかの記録はありません':'未獲得';
-    if(record && Number.isFinite(record.lastScore))history.textContent += ` · 今回 ${record.lastScore}点 / 最高 ${record.bestScore}点`;
-    const best = document.createElement('p'); best.className = 'entry-stars'; best.textContent = '✦'.repeat(saved[lang].stars[word.id] || 0);
-    const other = lang === 'ja' ? 'en' : 'ja', challengeLang = saved[other].stars[word.id] || !supports(word, other) ? lang : other;
+    const challengeLang = dictionaryPlayLanguage(word);
     const challenge = document.createElement('button'); challenge.type = 'button'; challenge.className = 'modal-primary';
     challenge.disabled = !supports(word, challengeLang);
-    challenge.textContent = challenge.disabled ? window.WordBloomReviewedScenes.unavailableReason(word, challengeLang) : challengeLang === lang ? (mode === 'ja' ? 'もう一度、この単語で遊ぶ' : 'Play this word again') : mode === 'ja' ? `${other === 'ja' ? '日本語' : '英語'}でもゲットする` : `Collect it in ${other === 'ja' ? 'Japanese' : 'English'}`;
+    challenge.textContent = challenge.disabled ? window.WordBloomReviewedScenes.unavailableReason(word, challengeLang) : (mode === 'ja' ? 'もう一度、この単語で遊ぶ' : 'Play this word again');
     challenge.addEventListener('click', () => beginDictionaryPuzzle(challengeLang, wordIndex));
     const explanation = document.createElement('div'); explanation.textContent = '説明を確認中…';
     // Dictionary detail is already an explicit reveal. The puzzle itself stays answer-free.
     explanationFor(word).then(result => {if(explanation.isConnected)renderExplanation(explanation,result);}).catch(() => {if(explanation.isConnected)renderExplanation(explanation,{status:'unavailable'});});
-    container.append(back, image, explanation, heading, rarity, reading);
+    container.append(back, art, explanation, heading, rarity, reading);
     if (word.bindingStatus === 'bound' && word.en) container.append(translation);
     if (window.WordBloomReviewedScenes.supportsLanguage(word,lang)) container.append(pronunciationPanel(word,lang));
-    container.append(history, best, challenge);
-    openModal(bookName(lang), container); back.focus({ preventScroll: true });
+    container.append(challenge);
+    openModal('コレクション', container); back.focus({ preventScroll: true });
   }
   document.addEventListener('keydown', event => {
     if (event.key === 'Tab') keyboardNavigation = true;

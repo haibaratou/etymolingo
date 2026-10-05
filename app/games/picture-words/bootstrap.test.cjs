@@ -22,11 +22,11 @@ test('actual captionless solve preserves old saved IDs and displays 解説未作
  app.get('listenClue').click();assert.equal(app.speech.length,1);assert.equal(app.speech[0].text,captionless.availability.en.answer);assert(app.speech.every(u=>u.text?.trim()));
 });
 
-test('actual English-only language switch is disabled and a dispatched request gives an honest prompt without changing image',async()=>{
+test('actual English-only language switch explains its unavailability on tap without changing image',async()=>{
  const app=await boot({query:captionlessQuery}),before=app.snapshot();
- assert.equal(app.get('modeToggle').disabled,true);assert.match(app.get('modeToggle').title,/読みは未確認/);
- app.get('modeToggle').click();assert.deepEqual(app.snapshot(),before);
- app.get('modeToggle').dispatch('click');assert.equal(app.snapshot().mode,'en');assert.equal(app.snapshot().id,captionless.id);assert.deepEqual(app.snapshot().letters,captionlessLetters);assert.match(app.get('feedback').textContent,/読みは未確認/);assert.equal(app.speech.length,0);
+ assert.equal(app.get('modeToggle').disabled,false);assert.equal(app.get('modeToggle').getAttribute('aria-disabled'),'false');assert.match(app.get('modeToggle').title,/答えは未確認/);assert.match(app.get('modeLabel').textContent,/未確認/);
+ app.get('modeToggle').click();assert.deepEqual(app.snapshot(),before);assert.match(app.get('feedback').textContent,/答えは未確認/);
+ app.get('modeToggle').dispatch('click');assert.equal(app.snapshot().mode,'en');assert.equal(app.snapshot().id,captionless.id);assert.deepEqual(app.snapshot().letters,captionlessLetters);assert.match(app.get('feedback').textContent,/答えは未確認/);assert.equal(app.speech.length,0);
 });
 
 test('actual one-letter English and one-kana Japanese puzzles solve with exactly one tile',async()=>{
