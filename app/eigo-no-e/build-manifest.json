@@ -3,13 +3,13 @@
   "build_version": 4,
   "sources": {
     "words_sha256": "7f603dd5823d755472d2382cf8a7afbbb2844c1d941318f3d584a027cb213522",
-    "scenes_sha256": "80f9c89bd9e78a9de8c52595f4bc96953ce3ef9d7a53984cd1772453c7ae012e",
+    "scenes_sha256": "acb4ab146f5d7b4afad291c75838bf685917f4565c975146c0cfa98e778653ef",
     "illustration_index_sha256": "8f14ef961f3ff29788ff205b3af4dbb08e01f1004674f7c01b81df9d82ea8655",
     "image_dates_sha256": "3c9226a36d2b6a59473b31e23d7f1ae67fd8412e2528ca28d06dc7722e5b5c1e"
   },
   "eligible": 12344,
   "word_entries": 11027,
-  "input_scenes": 750,
+  "input_scenes": 752,
   "excluded": [],
   "categories": 22,
   "unclassified": 10192,
@@ -20,7 +20,7 @@
     "pillow": "12.3.0",
     "unreviewed_fallback": "lazy exact original PNG"
   },
-  "data_sha256": "76a1354f9bdf72bbaa16d74394290e8a9e1a7c72e6d81f5c4709d32c92595e90",
+  "data_sha256": "8c96d819034774e568c192a21157ccfd1bb0e06c8d3c7fd4acff25850253b851",
   "bindings": [
     {
       "id": "car",
@@ -8198,10 +8198,10 @@
       "id": "sit",
       "art": "sit",
       "image_path": "assets/word/sit.png",
-      "image_sha256": "d72761fa668698a4384175a7958c4e6ee5d6f5c11aab87aa1bb1ff6f4a196f70",
-      "image_git_blob": "1eae263dc89dbbd475464f163d2b99e2cfc09a0f",
-      "thumbnail_path": "../assets/word/sit.png",
-      "thumbnail_sha256": "d72761fa668698a4384175a7958c4e6ee5d6f5c11aab87aa1bb1ff6f4a196f70"
+      "image_sha256": "b29658fcbe020cea2d057aa88c2b1bcf51cc03242b66f00ec6e8c18543176ec6",
+      "image_git_blob": "d2cc8c98546bb8ba503d1f767b248419bdf95f77",
+      "thumbnail_path": "eigo-no-e/thumbs/sit.b29658fcbe02.webp",
+      "thumbnail_sha256": "00bed3d4db4e4cf467eef64995122b3f0297aba9e1ccc143b8644f4b2eb739c8"
     },
     {
       "id": "touch",
@@ -11069,10 +11069,10 @@
       "id": "capable",
       "art": "capable",
       "image_path": "assets/word/capable.png",
-      "image_sha256": "055f04b04b28616226c6fe792720c9cc98325377ee31ce702b6e5abdfa5a60a5",
-      "image_git_blob": "6f092b9156da874f2085bc062c96c9a008e1f360",
-      "thumbnail_path": "../assets/word/capable.png",
-      "thumbnail_sha256": "055f04b04b28616226c6fe792720c9cc98325377ee31ce702b6e5abdfa5a60a5"
+      "image_sha256": "507dc13219ad128631fc8b0295e83cb725ab7b2d855b74db01648761004b9497",
+      "image_git_blob": "1d246460a21e9aa2aeef577f8fa64a03dc72b450",
+      "thumbnail_path": "eigo-no-e/thumbs/capable.507dc13219ad.webp",
+      "thumbnail_sha256": "6f475e9354d6f45ced6e8a203f23f97755a7a226a7bc6ea1b076541125b0afd7"
     },
     {
       "id": "chief",
@@ -111131,8 +111131,8 @@
     "preservedProtectedBindings": 597
   },
   "description_counts": {
-    "reviewed": 750,
-    "missing": 11470,
+    "reviewed": 752,
+    "missing": 11468,
     "held": 124
   },
   "playable_counts": {
