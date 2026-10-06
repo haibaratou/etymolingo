@@ -91,6 +91,17 @@ public class OfflineGameTest {
             waitFor(scenario,"document.getElementById('game').dataset.state==='solved'");
             waitFor(scenario,"document.getElementById('rewardScene').classList.contains('page-filled')");
             assertEquals("true",js(scenario,"document.getElementById('rewardSeal').textContent.includes('100')"));
+            js(scenario,"document.getElementById('closeGame').click()");
+        }
+    }
+    @Test public void allImagesBundledWithoutDownloads() throws Exception {
+        active=null;
+        try(ActivityScenario<MainActivity> scenario=ActivityScenario.launch(MainActivity.class)) {
+            waitFor(scenario,"!!document.getElementById('startPlay') && !document.getElementById('startPlay').disabled");
+            assertEquals("true",js(scenario,"PICTURE_WORDS_CATALOG.length>1000 && PICTURE_WORDS_CATALOG.every(w=>PICTLINGO_BUNDLED_IDS.includes(w.id) && NicolingoOffline.hasSavedScene(w))"));
+            js(scenario,"window.bundleTest='running';(async()=>{try{const r=new WordBloomReviewedScenes.Runtime({meta:PICTURE_WORDS_CATALOG_META,offline:NicolingoOffline});const fetchBefore=window.fetch;window.fetch=()=>{throw Error('Network forbidden')};try{for(const i of [0,Math.floor(PICTURE_WORDS_CATALOG.length/2),PICTURE_WORDS_CATALOG.length-1]){const result=await r.prepare(PICTURE_WORDS_CATALOG[i]);if(!result.playable||!result.imageVerified)throw Error(result.reason);}}finally{window.fetch=fetchBefore;}window.bundleTest='passed';}catch(e){window.bundleTest=String(e);}})()");
+            waitFor(scenario,"window.bundleTest!=='running'");
+            assertEquals("\"passed\"",js(scenario,"window.bundleTest"));
         }
     }
 }

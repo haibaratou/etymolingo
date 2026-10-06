@@ -19,6 +19,13 @@ import java.util.Set;
 
 @CapacitorPlugin(name = "Pictlingo")
 public class PictlingoPlugin extends Plugin {
+    @PluginMethod public void connectivity(PluginCall call) {
+        android.net.ConnectivityManager manager=getContext().getSystemService(android.net.ConnectivityManager.class);
+        android.net.NetworkCapabilities caps=manager.getNetworkCapabilities(manager.getActiveNetwork());
+        JSObject result=new JSObject();
+        result.put("online",caps!=null && caps.hasCapability(android.net.NetworkCapabilities.NET_CAPABILITY_INTERNET) && caps.hasCapability(android.net.NetworkCapabilities.NET_CAPABILITY_VALIDATED));
+        call.resolve(result);
+    }
     private TextToSpeech tts;
     private boolean ready = false;
     private boolean failed = false;

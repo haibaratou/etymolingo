@@ -9,8 +9,10 @@ const rules=require(path.join(root,'app/games/picture-words/reviewed-scenes.js')
 const context={window:{}};
 vm.runInNewContext(fs.readFileSync(path.join(__dirname,'www/app/games/picture-words/catalog.js'),'utf8'),context);
 const words=context.window.PICTURE_WORDS_CATALOG;
-test('every bundled puzzle has verified artwork, a reviewed caption and both language answers',async()=>{
-  assert.ok(words.length>=10 && words.length<=40);
+const bundledIds=new Set(JSON.parse(fs.readFileSync(path.join(__dirname,'www/bundle-manifest.json'))).ids);
+const bundled=words.filter(w=>bundledIds.has(w.id));
+test('the full catalog has verified artwork, a reviewed caption and both language answers',async()=>{
+  assert.ok(words.length>1000);assert.equal(bundled.length,words.length,'All images must be bundled');
   for(const w of words){
     assert.ok(rules.supportsLanguage(w,'ja'),w.id);assert.ok(rules.supportsLanguage(w,'en'),w.id);
     assert.ok(rules.validCaption(w),w.id);
@@ -19,9 +21,9 @@ test('every bundled puzzle has verified artwork, a reviewed caption and both lan
 });
 test('offline runtime can verify and prepare every image without networking',async()=>{
   const c={window:{},atob,TextEncoder,Uint8Array};
-  for(const w of words)vm.runInNewContext(fs.readFileSync(path.join(__dirname,'www/app/games',w.sceneAsset),'utf8'),c);
+  for(const w of bundled)vm.runInNewContext(fs.readFileSync(path.join(__dirname,'www/app/games',w.sceneAsset),'utf8'),c);
   const runtime=new rules.Runtime({meta:context.window.PICTURE_WORDS_CATALOG_META,crypto:webcrypto,location:{protocol:'https:',href:'https://localhost/app/games/picture-words.html'},navigator:{onLine:false},assetRoot:c.window,makeImageURL:()=> 'verified-local-image',fetcher:()=>{throw Error('Network forbidden');}});
-  for(const w of words){const result=await runtime.prepare(w);assert.equal(result.playable,true,w.id+': '+result.reason);assert.equal(result.imageVerified,true,w.id);assert.equal(result.ttsAllowed,true,w.id);}
+  for(const w of bundled){const result=await runtime.prepare(w);assert.equal(result.playable,true,w.id+': '+result.reason);assert.equal(result.imageVerified,true,w.id);assert.equal(result.ttsAllowed,true,w.id);}
 });
 test('Android speech receives the word and real synthesis rate and ignores stale events',async()=>{
   let callback;const calls=[];let ready;

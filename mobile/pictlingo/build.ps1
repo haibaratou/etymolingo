@@ -18,6 +18,6 @@ Set-Content -LiteralPath android/local.properties -Value ('sdk.dir='+$sdk.Replac
 & .\android\gradlew.bat -p android :app:assembleDebug :app:assembleDebugAndroidTest --console=plain
 if ($LASTEXITCODE) { throw 'Android build failed' }
 New-Item -ItemType Directory -Force downloads | Out-Null
-Copy-Item -LiteralPath android/app/build/outputs/apk/debug/app-debug.apk -Destination downloads/pictlingo-preview.apk -Force
-Get-FileHash downloads/pictlingo-preview.apk -Algorithm SHA256
-Write-Host 'APK: mobile/pictlingo/downloads/pictlingo-preview.apk'
+Copy-Item -LiteralPath android/app/build/outputs/apk/debug/app-debug.apk -Destination downloads/pictlingo-offline.apk -Force
+Get-FileHash downloads/pictlingo-offline.apk -Algorithm SHA256
+Write-Host 'APK: mobile/pictlingo/downloads/pictlingo-offline.apk'

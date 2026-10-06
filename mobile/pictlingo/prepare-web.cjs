@@ -10,17 +10,14 @@ vm.runInNewContext(fs.readFileSync(path.join(root,runtime,'catalog.js'),'utf8'),
 const rules = require(path.join(root,runtime,'reviewed-scenes.js'));
 const candidates = ctx.window.PICTURE_WORDS_CATALOG.filter(w => rules.supportsLanguage(w,'ja') && rules.supportsLanguage(w,'en') && rules.validCaption(w) && rules.hasPack(w) && w.recordedUpdatedAt >= '2026-09-10');
 const words=[]; let packBytes=0;
-// Small offline preview: vary lengths without downloading the whole artwork library.
-const buckets = Array.from({length:4},()=>[]);
-for(const w of candidates) buckets[Math.min(3,Math.floor((Math.max(w.en.length,w.w.length)-1)/3))].push(w);
-for(let n=0; words.length<40 && buckets.some(b=>b.length); n++) {
-  const w=buckets[n%4].shift(); if(!w)continue;
+// Full offline build: include every eligible puzzle.
+for(const w of candidates) {
   const p=path.join(root,'app/games',w.sceneAsset);
-  if(!fs.existsSync(p))continue;
+  if(!fs.existsSync(p))throw Error('Missing pack: '+w.id);
   const size=fs.statSync(p).size;
-  if(packBytes+size>6_000_000)continue;
+
   const png=fs.readFileSync(path.join(root,w.image.path));
-  if(crypto.createHash('sha256').update(png).digest('hex')!==w.image.sha256)continue;
+  if(crypto.createHash('sha256').update(png).digest('hex')!==w.image.sha256)throw Error('Image mismatch: '+w.id);
   words.push(w);packBytes+=size;
 }
 if(words.length<10)throw Error('Not enough verified offline puzzles');
@@ -33,9 +30,9 @@ function copy(rel){const p=path.join(out,rel);fs.mkdirSync(path.dirname(p),{recu
 for(const name of ['style.css','difficulty.js','gesture.js','pronunciation.js','progression.js','reviewed-scenes.js','game.js'])copy(runtime+'/'+name);
 for(const name of ['illustration-scenes.js','illustration-scenes.css'])copy('app/shared/'+name);
 copy('assets/ui/word_et_star.png');copy('assets/word/candy.png');
-for(const w of words){copy('app/games/'+w.sceneAsset);copy(w.image.path);}
-const meta={...ctx.window.PICTURE_WORDS_CATALOG_META,count:words.length,androidPreview:true};
-write(runtime+'/catalog.js','window.PICTURE_WORDS_CATALOG_META='+JSON.stringify(meta)+';\nwindow.PICTURE_WORDS_CATALOG='+JSON.stringify(words)+';');
+for(const w of words)copy('app/games/'+w.sceneAsset);
+const meta={...ctx.window.PICTURE_WORDS_CATALOG_META,count:candidates.length,androidPreview:true};
+write(runtime+'/catalog.js','window.PICTURE_WORDS_CATALOG_META='+JSON.stringify(meta)+';\nwindow.PICTURE_WORDS_CATALOG='+JSON.stringify(candidates)+';');
 write('index.html','<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Pictlingo</title><script>location.replace("app/games/picture-words.html?phone=1")</script></head><body></body></html>');
 let html=fs.readFileSync(path.join(root,'app/games/picture-words.html'),'utf8');
 html=html.replace(/\s*<link[^>]+(?:fonts\.googleapis|fonts\.gstatic)[^>]*>/g,'').replace(/\s*<link rel="manifest"[^>]*>/,'').replace(/\s*<script src="picture-words\/desktop.js[^>]*><\/script>/,'');
@@ -45,13 +42,13 @@ html=html.replace('</head>','<style>#saveOffline{display:none!important}body{ove
 write('app/games/picture-words.html',html);
 write(runtime+'/native-bridge.js',fs.readFileSync(path.join(__dirname,'native-bridge.js'),'utf8'));
 write(runtime+'/capacitor.js',fs.readFileSync(path.join(__dirname,'node_modules/@capacitor/core/dist/capacitor.js'),'utf8'));
-write(runtime+'/offline.js',`(() => { const ids=new Set(window.PICTURE_WORDS_CATALOG.map(w=>w.id)); const api={state:{online:false,supported:false},ready:async()=>api,refresh:async()=>{},canPlay:w=>ids.has(w.id),hasSavedScene:w=>ids.has(w.id)}; window.NicolingoOffline=api; })();`);
+write(runtime+'/offline.js','window.PICTLINGO_BUNDLED_IDS='+JSON.stringify(words.map(w=>w.id))+';\n'+fs.readFileSync(path.join(__dirname,'mobile-data.js'),'utf8'));
 let speech=fs.readFileSync(path.join(out,runtime,'pronunciation.js'),'utf8');
 speech=speech.replace('synth = root.speechSynthesis, Utterance = root.SpeechSynthesisUtterance','synth = root.PictlingoNativeSpeech?.synth || root.speechSynthesis, Utterance = root.PictlingoNativeSpeech?.Utterance || root.SpeechSynthesisUtterance');
 write(runtime+'/pronunciation.js',speech);
 let game=fs.readFileSync(path.join(out,runtime,'game.js'),'utf8');
 game=game.replace('`../etymon-explorer.html#words/q=', '`https://haibaratou.github.io/etymolingo/app/etymon-explorer.html#words/q=');
 write(runtime+'/game.js',game);
-const manifest={schema:1,questions:words.length,packBytes,ids:words.map(w=>w.id),sourceCatalogSha256:crypto.createHash('sha256').update(fs.readFileSync(path.join(root,runtime,'catalog.js'))).digest('hex')};
+const manifest={schema:2,questions:candidates.length,bundledQuestions:words.length,packBytes,ids:words.map(w=>w.id),sourceCatalogSha256:crypto.createHash('sha256').update(fs.readFileSync(path.join(root,runtime,'catalog.js'))).digest('hex')};
 write('bundle-manifest.json',JSON.stringify(manifest,null,2));
-console.log(JSON.stringify({questions:words.length,packBytes},null,2));
+console.log(JSON.stringify({questions:candidates.length,bundledQuestions:words.length,packBytes},null,2));
