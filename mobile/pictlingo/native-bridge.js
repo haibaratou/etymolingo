@@ -6,7 +6,7 @@
   class Utterance { constructor(text){this.text=text;this.rate=1;this.pitch=1;this.lang='en-US';} }
   const synth={paused:false,getVoices:()=>voices,addEventListener:(type,fn)=>{if(type==='voiceschanged')listeners.add(fn);},
     resume(){},cancel(){serial++;current=null;native.stop().catch(()=>{});},
-    speak(u){const id=String(++serial);current={id,u};native.speak({id,text:u.text,language:u.lang,rate:u.rate,pitch:u.pitch}).catch(e=>{if(current?.id===id){current=null;u.onerror?.({error:e.message||'synthesis-failed'});}});}
+    speak(u){const id=String(++serial);current={id,u};native.speak({id,text:u.text,language:u.lang,voiceName:u.voice?.name || '',rate:u.rate,pitch:u.pitch}).catch(e=>{if(current?.id===id){current=null;u.onerror?.({error:e.message||'synthesis-failed'});}});}
   };
   window.PictlingoNativeSpeech={synth,Utterance};
   const subscribed=native.addListener('speechState',event=>{if(current?.id!==event.id)return;const u=current.u;if(event.state==='start')u.onstart?.();else{current=null;if(event.state==='done')u.onend?.();else u.onerror?.({error:event.error||'synthesis-failed'});}});

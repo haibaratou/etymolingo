@@ -66,6 +66,19 @@ public class PictlingoPlugin extends Plugin {
             if (ready || failed) finishVoices(call); else waiting.add(call);
         });
     }
+    static Voice selectVoice(Set<Voice> voices, Locale locale, String requestedName) {
+        if (voices == null) return null;
+        return voices.stream()
+            .filter(v -> !v.isNetworkConnectionRequired() && v.getLocale().getLanguage().equals(locale.getLanguage()))
+            .filter(v -> v.getFeatures() == null || !v.getFeatures().contains(TextToSpeech.Engine.KEY_FEATURE_NOT_INSTALLED))
+            .sorted(java.util.Comparator
+                .comparingInt((Voice v) -> v.getLocale().equals(locale) ? 0 : 1)
+                .thenComparingInt(v -> v.getName().equals(requestedName) ? 0 : 1)
+                .thenComparing(java.util.Comparator.comparingInt(Voice::getQuality).reversed())
+                .thenComparingInt(Voice::getLatency)
+                .thenComparing(Voice::getName))
+            .findFirst().orElse(null);
+    }
     @PluginMethod public void speak(PluginCall call) {
         getActivity().runOnUiThread(() -> {
             if (!ready) { call.reject("音声エンジンの準備ができていません"); return; }
@@ -77,17 +90,21 @@ public class PictlingoPlugin extends Plugin {
             if (status == TextToSpeech.LANG_MISSING_DATA || status == TextToSpeech.LANG_NOT_SUPPORTED) {
                 call.reject("この言語の音声をAndroidの音声設定で追加してください"); return;
             }
-            Voice selected = null;
-            Set<Voice> voices = tts.getVoices();
-            if (voices != null) for (Voice voice : voices) {
-                if (voice.isNetworkConnectionRequired() || !voice.getLocale().getLanguage().equals(locale.getLanguage())) continue;
-                if (selected == null || voice.getQuality() > selected.getQuality()) selected = voice;
+            Voice selected = selectVoice(tts.getVoices(), locale, call.getString("voiceName", ""));
+            if (selected != null && tts.setVoice(selected) == TextToSpeech.ERROR) {
+                call.reject("音声を選択できませんでした"); return;
             }
-            if (selected != null) tts.setVoice(selected);
             float rate = Math.max(.3f, Math.min(2f, call.getFloat("rate", 1f)));
             tts.setSpeechRate(rate); tts.setPitch(1f);
             int result = tts.speak(text, TextToSpeech.QUEUE_FLUSH, new Bundle(), id);
-            if (result == TextToSpeech.ERROR) call.reject("synthesis-failed"); else call.resolve();
+            if (result == TextToSpeech.ERROR) call.reject("synthesis-failed"); else {
+                JSObject spoken=new JSObject();
+                Voice actual=tts.getVoice();
+                spoken.put("text",text);spoken.put("rate",rate);
+                spoken.put("language",actual==null?locale.toLanguageTag():actual.getLocale().toLanguageTag());
+                spoken.put("voiceName",actual==null?"":actual.getName());
+                call.resolve(spoken);
+            }
         });
     }
     @PluginMethod public void stop(PluginCall call) {

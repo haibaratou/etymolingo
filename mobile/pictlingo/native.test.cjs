@@ -57,3 +57,17 @@ test('Android speech receives the word and real synthesis rate and ignores stale
   synth.cancel();callback({id:calls[0].id,state:'done'});assert.equal(ended,0);
   u.rate=1;synth.speak(u);callback({id:calls[1].id,state:'done'});assert.equal(ended,1);
 });
+
+test('group uses the English headword and carries the selected US voice to Android',async()=>{
+  const calls=[];
+  const native={addListener:async()=>{},getVoices:async()=>({voices:[{name:'india',lang:'en-IN',localService:true},{name:'american',lang:'en-US',localService:true}]}),speak:async a=>calls.push(a),stop:async()=>{}};
+  const w={Capacitor:{isNativePlatform:()=>true,registerPlugin:()=>native}};
+  vm.runInNewContext(fs.readFileSync(path.join(__dirname,'native-bridge.js'),'utf8'),{window:w,document:{addEventListener:()=>{}}});
+  await new Promise(resolve=>setImmediate(resolve));
+  const {Pronunciation}=require(path.join(root,'app/games/picture-words/pronunciation.js'));
+  const p=new Pronunciation({synth:w.PictlingoNativeSpeech.synth,Utterance:w.PictlingoNativeSpeech.Utterance,setTimer:()=>0,clearTimer:()=>{}});
+  p.speak({id:'group',en:'group',w:'しゅうだん'},'en',false,true);
+  assert.equal(calls[0].text,'group');assert.equal(calls[0].language,'en-US');assert.equal(calls[0].voiceName,'american');assert.equal(calls[0].rate,1);
+  p.speak({id:'group',en:'group',w:'しゅうだん'},'en',true,true);
+  assert.equal(calls[1].rate,.65);assert.equal(calls[1].voiceName,'american');
+});

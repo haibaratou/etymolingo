@@ -1,6 +1,6 @@
 # Pictlingo Android 全画像同梱版
 
-[全画像入りAPKをダウンロード](https://github.com/haibaratou/etymolingo/releases/download/pictlingo-android-v0.4.0/pictlingo-offline-compact.apk)
+[全画像入りAPKをダウンロード](https://github.com/haibaratou/etymolingo/releases/download/pictlingo-android-v0.5.0/pictlingo-offline-compact.apk)
 
 2026-10-07作成。既存のHTMLゲームをCapacitorでAndroidアプリ化した検証版です。
 
@@ -8,10 +8,11 @@
 - 出題画像をすべて同梱。追加ダウンロードなしで初回から圏外で遊べます。
 - アプリ用画像をWebP品質90で収録。解像度は縮小せず、透明部分を全画像で照合します。色には非可逆圧縮を使います。元のPNGは変更しません。PNGと画像パックの二重収録、Base64による画像収録も廃止しました。
 - 全画面、日英切り替え、なぞり操作、採点、コレクション保存に対応。
+- 音声選択は指定した地域（英語はen-US）を優先し、アプリが選んだ声をAndroid側でも使用します。未インストールの声は候補から除外します。
 - 音声はAndroid TextToSpeechで通常・ゆっくり再生。音声モデルは同梱せず、音質と圏外の音声再生は端末に入っている言語音声に依存します。
 - 広告・課金は未搭載。デバッグ署名の検証用で、Google Play公開版ではありません。
 
-実測容量は **55,854,422 bytes（55.85 MB / Windows表示54,546 KB）**。旧版242.86 MBから約77%削減しました。全1,086画像の収録とAPK署名を確認済みです。
+実測容量は **55,856,014 bytes（55.85 MB / Windows表示54,547 KB）**。旧版242.86 MBから約77%削減しました。全1,086画像の収録とAPK署名を確認済みです。
 
 出力は `downloads/pictlingo-offline-compact.apk`。PNG版 `downloads/pictlingo-offline.apk` は比較用に残しています。以前の `pictlingo-preview.apk` は全件版ではありません。
 

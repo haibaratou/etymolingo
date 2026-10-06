@@ -22,6 +22,25 @@ import static org.junit.Assert.*;
 
 @RunWith(AndroidJUnit4.class)
 public class OfflineGameTest {
+    @Test public void requestedLocaleWinsOverOtherEnglishAccents() {
+        var us=new android.speech.tts.Voice("us-local",java.util.Locale.US,200,100,false,java.util.Set.of());
+        var india=new android.speech.tts.Voice("india-local",java.util.Locale.forLanguageTag("en-IN"),500,100,false,java.util.Set.of());
+        var missing=new android.speech.tts.Voice("us-missing",java.util.Locale.US,500,100,false,java.util.Set.of(android.speech.tts.TextToSpeech.Engine.KEY_FEATURE_NOT_INSTALLED));
+        assertEquals(us,PictlingoPlugin.selectVoice(java.util.Set.of(us,india,missing),java.util.Locale.US,"india-local"));
+        var usSecond=new android.speech.tts.Voice("us-selected",java.util.Locale.US,200,100,false,java.util.Set.of());
+        assertEquals(usSecond,PictlingoPlugin.selectVoice(java.util.Set.of(us,usSecond,india),java.util.Locale.US,"us-selected"));
+    }
+    @Test public void nativeGroupUsesAmericanEnglish() throws Exception {
+        active=null;
+        try(ActivityScenario<MainActivity> scenario=ActivityScenario.launch(MainActivity.class)) {
+            waitFor(scenario,"!!window.PictlingoNativeSpeech && PictlingoNativeSpeech.synth.getVoices().length>0");
+            js(scenario,"window.groupVoiceResult=null;Capacitor.registerPlugin('Pictlingo').speak({id:'group-voice-test',text:'group',language:'en-US',rate:1}).then(r=>window.groupVoiceResult=r).catch(e=>window.groupVoiceResult={error:String(e)})");
+            waitFor(scenario,"!!window.groupVoiceResult");
+            assertEquals("\"group\"",js(scenario,"groupVoiceResult.text"));
+            assertEquals("\"en-US\"",js(scenario,"groupVoiceResult.language"));
+            js(scenario,"Capacitor.registerPlugin('Pictlingo').stop()");
+        }
+    }
     private MainActivity active;
     private void dismissSystemTutorial() throws Exception {
         var button=UiDevice.getInstance(InstrumentationRegistry.getInstrumentation()).findObject(new UiSelector().text("Got it"));
