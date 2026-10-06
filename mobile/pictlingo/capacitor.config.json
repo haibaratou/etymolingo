@@ -1,0 +1,6 @@
+{
+  "appId": "com.haibaratou.pictlingo.preview",
+  "appName": "Pictlingo",
+  "webDir": "www",
+  "android": { "backgroundColor": "#fff5dc" }
+}

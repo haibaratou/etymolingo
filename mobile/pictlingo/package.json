@@ -1,0 +1,15 @@
+{
+  "name": "pictlingo-android",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "prepare:web": "node prepare-web.cjs",
+    "sync": "npm run prepare:web && cap sync android",
+    "test": "node --test native.test.cjs"
+  },
+  "dependencies": {
+    "@capacitor/core": "8.5.2",
+    "@capacitor/android": "8.5.2"
+  },
+  "devDependencies": { "@capacitor/cli": "8.5.2" }
+}
