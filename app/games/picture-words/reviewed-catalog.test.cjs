@@ -16,9 +16,23 @@ test('schema2 metadata binds current inputs without caption inclusion gate',()=>
  for(const [field,file] of [['sourceWordsSha256','app/data/generated-etymon/words.json'],['scenesSha256','app/data/generated-etymon/illustration-scenes.json'],['indexSha256','assets/word/illustration-index.js']])assert.equal(meta[field],sha(fs.readFileSync(path.join(root,file))));
  assert.deepEqual(report.meta,meta);assert.equal(report.captionGateApplied,false);assert.equal(report.dateGateApplied,false);assert.equal(report.posGateApplied,false);
 });
-test('every current PNG is represented once with exact bytes and no invented owner',()=>{
- const actual=fs.readdirSync(path.join(root,'assets/word')).filter(x=>x.endsWith('.png')).sort();assert.deepEqual(rows.map(r=>r.pic+'.png').sort(),actual);
- for(const r of rows){const b=fs.readFileSync(path.join(root,r.image.path));assert.equal(r.image.path,`assets/word/${r.pic}.png`);assert.equal(sha(b),r.image.sha256);assert.equal(crypto.createHash('sha1').update(`blob ${b.length}\0`).update(b).digest('hex'),r.image.git_blob_sha);
+test('every usable current PNG is represented once with verified hashes and no invented owner',()=>{
+ // A partial recovery checkout may supply an externally verified inventory.
+ // Full ordinary checkouts still rehash every original PNG directly.
+ const inventoryPath=process.env.PICTURE_WORDS_INVENTORY_MANIFEST;
+ const inventory=inventoryPath?JSON.parse(fs.readFileSync(inventoryPath,'utf8')):null;
+ if(inventory){assert.equal(inventory.schema,1);assert.equal(inventory.verification,'current_git_tree_and_exact_prior_catalog_or_current_bytes');}
+ const invalid=report.invalidPngFiles||[];
+ const invalidNames=new Set(invalid.map(x=>path.basename(x.path)));assert.equal(invalidNames.size,invalid.length);
+ if(inventory){assert.deepEqual(invalid,inventory.invalid);for(const name of fs.readdirSync(path.join(root,'assets/word')).filter(x=>x.endsWith('.png')))assert(invalidNames.has(name)||inventory.images[name.slice(0,-4)],'Local PNG absent from verified inventory: '+name);}
+ const actual=inventory?Object.keys(inventory.images).map(art=>art+'.png').sort():fs.readdirSync(path.join(root,'assets/word')).filter(x=>x.endsWith('.png')&&!invalidNames.has(x)).sort();
+ assert.deepEqual(rows.map(r=>r.pic+'.png').sort(),actual);
+ if(invalid.length){assert.equal(report.observedPngPaths,actual.length+invalid.length);assert.equal(report.usablePngPaths,actual.length);assert.equal(report.exclusionCounts.invalid_png,invalid.length);}
+ for(const item of invalid){const b=fs.readFileSync(path.join(root,item.path));assert.equal(item.path,'assets/word/'+path.basename(item.path));const validHeader=b.length>=24&&b.subarray(0,8).equals(Buffer.from([137,80,78,71,13,10,26,10]))&&b.subarray(12,16).toString()==='IHDR';assert.equal(validHeader,false,'A valid PNG cannot be hidden in the invalid-file report');assert.equal(item.reason,b.length?'invalid_png_header':'empty_file');assert.equal(b.length,item.bytes);assert.equal(sha(b),item.sha256);assert.equal(crypto.createHash('sha1').update(`blob ${b.length}\0`).update(b).digest('hex'),item.git_blob_sha);assert(!rows.some(r=>r.image.path===item.path));}
+ for(const r of rows){
+  assert.equal(r.image.path,`assets/word/${r.pic}.png`);
+  if(fs.existsSync(path.join(root,r.image.path))){const b=fs.readFileSync(path.join(root,r.image.path));assert.equal(sha(b),r.image.sha256);assert.equal(crypto.createHash('sha1').update(`blob ${b.length}\0`).update(b).digest('hex'),r.image.git_blob_sha);}
+  else {assert(inventory,'Missing original without independently verified inventory: '+r.image.path);const observed=inventory.images[r.pic];assert.equal(observed.path,r.image.path);assert.equal(observed.sha256,r.image.sha256);assert.equal(observed.git_blob_sha,r.image.git_blob_sha);}
   if(r.bindingStatus==='bound'){const w=words[r.dictionaryIndex];assert.equal(w.w,r.en);assert.deepEqual(w.p||[],r.roots);assert.deepEqual(r.sceneBinding,Object.fromEntries(['w','p','ja','en'].map(k=>[k,w[k]??(k==='p'?[]:'')])));}
   else {assert.equal(r.en,'');assert.equal(r.ja,'');assert(!r.availability.en.playable&&!r.availability.ja.playable);}
  }

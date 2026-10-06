@@ -2,52 +2,54 @@
   "schema": 2,
   "meta": {
     "schema": 2,
-    "sourceWordsSha256": "7f603dd5823d755472d2382cf8a7afbbb2844c1d941318f3d584a027cb213522",
-    "scenesSha256": "cfb962576e54f712927899621c0bc1efcd9a75fc89932981b1a97a3397455373",
-    "indexSha256": "37788f028493da8ad72a689c2e76c09ecf5bad62c03ab443ff9401343b3c4c52",
-    "imageDatesSha256": "e317bce97442e97cf79100021de4570b3bd0c37440628ad381cf564fdc924ccd",
-    "count": 13104,
-    "wordEntryCount": 11787,
+    "sourceWordsSha256": "531c5c563eedd26021245e9980fb26021d201a9af40001532c364cb8a83edb77",
+    "scenesSha256": "d65ea0b9d21d74378b58371d49499b65878671ed03de6485f141d2e0dc4d71fb",
+    "indexSha256": "ddb93d2c612450dee02a29ec94263a28b777af4332a19e8f1ed15a6330ad7755",
+    "imageDatesSha256": "eade1d312b52b6e797f5ce1448727bae6a7a75f12e2382145022cd0d09dad936",
+    "count": 14803,
+    "wordEntryCount": 13486,
     "ownershipPendingCount": 1292,
     "descriptionCounts": {
-      "reviewed": 1493,
+      "reviewed": 1501,
       "held": 147,
-      "missing": 11464
+      "missing": 13155
     },
     "playableCounts": {
-      "en": 11477,
-      "ja": 11501
+      "en": 13125,
+      "ja": 13090
     }
   },
   "ownership": {
-    "pngPaths": 13104,
-    "primaryIdentities": 11787,
-    "primaryDistinctWords": 11679,
-    "primaryPngPaths": 11787,
-    "ownedPngPaths": 11812,
+    "pngPaths": 14803,
+    "primaryIdentities": 13486,
+    "primaryDistinctWords": 13369,
+    "primaryPngPaths": 13486,
+    "ownedPngPaths": 13511,
     "ownershipPendingPngPaths": 1292,
     "immutableAliases": 13,
     "conflictingFiles": 15,
-    "preservedProtectedBindings": 599
+    "preservedProtectedBindings": 605
   },
-  "sceneEntries": 1493,
+  "sceneEntries": 1501,
   "existingIdsPreserved": 262,
   "legacyIdsPreserved": 80,
-  "imageBytes": 2726764995,
-  "emittedRows": 13104,
-  "lazyAssets": 1493,
-  "lazyAssetBytes": 378400967,
-  "inventoryNamesSha256": "98eabafbb9285920246647fa74d4bb67307bd408bd2cc1bbf1f9493eed2ed734",
-  "inclusionPolicy": "all_observed_generated_PNGs",
+  "imageBytes": 3155187618,
+  "emittedRows": 14803,
+  "lazyAssets": 1501,
+  "lazyAssetBytes": 380879799,
+  "inventoryNamesSha256": "ca83dcdcbb1b278282ec75ec2d34246689d0aff6437bab9e4db295b2528e84c1",
+  "inclusionPolicy": "all_observed_valid_generated_PNGs",
   "dateGateApplied": false,
   "captionGateApplied": false,
   "posGateApplied": false,
-  "exclusionCounts": {},
+  "exclusionCounts": {
+    "invalid_png": 1
+  },
   "inputHashes": {
     "app/data/generated-image-issues.json": "1107d9d763059df6324b37ade81b6a7de42fee9b6cfd38c767370c4d58fad7de",
-    "app/data/generated-image-legacy-ids.json": "7b44746ab933c1e1390cb3b11e5f898806e9fe3482d69b96a5058c17776f9ea0",
+    "app/data/generated-image-legacy-ids.json": "1725ce4d36b0ecbc4120f4bbf16effee5823c43681f756651d55c2c90ee8aeea",
     "app/data/generated_image_resolver.py": "e2254d42722c48d63b008bd843b830d67fcd1312d66bd31fc4dc64ee0f8f9cf8",
-    "app/data/build_generated_image_catalog.py": "eeede4b0ec0d085a1ee8448aaed6933a1e1d3542533d31e9e89e2689925dc113",
+    "app/data/build_generated_image_catalog.py": "9a44df52cc3c9e1bd9fa059baf84c5588a6228a45c2e2f03ff869d0e318a49b6",
     "app/data/puzzle-ja-answers.json": "98cceb6b96f90c71cc0f2cacf54ae6f61754bf1db2fe4a9a94f66d28d2e3bcdd",
     "app/games/picture-words/updated-art.json": "39603ee422b14dca3c31a90fdc725c49dc0425c44fb42c027d420fcab32ea9d7",
     "app/games/picture-words/build_catalog.py": "42b868ac315092781f5abfcec19ed6a84670f0b390b6b0e8c150197c69a98ba8"
@@ -11232,7 +11234,7 @@
         {
           "code": "owned_alternate_or_superseded",
           "detail": "別の画像・旧版",
-          "imageSha256": "e02f2537bcfa850393015b28cf411a274f1d883dd8591dc2348a699a748e31a6",
+          "imageSha256": "cce96e926826f1bac263623be9cc72b37b651642d01db118e601dbdb8363ac44",
           "scope": "play_blocking",
           "blocksPlay": true
         }
@@ -28332,6 +28334,17 @@
           "blocksPlay": true
         }
       ]
+    }
+  ],
+  "observedPngPaths": 14804,
+  "usablePngPaths": 14803,
+  "invalidPngFiles": [
+    {
+      "path": "assets/word/Ceylon.raw.png",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "bytes": 0,
+      "reason": "empty_file"
     }
   ]
 }

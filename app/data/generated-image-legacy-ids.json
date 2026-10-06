@@ -4928,5 +4928,16 @@
         "en": "the act of reading"
       }
     }
+  ],
+  "safeIdMappings": [
+    {
+      "w": "constructor",
+      "p": [
+        "kom",
+        "sterə-"
+      ],
+      "art": "constructor",
+      "id": "word:constructor"
+    }
   ]
 }

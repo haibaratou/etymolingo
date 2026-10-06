@@ -103,4 +103,51 @@ class ProducerTests(unittest.TestCase):
   a=C.build_catalog_rows(self.root);b=C.build_catalog_rows(self.root);self.assertEqual(a,b);self.assertEqual(a[0],[])
  def test_html_rebind_changes_only_catalog_token(self):
   raw=b'<body data-x="keep"><script src="picture-words/catalog.js?v=old"></script></body>';out=R.bind_catalog_html(raw,b'data');self.assertEqual(out,raw.replace(b'v=old',b'v='+R.sha256(b'data')[:12].encode()))
+ def test_invalid_new_png_is_preserved_but_reported_and_not_playable(self):
+  path=self.root/'assets/word/Ceylon.raw.png';path.write_bytes(b'')
+  rows,meta,packs,report=C.build_catalog_rows(self.root)
+  self.assertEqual(path.read_bytes(),b'');self.assertEqual(len(rows),3)
+  self.assertFalse(any(r['pic']=='Ceylon.raw' for r in rows))
+  self.assertEqual(report['observedPngPaths'],4);self.assertEqual(report['usablePngPaths'],3)
+  self.assertEqual(report['exclusionCounts'],{'invalid_png':1})
+  self.assertEqual(report['invalidPngFiles'],[{'path':'assets/word/Ceylon.raw.png','bytes':0,'sha256':hashlib.sha256(b'').hexdigest(),'git_blob_sha':hashlib.sha1(b'blob 0\0').hexdigest(),'reason':'empty_file'}])
+  self.assertEqual(report,C.build_catalog_rows(self.root)[3])
+ def test_invalid_non_png_is_reported_in_path_order(self):
+  for name in ['z.png','a.png']:(self.root/'assets/word'/name).write_bytes(b'not a PNG')
+  report=C.build_catalog_rows(self.root)[3]
+  self.assertEqual([x['path'] for x in report['invalidPngFiles']],['assets/word/a.png','assets/word/z.png'])
+  self.assertTrue(all(x['reason']=='invalid_png_header' for x in report['invalidPngFiles']))
+ def test_valid_raw_named_png_is_not_filename_filtered(self):
+  (self.root/'assets/word/valid.raw.png').write_bytes((self.root/'assets/word/cat.png').read_bytes())
+  rows,_,_,report=C.build_catalog_rows(self.root)
+  self.assertEqual(len(rows),4);self.assertTrue(any(r['pic']=='valid.raw' for r in rows))
+  self.assertNotIn('invalidPngFiles',report)
+ def test_invalid_protected_or_published_png_fails_closed(self):
+  bad=self.root/'assets/word/cat.png';bad.write_bytes(b'')
+  guards=[('index',None),('scene',None),('semantic',None),('published',None)]
+  for guard,_ in guards:
+   with self.subTest(guard=guard):
+    self.save();catalog_path=self.root/'app/games/picture-words/catalog.js';semantic_path=self.root/'app/data/generated-etymon/semantic-classifications.json'
+    if catalog_path.exists():catalog_path.unlink()
+    if semantic_path.exists():semantic_path.unlink()
+    if guard=='index':(self.root/'assets/word/illustration-index.js').write_text('window.X={"[\\"cat\\",\\"\\"]":"cat"};')
+    elif guard=='scene':self.scenes=[self.reviewed()];self.save();self.scenes=[]
+    elif guard=='semantic':dump(semantic_path,{'entries':[{'art':'cat'}]})
+    else:catalog_path.write_text('window.PICTURE_WORDS_CATALOG = [{"pic":"cat"}];')
+    with self.assertRaisesRegex(ValueError,'protected or published identity'):C.build_catalog_rows(self.root)
+
+ def test_new_inherited_object_keys_receive_safe_stable_ids(self):
+  for word in ['constructor','toString','__proto__']:
+   self.words.append({'w':word,'p':[],'ja':'かな','en':'test meaning','r':1})
+   (self.root/'assets/word'/(word+'.png')).write_bytes((self.root/'assets/word/cat.png').read_bytes())
+  self.save();dump(self.root/'app/data/generated-image-legacy-ids.json',{'schema':1,'rows':[],'safeIdMappings':[{'w':w,'p':[],'art':w,'id':'word:'+w} for w in ['constructor','toString','__proto__']]});rows=C.build_catalog_rows(self.root)[0]
+  for word in ['constructor','toString','__proto__']:
+   entry=next(r for r in rows if r['en']==word);self.assertEqual(entry['id'],'word:'+word);self.assertEqual(entry['pic'],word)
+  self.assertEqual([r['id'] for r in rows],[r['id'] for r in C.build_catalog_rows(self.root)[0]])
+
+ def test_inherited_object_key_without_explicit_mapping_fails_closed(self):
+  self.words.append({'w':'constructor','p':[],'ja':'かな','en':'builder','r':1});self.save()
+  (self.root/'assets/word/constructor.png').write_bytes((self.root/'assets/word/cat.png').read_bytes())
+  with self.assertRaisesRegex(ValueError,'explicit stable mapping'):C.build_catalog_rows(self.root)
+
 if __name__=='__main__':unittest.main()

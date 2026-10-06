@@ -6,7 +6,8 @@ const captionless=catalogScope.window.PICTURE_WORDS_CATALOG.find(w=>w.descriptio
 assert.ok(captionless,'catalog needs an actual missing-caption English-only row');
 const captionlessQuery='?word='+encodeURIComponent(captionless.id);
 const captionlessLetters=[...captionless.availability.en.answer.toUpperCase()];
-const pngCount=fs.readdirSync(path.resolve(__dirname,'../../../assets/word')).filter(name=>name.endsWith('.png')).length;
+const invalidNames=new Set(JSON.parse(fs.readFileSync(path.join(__dirname,'reviewed-catalog-report.json'))).invalidPngFiles?.map(x=>path.basename(x.path))||[]);
+const pngCount=process.env.PICTURE_WORDS_INVENTORY_MANIFEST?Object.keys(JSON.parse(fs.readFileSync(process.env.PICTURE_WORDS_INVENTORY_MANIFEST)).images).length:fs.readdirSync(path.resolve(__dirname,'../../../assets/word')).filter(name=>name.endsWith('.png')&&!invalidNames.has(name)).length;
 test('actual file bootstrap uses all image rows but loads only selected captionless image, never fetches or eagerly loads packs',async()=>{
  const app=await boot({query:captionlessQuery});assert.equal(app.window.PICTURE_WORDS_CATALOG.length,pngCount);assert.equal(app.window.PICTURE_WORDS_CATALOG_META.count,pngCount);assert.ok(pngCount>12000);
  assert.equal(app.snapshot().id,captionless.id);assert.equal(app.snapshot().state,'playing');assert.equal(app.snapshot().mode,'en');assert.deepEqual(app.snapshot().letters,captionlessLetters);

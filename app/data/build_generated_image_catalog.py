@@ -12,6 +12,7 @@ from generated_image_resolver import resolve_bindings, identity_key
 ROOT=Path(__file__).resolve().parents[2]
 GEN=Path('app/data/generated-etymon')
 GAME=Path('app/games/picture-words')
+JS_INHERITED_KEYS={'__proto__','constructor','toString','toLocaleString','valueOf','hasOwnProperty','isPrototypeOf','propertyIsEnumerable','__defineGetter__','__defineSetter__','__lookupGetter__','__lookupSetter__'}
 
 def compact(x):return json.dumps(x,ensure_ascii=False,separators=(',',':'))
 def digest(b):return hashlib.sha256(b).hexdigest()
@@ -58,12 +59,19 @@ def after_cutoff(dates):
   except (ValueError,TypeError):pass
  return False
 
+class ImageInventory(dict):
+ """Usable observed PNGs plus a deterministic report of unusable additions."""
+ def __init__(self,*args,invalid_files=(),**kwargs):
+  super().__init__(*args,**kwargs);self.invalid_files=list(invalid_files)
+
 def scan_inventory(root):
- out={}
+ out=ImageInventory()
  for p in sorted((root/'assets/word').glob('*.png')):
   if re.search(r'[\x00-\x1f/\\?#]',p.stem) or p.stem in {'.','..'}:raise ValueError('Unsafe PNG stem: '+p.name)
   b=p.read_bytes()
-  if not b.startswith(b'\x89PNG\r\n\x1a\n') or b[12:16]!=b'IHDR' or len(b)<24:raise ValueError('Invalid PNG: '+p.name)
+  if not b.startswith(b'\x89PNG\r\n\x1a\n') or b[12:16]!=b'IHDR' or len(b)<24:
+   out.invalid_files.append({'path':'assets/word/'+p.name,'bytes':len(b),'sha256':digest(b),'git_blob_sha':blob(b),'reason':'empty_file' if not b else 'invalid_png_header'})
+   continue
   out[p.stem]={'path':'assets/word/'+p.name,'sha256':digest(b),'git_blob_sha':blob(b),'bytes':len(b),'width':int.from_bytes(b[16:20],'big'),'height':int.from_bytes(b[20:24],'big')}
  return out
 
@@ -113,6 +121,20 @@ def build_catalog_rows(root=ROOT,include_packs=True):
  for name,b in [('words',words_raw),('illustration_scenes',scenes_raw)]:
   if manifest['files'][name]['sha256']!=digest(b):raise ValueError('Stale source manifest: '+name)
  index=json.loads(index_raw[index_raw.index(b'{'):index_raw.rindex(b'}')+1]);inv=scan_inventory(root)
+ invalid_files=getattr(inv,'invalid_files',[])
+ # A malformed new unbound file is reportable. An existing or reviewed identity
+ # cannot disappear silently just because its image bytes have become invalid.
+ protected_art=set(index.values())|{e['art'] for e in payload['entries']}
+ prior_catalog=root/GAME/'catalog.js'
+ if prior_catalog.is_file():
+  text=prior_catalog.read_text(encoding='utf-8');marker='window.PICTURE_WORDS_CATALOG = '
+  if marker not in text:raise ValueError('Invalid previous catalog assignment')
+  previous=json.JSONDecoder().raw_decode(text.split(marker,1)[1])[0]
+  protected_art.update(r['pic'] for r in previous)
+ semantic_file=root/GEN/'semantic-classifications.json'
+ if semantic_file.is_file():protected_art.update(e['art'] for e in read(semantic_file).get('entries',[]))
+ for item in invalid_files:
+  if Path(item['path']).stem in protected_art:raise ValueError('Invalid PNG would remove a protected or published identity: '+item['path'])
  legacy=load_module('legacy_image_names',root/GAME/'build_catalog.py')
  ledger=read(root/GAME/'updated-art.json')+[{'w':w,'roots':p,'file':f,'source':'published_exceptional_tuple','priority':3} for w,p,f in legacy.LEDGER_SENSE_ART]
  resolved=resolve_bindings(words,inv,index,ledger,payload)
@@ -133,7 +155,11 @@ def build_catalog_rows(root=ROOT,include_packs=True):
    except (ValueError,TypeError):pass
  for asset in resolved['assets']:
   if asset['art'] in date_rows:asset['recordedUpdatedAt']=[date_rows[asset['art']]['LatestUpdatedAtJST']]
- seeds=read(root/'app/data/generated-image-legacy-ids.json')['rows'];prior={}
+ seed_data=read(root/'app/data/generated-image-legacy-ids.json');seeds=seed_data['rows'];prior={};safe_ids={}
+ for mapping in seed_data.get('safeIdMappings',[]):
+  identity=(mapping['w'],tuple(mapping['p']),mapping['art'])
+  if identity in safe_ids or mapping['art'] not in JS_INHERITED_KEYS or mapping['id']!='word:'+mapping['art']:raise ValueError('Invalid or duplicate safe stable ID mapping')
+  safe_ids[identity]=mapping['id']
  for r in seeds:
   roots=r.get('roots',r.get('sceneBinding',{}).get('p',[]));prior[(r['en'],tuple(roots),r['pic'])]=r
  scene_map={}
@@ -151,6 +177,10 @@ def build_catalog_rows(root=ROOT,include_packs=True):
  for art,binding in owned.items():
   word=words[binding['dictionaryIndex']];key=(word['w'],tuple(word.get('p',[])),art);old=prior.get(key);meta=assets[art];image={k:inv[art][k] for k in ['path','sha256','git_blob_sha']};sense=sense_of(word)
   candidate=old['id'] if old else ('mortar' if key==('mortar',('mer-2',),'mortar@construction') else art)
+  if candidate in JS_INHERITED_KEYS:
+   if old:raise ValueError('Unsafe legacy ID requires an explicit history migration: '+candidate)
+   if key not in safe_ids:raise ValueError('Inherited object-key ID needs an explicit stable mapping: '+candidate)
+   candidate=safe_ids[key]
   if candidate in used_ids:raise ValueError('Duplicate stable ID: '+candidate)
   used_ids.add(candidate)
   active=[]
@@ -197,4 +227,6 @@ def build_catalog_rows(root=ROOT,include_packs=True):
  if not legacy_ids.issubset(used_ids):raise ValueError('Legacy IDs disappeared')
  meta={'schema':2,'sourceWordsSha256':digest(words_raw),'scenesSha256':digest(scenes_raw),'indexSha256':digest(index_raw),'imageDatesSha256':digest(date_path.read_bytes()) if date_path.is_file() else None,'count':len(rows),'wordEntryCount':len(owned),'ownershipPendingCount':sum(r['bindingStatus']=='ownership_pending' for r in rows),'descriptionCounts':dict(Counter(r['description']['status'] for r in rows)),'playableCounts':{l:sum(bool(r['availability'][l]['playable']) for r in rows) for l in ['en','ja']}}
  report={'schema':2,'meta':meta,'ownership':resolved['summary'],'sceneEntries':len(payload['entries']),'existingIdsPreserved':len(seed_ids),'legacyIdsPreserved':len(legacy_ids),'imageBytes':sum(r['bytes'] for r in inv.values()),'emittedRows':len(rows),'lazyAssets':len(packs),'lazyAssetBytes':sum(len(b) for b in packs.values()),'inventoryNamesSha256':digest(compact(sorted(inv)).encode()),'inclusionPolicy':'all_observed_generated_PNGs','dateGateApplied':False,'captionGateApplied':False,'posGateApplied':False,'exclusionCounts':{},'inputHashes':{p:digest((root/p).read_bytes()) for p in ['app/data/generated-image-issues.json','app/data/generated-image-legacy-ids.json','app/data/generated_image_resolver.py','app/data/build_generated_image_catalog.py','app/data/puzzle-ja-answers.json','app/games/picture-words/updated-art.json','app/games/picture-words/build_catalog.py']},'ownershipPending':[{k:r.get(k) for k in ['art','path','reason','candidateIdentities']} for r in resolved['assets'] if r['bindingStatus']=='ownership_pending'],'issues':[{k:r[k] for k in ['id','pic','issues']} for r in rows if r['issues']]}
+ if invalid_files:
+  report.update({'observedPngPaths':len(inv)+len(invalid_files),'usablePngPaths':len(inv),'invalidPngFiles':invalid_files,'inclusionPolicy':'all_observed_valid_generated_PNGs','exclusionCounts':{'invalid_png':len(invalid_files)}})
  return rows,meta,packs,report

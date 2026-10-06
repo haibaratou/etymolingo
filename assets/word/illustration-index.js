@@ -597,5 +597,11 @@ globalThis.ETYMON_WORD_ART = {
   "[\"mean\",\"mei-no-\"]": "mean@meino",
   "[\"ways\",\"\"]": "ways@x",
   "[\"bear\",\"bher-1\"]": "bear@bher1",
-  "[\"bear\",\"bher-3\"]": "bear@bher3"
+  "[\"bear\",\"bher-3\"]": "bear@bher3",
+  "[\"key\",\"kagh-\"]": "key",
+  "[\"rocket\",\"ghers-\"]": "rocket@ghers",
+  "[\"school\",\"(s)kel-1\"]": "school@skel1",
+  "[\"temple\",\"temp-\"]": "temple@temp",
+  "[\"fan\",\"dhēs-\"]": "fan@dhes",
+  "[\"leave\",\"leubh-\"]": "leave@leubh"
 };
