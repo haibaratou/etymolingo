@@ -11,19 +11,38 @@ vm.runInNewContext(fs.readFileSync(path.join(__dirname,'www/app/games/picture-wo
 const words=context.window.PICTURE_WORDS_CATALOG;
 const bundledIds=new Set(JSON.parse(fs.readFileSync(path.join(__dirname,'www/bundle-manifest.json'))).ids);
 const bundled=words.filter(w=>bundledIds.has(w.id));
-test('the full catalog has verified artwork, a reviewed caption and both language answers',async()=>{
+async function offlineRuntime() {
+  const w={WordBloomReviewedScenes:{...rules},PICTLINGO_BUNDLED_IDS:[...bundledIds]};
+  vm.runInNewContext(fs.readFileSync(path.join(__dirname,'mobile-data.js'),'utf8'),{window:w,URL,Uint8Array,btoa});
+  await w.NicolingoOffline.ready();
+  return new w.WordBloomReviewedScenes.Runtime({meta:context.window.PICTURE_WORDS_CATALOG_META,crypto:webcrypto,location:{protocol:'https:',href:'https://localhost/app/games/picture-words.html'},navigator:{onLine:false},offline:w.NicolingoOffline,makeImageURL:()=> 'verified-local-image',fetcher:async url=>{
+    const parsed=new URL(url);
+    assert.equal(parsed.origin,'https://localhost','External network forbidden');
+    assert.match(parsed.pathname,/^\/assets\/pictlingo\/[a-f0-9]{64}\.webp$/);
+    const b=fs.readFileSync(path.join(__dirname,'www',parsed.pathname));
+    return {ok:true,arrayBuffer:async()=>b.buffer.slice(b.byteOffset,b.byteOffset+b.byteLength)};
+  }});
+}
+test('all 1086 images retain their reviewed source binding and are bundled once',async()=>{
   assert.ok(words.length>1000);assert.equal(bundled.length,words.length,'All images must be bundled');
+  const runtime=await offlineRuntime();
   for(const w of words){
-    assert.ok(rules.supportsLanguage(w,'ja'),w.id);assert.ok(rules.supportsLanguage(w,'en'),w.id);
-    assert.ok(rules.validCaption(w),w.id);
-    await rules.verifyPackScript(w,fs.readFileSync(path.join(__dirname,'www/app/games',w.sceneAsset),'utf8'),webcrypto);
+    assert.ok(rules.supportsLanguage(w,'ja'),w.id);assert.ok(rules.supportsLanguage(w,'en'),w.id);assert.ok(rules.validCaption(w),w.id);
+    const original=fs.readFileSync(path.join(root,w.image.path));
+    assert.equal(await runtime.digest('SHA-256',original),w.androidImage.sourceSha256);
+    await runtime.verifyImage(w,await runtime.loadPack(w));
   }
+  assert.equal(fs.existsSync(path.join(__dirname,'www/app/games/picture-words/scene-assets')),false);
 });
-test('offline runtime can verify and prepare every image without networking',async()=>{
-  const c={window:{},atob,TextEncoder,Uint8Array};
-  for(const w of bundled)vm.runInNewContext(fs.readFileSync(path.join(__dirname,'www/app/games',w.sceneAsset),'utf8'),c);
-  const runtime=new rules.Runtime({meta:context.window.PICTURE_WORDS_CATALOG_META,crypto:webcrypto,location:{protocol:'https:',href:'https://localhost/app/games/picture-words.html'},navigator:{onLine:false},assetRoot:c.window,makeImageURL:()=> 'verified-local-image',fetcher:()=>{throw Error('Network forbidden');}});
+test('every compressed image and caption can be prepared with external networking forbidden',async()=>{
+  const runtime=await offlineRuntime();
   for(const w of bundled){const result=await runtime.prepare(w);assert.equal(result.playable,true,w.id+': '+result.reason);assert.equal(result.imageVerified,true,w.id);assert.equal(result.ttsAllowed,true,w.id);}
+});
+test('corrupt compressed data and wrong source bindings fail verification',async()=>{
+  const runtime=await offlineRuntime(),w=words[0],bytes=await runtime.loadPack(w);
+  const bad=bytes.slice();bad[bad.length-1]^=1;
+  await assert.rejects(runtime.verifyImage(w,bad),/invalid-derivative/);
+  await assert.rejects(runtime.loadPack({...w,androidImage:{...w.androidImage,sourceSha256:'0'.repeat(64)}}),/invalid-derivative/);
 });
 test('Android speech receives the word and real synthesis rate and ignores stale events',async()=>{
   let callback;const calls=[];let ready;
