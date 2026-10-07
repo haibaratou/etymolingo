@@ -985,7 +985,17 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,,,,,,,,,,,,
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,well-meaning,,having good intentions,,"Subject: An adult trying to help despite making a small harmless mistake.
+
+Composition: Show an adult enthusiastically bringing a very large watering can to a friend's tiny potted cactus. The helper smiles warmly and carefully offers the can while the friend gently signals to stop. Keep the water inside the can, emphasizing the sincere helpful intention before any mishap.
+
+Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
+
+Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.
+
+Shared production requirements: Include only the people, characters and objects specified above. Follow every composition detail and exact quantity, and keep the complete composition inside the square.",A well-meaning gardener offers an oversized watering can as a friend signals stop.,善意の園芸好きが大きなじょうろを差し出し、友人は止めてと手を上げている。,generated,0a1f7db02f11fd7ac880af5fdebda9a02de7dc1e68f5e4e25e063690e74aee69,f916e5b4647f6fb6a695097025064c625f034431,2026-10-07T17:51:42+09:00,"生成結果ID exec-008493c4-71da-4fe2-a59a-b47fe3c969bd.png を行キー 024/well-meaning.png に対応付け。実PNGを目視し、笑顔で大きなじょうろを差し出す人、止める合図をする友人、小さな鉢植えのサボテンを確認。512x512 RGBA、実アルファ(0, 255)を検証。英語に見出し語 well-meaning を正確に含む。語根IDと語義SHA256は担当CSVで未特定のため reviewed にせず。"
 whiteboard.png,ホワイトボードに書く,ホワイトボードに書く,"Subject: An adult writing a simple diagram on a white dry-erase board.
 
 Composition: Show an adult standing beside a freestanding white dry-erase board, drawing a large circle with a dark marker. One hand guides the marker while the other holds its cap. A felt eraser rests on the narrow tray, and the glossy surface contains no words or numerals.
@@ -994,7 +1004,17 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,,,,,,,,,,,,
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,whiteboard,,a hard smooth white surface used for writing or drawing on with markers,,"Subject: An adult writing a simple diagram on a white dry-erase board.
+
+Composition: Show an adult standing beside a freestanding white dry-erase board, drawing a large circle with a dark marker. One hand guides the marker while the other holds its cap. A felt eraser rests on the narrow tray, and the glossy surface contains no words or numerals.
+
+Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
+
+Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.
+
+Shared production requirements: Include only the people, characters and objects specified above. Follow every composition detail and exact quantity, and keep the complete composition inside the square.",An adult draws a circle on a whiteboard with a marker and eraser nearby.,成人がホワイトボードにマーカーで円を描き、トレイにはイレーザーが置かれている。,generated,d1b17c9671a7f5d28ab31e17949191814a2b5a77da2824b8a622973683930c03,33441615714c9f6d508cae2e09904b9b61560403,2026-10-07T17:53:00+09:00,"生成結果ID exec-5ffc5cfd-7d62-47f1-99ac-f12fe4b46f1e.png を行キー 024/whiteboard.png に対応付け。実PNGを目視し、円を描く成人、ホワイトボード、マーカーのキャップとトレイ上のイレーザーを確認。文字・数字なし。512x512 RGBA、実アルファ(0, 255)を検証。英語に見出し語 whiteboard を正確に含む。語根IDと語義SHA256は担当CSVで未特定のため reviewed にせず。"
 whomever.png,だれにでも,だれにでも,"Subject: Offering something to any person who arrives.
 
 Composition: Show a volunteer holding an open basket of apples toward a varied group of adults approaching a free stall. The volunteer’s welcoming gesture reaches the whole group, with no gate, ticket, or selection barrier separating the visitors.
@@ -1003,7 +1023,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech balloons or bubbles, numerals, logos or watermark.",作成済み,,references/invidious.png,,,,,,,,,,,,
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech balloons or bubbles, numerals, logos or watermark.",作成済み,正本作業一覧 word-art-todo.csv の第一英語義が空欄。担当CSVの対象語義だけでは正本の第一語義を照合できないため、確認まで生成を保留。,references/invidious.png,whomever,,,,,,,needs_revision,,,,未生成。第一英語義が作業一覧にないため保留。
 Brie.png,ブリ地方,ブリ地方,"Subject: A geographic relief model highlighting the Brie region east of Paris.
 
 Composition: Show a tabletop relief of the Paris Basin with the Seine and Marne drawn as continuous blue waterways. Highlight the low agricultural plateau southeast of Paris between those rivers, with tiny fields and woodland inside it. Keep the surrounding terrain muted and omit cheese, words, and city labels.
