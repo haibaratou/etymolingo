@@ -606,3 +606,13 @@ prepaid.png,prepaid,日本語の語義が空欄で対象語義を決定できな
 vasodilation.png,vasodilation,日本語の語義が空欄で対象語義を決定できない,prompt_rows_027.csv,保留
 YMCA.png,YMCA,日本語の語義が空欄で対象語義を決定できない,prompt_rows_027.csv,保留
 slut.png,slut,侮蔑的な性的評価の非文字表現は文脈確認が必要,prompt_rows_018_no_dialogue_review,保留
+me.png,me,生成サービスの安全ブロック。request_id=a53284e9-4e20-4e75-bb64-f5a022447a01。,prompt_rows_028,保留
+too.png,too,第一語義照合相違: CSV「〜も」、開始時原本「〜もまた」。,prompt_rows_028,保留
+power.png,power,第一語義照合相違: CSV「電力」、開始時原本「力」。,prompt_rows_028,保留
+loud.png,loud,第一語義照合相違: CSV「音が大きい」、開始時原本「大きい」。,prompt_rows_029,保留
+prejudicial.png,prejudicial,第一日本語語義は「偏見を抱かせる」だが第一英語義は「有害な」で語義ペアが不一致,prompt_rows_024.csv,保留
+tabular.png,tabular,第一日本語語義は「板状の」だが第一英語義は表形式で語義ペアが不一致,prompt_rows_024.csv,保留
+Brie.png,Brie,第一日本語語義はブリ地方、第一英語義は白カビ熟成チーズで同綴り語の対応が不一致,prompt_rows_024.csv,保留
+Gambia.png,Gambia,第一日本語語義はガンビア、第一英語義はガンビア川で地名の対象が不一致,prompt_rows_024.csv,保留
+clitoris.png,clitoris,画像生成サービスがsexualカテゴリで拒否。代替図の生成可否を要確認,prompt_rows_024.csv,保留
+quid@kwo.png,quid,第一日本語語義は1ポンド、第一英語義はchewで同綴り語・語根の対応が不一致。登録済みプロンプトは硬貨を描く,prompt_rows_024.csv,保留

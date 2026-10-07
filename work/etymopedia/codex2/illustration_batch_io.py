@@ -51,8 +51,7 @@ def queue():
         binding = illustration_csv.verify_row_identity(row['batch'], row['index'])
         if binding['ok']:
             break
-        illustration_csv.update_row(row['batch'], row['index'], {
-            '制作状態': 'needs_revision', '検品メモ': binding['reason']})
+        illustration_csv.record_pending_review(row['batch'], row['index'], binding['reason'])
         missing.pop(0)
     return {'rows': missing[:1], 'remaining': len(missing)}
 
@@ -91,8 +90,7 @@ def save():
     assert original['画像生成プロンプト'] == row['prompt']
     binding = illustration_csv.verify_row_identity(row['batch'], row['index'])
     if not binding['ok']:
-        illustration_csv.update_row(row['batch'], row['index'], {
-            '制作状態': 'needs_revision', '検品メモ': binding['reason']})
+        illustration_csv.record_pending_review(row['batch'], row['index'], binding['reason'])
         state['pending'] = None
         state['current'] = None
         write_state(state)
@@ -129,7 +127,7 @@ def save():
         '解説日本語': caption['ja'], '制作状態': 'reviewed',
         '画像SHA256': sha256, '画像GitBlobSHA': blob_sha,
         '検品日時': reviewed_at,
-        '検品メモ': caption['note'] + ' 512×512 PNG RGBA・実アルファ確認。白/濃紺/ピンク背景で完成サイズの縁・空隙を目視。第一語義と実画像・両解説を照合。原本未反映。'})
+        '検品メモ': '実画像・第一語義・日英解説を照合。白/紺/桃背景512px検品。' + (' ' + caption['note'] if caption.get('note') else '')})
     state['last_saved'] = row
     ledger = ROOT / '_illust' / '.codex2-generation-records.jsonl'
     record = {'row': row, 'source': pending['source'], 'target': str(target),
@@ -146,16 +144,13 @@ def save():
 
 def holdlog():
     record = read_state()['hold_records'][-1]
-    log = ROOT / '_illust' / 'generation_holds_028_030.txt'
-    line = json.dumps(record, ensure_ascii=True)
-    previous = log.read_text(encoding='utf-8-sig') if log.exists() else ''
-    if line not in previous.splitlines():
-        with log.open('a', encoding='utf-8', newline='') as stream:
-            stream.write(line + '\n')
-    illustration_csv.update_row(record['batch'], record['index'], {
-        '制作状態': 'error', '実行プロンプト': record.get('actual_prompt', ''),
-        '検品メモ': '生成サービスの安全ブロック。元プロンプトを改変せず保留。request_id=' + str(record.get('request_id'))})
-    return {'held': record['batch'] + '/' + record['name']}
+    issue = '生成サービスの安全ブロック。request_id=' + str(record.get('request_id')) + '。'
+    pending_review = illustration_csv.record_pending_review(record['batch'], record['index'], issue)
+    values = {'制作状態': 'error', '検品メモ': issue}
+    if record.get('actual_prompt'):
+        values['実行プロンプト'] = record['actual_prompt']
+    illustration_csv.update_row(record['batch'], record['index'], values)
+    return {'held': record['batch'] + '/' + record['name'], 'pending_review': pending_review}
 
 mode = sys.argv[1]
 if mode == 'queue':

@@ -7,7 +7,17 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,about,"[""an-"",""ambhi"",""ud-""]",regarding,4bd86f90d846afdd88405ed5e894c2aa510a8ff03575012bff8cd3f002ea06d5,,,,generated,,,,
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,about,"[""an-"",""ambhi"",""ud-""]",regarding,4bd86f90d846afdd88405ed5e894c2aa510a8ff03575012bff8cd3f002ea06d5,"Subject: A conversation about seashells.
+
+Composition: Show a seaside guide and a visitor examining three different seashells on a small table. The guide points to a spiral shell while speaking, and the attentive visitor holds a matching shell; their shared focus is unmistakably the shells.
+
+Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
+
+Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.
+
+Correct the attached generated draft only to fulfill the CSV description above: Remove the guide's binoculars and the visitor's backpack entirely; these objects are not in the CSV. Keep exactly two people, the small table, exactly three different shells on the tabletop, and the matching spiral shell held by the visitor. Preserve the guide's pointing gesture and the shared focus on the shells. Preserve the transparent background and drawing style.",The guide and visitor talk about the seashells.,ガイドと訪問者が貝殻について話している。,reviewed,4c782deca4ed9bc14029452f341df08d5af1aac944b0c68f91c8467d22cb55cc,6e96e398a997a9229697c5d1ef87bb2e0d9bb501,2026-10-07T22:47:46+09:00,実画像・第一語義・日英解説を照合。白/紺/桃背景512px検品。
 all.png,全ての,全ての,"Subject: Every apple gathered into one basket.
 
 Composition: Show a child hugging a basket containing all six apples from a small tree. The complete tree has only leaves and six empty fruit stems, and no apple remains on its branches or the ground.
@@ -16,7 +26,17 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,all,"[""al-5""]",entire,7ebbc471679412ad873393ab1d770e6f88ca1a6bc4868c34d62acd67416cf6bf,,,,generated,,,,
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,all,"[""al-5""]",entire,7ebbc471679412ad873393ab1d770e6f88ca1a6bc4868c34d62acd67416cf6bf,"Subject: Every apple gathered into one basket.
+
+Composition: Show a child hugging a basket containing all six apples from a small tree. The complete tree has only leaves and six empty fruit stems, and no apple remains on its branches or the ground.
+
+Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
+
+Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.
+
+Shared production requirements: Include only the people, characters and objects specified above. Follow every composition detail and exact quantity, and keep the complete composition inside the square.",The child holds all six apples in one basket.,子供が6個すべてのリンゴを一つのかごに入れて抱えている。,reviewed,555171a63e427b736f5428058ffb94251a1c2d112e4fef11dfe610449ce8c757,1ee4ca9f4bc4fea68a3d7a6097f12855c943d444,2026-10-07T22:47:46+09:00,実画像・第一語義・日英解説を照合。白/紺/桃背景512px検品。
 also.png,〜もまた,〜もまた,"Subject: Another person joining in the same request.
 
 Composition: Show two friends seated beside a teapot. The first already holds a full teacup; the second smiles, raises an identical empty cup toward the server, and points lightly to themselves. The shared cups and matching request show the second person wanting the same thing too.
@@ -25,7 +45,17 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech bubbles, thought bubbles, numerals, logos or watermark.",作成済み,,references/invidious.png,also,"[""al-5"",""swo-""]",likewise,03c339c395072f358b49ffc33d67ca2803d88fc1e3a368d39178bb041ac450b3,,,,generated,,,,
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech bubbles, thought bubbles, numerals, logos or watermark.",作成済み,,references/invidious.png,also,"[""al-5"",""swo-""]",likewise,03c339c395072f358b49ffc33d67ca2803d88fc1e3a368d39178bb041ac450b3,"Subject: Another person joining in the same request.
+
+Composition: Show two friends seated beside a teapot. The first already holds a full teacup; the second smiles, raises an identical empty cup toward the server, and points lightly to themselves. The shared cups and matching request show the second person wanting the same thing too.
+
+Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
+
+Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech bubbles, thought bubbles, numerals, logos or watermark.
+
+Shared production requirements: Include only the people, characters and objects specified above. Follow every composition detail and exact quantity, and keep the complete composition inside the square.","She also asks for tea, holding up an empty cup.",彼女もお茶を求め、空のカップを掲げている。,reviewed,0d20da30cbc9fe6ae4d4ce5c916b26077b82c2c28872ed83b767306bd66cc955,81849e3aa76713c7dc7d59874817673a388a05a9,2026-10-07T22:47:46+09:00,実画像・第一語義・日英解説を照合。白/紺/桃背景512px検品。
 and.png,〜と,〜と,"Subject: Tea and toast served together.
 
 Composition: Show a server carrying one stable tray with a cup of tea on its saucer and a plate holding two triangles of toast. Both foods are equally prominent and clearly separate, joined by their placement on the same tray.
@@ -34,7 +64,17 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,and,"[""en""]",plus,5647365e0f56e2c30c4ed13f5c13271a5176322add52f03f5c92ba1e996c7a39,,,,generated,,,,
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,and,"[""en""]",plus,5647365e0f56e2c30c4ed13f5c13271a5176322add52f03f5c92ba1e996c7a39,"Subject: Tea and toast served together.
+
+Composition: Show a server carrying one stable tray with a cup of tea on its saucer and a plate holding two triangles of toast. Both foods are equally prominent and clearly separate, joined by their placement on the same tray.
+
+Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
+
+Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.
+
+Shared production requirements: Include only the people, characters and objects specified above. Follow every composition detail and exact quantity, and keep the complete composition inside the square.",The server carries tea and two pieces of toast on one tray.,給仕が1枚のトレーでお茶と2切れのトーストを運んでいる。,reviewed,9b0d5007051aa54355686ce96b79c53d301e7279dd4af0677c2f854dc0ff6261,e00f75a54b79876187a84bf7093011e562dca4c2,2026-10-07T22:47:46+09:00,実画像・第一語義・日英解説を照合。白/紺/桃背景512px検品。
 as.png,〜のように、〜として、〜なので,〜のように,"Subject: A child moving like a bird.
 
 Composition: Show a smiling child stretching both arms sideways and balancing on one foot beside a low wooden fence. A real robin on the fence spreads its wings in the same pose, making the child’s imitation immediately clear.
@@ -43,7 +83,17 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,as,"[""al-5"",""swo-""]",like,422ce455564e3463eadc4cf5bf9322b7726b3a531555df6951e174f14fc3bd43,,,,generated,,,,
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,as,"[""al-5"",""swo-""]",like,422ce455564e3463eadc4cf5bf9322b7726b3a531555df6951e174f14fc3bd43,"Subject: A child moving like a bird.
+
+Composition: Show a smiling child stretching both arms sideways and balancing on one foot beside a low wooden fence. A real robin on the fence spreads its wings in the same pose, making the child’s imitation immediately clear.
+
+Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
+
+Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.
+
+Correct the attached generated draft only to fulfill the CSV description above: Remove both green grass tufts from the foot of the fence. Preserve exactly the smiling child balancing with both arms out, the single robin spreading its wings, and the low wooden fence. Leave genuine transparent space below and around the fence; add no decorations or other objects.",The child spreads both arms as a bird would spread its wings.,子供が鳥の羽のように両腕を広げている。,reviewed,dac965d160eac965c6f4d2399c20838694af38daad7f52af4d461086f1b881aa,1be25a4a741099db68213e6c0bbad8b4611a9533,2026-10-07T22:47:46+09:00,実画像・第一語義・日英解説を照合。白/紺/桃背景512px検品。
 at.png,〜に,〜に,"Subject: A person waiting at a bus stop.
 
 Composition: Show an adult standing directly beside a bus-stop pole topped with a small bus pictogram. Their feet rest on the curbside waiting pad, and an approaching bus is visible close behind the pole; keep the waiting person dominant.
@@ -52,7 +102,17 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,at,"[""ad-""]",in,4b8d53ced699bc92a04f7b33e858382344409ac97c33f96f63578f821dedea06,,,,generated,,,,
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,at,"[""ad-""]",in,4b8d53ced699bc92a04f7b33e858382344409ac97c33f96f63578f821dedea06,"Subject: A person waiting at a bus stop.
+
+Composition: Show an adult standing directly beside a bus-stop pole topped with a small bus pictogram. Their feet rest on the curbside waiting pad, and an approaching bus is visible close behind the pole; keep the waiting person dominant.
+
+Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
+
+Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.
+
+Correct the attached generated draft only to fulfill the CSV description above: Remove the waiting person's shoulder bag and its strap completely. Let that arm rest naturally at their side. Preserve the person standing beside the bus-stop pole, the curbside pad, and the approaching bus. Do not add any new objects.",The woman waits at the bus stop as a bus approaches.,バスが近づく中、女性がバス停で待っている。,reviewed,2a6a2e96e0e3b070c7417bca936ad58bf50cd135e8cb3fd6a076b4826b874e56,0e186e806b45ab2a39bb523917ef8d350819b9b8,2026-10-07T22:47:46+09:00,実画像・第一語義・日英解説を照合。白/紺/桃背景512px検品。
 be.png,である,である,"Subject: A person identified by their present role.
 
 Composition: Show a baker in a flour-dusted apron standing confidently behind their own bakery counter, with fresh loaves and a bread peel beside them. The baker lightly touches their chest while presenting their workplace, making their identity in that role central.
@@ -61,7 +121,17 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech bubbles, thought bubbles, numerals, logos or watermark.",作成済み,,references/invidious.png,be,"[""bheuə-""]",exist,a3872c44ef72ca115b817a0b14a5d7c10b44c2b346d387912ba85722f1b61a27,,,,generated,,,,
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech bubbles, thought bubbles, numerals, logos or watermark.",作成済み,,references/invidious.png,be,"[""bheuə-""]",exist,a3872c44ef72ca115b817a0b14a5d7c10b44c2b346d387912ba85722f1b61a27,"Subject: A person identified by their present role.
+
+Composition: Show a baker in a flour-dusted apron standing confidently behind their own bakery counter, with fresh loaves and a bread peel beside them. The baker lightly touches their chest while presenting their workplace, making their identity in that role central.
+
+Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
+
+Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech bubbles, thought bubbles, numerals, logos or watermark.
+
+Shared production requirements: Include only the people, characters and objects specified above. Follow every composition detail and exact quantity, and keep the complete composition inside the square. Omit decorative foliage, bags, binoculars, extra tools, and extra characters unless the CSV prompt specifies them.",Her apron and bread show her to be a baker.,エプロンとパンから、彼女がパン職人だと分かる。,reviewed,c947d6a31772aa1bed99978cea3e48781c0923914a164cdd6cdd823374edae0e,e37ff53470e36d3d41e3f90ef0b3566802402631,2026-10-07T23:28:59+09:00,実PNG・第一語義・日英解説・512px透過を確認。
 been.png,〜であった,〜であった,"Subject: A role held earlier in life.
 
 Composition: Show a retired sailor in ordinary everyday clothes holding a framed photograph of their clearly younger self in a sailor uniform aboard a ship. They point to the younger figure while an old sailor cap rests in a keepsake box; keep the photograph inside the one present-day scene.
@@ -70,7 +140,17 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech bubbles, thought bubbles, numerals, logos or watermark.",作成済み,,references/invidious.png,been,"[""bheuə-""]",existed,f3c3cc2e3ecb448df3331f1a3f7b4a3690e1656ad2248e71cab9de14ccc3bb0b,,,,generated,,,,
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech bubbles, thought bubbles, numerals, logos or watermark.",作成済み,,references/invidious.png,been,"[""bheuə-""]",existed,f3c3cc2e3ecb448df3331f1a3f7b4a3690e1656ad2248e71cab9de14ccc3bb0b,"Subject: A role held earlier in life.
+
+Composition: Show a retired sailor in ordinary everyday clothes holding a framed photograph of their clearly younger self in a sailor uniform aboard a ship. They point to the younger figure while an old sailor cap rests in a keepsake box; keep the photograph inside the one present-day scene.
+
+Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
+
+Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech bubbles, thought bubbles, numerals, logos or watermark.
+
+Shared production requirements: Include only the people, characters and objects specified above. Follow every composition detail and exact quantity, and keep the complete composition inside the square. Omit decorative foliage, bags, binoculars, extra tools, and extra characters unless the CSV prompt specifies them.",The older man's photograph shows that he has been a sailor.,年配の男性の写真に、船乗りだった姿が写っている。,reviewed,27aa0acc80f2149cd1552f3e06b4319c13d065b578a5eb1fa1cbb9178f6de73d,436ccfb3db8e3cc4619b4ee7ba5c11de35b85612,2026-10-07T22:47:46+09:00,実画像・第一語義・日英解説を照合。白/紺/桃背景512px検品。
 but.png,しかし、以外,しかし,"Subject: A cheerful response despite an unwelcome condition.
 
 Composition: Show a raincoat-clad walker smiling brightly and skipping beneath an umbrella despite heavy rain splashing around their boots. Their cheerful expression contrasts directly with the gray raincloud and wet puddles, within one continuous scene.
@@ -79,7 +159,17 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech bubbles, thought bubbles, numerals, logos or watermark.",作成済み,,references/invidious.png,but,"[""ambhi"",""ud-""]",however,f9175fa4c1b3973f0f5e9c951c7e7059bc9876f0709d31f7fdb7613ff068d8e8,,,,generated,,,,
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech bubbles, thought bubbles, numerals, logos or watermark.",作成済み,,references/invidious.png,but,"[""ambhi"",""ud-""]",however,f9175fa4c1b3973f0f5e9c951c7e7059bc9876f0709d31f7fdb7613ff068d8e8,"Subject: A cheerful response despite an unwelcome condition.
+
+Composition: Show a raincoat-clad walker smiling brightly and skipping beneath an umbrella despite heavy rain splashing around their boots. Their cheerful expression contrasts directly with the gray raincloud and wet puddles, within one continuous scene.
+
+Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
+
+Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech bubbles, thought bubbles, numerals, logos or watermark.
+
+Shared production requirements: Include only the people, characters and objects specified above. Follow every composition detail and exact quantity, and keep the complete composition inside the square. Omit decorative foliage, bags, binoculars, extra tools, and extra characters unless the CSV prompt specifies them.","Rain falls heavily, but the walker smiles beneath an umbrella.",激しい雨が降っているが、歩く人は傘の下で笑っている。,reviewed,18cb4d3aef606063a8cd612b19cac4c621a71df80ff64f5c4a8e5172f26bf562,4f2afaebca2b9b3d75eb1e091827bceae5d1653a,2026-10-07T22:47:46+09:00,実画像・第一語義・日英解説を照合。白/紺/桃背景512px検品。
 by.png,〜のそばに、〜によって,〜のそばに,"Subject: A bicycle standing beside a tree.
 
 Composition: Show a complete blue bicycle resting on its kickstand immediately beside a stout leafy tree. Both bicycle wheels touch the same small ground patch as the tree, and the clear gap between bicycle and trunk emphasizes their side-by-side position.
@@ -88,7 +178,17 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,by,"[""ambhi""]",beside,3122b4b96773021536e308133ae59f4c4e09827b099abf61c093700502c5d000,,,,generated,,,,
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,by,"[""ambhi""]",beside,3122b4b96773021536e308133ae59f4c4e09827b099abf61c093700502c5d000,"Subject: A bicycle standing beside a tree.
+
+Composition: Show a complete blue bicycle resting on its kickstand immediately beside a stout leafy tree. Both bicycle wheels touch the same small ground patch as the tree, and the clear gap between bicycle and trunk emphasizes their side-by-side position.
+
+Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
+
+Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.
+
+Shared production requirements: Include only the people, characters and objects specified above. Follow every composition detail and exact quantity, and keep the complete composition inside the square. Omit decorative foliage, bags, binoculars, extra tools, and extra characters unless the CSV prompt specifies them.",The blue bicycle stands by the tree on its kickstand.,青い自転車が木のそばでスタンドを立てて止まっている。,reviewed,ae9553c8fdf9e09757629d6d01fc1d974e1193102e8b818a7655215d316664fd,d9cad1865d4d9852bb31e9ed2a97bf87b2accafb,2026-10-07T22:47:46+09:00,実画像・第一語義・日英解説を照合。白/紺/桃背景512px検品。
 can.png,〜できる,〜できる,"Subject: A child demonstrating the ability to ride a bicycle.
 
 Composition: Show a helmeted child confidently riding a small bicycle without training wheels. Both hands hold the handlebars, both feet engage the pedals, and the child smiles while balancing upright; an adult nearby watches with relaxed hands.
@@ -97,7 +197,17 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,can,"[""gnō-""]",be able,c09a5ec1ca1a781ff21e77a36d085a4e7412d5249c49b4168ee115baca69c4d1,,,,generated,,,,
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,can,"[""gnō-""]",be able,c09a5ec1ca1a781ff21e77a36d085a4e7412d5249c49b4168ee115baca69c4d1,"Subject: A child demonstrating the ability to ride a bicycle.
+
+Composition: Show a helmeted child confidently riding a small bicycle without training wheels. Both hands hold the handlebars, both feet engage the pedals, and the child smiles while balancing upright; an adult nearby watches with relaxed hands.
+
+Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
+
+Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.
+
+Shared production requirements: Include only the people, characters and objects specified above. Follow every composition detail and exact quantity, and keep the complete composition inside the square. Omit decorative foliage, bags, binoculars, extra tools, and extra characters unless the CSV prompt specifies them.",The child can ride a bicycle without training wheels.,子供は補助輪なしで自転車に乗ることができる。,reviewed,adb888863571f247d8704a388009624a976c18a56158434c8b95c34d1cac2536,c204e64c341b9c1b056dffb6df4c96a1c1983a97,2026-10-07T22:47:46+09:00,実画像・第一語義・日英解説を照合。白/紺/桃背景512px検品。
 could.png,できた,できた,"Subject: An ability demonstrated earlier in life.
 
 Composition: Show an older adult proudly holding a framed photograph of their younger self swimming confidently across a pool. A faded swimming medal rests beside the frame, while the present-day adult points to their younger self in the photograph.
@@ -106,7 +216,17 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech bubbles, thought bubbles, numerals, logos or watermark.",作成済み,,references/invidious.png,could,"[""gnō-""]",was able,f6c1ab6c068ed49bd7a7f14f3e7354730e739116e44a0a7866f5383f766d5cc6,,,,generated,,,,
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech bubbles, thought bubbles, numerals, logos or watermark.",作成済み,,references/invidious.png,could,"[""gnō-""]",was able,f6c1ab6c068ed49bd7a7f14f3e7354730e739116e44a0a7866f5383f766d5cc6,"Subject: An ability demonstrated earlier in life.
+
+Composition: Show an older adult proudly holding a framed photograph of their younger self swimming confidently across a pool. A faded swimming medal rests beside the frame, while the present-day adult points to their younger self in the photograph.
+
+Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
+
+Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech bubbles, thought bubbles, numerals, logos or watermark.
+
+Shared production requirements: Include only the people, characters and objects specified above. Follow every composition detail and exact quantity, and keep the complete composition inside the square. Omit decorative foliage, bags, binoculars, extra tools, and extra characters unless the CSV prompt specifies them.","He could swim when he was younger, as the photograph shows.",写真のとおり、彼は若い頃、泳ぐことができた。,reviewed,ff314bb40a95d6b1848bf9237c359bc637a3af07f3f496c88bb84b6b514aff1c,bdc234912eeba8b1d895c3cf0bfb12274dd5f0a8,2026-10-07T22:47:46+09:00,実画像・第一語義・日英解説を照合。白/紺/桃背景512px検品。
 do.png,する、役に立つ,する,"Subject: A person actively doing a household task.
 
 Composition: Show an adult washing a plate over a kitchen sink, supporting the plate with one hand and rubbing it with a soapy sponge in the other. A small stack of clean plates waits beside the sink; keep the working person complete.
@@ -115,7 +235,17 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,do,"[""dhē-""]",perform,e2b7eac95aa71cbda43fd8bbf0ee99f0fdb8325151384512deaceb8e5cc40764,,,,generated,,,,
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,do,"[""dhē-""]",perform,e2b7eac95aa71cbda43fd8bbf0ee99f0fdb8325151384512deaceb8e5cc40764,"Subject: A person actively doing a household task.
+
+Composition: Show an adult washing a plate over a kitchen sink, supporting the plate with one hand and rubbing it with a soapy sponge in the other. A small stack of clean plates waits beside the sink; keep the working person complete.
+
+Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
+
+Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.
+
+Shared production requirements: Include only the people, characters and objects specified above. Follow every composition detail and exact quantity, and keep the complete composition inside the square. Omit decorative foliage, bags, binoculars, extra tools, and extra characters unless the CSV prompt specifies them.",She uses a sponge to do the dishes.,彼女はスポンジで食器を洗っている。,reviewed,80a28d8a1e1734acc7b88c24a01b8012f975d6e1a9d157a99c09cf8c5259bb89,12c87f7b5a430bbd07a498e19ef3413e6e7c078f,2026-10-07T23:28:59+09:00,実PNG・第一語義・日英解説・512px透過を確認。
 for.png,〜のために,〜のために,"Subject: A gift intended for a particular recipient.
 
 Composition: Show a child offering a wrapped gift with both hands to a seated grandmother. The grandmother reaches toward the gift with a pleased expression, while the child’s body and eyes clearly direct the offering to her alone.
@@ -124,7 +254,17 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,for,"[""per1""]",intended,40c5aafdee096746caaba065246fc3d53cf5bbb5bb3144a2003b0ed34d79c8ce,,,,generated,,,,
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,for,"[""per1""]",intended,40c5aafdee096746caaba065246fc3d53cf5bbb5bb3144a2003b0ed34d79c8ce,"Subject: A gift intended for a particular recipient.
+
+Composition: Show a child offering a wrapped gift with both hands to a seated grandmother. The grandmother reaches toward the gift with a pleased expression, while the child’s body and eyes clearly direct the offering to her alone.
+
+Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
+
+Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.
+
+Correct the attached generated draft only to fulfill the CSV description above: Turn the child's head and eyes toward the grandmother, so the child is clearly looking at her while offering the gift. Show both of the child's hands visibly supporting the wrapped gift, with one hand on each side or beneath it. Keep exactly these two people, one gift and the grandmother's chair, and keep her pleased expression and reaching hands.",The child offers a gift for the seated grandmother.,子供が椅子に座った祖母に向けて贈り物を差し出している。,reviewed,5450340a217e0824eda9f21517d2dd8ab974ef460cb9b1c946e5f7e19e80b3f8,dd766af3b94a8c0b1fce3a9809d7e84966c063e2,2026-10-07T22:47:46+09:00,実画像・第一語義・日英解説を照合。白/紺/桃背景512px検品。
 from.png,〜から,〜から,"Subject: A traveler coming from a house.
 
 Composition: Show a traveler walking away from an open cottage doorway with a small suitcase. A short trail of wet footprints begins at the doorstep and ends beneath the traveler’s feet, clearly marking the house as the starting point.
@@ -133,7 +273,17 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,from,"[""per1""]",out of,286683b7044bf2a4f590e08309fde36cc61f56adbe30e14523c2a46d6a5278d0,,,,generated,,,,
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,from,"[""per1""]",out of,286683b7044bf2a4f590e08309fde36cc61f56adbe30e14523c2a46d6a5278d0,"Subject: A traveler coming from a house.
+
+Composition: Show a traveler walking away from an open cottage doorway with a small suitcase. A short trail of wet footprints begins at the doorstep and ends beneath the traveler’s feet, clearly marking the house as the starting point.
+
+Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
+
+Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.
+
+Correct the attached generated draft only to fulfill the CSV description above: Remove the traveler's backpack and both shoulder straps entirely. Keep the single small suitcase in the same hand and let the other empty hand swing naturally while walking away from the cottage. Preserve the open doorway and the short wet footprint trail connecting its doorstep to the traveler's feet. Do not add another bag or object.",The traveler walks from the house with a small suitcase.,旅人が小さなスーツケースを持ち、家から歩き出している。,reviewed,4f2ea67b8f7003a61e533011ae6f3cf5ec7b6dca2a43909d7821fac038dc4698,767a2b06a55ae447f8ccc439818844ceac97ce3c,2026-10-07T22:47:46+09:00,実画像・第一語義・日英解説を照合。白/紺/桃背景512px検品。
 have.png,持っている、経験する,持っている,"Subject: A child possessing a favorite toy.
 
 Composition: Show a child seated on a low stool with a teddy bear held securely against their chest. Their arms encircle the bear and their contented face looks down at it; leave the complete child, stool, and bear visible.
@@ -142,7 +292,17 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,have,"[""kap-""]",possess,4c4bff286f798cc4aa6821c905a9e9b9417c98b03234c32a7aeb81e6669652f9,,,,generated,,,,
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,have,"[""kap-""]",possess,4c4bff286f798cc4aa6821c905a9e9b9417c98b03234c32a7aeb81e6669652f9,"Subject: A child possessing a favorite toy.
+
+Composition: Show a child seated on a low stool with a teddy bear held securely against their chest. Their arms encircle the bear and their contented face looks down at it; leave the complete child, stool, and bear visible.
+
+Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
+
+Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.
+
+Shared production requirements: Include only the people, characters and objects specified above. Follow every composition detail and exact quantity, and keep the complete composition inside the square. Omit decorative foliage, bags, binoculars, extra tools, and extra characters unless the CSV prompt specifies them.",I have a teddy bear cradled in my arms.,私はぬいぐるみのクマを腕に抱えている。,reviewed,e28df777c04af34dec39a8cd09324791980046a9afa2f6ee2147df9e3e5cd82f,e5d4b739bd8e5c200810958ea6d147cf44a05a33,2026-10-07T22:47:46+09:00,実画像・第一語義・日英解説を照合。白/紺/桃背景512px検品。
 he.png,彼は,彼は,"Subject: Referring to one nearby man.
 
 Composition: Show a standing adult guiding a companion’s attention with an open-hand gesture toward a seated man reading a book. Keep the referring adult, companion, and male reader clearly separate; both observers look directly at the reader, who is the scene’s dominant referent.
@@ -151,7 +311,17 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech bubbles, thought bubbles, numerals, logos or watermark.",作成済み,,references/invidious.png,he,"[""ko-""]",male person,1b3751ff762b3195b2b51f011b38fdec380f10612fc169a4579cf2b46cde0ed0,,,,generated,,,,
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech bubbles, thought bubbles, numerals, logos or watermark.",作成済み,,references/invidious.png,he,"[""ko-""]",male person,1b3751ff762b3195b2b51f011b38fdec380f10612fc169a4579cf2b46cde0ed0,"Subject: Referring to one nearby man.
+
+Composition: Show a standing adult guiding a companion’s attention with an open-hand gesture toward a seated man reading a book. Keep the referring adult, companion, and male reader clearly separate; both observers look directly at the reader, who is the scene’s dominant referent.
+
+Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
+
+Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech bubbles, thought bubbles, numerals, logos or watermark.
+
+Correct the attached generated draft only to fulfill the CSV description above: Redraw the green-shirt adult's gesturing arm so the open hand extends horizontally past the companion toward the reader, into the clear gap between the companion and reader. The companion's arms rest down at her sides, leaving this gesture unobstructed. Tilt the reader's head downward noticeably, with both eyes near the lower part of the face directed at the book. Preserve the three figures and other objects.",He sits on a chair and reads a book.,彼は椅子に座って本を読んでいる。,reviewed,747c0a18d94ffbeae53eaf33c6acd889376a889bb705750ebd52705a8b4b0950,5e61cabf9949e71fc63df6e155cffa18c5fde0e1,2026-10-07T22:47:46+09:00,実画像・第一語義・日英解説を照合。白/紺/桃背景512px検品。
 her.png,彼女の、彼女を,彼女の,"Subject: An object belonging to a particular woman.
 
 Composition: Show a woman holding her yellow handbag firmly by its strap at her side. A nearby friend points to that bag while looking toward a third person, directing attention to the woman’s ownership rather than taking or receiving the bag.
@@ -160,7 +330,17 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech bubbles, thought bubbles, numerals, logos or watermark.",作成済み,,references/invidious.png,her,"[""ko-""]",her,6370b2762b35c155959518409e62429241bbf7c636181d6426b5a2ba3eab6af9,,,,generated,,,,
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech bubbles, thought bubbles, numerals, logos or watermark.",作成済み,,references/invidious.png,her,"[""ko-""]",her,6370b2762b35c155959518409e62429241bbf7c636181d6426b5a2ba3eab6af9,"Subject: An object belonging to a particular woman.
+
+Composition: Show a woman holding her yellow handbag firmly by its strap at her side. A nearby friend points to that bag while looking toward a third person, directing attention to the woman’s ownership rather than taking or receiving the bag.
+
+Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
+
+Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech bubbles, thought bubbles, numerals, logos or watermark.
+
+Shared production requirements: Include only the people, characters and objects specified above. Follow every composition detail and exact quantity, and keep the complete composition inside the square. Omit decorative foliage, bags, binoculars, extra tools, and extra characters unless the CSV prompt specifies them.",The friend points to her yellow handbag.,友人が彼女の黄色いハンドバッグを指している。,reviewed,df6dd06739e6dd28ae45945f2a9af2eff0690022dec2f7d9bdf8b55713aacabf,2b903058e4fd036548f7ba12cfd62bbd81252ebc,2026-10-07T22:47:46+09:00,実画像・第一語義・日英解説を照合。白/紺/桃背景512px検品。
 him.png,彼を,彼を,"Subject: A particular man receiving an action.
 
 Composition: Show an adult handing a wrapped parcel to a smiling man while a nearby observer points open-handed toward that male recipient. The recipient reaches forward with both hands; keep the giver, observer, and receiver distinct and the gift moving toward him.
@@ -169,7 +349,17 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech bubbles, thought bubbles, numerals, logos or watermark.",作成済み,,references/invidious.png,him,"[""ko-""]",male person,4bb12026a4dcb58157c2c3b5373999e3b029c458a05bc8802b7725a473324678,,,,generated,,,,
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech bubbles, thought bubbles, numerals, logos or watermark.",作成済み,,references/invidious.png,him,"[""ko-""]",male person,4bb12026a4dcb58157c2c3b5373999e3b029c458a05bc8802b7725a473324678,"Subject: A particular man receiving an action.
+
+Composition: Show an adult handing a wrapped parcel to a smiling man while a nearby observer points open-handed toward that male recipient. The recipient reaches forward with both hands; keep the giver, observer, and receiver distinct and the gift moving toward him.
+
+Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
+
+Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech bubbles, thought bubbles, numerals, logos or watermark.
+
+Correct the attached generated draft only to fulfill the CSV description above: Redraw the blue-shirt recipient as an adult man, with adult body proportions, longer legs and long trousers instead of a child's shorts. He should be about the same height as the adult giver, and still reach toward the parcel with both hands. Preserve the distinct giver and observer, her open-hand gesture toward the recipient, and the single wrapped parcel. Remove the three decorative rays above the parcel.",A man passes him a wrapped gift.,男性が彼に包んだ贈り物を渡している。,reviewed,6973d8ec06489b67ebda4b9d96430b1fffe683cc5c0e445caf9ad905c7c6ff16,d5cee1adb53666f3cd2f1c661e0ea3570729e58f,2026-10-07T22:47:46+09:00,実画像・第一語義・日英解説を照合。白/紺/桃背景512px検品。
 his.png,彼の,彼の,"Subject: An object belonging to a particular man.
 
 Composition: Show a man standing beside his bicycle with one hand firmly on its handlebars and a key in the other. A nearby observer points toward the bicycle while looking to a companion, with the owner visibly connected to it by his grip.
@@ -178,7 +368,17 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech bubbles, thought bubbles, numerals, logos or watermark.",作成済み,,references/invidious.png,his,"[""ko-""]",male person's,625746b351582c1ec427617937d5a7acb7c6ecfdfe7cc8caa9a0bc888c9a847c,,,,generated,,,,
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech bubbles, thought bubbles, numerals, logos or watermark.",作成済み,,references/invidious.png,his,"[""ko-""]",male person's,625746b351582c1ec427617937d5a7acb7c6ecfdfe7cc8caa9a0bc888c9a847c,"Subject: An object belonging to a particular man.
+
+Composition: Show a man standing beside his bicycle with one hand firmly on its handlebars and a key in the other. A nearby observer points toward the bicycle while looking to a companion, with the owner visibly connected to it by his grip.
+
+Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
+
+Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech bubbles, thought bubbles, numerals, logos or watermark.
+
+Correct the attached generated draft only to fulfill the CSV description above: Turn the yellow-shirt pointing observer's head and gaze to his companion on the right, while his extended hand continues pointing left toward the bicycle. Keep the owner holding its handlebars and the key in his other hand, three people and one bicycle. Remove the two decorative rays above the key.",The man holds his bicycle and its key.,男性は自分の自転車とその鍵を持っている。,reviewed,37a9f5bb7690ed73f87ce2e9bcb4ea7b7f555b5ddf110fd85adcab3113fe981a,556c7cf10954cfd30bdd83bb47a9e7b603986a7f,2026-10-07T22:47:46+09:00,実画像・第一語義・日英解説を照合。白/紺/桃背景512px検品。
 if.png,もし〜ならば、〜かどうか,もし〜ならば,"Subject: An action depending on a necessary condition.
 
 Composition: Show a gardener paused at a locked greenhouse door with seedlings waiting on a small cart. They hold the matching key just outside the lock; the closed door and waiting seedlings make entry dependent on first using that key, without showing a completed opening.
@@ -187,7 +387,17 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech bubbles, thought bubbles, numerals, logos or watermark.",作成済み,,references/invidious.png,if,"[""i-""]",on condition,12ff4ed9aa7f324a6d12edaa1c27d2355c7853c5d645efe7d5f1416d6ad90707,,,,generated,,,,
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech bubbles, thought bubbles, numerals, logos or watermark.",作成済み,,references/invidious.png,if,"[""i-""]",on condition,12ff4ed9aa7f324a6d12edaa1c27d2355c7853c5d645efe7d5f1416d6ad90707,"Subject: An action depending on a necessary condition.
+
+Composition: Show a gardener paused at a locked greenhouse door with seedlings waiting on a small cart. They hold the matching key just outside the lock; the closed door and waiting seedlings make entry dependent on first using that key, without showing a completed opening.
+
+Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
+
+Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech bubbles, thought bubbles, numerals, logos or watermark.
+
+Shared production requirements: Include only the people, characters and objects specified above. Follow every composition detail and exact quantity, and keep the complete composition inside the square. Omit decorative foliage, bags, binoculars, extra tools, and extra characters unless the CSV prompt specifies them.",The gardener can enter if the key opens the locked door.,鍵で施錠された扉を開けられれば、庭師は中に入れる。,reviewed,5042fce7ca8a4ff1a56938588a4eb7d4303a1c4546fb017ec3a92152b1a41805,365acd57cbdfeabfc24230b4389bbf78f0b78ccb,2026-10-07T22:47:46+09:00,実画像・第一語義・日英解説を照合。白/紺/桃背景512px検品。
 in.png,中に、流行して,中に,"Subject: A kitten inside a cardboard box.
 
 Composition: Show one small kitten sitting inside an open cardboard box, with its head and ears rising above the rim and its body clearly enclosed by the box walls. Fold all four flaps outward and keep the complete box visible.
@@ -196,7 +406,17 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,in,"[""en""]",inside,275046cffde6347273a70d6e55c6776d75fb2afe2a052fc9ef62790f876ad36c,,,,generated,,,,
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,in,"[""en""]",inside,275046cffde6347273a70d6e55c6776d75fb2afe2a052fc9ef62790f876ad36c,"Subject: A kitten inside a cardboard box.
+
+Composition: Show one small kitten sitting inside an open cardboard box, with its head and ears rising above the rim and its body clearly enclosed by the box walls. Fold all four flaps outward and keep the complete box visible.
+
+Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
+
+Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.
+
+Shared production requirements: Include only the people, characters and objects specified above. Follow every composition detail and exact quantity, and keep the complete composition inside the square. Omit decorative foliage, bags, binoculars, extra tools, and extra characters unless the CSV prompt specifies them.",The kitten sits in the box with all four flaps open.,子猫が、四つのふたを開いた箱の中に座っている。,reviewed,c1820390186b41ba96cdc55491d0ecd86d735ac0b22c06b8932866245d93f094,e3140d49127b3ef3de2f1fafeb549914b3d49ed7,2026-10-07T22:47:46+09:00,実画像・第一語義・日英解説を照合。白/紺/桃背景512px検品。
 is.png,〜である,〜である,"Subject: An object with a clear present quality.
 
 Composition: Show a teacher presenting one plainly blue ceramic cup to an attentive learner, with an open hand directly beneath it and the other hand pointing to its blue surface. Keep the cup as the single dominant object and the present blue quality unmistakable.
@@ -205,7 +425,17 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech bubbles, thought bubbles, numerals, logos or watermark.",作成済み,,references/invidious.png,is,"[""es-""]",exists,9387266146d4556f95d7dfd70f756d6523514293bc8e753fd0ede9b3b874dffa,,,,generated,,,,
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech bubbles, thought bubbles, numerals, logos or watermark.",作成済み,,references/invidious.png,is,"[""es-""]",exists,9387266146d4556f95d7dfd70f756d6523514293bc8e753fd0ede9b3b874dffa,"Subject: An object with a clear present quality.
+
+Composition: Show a teacher presenting one plainly blue ceramic cup to an attentive learner, with an open hand directly beneath it and the other hand pointing to its blue surface. Keep the cup as the single dominant object and the present blue quality unmistakable.
+
+Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
+
+Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech bubbles, thought bubbles, numerals, logos or watermark.
+
+Shared production requirements: Include only the people, characters and objects specified above. Follow every composition detail and exact quantity, and keep the complete composition inside the square. Omit decorative foliage, bags, binoculars, extra tools, and extra characters unless the CSV prompt specifies them.","The cup is blue, and the teacher shows it.",カップは青く、先生がそれを見せている。,reviewed,c8aea7e796415895d516d9d24f7de48ae137d8639316ef7a202b79457b562e13,2c7fed59ff4eeba60a10107e3ce12dcf43093928,2026-10-07T22:47:46+09:00,実画像・第一語義・日英解説を照合。白/紺/桃背景512px検品。
 it.png,それは,それは,"Subject: Referring to one nearby object.
 
 Composition: Show two friends directing their attention to a single steaming bowl of soup on a small table. One points directly to the bowl while the other follows the gesture with their gaze; keep the bowl dominant and include no competing nearby object.
@@ -214,7 +444,17 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech bubbles, thought bubbles, numerals, logos or watermark.",作成済み,,references/invidious.png,it,"[""ko-""]",that thing,328a0dc8882755d5aa738d812336ea8be6ec1458aea2b8100bce0df079d7a309,,,,generated,,,,
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech bubbles, thought bubbles, numerals, logos or watermark.",作成済み,,references/invidious.png,it,"[""ko-""]",that thing,328a0dc8882755d5aa738d812336ea8be6ec1458aea2b8100bce0df079d7a309,"Subject: Referring to one nearby object.
+
+Composition: Show two friends directing their attention to a single steaming bowl of soup on a small table. One points directly to the bowl while the other follows the gesture with their gaze; keep the bowl dominant and include no competing nearby object.
+
+Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
+
+Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech bubbles, thought bubbles, numerals, logos or watermark.
+
+Shared production requirements: Include only the people, characters and objects specified above. Follow every composition detail and exact quantity, and keep the complete composition inside the square. Omit decorative foliage, bags, binoculars, extra tools, and extra characters unless the CSV prompt specifies them.",The friends look at the soup as one points to it.,二人がスープを見て、一人がそれを指している。,reviewed,1c7feda79b00522d624a13ef8b5555c3af6336a163da87e827a859f5ae7a31a0,c251fc85a9a1b634feeca5ef154fd22cdece9c8c,2026-10-07T22:47:46+09:00,実画像・第一語義・日英解説を照合。白/紺/桃背景512px検品。
 me.png,私を,私を,"Subject: The speaker indicating themselves as recipient.
 
 Composition: Show a child facing a friend who holds a soft ball. The child points to their own chest with one hand and holds the other palm open to receive, while the friend prepares a gentle throw toward that child.
@@ -223,7 +463,17 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech bubbles, thought bubbles, numerals, logos or watermark.",作成済み,,references/invidious.png,me,"[""me-1""]",myself,109279824974bd1b13e24023ab01d741c6030adbe2bfbd8dded0da56bd376ec9,,,,prompt_ready,,,,
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech bubbles, thought bubbles, numerals, logos or watermark.",作成済み,,references/invidious.png,me,"[""me-1""]",myself,109279824974bd1b13e24023ab01d741c6030adbe2bfbd8dded0da56bd376ec9,"Subject: The speaker indicating themselves as recipient.
+
+Composition: Show a child facing a friend who holds a soft ball. The child points to their own chest with one hand and holds the other palm open to receive, while the friend prepares a gentle throw toward that child.
+
+Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
+
+Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech bubbles, thought bubbles, numerals, logos or watermark.
+
+Shared production requirements: Include only the people, characters and objects specified above. Follow every composition detail and exact quantity, and keep the complete composition inside the square. Omit decorative foliage, bags, binoculars, extra tools, and extra characters unless the CSV prompt specifies them.",,,error,,,,生成サービスの安全ブロックで未生成。request_id=a53284e9-4e20-4e75-bb64-f5a022447a01。
 more.png,もっと多くの,もっと多くの,"Subject: Additional apples being added to an existing supply.
 
 Composition: Show a child supporting a basket containing three apples against one hip while another person lowers two more apples into it. The child gestures toward the incoming fruit with their free hand; keep the original apples and the additions separately visible in one continuous action.
@@ -232,7 +482,17 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,more,"[""mē-3""]",extra,4806b96526099f67ed46678e0036540105b563a8b80ad1ba362281f342168196,,,,generated,,,,
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,more,"[""mē-3""]",extra,4806b96526099f67ed46678e0036540105b563a8b80ad1ba362281f342168196,"Subject: Additional apples being added to an existing supply.
+
+Composition: Show a child supporting a basket containing three apples against one hip while another person lowers two more apples into it. The child gestures toward the incoming fruit with their free hand; keep the original apples and the additions separately visible in one continuous action.
+
+Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
+
+Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.
+
+Shared production requirements: Include only the people, characters and objects specified above. Follow every composition detail and exact quantity, and keep the complete composition inside the square. Omit decorative foliage, bags, binoculars, extra tools, and extra characters unless the CSV prompt specifies them.",Two more apples are being lowered into the child's basket.,子供のかごに、さらに2個のリンゴが入れられている。,reviewed,b694c71754224312744d28fffe980fa1459f1b987b32398ac5b8ec62e9a4c3c0,e3299479715f7a0e7698895e359fe1576f7fcb44,2026-10-07T22:47:46+09:00,実画像・第一語義・日英解説を照合。白/紺/桃背景512px検品。
 my.png,私の,私の,"Subject: A person identifying their own possession.
 
 Composition: Show an adult holding a green hat securely against their chest with one arm while touching their own chest with the free hand. A nearby friend looks toward the self-directed gesture and the hat, making the ownership relation clear.
@@ -241,7 +501,17 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech bubbles, thought bubbles, numerals, logos or watermark.",作成済み,,references/invidious.png,my,"[""me-1""]",speaker's,9d2f5a3b37c63cd806d2a796241bd7464a402f81dfc3f2c4be4ee0693a1689f7,,,,generated,,,,
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech bubbles, thought bubbles, numerals, logos or watermark.",作成済み,,references/invidious.png,my,"[""me-1""]",speaker's,9d2f5a3b37c63cd806d2a796241bd7464a402f81dfc3f2c4be4ee0693a1689f7,"Subject: A person identifying their own possession.
+
+Composition: Show an adult holding a green hat securely against their chest with one arm while touching their own chest with the free hand. A nearby friend looks toward the self-directed gesture and the hat, making the ownership relation clear.
+
+Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
+
+Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech bubbles, thought bubbles, numerals, logos or watermark.
+
+Shared production requirements: Include only the people, characters and objects specified above. Follow every composition detail and exact quantity, and keep the complete composition inside the square. Omit decorative foliage, bags, binoculars, extra tools, and extra characters unless the CSV prompt specifies them.",I hold my green hat and point to myself.,私は自分の緑の帽子を抱え、自分を指している。,reviewed,d68374d0405d10e1bb47710a76c0a7e81e8b195fd6d721b074f394f0a2cb9079,46a79afb39f34f4bc590bc45f66a9f5253797cef,2026-10-07T22:47:46+09:00,実画像・第一語義・日英解説を照合。白/紺/桃背景512px検品。
 not.png,～でない,～でない,"Subject: Rejecting an incorrect object.
 
 Composition: Show a person holding a ripe yellow pear and firmly shaking their head while a companion offers a red apple instead. The person gently raises a flat refusal palm toward the apple and keeps the pear visible, with the refusal expressed entirely through posture.
@@ -250,7 +520,17 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech bubbles, thought bubbles, numerals, logos or watermark.",作成済み,,references/invidious.png,not,"[""ne"",""wekti-""]",in no way,371876b44949d120496a7310324854465fc08ae57612082fd1005c922e9727f6,,,,generated,,,,
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech bubbles, thought bubbles, numerals, logos or watermark.",作成済み,,references/invidious.png,not,"[""ne"",""wekti-""]",in no way,371876b44949d120496a7310324854465fc08ae57612082fd1005c922e9727f6,"Subject: Rejecting an incorrect object.
+
+Composition: Show a person holding a ripe yellow pear and firmly shaking their head while a companion offers a red apple instead. The person gently raises a flat refusal palm toward the apple and keeps the pear visible, with the refusal expressed entirely through posture.
+
+Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
+
+Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech bubbles, thought bubbles, numerals, logos or watermark.
+
+Shared production requirements: Include only the people, characters and objects specified above. Follow every composition detail and exact quantity, and keep the complete composition inside the square. Omit decorative foliage, bags, binoculars, extra tools, and extra characters unless the CSV prompt specifies them.","He does not accept the apple, keeping his yellow pear.",彼はリンゴを受け取らず、黄色い洋ナシを持ったままだ。,reviewed,abd2041b18e50538fb2c37239c8dfc01c8d634735e4e41dd5b472edda270af66,2283873e7e7dc9ed08860795e965377453ab4e8b,2026-10-07T22:47:46+09:00,実画像・第一語義・日英解説を照合。白/紺/桃背景512px検品。
 of.png,〜の,〜の,"Subject: The handle belonging to a particular cup.
 
 Composition: Show a large ceramic teacup on a table while an adult points to its curved handle. The handle is visibly attached to the cup at both ends; emphasize this part-to-whole relationship without separating the handle into another object.
@@ -259,7 +539,17 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,of,"[""apo-""]",belonging to,7a1690ac6e28ab3763c772d8c63e50d1c3b59b25aa14ea27f2aecd0cc0189b36,,,,generated,,,,
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,of,"[""apo-""]",belonging to,7a1690ac6e28ab3763c772d8c63e50d1c3b59b25aa14ea27f2aecd0cc0189b36,"Subject: The handle belonging to a particular cup.
+
+Composition: Show a large ceramic teacup on a table while an adult points to its curved handle. The handle is visibly attached to the cup at both ends; emphasize this part-to-whole relationship without separating the handle into another object.
+
+Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
+
+Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.
+
+Shared production requirements: Include only the people, characters and objects specified above. Follow every composition detail and exact quantity, and keep the complete composition inside the square. Omit decorative foliage, bags, binoculars, extra tools, and extra characters unless the CSV prompt specifies them.",The handle of the cup is attached at both ends.,カップの取っ手は、両端でカップにつながっている。,reviewed,d41a2545d503ff88309e6b6b4007bff1e98c77ca50325d1954a90e1c044ddd5c,87e17597e7e6fd879824b512d7b257d904983df6,2026-10-07T22:47:46+09:00,実画像・第一語義・日英解説を照合。白/紺/桃背景512px検品。
 on.png,〜の上に、作動して,〜の上に,"Subject: A cup resting directly on a table.
 
 Composition: Show a red cup and saucer sitting on the flat top of a small wooden table. The saucer makes clear contact with the tabletop, with its modest contact shadow directly beneath; show the entire table and all four legs.
@@ -268,7 +558,17 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,on,"[""an-""]",atop,8c46f1f5173412d8e3898859fd1faf40b272af50ea37c6f246de7585f629ec76,,,,generated,,,,
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,on,"[""an-""]",atop,8c46f1f5173412d8e3898859fd1faf40b272af50ea37c6f246de7585f629ec76,"Subject: A cup resting directly on a table.
+
+Composition: Show a red cup and saucer sitting on the flat top of a small wooden table. The saucer makes clear contact with the tabletop, with its modest contact shadow directly beneath; show the entire table and all four legs.
+
+Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
+
+Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.
+
+Shared production requirements: Include only the people, characters and objects specified above. Follow every composition detail and exact quantity, and keep the complete composition inside the square. Omit decorative foliage, bags, binoculars, extra tools, and extra characters unless the CSV prompt specifies them.",The red cup and saucer rest on the wooden table.,赤いカップと受け皿が木のテーブルの上に置かれている。,reviewed,cdac69388841a638a30c8b5a1e40f7eb59ad2ac98a242933707f401d10c2333f,20aa019f28d869c0735b0d574342faf2d1de4b4d,2026-10-07T22:47:46+09:00,実画像・第一語義・日英解説を照合。白/紺/桃背景512px検品。
 other.png,ほかの,ほかの,"Subject: A child choosing the alternative mitten.
 
 Composition: Show two mittens lying beside a child on a bench, one red and one blue. The child sets down the red mitten and reaches decisively toward the blue one instead, making the other option the focus of the action.
@@ -277,7 +577,17 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,other,"[""al-1""]",different,42f16216662c06cf7894c7207268a1db09f880a420068caa8247e170bb27b102,,,,generated,,,,
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,other,"[""al-1""]",different,42f16216662c06cf7894c7207268a1db09f880a420068caa8247e170bb27b102,"Subject: A child choosing the alternative mitten.
+
+Composition: Show two mittens lying beside a child on a bench, one red and one blue. The child sets down the red mitten and reaches decisively toward the blue one instead, making the other option the focus of the action.
+
+Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
+
+Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.
+
+Shared production requirements: Include only the people, characters and objects specified above. Follow every composition detail and exact quantity, and keep the complete composition inside the square. Omit decorative foliage, bags, binoculars, extra tools, and extra characters unless the CSV prompt specifies them.","The child reaches for the other mitten, the blue one.",子供がもう一方の青いミトンに手を伸ばしている。,reviewed,fdb6757ce0684b628c15335090294b707015b45547551d48372b1408ae9f9e1e,ffe4b5b3342604e2f775b7555270604938840476,2026-10-07T22:52:45+09:00,実画像・第一語義・日英解説を照合。白/紺/桃背景512px検品。
 out.png,外へ,外へ,"Subject: A dog moving from indoors to outdoors.
 
 Composition: Show a dog stepping through an open house doorway onto the outside doorstep. Its front paws are outside while its hind paws remain inside; use the doorframe and a small exterior grass patch to make the outward direction clear.
@@ -286,7 +596,17 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,out,"[""ud-""]",away,b37006b0ac3f69f9f4dc0eafece5deb864c6c9f1b07d08685e94608e7b3c7eaa,,,,generated,,,,
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,out,"[""ud-""]",away,b37006b0ac3f69f9f4dc0eafece5deb864c6c9f1b07d08685e94608e7b3c7eaa,"Subject: A dog moving from indoors to outdoors.
+
+Composition: Show a dog stepping through an open house doorway onto the outside doorstep. Its front paws are outside while its hind paws remain inside; use the doorframe and a small exterior grass patch to make the outward direction clear.
+
+Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
+
+Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.
+
+Correct the attached generated draft only to fulfill the CSV description above: Clean the perimeter of the small exterior grass patch: give its full outside edge one smooth thick dark-brown outline matching the rest of the illustration, with no stray green or yellow pixels, glow, or fringe beyond it. Preserve the dog stepping out through the door with its front paws outside and hind paws inside, and keep genuine transparent surroundings.",The dog steps out through the open doorway.,犬が開いた戸口を通って外へ出ている。,reviewed,39c00b938f109b9db5b9a2ea216ed4a6ed0dcf6dd7d86155e6677ac2ee9502dc,7cd09a7c9d463480fd97d7fd7dade7ba9db04bc2,2026-10-07T22:52:45+09:00,実画像・第一語義・日英解説を照合。白/紺/桃背景512px検品。
 she.png,彼女は,彼女は,"Subject: Referring to one nearby woman.
 
 Composition: Show two observers beside a woman painting at an easel. One observer directs their companion’s attention toward the painter with an open hand; both look at her while she continues painting, keeping the female referent distinct from the observers.
@@ -295,7 +615,17 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech bubbles, thought bubbles, numerals, logos or watermark.",作成済み,,references/invidious.png,she,"[""so-""]",female person,b343bc719a6613827d7a67887dbe279ffa1feaae9648acf007e6a8386821235c,,,,generated,,,,
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech bubbles, thought bubbles, numerals, logos or watermark.",作成済み,,references/invidious.png,she,"[""so-""]",female person,b343bc719a6613827d7a67887dbe279ffa1feaae9648acf007e6a8386821235c,"Subject: Referring to one nearby woman.
+
+Composition: Show two observers beside a woman painting at an easel. One observer directs their companion’s attention toward the painter with an open hand; both look at her while she continues painting, keeping the female referent distinct from the observers.
+
+Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
+
+Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech bubbles, thought bubbles, numerals, logos or watermark.
+
+Shared production requirements: Include only the people, characters and objects specified above. Follow every composition detail and exact quantity, and keep the complete composition inside the square. Omit decorative foliage, bags, binoculars, extra tools, and extra characters unless the CSV prompt specifies them.",She paints at an easel while two others watch.,彼女はイーゼルで絵を描き、ほかの二人が見ている。,reviewed,f2b765e3998d48e151010ea28ea344a36953127f0768638fbd6787ddeeb17e8b,1732e0623f063bde8a0fdc8f42ca6321f33d179f,2026-10-07T22:52:45+09:00,実画像・第一語義・日英解説を照合。白/紺/桃背景512px検品。
 than.png,〜よりも,〜よりも,"Subject: One person visibly taller than another.
 
 Composition: Show two children standing side by side with their feet on the same level floor, one clearly taller. An adult holds one hand horizontally just above the shorter child’s head, making the taller child’s additional height immediately visible within the single scene.
@@ -304,7 +634,17 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech bubbles, thought bubbles, numerals, logos or watermark.",作成済み,,references/invidious.png,than,"[""to-""]",compared to,84fd950d055e22292d7c75be27d882c1a855a294fd2b41f987caa459735fe3e0,,,,prompt_ready,,,,
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech bubbles, thought bubbles, numerals, logos or watermark.",作成済み,,references/invidious.png,than,"[""to-""]",compared to,84fd950d055e22292d7c75be27d882c1a855a294fd2b41f987caa459735fe3e0,"Subject: One person visibly taller than another.
+
+Composition: Show two children standing side by side with their feet on the same level floor, one clearly taller. An adult holds one hand horizontally just above the shorter child’s head, making the taller child’s additional height immediately visible within the single scene.
+
+Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
+
+Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech bubbles, thought bubbles, numerals, logos or watermark.
+
+Shared production requirements: Include only the people, characters and objects specified above. Follow every composition detail and exact quantity, and keep the complete composition inside the square. Omit decorative foliage, bags, binoculars, extra tools, and extra characters unless the CSV prompt specifies them.",The boy is taller than the girl beside him.,男の子は、隣の女の子よりも背が高い。,reviewed,fb272c1d87a434ba42c46aaae5d4c4268b4b193c4d3f198f86cf72cf2edba078,a3d6d1c5dfe16cd281e741ddc7bf4f7977c20c63,2026-10-07T22:51:13+09:00,実画像・第一語義・日英解説を照合。白/紺/桃背景512px検品。
 that.png,それ、ということ,それ,"Subject: A person identifying a more distant object.
 
 Composition: Show an adult standing beside a table and extending one arm toward a red umbrella across the room. A closed blue umbrella rests nearby untouched; direct the adult’s gaze and pointing finger only toward the farther red umbrella.
@@ -313,7 +653,17 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,that,"[""to-""]",that thing,b4a756000a2d98424ea03c9395fc6ec9ebd5c2ab4dd0c5fc3ae3ada1ffedb63c,,,,prompt_ready,,,,
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,that,"[""to-""]",that thing,b4a756000a2d98424ea03c9395fc6ec9ebd5c2ab4dd0c5fc3ae3ada1ffedb63c,"Subject: A person identifying a more distant object.
+
+Composition: Show an adult standing beside a table and extending one arm toward a red umbrella across the room. A closed blue umbrella rests nearby untouched; direct the adult’s gaze and pointing finger only toward the farther red umbrella.
+
+Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
+
+Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.
+
+Shared production requirements: Include only the people, characters and objects specified above. Follow every composition detail and exact quantity, and keep the complete composition inside the square. Omit decorative foliage, bags, binoculars, extra tools, and extra characters unless the CSV prompt specifies them.",The man points to that red umbrella farther away.,男性が離れた場所にある、あの赤い傘を指している。,reviewed,b612dd67b993cd66491342d970a0bb6655209432713bee93b249696171f4eb95,34268e62a02d599aabf0baa27a279a17e82feeb8,2026-10-07T22:53:00+09:00,実画像・第一語義・日英解説を照合。白/紺/桃背景512px検品。
 their.png,彼らの,彼らの,"Subject: A shared possession belonging to other people.
 
 Composition: Show two campers comfortably seated at the entrance of their green tent with their two packs beside them. A third person in the foreground points toward the pair and their tent while facing a companion, clearly distinguishing those owners from the observers.
@@ -322,7 +672,17 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech bubbles, thought bubbles, numerals, logos or watermark.",作成済み,,references/invidious.png,their,"[""to-""]",those people's,b42f5ce6e311a2cb662ee049c6fa46743d1c1d6745abd59629b7ad53847d82cc,,,,prompt_ready,,,,
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech bubbles, thought bubbles, numerals, logos or watermark.",作成済み,,references/invidious.png,their,"[""to-""]",those people's,b42f5ce6e311a2cb662ee049c6fa46743d1c1d6745abd59629b7ad53847d82cc,"Subject: A shared possession belonging to other people.
+
+Composition: Show two campers comfortably seated at the entrance of their green tent with their two packs beside them. A third person in the foreground points toward the pair and their tent while facing a companion, clearly distinguishing those owners from the observers.
+
+Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
+
+Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech bubbles, thought bubbles, numerals, logos or watermark.
+
+Correct the attached generated draft only to fulfill the CSV description above: Remove both backpacks and all backpack straps from the two foreground observers, since only the two seated campers' packs are specified. Show the two foreground observers as complete standing figures with their legs and feet visible and fully inside the square, avoiding straight cropped torso edges. The pointing observer faces the companion while extending the pointing arm toward the two seated campers and their green tent. Preserve exactly four people, the green tent, and the two packs beside the seated campers. Keep the style and transparent background.",The two campers sit at the entrance of their green tent.,キャンプ中の二人が、自分たちの緑のテントの入口に座っている。,reviewed,63331d97dfc8639a16b5266b2f13476b7df3528dd1a240fe0eebf503cfb7fb78,9e0872e30dfc6ffd6d1a7941020cfd660f8949e2,2026-10-07T22:57:14+09:00,実画像・第一語義・日英解説を照合。白/紺/桃背景512px検品。
 them.png,彼らを,彼らを,"Subject: Several other people receiving an action.
 
 Composition: Show a guide directing a photographer’s open-handed attention toward two hikers standing together. The photographer aims a camera at the hikers, while the guide remains beside the photographer and outside the pictured group, making the two hikers the recipients of the action.
@@ -331,7 +691,17 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech bubbles, thought bubbles, numerals, logos or watermark.",作成済み,,references/invidious.png,them,"[""to-""]",those people,7db35d68813f1b391d30be860b9218f0e0df3b84de79cf0d205b0bb8c7026710,,,,prompt_ready,,,,
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech bubbles, thought bubbles, numerals, logos or watermark.",作成済み,,references/invidious.png,them,"[""to-""]",those people,7db35d68813f1b391d30be860b9218f0e0df3b84de79cf0d205b0bb8c7026710,"Subject: Several other people receiving an action.
+
+Composition: Show a guide directing a photographer’s open-handed attention toward two hikers standing together. The photographer aims a camera at the hikers, while the guide remains beside the photographer and outside the pictured group, making the two hikers the recipients of the action.
+
+Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
+
+Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech bubbles, thought bubbles, numerals, logos or watermark.
+
+Correct the attached generated draft only to fulfill the CSV description above: Remove both hikers' backpacks and all of their shoulder straps, leaving their arms in natural relaxed poses at their sides. The CSV specifies hikers but does not specify packs. Preserve exactly the two hikers standing together, the photographer aiming the camera at them, and the guide beside the photographer gesturing toward the hikers. Keep all four complete figures inside the square, and preserve the transparent background and drawing style.",Two hikers stand together as a photographer aims his camera at them.,二人のハイカーが並んで立ち、写真を撮る人が彼らにカメラを向けている。,reviewed,671b7b1b526eae14671a57d0d488d4d620f326d61a68e404af60aeaba1e47dfb,d0ea1a54e8cc59d55fc5a0fbe4a2d5d0a124b865,2026-10-07T23:00:07+09:00,実画像・第一語義・日英解説を照合。白/紺/桃背景512px検品。
 there.png,そこに,そこに,"Subject: A person indicating a location away from themselves.
 
 Composition: Show a traveler pointing to an empty chair beside a window, several steps away. Their companion follows the pointing gesture with their gaze; keep the indicated chair prominent and distinct from the travelers’ standing position.
@@ -340,7 +710,17 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,there,"[""to-""]",in that place,0fb17e29cb5719ac6e7a422a1dd6b6a6fd637c5f39ce8ea12e3a18d710d4dbc0,,,,prompt_ready,,,,
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,there,"[""to-""]",in that place,0fb17e29cb5719ac6e7a422a1dd6b6a6fd637c5f39ce8ea12e3a18d710d4dbc0,"Subject: A person indicating a location away from themselves.
+
+Composition: Show a traveler pointing to an empty chair beside a window, several steps away. Their companion follows the pointing gesture with their gaze; keep the indicated chair prominent and distinct from the travelers’ standing position.
+
+Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
+
+Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.
+
+Correct the attached generated draft only to fulfill the CSV description above: Remove both travelers' backpacks and all shoulder straps completely, and remove the two yellow decorative rays beside the pointing hand. The composition should contain exactly the two travelers, the empty chair and the window. Keep their complete figures and the chair inside the square, their pointing and shared attention directed toward the chair beside the window. Preserve the style and genuine transparent surroundings.","The traveler points there, to the empty chair beside the window.",旅人が、窓のそばにある空いた椅子の場所を指している。,reviewed,4eb525f7b0c641f002e3c7036d372f16f276040e44c982a87dc7fd118b3494e6,ac2acdb61464101751de355f594b9aedb5b40d90,2026-10-07T23:02:47+09:00,実画像・第一語義・日英解説を照合。白/紺/桃背景512px検品。
 they.png,彼らは,彼らは,"Subject: Referring to a group of other people.
 
 Composition: Show two children planting a sapling together, one steadying its trunk and the other pressing soil around it. A nearby adult draws a companion’s attention toward both children with one broad open-hand gesture, keeping the referring adults separate from the working pair.
@@ -349,7 +729,17 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech bubbles, thought bubbles, numerals, logos or watermark.",作成済み,,references/invidious.png,they,"[""to-""]",those people,0f28619911f455fee43488d8cb81c634e54b4c074c616aeb62c87715f44eaee2,,,,prompt_ready,,,,
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech bubbles, thought bubbles, numerals, logos or watermark.",作成済み,,references/invidious.png,they,"[""to-""]",those people,0f28619911f455fee43488d8cb81c634e54b4c074c616aeb62c87715f44eaee2,"Subject: Referring to a group of other people.
+
+Composition: Show two children planting a sapling together, one steadying its trunk and the other pressing soil around it. A nearby adult draws a companion’s attention toward both children with one broad open-hand gesture, keeping the referring adults separate from the working pair.
+
+Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
+
+Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech bubbles, thought bubbles, numerals, logos or watermark.
+
+Shared production requirements: Include only the people, characters and objects specified above. Follow every composition detail and exact quantity, and keep the complete composition inside the square. Omit decorative foliage, bags, binoculars, extra tools, and extra characters unless the CSV prompt specifies them.",They plant a sapling together while two adults watch.,二人の大人が見守る中、子供たちが一緒に苗木を植えている。,reviewed,71ea2451446ec52f6e73e4cdca236e2b26cc7e6b0ee417ab0fa2a1e657fb4f88,841440291f3b2371e3c76ac4a1b98bfcdfe3f4e5,2026-10-07T23:04:12+09:00,実画像・第一語義・日英解説を照合。白/紺/桃背景512px検品。
 this.png,これ,これ,"Subject: An object being indicated close to the speaker.
 
 Composition: Show an adult holding one ripe orange in an open palm directly before their chest and pointing at it with the other hand. A friend leans closer to look; make the held orange the clear nearby object of attention.
@@ -358,7 +748,17 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,this,"[""to-""]",nearby one,ca0da78aedb9ad02ae16435cf083309f7d6cc8951e1ada6f87f4efcc5c801f2e,,,,prompt_ready,,,,
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,this,"[""to-""]",nearby one,ca0da78aedb9ad02ae16435cf083309f7d6cc8951e1ada6f87f4efcc5c801f2e,"Subject: An object being indicated close to the speaker.
+
+Composition: Show an adult holding one ripe orange in an open palm directly before their chest and pointing at it with the other hand. A friend leans closer to look; make the held orange the clear nearby object of attention.
+
+Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
+
+Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.
+
+Shared production requirements: Include only the people, characters and objects specified above. Follow every composition detail and exact quantity, and keep the complete composition inside the square. Omit decorative foliage, bags, binoculars, extra tools, and extra characters unless the CSV prompt specifies them.",The man points to this orange resting in his open palm.,男性が、開いた手のひらに載せたこのオレンジを指している。,reviewed,b1f3361ff4152dd8713b7a76a73f0b3b0f9be3b1847959de8d494cbd55cf6371,7bbccd57df2bd769d2f45361136a553764230e10,2026-10-07T23:05:21+09:00,実画像・第一語義・日英解説を照合。白/紺/桃背景512px検品。
 time.png,時間、回,時間,"Subject: The passage of time measured by an hourglass.
 
 Composition: Show a large hourglass standing upright on a small solid base. Sand falls through its narrow neck into a growing mound below, while a substantial amount remains above; keep both bulbs and the complete supporting frame visible.
@@ -367,7 +767,17 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,time,"[""dā-""]",moment,6029f17b82cbbb42424d79b90bfcff0d63dd62c20c223bd09e688941ec4b71ed,,,,prompt_ready,,,,
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,time,"[""dā-""]",moment,6029f17b82cbbb42424d79b90bfcff0d63dd62c20c223bd09e688941ec4b71ed,"Subject: The passage of time measured by an hourglass.
+
+Composition: Show a large hourglass standing upright on a small solid base. Sand falls through its narrow neck into a growing mound below, while a substantial amount remains above; keep both bulbs and the complete supporting frame visible.
+
+Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
+
+Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.
+
+Shared production requirements: Include only the people, characters and objects specified above. Follow every composition detail and exact quantity, and keep the complete composition inside the square. Omit decorative foliage, bags, binoculars, extra tools, and extra characters unless the CSV prompt specifies them.","Sand falls through the hourglass, marking the passage of time.",砂時計の砂が落ち、時間の経過を示している。,reviewed,e4cd2ed89524bb6ad7c519bbaf7814a24c7fb090936ec2726aea0cc2bb6eba2c,3e660d8a052d3d596196b5ae567aa76af1524b28,2026-10-07T23:06:43+09:00,実画像・第一語義・日英解説を照合。白/紺/桃背景512px検品。
 to.png,へ、するために,へ,"Subject: A traveler moving toward a destination.
 
 Composition: Show a hiker walking along a short curving path directly toward an open cabin door. Their leading foot, turned body, and gaze all point toward the cabin; keep both the hiker and destination within one compact landscape fragment.
@@ -376,7 +786,17 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,to,"[""de-""]",toward,b50dc3eb38d1fb559e0e31aae2fb4418db108596dd5b83a125b6c1612a5937f1,,,,prompt_ready,,,,
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,to,"[""de-""]",toward,b50dc3eb38d1fb559e0e31aae2fb4418db108596dd5b83a125b6c1612a5937f1,"Subject: A traveler moving toward a destination.
+
+Composition: Show a hiker walking along a short curving path directly toward an open cabin door. Their leading foot, turned body, and gaze all point toward the cabin; keep both the hiker and destination within one compact landscape fragment.
+
+Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
+
+Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.
+
+Correct the attached generated draft only to fulfill the CSV description above: Remove the hiker's backpack and all shoulder straps entirely, leaving simple clothing and a naturally swinging empty arm. Remove the separate dark-green decorative grass tufts, while preserving the plain ground fragment, curved path, open cabin and the hiker walking directly toward its door. Keep the complete figure and cabin inside the square, with genuine transparent surroundings and the same drawing style.",The hiker follows the winding path to the open cabin door.,ハイカーが曲がった道を通り、小屋の開いた扉へ向かっている。,reviewed,696c2ce2b7a5da106a3a34e6e7464d22d60999808ba8dc777c634459d8f15ed9,58c635d8f92bb76807b59f402bde6c7555cbffbf,2026-10-07T23:09:04+09:00,実画像・第一語義・日英解説を照合。白/紺/桃背景512px検品。
 up.png,上へ、起きて,上へ,"Subject: A balloon rising upward.
 
 Composition: Show a child releasing a helium balloon just above their raised hand. The loose string hangs downward beneath the balloon as the child tilts their face upward; keep the child’s feet, entire string, and balloon inside the frame.
@@ -385,7 +805,17 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,up,"[""upo""]",aloft,457254b6939483647e86ae26135cb903fadbbf26e2024e2af61989982ac95d72,,,,prompt_ready,,,,
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,up,"[""upo""]",aloft,457254b6939483647e86ae26135cb903fadbbf26e2024e2af61989982ac95d72,"Subject: A balloon rising upward.
+
+Composition: Show a child releasing a helium balloon just above their raised hand. The loose string hangs downward beneath the balloon as the child tilts their face upward; keep the child’s feet, entire string, and balloon inside the frame.
+
+Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
+
+Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.
+
+Shared production requirements: Include only the people, characters and objects specified above. Follow every composition detail and exact quantity, and keep the complete composition inside the square. Omit decorative foliage, bags, binoculars, extra tools, and extra characters unless the CSV prompt specifies them.",The red balloon floats up above the child's raised hand.,赤い風船が、子供の上げた手の上へ浮かび上がっている。,reviewed,efc12e4a6995283ef810282f758e2385c779ab68a5fc5813acd90f665a5e41f6,5f4ce9cadcc0e0b9089bb5d1e64092de98515449,2026-10-07T23:10:10+09:00,実画像・第一語義・日英解説を照合。白/紺/桃背景512px検品。
 we.png,私たちは,私たちは,"Subject: A person including themselves and a companion.
 
 Composition: Show two friends standing shoulder to shoulder with walking boots and daypacks. One places an arm around the companion and curves their free hand toward both of their chests, visibly including themselves in the indicated pair.
@@ -394,7 +824,17 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech bubbles, thought bubbles, numerals, logos or watermark.",作成済み,,references/invidious.png,we,"[""we-""]",ourselves,bae77cdc40a92d46a35d5744427f5395fc462f97ffb704cd12cb0a9b596a234e,,,,prompt_ready,,,,
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech bubbles, thought bubbles, numerals, logos or watermark.",作成済み,,references/invidious.png,we,"[""we-""]",ourselves,bae77cdc40a92d46a35d5744427f5395fc462f97ffb704cd12cb0a9b596a234e,"Subject: A person including themselves and a companion.
+
+Composition: Show two friends standing shoulder to shoulder with walking boots and daypacks. One places an arm around the companion and curves their free hand toward both of their chests, visibly including themselves in the indicated pair.
+
+Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
+
+Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech bubbles, thought bubbles, numerals, logos or watermark.
+
+Shared production requirements: Include only the people, characters and objects specified above. Follow every composition detail and exact quantity, and keep the complete composition inside the square. Omit decorative foliage, bags, binoculars, extra tools, and extra characters unless the CSV prompt specifies them.","We stand together in walking boots, wearing our backpacks.",私たちはブーツを履き、リュックを背負って並んで立っている。,reviewed,5436b05b2711bcad9596deabf63f2726ce651541245ddc12a319425cf23bbb75,a2f5f3a79960710002406d8dba5498186dfcd414,2026-10-07T23:12:04+09:00,実画像・第一語義・日英解説を照合。白/紺/桃背景512px検品。
 what.png,何,何,"Subject: Asking about an unfamiliar object.
 
 Composition: Show a curious child holding a pinecone out toward an adult. The child looks from the pinecone to the adult with raised eyebrows and an open questioning palm, leaving the unfamiliar object clearly visible and the answer unstated.
@@ -403,7 +843,17 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech bubbles, thought bubbles, numerals, logos or watermark.",作成済み,,references/invidious.png,what,"[""kʷo-""]",which thing,6eab4a2fa256b8cf99c605d00c47f07b2c4f5ec8f88ec17e496171eacdb3a2d3,,,,prompt_ready,,,,
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech bubbles, thought bubbles, numerals, logos or watermark.",作成済み,,references/invidious.png,what,"[""kʷo-""]",which thing,6eab4a2fa256b8cf99c605d00c47f07b2c4f5ec8f88ec17e496171eacdb3a2d3,"Subject: Asking about an unfamiliar object.
+
+Composition: Show a curious child holding a pinecone out toward an adult. The child looks from the pinecone to the adult with raised eyebrows and an open questioning palm, leaving the unfamiliar object clearly visible and the answer unstated.
+
+Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
+
+Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech bubbles, thought bubbles, numerals, logos or watermark.
+
+Shared production requirements: Include only the people, characters and objects specified above. Follow every composition detail and exact quantity, and keep the complete composition inside the square. Omit decorative foliage, bags, binoculars, extra tools, and extra characters unless the CSV prompt specifies them.","The child asks what the pinecone is, showing it to the adult.",子供が松ぼっくりを大人に見せ、これは何かと尋ねている。,reviewed,ba35ea37a4c76302e880de90baafacc2709122d8b5a2c91c093b52dcc7810f38,145f0104b19119bc3b9e8ef89861baa8b65bff9a,2026-10-07T23:13:51+09:00,実画像・第一語義・日英解説を照合。白/紺/桃背景512px検品。
 when.png,いつ,いつ,"Subject: Asking about the time of a departure.
 
 Composition: Show a traveler with a packed suitcase facing a station attendant. The traveler points to their bare wrist, then directs their gaze toward the station clock and waiting train, with a questioning expression; the attendant listens without yet indicating a time.
@@ -412,7 +862,17 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech bubbles, thought bubbles, numerals, logos or watermark.",作成済み,,references/invidious.png,when,"[""kʷo-""]",while,5af9a4dbcb6a0e758707ccab148be52c4ebe8bc758d6c6f8b4ee9926d24773b1,,,,prompt_ready,,,,
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech bubbles, thought bubbles, numerals, logos or watermark.",作成済み,,references/invidious.png,when,"[""kʷo-""]",while,5af9a4dbcb6a0e758707ccab148be52c4ebe8bc758d6c6f8b4ee9926d24773b1,"Subject: Asking about the time of a departure.
+
+Composition: Show a traveler with a packed suitcase facing a station attendant. The traveler points to their bare wrist, then directs their gaze toward the station clock and waiting train, with a questioning expression; the attendant listens without yet indicating a time.
+
+Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
+
+Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech bubbles, thought bubbles, numerals, logos or watermark.
+
+Shared production requirements: Include only the people, characters and objects specified above. Follow every composition detail and exact quantity, and keep the complete composition inside the square. Omit decorative foliage, bags, binoculars, extra tools, and extra characters unless the CSV prompt specifies them.","The traveler points to his wrist, asking when the train leaves.",旅人が手首を指し、列車はいつ出発するか尋ねている。,reviewed,c7abf797d88791c8e27e5ae7aced3ed007d1cfd9bfe5657661debc4ad9871218,9c692164afe233533bd840e974f966779f963bba,2026-10-07T23:34:19+09:00,実画像・第一語義・日英解説を照合。白/紺/桃背景512px検品。
 which.png,どちら,どちら,"Subject: Choosing between exactly two alternatives.
 
 Composition: Show a shop assistant offering two hats, one red and one blue, at equal height. A customer looks between them with an uncertain expression and an open hand; retain exactly two candidate hats and no additional choices.

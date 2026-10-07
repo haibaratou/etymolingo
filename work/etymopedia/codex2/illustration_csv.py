@@ -24,6 +24,8 @@ CSV_DIR = ROOT / "codex2"
 TODO = Path(r"D:\etymon-source\tools\word-art-todo.csv")
 SCENE_FUNCTIONS = Path(r"D:\etymon-source\tools\illustration_scenes.py")
 BASELINE = ROOT / "_illust" / ".codex2-csv-baseline.json"
+PENDING_REVIEW = ROOT / "prompt_review_pending.csv"
+PENDING_COLUMNS = ("ファイル名", "単語", "問題", "発見バッチ", "状態")
 BATCHES = ("028", "029", "030")
 LEGACY_COLUMNS = (
     "ファイル名", "語義", "対象語義", "画像生成プロンプト",
@@ -416,6 +418,69 @@ def update_row(batch, index, values):
             raise RuntimeError("Canonical work list changed during row update")
         sha = _safe_csv_replace(path, old_data, fields, rows)
         return {"batch": batch, "index": index, "filename": row["ファイル名"], "state": row["制作状態"], "sense_changed": changed, "csv_sha256": sha}
+
+
+def record_pending_review(batch, index, issue, state="保留"):
+    """Upsert this assigned row in the shared pending-review ledger.
+
+    The exact start binding supplies the filename and headword even when a
+    current work-list binding has become invalid. Other batches and all unknown
+    columns are preserved. An identical registration does not rewrite the CSV.
+    """
+    batch = _batch(batch)
+    if not isinstance(index, int) or isinstance(index, bool) or index < 1:
+        raise ValueError("CSV index must be a positive one-based record number")
+    if not isinstance(issue, str) or not issue.strip() or not isinstance(state, str) or not state.strip():
+        raise ValueError("Pending issue and state must be nonempty strings")
+    with _WRITE_LOCK:
+        bindings = _baseline()["batches"][batch]["bindings"]
+        if index > len(bindings):
+            raise IndexError(index)
+        binding = bindings[index - 1]
+        discovery = f"prompt_rows_{batch}"
+        key = (binding["filename"], binding["word"], discovery)
+        for attempt in range(3):
+            original_data = PENDING_REVIEW.read_bytes()
+            fields, original_rows = _decode_csv(original_data)
+            if [field for field in fields if field in PENDING_COLUMNS] != list(PENDING_COLUMNS):
+                raise ValueError("Shared pending-review columns or their order changed")
+            matches = [position for position, row in enumerate(original_rows)
+                       if (row["ファイル名"], row["単語"], row["発見バッチ"]) == key]
+            if len(matches) > 1:
+                raise ValueError(f"Duplicate exact pending-review identity: {key}")
+            rows = [row.copy() for row in original_rows]
+            if matches:
+                position = matches[0]
+                if rows[position]["問題"] == issue and rows[position]["状態"] == state:
+                    return {"batch": batch, "index": index, "filename": key[0],
+                            "word": key[1], "state": state, "changed": False, "added": False}
+                rows[position]["問題"] = issue
+                rows[position]["状態"] = state
+                added = False
+            else:
+                position = len(rows)
+                new_row = {field: "" for field in fields}
+                new_row.update({"ファイル名": key[0], "単語": key[1], "問題": issue,
+                                "発見バッチ": discovery, "状態": state})
+                rows.append(new_row)
+                added = True
+            for row_number, before in enumerate(original_rows):
+                after = rows[row_number]
+                if row_number != position:
+                    if before != after:
+                        raise ValueError("Another pending-review row changed")
+                elif any(before[field] != after[field] for field in fields
+                         if field not in {"問題", "状態"}):
+                    raise ValueError("An unrelated pending-review cell changed")
+            try:
+                sha = _safe_csv_replace(PENDING_REVIEW, original_data, fields, rows)
+            except RuntimeError as error:
+                if "Concurrent CSV change detected" in str(error) and attempt < 2:
+                    continue
+                raise
+            return {"batch": batch, "index": index, "filename": key[0], "word": key[1],
+                    "state": state, "changed": True, "added": added, "csv_sha256": sha}
+        raise RuntimeError("Shared pending-review CSV kept changing")
 
 
 def verify_row_identity(batch, index):

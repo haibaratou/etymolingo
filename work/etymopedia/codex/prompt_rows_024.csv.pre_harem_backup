@@ -7,7 +7,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,splint,,brace,,,A splint keeps the injured forearm supported against a straight board.,副木が、負傷した前腕をまっすぐな板に沿わせて固定している。,generated,5f85d3536757eeb2690d93f89c1430ff82ebc481a80de725d02a92ad6251d7a3,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,splint,,brace,,,,,generated,,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
 stalker.png,ストーカー、こっそり追跡する人,ストーカー,"Subject: An adult covertly following another adult along a public sidewalk.
 
 Composition: Show an adult walking uneasily along a sidewalk and glancing back, while another adult lingers partly behind a lamppost several paces behind. The follower watches persistently and hides a raised phone when noticed; keep the scene grounded in unwanted surveillance without romantic framing or visible personal information.
@@ -16,7 +16,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,stalker,,a person who stalks : a person who pursues someone obsessively and aggressively to the point of harassment,,,"A stalker follows a woman along the street while she walks away, uneasy.",つきまといの男が、警戒する女性の後を通りで追っている。,generated,7797a19768d31fb7d6a14a0d6caa24699cdde27dc280c535f8915dc16b9d6378,,,既存画像は未検品。生成IDと実行プロンプト不明。英日解説は実画像確認後に追加する。
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,stalker,,a person who stalks : a person who pursues someone obsessively and aggressively to the point of harassment,,,,,generated,,,,既存画像は未検品。生成IDと実行プロンプト不明。英日解説は実画像確認後に追加する。
 sympathize.png,同情する,同情する,"Subject: An adult comforting a friend after a disappointing event.
 
 Composition: Show an adult seated beside a tearful friend on a bench, leaning closer with a concerned expression and offering a clean tissue. The friend holds a broken keepsake in their lap; the comforting person's free hand rests gently on the friend's shoulder, conveying shared concern rather than advice or celebration.
@@ -25,7 +25,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,sympathize,,commiserate,,,A friend tries to sympathize as a woman cries beside him on a bench.,ベンチで泣く女性に、隣の友人が寄り添っている。,generated,63572d6dedb6d052ddc5aae7647dc5ddc176f742831cebfede8a4e0c2375ede1,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,sympathize,,commiserate,,,,,generated,,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
 taker.png,取る人、受ける人,取る人,"Subject: An adult accepting an offered bowl of soup.
 
 Composition: Show a volunteer extending a warm bowl across a serving counter while another adult reaches with both hands to receive it. The recipient's hands support the bowl from underneath as the giver begins to let go; emphasize the accepting role with a clear, balanced handoff and no coins.
@@ -34,7 +34,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,taker,,,,,The taker receives a warm bowl of soup from a volunteer at the counter.,受け取り手が、配膳台でボランティアから温かいスープの器を受け取っている。,generated,ca8a5475c90345a91242e790df737ef10986cc610e631ab5069913db9d528b7c,,,既存画像は未検品。生成IDと実行プロンプト不明。英日解説は実画像確認後に追加する。
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,taker,,,,,,,generated,,,,既存画像は未検品。生成IDと実行プロンプト不明。英日解説は実画像確認後に追加する。
 tenacious.png,粘り強い,粘り強い,"Subject: An adult patiently persisting with a difficult loose shoelace knot.
 
 Composition: Show an adult seated on a low stool, continuing to work a stubborn tangled knot in a hiking boot lace with careful fingertips. Their brow is set with steady determination, and a few already loosened loops show progress; the person remains focused rather than throwing the boot aside.
@@ -43,7 +43,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,tenacious,,persistent,,,The tenacious hiker persists in tightening a stubborn bootlace.,粘り強いハイカーが、固く結んだ靴ひもを締め直している。,generated,03b8483527aff42d8196365f03ba3d44023e7e33239c7efc7b6fdf8bf49f4fce,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,tenacious,,persistent,,,,,generated,,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
 traceable.png,跡をたどることができる,跡をたどることができる,"Subject: Clear muddy footprints leading from a doorway to their source.
 
 Composition: Show an adult investigator following an unbroken trail of fresh muddy boot prints across a clean floor toward an adult standing by the door in matching muddy boots. The repeated tread pattern and continuous spacing make the origin easy to follow, without arrows, numbers, or written evidence tags.
@@ -52,7 +52,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,traceable,,capable of being traced,,,The traceable footprints lead from the doorway across the dirt.,たどれる足跡が、戸口から土の上へ続いている。,generated,84b745b4ff477901d6e95a986c2d0e75d5d66d2c5161a9fd2f21080c616d513b,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,traceable,,capable of being traced,,,,,generated,,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
 unrestrained.png,抑制のない,抑制のない,"Subject: An adult cheering with exuberance during a friendly game.
 
 Composition: Show an adult spectator leaping from a seat with both arms flung upward and mouth open in uninhibited delight. Their scarf swings freely and an empty cushion slips from the chair, while a calmer companion smiles nearby; keep the joy spontaneous and physically balanced without aggression or speech lettering.
@@ -61,7 +61,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,unrestrained,,"not restrained : immoderate, uncontrolled",,,Unrestrained cheering fills the room as a fan leaps before the television.,テレビの前でファンが跳び上がり、思い切り歓声を上げている。,generated,7032dbd54c01697971b2ad48ac1e1441085045f04260cb07b561ea0cc2df75ef,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,unrestrained,,"not restrained : immoderate, uncontrolled",,,,,generated,,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
 xylem.png,木部,木部,"Subject: Dyed water visibly traveling through the conducting vessels of a celery stalk.
 
 Composition: Show a cut celery stalk standing in a glass of red-tinted water, with its top cut surface revealing small red dots in the vascular bundles. A peeled strip exposes matching red-stained channels running lengthwise through the stalk; keep the plant tissue continuous and avoid labeling the entire stem as wood.
@@ -70,7 +70,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,xylem,,"a complex tissue in the vascular system of higher plants that consists of vessels, tracheids, or both usually together with wood fibers and parenchyma cells, functions chiefly in conduction of water and dissolved minerals but also in support and food storage, and typically constitutes the woody element (as of a plant stem)",,,The xylem carries water upward through the cut plant stem.,木部は、切り取った植物の茎の中で水を上へ運ぶ。,generated,46a07b2aa46a73714d6b2d69677f202c70ea27c4f20acf778798607cfd893949,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,xylem,,"a complex tissue in the vascular system of higher plants that consists of vessels, tracheids, or both usually together with wood fibers and parenchyma cells, functions chiefly in conduction of water and dissolved minerals but also in support and food storage, and typically constitutes the woody element (as of a plant stem)",,,,,generated,,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
 Indo-European.png,インド・ヨーロッパ語族,インド・ヨーロッパ語族,"Subject: A linguist comparing related inherited words in an Indo-European language family lesson.
 
 Composition: Show an adult linguist arranging three small word cards reading father, pater, and pitṛ on branches of a physical wooden family-tree teaching stand. The branches join one common trunk while the linguist compares the cognates; keep the scene focused on historical language relationships without geographic flags or the family's name.
@@ -79,7 +79,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. Only father, pater, and pitṛ on physical linguistic study cards, needed to show cognates without printing the language-family name. No incidental labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,Indo-European,,"of, relating to, or constituting the Indo-European languages",,,"An Indo-European family tree links the words “father,” “pater,” and “pitr.”",インド・ヨーロッパ語族の系統樹で、「father」「pater」「pitr」の語が結ばれている。,generated,77c2a894ce332c784e7eaef0596f99aff5ce884109460d1c777630b0322b7216,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
+Output: 512x512 PNG, RGBA, genuine transparent background. Only father, pater, and pitṛ on physical linguistic study cards, needed to show cognates without printing the language-family name. No incidental labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,Indo-European,,"of, relating to, or constituting the Indo-European languages",,,,,generated,,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
 Mitra.png,ミトラ,ミトラ,"Subject: The Vedic deity Mitra receiving an offering beside a sacred fire.
 
 Composition: Show Mitra as a dignified, fully clothed adult deity seated upright beside a small ritual fire, with calm watchful eyes and one open hand extended in blessing. An adult worshipper places a modest food offering nearby; avoid Roman bull-slaying imagery, invented weapons, or claims of one fixed historical costume.
@@ -88,7 +88,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,Mitra,,Hindu god,,,"Mitra, the Hindu god, receives a devotee’s offering beside a sacred fire.",ヒンドゥー教の神ミトラが、聖火のそばで信者の供物を受けている。,generated,76151879d4071a751d16b918d8dc9128353459699b27e30603b95c3691d60c3c,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,Mitra,,Hindu god,,,,,generated,,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
 Sardinia.png,サルジニア島、サルディニア,サルジニア島,"Subject: A raised island model accurately shaped like Sardinia.
 
 Composition: Show a compact relief model of Sardinia viewed from above at a slight angle, with its elongated north-south outline, rugged interior, and irregular rocky coves. A slim rim of turquoise sea surrounds the coastline, while a smaller distant fragment of Corsica appears beyond the northern strait without labels or flags.
@@ -97,7 +97,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,Sardinia,,"island of Italy south of Corsica which, with surrounding smaller islands constitutes a region of Italy; capital Cagliari area about 9300 square miles (24,087 square kilometers)",,,Sardinia is an Italian island shown with a mountainous interior and nearby islets.,サルデーニャ島は、山地の広がるイタリアの島として周囲の小島とともに描かれている。,generated,ae4360da796382a2264a82024a9dc83529fbd4226386cda19d018348012f98f9,,,既存画像は未検品。生成IDと実行プロンプト不明。英日解説は実画像確認後に追加する。
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,Sardinia,,"island of Italy south of Corsica which, with surrounding smaller islands constitutes a region of Italy; capital Cagliari area about 9300 square miles (24,087 square kilometers)",,,,,generated,,,,既存画像は未検品。生成IDと実行プロンプト不明。英日解説は実画像確認後に追加する。
 Tyrone.png,タイローン、ティローン,タイローン,"Subject: A rural landscape in County Tyrone with the Sperrin hills behind.
 
 Composition: Show rolling green fields bounded by hedgerows beneath the rounded Sperrin hills, with a narrow rural road and a modest stone farmhouse in the foreground. A small flock of sheep grazes peacefully on the slopes; portray County Tyrone's inland Northern Irish landscape without coastline, dramatic alpine peaks, or written place names.
@@ -106,7 +106,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,Tyrone,,former county of west central Northern Ireland which had Omagh as its capital,,,"The county of Tyrone shows green hills, fields, homes, and winding lanes.",ティロン県の緑の丘や畑、家々の間を曲がりくねった道が通っている。,generated,bfecef0a52e0b35f65581ff07225f01617db34df21cc29c9851a71951bda7d4f,,,既存画像は未検品。生成IDと実行プロンプト不明。英日解説は実画像確認後に追加する。
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,Tyrone,,former county of west central Northern Ireland which had Omagh as its capital,,,,,generated,,,,既存画像は未検品。生成IDと実行プロンプト不明。英日解説は実画像確認後に追加する。
 accursed.png,忌まわしい、憎むべき,忌まわしい,"Subject: An adult recoiling from a treasured object associated with a terrible event.
 
 Composition: Show an adult opening an old wooden chest and recoiling from a battered dagger lying inside. Their face tightens with dread and revulsion while one hand pushes the lid away; a dark mourning ribbon around an adjacent keepsake hints at a painful history, with no supernatural smoke or active violence.
@@ -115,7 +115,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,accursed,,being under or as if under a curse,,,An accursed chest leaves a frightened man recoiling from what he found inside.,呪われた箱を開けた男性が、中を見ておびえ、身を引いている。,generated,9f39c6d9181f7cc293def0d4ea3b32e994a7bd1181a3d22778bd420794966de5,,,既存画像は未検品。生成IDと実行プロンプト不明。英日解説は実画像確認後に追加する。
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,accursed,,being under or as if under a curse,,,,,generated,,,,既存画像は未検品。生成IDと実行プロンプト不明。英日解説は実画像確認後に追加する。
 acreage.png,土地、地所,土地,"Subject: A fenced parcel of farmland with a farmhouse and cultivated rows.
 
 Composition: Show an elevated view of one continuous rural property bounded by hedges and a simple fence. A modest farmhouse, vegetable rows, and an open grassy field occupy the same parcel, with a gate at the lane; emphasize the extent of the land without acreage numerals, survey labels, or sale signs.
@@ -124,7 +124,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,acreage,,area in acres : acres,,,"The acreage covers a fenced homestead with gardens, trees, and open fields.",その土地は、柵で囲まれた家や菜園、木々、畑に広がっている。,generated,0b44c6ad75570c07ac8421c0186710a5f407bfd4d36d61dead11a2c30a6dc865,,,既存画像は未検品。生成IDと実行プロンプト不明。英日解説は実画像確認後に追加する。
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,acreage,,area in acres : acres,,,,,generated,,,,既存画像は未検品。生成IDと実行プロンプト不明。英日解説は実画像確認後に追加する。
 adrift.png,漂流している,漂流している,"Subject: A small empty rowboat drifting with neither oars nor a mooring.
 
 Composition: Show an empty wooden rowboat floating sideways on gentle open-water ripples, with both oarlocks vacant and a loose rope trailing from its bow. No anchor reaches the bottom and no dock connects to it; a few floating leaves move alongside, emphasizing passive drifting without an active rower.
@@ -133,7 +133,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,adrift,,without motive power and without anchor or mooring,,,An adrift rowboat floats alone on the water without anyone aboard.,無人の小舟が、海面をひとり漂っている。,generated,d060cbda7b2e81022a05906a1a43450a3988e67244a852d3e11bc9d5c768eba2,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,adrift,,without motive power and without anchor or mooring,,,,,generated,,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
 barium.png,バリウム,バリウム,"Subject: A silvery barium metal specimen protected inside a sealed glass ampoule.
 
 Composition: Show a small freshly cut silvery metal piece enclosed in a clear sealed ampoule under inert gas, resting in a padded laboratory holder. A tiny specimen tag reads Ba and nothing else; highlight the metallic surface while keeping it isolated from water, open air, skin, and unrelated medical contrast equipment.
@@ -142,7 +142,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. Only Ba on the specimen tag, necessary to distinguish an otherwise visually generic silvery metal. No incidental labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,barium,,alkaline earth metal,,,"A barium sample rests in a glass capsule marked with its chemical symbol, Ba.",バリウムの試料が、化学記号Baの表示を付けたガラス容器に収められている。,generated,036551dd84d5759f6651607aec9e5403fe673767f9f57784f17135e685508977,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
+Output: 512x512 PNG, RGBA, genuine transparent background. Only Ba on the specimen tag, necessary to distinguish an otherwise visually generic silvery metal. No incidental labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,barium,,alkaline earth metal,,,,,generated,,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
 birthright.png,生得権、生まれながら持つ権利,生得権,"Subject: A newborn royal heir receiving a ceremonial emblem of hereditary entitlement.
 
 Composition: Show a swaddled newborn safely held by a seated royal parent while an attendant presents a small ceremonial crown on a cushion. The parent wears a larger matching crown, making the inherited claim visible from birth; the infant never wears the heavy object, and no document or title is displayed.
@@ -151,7 +151,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,birthright,,"a right, privilege, or possession to which a person is entitled by birth",,,The royal baby’s birthright is suggested by a crown beside the throne.,王座のそばの王冠が、王族の赤子の生まれながらの地位を示している。,generated,6040db89d2fb290b3778cfa68cc60630f1a54b08c009e8536042b5909a267661,,,既存画像は未検品。生成IDと実行プロンプト不明。英日解説は実画像確認後に追加する。
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,birthright,,"a right, privilege, or possession to which a person is entitled by birth",,,,,generated,,,,既存画像は未検品。生成IDと実行プロンプト不明。英日解説は実画像確認後に追加する。
 butyl.png,ブチル基,ブチル基,"Subject: A physical model of a straight-chain butyl substituent with one attachment point.
 
 Composition: Show four black carbon spheres joined by single rods in a zigzag chain on a model stand. The free terminal carbon carries three white hydrogen spheres; each remaining carbon carries two. At the opposite end, one open connector indicates attachment to another group, without adding a fifth carbon or atom labels.
@@ -160,7 +160,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,butyl,,hydrocarbon group,,,The butyl group links four carbon atoms in this molecular model.,この分子模型では、ブチル基を構成する4個の炭素原子がつながっている。,generated,4eff04d0abda471048402b7f19b4e7c6f45f876c8ae3f0f3afe6d482639b4fb4,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,butyl,,hydrocarbon group,,,,,generated,,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
 bystander.png,傍観者、見物人,傍観者,"Subject: An adult watching a street repair without taking part.
 
 Composition: Show an adult standing a few steps behind a temporary barrier, observing two workers fixing a broken pavement slab. The observer's hands rest idly in their pockets while the workers handle tools and material; their separate position and lack of involvement make the spectator role clear without judgement.
@@ -169,7 +169,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,bystander,,one who is present but not taking part in a situation or event : a chance spectator,,,A bystander watches workers repair the broken pavement.,傍観者が、作業員たちの道路補修を見ている。,generated,0254d5be761b01eb1bc45a0ced4199e5cab4bebeeb0ca24f034070d7e30e4e5b,,,既存画像は未検品。生成IDと実行プロンプト不明。英日解説は実画像確認後に追加する。
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,bystander,,one who is present but not taking part in a situation or event : a chance spectator,,,,,generated,,,,既存画像は未検品。生成IDと実行プロンプト不明。英日解説は実画像確認後に追加する。
 chassis.png,胴体,胴体,"Subject: The bare structural body of a car with its supporting frame exposed.
 
 Composition: Show a car chassis in a workshop with the outer body panels removed, exposing the long central supporting frame, crossmembers, engine mounts, and connected axles. Four wheels remain attached at the corners, while a mechanic inspects the middle structure; keep the focus on the vehicle's structural body rather than a human torso.
@@ -178,7 +178,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,chassis,,the supporting frame of a structure (such as an automobile or television); also : the frame and working parts (as of an automobile or electronic device) exclusive of the body or housing,,,A mechanic inspects the exposed chassis of a car.,整備士が、車体のない自動車のシャシーを点検している。,generated,394de6a2ceebdfd22deab9f4663bf9bbe0657bd7f21e4486b89d0c453932c4aa,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,chassis,,the supporting frame of a structure (such as an automobile or television); also : the frame and working parts (as of an automobile or electronic device) exclusive of the body or housing,,,,,generated,,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
 commemorative.png,記念の,記念の,"Subject: A ceremonial tree planted to honor an important shared occasion.
 
 Composition: Show two adults placing a young tree into a prepared planting hole beside a small unlettered bronze commemorative plaque. A ribbon tied around the supporting stake and a modest gathering of applauding adults establish a formal remembrance ceremony; the tree roots and soil remain the main grounded action.
@@ -187,7 +187,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,commemorative,,honoring,,,A commemorative tree planting brings a family together.,記念の植樹に、家族が集まっている。,generated,135f55ae3eb11f519e6b5d144825f6985016f68e48ebdbe691f34c8b941969fb,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,commemorative,,honoring,,,,,generated,,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
 ea.png,エア,エア,"Subject: The Mesopotamian water god Ea depicted in ancient-style sculpture.
 
 Composition: Show a small sculptural figure of Ea as a bearded adult deity wearing a horned crown and a long layered robe. Stylized streams of water descend from either side of the figure into a low basin, with fish within the streams; portray a coherent devotional sculpture without modern lettering or a human name badge.
@@ -196,7 +196,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,ea,,each,,,"Ea, the Mesopotamian god, stands above flowing water.",メソポタミアの神エアが、流れる水の上に立っている。,generated,533bbf4dbb9a1afb37d289795fb87e4c2a02a528d31db8b02e28234ecc2dd130,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,ea,,each,,,,,generated,,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
 estrangement.png,仲たがい、離別,仲たがい,"Subject: Two formerly close adults sitting apart after a painful quarrel.
 
 Composition: Show two adults at opposite ends of a sofa, bodies turned away and expressions closed and unhappy. A framed photograph of them smiling together rests face-up on a nearby table, providing a natural trace of earlier closeness; the empty space and avoided eye contact make the present estrangement clear.
@@ -205,7 +205,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,estrangement,,,,,Estrangement leaves the couple sitting apart on the sofa.,疎遠になった二人が、ソファの両端に離れて座っている。,generated,03e2c65f0f883dfe85b79ccaf550255117c1ccb3ec1a99cd99e346e03592d3af,,,既存画像は未検品。生成IDと実行プロンプト不明。英日解説は実画像確認後に追加する。
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,estrangement,,,,,,,generated,,,,既存画像は未検品。生成IDと実行プロンプト不明。英日解説は実画像確認後に追加する。
 fluctuate.png,変動する,変動する,"Subject: A recording instrument tracing repeated rises and falls in a measured value.
 
 Composition: Show a working chart recorder on a laboratory bench, its pen touching a slowly advancing paper strip. The already drawn line repeatedly rises and falls across the strip, with unequal peaks and dips; the current pen position continues the same trace, without axes, labels, numbers, or separate comparison charts.
@@ -214,7 +214,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,fluctuate,,vary,,,The reading fluctuates as a red line rises and falls on the chart.,赤い線がグラフ上で上下し、測定値が変動している。,generated,11c5f9928c7ff0ca92929524f16d1c409cbbdcb595adc59b25e3ff839a23661a,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,fluctuate,,vary,,,,,generated,,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
 harass.png,悩ます,悩ます,"Subject: An adult repeatedly pestering a busy worker who wants to be left alone.
 
 Composition: Show an adult trying to concentrate at a desk while another adult leans close, taps the worker's shoulder, and waves an unneeded leaflet in front of their face. The worker raises a stopping palm and looks exhausted; keep the intrusive behavior clear without threats or discriminatory content.
@@ -223,7 +223,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,harass,,pester,,,A coworker harasses a woman who is trying to work at her desk.,仕事中の女性に、同僚がしつこく嫌がらせをしている。,generated,8acd1e323ce60918dccf6fa3f0c3c80da465549952fadd2031a0ce93aa6a4dd7,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,harass,,pester,,,,,generated,,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
 herbicide.png,除草剤,除草剤,"Subject: A gardener carefully applying weed killer to unwanted growth between paving stones.
 
 Composition: Show an adult gardener wearing gloves and closed shoes using a guarded applicator directly over a small weed growing between paving stones. Nearby ornamental plants are protected behind a barrier, and the plain container stays closed; keep the scene focused on targeted unwanted plant control without brand names or chemical recipes.
@@ -232,7 +232,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,herbicide,,weed killer,,,A gardener sprays herbicide to kill weeds among the flowers.,庭師が花壇の雑草を枯らすため、除草剤を散布している。,generated,140f2f7f2001ffbb47b833a1dd13562e6f8d71c81989272d3a4a12df43a688cc,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,herbicide,,weed killer,,,,,generated,,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
 ice-cream.png,アイスクリーム,アイスクリーム,"Subject: A scoop of vanilla ice cream in a wafer cone.
 
 Composition: Show one rounded scoop of creamy vanilla ice cream sitting securely in a crisp waffle cone held by an adult hand. Tiny softened ridges and a small melting drip reveal its cold smooth texture; the cone's diamond pattern remains visible, without wrappers, sprinkles, logos, or flavor lettering.
@@ -241,7 +241,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,ice-cream,,of a color similar to that of vanilla ice cream,,,The ice-cream cone is topped with a pale vanilla-colored scoop.,アイスクリームのコーンに、淡いバニラ色の一玉がのっている。,generated,c2ceb8b7689d717d3014c3cfeb28649a55c9a0da2898e978dcfd9add8b1a2e37,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,ice-cream,,of a color similar to that of vanilla ice cream,,,,,generated,,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
 incite.png,扇動する,扇動する,"Subject: An angry speaker urging a crowd to damage a nearby fence.
 
 Composition: Show an adult speaker on a low crate pointing forcefully toward a wooden fence while a small crowd becomes visibly agitated. One listener begins reaching toward a loose plank as others raise clenched fists; emphasize the speaker's provocation without showing graphic violence, weapons, slogans, or instructions for destruction.
@@ -250,7 +250,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,incite,,provoke,,,A man incites a crowd to pull down a wooden barrier.,男性が群衆を扇動し、木の柵を倒させようとしている。,generated,a7f6a666f0a7cb1f2ebd7a3a784c49a2d0728b650e98e59bc46313b0a65880c7,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,incite,,provoke,,,,,generated,,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
 incurable.png,不治の、治療不能の,不治の,"Subject: Living with an illness that requires continuing treatment.
 
 Composition: Show a fictional adult with type 1 diabetes calmly checking a glucose monitor beside an insulin pen during a supportive clinic appointment. A small unlettered weekly treatment calendar has a care symbol on every day; portray ongoing management rather than despair.
@@ -259,7 +259,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech balloons or bubbles, numerals, logos or watermark.",作成済み,,references/invidious.png,incurable,,not curable; broadly : not likely to be changed or corrected,,,A doctor explains that the boy's incurable condition cannot be treated.,医師が少年に、治療できない病状について説明している。,generated,66eb05a89d30f38bd995213407f7053c7467467749ca993662ccb69b100c5184,,,既存画像は未検品。生成IDと実行プロンプト不明。英日解説は実画像確認後に追加する。
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech balloons or bubbles, numerals, logos or watermark.",作成済み,,references/invidious.png,incurable,,not curable; broadly : not likely to be changed or corrected,,,,,generated,,,,既存画像は未検品。生成IDと実行プロンプト不明。英日解説は実画像確認後に追加する。
 indivisible.png,分けられない、分割できない,分けられない,"Subject: A single game marble that cannot be shared without destroying the playing piece.
 
 Composition: Show two adults at a game table facing one remaining glass marble, with each holding an empty open palm. One adult gently indicates that the marble must remain whole to roll along the game's narrow track; its seamless spherical form makes division incompatible with its use, without knives or arithmetic labels.
@@ -268,7 +268,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,indivisible,,not divisible,,,The indivisible whole stays intact as two people try to split it.,二人が分けようとしても、不可分の球体は一つのまま保たれている。,generated,47ab0ff0e914903fed671dc3812c1020e3bb78727edb09fcdbe54cd46df5f064,,,既存画像は未検品。生成IDと実行プロンプト不明。英日解説は実画像確認後に追加する。
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,indivisible,,not divisible,,,,,generated,,,,既存画像は未検品。生成IDと実行プロンプト不明。英日解説は実画像確認後に追加する。
 inkling.png,うすうす感づくこと、ほのめかし,うすうす感づくこと,"Subject: An adult faintly suspecting a surprise hidden behind a closed door.
 
 Composition: Show an adult pausing outside a closed door after noticing one colorful ribbon protruding underneath. The person raises an eyebrow and gives a small tentative smile, with one hand hovering near the handle; the concealed room remains unseen, emphasizing a slight clue rather than certain knowledge.
@@ -277,7 +277,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,inkling,,a slight knowledge or vague notion,,,An inkling of curiosity makes the man peek through the partly open door.,好奇心の兆しを感じた男性が、少し開いたドアの向こうをのぞいている。,generated,cfaea4fe223c98b29b1354535c10152b36100c03ab9e599ab0995828fa51aed7,,,既存画像は未検品。生成IDと実行プロンプト不明。英日解説は実画像確認後に追加する。
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,inkling,,a slight knowledge or vague notion,,,,,generated,,,,既存画像は未検品。生成IDと実行プロンプト不明。英日解説は実画像確認後に追加する。
 irreparable.png,修復できない,修復できない,"Subject: An adult examining a ceramic cup shattered into countless tiny fragments.
 
 Composition: Show an adult at a workbench looking sadly at a cherished cup reduced to fine shards and ceramic dust. A few pieces retain the original painted pattern, but large sections are pulverized and cannot fit together; untouched glue and repair tools lie aside, making restoration visibly hopeless.
@@ -286,7 +286,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,irreparable,,irreversible,,,The child sees the irreparable damage after shattering a cup.,カップを割ってしまった子どもが、取り返しのつかない損傷を見つめている。,generated,07478d7f941e51f83545134e93c22161ad1375351b02aaa2205cb42521d4a075,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,irreparable,,irreversible,,,,,generated,,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
 jovial.png,陽気な,陽気な,"Subject: A cheerful adult host laughing warmly with dinner guests.
 
 Composition: Show an adult host at a small dinner table laughing with an open, friendly face and relaxed raised shoulders. Two guests smile back as the host passes a bread basket; the warm gesture and shared amusement convey buoyant good humor without alcohol excess, comic lettering, or exaggerated spectacle.
@@ -295,7 +295,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,jovial,,cheerful,,,A jovial host serves dinner to smiling guests around the table.,陽気な主人が、食卓を囲む笑顔の客たちに料理を取り分けている。,generated,97f127c302f600aea106b9723a6af962be38f21880793923fe9463bb73e78269,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,jovial,,cheerful,,,,,generated,,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
 mileage.png,総マイル数,総マイル数,"Subject: A car's mechanical odometer displaying the accumulated distance traveled.
 
 Composition: Show a close view of an older car dashboard, focusing on the mechanical odometer window with five aligned rolling digits reading 12345 and the small unit marking mi. A stationary speedometer needle remains secondary; the worn steering-wheel rim and dashboard frame establish a cumulative-distance instrument rather than a calculator or price display.
@@ -304,7 +304,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. Only 12345 and the unit mi on the odometer, necessary to show cumulative distance in miles and avoid confusion with kilometers. No incidental labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,mileage,,distance covered,,,The mileage counter shows how far the car has traveled.,走行距離計が、車のこれまでの走行距離を示している。,generated,cc71bb43d221be9420690296334d9c87823769ccab5b673366f6a17fdacaa2d4,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
+Output: 512x512 PNG, RGBA, genuine transparent background. Only 12345 and the unit mi on the odometer, necessary to show cumulative distance in miles and avoid confusion with kilometers. No incidental labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,mileage,,distance covered,,,,,generated,,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
 oat.png,オートムギ,オートムギ,"Subject: A ripe oat stalk with loose hanging grain clusters.
 
 Composition: Show several upright oat stems tied loosely together at their bases, each topped by an open branching panicle of dangling pale golden spikelets. Narrow grass leaves curl along the stems, and a few husked grains rest below; avoid the dense upright ear shape of wheat or barley.
@@ -313,7 +313,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,oat,,porridge grain,,,Oat stalks bend under clusters of ripe grain.,熟した穀粒をたわわにつけたオーツ麦の穂が垂れている。,generated,b5657ec466a6fa26ecd56da31d4bff29ebf4c7a0a89ae0a55f8dd7f9ffd13ae3,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,oat,,porridge grain,,,,,generated,,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
 obstetric.png,産科の,産科の,"Subject: An obstetric clinician performing an ultrasound examination on a pregnant adult.
 
 Composition: Show a pregnant adult reclining comfortably on an examination couch while a clinician rests an ultrasound probe gently on the exposed abdomen. The clinician's other hand adjusts the machine, whose screen shows a simple fetal outline; a drape protects the patient's privacy, and no measurements or clinical claims are printed.
@@ -322,7 +322,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,obstetric,,maternity,,,An obstetrician checks a pregnant patient's ultrasound beside her bed.,産科医がベッド脇で、妊婦の超音波画像を確認している。,generated,f3ee480572159ad73de3c5148e1ffa74f95e91f5adbf0b2530364c74b822ccaa,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,obstetric,,maternity,,,,,generated,,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
 patchy.png,継ぎはぎの,継ぎはぎの,"Subject: A worn jacket repaired with several differently colored fabric patches.
 
 Composition: Show a sturdy old jacket hanging from a wooden peg, its elbows, pocket corner, and lower hem repaired with irregular cloth patches. Each patch has clearly visible stitching and a different muted color; the garment remains one coherent object, with the repairs covering worn areas rather than forming a decorative background quilt.
@@ -331,7 +331,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,patchy,,"marked by, consisting of, or diversified with patches",,,The patchy coat has repairs sewn across its elbows and pocket.,つぎはぎの上着には、肘やポケットに当て布が縫い付けられている。,generated,62fb967a7da3790c919a1a08389006ed1db2970e3307686b20060e3269c844ca,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,patchy,,"marked by, consisting of, or diversified with patches",,,,,generated,,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
 phytoplankton.png,植物プランクトン,植物プランクトン,"Subject: A magnified group of photosynthetic diatoms floating in sunlit water.
 
 Composition: Show several microscopic diatoms suspended in one clear water droplet, including delicate glassy disks and elongated symmetrical forms. Fine pores pattern their silica shells and golden-green chloroplasts occupy the interiors; a small bright reflection suggests sunlight, with no fish-sized scale, fantasy faces, or drifting terrestrial leaves.
@@ -340,7 +340,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,phytoplankton,,"minute aquatic photosynthetic organisms (such as dinoflagellates, diatoms, and cyanobacteria) : photosynthetic plankton of freshwater or marine environments",,,Phytoplankton cells drift together in a drop of water.,植物プランクトンの細胞が、水滴の中を漂っている。,generated,b91c0a223b24500ccf863b13e6c3af7abeb3f7f1b0694974431a7e42c7b1eee2,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,phytoplankton,,"minute aquatic photosynthetic organisms (such as dinoflagellates, diatoms, and cyanobacteria) : photosynthetic plankton of freshwater or marine environments",,,,,generated,,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
 reducible.png,削減できる,削減できる,"Subject: An adult identifying unnecessary packaging that can be removed from a parcel.
 
 Composition: Show an adult packing a small ceramic mug in a correctly sized box while setting aside an excessive pile of unused wrapping material. The snug protective insert already keeps the mug secure, and the adult removes one redundant layer with confidence; emphasize reducible waste without damaging the item or written comparisons.
@@ -349,7 +349,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,reducible,,,,,The reducible cardboard pile is sorted for recycling.,リサイクルできる段ボールの山が、分別されている。,generated,19ecb9d3d68681ddb72d315c9424a5455552eb52da186065672cb508f72140b9,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,reducible,,,,,,,generated,,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
 scooter.png,キックスケーター,キックスケーター,"Subject: An adult propelling a two-wheeled kick scooter with one foot.
 
 Composition: Show an adult wearing a helmet, both hands on an upright handlebar while one foot rests on a narrow deck and the other pushes backward against the ground. Exactly two small wheels sit in line beneath the deck; include no seat, pedals, engine, or extra balancing wheels.
@@ -358,7 +358,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,scooter,,"a vehicle ridden usually while standing that consists of a narrow footboard mounted between or atop two wheels tandem, that has an upright steering handle attached to the front wheel, and that is moved by pushing with one foot",,,A helmeted rider pushes off on a two-wheeled scooter.,ヘルメットを着けた人が、二輪スクーターを地面を蹴って進めている。,generated,4ce7125600785776afc5600c92b8d8e3b73b6e6fdee1e563cc6b2bcea578835c,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,scooter,,"a vehicle ridden usually while standing that consists of a narrow footboard mounted between or atop two wheels tandem, that has an upright steering handle attached to the front wheel, and that is moved by pushing with one foot",,,,,generated,,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
 sensibly.png,目立って,目立って,"Subject: An adult immediately noticing that one candle is appreciably shorter than its mate.
 
 Composition: Show two matching candles in identical holders on a table, one burned down to half the other's height. An adult points at the obvious difference with raised eyebrows, while a small pool of wax surrounds the shorter candle; the comparison is readily perceptible without rulers, numbers, or a before-and-after layout.
@@ -367,7 +367,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,sensibly,,,,,He sensibly lights one candle at a time and keeps them on the table.,彼は分別をもって、ろうそくを一本ずつ灯し、テーブルの上に置いている。,generated,f040c1ed6a83563dc5284ca3c59a87f12d9e4f7c8034f7ab328a6c989775643a,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,sensibly,,,,,,,generated,,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
 sociality.png,社交性、交際好き,社交性,"Subject: An outgoing adult easily drawing newcomers into a friendly conversation.
 
 Composition: Show an adult at a small gathering making an open-handed introduction between two newly arrived guests. All three smile and turn toward one another, while the host pulls an empty chair into their circle; the welcoming eye contact and relaxed body language emphasize enjoyment of social connection.
@@ -376,7 +376,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,sociality,,sociability,,,Sociality brings the three people together in a friendly conversation.,社交性によって、三人が打ち解けて会話している。,generated,94b80fc532cc23401591a631e5ef80eba6f962c4ee9861031bee12a8aef9574e,,,既存画像は未検品。生成IDと実行プロンプト不明。英日解説は実画像確認後に追加する。
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,sociality,,sociability,,,,,generated,,,,既存画像は未検品。生成IDと実行プロンプト不明。英日解説は実画像確認後に追加する。
 subtropical.png,亜熱帯の、亜熱帯性の,亜熱帯の,"Subject: A warm-region garden with palms, citrus trees, and lush evergreen foliage.
 
 Composition: Show a small subtropical garden beside a low stucco house, with a palm rising over a fruiting citrus tree and broad-leaved evergreen shrubs. An adult tends the plants in light clothing under gentle sunshine; keep the vegetation coherent and the scene lush without equatorial rainforest density or a desert cactus foreground.
@@ -385,7 +385,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,subtropical,,"of, relating to, or being the regions bordering on the tropical zone",,,Subtropical plants and fruit grow around the warm garden house.,亜熱帯の植物や果実が、暖かな庭の家の周りに育っている。,generated,22a56281711a8dff5a1c060253f48380daa5afd5a4bb706f6ea533791282948e,,,既存画像は未検品。生成IDと実行プロンプト不明。英日解説は実画像確認後に追加する。
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,subtropical,,"of, relating to, or being the regions bordering on the tropical zone",,,,,generated,,,,既存画像は未検品。生成IDと実行プロンプト不明。英日解説は実画像確認後に追加する。
 suitor.png,原告,原告,"Subject: An adult plaintiff presenting a civil complaint in court.
 
 Composition: Show an adult plaintiff standing beside their lawyer at a courtroom table, offering a folder of evidence toward the judge's bench. Across the aisle, another adult sits at the opposing table; the plaintiff's purposeful posture and the civil hearing arrangement distinguish the person bringing the case without labels or romantic imagery.
@@ -394,7 +394,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,suitor,,plaintiff,,,The suitor presents a civil complaint to the judge with counsel beside her.,原告は弁護士とともに、民事訴訟の証拠書類を裁判官に示している。,generated,0e7eeab8f47f7abc1faa6ee2d19cdb35bf93e16cedfcb92b9afbf16040cd22d7,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。 語義「原告」と実画像を照合して英日解説を追記。過去の生成プロンプトは不明のまま。 画像の実ファイルからSHA256を記録。
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,suitor,,plaintiff,,,,,generated,,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
 Ajax.png,エイジャックス,エイジャックス,"Subject: The Greek hero Ajax carrying the fallen Achilles away from battle.
 
 Composition: Show Ajax as a powerful armored Greek warrior carefully carrying Achilles' limp armored body across his shoulders, both fully clothed. Ajax braces his legs under the weight and supports the body with both arms; a shield rests against his back, and no wounds, blood, or self-harm imagery appears.
@@ -403,7 +403,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,Ajax,,a Greek hero in the Trojan War who kills himself because the armor of Achilles is awarded to Odysseus,,,Ajax carries the body of the fallen Achilles from battle.,アイアースが、戦場で倒れたアキレウスの遺体を運んでいる。,generated,056490f1c27a0260d8f803581532bbd8f4e03de6985af818daf2b0113a879249,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,Ajax,,a Greek hero in the Trojan War who kills himself because the armor of Achilles is awarded to Odysseus,,,,,generated,,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
 Britannia.png,ブリタニア,ブリタニア,"Subject: Britannia as a helmeted female personification with trident and shield.
 
 Composition: Show Britannia as an adult female figure standing upright in a draped gown and crested helmet, holding a three-pronged trident in one hand. A round shield bearing the British flag rests beside her other hand, and a calm lion lies at her feet; keep the figure dignified and unlettered.
@@ -412,7 +412,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,Britannia,,,,,Britannia holds a trident and shield beside a lion.,ブリタニアが、ライオンのそばで三叉槍と盾を持っている。,generated,cf226a395cb86623b56e66baf80add35de267d25c98625e3d9333fac4a925a94,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,Britannia,,,,,,,generated,,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
 Dada.png,ダダイズム,ダダイズム,"Subject: An art-gallery presentation of a bicycle wheel mounted upside down on a stool.
 
 Composition: Show a spoked bicycle wheel held upright in an inverted fork fixed to the top of a plain wooden kitchen stool. An adult gallery visitor bends to inspect the unexpected assembled object with curiosity; the wheel can spin freely above the seat, challenging ordinary artistic expectations without a title plaque.
@@ -421,7 +421,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,Dada,,a movement in art and literature based on deliberate irrationality and negation of traditional artistic values; also : the art and literature produced by this movement,,,Dada turns an ordinary spinning wheel into an absurd work of art.,ダダは、ありふれた糸車を不条理な芸術作品へと変えている。,generated,ff64d38d977dc7ef0f161bf6069b6ab8d099273852c3cbec578106dcd31f7087,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,Dada,,a movement in art and literature based on deliberate irrationality and negation of traditional artistic values; also : the art and literature produced by this movement,,,,,generated,,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
 Turkic.png,ツルキ語族、チュルク語族,ツルキ語族,"Subject: A linguist comparing cognate words for house across Turkic languages.
 
 Composition: Show an adult linguist arranging three small cards reading ev, үй, and uy on separate branches of one physical wooden language-family stand. The branches join a shared trunk, and the linguist points between the related forms; omit country flags and the family name, keeping the comparison about languages rather than ethnicity.
@@ -430,7 +430,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. Only ev, үй, and uy on physical study cards, necessary to show cognates without printing the language-family name. No incidental labels, logos or watermark.",作成済み,,references/invidious.png,Turkic,,"of, relating to, or constituting a family of Altaic languages including Turkish",,,Turkic languages branch into Turkish and related languages on this family tree.,この系統樹では、テュルク諸語からトルコ語などの関連言語が枝分かれしている。,generated,a49042689475c822b69d5bbcfcf5d01e06e7338ed46a60f4f229fa31cbe994dc,,,既存画像は未検品。生成IDと実行プロンプト不明。英日解説は実画像確認後に追加する。
+Output: 512x512 PNG, RGBA, genuine transparent background. Only ev, үй, and uy on physical study cards, necessary to show cognates without printing the language-family name. No incidental labels, logos or watermark.",作成済み,,references/invidious.png,Turkic,,"of, relating to, or constituting a family of Altaic languages including Turkish",,,,,generated,,,,既存画像は未検品。生成IDと実行プロンプト不明。英日解説は実画像確認後に追加する。
 Yoruba.png,ヨルバ族,ヨルバ族,"Subject: A contemporary Yoruba family kitchen.
 
 Composition: Show a fictional adult Yoruba man in everyday clothing stirring a pot of family food while a friend sets bowls on a kitchen table. Include a modest Nigerian-flag keepsake on a shelf as a geographic context, without ceremonial caricatures or any identity statement.
@@ -439,7 +439,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech balloons or bubbles, numerals, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,Yoruba,,a Niger-Congo language of southwestern Nigeria and parts of Benin and Togo; also : a member of any of the Yoruba-speaking peoples of this region,,,Yoruba speakers prepare food together in a lively home kitchen.,ヨルバ語を話す人々が、にぎやかな家庭の台所で一緒に料理している。,generated,36db2320aa7a610bfac7091a08b645fdcd6e688878c62302ef912c90718dde7a,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech balloons or bubbles, numerals, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,Yoruba,,a Niger-Congo language of southwestern Nigeria and parts of Benin and Togo; also : a member of any of the Yoruba-speaking peoples of this region,,,,,generated,,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
 adage.png,金言,金言,"Subject: Practical wisdom passed between generations.
 
 Composition: Show an older carpenter gently stopping an apprentice’s saw hand and guiding them to measure the same plank a second time with a ruler. The apprentice watches attentively while the saw rests safely on the bench, embodying inherited practical advice without quoting it.
@@ -448,7 +448,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech balloons or bubbles, numerals, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,adage,,proverb,,,An adage is passed from grandfather to child as they build a wooden bench.,木のベンチを作りながら、祖父から子どもへ格言が伝えられている。,generated,a1cf6bed96b4ea0286017f5c9d2ce2212a7b9f051e27c2f0f9990ff00406851e,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech balloons or bubbles, numerals, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,adage,,proverb,,,,,generated,,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
 aeration.png,通気,通気,"Subject: Fresh air passing through a room with two open windows.
 
 Composition: Show a compact room with open windows on opposite sides. Lightweight curtains lift inward beside one window and stream outward beside the other, while a loose ribbon on the central desk flutters in the same direction. Keep the furniture stationary and the room free of smoke.
@@ -457,7 +457,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,aeration,,ventilation,,,Aeration lets fresh air flow through the open windows of the room.,換気によって、開いた窓から部屋へ新鮮な空気が流れ込んでいる。,generated,6b461dec5e89e4b8889f575b16a5c80e9b51b017e67a4185d0f53ae15fef6723,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,aeration,,ventilation,,,,,generated,,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
 argon.png,アルゴン,アルゴン,"Subject: A cylinder of inert shielding gas connected to a welding torch.
 
 Composition: Show a secured gas cylinder marked only “Ar” beside an adult welder wearing a full face shield and protective gloves. A hose connects the regulator to the torch poised above an aluminum joint. Keep the colorless gas invisible and the small welding arc localized at the seam.
@@ -466,7 +466,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. Allow only the chemical symbol “Ar” on the cylinder, essential to identify an otherwise invisible gas. No incidental labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,argon,,inert gas,,,Argon fills the cylinder used by the welder beside the metal plate.,アルゴンが、金属板のそばで溶接工が使うボンベに入っている。,generated,ba6b63cb9a82438864d3675f39a6c796666675c8e43bd0bcb7713cabc5f9dbab,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
+Output: 512x512 PNG, RGBA, genuine transparent background. Allow only the chemical symbol “Ar” on the cylinder, essential to identify an otherwise invisible gas. No incidental labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,argon,,inert gas,,,,,generated,,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
 blizzard.png,吹雪,吹雪,"Subject: An adult traveler struggling through windblown snow.
 
 Composition: Show a bundled adult leaning into a dense sideways flurry while gripping a walking pole. Snow collects on the windward side of the coat, the scarf streams horizontally, and nearby spruce branches bend with the gust. Keep the drifting snow clustered around the traveler and small buried trail.
@@ -475,7 +475,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,blizzard,,snowstorm,,,A hiker struggles forward through a blizzard of wind-driven snow.,ハイカーが、吹雪の中を苦労して進んでいる。,generated,052ae2debe5349af88cdca626242132a56b309843dc0fd5ee08191e8b256d72f,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,blizzard,,snowstorm,,,,,generated,,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
 cant.png,隠語,隠語,"Subject: Private jargon used within a group.
 
 Composition: Show two fictional adult thieves leaning close in a discreet conversation behind a market stall. One makes a small familiar hand signal toward a prospective target while the companion immediately understands and nods; use no written code words or speech bubbles.
@@ -484,7 +484,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech balloons or bubbles, numerals, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,cant,,jargon,,,The market vendors speak in cant while shoppers pass their stall.,市場の店員たちが隠語で話すそばを、買い物客が通り過ぎている。,generated,08d1645ca1ba423ed4c20431d0cbb015650ea99cf36fb3169214f9395fb87fbf,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech balloons or bubbles, numerals, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,cant,,jargon,,,,,generated,,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
 carton.png,カートン、箱の単位,カートン,"Subject: A cardboard shipping box with folding flaps.
 
 Composition: Show one sturdy corrugated cardboard box resting open on a packing table. Fold two upper flaps outward and leave the other two upright, exposing the hollow rectangular interior. A short strip of plain sealing tape hangs from one flap, with no printing anywhere on the box.
@@ -493,7 +493,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,carton,,a box or container usually made of cardboard and often of corrugated cardboard,,,An open cardboard carton has its four flaps folded outward.,段ボール箱の四つのふたが外側に開いている。,generated,35e2e4fb2240803a2b397b326c40a0d6a7c3afb0f94a535d4d8d2faf5e56c5d2,,,既存画像は未検品。生成IDと実行プロンプト不明。英日解説は実画像確認後に追加する。
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,carton,,a box or container usually made of cardboard and often of corrugated cardboard,,,,,generated,,,,既存画像は未検品。生成IDと実行プロンプト不明。英日解説は実画像確認後に追加する。
 chandelier.png,シャンデリア,シャンデリア,"Subject: An ornate ceiling-hung light fixture with branching arms.
 
 Composition: Show a single hanging fixture suspended from a short visible chain. Its central brass stem branches into six curved arms, each supporting an upright candle-shaped electric bulb. Clear faceted drops hang beneath the arms, catching small warm highlights without obscuring the symmetrical construction.
@@ -502,7 +502,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,chandelier,,hanging light,,,A chandelier hangs from a chain with its candles glowing.,シャンデリアが鎖で吊られ、ろうそく型の灯りをともしている。,generated,adeabb1bc62404c6f37a888c96317acad920cd7236d419345ea16c4665cfeb88,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,chandelier,,hanging light,,,,,generated,,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
 confound.png,混乱させる,混乱させる,"Subject: Contradictory directions leaving an adult traveler bewildered.
 
 Composition: Show an adult traveler holding an unfolded map while two nearby guides confidently point in opposite directions along the same forked path. The traveler looks from one guide to the other with raised eyebrows and a slack mouth, unable to choose which direction to follow.
@@ -511,7 +511,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,confound,,perplex,,,A confusing map confounds the hikers as they choose between two paths.,分かりにくい地図にハイカーたちが困惑し、二つの道のどちらへ進むか迷っている。,generated,ada99824f0fc72789b5e24c65f4c779fcd3b1832b8ced74ebe267fa687859240,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,confound,,perplex,,,,,generated,,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
 corticosteroid.png,コルチコステロイド、副腎皮質ステロイド,コルチコステロイド,"Subject: An anatomical teaching model showing hormone release from the adrenal cortex.
 
 Composition: Show a cutaway adrenal gland perched above a kidney in a freestanding medical model. Highlight its thick outer cortex, leaving the inner medulla muted. Small identical gold hormone tokens emerge from the cortex into a neighboring blood vessel; the kidney and gland remain anatomically separate.
@@ -520,7 +520,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,corticosteroid,,"any of various steroid hormones (such as cortisol, cortisone, or aldosterone) that are produced by the adrenal cortex from cholesterol; also : any of various synthetic derivatives (such as prednisone or dexamethasone) of these steroid hormones that are used as drugs",,,The adrenal cortex produces corticosteroid hormones shown in this medical diagram.,この医学図解では、副腎皮質が作るコルチコステロイドホルモンを示している。,generated,71d6f5e2df747c10dce58cf2ba2d5c6129f1ad0044a4d69001038839ec2edb51,,,既存画像は未検品。生成IDと実行プロンプト不明。英日解説は実画像確認後に追加する。
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,corticosteroid,,"any of various steroid hormones (such as cortisol, cortisone, or aldosterone) that are produced by the adrenal cortex from cholesterol; also : any of various synthetic derivatives (such as prednisone or dexamethasone) of these steroid hormones that are used as drugs",,,,,generated,,,,既存画像は未検品。生成IDと実行プロンプト不明。英日解説は実画像確認後に追加する。
 disengagement.png,解放、離脱,解放,"Subject: An adult sailor unhooking a safety tether after reaching a secure platform.
 
 Composition: Show an adult sailor standing firmly inside a sheltered dock platform and opening the tether clip attached to a fixed rail. One hand steadies the clip while the other holds the loose strap, creating a visible gap between the released hook and the rail.
@@ -529,7 +529,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,disengagement,,,,,Disengagement leaves the worker loosening a cable from the machine.,機械との接続を外すため、作業員がケーブルを緩めている。,generated,3c91676cee0b1a727936a88da16c598fba9cfaaff5974e68d418f7bc1d4eb91f,,,既存画像は未検品。生成IDと実行プロンプト不明。英日解説は実画像確認後に追加する。
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,disengagement,,,,,,,generated,,,,既存画像は未検品。生成IDと実行プロンプト不明。英日解説は実画像確認後に追加する。
 diurnal.png,昼行性の,昼行性の,"Subject: A squirrel actively gathering food in bright daylight.
 
 Composition: Show a squirrel standing alert on a sunlit tree stump with an acorn held between its forepaws. Additional acorns lie beside the stump, and a small overhead sun establishes daytime. Keep the squirrel awake, actively nibbling, with its bushy tail arched naturally behind its body.
@@ -538,7 +538,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,diurnal,,daytime,,,A diurnal squirrel gathers food in the bright daytime sun.,昼行性のリスが、明るい日中に食べ物を集めている。,generated,a6d80c44faffaabd1835dd539be7bb8fb156531c685891614003328d930cb8b0,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,diurnal,,daytime,,,,,generated,,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
 elaborately.png,わざと、わざとらしく,わざとらしく,"Subject: An adult actor displaying conspicuously exaggerated surprise.
 
 Composition: Show an adult performer reacting to a tiny gift with an excessively wide mouth, arched eyebrows, and both hands theatrically pressed to the cheeks. The friend offering the small wrapped box watches with a skeptical sideways glance. Keep the overplayed reaction central and physically natural.
@@ -547,7 +547,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,elaborately,,,,,The children elaborately decorate a handmade model with careful detail.,子どもたちが手作りの模型を細部まで凝って飾り付けている。,generated,e99097565e35270b38ca5fa7cad4d5e98bfb70f017f20234227b2f0fdc3bed42,,,既存画像は未検品。生成IDと実行プロンプト不明。英日解説は実画像確認後に追加する。
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,elaborately,,,,,,,generated,,,,既存画像は未検品。生成IDと実行プロンプト不明。英日解説は実画像確認後に追加する。
 evasive.png,回避的な,回避的な,"Subject: An adult avoiding a direct conversation at a doorway.
 
 Composition: Show one adult holding a broken cup and looking expectantly at a second adult. The second adult averts their eyes, gives an unconvincing shrug, and edges sideways toward an open doorway. Keep the cup visible between them and the retreating person’s uneasy body language unmistakable.
@@ -556,7 +556,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,evasive,,elusive,,,The evasive child slips through the doorway while avoiding the question.,質問をかわした子どもが、戸口からそっと逃げ出している。,generated,3f7da91a119f5abb8b35d3d67a50a874687613bb37e528c4c045363c8d0c7da4,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,evasive,,elusive,,,,,generated,,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
 exclaim.png,叫ぶ,叫ぶ,"Subject: An adult loudly calling to someone across a river.
 
 Composition: Show an adult standing securely on a riverbank, cupping both hands around an open mouth and calling toward a distant adult on the opposite bank. The listener turns toward the call. Keep the river narrow enough for the exchange, with clear breathing space around the caller’s face.
@@ -565,7 +565,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,exclaim,,shout,,,The boy exclaims loudly to get his friend's attention across the stream.,少年が小川の向こうにいる友人へ、大声で叫んでいる。,generated,54aa9b436870396977b800dd800058a001bbc3d9256e3922253a8c23785299b0,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,exclaim,,shout,,,,,generated,,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
 febrile.png,熱の、熱病の,熱の,"Subject: An adult resting in bed with a fever.
 
 Composition: Show a flushed adult reclining beneath a light blanket, with a damp cloth on the forehead and a glass of water on the bedside table. The adult looks tired and slightly sweaty while a caregiver gently checks their forehead with the back of one hand.
@@ -574,7 +574,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,febrile,,marked or caused by fever : feverish,,,A febrile child rests in bed while a parent checks his temperature.,熱のある子どもがベッドで休み、親が体温を測っている。,generated,39fcc8cbd935f1719a954aa23c529be8b11e189ec208460e8c2bb854f22b18fd,,,既存画像は未検品。生成IDと実行プロンプト不明。英日解説は実画像確認後に追加する。
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,febrile,,marked or caused by fever : feverish,,,,,generated,,,,既存画像は未検品。生成IDと実行プロンプト不明。英日解説は実画像確認後に追加する。
 fledgling.png,創業まもない企業,創業まもない企業,"Subject: The small team of a newly launched business packing its first order.
 
 Composition: Show three adult founders sharing a modest workshop with one desk and a few handmade lamps. One founder closes the first shipping box while another photographs a finished lamp and the third assembles its base. Sparse shelves and fresh unpacked tools make the business visibly new.
@@ -583,7 +583,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,fledgling,,startup,,,The fledgling business team packs products together in a small workshop.,立ち上げたばかりの事業チームが、小さな作業場で商品を梱包している。,generated,c2713fc62873512d84b79405964fc6ca7b9996d0ddd44e91d0712030dede9641,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,fledgling,,startup,,,,,generated,,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
 gully.png,小峡谷,小峡谷,"Subject: A narrow channel cut into earth by running water.
 
 Composition: Show a small steep-sided ravine crossing a grassy slope, with exposed earthen walls and a shallow stream running along its bottom. Loose pebbles collect at the channel’s bends, and grass roots protrude from the upper edges. Keep both rims visible so the narrow depth reads clearly.
@@ -592,7 +592,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,gully,,a trench which was originally worn in the earth by running water and through which water often runs after rains,,,A stream runs through a deep gully carved into the earth by water.,水に削られてできた深い溝の中を、小川が流れている。,generated,08f872347278e529156e955aec0322158d5a98caf186c14b7c34af39976ce2d1,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,gully,,a trench which was originally worn in the earth by running water and through which water often runs after rains,,,,,generated,,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
 hinterland.png,辺境地,辺境地,"Subject: An isolated farmhouse deep in sparsely settled countryside.
 
 Composition: Show a small weathered farmhouse at the end of a winding dirt track among low wooded hills. A simple well and stacked firewood stand beside the home, with no neighboring buildings or paved roads visible. Frame the remote dwelling within one compact patch of surrounding wilderness.
@@ -601,7 +601,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,hinterland,,backcountry,,,The hinterland beyond the village is shown with wooded hills and scattered homes.,村の奥に広がる内陸部には、森の丘と家々が点在している。,generated,cb4dcca22026b74e0901d7112780c026bc9ba136ca686f55e45e3b8f7a25c323,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,hinterland,,backcountry,,,,,generated,,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
 imprecise.png,不正確な、精密でない,不正確な,"Subject: A badly fitted wooden shelf made from rough measurements.
 
 Composition: Show an adult holding a crooked shelf against two wall brackets that do not line up. One end of the plank extends much farther than the other, and the drilled holes miss the brackets. A loosely stretched measuring tape lies unused on the workbench below.
@@ -610,7 +610,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,imprecise,,"not precise : inexact, vague",,,The imprecise measurement leaves the shelf crooked against the wall.,不正確な寸法のせいで、棚が壁に対して傾いている。,generated,7bcf5695942c8c025aa25889f49f31835f42429f614a02c46393ea4522c75858,,,既存画像は未検品。生成IDと実行プロンプト不明。英日解説は実画像確認後に追加する。
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,imprecise,,"not precise : inexact, vague",,,,,generated,,,,既存画像は未検品。生成IDと実行プロンプト不明。英日解説は実画像確認後に追加する。
 indecision.png,決断できない状態、ちゅうちょ,決断できない状態,"Subject: An adult hesitating between two coats at a shop.
 
 Composition: Show an adult standing between two equally appealing coats on separate hooks, holding one sleeve of each without taking either coat down. Their eyes move uncertainly between the choices, their shoulders rise, and an empty shopping bag hangs from their wrist beneath the undecided hands.
@@ -619,7 +619,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,indecision,,a wavering between two or more possible courses of action : irresolution,,,Indecision keeps the shopper wavering between two coats.,決めかねた買い物客が、二着のコートの間で迷っている。,generated,8918795b7df89d26b4e8e6521909d3c6f300b518e0981116c012f9f90264cfb0,,,既存画像は未検品。生成IDと実行プロンプト不明。英日解説は実画像確認後に追加する。
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,indecision,,a wavering between two or more possible courses of action : irresolution,,,,,generated,,,,既存画像は未検品。生成IDと実行プロンプト不明。英日解説は実画像確認後に追加する。
 ineffectual.png,効果のない,効果のない,"Subject: A tiny desk fan failing to move a heavy curtain.
 
 Composition: Show an adult aiming a little battery-powered fan at a thick hanging curtain. The fan blades spin and a lightweight ribbon beside the grille flutters, but the heavy curtain remains completely still. The adult leans closer with a puzzled frown, clearly expecting a result.
@@ -628,7 +628,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,ineffectual,,useless,,,His ineffectual attempt to open the stuck curtain leaves it closed.,カーテンを開けようとする彼の試みはうまくいかず、閉じたままだ。,generated,d2e2714c6f04a544c2eddfc71b87c1802d1219d2fb1f0aeea5ca131b100e9953,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,ineffectual,,useless,,,,,generated,,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
 insolvent.png,支払い不能の,支払い不能の,"Subject: Unable to pay existing debts.
 
 Composition: Show a fictional shop owner turning an empty coin purse over an empty till while a supplier waits beside stacked bills. The owner’s apologetic open hands and the unpaid invoices make the inability to meet obligations clear without humiliation or written explanation.
@@ -637,7 +637,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech balloons or bubbles, numerals, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,insolvent,,bankrupt,,,The insolvent shopkeeper faces unpaid bills at the empty counter.,支払い不能に陥った店主が、客のいない店で未払い請求書を前にしている。,generated,7b58281cfa0160eac6ea36088e9acaf371a2d954339b11730dacb240d9d5dfb0,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech balloons or bubbles, numerals, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,insolvent,,bankrupt,,,,,generated,,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
 lipped.png,唇のある,唇のある,"Subject: A ceramic jug with a pronounced pouring lip.
 
 Composition: Show a single round ceramic jug in three-quarter view with its handle on one side and a projecting curved lip on the opposite rim. A small stream of water pours cleanly from that lip into a cup below, emphasizing the shaped edge rather than an ordinary circular opening.
@@ -646,7 +646,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,lipped,,having a lip or lips especially of a specified kind or number —often used in combination,,,The lipped pitcher pours water into a matching cup.,縁のある水差しから、同じ模様のカップへ水を注いでいる。,generated,b11ffb6687c15220df65e71cd07c0ccd8a2621edfa334933c3acd25d10b4b613,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,lipped,,having a lip or lips especially of a specified kind or number —often used in combination,,,,,generated,,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
 moody.png,不機嫌な,不機嫌な,"Subject: An adult sitting with an unmistakably sullen expression.
 
 Composition: Show an adult slumped at a breakfast table, arms folded tightly and lower lip pushed slightly forward. A companion offers a cup of tea, but the seated adult turns away with lowered brows. Keep the untouched toast, offered cup, and closed body posture simple and readable.
@@ -655,7 +655,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,moody,,sullen,,,The moody boy sits silently while his friend offers him tea.,むっつりした少年が黙って座り、友人がお茶を差し出している。,generated,6dfaea7045e38a5b1eae2a8e3a4824defeaa01ed95f1fdbbf60ee590fd3bb217,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,moody,,sullen,,,,,generated,,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
 morgue.png,死体公示所,死体公示所,"Subject: A respectful scene inside a hospital mortuary.
 
 Composition: Show a stainless-steel body trolley beside a partly open refrigerated storage bay. An adult body lies fully covered by a plain sheet, with only its overall outline apparent. A mortuary attendant in clean protective clothing stands quietly beside the trolley, keeping the clinical scene dignified and non-graphic.
@@ -664,7 +664,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,morgue,,a place where the bodies of dead persons are kept temporarily pending identification or release for burial or autopsy,,,A worker stands beside a covered body in the morgue.,遺体安置所で、職員が覆いを掛けた遺体のそばに立っている。,generated,5da14a7a99e867b0759e5bf3de747804733eb82f8b463dbdba4cac71ad6d47cf,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,morgue,,a place where the bodies of dead persons are kept temporarily pending identification or release for burial or autopsy,,,,,generated,,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
 necked.png,首の,首の,"Subject: A bottle distinguished by its exceptionally long narrow neck.
 
 Composition: Show a single clear glass bottle standing upright beside a small drinking glass. Its rounded body rises into a visibly long slender neck with a small open mouth. Put a little amber liquid at the bottom, leaving the extended upper section unobstructed and easy to inspect.
@@ -673,7 +673,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,necked,,having a neck especially of a specified kind —often used in combination,,,The narrow-necked bottle stands beside a glass of juice.,首の細い瓶が、ジュースの入ったグラスのそばに置かれている。,generated,7feb69d88c40fd96602e7de1492507137be1c58fc8e645d1eb984309a6861755,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,necked,,having a neck especially of a specified kind —often used in combination,,,,,generated,,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
 nip.png,はさむ,はさむ,"Subject: A spring clothespin pinching fabric against a clothesline.
 
 Composition: Show a close view of an adult hand opening a wooden clothespin while another already grips the folded edge of a towel over a taut clothesline. Emphasize the two opposing wooden jaws pressing the fabric together and the small metal spring that keeps them closed.
@@ -682,7 +682,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,nip,,"to catch hold of and squeeze tightly between two surfaces, edges, or points : pinch, bite",,,A hand nips a clothespin tightly onto the hanging towel.,手が洗濯ばさみをつまみ、干したタオルをしっかり挟んでいる。,generated,de53e3e8db61624bebc1a61d37734534137179121c2cefbe3fe703966f3be7c8,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,既存画像の実物目視と日英解説追記が未完了。,references/invidious.png,nip,,"to catch hold of and squeeze tightly between two surfaces, edges, or points : pinch, bite",,,,,generated,,,,既存PNGあり。担当2の旧生成結果IDと実行プロンプトの対応記録を確認できないため、生成済み候補として保持。画像は未検品、解説未記入、過去プロンプト不明。目視検品前に再生成しない。
 pectin.png,ペクチン,ペクチン,"Subject: Fruit-derived material making jam gel.
 
 Composition: Show a cook lifting a spoonful of thick glossy apple jam from a small pot beside a strainer of apple peels and cores. The preserve clings in a soft gel, with an unmarked packet beside the pot; omit any ingredient label or explanatory text.
@@ -2174,7 +2174,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,harem,,a usually secluded house or part of a house allotted to women in some Muslim households,,"Draw a simple, friendly 2D cartoon matching the attached invidious.png very closely. Subject: a harem, the secluded women's quarters of a household. Show three fully clothed adult women sitting together in a small private room, one reading and two talking. Include only a simple cushioned bench and one geometric lattice window. Use flat warm colors, very thick smooth dark-brown outlines, rounded simplified shapes, minimal interior detail, and only a little soft shading. Keep figures short and naturally proportioned with complete attached arms and hands. Center the compact scene with generous transparent space around it. Square 512x512 transparent RGBA PNG. No text, labels, logos, or watermark.",A harem is a secluded household room where women read and talk together.,ハーレムは、女性たちが読書や会話をして過ごす、家庭内の隔離された部屋である。,generated,fe46531335e6b880391e7002e7a58c8906d2917db5a09835d3cf8d0045bbdf19,,,"512x512 RGBA PNG; alpha extrema (0,255). Visual check: three women share a private room; style follows the approved thick-outline cartoon reference."
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,harem,,a usually secluded house or part of a house allotted to women in some Muslim households,,,,,prompt_ready,,,,
 hypocritical.png,偽善的な,偽善的な,"Subject: A fictional adult condemning litter while secretly dropping trash.
 
 Composition: Show an adult sternly gesturing at a tiny scrap on the ground while another hand behind their back releases a crumpled wrapper. A nearby adult notices both actions with disbelief. Keep the hidden wrapper visible from the viewer’s angle, making the contradiction within the same moment clear.
@@ -2183,15 +2183,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,hypocritical,,insincere,,"Draw a simple, friendly 2D cartoon matching the attached invidious.png very closely. Subject: a hypocritical adult who condemns littering while secretly littering.
-
-Composition: Show one adult pointing sternly at a small scrap on the ground while secretly dropping a crumpled wrapper behind their back. A second adult nearby notices both actions with a surprised expression. Make the contradiction readable at a glance.
-
-Style: Flat warm colors, thick smooth dark-brown outlines, simplified rounded shapes, gentle minimal shading, matching the reference. Natural compact human proportions; exactly two attached arms and hands per person. No elongated bodies or limbs. Do not copy the reference subject.
-
-Framing: One compact centered scene, complete figures visible with generous space around them, all inside the square.
-
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, or watermark.",The hypocritical man condemns littering while secretly dropping a wrapper behind him.,その偽善的な男性は、ポイ捨てを非難しながら、背後では包装紙をこっそり捨てている。,generated,58f087686c2175a1fc52539584c6f087cefbcbc26b181e5eda938bfec7fc0379,,,"512x512 RGBA PNG; alpha extrema (0,255). Visual check: the man condemns littering while dropping a wrapper; compact proportions and thick dark-brown outlines."
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,hypocritical,,insincere,,,,,prompt_ready,,,,
 irrevocable.png,取消しできない,取消しできない,"Subject: A document being irreversibly destroyed in a shredder.
 
 Composition: Show an adult staring with sudden concern as the final edge of a unique photograph disappears into a crosscut shredder. A clear bin beneath holds the tiny separated fragments. Keep the feed slot guarded, the hands safely away, and the lost image no longer recoverable as an intact object.
@@ -2200,15 +2192,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,irrevocable,,irreversible,,"Draw a simple, friendly 2D cartoon matching the attached invidious.png very closely. Subject: an irrevocable loss that cannot be reversed.
-
-Composition: Show an adult looking worried as the last edge of a small photograph vanishes into a crosscut shredder. A clear collection bin below contains many tiny paper fragments, so the photograph cannot be restored. The person's hands stay safely away from the shredder slot.
-
-Style: Flat warm colors, thick smooth dark-brown outlines, simplified rounded shapes, minimal gentle shading, matching the reference. Natural compact proportions and clearly attached limbs. Do not copy the reference subject.
-
-Framing: One compact centered composition; show the adult and shredder fully, with generous space around them.
-
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, or watermark.",The photograph's irrevocable destruction leaves only unrecoverable paper shreds.,写真は取り返しのつかない形で裁断され、復元できない紙片だけが残っている。,generated,bc1f0fe5a356d3f9907d63265e40a9c2dab97c6655f6e20a801f29c7a0489f33,,,"512x512 RGBA PNG; alpha extrema (0,255). Visual check: worried adult beside a shredder with paper fragments; complete, compact figure and approved outline style."
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,irrevocable,,irreversible,,,,,prompt_ready,,,,
 islet.png,小島,小島,"Subject: A tiny rocky island surrounded by open water.
 
 Composition: Show a small low island rising from a compact patch of calm sea, with one wind-shaped tree and a little grassy crown. Water surrounds the land completely, and a seabird perches on an exposed rock near the shore. Keep the scale intimate, with no bridge or mainland connection.
@@ -2217,15 +2201,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,islet,,a little island,,"Draw a simple, friendly 2D cartoon matching the attached invidious.png very closely. Subject: an islet, a little island.
-
-Composition: Show one small grassy rocky island completely surrounded by a compact ring of blue water. Add one short wind-shaped tree and a single seabird on a shore rock. Leave open water visible on every side; do not connect it to mainland or add a bridge.
-
-Style: Flat warm colors, thick smooth dark-brown outlines, simplified rounded shapes, minimal gentle shading, matching the reference. Do not copy the reference subject.
-
-Framing: One compact centered composition, fully visible with generous transparent space around the island.
-
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, or watermark.","An islet is a tiny grassy island ringed by water, with a lone tree and seabird.",小島は、水に囲まれた小さな草地の島で、一本の木と海鳥がある。,generated,390db6c8ac78b123ec94e28de03cdab23dba3f8d5c749a16afd0fd99dd142c20,,,"512x512 RGBA PNG; alpha extrema (0,255). Visual check: small isolated grassy island, tree, and seabird; compact centered composition in approved cartoon outline style."
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,islet,,a little island,,,,,prompt_ready,,,,
 kindling.png,点火,点火,"Subject: An adult lighting dry tinder in a safe fire ring.
 
 Composition: Show an adult camper crouching outside a stone fire ring and touching a lit match to a small nest of dry twigs. One tiny flame catches at the center while larger wood waits nearby. Keep the action at the ignition stage, with bare earth surrounding the contained fire.
@@ -2234,15 +2210,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,kindling,,easily combustible material for starting a fire,,"Draw a simple, friendly 2D cartoon matching the attached invidious.png very closely. Subject: kindling used to start a campfire.
-
-Composition: Show a compact stone fire ring on bare earth. An adult camper crouches beside it, lighting a small nest of dry twigs with a match; a tiny flame has just caught in the kindling. A few larger logs wait nearby but are not yet burning. Keep all fire safely inside the ring.
-
-Style: Flat warm colors, thick smooth dark-brown outlines, simplified rounded shapes, minimal gentle shading, matching the reference. Natural compact human proportions and clearly attached limbs. Do not copy the reference subject.
-
-Framing: One compact centered composition, all objects and the full camper visible inside the square with some space around them.
-
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, or watermark.",Dry kindling catches a match inside the camper's stone fire ring.,キャンパーの石の炉で、乾いた焚き付けにマッチの火がつく。,generated,6683a3ab062b25e8e069690fdd269feabd063ce73f7ebe1ec697377bf1569229,,,"512x512 RGBA PNG; alpha extrema (0,255). Visual check: camper lights dry twigs in a contained fire ring; compact proportions and thick reference-style contours."
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,kindling,,easily combustible material for starting a fire,,,,,prompt_ready,,,,
 lurch.png,急に傾くこと,急に傾くこと,"Subject: A bus passenger thrown sideways by a sudden vehicle tilt.
 
 Composition: Show an adult passenger inside a bus gripping an overhead handrail as the vehicle abruptly leans around a turn. The passenger’s torso tilts sideways and a shopping bag swings outward, while both feet remain close to the floor. Keep the seats and windows aligned with the bus interior.
@@ -2251,15 +2219,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,lurch,,to move with a lurch; also : stagger,,"Draw a simple, friendly 2D cartoon matching the attached invidious.png very closely. Subject: a bus passenger lurching sideways as the bus makes a sudden turn.
-
-Composition: Show one adult standing inside a bus, gripping an overhead rail with one hand as the bus leans around a sharp turn. The passenger tilts sideways and a small shopping bag swings outward. Keep the passenger's body compact and balanced, with both feet close to the floor. Include only a simple seat and window to establish the bus interior.
-
-Style: Flat warm colors, thick smooth dark-brown outlines, simplified rounded shapes, minimal gentle shading, matching the reference. Natural compact human proportions, no long torso or stretched limbs; clearly attached arms and legs. Do not copy the reference subject.
-
-Framing: One compact centered scene with the whole passenger visible inside the square.
-
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, or watermark.",The bus's sudden lurch makes a standing passenger sway and swing a shopping bag.,バスが急によろめき、立っている乗客の体が傾いて買い物袋が振れる。,generated,4f369fe205b60dd2d42052f01fbe94b1b8d9e0970c5791c9d876c79c2e495676,,,"512x512 RGBA PNG; alpha extrema (0,255). Visual check: passenger sways inside bus with swinging bag; compact proportions and rounded reference-style outlines."
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,lurch,,to move with a lurch; also : stagger,,,,,prompt_ready,,,,
 metrical.png,韻律の,韻律の,"Subject: A regular pattern of poetic stresses.
 
 Composition: Show an adult poetry reader tapping a steady beat while studying a page of nonlegible verse. Above one line, a simple repeating pattern of unstressed and stressed scansion marks is visible, and a listener follows the same rhythm.
@@ -2268,15 +2228,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. Allow only essential scansion marks ˘ and / above the verse line; no legible poem, dialogue, or explanatory captions. No incidental captions, speech balloons, logos or watermark.",作成済み,,references/invidious.png,metrical,,rhythmic,,"Draw a simple, friendly 2D cartoon matching the attached invidious.png very closely. Subject: metrical rhythm in poetry.
-
-Composition: Show a seated adult reading a blank-lined poetry page and gently tapping a steady beat with one hand. Beside the page, place a small metronome with its pendulum centered mid-swing. Above one blank line show a short repeating sequence of tiny and bold beat marks, with no letters or words. A second adult listens and follows the rhythm by tapping one finger.
-
-Style: Flat warm colors, thick smooth dark-brown outlines, simplified rounded shapes, minimal gentle shading, matching the reference. Natural compact proportions, clearly attached arms and hands. Do not copy the reference subject.
-
-Framing: One compact centered scene with both adults and the metronome fully visible inside the square.
-
-Output: 512x512 PNG, RGBA, genuine transparent background. No readable text, numerals, labels, logos, or watermark.",A metrical pattern gives the reader and listener a steady poetic rhythm.,韻律のパターンが、読み手と聞き手に一定の詩のリズムを伝える。,generated,1fe7719077ad870dc26feed8b23e1c3e4d47186f10be5a42ad800ad07b44aaae,,,"512x512 RGBA PNG; alpha extrema (0,255). Visual check: poem reader and listener follow a beat beside metronome; compact cartoon forms."
+Output: 512x512 PNG, RGBA, genuine transparent background. Allow only essential scansion marks ˘ and / above the verse line; no legible poem, dialogue, or explanatory captions. No incidental captions, speech balloons, logos or watermark.",作成済み,,references/invidious.png,metrical,,rhythmic,,,,,prompt_ready,,,,
 mutilation.png,切断,切断,"Subject: A damaged classical statue with an arm broken completely away.
 
 Composition: Show a marble statue of an adult figure on a low museum plinth, one arm ending at a visibly fractured shoulder. The detached arm lies beside the base with matching broken surfaces. Keep the stone texture clear, making the complete severing apparent without depicting a living person’s injury.
@@ -2285,15 +2237,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,mutilation,,"an act or instance of destroying, removing, or severely damaging a limb or other body part of a person or animal",,"Draw a simple, friendly 2D cartoon matching the attached invidious.png very closely. Subject: mutilation shown non-graphically on a damaged marble bust.
-
-Composition: Show a broad-shouldered, compact adult marble bust on a short museum pedestal. One upper arm is broken away at the shoulder, and the detached stone arm rests beside the pedestal with a matching fractured end. Make the damage unmistakable while keeping it clearly a statue, with no living person's injury and no gore.
-
-Style: Flat warm ivory and pale gray colors, thick smooth dark-brown outlines, simplified rounded shapes, minimal gentle shading, matching the reference. Keep the bust wide and compact, not tall or slender. Do not copy the reference subject.
-
-Framing: One compact centered composition; show the complete bust, pedestal, and detached stone arm within the square with space around them.
-
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, or watermark.",The statue's mutilation is shown by its broken arm beside the fractured shoulder.,彫像の肩から腕が折れ、砕けた腕が隣に置かれている。,generated,5e84b00f97b27eee78263d4022427b66e9bfc78782ee5c58fd71139103a95366,,,"512x512 RGBA PNG; alpha extrema (0,255). Rejected first narrow full statue; final compact marble bust clearly shows detached arm without gore."
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,mutilation,,"an act or instance of destroying, removing, or severely damaging a limb or other body part of a person or animal",,,,,prompt_ready,,,,
 oar.png,オール、かい,オール,"Subject: A single wooden rowing implement resting across a boat.
 
 Composition: Show one long wooden pole with a broad flattened blade at one end and a rounded handgrip at the other, laid diagonally across a small rowboat. The shaft rests in an open rowlock, with the blade extending over the water and the grip inside the boat.
@@ -2302,15 +2246,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,oar,,a long pole with a broad blade at one end used for propelling or steering a boat,,"Draw a simple, friendly 2D cartoon matching the attached invidious.png very closely. Subject: one wooden oar used to propel or steer a boat.
-
-Composition: Show a small, simple rowboat partly in view. Place one complete long wooden oar diagonally through an open rowlock, with its broad flat blade projecting over blue water and its rounded grip inside the boat. Make the blade and shaft clearly one connected object.
-
-Style: Flat warm colors, thick smooth dark-brown outlines, simplified rounded shapes, minimal gentle shading, matching the reference. Do not copy the reference subject.
-
-Framing: One compact centered composition; show the full oar and enough of the boat and water to make its use clear, all inside the square.
-
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, or watermark.","The oar rests through a rowlock, its broad blade over the water beside the boat.",オールは船べりの金具に掛かり、幅広いブレードが水面に伸びている。,generated,0105c36f2877e3c63ef794ba4f7dc6304e09cd2e6c46e136d5ea8c21717d950b,,,"512x512 RGBA PNG; alpha extrema (0,255). Visual check: complete oar crosses rowlock, with blade over water and grip in boat; approved cartoon outlines."
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,oar,,a long pole with a broad blade at one end used for propelling or steering a boat,,,,,prompt_ready,,,,
 overhaul.png,徹底的に点検する、整備する,徹底的に点検する,"Subject: A mechanic carefully inspecting a partially dismantled engine.
 
 Composition: Show an adult mechanic examining an engine on a sturdy bench, with its casing removed and components arranged neatly in order beside it. The mechanic checks a gear with a small measuring tool while a clean replacement gasket waits nearby. Keep the inspection thorough and the parts mechanically coherent.
@@ -2319,15 +2255,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,overhaul,,to examine thoroughly,,"Draw a simple, friendly 2D cartoon matching the attached invidious.png very closely. Subject: a mechanic overhauling an engine by examining it thoroughly.
-
-Composition: Show an adult mechanic at a workbench examining an engine with its outer casing removed. Arrange a few distinct gears and one clean gasket neatly beside it. The mechanic checks a gear with a small measuring tool. Keep the parts simple and mechanically plausible.
-
-Style: Flat warm colors, thick smooth dark-brown outlines, simplified rounded shapes, minimal gentle shading, matching the reference. Natural compact body proportions and clearly attached arms and hands. Do not copy the reference subject.
-
-Framing: One compact centered scene, mechanic and engine fully visible inside the square, with space around them.
-
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, or watermark.",The mechanic overhauls the engine by inspecting its gears and replacing a gasket.,整備士は歯車を点検し、ガスケットを交換してエンジンを分解整備している。,generated,1a614135fd39c2fe61f8562137aa6cf2b654592169c2d64546f9a69da055130d,,,"512x512 RGBA PNG; alpha extrema (0,255). Visual check: mechanic checks a gear beside an opened engine, loose gears and gasket; compact reference-style cartoon."
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,overhaul,,to examine thoroughly,,,,,prompt_ready,,,,
 para-.png,落下傘兵,落下傘兵,"Subject: A parachuting soldier descending under an open canopy.
 
 Composition: Show an adult soldier descending beneath a fully inflated round parachute, with suspension lines connecting symmetrically to a secure harness. The soldier holds the risers, knees slightly bent for the approaching landing, and carries a compact equipment pack. Keep the ground clear and omit weapons, insignia, and lettering.
@@ -2336,15 +2264,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,para-,,parachute; parachutist,,"Draw a simple, friendly 2D cartoon matching the attached invidious.png very closely. Subject: a parachutist descending under an open parachute.
-
-Composition: Show one adult paratrooper beneath a fully inflated round canopy. Clearly visible suspension lines connect evenly to a secure harness; the person holds the risers with knees slightly bent for landing and wears a small equipment pack. Keep the ground minimal; no weapons, insignia, or lettering.
-
-Style: Flat warm colors, thick smooth dark-brown outlines, simplified rounded shapes, minimal gentle shading, matching the reference. Give the person compact, natural proportions, not a long thin silhouette. Do not copy the reference subject.
-
-Framing: One centered composition with complete canopy, lines, and person visible inside the square.
-
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, or watermark.","The para- prefix appears in parachutist, shown descending beneath an open parachute.",開いたパラシュートの下を降下する兵士が、「para-」を含む語の例になっている。,generated,405a27d339ad00d185e672ecceaa6d78c24a0c4b7f84619e2e0ce485c071bc4f,,,"512x512 RGBA PNG; alpha extrema (0,255). Visual check: complete canopy, lines, and compact parachutist visible; no weapons or markings."
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,para-,,parachute; parachutist,,,,,prompt_ready,,,,
 perversion.png,逸脱,逸脱,"Subject: A fictional charity treasurer corrupting an entrusted purpose for personal gain.
 
 Composition: Show a fictional adult treasurer diverting donated coins from a communal food fund into a private purse beneath the desk. Empty food baskets wait for distribution nearby, and a volunteer notices with alarm. Keep the entrusted collection bowl and concealed personal purse clearly distinct, exposing the misuse of the original charitable purpose.
@@ -2353,15 +2273,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,perversion,,deviation,,"Draw a simple, friendly 2D cartoon matching the attached invidious.png very closely. Subject: perversion of a charitable purpose for personal gain.
-
-Composition: Show a fictional adult charity treasurer secretly moving donated coins from a bowl marked only by a simple food symbol into a private purse under a desk. Beside the desk, empty food baskets wait for distribution, while a volunteer notices the diversion with alarm. Make the misuse clear without any written labels.
-
-Style: Flat warm colors, thick smooth dark-brown outlines, simplified rounded shapes, minimal gentle shading, matching the reference. Natural compact human proportions and clearly attached limbs. Do not copy the reference subject.
-
-Framing: One compact centered scene; include the treasurer, volunteer, coin bowl, purse, and empty baskets fully within the square.
-
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, or watermark.",A perversion of the charity's purpose diverts donated coins from hungry families.,会計係は慈善の目的を歪め、寄付金を私物に移して食料を待つ人々を裏切っている。,generated,113b382188c88e469a497c5fe9306e167b5eba947ed809ee26939679f0ea41a6,,,"512x512 RGBA PNG; alpha extrema (0,255). Visual check: treasurer diverts donation coins into private purse while volunteer notices; compact cartoon proportions."
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,perversion,,deviation,,,,,prompt_ready,,,,
 phagocytosis.png,食作用、貪食,食作用,"Subject: An immune cell engulfing a bacterium with its membrane.
 
 Composition: Show one enlarged immune cell extending two rounded membrane projections around a rod-shaped bacterium. The projections nearly meet above the bacterium, forming a closing pocket continuous with the cell surface. Include a nucleus and a few internal vesicles, keeping the captured microbe outside the cytoplasm until enclosure.
@@ -2370,15 +2282,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,phagocytosis,,the engulfing and usually the destruction of particulate matter by phagocytes that serves as an important bodily defense mechanism against infection by microorganisms and against occlusion of mucous surfaces or tissues by foreign particles and tissue debris,,"Draw a simple, friendly 2D cartoon matching the attached invidious.png very closely. Subject: phagocytosis, an immune cell engulfing a bacterium.
-
-Composition: Show one large rounded immune cell extending two short, rounded membrane arms around a small rod-shaped bacterium. The arms almost meet above it, forming a pocket connected to the cell. Add one simple nucleus and two small internal vesicles. Keep the shapes clear and educational, without microscopic realism or labels.
-
-Style: Flat warm colors, thick smooth dark-brown outlines, simplified rounded shapes, minimal gentle shading, matching the reference. Do not copy the reference subject.
-
-Framing: One compact centered composition with the whole cell and bacterium visible inside the square.
-
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, or watermark.","During phagocytosis, an immune cell surrounds a bacterium before enclosing it.",食作用では、免疫細胞が細菌を取り囲み、細胞内へ取り込む。,generated,80265ca70d3dd86f6c2e7e86b22eff1ba9a57ef3b1a2ebb0ad63bddc164a0ec6,,,"512x512 RGBA PNG; alpha extrema (0,255). Visual check: membrane arms surround a rod-shaped bacterium while nucleus remains inside; simple cell cartoon."
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,phagocytosis,,the engulfing and usually the destruction of particulate matter by phagocytes that serves as an important bodily defense mechanism against infection by microorganisms and against occlusion of mucous surfaces or tissues by foreign particles and tissue debris,,,,,prompt_ready,,,,
 pharynx.png,咽頭,咽頭,"Subject: A sagittal anatomical model highlighting the throat passage behind the mouth.
 
 Composition: Show a side-section head and upper neck model with the shared passage behind the nasal cavity and mouth highlighted warmly. Continue it downward to the entrances of the larynx and esophagus, leaving those separate structures muted. Keep the tongue, soft palate, and airway boundaries anatomically distinct.
@@ -2387,13 +2291,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,pharynx,,throat,,"Draw a simple, friendly 2D cartoon educational anatomy model matching the attached invidious.png's thick rounded dark-brown outlines and gentle shading. Subject: the pharynx, or throat passage behind the mouth.
-
-Composition: Show a clean side-section model of a human head and upper neck, like a simple classroom anatomical model. Highlight the short shared throat passage behind the mouth and nasal cavity in warm coral. Show the tongue, soft palate, windpipe entrance, and esophagus as distinct muted shapes. Keep the anatomy clear, simplified, and non-graphic.
-
-Framing: One compact centered profile model, fully visible inside the square.
-
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, or watermark.","The pharynx is the throat passage behind the mouth, shown in side section.",咽頭は口の奥にある喉の通路で、側面の断面図に示されている。,generated,af019df01d032ddf96c6e2fbb0b80e4eec72d6b742510c60169392451ce92348,,,"512x512 RGBA PNG; alpha extrema (0,255). Visual check: highlighted pharynx lies behind oral cavity and above distinct airway/esophagus; clean classroom cross-section."
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,pharynx,,throat,,,,,prompt_ready,,,,
 phishing.png,フィッシング,フィッシング,"Subject: A deceptive attempt to obtain account credentials.
 
 Composition: Show an adult hesitating at a laptop displaying a suspicious message with a fake sign-in panel and password-dot field. A stylized fishing hook reaches toward the password field as a clear security-education metaphor; the person keeps their hands away from the keyboard and no credential or message is readable.
@@ -2402,15 +2300,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech balloons or bubbles, numerals, logos or watermark.",作成済み,,references/invidious.png,phishing,,the practice of tricking Internet users (as through the use of deceptive email messages or websites) into revealing personal or confidential information which can then be used illicitly,,"Draw a simple, friendly 2D cartoon matching the attached invidious.png very closely. Subject: phishing, a deceptive attempt to steal private account information.
-
-Composition: Show a wary adult at a laptop with a blank screen containing a simple fake sign-in panel and password dots only. A small fishing hook on a line reaches toward the password field as a clear visual metaphor. The person pauses with hands away from the keyboard. No readable message or credential appears.
-
-Style: Flat warm colors, thick smooth dark-brown outlines, simplified rounded shapes, minimal gentle shading, matching the reference. Natural compact proportions and clearly attached limbs. Do not copy the reference subject.
-
-Framing: One compact centered composition, person and laptop fully visible inside the square.
-
-Output: 512x512 PNG, RGBA, genuine transparent background. No readable text, labels, speech balloons, numerals, logos, or watermark.",A phishing hook targets a user's password through a fake sign-in panel.,偽のログイン画面に伸びる釣り針が、利用者のパスワードを狙っている。,generated,2f1efc23f3c1e92fe0468d783ea3fbe9e3471e65a9e37dbcb766d501af319684,,,"512x512 RGBA PNG; alpha extrema (0,255). Visual check: wary user and fake sign-in panel with hook targeting password field; no readable credentials."
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech balloons or bubbles, numerals, logos or watermark.",作成済み,,references/invidious.png,phishing,,the practice of tricking Internet users (as through the use of deceptive email messages or websites) into revealing personal or confidential information which can then be used illicitly,,,,,prompt_ready,,,,
 piecemeal.png,少しずつの,少しずつの,"Subject: An adult repairing a fence one small section at a time.
 
 Composition: Show an adult carefully replacing one plank in a long weathered fence. A short finished section with fresh boards stands beside the current repair, while the remaining old boards continue along the same line. Keep a modest stack of replacement planks nearby, emphasizing gradual progress rather than total reconstruction.
@@ -2419,15 +2309,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,piecemeal,,bit by bit,,"Draw a simple, friendly 2D cartoon matching the attached invidious.png very closely. Subject: piecemeal repair of a fence, done bit by bit.
-
-Composition: Show one adult replacing a single weathered fence plank with a fresh board. A short finished section of fresh boards sits directly beside the area being repaired, while the rest of the fence remains old. Place a small stack of spare planks nearby to show gradual progress, not a complete rebuild.
-
-Style: Flat warm colors, thick smooth dark-brown outlines, simplified rounded shapes, minimal gentle shading, matching the reference. Natural compact body proportions, exactly two attached arms and hands. Do not copy the reference subject.
-
-Framing: One compact centered scene, full person and a clear section of fence visible inside the square.
-
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, or watermark.","The fence is repaired piecemeal, one fresh plank at a time.",柵は一度に直すのではなく、新しい板を一枚ずつ継ぎ足して修理している。,generated,cfb6036dcca6a206cf148e1643ada70daad8db7c4668860da73b172654c7b302,,,"512x512 RGBA PNG; alpha extrema (0,255). Visual check: old fence, one new plank being fitted, and finished section show gradual repair; person compact and fully framed."
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,piecemeal,,bit by bit,,,,,prompt_ready,,,,
 polemic.png,論争,論争,"Subject: Two adult speakers arguing opposing positions before an audience.
 
 Composition: Show two adult speakers at facing lecterns, one extending a firm open palm while the other counters with an emphatic gesture. Several seated listeners turn their attention between them. Keep both speakers animated but nonviolent, with plain papers on the lecterns and no political branding.
@@ -2436,15 +2318,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,polemic,,dispute,,"Draw a simple, friendly 2D cartoon matching the attached invidious.png very closely. Subject: a polemic, a heated verbal dispute between two speakers.
-
-Composition: Show two adult speakers at small facing lecterns, each making a firm expressive hand gesture toward the other. Three seated listeners watch attentively between them. Put only a few blank sheets of paper on the lecterns; no slogans or political symbols. Keep the exchange verbal and nonviolent.
-
-Style: Flat warm colors, thick smooth dark-brown outlines, simplified rounded shapes, minimal gentle shading, matching the reference. Natural compact proportions, clearly attached arms and hands. Do not copy the reference subject.
-
-Framing: One compact centered scene; include both speakers and listeners fully within the square with space around them.
-
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, or watermark.",The polemic grows as two speakers dispute opposite claims before attentive listeners.,二人の話者が異なる主張を論じ合い、聴衆が注意深く聞いている。,generated,44bb234e5bab4bf51b3e9817a2b34f46cda39091bc0c28a26f32380e2770839e,,,"512x512 RGBA PNG; alpha extrema (0,255). Visual check: two speakers argue across lecterns as listeners watch; nonviolent, compact, reference-style cartoon."
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,polemic,,dispute,,,,,prompt_ready,,,,
 pout.png,タラ科の魚,タラ科の魚,"Subject: A pouting fish swimming close to a rocky seabed.
 
 Composition: Show a single deep-bodied copper-brown fish in side profile, with a long chin barbel, three separate dorsal fins, and two anal fins. Several pale vertical bands cross its body, and a dark mark sits at the pectoral-fin base. Keep the fish above a small rocky seabed patch.
@@ -2453,15 +2327,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,pout,,cod-like fish,,"Draw a simple, friendly 2D cartoon matching the attached invidious.png very closely. Subject: a pout, a cod-like fish.
-
-Composition: Show one complete deep-bodied copper-brown fish in side view above a small rocky seabed. Give it one long chin barbel, three distinct dorsal fins, two anal fins, several pale vertical body bands, and one dark spot at the base of the side fin. Keep the anatomy simple but these identifying features clear.
-
-Style: Flat warm colors, thick smooth dark-brown outlines, simplified rounded shapes, minimal gentle shading, matching the reference. Do not copy the reference subject.
-
-Framing: Center the whole fish, with the small seabed patch below and generous transparent space around it.
-
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, or watermark.",The pout is a cod-like fish with a chin barbel and pale vertical bands.,パウトは、顎ひげと淡い縦縞を持つ、タラに似た魚である。,generated,b2b2f4b3a65d780d0201bff6fc9f5987d0101be9b1e6f1c13dd9c0ddf9974d90,,,"512x512 RGBA PNG; alpha extrema (0,255). Visual check: cod-like fish with chin barbel, pale bands, three dorsal fins, and seabed."
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,pout,,cod-like fish,,,,,prompt_ready,,,,
 presenter.png,講演者、贈呈者,講演者,"Subject: An adult giving a talk to an audience.
 
 Composition: Show an adult speaker standing beside a small demonstration table, explaining a simple bridge model to three seated listeners. The speaker gestures toward the model with an open hand while one listener raises a question; include no award presentation.
@@ -2470,15 +2336,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,presenter,,one who presents something : a person who formally gives or bestows something (such as an award) or who brings something before the public,,"Draw a simple, friendly 2D cartoon matching the attached invidious.png very closely. Subject: a presenter formally bringing an idea before an audience.
-
-Composition: Show one adult presenter standing beside a small table with a simple bridge model. The presenter gestures toward the model with an open hand while three seated listeners watch; one listener raises a hand with a question. Do not include awards or written material.
-
-Style: Flat warm colors, thick smooth dark-brown outlines, simplified rounded shapes, minimal gentle shading, matching the reference. Natural compact human proportions and clearly attached limbs. Do not copy the reference subject.
-
-Framing: One compact centered scene, presenter, model, and listeners fully visible inside the square.
-
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, or watermark.",The presenter explains a bridge model while listeners watch and one asks a question.,発表者が橋の模型を説明し、聴衆が見守る中、一人が質問している。,generated,2e3c242f1234995c7ebbef4dc51cb491d827bc017a23c34e12fb10bad7d2da0e,,,"512x512 RGBA PNG; alpha extrema (0,255). Visual check: presenter gestures toward bridge model, with three listeners and one raised question; full compact figures."
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,presenter,,one who presents something : a person who formally gives or bestows something (such as an award) or who brings something before the public,,,,,prompt_ready,,,,
 presuppose.png,前提とする、仮定する,前提とする,"Subject: Acting on an assumption already taken for granted.
 
 Composition: Show an adult confidently setting an extra plate and chair for a guest while holding a phone. Their companion looks surprised at the already completed place setting, emphasizing attendance assumed before it has been confirmed; show no caller dialogue.
@@ -2487,15 +2345,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech balloons or bubbles, numerals, logos or watermark.",作成済み,,references/invidious.png,presuppose,,to suppose beforehand,,"Draw a simple, friendly 2D cartoon matching the attached invidious.png very closely. Subject: someone acting on an assumption before it is confirmed.
-
-Composition: Show one adult confidently placing an extra plate and chair at a small dinner table while holding a silent phone. Their companion looks surprised at the already prepared place setting. Make it clear the guest has not arrived and the assumption is unconfirmed; include no caller dialogue or text.
-
-Style: Flat warm colors, thick smooth dark-brown outlines, simplified rounded shapes, minimal gentle shading, matching the reference. Natural compact human proportions and clearly attached arms and hands. Do not copy the reference subject.
-
-Framing: One compact centered scene with both adults and the table fully visible inside the square.
-
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech balloons, numerals, logos, or watermark.","They presuppose a guest will arrive, setting a place before confirmation.",確認前に客が来ると決め込み、食卓にもう一人分を用意している。,generated,9b51bf601e6ce778f4e0109c75d276a4a49e840d68aa19df6c25b38607e4929b,,,"512x512 RGBA PNG; alpha extrema (0,255). Visual check: one adult sets a place while companion reacts; phone is silent and no guest is present."
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech balloons or bubbles, numerals, logos or watermark.",作成済み,,references/invidious.png,presuppose,,to suppose beforehand,,,,,prompt_ready,,,,
 quarterback.png,クォーターバック,クォーターバック,"Subject: An American-football passer preparing to throw from the pocket.
 
 Composition: Show an adult football player wearing a helmet and pads, holding an oval football beside the ear with the throwing elbow bent and the other hand guiding it. Two teammates block defenders several steps ahead. Keep the passer behind the line of protection, with a clear throwing lane.
@@ -2504,15 +2354,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,quarterback,,football position,,"Draw a simple, friendly 2D cartoon matching the attached invidious.png very closely. Subject: a quarterback preparing to pass an American football.
-
-Composition: Show one adult football player in a helmet and pads holding an oval ball beside the shoulder, throwing elbow bent and knees slightly flexed. Two compact teammates stand ahead as blockers, facing a pair of approaching defenders. Place the quarterback behind them with a clear open throwing lane. No team logos or numbers.
-
-Style: Flat warm colors, thick smooth dark-brown outlines, simplified rounded shapes, minimal gentle shading, matching the reference. Give all players sturdy, compact natural proportions with clearly attached limbs; avoid long thin torsos or limbs. Do not copy the reference subject.
-
-Framing: One compact centered scene; keep all players and the ball fully inside the square.
-
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, jersey numbers, logos, or watermark.","The quarterback holds the football behind blockers, ready to pass downfield.",クォーターバックはブロッカーの後ろでボールを構え、前方へパスしようとしている。,generated,e5e2038edcc392651406f46f398aa9ca7ed93916ddd0bc38534996f2a5b78761,,,"512x512 RGBA PNG; alpha extrema (0,255). Visual check: passer holds ball behind blockers with opposing players ahead; compact padded figures, no logos or numbers."
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,quarterback,,football position,,,,,prompt_ready,,,,
 quid@kwo.png,1ポンド,1ポンド,"Subject: A single British one-pound coin resting in an adult’s palm.
 
 Composition: Show an adult’s open palm holding one twelve-sided British coin, with a gold-colored outer ring and silver-colored center. The reverse depicts a rose, leek, thistle, and shamrock rising from a crown, with only “ONE POUND” below. Keep the coin alone and omit all other inscriptions.
@@ -2521,7 +2363,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. Allow only the coin’s real denomination lettering “ONE POUND”; exact monetary value is essential and the slang headword does not appear. No incidental labels, logos or watermark.",作成済み,第一英語義は chew だが、登録済みプロンプトは英国の1ポンド硬貨を描く内容で不一致。語義と語根IDを維持したまま、構図の修正が必要。,references/invidious.png,quid,,chew,,,,,needs_revision,,,,生成前に語義とプロンプトの不一致を検出。画像は未生成。
+Output: 512x512 PNG, RGBA, genuine transparent background. Allow only the coin’s real denomination lettering “ONE POUND”; exact monetary value is essential and the slang headword does not appear. No incidental labels, logos or watermark.",作成済み,,references/invidious.png,quid,,chew,,,,,prompt_ready,,,,
 salutary.png,健康によい,健康によい,"Subject: An adult taking a restorative walk in fresh air.
 
 Composition: Show an adult walking at an easy purposeful pace along a tree-lined path, shoulders relaxed and face refreshed. Comfortable shoes, a small water bottle, and gentle sunlight establish a healthy everyday activity. Keep the path level and the body language energetic without implying a medical cure.
@@ -2530,7 +2372,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,salutary,,beneficial,,"Subject: A small first-aid scene illustrating something salutary and beneficial. Show a tired hiker sitting on a low rock as a companion offers a cup of water and a fresh orange; the hiker visibly feels refreshed. Keep the focus on the helpful restorative gesture, with both people compact and naturally proportioned. Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simple warm 2D cartoon forms, and restrained soft shading. Do not copy its subject or composition. Framing: Single compact scene centered in the square, complete figures and objects within frame, balanced proportions, no elongated bodies. Output: 512x512 PNG, RGBA, genuine transparent background. No text, labels, numerals, logos, or watermark.",A salutary offer of water and fruit refreshes a tired hiker.,水と果物の差し出しが、疲れたハイカーの回復を助けている。,generated,94452e273e19ae102b8c16f46632f4697595f338794d92dd041a567c5af066a9,,,
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,salutary,,beneficial,,,,,prompt_ready,,,,
 self-assembly.png,自己組織化,自己組織化,"Subject: Magnetic microspheres joining into an ordered chain on water.
 
 Composition: Show a magnified view of tiny nickel magnetic spheres supported by surface tension at a water surface. Several spheres have joined into a curved chain, while a loose sphere approaches its open end under magnetic attraction. Keep every sphere touching the water and no hand or tool assembling them.
@@ -2539,7 +2381,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,self-assembly,,the process by which a complex macromolecule (such as collagen) or a supramolecular system (such as a virus) spontaneously assembles itself from its components,,"Subject: Magnetic microspheres joining into an ordered chain on water. Composition: Show a magnified view of tiny nickel magnetic spheres supported by surface tension at a water surface. Several spheres have joined into a curved chain, while a loose sphere approaches its open end under magnetic attraction. Keep every sphere touching the water and no hand or tool assembling them. Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition. Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame. Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",Self-assembly forms a curved chain as magnetic spheres join on the water.,磁気を帯びた球が水面でつながり、自己組織化して曲線状の列を作っている。,generated,bcef9a586b0bb7458e4891aeae3c7b8a061c9789a09a424cdb4116e957bb52e2,,,
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,self-assembly,,the process by which a complex macromolecule (such as collagen) or a supramolecular system (such as a virus) spontaneously assembles itself from its components,,,,,prompt_ready,,,,
 selfie.png,セルフィー、自撮り写真,セルフィー,"Subject: An adult photographing themselves with a handheld phone.
 
 Composition: Show an adult extending one arm to hold a smartphone at face height, with the front-facing screen turned toward them. Their smiling face appears on the screen in the same pose while their free hand rests naturally at their side. Keep the phone, arm, and reflected framing consistent.
@@ -2548,7 +2390,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,selfie,,an image that includes oneself (often with another person or as part of a group) and is taken by oneself using a digital camera especially for posting on social networks,,"Subject: An adult photographing themselves with a handheld phone. Composition: Show an adult extending one arm to hold a smartphone at face height, with the front-facing screen turned toward them. Their smiling face appears on the screen in the same pose while their free hand rests naturally at their side. Keep the phone, arm, and reflected framing consistent. Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition. Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame. Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",The selfie shows a smiling man photographing himself with his phone.,自撮りには、スマートフォンで自分を撮影する男性の笑顔が写っている。,generated,bdca1599bd0095bf106d6451be156eae77b8b6c25f97dda502c911b074df5521,,,
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,selfie,,an image that includes oneself (often with another person or as part of a group) and is taken by oneself using a digital camera especially for posting on social networks,,,,,prompt_ready,,,,
 solicitation.png,懇請,懇請,"Subject: An adult earnestly asking a neighbor for help.
 
 Composition: Show an adult clasping their hands at chest height while pleading with a neighbor beside a heavy fallen branch. The neighbor pauses with work gloves in hand, listening carefully. Keep the requester’s expression earnest and the blocked garden gate visible, grounding the appeal in a specific need.
