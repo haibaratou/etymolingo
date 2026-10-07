@@ -928,7 +928,17 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,,,,,,,,,,,,
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,undead,,"not dead : returned from or as if from death; especially, in stories about vampires and zombies : reanimated after death by supernatural means —often used as a collective noun —used especially as the undead",,"Subject: A fictional reanimated skeleton climbing from an old coffin.
+
+Composition: Show a clearly fantastical skeleton sitting up inside an open wooden coffin, gripping its rim with bony hands. One foot has already reached the floor while the other remains inside. Give the skeleton a startled animated posture, with no flesh, wounds, blood, or realistic bodily decay.
+
+Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
+
+Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.
+
+Shared production requirements: Include only the people, characters and objects specified above. Follow every composition detail and exact quantity, and keep the complete composition inside the square.",An undead skeleton climbs from an open coffin with one foot reaching the floor.,アンデッドの骸骨が開いた棺から起き上がり、片足を床へ伸ばしている。,generated,2dcadf97467ca53aadc5d41b2a15d2cc8a6a7eed56acf85017f35af94034cd68,225a7b636cc9c33627deea41e24f8c9ee6ea26f5,2026-10-07T17:47:37+09:00,"生成結果ID exec-3154d537-57bb-4971-8a4d-3f11a285e75d.png を行キー 024/undead.png に対応付け。実PNGを目視し、開いた棺から起き上がる骸骨と外へ出した片足を確認。流血・損傷・腐敗表現なし。512x512 RGBA、実アルファ(0, 255)を検証。英語に見出し語 undead を正確に含む。語根IDと語義SHA256は担当CSVで未特定のため reviewed にせず。"
 universalism.png,普遍主義,普遍主義,"Subject: A religious belief extending salvation to everyone.
 
 Composition: Show a fictional religious speaker in a simple chapel opening both hands toward a diverse group seated together, with an open doorway welcoming further arrivals. No person is separated or excluded; keep the setting peaceful and avoid a written doctrinal claim.
@@ -937,7 +947,17 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech balloons or bubbles, numerals, logos or watermark.",作成済み,,references/invidious.png,,,,,,,,,,,,
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech balloons or bubbles, numerals, logos or watermark.",作成済み,,references/invidious.png,universalism,,a theological doctrine that all human beings will eventually be saved,,"Subject: A religious belief extending salvation to everyone.
+
+Composition: Show a fictional religious speaker in a simple chapel opening both hands toward a diverse group seated together, with an open doorway welcoming further arrivals. No person is separated or excluded; keep the setting peaceful and avoid a written doctrinal claim.
+
+Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
+
+Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech balloons or bubbles, numerals, logos or watermark.
+
+Shared production requirements: Include only the people, characters and objects specified above. Follow every composition detail and exact quantity, and keep the complete composition inside the square.","Universalism promises salvation to all, as a speaker welcomes a diverse congregation.",話し手が多様な人々を迎える場面で、普遍主義はすべての人の救済を説いている。,generated,a7694095ac0a1fdb4f2413f5e4a4d58b67288e0a61f56cbaf0f5a6e8630290fd,7751638a153f7357bed347b3119872a7382eb4f6,2026-10-07T17:49:04+09:00,"生成結果ID exec-c169ee86-b68d-41f0-8b8b-1486c0b39f15.png を行キー 024/universalism.png に対応付け。実PNGを目視し、礼拝堂で両手を広げる話し手、集まった多様な人々、迎え入れる開いた扉を確認。512x512 RGBA、実アルファ(0, 255)を検証。英語に見出し語 universalism を正確に含む。語根IDと語義SHA256は担当CSVで未特定のため reviewed にせず。"
 urbanism.png,アーバニズム,アーバニズム,"Subject: City residents sharing a lively neighborhood sidewalk.
 
 Composition: Show a compact urban sidewalk where adults walk to a corner grocer, wait beside a bus shelter, and greet a neighbor outside an apartment entrance. Closely spaced multistory buildings rise behind them. Keep the connected street scene human-scaled, with everyday shared public space as the focus.
@@ -946,7 +966,17 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,,,,,,,,,,,,
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,urbanism,,the characteristic way of life of city dwellers,,"Subject: City residents sharing a lively neighborhood sidewalk.
+
+Composition: Show a compact urban sidewalk where adults walk to a corner grocer, wait beside a bus shelter, and greet a neighbor outside an apartment entrance. Closely spaced multistory buildings rise behind them. Keep the connected street scene human-scaled, with everyday shared public space as the focus.
+
+Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
+
+Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.
+
+Shared production requirements: Include only the people, characters and objects specified above. Follow every composition detail and exact quantity, and keep the complete composition inside the square.",Urbanism is visible in neighbors greeting each other along a busy city sidewalk.,にぎやかな街の歩道で、住民同士があいさつを交わす都市の日常が描かれている。,generated,c363e2ea00d18927605fe44bb05c3b058bba8925996409491b93f85146ae958e,c21a577ae0060d3795a4081c15ca0a3b0ed42828,2026-10-07T17:50:22+09:00,"生成結果ID exec-1b48ba7e-562e-4688-a26b-251f54fa0543.png を行キー 024/urbanism.png に対応付け。実PNGを目視し、街の歩道、食料品店、バス停、集合住宅前での住民の交流を確認。512x512 RGBA、実アルファ(0, 255)を検証。英語に見出し語 urbanism を正確に含む。語根IDと語義SHA256は担当CSVで未特定のため reviewed にせず。"
 well-meaning.png,善意の,善意の,"Subject: An adult trying to help despite making a small harmless mistake.
 
 Composition: Show an adult enthusiastically bringing a very large watering can to a friend’s tiny potted cactus. The helper smiles warmly and carefully offers the can while the friend gently signals to stop. Keep the water inside the can, emphasizing the sincere helpful intention before any mishap.
