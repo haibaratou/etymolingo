@@ -1032,7 +1032,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,,,,,,,,,,,,
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,担当CSVの対象語義「ブリ地方」と作業一覧の第一英語義「soft surface-ripened cheese」が不一致。同綴りの地名・食品の語義対応を確認するまで生成しない。,references/invidious.png,Brie,,a soft surface-ripened cheese with a whitish rind and a pale yellow interior,,,,,needs_revision,,,,未生成。Brieの地名とチーズの語義が食い違うため要確認。
 Cypriot.png,キプロス島人、キプロス島語,キプロス島人,"Subject: A fictional person from Cyprus indicating their island.
 
 Composition: Show an adult beside a globe centered on the eastern Mediterranean, touching their chest with one hand and pointing with the other to Cyprus’s clearly shaped island outline. Use contemporary clothing and no ethnic, religious, or linguistic stereotyping.
@@ -1041,7 +1041,17 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech balloons or bubbles, numerals, logos or watermark.",作成済み,,references/invidious.png,,,,,,,,,,,,
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech balloons or bubbles, numerals, logos or watermark.",作成済み,,references/invidious.png,Cypriot,,"of, relating to, or characteristic of Cyprus or its people",,"Subject: A fictional person from Cyprus indicating their island.
+
+Composition: Show an adult beside a globe centered on the eastern Mediterranean, touching their chest with one hand and pointing with the other to Cyprus's clearly shaped island outline. Use contemporary clothing and no ethnic, religious, or linguistic stereotyping.
+
+Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
+
+Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, explanatory labels, speech balloons or bubbles, numerals, logos or watermark.
+
+Shared production requirements: Include only the people, characters and objects specified above. Follow every composition detail and exact quantity, and keep the complete composition inside the square.",A Cypriot points to the island on a globe while placing one hand on their chest.,キプロス人が胸に手を当て、地球儀のキプロス島を指している。,generated,69bf34dfccdf42bc4b0331286137b8e70f4e3fba464ddb70b6917e6c1c80814f,3920b199e461e771aa7219d4855d806b4a1e2bd0,2026-10-07T17:54:36+09:00,"生成結果ID exec-80235ef8-f9ac-44e2-9665-5cf8a7831f9e.png を行キー 024/Cypriot.png に対応付け。実PNGを目視し、成人が胸に手を置いて地球儀の東地中海にある島を指す様子を確認。民族・宗教・言語の記号化なし。512x512 RGBA、実アルファ(0, 255)を検証。英語に見出し語 Cypriot を正確に含む。語根IDと語義SHA256は担当CSVで未特定のため reviewed にせず。"
 Gambia.png,ガンビア,ガンビア,"Subject: A raised geographical model of the Gambia River and its estuary.
 
 Composition: Show a long winding river flowing west through a raised model of West Africa into a broad Atlantic estuary. Emphasize the continuous watercourse and mangrove-fringed lower banks, with the narrow surrounding country outlined subtly along its sides. Keep the ocean mouth, inland bends, and direction of drainage legible.
@@ -1050,7 +1060,7 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,,references/invidious.png,,,,,,,,,,,,
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.",作成済み,担当CSVの対象語義「ガンビア」と作業一覧の第一英語義（西アフリカのガンビア川）が一致するか不明。国名と河川名の語義・語根対応を確認するまで生成しない。,references/invidious.png,Gambia,,river 700 miles (1126 kilometers) long in western Africa flowing west from Fouta Djallon in western Guinea through Senegal into the Atlantic in Gambia,,,,,needs_revision,,,,未生成。国名・河川名の同綴り語義を確認するため保留。
 Midlands.png,ミッドランズ,ミッドランズ,"Subject: A relief map highlighting the central region of England.
 
 Composition: Show a freestanding relief model of Great Britain viewed from above at a slight angle. Tint the central English land around Birmingham and Nottingham warmly, leaving northern England, southern England, Wales, and Scotland subdued. Keep the island’s recognizable coastlines visible and add no town labels.
