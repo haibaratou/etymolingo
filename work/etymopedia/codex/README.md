@@ -1,6 +1,8 @@
 # codex担当の画像生成プロンプト
 
-画像生成の担当別フォルダ。全体のルールは[WORKFLOW](../WORKFLOW.md)、担当一覧は[上のREADME](../README.md)を参照。
+画像生成の担当別フォルダ。現在の生成作業は[CONTINUE.md](CONTINUE.md)に従って続行し、実際に使ったプロンプト・英日解説・検品結果を担当CSVへ追記する。既存行の順序・画像名・担当を変えず、外部から進行中CSVを一括差し替えしない。
+
+全体のルールは[WORKFLOW](../WORKFLOW.md)、担当一覧は[上のREADME](../README.md)を参照。
 
 - [prompt_rows_007.csv](prompt_rows_007.csv)
 - [prompt_rows_008.csv](prompt_rows_008.csv)
