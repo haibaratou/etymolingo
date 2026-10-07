@@ -1,0 +1,1536 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"></head><body>
+<title>Kanji Survivor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=JetBrains+Mono:wght@700;800&family=Noto+Serif+JP:wght@900&family=Zen+Kaku+Gothic+New:wght@500;700&family=Zen+Old+Mincho:wght@900&display=swap">
+<style>
+/* Layout: an endless 原稿用紙 world under a lagging camera; thin DOM HUD at the edges; modal sheets for title / level-up / results.
+   Single deliberate look: washi paper by day, sumi night when an ancient god descends. */
+:root{
+  --washi:#ebe8e1; --sumi:#17140f; --shu:#d23a24; --ai:#1f3f6e; --kin:#c6a046; --yoru:#0e0d12;
+  --f-display:"Dela Gothic One","Hiragino Sans","Yu Gothic",sans-serif;
+  --f-glyph:"Zen Old Mincho","Noto Serif JP","Hiragino Mincho ProN","Yu Mincho",serif;
+  --f-ui:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",system-ui,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+  color-scheme:light;
+}
+[hidden]{display:none!important}
+html,body{height:100%;overflow:hidden;background:var(--washi);color:var(--sumi);font-family:var(--f-ui);overscroll-behavior:none}
+body{-webkit-user-select:none;user-select:none;touch-action:manipulation}
+#cv{position:fixed;left:0;top:0;display:block}
+#ime{position:fixed;left:0;top:0;width:2px;height:2px;opacity:0;font-size:16px;border:0;padding:0;background:transparent;color:transparent;caret-color:transparent;ime-mode:disabled}
+.hud{position:fixed;pointer-events:none;z-index:5}
+#hudTop{left:0;right:0;top:0;padding:calc(env(safe-area-inset-top,0px) + 12px) 16px 0;display:flex;align-items:flex-start;gap:16px;justify-content:space-between}
+.stat{display:flex;flex-direction:column;gap:2px}
+.stat b{font-family:var(--f-mono);font-size:clamp(20px,3.4vw,30px);line-height:1;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.stat small{font-size:11px;letter-spacing:.18em;font-weight:700;opacity:.65}
+#lvBox{flex:1;max-width:420px;display:flex;flex-direction:column;gap:6px}
+#lvRow{display:flex;align-items:baseline;gap:8px}
+#lvRow b{font-family:var(--f-display);font-size:22px;color:var(--shu)}
+#lvRow small{font-size:11px;letter-spacing:.18em;font-weight:700;opacity:.65}
+#xpBar{height:8px;background:color-mix(in srgb,var(--sumi) 12%,transparent);overflow:hidden}
+#xpFill{height:100%;width:0;background:var(--sumi);transition:width .15s}
+#topRight{display:flex;gap:10px}
+#autoBtn[aria-pressed="true"]{background:var(--shu);color:var(--washi);border-color:var(--shu)}
+#autoTag{left:50%;top:calc(env(safe-area-inset-top,0px) + 64px);transform:translateX(-50%);background:var(--shu);color:var(--washi);font-weight:700;font-size:12px;letter-spacing:.12em;padding:4px 12px}
+#pauseBtn,#muteBtn,#autoBtn,#restartBtn{pointer-events:auto;width:36px;height:36px;border:2px solid currentColor;background:transparent;color:inherit;font-family:var(--f-display);font-size:15px;cursor:pointer;border-radius:2px}
+#topRight .tbtn{width:auto;padding:0 10px;font-family:var(--f-ui);font-weight:700;font-size:13px;white-space:nowrap}
+@media (max-width:560px){#topRight .tbtn{font-size:11px;padding:0 6px}}
+button:focus-visible{outline:3px solid var(--shu);outline-offset:2px}
+#combo{right:10px;top:calc(env(safe-area-inset-top,0px) + 70px);writing-mode:vertical-rl;font-family:var(--f-display);color:var(--shu);font-size:clamp(30px,5.4vw,56px);line-height:1;text-shadow:3px 3px 0 color-mix(in srgb,var(--sumi) 18%,transparent)}
+#combo small{font-size:.32em;color:var(--sumi);letter-spacing:.2em;margin-top:.4em;font-family:var(--f-mono)}
+#combo.pop{animation:pop .22s ease-out}
+@keyframes pop{0%{transform:scale(1.35) rotate(-4deg)}100%{transform:none}}
+#me{left:16px;bottom:calc(env(safe-area-inset-bottom,0px) + 14px);display:flex;align-items:flex-end;gap:12px}
+#meGlyph{font-family:var(--f-glyph);font-size:54px;line-height:1;color:var(--shu)}
+#meInfo{display:flex;flex-direction:column;gap:4px}
+#meInfo small{font-size:11px;font-weight:700;letter-spacing:.12em}
+#meInfo small b{font-family:var(--f-mono);font-size:15px;color:var(--shu)}
+#hp{display:flex;gap:3px;font-family:var(--f-glyph);font-size:22px}
+#hp span{color:var(--shu)}
+#hp span.lost{color:transparent;-webkit-text-stroke:1px color-mix(in srgb,var(--sumi) 45%,transparent)}
+#arms{right:16px;bottom:calc(env(safe-area-inset-bottom,0px) + 14px);display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end;max-width:46vw}
+.arm{width:40px;height:46px;border:2px solid var(--sumi);display:flex;flex-direction:column;align-items:center;justify-content:center;background:color-mix(in srgb,var(--washi) 80%,transparent)}
+.arm i{font-style:normal;font-family:var(--f-glyph);font-size:22px;line-height:1}
+.arm em{font-style:normal;font-size:8px;letter-spacing:2px;color:var(--shu)}
+.arm.jk{width:auto;padding:0 6px}.arm.jk i{font-size:18px}
+.arm.fu{border-color:var(--kin);background:var(--sumi);color:var(--kin)}
+#hint{left:50%;bottom:calc(env(safe-area-inset-bottom,0px) + 90px);transform:translateX(-50%);font-size:13px;font-weight:700;letter-spacing:.08em;opacity:.75;white-space:nowrap}
+#banner{left:0;right:0;top:30%;display:flex;flex-direction:column;align-items:center;gap:6px;z-index:6}
+#banner .band{background:var(--shu);color:var(--washi);font-family:var(--f-display);font-size:clamp(40px,10vw,110px);line-height:1.1;padding:.05em .5em;transform:skewX(-10deg);box-shadow:8px 8px 0 var(--sumi)}
+#banner.small{top:auto;bottom:calc(env(safe-area-inset-bottom,0px) + 120px)}
+#banner.small .band{font-size:clamp(22px,4.5vw,34px);transform:none;box-shadow:4px 4px 0 var(--sumi);padding:.15em .6em}
+#banner.small .sub{font-size:11px;letter-spacing:.2em}
+#banner .sub{font-family:var(--f-mono);font-size:14px;letter-spacing:.4em;background:var(--sumi);color:var(--washi);padding:4px 12px}
+#banner.go{animation:bnr 1.3s cubic-bezier(.2,.9,.2,1) forwards}
+#banner.god .band{background:var(--yoru);color:var(--kin);box-shadow:8px 8px 0 var(--shu);border:2px solid var(--kin)}
+@keyframes bnr{0%{opacity:0;transform:translateX(-60vw)}14%{opacity:1;transform:none}78%{opacity:1;transform:none}100%{opacity:0;transform:translateX(60vw)}}
+body.night .hud:not(#combo):not(#banner){color:var(--washi)}
+body.night #xpBar{background:color-mix(in srgb,var(--washi) 18%,transparent)}
+body.night #xpFill{background:var(--kin)}
+body.night .arm{background:var(--yoru);border-color:var(--washi)}
+body.night #combo small{color:var(--washi)}
+/* sheets */
+.sheet{position:fixed;inset:0;z-index:10;display:flex;align-items:center;justify-content:center;padding:calc(env(safe-area-inset-top,0px) + 16px) 16px calc(env(safe-area-inset-bottom,0px) + 16px);overflow:auto}
+.sheet.dim{background:color-mix(in srgb,var(--washi) 74%,transparent);backdrop-filter:blur(2px)}
+.wrap{max-width:880px;width:100%;display:flex;flex-direction:column;gap:16px;margin:auto}
+.eyebrow{font-weight:700;letter-spacing:.32em;font-size:12px;color:var(--shu)}
+.logo{font-family:var(--f-display);font-size:clamp(44px,10vw,104px);line-height:.92;letter-spacing:-.02em;margin:0}
+.logo span{display:inline-block;color:var(--washi);background:var(--sumi);padding:0 .12em;margin-right:.08em}
+.logo span.s{background:var(--shu)}
+.lede{font-size:15px;line-height:1.75;max-width:62ch;margin:0}
+.row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.lbl{font-size:12px;font-weight:700;letter-spacing:.14em}
+.btn{pointer-events:auto;font-family:var(--f-display);font-size:20px;padding:12px 26px;border:3px solid var(--sumi);background:var(--sumi);color:var(--washi);cursor:pointer;border-radius:2px;box-shadow:5px 5px 0 var(--shu);transition:transform .08s,box-shadow .08s}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--shu)}
+.btn:active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--shu)}
+.btn.ghost{background:transparent;color:var(--sumi);box-shadow:none;font-size:15px;padding:10px 16px}
+.btn[disabled]{opacity:.5;cursor:wait}
+.seg{display:inline-flex;border:2px solid var(--sumi)}
+.seg button{font-family:var(--f-ui);font-weight:700;font-size:13px;padding:8px 12px;border:0;background:transparent;color:var(--sumi);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--sumi);color:var(--washi)}
+.kbd{font-family:var(--f-mono);font-size:12px;border:1.5px solid currentColor;padding:1px 6px;border-radius:2px}
+.credit{font-size:11px;line-height:1.6;opacity:.7;max-width:76ch;margin:0}
+.credit a{color:inherit}
+/* hero select */
+#heroes{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.hero{pointer-events:auto;position:relative;text-align:left;border:2.5px solid var(--sumi);background:var(--washi);color:var(--sumi);padding:10px 12px 12px;cursor:pointer;display:flex;flex-direction:column;gap:4px;font-family:var(--f-ui);border-radius:2px}
+.hero .hc{font-family:var(--f-glyph);font-size:52px;line-height:1}
+.hero .w{font-family:var(--f-mono);font-size:15px;font-weight:800}
+.hero .w .d{color:var(--shu)}
+.hero .ds{font-size:12px;line-height:1.5}
+.hero[aria-pressed="true"]{background:var(--sumi);color:var(--washi);box-shadow:5px 5px 0 var(--shu)}
+.hero[aria-pressed="true"] .hc{color:var(--shu)}
+.hero.locked{opacity:.55;cursor:not-allowed;border-style:dashed}
+.hero.locked .w{display:none}
+.hero .lk{font-size:11px;font-weight:700;color:var(--shu);letter-spacing:.06em}
+/* level-up */
+#levelup .wrap{max-width:1100px}
+#lvBody{display:grid;grid-template-columns:minmax(220px,300px) auto minmax(0,1fr);gap:18px;align-items:center}
+#lvMe{border:4px solid var(--shu);background:var(--washi);color:var(--sumi);padding:18px 16px;display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;box-shadow:7px 7px 0 var(--sumi);border-radius:2px}
+#lvMe .lb{font-size:12px;font-weight:700;letter-spacing:.2em;color:var(--shu)}
+#lvMe .g{font-family:var(--f-glyph);font-size:128px;line-height:1;color:var(--shu)}
+#lvMe .g canvas{width:128px;height:128px;display:block}
+#lvMe .en{font-family:var(--f-mono);font-size:20px;font-weight:800}
+#lvMe .ab{font-size:13px;line-height:1.55}
+#lvMe .p{font-family:var(--f-glyph);font-size:15px;opacity:.7}
+#lvPlus{font-family:var(--f-display);font-size:64px;color:var(--shu);line-height:1;text-align:center}
+#cards{grid-template-columns:1fr!important}
+@media (max-width:760px){#lvBody{grid-template-columns:1fr}#lvMe{flex-direction:row;flex-wrap:wrap;text-align:left;gap:6px 14px}#lvMe .lb{width:100%}#levelup .kcard{padding:10px 14px}#lvMe .g{font-size:84px}#lvMe .g canvas{width:84px;height:84px}#lvPlus{font-size:40px}}
+#lvTitle{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+#lvTitle h2{font-family:var(--f-display);font-size:clamp(34px,6vw,54px);margin:0;color:var(--shu)}
+#cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.kcard{position:relative;border:3px solid var(--sumi);background:var(--washi);color:var(--sumi);padding:14px 16px 16px;display:grid;grid-template-columns:auto 1fr;gap:4px 14px;align-items:center;border-radius:2px;animation:cardIn .35s cubic-bezier(.2,1.3,.4,1) backwards}
+.kcard:nth-child(2){animation-delay:.06s}.kcard:nth-child(3){animation-delay:.12s}
+@keyframes cardIn{from{opacity:0;transform:translateY(30px) rotate(3deg)}}
+.kcard .big{grid-row:span 2;font-family:var(--f-glyph);font-size:72px;line-height:1}
+.kcard .w{font-family:var(--f-mono);font-size:24px;font-weight:800;letter-spacing:.03em;overflow-wrap:anywhere}
+.kcard .w .d{color:var(--shu)}
+.kcard .pips{color:var(--shu);letter-spacing:2px;font-size:12px;font-weight:700}
+.kcard .ds{grid-column:1/-1;font-size:13px;line-height:1.6;margin-top:6px;border-top:1px solid color-mix(in srgb,var(--sumi) 25%,transparent);padding-top:8px}
+.kcard.on{box-shadow:6px 6px 0 var(--shu);transform:translateY(-3px)}
+.kcard.got{animation:got .4s forwards}
+@keyframes got{50%{transform:scale(1.08)}100%{transform:scale(1);background:var(--shu);color:var(--washi)}}
+.kcard.fu,.kcard.evo{background:var(--sumi);color:var(--washi);border-color:var(--kin)}
+.kcard.evo .big{color:var(--shu)}
+.kcard.fu{color:var(--kin)}
+.kcard.evok{border-color:var(--shu);border-width:4px;box-shadow:6px 6px 0 var(--shu)}
+.kcard .evo{display:block;font-family:var(--f-glyph);font-size:22px;font-weight:900;color:var(--shu);margin-bottom:4px}
+.kcard .badge{position:absolute;right:10px;top:10px;font-family:var(--f-display);font-size:12px;background:var(--shu);color:var(--washi);padding:2px 8px}
+/* fusion / evolution */
+#fusion{background:var(--yoru);color:var(--kin);flex-direction:column;gap:18px}
+#fusion .eq{display:flex;align-items:center;gap:clamp(8px,3vw,30px);font-family:var(--f-glyph);font-size:clamp(70px,16vw,160px);line-height:1}
+#fusion .eq .sm{font-size:.42em;font-family:var(--f-ui);font-weight:700}
+#fusion .a{animation:fa .55s cubic-bezier(.6,0,.3,1) forwards}
+#fusion .b{animation:fb .55s cubic-bezier(.6,0,.3,1) forwards}
+#fusion .op{font-family:var(--f-display);font-size:.4em;color:var(--shu);animation:fo .7s forwards}
+#fusion .res{position:absolute;font-size:clamp(150px,34vw,340px);font-family:var(--f-glyph);color:var(--washi);text-shadow:0 0 40px var(--kin),0 0 90px var(--shu);opacity:0;animation:fr 1s .5s cubic-bezier(.2,1.4,.4,1) forwards}
+#fusion .cap{position:absolute;bottom:14%;font-family:var(--f-mono);letter-spacing:.3em;font-size:14px;color:var(--washi);opacity:0;animation:fc .5s .6s forwards;text-align:center;line-height:2}
+#fusion .cap b{font-family:var(--f-display);font-size:28px;letter-spacing:.1em;color:var(--kin);display:block}
+@keyframes fa{0%{transform:translateX(-40vw)}60%{transform:none}100%{transform:translateX(.6em) scale(.2);opacity:0}}
+@keyframes fb{0%{transform:translateX(40vw)}60%{transform:none}100%{transform:translateX(-.6em) scale(.2);opacity:0}}
+@keyframes fo{0%,50%{opacity:1}100%{opacity:0;transform:scale(3)}}
+@keyframes fr{0%{opacity:0;transform:scale(3) rotate(-10deg)}30%{opacity:1;transform:scale(.9)}100%{opacity:1;transform:none}}
+@keyframes fc{to{opacity:1}}
+/* results */
+.stamp{display:inline-block;font-family:var(--f-glyph);font-size:72px;color:var(--washi);background:var(--shu);width:1.25em;height:1.25em;line-height:1.25em;text-align:center;transform:rotate(-8deg);animation:stampIn .5s cubic-bezier(.2,1.6,.4,1)}
+@keyframes stampIn{from{transform:scale(3) rotate(-30deg);opacity:0}}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px}
+.stats div{border-top:2px solid var(--sumi);padding-top:6px}
+.stats b{display:block;font-family:var(--f-mono);font-size:28px;font-variant-numeric:tabular-nums}
+.stats small{font-size:11px;letter-spacing:.16em;font-weight:700;opacity:.65}
+#path{font-family:var(--f-glyph);font-size:30px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#path i{font-style:normal;font-family:var(--f-ui);font-size:14px;color:var(--shu)}
+#slain{display:flex;flex-wrap:wrap;gap:4px;font-family:var(--f-glyph);font-size:24px}
+#slain span{padding:2px 6px;border:1.5px solid var(--sumi)}
+#slain sup{font-family:var(--f-mono);font-size:10px;color:var(--shu);margin-left:2px}
+#unlockMsg{font-weight:700;color:var(--shu)}
+#shareTxt{width:100%;box-sizing:border-box;font-family:var(--f-mono);font-size:12px;padding:8px;border:1.5px solid var(--sumi);background:var(--washi);color:var(--sumi);resize:none}
+#pause .wrap{align-items:center;text-align:center}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition:none!important}}
+@media (max-width:560px){#meGlyph{font-size:40px}#hp{font-size:18px}.arm{width:32px;height:38px}.arm i{font-size:18px}#hint{display:none}.kcard .big{font-size:54px}}
+</style>
+
+<canvas id="cv" aria-label="ゲーム画面"></canvas>
+<input id="ime" type="email" inputmode="email" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" aria-label="タイピング入力">
+
+<div class="hud" id="hudTop" hidden>
+  <div class="stat"><b id="tTime">0:00</b><small>生存 TIME</small></div>
+  <div id="lvBox"><div id="lvRow"><small>段位</small><b id="tLv">一</b><small id="tKills">撃破 0</small></div><div id="xpBar"><div id="xpFill"></div></div></div>
+  <div id="topRight"><button id="autoBtn" aria-label="自動戦闘の切り替え" aria-pressed="false">自</button><button id="muteBtn" aria-label="音を切り替え">音</button><button id="restartBtn" class="tbtn" aria-label="最初からやり直す">やり直す</button><button id="pauseBtn" class="tbtn" aria-label="一時停止">一時停止</button></div>
+</div>
+<div class="hud" id="autoTag" hidden>自動戦闘中 — F6 か「自」で手動に戻す</div>
+<div class="hud" id="combo" hidden></div>
+<div class="hud" id="me" hidden><div id="meGlyph">人</div><div id="meInfo"><small id="meTag">象形文字の「人」</small><div id="hp"></div></div></div>
+<div class="hud" id="arms" hidden></div>
+<div class="hud" id="hint" hidden>字の下の英単語を打つ → 主人公がその字へ突っ込む</div>
+<div class="hud" id="banner" hidden></div>
+
+<section class="sheet dim" id="title">
+  <div class="wrap">
+    <div class="eyebrow">文字の反乱を、文字で制する。</div>
+    <h1 class="logo"><span>漢</span><span class="s">字</span>SURVIVOR</h1>
+    <p class="lede">原稿用紙の上で、すべての漢字が生き物になった。犬は駆け、蛇はうねり、火は揺らめき、木は風にしなる。字の下の英単語を打ち切ると、主人公の「人」がその字へ突っ込んで斬る。字には体力の数字が無い。一撃ごとに字の部品がはがれて別の字になり（森→林→木）、最後の部品を崩すと消える。合体しなかった字は仲間になり、主人公のそばでそれぞれの性格で戦う（ひびを入れるだけで、とどめは必ずタイピングで刺す）。主人公ははじめ象形文字の「人」。段位が上がったら字をひとつ手に入れ、組み合わさる字なら、その場で漢字へ進化する（人＋木＝休、人＋人＝从・比・北・化）。進化した字の意味が、そのまま能力になる。ヒロインの「魚」は、やがて降りてくる巨大な漢詩に囚われている。漢詩は一句ずつ英訳を打って砕く。</p>
+    <div class="row"><span class="lbl">主人公</span><span style="font-size:12px">英単語を打つか、クリックで選ぶ</span></div>
+    <div id="heroes"></div>
+    <div class="row">
+      <span class="lbl">画面の動き</span>
+      <div class="seg" role="group" aria-label="画面の動き"><button id="cStd" aria-pressed="true">標準</button><button id="cCalm" aria-pressed="false">酔いにくい</button></div>
+      <span style="font-size:12px">日本語入力がオンのままでも、キーはそのまま英字として読み取ります</span>
+    </div>
+    <div class="row">
+      <button class="btn" id="startBtn" disabled>読み込み中…</button>
+      <button class="btn ghost" id="watchBtn">自動戦闘で観る</button>
+      <span style="font-size:12px"><span class="kbd">Enter</span> で開始　｜　最高記録 <b id="best" style="font-family:var(--f-mono)">—</b></span>
+    </div>
+    <p class="credit">甲骨文字形: oracle-bone-jgw-1203 — Qing-sheng Li &amp; Yu-lin Bian, <a href="https://github.com/aylqs2025/oracle-bone-jgw-1203" target="_blank" rel="noopener">github.com/aylqs2025/oracle-bone-jgw-1203</a>, CC BY 4.0（線データを描画用に変形）。字形の対応は古い字形の一例で、唯一の祖形を示すものではありません。プロトタイプ。</p>
+  </div>
+</section>
+
+<section class="sheet dim" id="levelup" hidden>
+  <div class="wrap">
+    <div id="lvTitle"><h2 id="lvHead">合体</h2><span style="font-family:var(--f-mono);letter-spacing:.3em;font-size:13px" id="lvSub">FUSE</span><span style="font-size:13px;font-weight:700">いまの字に合わせる素材を一つ選ぶ — 英単語を打ち切る。朱の枠は進化素材</span></div>
+    <div id="lvBody"><div id="lvMe"></div><div id="lvPlus">＋</div><div id="cards"></div></div>
+  </div>
+</section>
+
+<section class="sheet" id="fusion" hidden></section>
+
+<section class="sheet dim" id="pause" hidden>
+  <div class="wrap">
+    <div class="stamp" style="animation:none">止</div>
+    <p class="lede">一時停止中</p>
+    <div class="row" style="justify-content:center"><button class="btn" id="resumeBtn">再開する</button><button class="btn ghost" id="pRestartBtn">最初からやり直す</button><button class="btn ghost" id="pTitleBtn">主人公を選び直す</button></div>
+    <span style="font-size:12px"><span class="kbd">Esc</span> で一時停止／再開</span>
+  </div>
+</section>
+
+<section class="sheet dim" id="over" hidden>
+  <div class="wrap">
+    <div class="row" style="gap:20px"><div class="stamp">敗</div><div><div class="eyebrow">文字に呑まれた</div><h2 class="logo" style="font-size:clamp(32px,7vw,60px)" id="overTitle">0:00 生存</h2></div></div>
+    <div class="stats" id="stats"></div>
+    <div><div class="eyebrow" style="margin-bottom:6px">進化の道すじ</div><div id="path"></div></div>
+    <div id="unlockMsg" hidden></div>
+    <div><div class="eyebrow" style="margin-bottom:8px">倒した文字</div><div id="slain"></div></div>
+    <textarea id="shareTxt" rows="3" readonly aria-label="結果テキスト"></textarea>
+    <div class="row"><button class="btn" id="againBtn">もう一度</button><button class="btn" id="fishBtn" hidden>魚で始める</button><button class="btn ghost" id="titleBtn">主人公を選び直す</button><button class="btn ghost" id="copyBtn">結果をコピー</button><span style="font-size:12px"><span class="kbd">Enter</span> で再挑戦</span></div>
+  </div>
+</section>
+
+<script>
+(()=>{
+'use strict';
+const JGW={"天":{"vb":[0,0,28,37],"p":["M 6 4 L 21 4","M 5 9 L 24 8","M 14 4 L 14 19 L 10 21 L 6 32","M 14 19 L 17 22 L 17 33","M 14 11 L 4 19","M 14 11 L 24 18"],"w":1.3},"王":{"vb":[0,0,28,31],"p":["M 7 10 L 22 10","M 15 4 L 9 26","M 14 10 L 19 26","M 4 27 L 24 27"],"w":1.09},"牛":{"vb":[0,0,23,39],"p":["M 11 11 L 11 35","M 4 4 L 4 17 L 11 20","M 17 4 L 17 17 L 11 21","M 4 24 L 11 29","M 19 23 L 11 29"],"w":1.37},"口":{"vb":[0,0,20,29],"p":["M 4 4 L 5 23 L 10 25 L 16 23","M 16 4 L 16 23","M 5 14 L 16 14"],"w":1.02},"目":{"vb":[0,0,27,20],"p":["M 23 4 L 5 5 L 4 14","M 11 4 L 10 14 L 15 16","M 14 5 L 17 8 L 15 15","M 22 4 L 17 8","M 10 9 L 4 12","M 13 8 L 13 9"],"w":0.95},"羊":{"vb":[0,0,23,31],"p":["M 8 5 L 11 12 L 14 5","M 8 5 L 4 14","M 15 4 L 19 13","M 11 13 L 11 27","M 7 15 L 12 21 L 16 15"],"w":1.09},"鳥":{"vb":[0,0,22,36],"p":["M 10 5 L 10 8 L 12 9 L 13 7 L 13 5 L 10 5","M 10 4 L 6 5 L 5 8","M 6 5 L 10 8","M 13 7 L 13 14 L 18 20 L 18 25","M 11 8 L 7 18 L 11 23 L 11 28","M 10 13 L 11 15 L 10 17","M 14 17 L 11 22","M 13 19 L 14 26","M 7 18 L 6 21 L 9 26","M 7 23 L 4 27 L 5 32","M 6 26 L 7 28"],"w":1.26},"刀":{"vb":[0,0,17,35],"p":["M 13 4 L 9 9 L 10 15 L 13 23 L 12 27 L 6 31","M 10 16 L 4 27"],"w":1.23},"虎":{"vb":[0,0,22,35],"p":["M 15 7 L 12 9 L 7 10","M 15 4 L 15 7","M 15 4 L 12 6 L 9 5","M 9 4 L 9 7","M 12 6 L 12 9","M 7 8 L 7 11","M 11 9 L 11 12 L 9 16 L 9 21 L 11 25","M 12 9 L 14 13 L 15 14 L 12 18 L 13 21 L 16 25 L 13 29 L 14 31 L 18 30","M 11 10 L 8 13 L 5 15 L 5 15","M 4 13 L 5 17","M 13 11 L 10 15","M 11 12 L 13 16","M 13 16 L 9 20","M 9 16 L 12 20 L 11 24","M 11 21 L 15 24","M 15 25 L 7 27","M 6 26 L 7 29 L 8 29"],"w":1.23},"矢":{"vb":[0,0,17,37],"p":["M 9 4 L 9 24","M 9 4 L 4 13","M 9 4 L 13 12","M 9 23 L 7 27 L 11 33","M 9 23 L 11 27 L 5 33"],"w":1.3},"木":{"vb":[0,0,20,35],"p":["M 10 4 L 10 31","M 4 5 L 10 14 L 16 4","M 5 27 L 10 20 L 15 27"],"w":1.23},"林":{"vb":[0,0,27,35],"p":["M 9 7 L 9 25","M 5 10 L 9 16","M 14 7 L 9 14","M 9 16 L 4 24","M 9 16 L 14 23","M 17 4 L 17 30 L 17 31","M 13 6 L 17 13","M 23 5 L 17 13","M 17 20 L 13 27","M 17 20 L 22 23"],"w":1.23},"森":{"vb":[0,0,24,35],"p":["M 9 5 L 9 12","M 7 5 L 9 8","M 12 4 L 9 8","M 9 8 L 6 13","M 9 8 L 12 12","M 7 14 L 7 30","M 5 15 L 7 19","M 10 15 L 7 19","M 7 25 L 4 28","M 7 24 L 10 28","M 14 12 L 15 31","M 11 13 L 14 20","M 20 11 L 14 16","M 14 23 L 11 26","M 14 22 L 20 27"],"w":1.23},"日":{"vb":[0,0,21,19],"p":["M 7 5 L 16 5","M 7 4 L 4 9 L 6 15 L 16 15 L 17 11 L 16 5","M 9 10 L 13 10"],"w":0.74},"月":{"vb":[0,0,18,37],"p":["M 7 6 L 7 30","M 5 4 L 14 14 L 14 22 L 4 33"],"w":1.3},"明":{"vb":[0,0,23,33],"p":["M 12 4 L 4 13 L 4 22 L 14 29","M 9 7 L 11 26","M 6 13 L 8 21","M 13 13 L 13 19","M 13 19 L 19 19","M 13 13 L 19 13","M 19 13 L 19 19","M 14 16 L 18 16"],"w":1.16},"人":{"vb":[0,0,15,37],"p":["M 4 4 L 11 15 L 8 23 L 7 33","M 6 9 L 4 20"],"w":1.3},"舟":{"vb":[0,0,24,32],"p":["M 4 6 L 6 21 L 12 28","M 11 4 L 12 18 L 20 23","M 5 10 L 11 7","M 5 13 L 12 10","M 7 23 L 13 19","M 9 25 L 15 20"],"w":1.12},"見":{"vb":[0,0,25,38],"p":["M 4 8 L 10 10 L 14 12 L 16 9 L 21 9 L 20 4 L 5 8","M 10 6 L 10 9","M 16 5 L 15 8","M 12 12 L 9 22 L 14 24 L 17 25 L 17 29 L 12 29 L 10 26 L 12 34","M 12 13 L 15 24"],"w":1.33},"鬼":{"vb":[0,0,20,38],"p":["M 5 5 L 4 11 L 6 15 L 15 13 L 16 8 L 15 4 L 5 5","M 4 9 L 16 9","M 9 4 L 10 13","M 10 15 L 14 22 L 10 25 L 10 34","M 11 16 L 4 25"],"w":1.33},"山":{"vb":[0,0,29,22],"p":["M 4 18 L 25 18 L 24 4 L 18 17 L 13 5 L 10 17 L 6 9 L 5 17"],"w":1.02},"象":{"vb":[0,0,26,40],"p":["M 19 7 L 22 7 L 22 4 L 14 4 L 5 6 L 4 10 L 7 12 L 11 10 L 15 10 L 17 7 L 17 7","M 9 5 L 7 8 L 10 11 L 9 16 L 6 21 L 9 29 L 15 33","M 11 6 L 12 8 L 10 11 L 12 14 L 19 16","M 12 15 L 15 18 L 14 23 L 10 28","M 10 28 L 20 29 L 19 29","M 15 31 L 13 32 L 13 36"],"w":1.4},"馬":{"vb":[0,0,23,39],"p":["M 4 6 L 11 5 L 14 6 L 18 5 L 19 4 L 19 8 L 12 10 L 8 10 L 4 6","M 11 4 L 11 10 L 12 14 L 11 19 L 14 27","M 14 6 L 14 10 L 15 13 L 15 19 L 18 27 L 12 35","M 11 33 L 15 31","M 15 31 L 15 35","M 5 25 L 5 30","M 5 28 L 17 27","M 5 12 L 5 16","M 5 15 L 19 14","M 15 11 L 17 11","M 16 13 L 18 13","M 16 17 L 19 16"],"w":1.37},"鹿":{"vb":[0,0,29,40],"p":["M 7 7 L 6 11","M 6 11 L 6 11 L 12 15 L 12 15","M 4 7 L 6 8","M 8 7 L 7 9","M 11 4 L 13 8","M 13 8 L 11 12","M 10 9 L 11 9","M 15 6 L 13 7","M 6 14 L 17 11","M 6 14 L 6 19","M 7 19 L 12 17","M 11 12 L 9 17","M 16 12 L 13 16","M 12 17 L 12 23","M 8 36 L 9 25 L 22 19 L 25 22","M 22 21 L 21 35","M 9 29 L 22 26"],"w":1.4},"犬":{"vb":[0,0,23,40],"p":["M 8 6 L 19 10","M 12 4 L 12 10 L 16 17 L 17 27 L 12 33 L 13 36 L 17 32","M 4 12 L 14 13","M 11 13 L 11 26","M 11 19 L 16 19","M 11 22 L 16 22","M 13 13 L 14 26","M 4 25 L 17 27"],"w":1.4},"火":{"vb":[0,0,25,28],"p":["M 11 4 L 11 13 L 8 16 L 8 16","M 5 10 L 8 14","M 5 10 L 4 21 L 7 24 L 18 23 L 21 17 L 17 9 L 16 17 L 11 13 L 11 13"],"w":0.98},"大":{"vb":[0,0,27,36],"p":["M 13 4 L 13 20 L 8 24 L 6 31","M 13 19 L 18 23 L 19 32","M 4 16 L 13 8","M 14 8 L 19 11 L 23 17"],"w":1.26},"水":{"vb":[0,0,20,33],"p":["M 6 7 L 5 15","M 12 4 L 9 12 L 13 21 L 9 29","M 7 20 L 4 27","M 15 8 L 15 15","M 16 22 L 15 29"],"w":1.16},"雨":{"vb":[0,0,20,33],"p":["M 7 4 L 14 4","M 5 15 L 7 6 L 14 6 L 16 14","M 11 6 L 11 18","M 8 14 L 4 25","M 13 13 L 16 24","M 11 22 L 11 29"],"w":1.16},"魚":{"vb":[0,0,25,31],"p":["M 12 4 L 7 10 L 8 15 L 8 22 L 5 27","M 12 4 L 19 10","M 19 10 L 18 15 L 16 20 L 18 24 L 20 27","M 8 21 L 17 21","M 8 10 L 18 10","M 8 15 L 17 16","M 13 10 L 12 22 L 9 24 L 6 25","M 12 22 L 14 24 L 19 27","M 8 13 L 5 15 L 4 20 L 8 16","M 18 13 L 21 14 L 20 21","M 17 16 L 20 18"],"w":1.09},"龍":{"vb":[0,0,18,33],"p":["M 5 4 L 12 4","M 6 4 L 8 8","M 11 4 L 8 8","M 4 9 L 12 8 L 12 8","M 8 8 L 8 12","M 8 12 L 5 14 L 5 18 L 4 19 L 4 19","M 8 12 L 10 14 L 9 17 L 8 19 L 10 19 L 11 17","M 5 15 L 10 15","M 9 9 L 13 11 L 14 14 L 14 18 L 12 21 L 7 23 L 7 26 L 9 29 L 12 29 L 13 26 L 12 23"],"w":1.16},"門":{"vb":[0,0,22,32],"p":["M 4 4 L 4 28","M 9 8 L 9 22","M 13 8 L 13 22","M 18 4 L 18 28","M 4 8 L 9 8","M 4 15 L 9 15","M 4 22 L 9 22","M 13 8 L 18 8","M 13 15 L 18 15","M 13 22 L 18 22"],"w":1.12},"耳":{"vb":[0,0,21,35],"p":["M 13 7 L 8 10 L 5 15 L 4 19 L 5 24 L 7 28 L 11 30 L 16 31 L 17 30","M 12 8 L 10 13 L 11 18 L 12 21 L 14 23 L 17 22","M 13 4 L 15 12","M 15 18 L 15 26","M 12 21 L 11 25 L 12 27 L 15 30 L 17 30"],"w":1.23},"女":{"vb":[0,0,21,36],"p":["M 12 4 L 12 13 L 13 21 L 4 22 L 5 24 L 11 26 L 15 26 L 11 32","M 7 10 L 16 8","M 16 8 L 17 10 L 12 14 L 4 16","M 7 10 L 8 14 L 8 18 L 5 20"],"w":1.26},"戈":{"vb":[0,0,23,35],"p":["M 4 14 L 19 11","M 10 6 L 11 17 L 13 24 L 17 31","M 16 14 L 12 21 L 7 28","M 18 4 L 10 10"],"w":1.23},"弓":{"vb":[0,0,15,34],"p":["M 10 4 L 11 30","M 9 5 L 5 13 L 7 18 L 4 23 L 10 30","M 6 4 L 10 4"],"w":1.19},"虫":{"vb":[0,0,16,30],"p":["M 7 4 L 4 9 L 7 12 L 9 8 L 7 4 L 7 4","M 7 12 L 5 22 L 10 26 L 12 22"],"w":1.05},"龜":{"vb":[0,0,23,32],"p":["M 10 4 L 8 8","M 8 8 L 11 10","M 10 4 L 12 9 L 11 10","M 11 10 L 7 15 L 8 21 L 11 23 L 15 21 L 14 14 L 11 10","M 8 14 L 14 21","M 13 14 L 9 20","M 4 10 L 7 15","M 4 26 L 8 21","M 19 25 L 15 21","M 17 10 L 14 14","M 15 10 L 16 13 L 19 12","M 6 11 L 4 14","M 5 21 L 7 25","M 11 23 L 12 28"],"w":1.12},"子":{"vb":[0,0,24,38],"p":["M 4 17 L 12 13 L 17 18","M 4 17 L 4 26","M 17 18 L 16 25","M 5 17 L 16 25","M 14 16 L 5 26","M 5 26 L 15 25","M 8 26 L 8 31 L 5 33","M 14 26 L 15 34 L 20 29","M 6 7 L 4 11 L 4 16","M 12 4 L 10 9 L 10 14","M 16 7 L 13 14"],"w":1.33}};
+const OR={};
+for(const k in JGW){const g=JGW[k];OR[k]={vb:g.vb,w:g.w,s:g.p.map(d=>{const n=d.match(/-?[\d.]+/g).map(Number);const a=[];for(let i=0;i+1<n.length;i+=2)a.push([n[i],n[i+1]]);return a;})};}
+OR['亀']=OR['龜'];
+
+/* ---------- Content ---------- */
+// 画数（Japanese stroke counts, KANJIDIC via kanji-data）
+const STK={"䲆":22,"䲜":44,"漁":14,"魯":15,"鮮":17,"鯉":18,"鮭":17,"伽":7,"俐":9,"京":8,"一":1,"二":2,"三":3,"十":2,"七":2,"八":2,"九":2,"入":2,"刀":2,"力":2,"又":2,"口":3,"山":3,"川":3,"子":3,"女":3,"土":3,"大":3,"小":3,"弓":3,"夕":3,"千":3,"上":3,"下":3,"工":3,"刃":3,"丸":3,"火":4,"木":4,"水":4,"日":4,"月":4,"手":4,"犬":4,"牛":4,"毛":4,"牙":4,"爪":4,"心":4,"戈":4,"王":4,"天":4,"文":4,"中":4,"五":4,"六":4,"斤":4,"方":4,"止":4,"円":4,"目":5,"石":5,"田":5,"白":5,"皮":5,"矢":5,"立":5,"生":5,"玉":5,"母":5,"穴":5,"出":5,"冬":5,"本":5,"氷":5,"皿":5,"四":5,"左":5,"右":5,"羊":6,"虫":6,"耳":6,"血":6,"竹":6,"糸":6,"米":6,"舟":6,"肉":6,"羽":6,"衣":6,"舌":6,"光":6,"色":6,"角":7,"貝":7,"足":7,"車":7,"言":7,"赤":7,"身":7,"豆":7,"谷":7,"走":7,"麦":7,"里":7,"雨":8,"門":8,"金":8,"毒":8,"炎":8,"林":8,"岩":8,"虎":8,"東":8,"夜":8,"青":8,"長":8,"風":9,"首":9,"星":9,"春":9,"海":9,"神":9,"飛":9,"草":9,"秋":9,"馬":10,"鬼":10,"骨":10,"竜":10,"酒":10,"鳥":11,"蛇":11,"雪":11,"黒":11,"猫":11,"鹿":11,"雲":12,"歯":12,"森":12,"湖":12,"象":12,"嵐":12,"雷":13,"鼠":13,"蜂":13,"夢":13,"鼻":14,"銀":14,"熊":14,"影":15,"蝶":15,"霊":15,"龍":16,"闇":17,"頭":16,"鮫":17,"亀":11,"蟻":19,"鯨":19,"霧":19,"魔":21,"鶴":21,"鷲":23,"鷹":24,"鬱":29,"驫":30,"麤":33,"鱻":33,"怪":8,"物":8,"妖":7,"地":6,"獄":14,"骸":16,"蝙":15,"蝠":15,"蜘":14,"蛛":12,"蟷":19,"螂":16,"百":6,"福":13,"薬":16,"魚":11,
+"人":2,"从":4,"從":11,"縱":17,"慫":15,"聳":17,"樅":15,"比":4,"妣":7,"批":7,"庇":7,"枇":8,"砒":9,"秕":9,"蚍":10,"北":5,"背":9,"褙":14,"化":4,"花":7,"椛":11,"糀":13,"埖":10,"婲":10,"硴":12,"貨":11,"靴":13,"訛":11,"囮":7,"休":6,"咻":9,"庥":9,"貅":13,"髹":16,"鵂":17,"付":5,"府":8,"腐":14,"腑":12,"俯":10,"符":11,"附":8,"咐":8,"拊":8,"苻":8,"跗":12,"駙":15,"鮒":16,"伐":6,"筏":12,"閥":14,"垡":9,"伏":6,"茯":9,"袱":11,"洑":9,"信":9};
+const strokes=w=>[...w].reduce((a,ch)=>a+(STK[ch]||8),0);
+const ROSTER=('一 one|二 two|三 three|十 ten|七 seven|八 eight|九 nine|入 enter|刀 sword|力 power|又 again|口 mouth|山 mountain|川 river|子 child|女 woman|土 soil|大 big|小 small|弓 bow|夕 dusk|千 thousand|上 up|下 down|工 craft|刃 blade|丸 ball|'+
+'火 fire|木 tree|水 water|日 sun|月 moon|手 hand|犬 dog|牛 cow|毛 hair|牙 fang|爪 claw|心 heart|戈 halberd|王 king|天 heaven|文 text|中 middle|五 five|六 six|斤 axe|方 way|止 stop|円 circle|'+
+'目 eye|石 stone|田 field|白 white|皮 skin|矢 arrow|立 stand|生 life|玉 jewel|母 mother|穴 hole|出 exit|冬 winter|本 book|氷 ice|皿 dish|四 four|左 left|右 right|'+
+'羊 sheep|虫 bug|耳 ear|血 blood|竹 bamboo|糸 thread|米 rice|舟 boat|肉 meat|羽 feather|衣 cloth|舌 tongue|光 light|色 color|角 horn|貝 shell|足 foot|車 car|言 word|赤 red|身 body|豆 bean|谷 valley|走 run|麦 wheat|里 village|'+
+'雨 rain|門 gate|金 gold|毒 poison|炎 flame|林 grove|岩 rock|虎 tiger|東 east|夜 night|青 blue|長 long|風 wind|首 neck|星 star|春 spring|海 sea|神 god|飛 fly|草 grass|秋 autumn|'+
+'馬 horse|鬼 ogre|骨 bone|竜 dragon|酒 wine|鳥 bird|蛇 snake|雪 snow|黒 black|猫 cat|鹿 deer|亀 turtle|雲 cloud|歯 tooth|森 forest|湖 lake|象 elephant|嵐 storm|雷 thunder|鼠 rat|蜂 bee|夢 dream|鼻 nose|銀 silver|熊 bear|'+
+'影 shadow|蝶 butterfly|霊 spirit|闇 darkness|頭 head|鮫 shark|蟻 ant|鯨 whale|霧 fog|魔 demon|鶴 crane|鷲 eagle|鷹 hawk|鬱 gloom|驫 stampede|麤 coarse|鱻 fresh|'+
+'怪物 monster|妖怪 yokai|地獄 hell|骸骨 skeleton|蝙蝠 bat|蜘蛛 spider|蟷螂 mantis|百鬼 horde').split('|').map(s=>{const[ch,en]=s.split(' ');return{ch,en,stk:strokes(ch)};});
+// ---- 構成DB: 字＝部品の木。上へ辿れば合体、下へ辿れば分解 ----
+Object.assign(STK,{"大":3,"女":3,"匕":2,"寸":3,"广":3,"宀":3,"丁":2,"示":5,"禾":5,"囗":3,"艹":3,"缶":6,"冖":2,"鬯":10,"彡":3,"男":7,"好":6,"安":6,"字":6,"鳴":14,"秋":9,"焚":12,"禁":13,"相":9,"困":7,"囚":5,"灯":6,"林":8,"森":12,"明":8,"車":7,"金":8,"小":3,"革":9,"戈":4});
+const EN={'人':'person','木':'tree','火':'fire','水':'water','山':'mountain','口':'mouth','日':'sun','月':'moon','手':'hand','犬':'dog','戈':'halberd','貝':'shell','革':'leather','言':'word','艹':'grass','女':'woman','子':'child','田':'field','力':'power','目':'eye','耳':'ear','石':'stone','竹':'bamboo','米':'rice','土':'soil','虫':'bug','羊':'sheep','牛':'cow','馬':'horse','鳥':'bird','刀':'sword','弓':'bow','矢':'arrow','門':'gate','雨':'rain','心':'heart','糸':'thread','衣':'cloth','肉':'meat','大':'big','車':'cart','金':'metal','風':'wind','匕':'spoon','寸':'inch','广':'shelter','宀':'roof','丁':'nail','示':'altar','禾':'grain','囗':'box','缶':'jar','冖':'cover','鬯':'herbs','彡':'streaks',
+ '林':'grove','森':'forest','炎':'flame','明':'bright','休':'rest','化':'change','花':'flower','从':'follow','比':'compare','北':'north','付':'attach','伐':'strike','伏':'crouch','信':'trust','貨':'goods','靴':'shoes','訛':'accent','府':'bureau','腐':'rot','符':'charm','男':'man','好':'like','安':'calm','字':'letter','鳴':'chirp','岩':'rock','秋':'autumn','焚':'burn','禁':'forbid','相':'mutual','困':'trouble','囚':'prisoner','灯':'lamp','嵐':'storm','鬱':'gloom'};
+const COMP={'林':['木','木'],'森':['木','林'],'炎':['火','火'],'明':['日','月'],'休':['人','木'],'化':['人','匕'],'花':['艹','化'],'从':['人','人'],'比':['人','人'],'北':['人','人'],'付':['人','寸'],'伐':['人','戈'],'伏':['人','犬'],'信':['人','言'],'貨':['化','貝'],'靴':['革','化'],'訛':['言','化'],'府':['广','付'],'腐':['府','肉'],'符':['竹','付'],
+ '男':['田','力'],'好':['女','子'],'安':['宀','女'],'字':['宀','子'],'鳴':['口','鳥'],'岩':['山','石'],'秋':['禾','火'],'焚':['林','火'],'禁':['林','示'],'相':['木','目'],'困':['囗','木'],'囚':['囗','人'],'灯':['火','丁'],'嵐':['山','風'],
+ '鬱':['林','缶','冖','鬯','彡']};
+function mkNode(ch){return{ch,en:EN[ch]||ch,parts:(COMP[ch]||[]).map(mkNode)};}
+const leaves=n=>n.parts.length?n.parts.reduce((a,q)=>a+leaves(q),0):1;
+const SINGLE_POOL='木火水山口日月手犬戈貝革言女子田力目耳石竹米土虫羊牛馬鳥刀弓矢門雨心糸衣肉大車金風'.split('');
+const COMP_POOL=['林','炎','明','休','化','男','好','安','字','岩','秋','相','困','囚','灯','伐','伏','信','付','鳴','嵐','花','森','焚','禁','貨','靴','訛','府','符','腐','鬱'];
+const SPAWN_DEFS=SINGLE_POOL.concat(COMP_POOL).map(ch=>({ch,lv:leaves(mkNode(ch))}));
+const SPECIALS=[{ch:'福',en:'luck',beh:'gift'},{ch:'薬',en:'cure',beh:'heal'}];
+const BEH={fast:'犬馬虎鹿猫鼠走飛',fly:'鳥蝶鷹鶴鷲蝙蝠羽霊',zig:'蛇風影嵐',swarm:'蜂蟻'};
+function behOf(ch,stk){for(const k in BEH)if(BEH[k].includes(ch))return k;return stk>=16?'tank':'walk';}
+// 字形の「生き方」— 象形としての性質から決める
+const MOTION={gallop:'犬牛馬虎鹿猫鼠羊熊象走',slither:'蛇竜川',swim:'鮫鯨',flutter:'鳥蜂蝶鷹鶴鷲蝙蝠羽飛',flicker:'火炎光',sway:'木林森竹草米麦毛',rumble:'山石岩門金鬱骨王土驫麤地獄',drip:'水雨血毒海湖雪氷酒',drift:'雲風闇影霊霧夜嵐夢妖怪',crawl:'虫蟻蜘蛛蟷螂',chew:'口歯目耳鼻舌'};
+function motionOf(ch){for(const k in MOTION)if(MOTION[k].includes(ch))return k;return 'hop';}
+// 漢詩ボス: 一句ずつ公式の短い英訳を打って詩を砕く。句ごとに詩の景色が画面に起こる
+const POEMS=[
+ {title:'静夜思',author:'李白',lines:[
+  ['床前明月光','moonlight before my bed','moon'],
+  ['疑是地上霜','i took it for frost','frost'],
+  ['挙頭望明月','i look up at the moon','moon'],
+  ['低頭思故郷','i bow and think of home','home']]},
+ {title:'登鸛雀楼',author:'王之渙',lines:[
+  ['白日依山尽','the sun sets behind the hills','sunset'],
+  ['黄河入海流','the yellow river runs to the sea','river'],
+  ['欲窮千里目','to see a thousand miles','far'],
+  ['更上一層楼','climb one more floor','climb']]},
+ {title:'望廬山瀑布',author:'李白',lines:[
+  ['日照香炉生紫煙','the sun lights a purple mist','mist'],
+  ['遥看瀑布挂前川','far off a waterfall hangs','fall'],
+  ['飛流直下三千尺','it plunges three thousand feet','fall'],
+  ['疑是銀河落九天','as if the milky way fell','galaxy']]}
+];
+const HEROES=[
+ {ch:'人',en:'human',dash:.10,d:'象形文字の人。まっすぐ突っ込む。手に入れた字と組み合わさって漢字へ進化する'},
+ {ch:'魚',en:'fish',dash:.085,d:'象形文字の魚（ヒロイン）。泳ぐように突っ込む。魚・水・日・羊・京…と合わさって漢字へ進化する',lock:{k:'gods',n:1,t:'漢詩を1つ読み解く'}},
+ {ch:'子',en:'child',dash:.065,d:'象形文字の子（頭の大きな幼子）。最速の踏み込み（進化系統は準備中）',lock:{k:'kills',n:150,t:'累計150字を倒す'}},
+ {ch:'大',en:'giant',dash:.14,splash:60,d:'象形文字の大（手足を広げて立つ人）。着地点の周りも斬る（進化系統は準備中）',lock:{k:'best',n:180,t:'3分生き残る'}},
+ {ch:'女',en:'woman',dash:.10,d:'象形文字の女（ひざまずく人）（進化系統は準備中）',lock:{k:'gods',n:1,t:'漢詩を1つ読み解く'}},
+ {ch:'王',en:'king',dash:.12,dmg:2,d:'象形文字の王（鉞〈まさかり〉の刃）。一撃が重い（進化系統は準備中）',lock:{k:'gods',n:3,t:'漢詩を累計3つ読み解く'}}
+];
+// 人の進化系統: [字, 親, 加わる部品, 打つ英単語]
+const EVO_ROWS=[
+['从','人','人','follow'],['從','从','彳','pursue'],['縱','從','糸','vertical'],['慫','從','心','urge'],['聳','從','耳','tower'],['樅','從','木','fir'],
+['比','人','並','compare'],['妣','比','女','ancestor'],['批','比','手','critic'],['庇','比','广','eaves'],['枇','比','木','loquat'],['砒','比','石','arsenic'],['秕','比','禾','chaff'],['蚍','比','虫','mussel'],
+['北','人','背','north'],['背','北','肉','back'],['褙','背','衣','lining'],
+['化','人','反','change'],['花','化','草','flower'],['椛','花','木','maple'],['糀','花','米','malt'],['埖','花','土','litter'],['婲','花','女','lovely'],['硴','花','石','oyster'],['貨','化','貝','goods'],['靴','化','革','shoes'],['訛','化','言','accent'],['囮','化','囗','decoy'],
+['休','人','木','rest'],['咻','休','口','shout'],['庥','休','广','shade'],['貅','休','豸','beast'],['髹','休','髟','lacquer'],['鵂','休','鳥','owl'],
+['付','人','寸','attach'],['府','付','广','bureau'],['腐','府','肉','rot'],['腑','府','月','guts'],['俯','府','人','stoop'],['符','付','竹','charm'],['附','付','阜','append'],['咐','付','口','command'],['拊','付','手','slap'],['苻','付','草','kudzu'],['跗','付','足','instep'],['駙','付','馬','steed'],['鮒','付','魚','carp'],
+['伐','人','戈','strike'],['筏','伐','竹','raft'],['閥','伐','門','clique'],['垡','伐','土','plow'],
+['伏','人','犬','crouch'],['茯','伏','草','fungus'],['袱','伏','衣','wrapper'],['洑','伏','水','eddy'],
+['信','人','言','trust'],
+// 複数の素材がそろって初めてできる字（素材は「＋」でつなぐ）。先に手に入れた素材は仲間としてそろうのを待つ
+['伽','人','力+口','tale'],['俐','人','禾+刀','clever'],
+// 魚の進化系統
+['䲆','魚','魚','twin fish'],['鱻','䲆','魚','fresh'],['䲜','鱻','魚','teeming'],
+['漁','魚','水','fishing'],['魯','魚','日','dull'],['鮮','魚','羊','vivid'],['鯨','魚','京','whale'],
+['鯉','魚','田+土','carp'],['鮭','魚','土+土','salmon']];
+const EVO={};for(const[ch,parent,via,en]of EVO_ROWS)EVO[ch]={ch,parent,via,en};
+const childrenOf=ch=>EVO_ROWS.filter(r=>r[1]===ch).map(r=>EVO[r[0]]);
+const VIA_NAME={'並':'人を並べる','背':'背中合わせ','反':'人を反す','寸':'手を添える','彳':'彳（ゆく）','月':'月（にく）'};
+const VIA_TRAIT={'人':'splash','彳':'dash','並':'splash','背':'inv','反':'crit','木':'regen','寸':'knock','戈':'splash','犬':'dash','言':'len','糸':'splash','心':'crit','耳':'xp','女':'xp','手':'knock','广':'inv','石':'dmg','禾':'xp','虫':'crit','肉':'hp','衣':'hp','草':'regen','米':'hp','土':'dmg','貝':'xp','革':'dash','囗':'inv','口':'splash','豸':'crit','髟':'dmg','鳥':'dash','竹':'splash','阜':'splash','足':'dash','馬':'dash','魚':'dash','羊':'hp','京':'inv','門':'inv','水':'knock'};
+const TRAIT_TXT={dash:'踏み込みが速くなる',splash:'突っ込んだ周りの字もまとめて斬る（倒せる）',crit:'会心が出やすくなる',xp:'墨を多く集める',regen:'ときどき命が戻る',fish:'魚の水弾が増える',knock:'吹き飛ばしが強くなる',inv:'被弾後の無敵が長くなる',hp:'命の上限 +1',len:'長い単語ほど吹き飛ばしが強い',dmg:'武器のひびが入りやすい'};
+const WEAP={
+ '火':{en:'fire',max:3,d:['主人公が通った後ろで火がぱっと燃えて消える。突っ込んだ道筋にも火が残る','火の出る間隔が短く、炎も大きく','さらに短く、大きく']},
+ '矢':{en:'arrow',max:3,d:['主人公の手から、一番近い字へ矢が放たれる','連射が速くなり、一体貫く','さらに速く、貫通 +1']},
+ '水':{en:'water',max:3,d:['主人公の足元から水が跳ね、波紋が周りの字を押し返す','波紋が速く強く','波紋が最大になる']},
+ '木':{en:'tree',max:3,d:['その場に根を張り、近くの字の足元から根が突き上げる。離れると枯れて近くに生え直す','根 +1','根 +1']},
+ '日':{en:'sun',max:3,d:['空高く昇り、主人公の周りを陽光で焼く','結界が広がる','結界が広がる']},
+ '月':{en:'moon',max:3,d:['三日月が飛んで戻る','三日月が速くなる','三日月が二つに']},
+ '雨':{en:'rain',max:3,d:['雲から近くの字に墨の雨が降り、ひびを入れて濡らす（濡れた字は鈍る）','雨脚が強まる','豪雨']},
+ '田':{en:'field',max:3,d:['地面に田の字の罠が刻まれる。踏んだ字は鈍る','罠 +1','罠 +1']},
+ '刀':{en:'blade',max:3,d:['主人公の脇に構えた刀が、近づく字に斬りかかる。主人公の突っ込みも周りの字を崩す','斬りかかる間隔が短く、範囲も広く','さらに短く、広く']},
+ '命':{en:'life',max:3,d:['命の上限 +1、全回復','命の上限 +1、全回復','命の上限 +1、全回復']},
+ '力':{en:'power',max:3,d:['武器のひびが入りやすくなる','さらに入りやすく','さらに入りやすく']}
+};
+// 合体するのは主人公だけ。仲間同士は合体しない
+const FUSIONS=[];
+// 部品（パッシブ）。主人公の字と組み合わさると、隠し進化が起こる
+const PARTS={'魚':'fish','羊':'sheep','京':'capital','人':'person','彳':'step','戈':'halberd','犬':'dog','言':'word','手':'hand','糸':'thread','心':'heart','耳':'ear','女':'woman','广':'roof','石':'stone','禾':'grain','虫':'bug','肉':'meat','衣':'cloth','草':'grass','米':'rice','土':'soil','貝':'shell','革':'leather','囗':'fence','口':'mouth','豸':'beast','髟':'mane','鳥':'bird','竹':'bamboo','阜':'hill','足':'foot','馬':'horse','門':'gate'};
+const compOf=n=>({'並':'人','背':'人','反':'人','寸':'手'}[n.via]||n.via);
+const matsOf=n=>n.via.includes('+')?n.via.split('+'):[compOf(n)];
+// 素材 pid を手に入れた（owned に加えた）後、そろった進化先
+function evoHits(pid){return childrenOf(form).filter(n=>{const m=matsOf(n);if(!m.includes(pid))return false;const need={};for(const x of m)need[x]=(need[x]||0)+1;return Object.entries(need).every(([k,v])=>L(k)>=v);});}
+// 素材 pid を手に入れたらそろうか（まだ持っていない前提で数える）
+function evoStatus(pid){return childrenOf(form).filter(n=>matsOf(n).includes(pid)).map(n=>{const m=matsOf(n);const need={};for(const x of m)need[x]=(need[x]||0)+1;const lack=Object.entries(need).reduce((a,[k,v])=>a+Math.max(0,v-L(k)-(k===pid?1:0)),0);return{n,m,lack};});}
+// 熟語。並ぶ順番で意味が変わる（火山≠山火、火花≠花火）。実際に使われる語だけ
+const JUKU_ENEMY=[['火山','volcano'],['山火','wildfire'],['火花','spark'],['花火','fireworks'],['火力','firepower'],['山水','landscape'],['森林','woodland'],['明日','tomorrow'],['休日','holiday'],['大火','inferno'],['水火','opposites'],['男女','couple']];
+// 主人公側の熟語: 先に持っていた字＋後から得た字の順で、実在する語になったら成立
+// 主人公側の熟語はやめた（機能を増やしすぎない）。熟語は敵としてだけ出る
+const JUKU=[];
+const FUSE_CONSUME={'明':['日','月'],'炎':['火'],'林':['木'],'雷':['雨','田']};
+
+/* ---------- Helpers ---------- */
+const $=id=>document.getElementById(id);
+const rnd=(a,b)=>a+Math.random()*(b-a);
+const pick=a=>a[Math.floor(Math.random()*a.length)];
+const clamp=(v,a,b)=>v<a?a:v>b?b:v;
+const shuffle=a=>{for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;};
+function kn(n){n=Math.floor(n);if(n<=0)return'〇';if(n>=10000)return kn(n/10000)+'万'+(n%10000?kn(n%10000):'');const d='〇一二三四五六七八九';let s='';for(const[v,c]of[[1000,'千'],[100,'百'],[10,'十']]){const q=Math.floor(n/v);if(q){s+=(q>1?d[q]:'')+c;n%=v;}}if(n)s+=d[n];return s;}
+const fmtT=t=>{t=Math.floor(t);return Math.floor(t/60)+':'+String(t%60).padStart(2,'0');};
+const C={washi:[235,232,225],sumi:[23,20,15],shu:[210,58,36],ai:[31,63,110],kin:[198,160,70],yoru:[14,13,18],aiN:[130,170,230]};
+const mix=(a,b,t)=>[a[0]+(b[0]-a[0])*t,a[1]+(b[1]-a[1])*t,a[2]+(b[2]-a[2])*t];
+const rgba=(c,a=1)=>`rgba(${c[0]|0},${c[1]|0},${c[2]|0},${a})`;
+const GF='"Zen Old Mincho","Noto Serif JP","Hiragino Mincho ProN","Yu Mincho",serif';
+const UF='"Zen Kaku Gothic New","Hiragino Sans",sans-serif';
+const MF='"JetBrains Mono",ui-monospace,monospace';
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const store={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
+let meta={kills:0,best:0,gods:0};try{Object.assign(meta,JSON.parse(store.get('ks_meta')||'{}'));}catch(e){}
+const saveMeta=()=>store.set('ks_meta',JSON.stringify(meta));
+const unlocked=h=>!h.lock||meta[h.lock.k]>=h.lock.n;
+
+
+/* ---------- Audio ---------- */
+const AU={ctx:null,on:true,m:null,nb:null,
+ init(){if(this.ctx)return;try{const A=window.AudioContext||window.webkitAudioContext;this.ctx=new A();this.m=this.ctx.createGain();this.m.gain.value=.45;this.m.connect(this.ctx.destination);const b=this.ctx.createBuffer(1,this.ctx.sampleRate*.5,this.ctx.sampleRate);const d=b.getChannelData(0);for(let i=0;i<d.length;i++)d[i]=Math.random()*2-1;this.nb=b;}catch(e){this.ctx=null}},
+ tone(f,dur,type='sine',v=.2,slide=0,delay=0){if(!this.ctx||!this.on)return;const t=this.ctx.currentTime+delay;const o=this.ctx.createOscillator(),g=this.ctx.createGain();o.type=type;o.frequency.setValueAtTime(f,t);if(slide)o.frequency.exponentialRampToValueAtTime(Math.max(20,f+slide),t+dur);g.gain.setValueAtTime(v,t);g.gain.exponentialRampToValueAtTime(.0001,t+dur);o.connect(g);g.connect(this.m);o.start(t);o.stop(t+dur+.02);},
+ noise(dur,v=.2,f=1200,delay=0){if(!this.ctx||!this.on)return;const t=this.ctx.currentTime+delay;const s=this.ctx.createBufferSource();s.buffer=this.nb;const fl=this.ctx.createBiquadFilter();fl.type='lowpass';fl.frequency.value=f;const g=this.ctx.createGain();g.gain.setValueAtTime(v,t);g.gain.exponentialRampToValueAtTime(.0001,t+dur);s.connect(fl);fl.connect(g);g.connect(this.m);s.start(t);s.stop(t+dur);}
+};
+const PENTA=[0,2,4,7,9];
+const note=i=>{i=i%15;return 261.6*Math.pow(2,(PENTA[i%5]+12*Math.floor(i/5))/12);};
+const SFX={
+ tick(){AU.tone(1400+Math.min(combo,40)*18,.035,'square',.035)},
+ dash(){AU.noise(.09,.12,3200)},
+ hit(){const f=note(combo);AU.tone(f,.3,'triangle',.22);AU.tone(f*1.5,.2,'sine',.08,0,.03);AU.noise(.12,.22,1500);AU.tone(150,.18,'sine',.32,-90)},
+ thud(){AU.tone(110,.15,'sine',.3,-40);AU.noise(.08,.18,900)},
+ soft(){AU.noise(.05,.07,2200)},
+ miss(){AU.tone(95,.16,'sawtooth',.12,-20)},
+ hurt(){AU.noise(.35,.4,500);AU.tone(80,.35,'square',.18,-40)},
+ lv(){[0,4,7,12].forEach((s,i)=>AU.tone(392*Math.pow(2,s/12),.22,'triangle',.16,0,i*.07))},
+ taiko(){AU.tone(72,.45,'sine',.55,-30);AU.noise(.05,.25,300)},
+ boom(){AU.noise(.8,.5,700);AU.tone(55,.9,'sine',.6,-25)},
+ fuse(){[0,7,12,16,19].forEach((s,i)=>AU.tone(196*Math.pow(2,s/12),1.2,'triangle',.12,0,i*.05));AU.noise(.6,.3,3000,.6)},
+ xp(){AU.tone(2200+Math.random()*400,.03,'sine',.025)},
+ zap(){AU.noise(.2,.2,4000);AU.tone(600,.15,'sawtooth',.06,-400)},
+ warn(){AU.tone(440,.12,'square',.08);AU.tone(440,.12,'square',.08,0,.18)}
+};
+
+/* ---------- Canvas & camera ---------- */
+const cv=$('cv'),c=cv.getContext('2d');
+let W=0,H=0,DPR=1,SF=1;
+const cam={x:0,y:0};
+let calm=store.get('ks_calm')==='1';
+function resize(){
+  const vv=window.visualViewport;
+  W=window.innerWidth;H=Math.round(vv?vv.height:window.innerHeight);
+  DPR=Math.min(2,window.devicePixelRatio||1);
+  cv.width=W*DPR;cv.height=H*DPR;cv.style.width=W+'px';cv.style.height=H+'px';
+  SF=clamp(Math.min(W,H)/760,.6,1.05);
+  for(const k in spriteCache)delete spriteCache[k];
+}
+// paper fibre tile (world-anchored pattern)
+const paperTile=document.createElement('canvas');paperTile.width=paperTile.height=256;
+(()=>{const p=paperTile.getContext('2d');for(let i=0;i<260;i++){p.strokeStyle=`rgba(120,105,80,${Math.random()*.07})`;p.lineWidth=Math.random()*1.2;const x=Math.random()*256,y=Math.random()*256,a=Math.random()*6.28,l=rnd(4,22);p.beginPath();p.moveTo(x,y);p.quadraticCurveTo(x+Math.cos(a)*l*.5+rnd(-3,3),y+Math.sin(a)*l*.5+rnd(-3,3),x+Math.cos(a)*l,y+Math.sin(a)*l);p.stroke();}})();
+let paperPat=null;
+function drawBackground(sx,sy){
+  c.fillStyle=rgba(C.washi);c.fillRect(0,0,W,H);
+  if(!paperPat)paperPat=c.createPattern(paperTile,'repeat');
+  const ox=-(cam.x+sx)%256,oy=-(cam.y+sy)%256;
+  c.save();c.translate(ox-256,oy-256);c.fillStyle=paperPat;c.fillRect(0,0,W+512,H+512);c.restore();
+  // 原稿用紙: 20字×20行の升目、列の間に細い溝。座標はワールドに固定。
+  const cell=44*SF,gap=7*SF,pitch=cell+gap;
+  const left=cam.x+sx-W/2,top=cam.y+sy-H/2;
+  c.strokeStyle='rgba(210,58,36,.2)';c.lineWidth=1;c.beginPath();
+  const i0=Math.floor(left/pitch)-1,i1=Math.ceil((left+W)/pitch)+1;
+  for(let i=i0;i<=i1;i++){const x=Math.round(i*pitch-left)+.5;c.moveTo(x,0);c.lineTo(x,H);c.moveTo(x+cell,0);c.lineTo(x+cell,H);}
+  const j0=Math.floor(top/cell)-1,j1=Math.ceil((top+H)/cell)+1;
+  for(let j=j0;j<=j1;j++){const y=Math.round(j*cell-top)+.5;for(let i=i0;i<=i1;i++){const x=i*pitch-left;c.moveTo(x,y);c.lineTo(x+cell,y);}}
+  c.stroke();
+  // 魚尾（原稿用紙の中央の折り目印）— 20列ごと
+  c.fillStyle='rgba(210,58,36,.3)';
+  const col0=Math.floor(i0/20)*20;
+  for(let i=col0;i<=i1;i+=20){const x=i*pitch-left-gap/2;for(let j=Math.floor(j0/20)*20;j<=j1;j+=20){const y=j*cell-top;c.beginPath();c.moveTo(x-12*SF,y-5*SF);c.lineTo(x+12*SF,y-5*SF);c.lineTo(x+12*SF,y+3*SF);c.lineTo(x,y-1*SF);c.lineTo(x-12*SF,y+3*SF);c.closePath();c.fill();}}
+}
+
+/* ---------- Glyph drawing ---------- */
+function drawOracle(ctx,ch,x,y,size,col,o={}){
+  const g=OR[ch];if(!g)return;
+  const vw=g.vb[2],vh=g.vb[3];const s=size/Math.max(vw,vh);
+  ctx.save();ctx.translate(x,y);if(o.rot)ctx.rotate(o.rot);ctx.scale(s*(o.sx||1),s*(o.sy||1));ctx.translate(-vw/2,-vh/2);
+  ctx.strokeStyle=col;ctx.lineWidth=g.w*(o.lw||1.7);ctx.lineCap='round';ctx.lineJoin='round';
+  if(o.glow){ctx.shadowColor=o.gc||col;ctx.shadowBlur=o.glow;}
+  const wob=o.wob||0,t=o.t||0,rev=o.reveal==null?1:o.reveal,n=g.s.length,skip=o.skip;
+  const P=(p,i)=>wob?[p[0]+Math.sin(t*5+p[1]*.4+i)*wob,p[1]+Math.cos(t*4+p[0]*.35+i)*wob*.6]:p;
+  for(let i=0;i<n;i++){
+    if(skip&&skip.has(i))continue;
+    let r=rev*n-i;if(r<=0)break;r=Math.min(1,r);
+    const pts=g.s[i],m=pts.length,last=(m-1)*r;
+    ctx.beginPath();
+    for(let j=0;j<m;j++){let p=P(pts[j],i);
+      if(j>last){const a=P(pts[j-1],i),f=last-(j-1);ctx.lineTo(a[0]+(p[0]-a[0])*f,a[1]+(p[1]-a[1])*f);break;}
+      j?ctx.lineTo(p[0],p[1]):ctx.moveTo(p[0],p[1]);}
+    if(m===1)ctx.lineTo(pts[0][0]+.01,pts[0][1]);
+    ctx.stroke();
+  }
+  ctx.restore();
+}
+const spriteCache={};
+// 拡張漢字（䲆・䲜）はフォントに無いことが多いので、魚を並べて描く
+const COMPO={'䲆':[[-.25,0,.5,1],[.25,0,.5,1]],'䲜':[[-.25,-.25,.5,.5],[.25,-.25,.5,.5],[-.25,.25,.5,.5],[.25,.25,.5,.5]]};
+function gtext(x,t,px,py,sz,stroke){const cp=COMPO[t];if(!cp){stroke?x.strokeText(t,px,py):x.fillText(t,px,py);return;}
+  for(const[dx,dy,sx,sy]of cp){x.save();x.translate(px+dx*sz,py+dy*sz);x.scale(sx,sy);stroke?x.strokeText('魚',0,0):x.fillText('魚',0,0);x.restore();}}
+function sprite(t,size,colKey){
+  const sz=Math.max(8,Math.round(size/3)*3),key=t+'|'+sz+'|'+colKey;
+  if(spriteCache[key])return spriteCache[key];
+  const pad=Math.ceil(sz*.25),w=Math.ceil(sz*t.length*1.02)+pad*2,h=Math.ceil(sz*1.1)+pad*2;
+  const k=document.createElement('canvas');k.width=w*DPR;k.height=h*DPR;const x=k.getContext('2d');x.scale(DPR,DPR);
+  x.font=`900 ${sz}px ${GF}`;x.textAlign='center';x.textBaseline='middle';
+  const col={ink:C.sumi,inkN:C.washi,shu:C.shu,kin:C.kin,hero:C.shu,ally:C.ai,allyN:C.aiN}[colKey]||C.sumi;
+  if(colKey==='kin'){x.shadowColor=rgba(C.kin);x.shadowBlur=sz*.35;}
+  if(colKey==='hero'){x.lineWidth=sz*.12;x.strokeStyle=rgba(C.washi);x.lineJoin='round';gtext(x,t,w/2,h/2,sz,1);}
+  if(colKey==='ink'||colKey==='inkN'||colKey==='ally'||colKey==='allyN'){x.lineWidth=sz*.07;x.strokeStyle=rgba(colKey==='ink'||colKey==='ally'?C.washi:C.yoru,.9);gtext(x,t,w/2,h/2,sz,1);}
+  x.fillStyle=rgba(col);gtext(x,t,w/2,h/2,sz,0);
+  k.lw=w;k.lh=h;
+  return spriteCache[key]=k;
+}
+const sampleCache={};
+function sampleGlyph(t){
+  if(sampleCache[t])return sampleCache[t];
+  const S=64,w=S*t.length+8,h=S+8;const k=document.createElement('canvas');k.width=w;k.height=h;const x=k.getContext('2d');
+  x.font=`900 ${S}px ${GF}`;x.textAlign='center';x.textBaseline='middle';x.fillStyle='#000';x.fillText(t,w/2,h/2);
+  const d=x.getImageData(0,0,w,h).data;const pts=[];
+  for(let yy=0;yy<h;yy+=3)for(let xx=0;xx<w;xx+=3)if(d[(yy*w+xx)*4+3]>140)pts.push([(xx-w/2)/S,(yy-h/2)/S]);
+  for(let i=pts.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[pts[i],pts[j]]=[pts[j],pts[i]];}
+  return sampleCache[t]=pts;
+}
+
+
+/* ---------- State ---------- */
+let state='title';
+let heroDef=HEROES[0],form='人',path=['人'],traits={},HS=null,fishJoined=false,pendingEvo=0;
+let restCharged=false,absorbed={},lvOpened=0;
+const OR_EN={'人':'person','魚':'fish','子':'child','大':'giant','女':'woman','王':'king'};
+let got=[],jukuQ=[],MOUNT=[];
+let DEBRIS=[],SPARK=[],ROT=[],shield=0,restT=0,teaser=null,teased=-1;
+let E=[],P=[],TX=[],SL=[],RG=[],BOLT=[],STAMP=[],PROJ=[],TRAP=[],GHOST=[],ROOTS=[],SHARD=[],STAIN=[],GEMS=[],TRAIL=[];
+let time=0,hp=5,maxHp=5,level=1,xp=0,pendingLv=0,combo=0,maxCombo=0,kills=0,typedOK=0,misses=0,words=0;
+let owned={},timers={},spawnT=1,shake=0,hitstop=0,flash=0,flashCol=C.washi,redV=0,night=0,ts=1,slowT=0;
+let boss=null,bossIdx=0,nextBoss=75,bossIntro=0,reveal=0,dyingT=0,slain={},taikoT=0,crescents=[],waveRings=[],xpSnd=0,lastT=0,uid=1;
+const hero={x:0,y:0,state:'idle',from:null,to:null,t:0,target:null,queue:[],face:1,land:0,dk:0,inv:0,lastDir:[0,-1],morph:0};
+const fish={x:0,y:40,vx:0,vy:0,ang:-Math.PI/2,shootT:1};
+const L=id=>owned[id]||0;
+const J=w=>!!owned[w];
+const dmgMul=()=>1+.25*L('力');
+const heroR=()=>24*SF;
+// 進化した字は前の字の能力を継承する（path をさかのぼって判定）。新しい系統の字は意味の近い能力を持つ
+const ABIL_OF={'䲆':'比','鱻':'从','䲜':'化','漁':'付','魯':'休','鮮':'花','鯨':'伐','鯉':'伏','鮭':'北','伽':'信','俐':'从'};
+const hasForm=ch=>path.some(q=>{const f=q.includes('|')?q.split('|')[1]:q;return f===ch||ABIL_OF[f]===ch;});
+const ABIL={'从':'突っ込んだあと、近くの字にもう一太刀（追撃）','比':'並ぶ二人。斬った字のとなりの字の部品も1つ崩す','北':'背中側の字も同時に崩す','化':'崩れて飛んだ部品が別の字に化けて襲う','休':'3秒打たずに休むと力が溜まり、次の一撃で字を丸ごと崩す','付':'倒した字の部品が身に付き、盾になる（最大3）','伐':'戈で伐つ。突っ込んだ周りの字の部品も崩す','伏':'踏み込みが速く、伏せて被弾を避ける','信':'6文字以上の単語は字を丸ごと崩す','花':'倒すと花びらが散り、周りの字の部品を1つずつ崩す','腐':'崩した場所が腐り、周りの字を少しずつ崩す','貨':'墨（経験値）が1.5倍',
+ '伽':'語り部。6文字以上の単語は字を丸ごと崩す','俐':'利口。突っ込んだあと近くの字にもう一太刀',
+ '䲆':'二匹で泳ぐ。斬った字のとなりの字の部品も1つ崩す','鱻':'三匹の群れ。突っ込んだあと近くの字にもう一太刀','䲜':'あふれる魚。崩れた部品が別の字に化けて襲う',
+ '漁':'漁る。倒した字の部品を釣り上げ盾にする（最大3）','魯':'愚直。3秒打たずに休むと次の一撃で字を丸ごと崩す','鮮':'鮮やか。倒すと鱗が散り、周りの字の部品を1つずつ崩す',
+ '鯨':'巨体。突っ込んだ周りの字の部品も崩す','鯉':'滝を登る。踏み込みが速く、被弾後の無敵が長い','鮭':'川を遡る。背中側の字も同時に崩す'};
+function heroStats(){const t=traits;return{
+  power:1,
+  stk:STK[form]||2,dash:heroDef.dash*Math.pow(.8,t.dash||0)*(hasForm('伏')?.7:1),splash:(heroDef.splash||0)+35*(t.splash||0),crit:.08*(t.crit||0),
+  xp:(1+.25*(t.xp||0))*(hasForm('貨')?1.5:1),regen:t.regen?18*Math.pow(.75,t.regen-1):0,fish:(1-(heroDef.fish||0))*Math.pow(.6,t.fish||0),
+  knock:Math.pow(1.4,t.knock||0),inv:.35*(t.inv||0)+(hasForm('伏')?.4:0),len:t.len||0,dmg:(heroDef.dmg||0)+2*(t.dmg||0)};}
+
+function reset(){
+  ALLY={};absorbed={};lvOpened=0;got=[];jukuQ=[];MOUNT=[];DEBRIS=[];SPARK=[];ROT=[];shield=0;restT=0;restCharged=false;teaser=null;teased=-1;
+  E=[];P=[];TX=[];SL=[];RG=[];BOLT=[];STAMP=[];PROJ=[];TRAP=[];GHOST=[];ROOTS=[];SHARD=[];STAIN=[];GEMS=[];TRAIL=[];crescents=[];waveRings=[];
+  time=0;hp=maxHp=10;level=1;xp=0;pendingLv=0;combo=0;maxCombo=0;kills=0;typedOK=0;misses=0;words=0;
+  owned={};timers={};spawnT=2;shake=0;hitstop=0;flash=0;redV=0;night=0;ts=1;slowT=0;
+  boss=null;bossIdx=0;nextBoss=60;bossIntro=0;reveal=0;dyingT=0;slain={};
+  form=heroDef.ch;path=[form];traits={};HS=heroStats();
+  Object.assign(hero,{x:0,y:0,state:'idle',from:null,to:null,t:0,target:null,queue:[],face:1,land:0,dk:0,inv:0,morph:0});
+  Object.assign(fish,{x:-50*SF,y:50*SF,vx:0,vy:0});cam.x=0;cam.y=0;fishJoined=heroDef.ch==='魚';pendingEvo=0;
+  document.body.classList.remove('night');
+}
+
+/* ---------- Entities ---------- */
+function edgeR(a){const cs=Math.abs(Math.cos(a))||1e-3,sn=Math.abs(Math.sin(a))||1e-3;return Math.min(W/2/cs,H/2/sn)+45*SF;}
+function onView(x,y,m=0){return Math.abs(x-cam.x)<W/2-m&&Math.abs(y-cam.y)<H/2-m;}
+const strokeCap=()=>3+time/14;
+// 画数が多い字ほど重く、遅い
+const enemySpeed=(stk,beh)=>21*SF*(1+time/480)*clamp(1.4-stk*.036,.38,1.35)*rnd(.9,1.1)*({fast:1.4,fly:1.05,swarmling:1.25,gift:.55,heal:.55}[beh]||1);
+function setWord(e,w){e.word=w;e.acc=[w];e.typed='';}
+// 大きさ＝構造量（部品の数）、速さ＝画数（多いほど遅い）
+const sizeFor=(lv,chars)=>{const whole=(40+Math.min(lv-1,6)*15)*SF;return chars>1?Math.max(30*SF,whole*1.25/chars):whole;};
+function setNode(e,n){
+  e.node=n;e.ch=n.ch;e.en=n.en;e.w=[...n.ch].length;e.lv=leaves(n);
+  e.size=sizeFor(e.lv,e.w)*(e.beh==='swarmling'?.75:1);e.rad=e.size*.48*(e.w>1?Math.min(2.4,.6+e.w*.45):1);
+  e.mo=motionOf(n.ch);e.stk=strokes(n.ch);e.spd=enemySpeed(e.stk,e.beh==='swarmling'?'swarmling':behOf(n.ch,e.stk));
+  setWord(e,n.en);
+}
+function spawnEnemy(def,pos,forceBeh){
+  if(!def){
+    if(time>20&&Math.random()<.035)def=pick(SPECIALS);
+    else if(time>30&&Math.random()<.16){const[w,en]=pick(JUKU_ENEMY);def={ch:w,juku:en};}
+    else{// 主役は分解する字。単体の字は2割ほど。時間とともに部品の多い字が混ざる
+      const cap=2+time/35;
+      // 漢詩の間は、鬱のような部品の多い難しい字が半分近く混ざる
+      let pool=boss&&Math.random()<.45?SPAWN_DEFS.filter(d=>d.lv>=3):Math.random()<.2?SPAWN_DEFS.filter(d=>d.lv===1):SPAWN_DEFS.filter(d=>d.lv>=2&&d.lv<=cap&&(d.ch!=='鬱'||time>150));
+      if(!pool.length)pool=SPAWN_DEFS.filter(d=>d.lv===2);
+      const used=new Set(E.filter(e=>e.alive).map(e=>e.word[0]));
+      for(let i=0;i<7;i++){def=pick(pool);if(!used.has((EN[def.ch]||'?')[0]))break;}}
+  }
+  const n=def.juku?{ch:def.ch,en:def.juku,juku:true,parts:[...def.ch].map(mkNode)}:def.en?{ch:def.ch,en:def.en,parts:[]}:mkNode(def.ch);
+  const stk=strokes(n.ch),beh=forceBeh||def.beh||behOf(n.ch,stk);
+  if(beh==='swarm'&&!pos){const a=rnd(0,6.28),R=edgeR(a)+20;for(let i=0;i<4;i++)spawnEnemy(def,{x:cam.x+Math.cos(a)*R+rnd(-50,50),y:cam.y+Math.sin(a)*R+rnd(-50,50)},'swarmling');return;}
+  const a=rnd(0,6.28),R=edgeR(a);
+  const e={id:uid++,beh,lv0:leaves(n),crack:0,
+    x:pos?pos.x:cam.x+Math.cos(a)*R,y:pos?pos.y:cam.y+Math.sin(a)*R,kx:0,ky:0,vx:0,vy:0,
+    t:rnd(0,9),ph:rnd(0,6.28),step:rnd(8,11),alive:true,locked:false,flash:0,pulse:0,hitCd:{},slow:0,tilt:0,zigT:0,zs:1,face:1,
+    gift:beh==='gift'||beh==='heal'};
+  setNode(e,n);E.push(e);
+}
+// 部位破壊: 部品を1つはがす。単体の字なら消える。返り値 true＝倒した
+function breakPart(e,dx=0,dy=-1,how='type'){
+  if(!e.alive)return false;
+  const n=e.node;
+  if(!n.parts.length){killEnemy(e,how);return true;}
+  if(n.juku){// 熟語は一撃で二つの字に分かれ、別々の敵になる
+    const[l,r]=n.parts;const px=-dy,py=dx,gap=e.size*.6;
+    addText(e.x,e.y-e.size*.9,n.ch+' → '+l.ch+' ＋ '+r.ch,16*SF+6,C.shu,1.1);
+    shatter(e.x,e.y,n.ch,e.size*.6,.4,C.sumi);
+    const ox=e.x,oy=e.y;setNode(e,l);e.x=ox-px*gap;e.y=oy-py*gap;e.kx=-px*360;e.ky=-py*360;e.daze=1.2;e.pulse=1;
+    spawnEnemy({ch:r.ch},{x:ox+px*gap,y:oy+py*gap});const r2=E[E.length-1];r2.kx=px*360;r2.ky=py*360;r2.daze=1.2;r2.pulse=1;
+    GEMS.push({x:ox,y:oy,fx:ox,fy:oy,side:1,age:0,v:2*HS.xp});return false;}
+  if(n.parts.length>2){// 鬱のように部品の多い字は、一撃でそれぞれの部品の字にばらける（同じ字を二度打たせない）
+    addText(e.x,e.y-e.size*.9,n.ch+' → '+n.parts.map(q=>q.ch).join(' '),16*SF+6,C.shu,1.3);
+    shatter(e.x,e.y,n.ch,e.size*.7,.6,C.sumi);addStain(e.x,e.y,e.size*.5);
+    const ox=e.x,oy=e.y,base=Math.atan2(dy,dx),m=n.parts.length,gap=e.size*.75;
+    n.parts.forEach((q,k)=>{const a=base+(k-(m-1)/2)*(Math.PI*1.6/m),px=Math.cos(a),py=Math.sin(a);
+      let t;if(k===0){setNode(e,q);t=e;}else{spawnEnemy({ch:q.ch},{x:ox,y:oy});t=E[E.length-1];}
+      t.x=ox+px*gap;t.y=oy+py*gap;t.kx=px*380;t.ky=py*380;t.daze=1.2;t.pulse=1;});
+    GEMS.push({x:ox,y:oy,fx:ox,fy:oy,side:1,age:0,v:3*HS.xp});return false;}
+  const i=Math.floor(Math.random()*n.parts.length),gone=n.parts[i],rest=n.parts.filter((_,j)=>j!==i);
+  DEBRIS.push({x:e.x,y:e.y,ch:gone.ch,size:e.size*.75,vx:dx*340+rnd(-140,140),vy:dy*340-220,r:0,vr:rnd(-7,7),life:1,max:1});
+  shatter(e.x,e.y,gone.ch,e.size*.7,.55,C.sumi);addStain(e.x,e.y,e.size*.45);
+  if(hasForm('化')&&how==='type')SPARK.push({x:e.x,y:e.y,ch:gone.ch,vx:rnd(-200,200),vy:rnd(-260,-120),t:0,from:e});
+  if(hasForm('腐')&&how==='type')ROT.push({x:e.x,y:e.y,r:70*SF,life:5,tk:0});
+  const nn=rest.length===1?rest[0]:{ch:rest.map(q=>q.ch).join(''),en:n.en,parts:rest};
+  const keepBeh=e.beh;setNode(e,nn);e.beh=keepBeh==='swarmling'?keepBeh:e.beh;e.pulse=1;e.flash=.2;
+  const v=1.2*HS.xp;GEMS.push({x:e.x,y:e.y,fx:e.x,fy:e.y,side:Math.random()<.5?-1:1,age:0,v});
+  return false;
+}
+function spawnBoss(){
+  const pm=POEMS[bossIdx%POEMS.length];
+  boss={id:uid++,isBoss:true,poem:pm,li:0,ch:pm.title,x:cam.x,y:cam.y,size:60*SF,rad:40*SF,alive:true,locked:false,t:0,flash:0,pulse:0,lineT:0,lineMax:1,kx:0,ky:0,hitCd:{},gone:new Set(),fxT:0};
+  setPoemLine();E.push(boss);
+  bossIntro=2.4;reveal=0;
+  showBanner('漢詩　'+pm.title,'TYPE EACH LINE IN ENGLISH',true);SFX.boom();
+  if(bossIdx===0){const h=$('hint');h.textContent='漢詩の一句ずつ、すぐ下の英訳を打つとその句が砕ける。漢詩は襲ってこない';h.hidden=false;setTimeout(()=>{h.hidden=true;},9000);}
+  for(const e of E)if(e!==boss&&e.alive&&!e.captive)killEnemy(e,'blast');
+}
+function setPoemLine(){const b=boss,ln=b.poem.lines[b.li];b.phrase=ln[1];b.fx=ln[2];b.fxT=0;setWord(b,ln[1].replace(/[^a-z]/g,''));b.lineMax=6+b.word.length*.5;b.lineT=b.lineMax;}
+// 詩の配置（画面座標）: 縦書き、右の句から
+// 今の句だけを横書きで大きく。英訳はそのすぐ下
+function poemLayout(b){
+  const ln=b.poem.lines[b.li][0],n=ln.length;
+  // 漢詩は画面上端の帯にまとめる（遊ぶ場所と重ならない）。帯の分だけカメラを下げる
+  const top=(W<560?84:78),P=Math.min((W*.8)/n,H*.08,64);
+  const y=top+22+P*.55,x0=W/2-(n-1)/2*P,fs=Math.round(20*Math.max(.8,SF));
+  const ey=y+P*.6+6,bottom=ey+fs+22;
+  return{P,y,x0,n,top,bottom,fs,ey};
+}
+/* ---------- Typing: English only. Every word whose next letter matches advances. ---------- */
+let titleCards=[],cards=[];
+function typables(){
+  if(state==='title')return titleCards.filter(t=>t.ok);
+  if(state==='levelup')return cards;
+  if(state!=='play'||bossIntro>0)return [];
+  return E.filter(e=>e.alive&&!e.locked&&onView(e.x,e.y+e.size*.9,8));
+}
+function key(ch){
+  const list=typables();if(!list.length)return;
+  let adv=0;const fin=[];
+  for(const t of list){
+    let nb=t.typed+ch;
+    if(!t.acc.some(a=>a.startsWith(nb))){if(!t.typed||t.isBoss)continue;t.typed='';nb=ch;if(!t.acc.some(a=>a.startsWith(nb)))continue;}
+    t.typed=nb;adv++;t.pulse=1;if(t.acc.includes(nb))fin.push(t);
+  }
+  if(state==='title'){renderHeroes();if(fin.length)selectHero(fin[0].h);return;}
+  if(state==='levelup'){renderCards();if(fin.length)chooseCard(fin[0].i);else if(adv)SFX.tick();return;}
+  if(state!=='play')return;
+  if(!adv){misses++;if(combo>=5)addText(hero.x,hero.y-60*SF,'連撃 途切れ',18,C.sumi);combo=0;updCombo();SFX.miss();shake=Math.max(shake,4*shakeK());return;}
+  typedOK++;SFX.tick();if(!restCharged)restT=0;
+  for(const t of fin){
+    t.wordLen=t.typed.length;t.typed='';t.locked=true;
+    combo++;maxCombo=Math.max(maxCombo,combo);words++;
+    const ms=[10,25,50,75,100,150,200,300,500];if(ms.includes(combo))showBanner(kn(combo)+'連撃',combo+' COMBO');
+  }
+  const poem=fin.filter(t=>t.isBoss);for(const t of poem){t.locked=false;bossHit();}
+  const rest=fin.filter(t=>!t.isBoss);
+  if(fin.length){updCombo(true);if(rest.length)queueAttacks(rest);}
+}
+
+/* ---------- Hero: dash, strike, stay where you struck ---------- */
+function queueAttacks(list){
+  let from=hero.queue.length?hero.queue[hero.queue.length-1].target:(hero.state==='dash'&&hero.target?hero.target:hero);
+  const rest=list.slice();
+  while(rest.length){let best=rest[0],bd=1e18;for(const r of rest){const d=(r.x-from.x)**2+(r.y-from.y)**2;if(d<bd){bd=d;best=r;}}rest.splice(rest.indexOf(best),1);hero.queue.push({target:best});from=best;}
+  if(hero.state==='idle')startDash();
+}
+function alive(t){return t&&t.alive&&(!t.isBoss||bossIntro<=0);}
+function strikePoint(t){let dx=t.x-hero.x,dy=t.y-hero.y,d=Math.hypot(dx,dy);if(d<1){dx=1;dy=0;d=1;}const r=t.rad+heroR()+4*SF;return[t.x-dx/d*r,t.y-dy/d*r];}
+function startDash(){
+  while(hero.queue.length){const job=hero.queue.shift();if(!alive(job.target)){if(job.target)job.target.locked=false;continue;}
+    hero.target=job.target;hero.from=[hero.x,hero.y];hero.to=strikePoint(job.target);hero.state='dash';hero.t=0;
+    hero.face=hero.to[0]>=hero.x?1:-1;SFX.dash();return;}
+  hero.state='idle';hero.target=null;
+}
+function tickHero(dt){
+  hero.inv=Math.max(0,hero.inv-dt);hero.land=Math.max(0,hero.land-dt*6.5);hero.morph=Math.max(0,hero.morph-dt);
+  hero.dk+=((hero.state==='dash'?1:0)-hero.dk)*Math.min(1,dt*(hero.state==='dash'?20:9));
+  if(hero.state==='dash'){
+    hero.t+=dt/Math.max(.035,HS.dash);const k=Math.min(1,hero.t);
+    if(alive(hero.target))hero.to=strikePoint(hero.target);
+    const s=k*k*(3-2*k);const px=hero.x,py=hero.y;
+    hero.x=hero.from[0]+(hero.to[0]-hero.from[0])*s;hero.y=hero.from[1]+(hero.to[1]-hero.from[1])*s;
+    TRAIL.push({x:hero.x,y:hero.y,life:.18,max:.18});
+    if(k>=1){resolveHit(hero.target);hero.state='linger';hero.t=0;hero.land=1;}
+  }else if(hero.state==='linger'){
+    hero.t+=dt;if(hero.t>=.1){if(hero.queue.length)startDash();else{hero.state='idle';hero.target=null;}}
+  }else if(hero.queue.length)startDash();
+}
+function resolveHit(t){
+  if(!alive(t)){if(t)t.locked=false;return;}
+  t.locked=false;
+  const dir=[t.x-hero.from[0],t.y-hero.from[1]];const dl=Math.hypot(dir[0],dir[1])||1;dir[0]/=dl;dir[1]/=dl;
+  hero.lastDir=dir;
+  slash(hero.from[0],hero.from[1],t.x,t.y,t.isBoss);
+  hero.inv=Math.max(hero.inv,.3);
+  if(t.captive){joinFish(t);return;}
+  const charged=restCharged;restCharged=false;restT=0;
+  // 一撃で崩すのは必ず部品1つ。休・信の「丸ごと崩す」も、部品が一つずつはがれる様子を見せる
+  const whole=charged||(hasForm('信')&&(t.wordLen||0)>=6);
+  if(charged){showBanner('休','RESTED STRIKE');}
+  const crit=Math.random()<Math.min(.5,Math.max(0,combo-4)*.01+HS.crit);
+  hitstop=Math.max(hitstop,crit||charged?.08:.05);shake=Math.max(shake,(crit?10:7)*shakeK());SFX.hit();
+  RG.push({x:t.x,y:t.y,r:0,R:70*SF,life:.28,max:.28,c:crit?C.kin:C.shu,w:6});
+  if(crit)addText(t.x,t.y-t.size*.8,'会心',22*SF+6,C.kin,.6);
+  if(t.isBoss){bossHit();return;}
+  const killed=breakPart(t,dir[0],dir[1]);
+  if(!killed){if(whole&&t.node.parts.length>=0){t.bq=leaves(t.node);t.bqT=.22;t.daze=2;}
+    // 吹き飛びは控えめに: 分解された字が見える距離（約1.5体分）に止まる
+    const kb=520*HS.knock;t.kx=dir[0]*kb;t.ky=dir[1]*kb;t.daze=Math.max(t.daze||0,1.1);}
+  if(!killed&&hasForm('比')){let b=null,bd=200*SF;for(const o of E){if(!o.alive||o.isBoss||o.locked||o.gift||o.typed||o===t)continue;const d=Math.hypot(o.x-t.x,o.y-t.y);if(d<bd){bd=d;b=o;}}if(b){slash(t.x,t.y,b.x,b.y,false);breakPart(b,0,-1,'splash');}}
+  else if(hasForm('付')&&shield<3){shield++;addText(hero.x,hero.y-50*SF,'付',22*SF,C.shu,.6);}
+  // 着地の衝撃: 周りの字はまとめて吹き飛ぶ（打ちかけの字は巻き込まない）。強化すると巻き込んだ字の部品も崩す
+  const cut=HS.splash>0||L('刀')>0||hasForm('伐')||J('木刀');
+  const R2=(110+HS.splash+L('刀')*40)*SF;
+  RG.push({x:hero.x,y:hero.y,r:0,R:R2,life:.32,max:.32,c:cut?C.shu:C.sumi,w:cut?6:3});
+  for(const o of E){if(o===t||!o.alive||o.isBoss||o.locked||o.gift||o.typed)continue;const ox=o.x-hero.x,oy=o.y-hero.y,od=Math.hypot(ox,oy)||1;
+    if(od<R2+o.rad){const kb=(480+(R2-od)*2)*HS.knock;o.kx=ox/od*kb;o.ky=oy/od*kb;o.daze=.8;if(cut)breakPart(o,ox/od,oy/od,'splash');}}
+  // 意味がそのまま能力になる
+  if(hasForm('北')){for(const o of E){if(!o.alive||o.isBoss||o.locked||o.gift||o.typed||o===t)continue;const ox=o.x-hero.x,oy=o.y-hero.y,od=Math.hypot(ox,oy)||1;if(od<190*SF&&(ox*dir[0]+oy*dir[1])/od<-.3){slash(hero.x,hero.y,o.x,o.y,false);breakPart(o,ox/od,oy/od,'splash');}}}
+  if(hasForm('从')){let b=null,bd=230*SF;for(const o of E){if(!o.alive||o.isBoss||o.locked||o.gift||o.typed||o===t)continue;const d=Math.hypot(o.x-hero.x,o.y-hero.y);if(d<bd){bd=d;b=o;}}
+    if(b){slash(hero.x,hero.y,b.x,b.y,false);breakPart(b,(b.x-hero.x)/bd,(b.y-hero.y)/bd,'splash');}}
+  if(killed&&hasForm('花')){for(let i=0;i<14;i++){const a=i/14*6.28;P.push({k:'ink',x:t.x,y:t.y,vx:Math.cos(a)*300,vy:Math.sin(a)*300,life:.6,max:.6,s:4*SF,c:C.shu});}
+    for(const o of E){if(!o.alive||o.isBoss||o.locked||o.gift||o.typed)continue;if(Math.hypot(o.x-t.x,o.y-t.y)<140*SF)breakPart(o,0,-1,'splash');}}
+}
+
+/* ---------- Combat ---------- */
+// 武器は字にひびを入れるだけ。ひびが溜まると部品が1つはがれるが、単体の字は倒さない。打ちかけの字には触れない
+function dmgEnemy(e,d){
+  if(!e.alive||e.isBoss||e.gift||e.typed||e.locked)return;
+  // 仲間の攻撃はひびを溜める。ひびが満ちると部品が1つはがれ、単体の字なら砕ける（打ちかけの字には触れない）
+  e.flash=.08;e.crack=(e.crack||0)+d*dmgMul()*(1+.3*(traits.dmg||0));if(e.crack>=7){e.crack=0;breakPart(e,0,-1,'weapon');}
+}
+function killEnemy(e,how){
+  if(!e.alive)return;e.alive=false;
+  kills++;slain[e.ch]=(slain[e.ch]||0)+1;
+  const typed=how==='type';
+  shatter(e.x,e.y,e.ch,e.size,typed?1:.55,e.gift?C.kin:C.sumi);
+  addStain(e.x,e.y,e.size*(typed?1:.6));
+  if(typed){STAMP.push({x:e.x,y:e.y,ch:e.ch,life:.7,max:.7,rot:rnd(-.3,.3)});}
+  else if(how==='weapon')SFX.soft();
+  let v=(1+(e.lv0||1)*.8)*(typed?1.5:1)*(1+Math.floor(combo/10)*.15)*HS.xp;
+  if(e.beh==='gift'&&typed){v*=8;showBanner('福','FORTUNE ×8');}
+  if(e.beh==='heal'&&typed){hp=Math.min(maxHp,hp+2);updHP();addText(hero.x,hero.y-50*SF,'命 +二',22,C.shu,1);}
+  const n=Math.min(8,Math.ceil(v/1.5));
+  for(let i=0;i<n;i++)GEMS.push({x:e.x+rnd(-8,8),y:e.y+rnd(-8,8),fx:e.x,fy:e.y,side:Math.random()<.5?-1:1,age:-i*.03,v:v/n});
+}
+// 古代神が来る少し前、囚われの魚が一瞬だけ姿を見せ、空へ連れ去られる
+function tickTeaser(dt){
+  if(!fishJoined&&!boss&&teased!==bossIdx&&time>=nextBoss-9){teased=bossIdx;teaser={t:0};showBanner('囚われの魚','A POEM IS COMING FOR HER');SFX.warn();}
+  if(teaser){teaser.t+=dt;if(teaser.t>4.5)teaser=null;}
+}
+function drawTeaser(ink){
+  const k=teaser.t,rise=Math.max(0,k-2.2);
+  const x=cam.x+W*.22+Math.sin(k*2)*10,y=cam.y-H*.12-rise*rise*90*SF;
+  c.globalAlpha=Math.min(1,k*2)*Math.max(0,1-rise/2.2);
+  c.strokeStyle=rgba(C.kin,.7);c.lineWidth=2;c.setLineDash([5,6]);c.beginPath();c.moveTo(x,y-50*SF);c.lineTo(x,cam.y-H/2-20);c.stroke();c.setLineDash([]);
+  drawCaptive({x,y,size:48*SF,t:k*3},ink);
+  c.font=`700 ${Math.round(13*Math.max(.85,SF))}px ${UF}`;c.textAlign='center';c.textBaseline='top';c.fillStyle=rgba(C.ai);c.fillText('たすけて',x,y+48*SF);
+  c.globalAlpha=1;
+}
+function joinFish(t){
+  t.alive=false;fishJoined=true;
+  for(let i=0;i<4;i++)RG.push({x:t.x,y:t.y,r:0,R:(60+i*50)*SF,life:.5+i*.1,max:.5+i*.1,c:i%2?C.ai:C.kin,w:5});
+  shatter(t.x,t.y,'囗',t.size*1.4,.8,C.shu);flash=calm?.2:.4;flashCol=C.kin;SFX.fuse();
+  showBanner('魚を救った','SHE SWIMS FREE — 次は魚で始められる');
+}
+// 古代神も「体力ゲージを削り切れば勝ち」。削った割合だけ甲骨文の線がはがれ落ちる
+// 古代神に体力は無い。甲骨文の線そのものが体で、一撃ごとに線がはがれる。全部はがせば封印
+function bossHit(){
+  const b=boss,ln=b.poem.lines[b.li],lay=poemLayout(b),col={P:lay.P};
+  [...ln[0]].forEach((ch,j)=>{const sx=lay.x0+j*lay.P,sy=lay.y,wx=cam.x+sx-W/2,wy=cam.y+sy-H/2;
+    shatter(wx,wy,ch,col.P*.9,.7,C.kin);});
+  b.gone.add(b.li);shake=20*shakeK();hitstop=.12;flash=calm?.15:.35;flashCol=C.kin;SFX.boom();
+  // 一句打ち切ると、詩の衝撃が雑魚全員に一撃ずつ入る（部品を1つ崩す。単体の字は倒れる）。打ちかけの字は巻き込まない
+  {let n=0;for(const e of [...E]){if(!e.alive||e.isBoss||e.captive||e.gift||e.typed||e.locked)continue;const dx=e.x-hero.x,dy=e.y-hero.y,d=Math.hypot(dx,dy)||1;
+     RG.push({x:e.x,y:e.y,r:0,R:e.rad*2,life:.35,max:.35,c:C.kin,w:4});e.kx+=dx/d*260;e.ky+=dy/d*260;breakPart(e,dx/d,dy/d,'splash');n++;}
+   for(let i=0;i<3;i++)RG.push({x:hero.x,y:hero.y,r:0,R:Math.hypot(W,H)*(.4+i*.2),life:.5+i*.12,max:.5+i*.12,c:C.kin,w:6});
+   if(n)addText(hero.x,hero.y-80*SF,'詩の衝撃 ×'+n,20*SF+6,C.kin,1);}
+  b.li++;if(b.li>=b.poem.lines.length){bossDie();return;}
+  setPoemLine();
+}
+function bossDie(){
+  const b=boss;b.alive=false;kills++;const hadFish=unlocked(HEROES[1]);meta.gods++;saveMeta();
+  if(!hadFish)setTimeout(()=>showBanner('魚 が目覚めた','UNLOCKED — 魚でリスタートできる',false,true),3400);
+  slowT=1;flash=calm?.15:.3;flashCol=C.kin;shake=18*shakeK();
+  for(let i=0;i<3;i++)RG.push({x:hero.x,y:hero.y,r:0,R:Math.max(W,H)*(.2+i*.12),life:.6+i*.12,max:.6+i*.12,c:i%2?C.kin:C.shu,w:8-i*.6});
+  setTimeout(()=>showBanner('詩を読み解いた','POEM BROKEN — '+b.poem.title,false,true),300);
+  for(let i=0;i<10;i++)GEMS.push({x:hero.x,y:hero.y-200*SF,fx:hero.x,fy:hero.y-200*SF,side:Math.random()<.5?-1:1,age:-i*.05,v:6+bossIdx*2,gold:true});
+  hp=Math.min(maxHp,hp+2);updHP();
+  if(!fishJoined&&!E.some(x=>x.captive)){const cp={ch:'魚',en:'fish',beh:'gift',stk:11};spawnEnemy(cp,{x:hero.x+120*SF,y:hero.y-140*SF});const e=E[E.length-1];e.captive=true;e.size=56*SF;e.rad=40*SF;
+    setTimeout(()=>showBanner('囚われの魚','TYPE "fish" TO FREE HER',false,true),1800);}
+  boss=null;bossIdx++;nextBoss=time+80;
+}
+function hurt(e){
+  if(hero.inv>0||hero.state==='dash')return;
+  if(shield>0&&!e.isBoss){shield--;hero.inv=.8;const dx=e.x-hero.x,dy=e.y-hero.y,d=Math.hypot(dx,dy)||1;e.kx=dx/d*640;e.ky=dy/d*640;breakPart(e,dx/d,dy/d,'splash');RG.push({x:hero.x,y:hero.y,r:0,R:80*SF,life:.3,max:.3,c:C.shu,w:5});return;}
+  hp-=e.isBoss?2:1;hero.inv=1.6+HS.inv;redV=1;shake=16*shakeK();SFX.hurt();
+  if(combo>=5)addText(hero.x,hero.y-60*SF,'連撃 途切れ',18,C.sumi);combo=0;updCombo();updHP();
+  const dx=e.x-hero.x,dy=e.y-hero.y,d=Math.hypot(dx,dy)||1;
+  e.kx=dx/d*(e.isBoss?600:640);e.ky=dy/d*(e.isBoss?600:640);
+  RG.push({x:hero.x+dx/d*heroR(),y:hero.y+dy/d*heroR(),r:0,R:85*SF,life:.3,max:.3,c:C.shu,w:4});
+  if(hp<=0){hp=0;updHP();die();}
+}
+function die(){state='dying';dyingT=1.6;slowT=1.6;shatter(hero.x,hero.y,form,70*SF,1.4,C.shu);flash=.6;flashCol=C.shu;SFX.boom();}
+const shakeK=()=>calm?.35:1;
+
+
+/* ---------- FX ---------- */
+function shatter(x,y,t,size,amt,col){
+  const pts=sampleGlyph(t);const n=Math.min(pts.length,Math.floor(70*amt));
+  for(let i=0;i<n;i++){const p=pts[i];const a=Math.atan2(p[1],p[0])+rnd(-.5,.5),sp=rnd(120,520)*amt;
+    P.push({k:'ink',x:x+p[0]*size,y:y+p[1]*size,vx:Math.cos(a)*sp,vy:Math.sin(a)*sp,life:rnd(.35,.8),max:.8,s:rnd(1.8,4)*SF*(size/46),c:col});}
+}
+function addStain(x,y,s){
+  const R=Math.ceil(s*1.4),k=document.createElement('canvas');k.width=k.height=R*2;const g=k.getContext('2d');g.translate(R,R);
+  g.fillStyle='rgba(23,20,15,.16)';for(let i=0;i<7;i++){g.beginPath();g.arc(rnd(-s*.25,s*.25),rnd(-s*.25,s*.25),rnd(s*.12,s*.32),0,6.28);g.fill();}
+  g.fillStyle='rgba(23,20,15,.3)';for(let i=0;i<12;i++){const a=rnd(0,6.28),d=rnd(s*.4,s*1.25);g.beginPath();g.arc(Math.cos(a)*d,Math.sin(a)*d,rnd(1,3.5)*SF,0,6.28);g.fill();}
+  STAIN.push({x,y,k,R,age:0});if(STAIN.length>140)STAIN.shift();
+}
+function slash(x1,y1,x2,y2,big){
+  const ang=Math.atan2(y2-y1,x2-x1),perp=ang+Math.PI/2,bend=rnd(-1,1)*Math.hypot(x2-x1,y2-y1)*.2;
+  SL.push({x1,y1,cx:(x1+x2)/2+Math.cos(perp)*bend,cy:(y1+y2)/2+Math.sin(perp)*bend,x2,y2,life:.32,max:.32,w:(big?22:12)*SF,boss:big});
+  const a2=ang+Math.PI/2+rnd(-.5,.5),L2=(big?120:40)*SF;
+  SL.push({x1:x2-Math.cos(a2)*L2,y1:y2-Math.sin(a2)*L2,cx:x2,cy:y2,x2:x2+Math.cos(a2)*L2,y2:y2+Math.sin(a2)*L2,life:.25,max:.25,w:(big?18:8)*SF,cut:true});
+}
+function addText(x,y,t,s,col,life=.8){TX.push({x,y,t,s,c:col,life,max:life,vy:-50});}
+let bannerTO=0;
+function showBanner(big,sub,god,small){const b=$('banner');b.innerHTML=`<div class="band">${esc(big)}</div><div class="sub">${esc(sub)}</div>`;b.hidden=false;b.className='hud'+(god?' god':'')+(small?' small':'');void b.offsetWidth;b.classList.add('go');clearTimeout(bannerTO);bannerTO=setTimeout(()=>{b.hidden=true},1350);}
+
+/* ---------- Weapons (all centred on the hero) ---------- */
+function nearest(x,y,maxD=1e9){let b=null,bd=maxD;for(const e of E){if(!e.alive||e.isBoss)continue;const d=Math.hypot(e.x-x,e.y-y);if(d<bd){bd=d;b=e;}}return b;}
+function tick(id,dt,iv){timers[id]=(timers[id]||0)-dt;if(timers[id]<=0){timers[id]=iv;return true;}return false;}
+// 合体しなかった字は仲間になり、主人公のそばで自分の性格で戦う
+let ALLY={};
+const ALLY_EN={'火':'firebug','炎':'blaze','矢':'archer','水':'tide','木':'rooted','日':'sunny','月':'wanderer','雨':'cloud','田':'farmer','刀':'guard','山':'wall','命':'healer','力':'cheer','犬':'hound','馬':'steed','鳥':'hawk','明':'radiant','林':'grove','雷':'storm'};
+function allyIds(){return Object.keys(owned).filter(id=>id[0]!=='_'&&!absorbed[id]&&(WEAP[id]||FUSIONS.some(f=>f.id===id)));}
+function AP(id){const a=ALLY[id];return a?[a.x,a.y]:[hero.x,hero.y];}
+// 仲間の字は、それぞれの字の意味で姿を見せる。後ろについて歩くだけにしない
+//  矢: 体は無い。主人公の手から矢の字が放たれる
+//  火: 体は無い。主人公が通った後ろでぱっと燃えて消える（突っ込んだ跡にも火が残る）
+//  水: 体は無い。主人公の足元から水の字が跳ね、波紋が広がる
+//  田: 体は無い。地面に田の字の罠が刻まれる
+//  命・力: 体は無い（命は命の数、力はひびの入りやすさ）
+//  木: その場に根を張る。主人公が離れると枯れて、近くに生え直す
+//  日: 空高くに昇る ／ 月: ふらふら歩き回る ／ 雨: 頭上の雲 ／ 刀: 主人公の脇に構え、斬りかかって戻る
+//  犬・馬・鳥（部品の字）: 合体したあとも連れとしてついてくる。犬は足元、馬は並走、鳥は上空を旋回
+const NOBODY=new Set(['火','矢','水','田','命','力']);
+const COMPANION=['犬','馬','鳥'];
+function bodyIds(){return allyIds().filter(id=>!NOBODY.has(id)).concat(COMPANION.filter(id=>L(id)>0));}
+const heroHist=[];
+function trailPos(sec){const t=time-sec;for(let i=heroHist.length-1;i>=0;i--)if(heroHist[i][2]<=t)return heroHist[i];return heroHist[0]||[hero.x,hero.y,time];}
+function biteTarget(x,y,R){let b=null,bd=R;for(const e of E){if(!e.alive||e.isBoss||e.gift||e.captive||e.typed||e.locked)continue;const d=Math.hypot(e.x-x,e.y-y);if(d<bd){bd=d;b=e;}}return b;}
+function tickAllies(dt){
+  if(!heroHist.length||time-heroHist[heroHist.length-1][2]>.04){heroHist.push([hero.x,hero.y,time]);if(heroHist.length>60)heroHist.shift();}
+  const ids=bodyIds();for(const k in ALLY)if(!ids.includes(k))delete ALLY[k];
+  const fx=hero.lastDir[0],fy=hero.lastDir[1];
+  ids.forEach((id,i)=>{
+    let a=ALLY[id];if(!a){a=ALLY[id]={x:hero.x-fx*60*SF+rnd(-20,20),y:hero.y-fy*60*SF+rnd(-20,20),vx:0,vy:0,t:rnd(0,9),ph:rnd(0,6),dash:null,cd:1,grow:0,wilt:0};}
+    a.t+=dt;let tx=a.x,ty=a.y,k=12;
+    if(id==='木'){ // 根を張る: 動かない。離れすぎたら枯れて、主人公の近くに生え直す
+      const far=Math.hypot(hero.x-a.x,hero.y-a.y)>380*SF;
+      if(a.wilt>0){a.wilt+=dt*2.5;if(a.wilt>=1){const an=rnd(0,6.28);a.x=hero.x+Math.cos(an)*rnd(70,120)*SF;a.y=hero.y+Math.sin(an)*rnd(50,90)*SF;a.wilt=0;a.grow=0;}}
+      else if(far&&a.grow>=1)a.wilt=.001;
+      if(!a.wilt)a.grow=Math.min(1,a.grow+dt*1.6);
+      a.vx=a.vy=0;return;}
+    if(id==='日'){tx=hero.x+110*SF+Math.sin(time*.3)*30*SF;ty=hero.y-170*SF;k=3;}                         // 空高く昇る
+    if(id==='雨'){tx=hero.x-120*SF+Math.sin(time*.6)*50*SF;ty=hero.y-120*SF;k=5;}                         // 雲として浮かぶ
+    if(id==='月'){tx=hero.x+Math.cos(time*.5+a.ph)*190*SF;ty=hero.y+Math.sin(time*.7+a.ph)*110*SF;k=2;} // ふらふら歩き回る
+    // 犬: 一度噛みついたら戻らない。噛みついている間、その字は動けない（打ちやすい）。
+    //     噛みついてから1.2秒後に最初の一噛み、以後2.2秒ごとに噛んで部品を1つ崩し、単体の字なら倒す。
+    //     倒したら近くの次の字へそのまま走る。押さえている字はプレイヤーが打ちかけていても噛む
+    if(id==='犬'){
+      const ok=e=>e&&e.alive&&!e.isBoss&&!e.gift&&!e.captive&&!e.locked;
+      if(!ok(a.hold)){a.hold=null;let b=null,bd=1e9;for(const e of E){if(!ok(e)||e.typed||Math.hypot(e.x-hero.x,e.y-hero.y)>340*SF)continue;const d=Math.hypot(e.x-a.x,e.y-a.y);if(d<bd){bd=d;b=e;}}if(b){a.hold=b;a.latched=false;a.bite=1.2;}}
+      if(a.hold){const e=a.hold,side=(a.x<e.x?-1:1),hx2=e.x+side*e.rad*.9,hy2=e.y+e.rad*.35,dx=hx2-a.x,dy=hy2-a.y,d=Math.hypot(dx,dy)||1;
+        if(!a.latched){const sp=820*SF*dt;a.x+=dx/d*Math.min(d,sp);a.y+=dy/d*Math.min(d,sp);a.vx=dx/d*820;a.vy=dy/d*820;if(d<10*SF)a.latched=true;}
+        else{a.x=hx2;a.y=hy2;a.vx=-side*60;a.vy=0;e.daze=Math.max(e.daze||0,.25);e.kx*=.5;e.ky*=.5;
+          a.bite-=dt;if(a.bite<=0){a.bite=2.2;{addText(e.x,e.y-e.rad,'噛',18*SF+4,C.ai,.5);RG.push({x:e.x,y:e.y,r:0,R:44*SF,life:.25,max:.25,c:C.ai,w:3});SFX.soft();breakPart(e,-side,0,'splash');if(e.alive)e.kx=e.ky=0;}}}
+        return;}
+      tx=hero.x-fx*48*SF-hero.face*22*SF;ty=hero.y-fy*48*SF+22*SF;k=9;
+    }
+    else if(id==='刀'||id==='馬'||id==='鳥'){
+      if(id==='刀'){tx=hero.x+hero.face*46*SF;ty=hero.y+4*SF;}                                    // 脇に構える
+      if(id==='馬'){tx=hero.x+fy*110*SF;ty=hero.y-fx*110*SF;k=5;}                                 // 並走する
+      if(id==='鳥'){const an=time*1.3+a.ph;tx=hero.x+Math.cos(an)*130*SF;ty=hero.y-110*SF+Math.sin(an)*50*SF;k=6;} // 上空を旋回
+      const spec={'刀':[150+L('刀')*30,[1.6,1.3,1][L('刀')-1]||1,900,6],'馬':[300,3.2,1100,4],'鳥':[320,2.6,1000,4]}[id];
+      a.cd-=dt;
+      if(!a.dash&&a.cd<=0){const b=biteTarget(hero.x,hero.y,spec[0]*SF);if(b){a.dash=b;a.dt=0;a.sx=a.x;a.sy=a.y;}a.cd=spec[1];}
+      if(a.dash){const e=a.dash;a.dt+=dt;const dx=e.x-a.x,dy=e.y-a.y,d=Math.hypot(dx,dy)||1,sp=spec[2]*SF*dt;a.x+=dx/d*Math.min(d,sp);a.y+=dy/d*Math.min(d,sp);a.vx=dx/d*spec[2];a.vy=dy/d*spec[2];
+        if(d<e.rad+12*SF||!e.alive||a.dt>.7){
+          if(e.alive){
+            if(id==='刀')slash(a.x-dx/d*40,a.y-dy/d*40,e.x,e.y,false);
+            else{addText(e.x,e.y-e.rad,id==='犬'?'噛':id==='馬'?'蹴':'啄',18*SF+4,C.ai,.5);RG.push({x:e.x,y:e.y,r:0,R:40*SF,life:.25,max:.25,c:C.ai,w:3});}
+            const kb=id==='馬'?620:id==='犬'?260:380;e.kx+=dx/d*kb;e.ky+=dy/d*kb;dmgEnemy(e,spec[3]);SFX.soft();}
+          a.dash=null;}
+        return;}
+    }
+    a.vx+=(tx-a.x)*k*dt;a.vy+=(ty-a.y)*k*dt;a.vx*=Math.pow(.03,dt);a.vy*=Math.pow(.03,dt);a.x+=a.vx*dt;a.y+=a.vy*dt;
+  });
+}
+// ひび: 仲間の攻撃がどれだけ溜まったかを字の上に朱の割れ目で見せる（7で崩れる）
+function drawCrack(e){const n=Math.min(6,Math.ceil(e.crack/7*6)),R=e.size*.5,seed=e.id||e.ch.charCodeAt(0);
+  c.save();c.strokeStyle=rgba(C.shu,.85);c.lineWidth=Math.max(1.5,2.2*SF);c.lineCap='round';
+  for(let i=0;i<n;i++){let a=(seed*2.399+i*2.1)%6.283,x=e.x+Math.cos(a)*R*.1,y=e.y+Math.sin(a)*R*.1;c.beginPath();c.moveTo(x,y);
+    for(let j=1;j<=3;j++){a+=Math.sin(seed+i*3+j)*.6;x+=Math.cos(a)*R*.3;y+=Math.sin(a)*R*.3;c.lineTo(x,y);}c.stroke();}
+  c.restore();}
+function drawAllies(ink){
+  const key=night>.5?'allyN':'ally';
+  {const d=ALLY['犬'];if(d&&d.hold&&d.hold.alive){const e=d.hold;c.strokeStyle=rgba(night>.5?C.aiN:C.ai,.7);c.lineWidth=2.5*SF;c.setLineDash([6*SF,5*SF]);c.beginPath();c.ellipse(e.x,e.y+e.rad*.75,e.rad*1.05,e.rad*.32,0,0,6.28);c.stroke();c.setLineDash([]);}}
+  for(const id of bodyIds()){const a=ALLY[id];if(!a)continue;
+    let size=34*SF,mo=motionOf(id),dy=0,sx=1,sy=1,alpha=1;
+    if(id==='雨')mo='drift';
+    if(id==='日'){size=52*SF;const R=size*1.1;const g=c.createRadialGradient(a.x,a.y,R*.2,a.x,a.y,R*1.6);g.addColorStop(0,'rgba(198,160,70,.35)');g.addColorStop(1,'rgba(198,160,70,0)');c.fillStyle=g;c.beginPath();c.arc(a.x,a.y,R*1.6,0,6.28);c.fill();}
+    if(id==='木'){const gr=a.wilt?1-a.wilt:a.grow;sy=Math.max(.02,gr);sx=a.wilt?1+a.wilt*.3:1;alpha=a.wilt?1-a.wilt*.6:1;size=46*SF;dy=-size*.5*(1-sy);
+      c.fillStyle=rgba(ink,.12*sy);c.beginPath();c.ellipse(a.x,a.y+size*.45,size*.4,size*.08,0,0,6.28);c.fill();}
+    if(id==='犬'){size=30*SF;mo='gallop';}
+    if(id==='馬'){size=40*SF;mo='gallop';}
+    if(id==='鳥'){size=28*SF;mo='flutter';}
+    const e={x:a.x,y:a.y,size,ch:id,t:a.t,step:9,ph:a.ph,mo,w:1,face:a.vx<0?-1:1,tilt:clamp(a.vx/600,-.3,.3),flash:0,pulse:0,gift:false,typed:'',beh:'walk',lv:1};
+    c.save();c.globalAlpha=alpha;c.translate(a.x,a.y+size*.45);c.scale(sx,sy);c.translate(-a.x,-(a.y+size*.45)+dy/sy);
+    drawLiving(e,ink,key);c.restore();
+    if(id==='木'&&a.wilt)continue;
+    c.font=`700 ${Math.round(10*Math.max(.85,SF))}px ${MF}`;c.textAlign='center';c.textBaseline='top';c.fillStyle=rgba(night>.5?C.aiN:C.ai,.85);c.fillText(ALLY_EN[id]||'',a.x,a.y+size*.6);}
+}
+function weapons(dt){
+  tickAllies(dt);
+  const hx=hero.x,hy=hero.y;
+  // 火: 主人公が通った後ろでぱっと燃えて消える。突っ込んだ道筋にも火が残る
+  if(L('火')&&tick('hi_fire',dt,[1.2,.9,.65][L('火')-1])){let p=trailPos(.3+Math.random()*.25);if(Math.hypot(p[0]-hero.x,p[1]-hero.y)<50*SF)p=[hero.x-hero.lastDir[0]*62*SF-hero.face*rnd(10,30)*SF,hero.y-hero.lastDir[1]*62*SF+14*SF];ROT.push({x:p[0]+rnd(-14,14)*SF,y:p[1]+rnd(-10,10)*SF,r:(38+L('火')*6)*SF,life:1.3,max:1.3,tk:0,fire:true,flare:true});}
+  if(L('火')&&hero.state==='dash'&&tick('hi_dash',dt,.05))ROT.push({x:hero.x+rnd(-8,8)*SF,y:hero.y+rnd(-8,8)*SF,r:(30+L('火')*5)*SF,life:.9,max:.9,tk:0,fire:true,flare:true});
+  if(L('矢')&&tick('ya',dt,[1.1,.8,.55][L('矢')-1])){const t=nearest(hx,hy,Math.max(W,H));if(t){const[ax,ay]=AP('矢');const a=Math.atan2(t.y-ay,t.x-ax);RG.push({x:ax,y:ay,r:0,R:26*SF,life:.18,max:.18,c:C.ai,w:3});PROJ.push({k:'ya',x:ax,y:ay,vx:Math.cos(a)*560*SF,vy:Math.sin(a)*560*SF,dm:3,pierce:L('矢')-1,hit:new Set(),life:1.6});}}
+  if(L('水')&&tick('mizu',dt,[4.5,3.6,2.8][L('水')-1]*(J('水力')?.7:1))){const[ax,ay]=AP('水');waveRings.push({x:ax,y:ay,r:0,R:(170+L('水')*40)*SF,hit:new Set(),dm:2+L('水')});SFX.soft();}
+  for(const w of waveRings){w.r+=dt*420*SF;for(const e of E)if(e.alive&&!e.isBoss&&!w.hit.has(e)){const ex=e.x-w.x,ey=e.y-w.y,d=Math.hypot(ex,ey)||1;if(Math.abs(d-w.r)<e.rad+10){w.hit.add(e);const wk=J('水力')?480:240;e.kx+=ex/d*wk;e.ky+=ey/d*wk;dmgEnemy(e,w.dm);}}}
+  waveRings=waveRings.filter(w=>w.r<w.R);
+  const rootN=L('林')?7:L('休')?3:L('木')?L('木')+1:0;
+  if(rootN&&tick('ki',dt,L('林')?2:[3,2.6,2.2][Math.max(0,L('木')-1)])){
+    const[ax,ay]=AP(L('林')?'林':'木');const cands=E.filter(e=>e.alive&&!e.isBoss&&onView(e.x,e.y)&&Math.hypot(e.x-ax,e.y-ay)<320*SF);for(let i=0;i<rootN&&cands.length;i++){const e=cands.splice(Math.floor(Math.random()*cands.length),1)[0];ROOTS.push({x:e.x,y:e.y,t:0,dm:L('林')?9:5,done:false,size:(L('林')?70:50)*SF});}}
+  for(const r of ROOTS){r.t+=dt;if(!r.done&&r.t>.35){r.done=true;for(const e of E)if(e.alive&&Math.hypot(e.x-r.x,e.y-r.y)<r.size*.6+e.rad)dmgEnemy(e,r.dm);addStain(r.x,r.y,r.size*.4);}}
+  ROOTS=ROOTS.filter(r=>r.t<.9);
+  const auraLv=L('明')?4:L('日');
+  if(auraLv&&tick('hi',dt,.5)){const[ax,ay]=AP(L('明')?'明':'日');const R=(70+auraLv*18)*SF;for(const e of E)if(e.alive&&Math.hypot(e.x-ax,e.y-ay)<R+e.rad)dmgEnemy(e,1+auraLv*.5);}
+  const moonLv=L('明')?3:L('月');
+  if(moonLv&&tick('tsuki',dt,[2.3,1.8,1.4][moonLv-1])){const cnt=moonLv>=3?2:1;for(let i=0;i<cnt;i++){const[ax,ay]=AP(L('明')?'明':'月');const t=nearest(ax,ay);const a=(t?Math.atan2(t.y-ay,t.x-ax):rnd(0,6.28))+i*Math.PI;crescents.push({ox:ax,oy:ay,a,d:0,out:true,hit:new Set(),dm:3+moonLv,spin:0,R:(240+moonLv*20)*SF});}}
+  for(const m of crescents){m.spin+=dt*14;if(m.out){m.d+=dt*520*SF;if(m.d>=m.R){m.out=false;m.hit.clear();}}else m.d-=dt*600*SF;m.x=m.ox+Math.cos(m.a)*m.d;m.y=m.oy+Math.sin(m.a)*m.d;
+    for(const e of E)if(e.alive&&!e.isBoss&&!m.hit.has(e)&&Math.hypot(e.x-m.x,e.y-m.y)<e.rad+18*SF){m.hit.add(e);dmgEnemy(e,m.dm);}}
+  crescents=crescents.filter(m=>m.out||m.d>0);
+  if(L('明')&&tick('mei',dt,5)){flash=calm?.25:.55;flashCol=C.kin;SFX.zap();for(const e of E)if(e.alive&&onView(e.x,e.y))dmgEnemy(e,8);for(let i=0;i<3;i++)RG.push({x:hx,y:hy,r:0,R:Math.hypot(W,H)/2,life:.5+i*.15,max:.5+i*.15,c:C.kin,w:10});}
+  const rainLv=L('雷')?3:L('雨');
+  if(rainLv&&tick('ame',dt,[.32,.2,.12][rainLv-1])){const[ax,ay]=AP(L('雷')?'雷':'雨');const near=E.filter(e=>e.alive&&!e.isBoss&&!e.typed&&!e.locked&&Math.hypot(e.x-ax,e.y-ay)<380*SF),tg=near.length&&Math.random()<.7?pick(near):null;const a=rnd(0,6.28),d=rnd(40,260)*SF;const x=tg?tg.x+rnd(-12,12)*SF:ax+Math.cos(a)*d,y=tg?tg.y+rnd(-8,8)*SF:ay+160*SF+Math.sin(a)*d;P.push({k:'drop',x,y:y-120,ty:y,vx:0,vy:900,life:1,max:1,s:2,c:C.sumi,dm:2});}
+  if(L('田')&&tick('ta',dt,3.4)){for(let i=0;i<L('田');i++){const t=pick(E.filter(e=>e.alive&&!e.isBoss&&onView(e.x,e.y)));const[ax,ay]=AP('田');const x=t?t.x:ax+rnd(-150,150)*SF,y=t?t.y:ay+rnd(-150,150)*SF;TRAP.push({x,y,life:6,max:6,s:64*SF*(J('水田')?1.6:1),tk:0});}}
+  for(const tr of TRAP){tr.life-=dt;tr.tk-=dt;const hit=tr.tk<=0;if(hit)tr.tk=.5;for(const e of E)if(e.alive&&!e.isBoss&&Math.abs(e.x-tr.x)<tr.s/2&&Math.abs(e.y-tr.y)<tr.s/2){e.slow=J('水田')?.6:.3;if(hit)dmgEnemy(e,2);}}
+  TRAP=TRAP.filter(t=>t.life>0);
+  if(L('雷')&&tick('rai',dt,1)){const[ax,ay]=AP('雷');let from={x:ax,y:ay};const hit=new Set(),pts=[[ax,ay]];for(let i=0;i<6;i++){let b=null,bd=(i?220:420)*SF;for(const e of E){if(!e.alive||e.isBoss||hit.has(e))continue;const d=Math.hypot(e.x-from.x,e.y-from.y);if(d<bd){bd=d;b=e;}}if(!b)break;hit.add(b);pts.push([b.x,b.y]);from=b;}
+    if(pts.length>1){BOLT.push({pts,life:.25,max:.25});SFX.zap();for(const e of hit)dmgEnemy(e,7);}}
+  if(L('休')&&tick('kyu',dt,12)&&hp<maxHp){hp++;updHP();addText(hx,hy-50*SF,'命 +一',20,C.shu,1);}
+  for(const p of PROJ){if(p.k==='verse'){p.t+=dt;p.life-=dt;if(p.t<0)continue;const a=Math.atan2(hero.y-p.y,hero.x-p.x);p.vx+=Math.cos(a)*1500*dt;p.vy+=Math.sin(a)*1500*dt;p.vx*=Math.pow(.3,dt);p.vy*=Math.pow(.3,dt);p.x+=p.vx*dt;p.y+=p.vy*dt;if(Math.hypot(hero.x-p.x,hero.y-p.y)<heroR()+14*SF){p.life=0;if(hero.inv<=0&&hero.state!=='dash'){hp-=1;hero.inv=1;redV=1;shake=12*shakeK();SFX.hurt();combo=0;updCombo();updHP();if(hp<=0){hp=0;updHP();die();}}}continue;}
+    p.x+=p.vx*dt;p.y+=p.vy*dt;p.life-=dt;for(const e of E)if(e.alive&&!e.isBoss&&!p.hit.has(e)&&Math.hypot(e.x-p.x,e.y-p.y)<e.rad+8){p.hit.add(e);dmgEnemy(e,p.dm);if(p.k==='ya'&&J('火矢'))ROT.push({x:e.x,y:e.y,r:46*SF,life:2.5,tk:0,fire:true});if(p.pierce--<=0){p.life=0;break;}}}
+  PROJ=PROJ.filter(p=>p.life>0);
+  // 山: 地面から隆起して押し返す（ダメージなし）
+  if(L('山')&&tick('yama',dt,[5,4.2,3.4][L('山')-1])){const[ax,ay]=AP('山');const a=rnd(0,6.28),d=rnd(30,90)*SF;MOUNT.push({x:ax+Math.cos(a)*d,y:ay+Math.sin(a)*d,t:0,size:(70+L('山')*20)*SF});if(J('山水'))waveRings.push({x:hx,y:hy,r:0,R:240*SF,hit:new Set(),dm:2});}
+  for(const m of MOUNT){m.t+=dt;if(!m.done&&m.t>.15){m.done=true;shake=Math.max(shake,5*shakeK());SFX.thud();for(const e of E){if(!e.alive||e.isBoss||e.captive)continue;const ex=e.x-m.x,ey=e.y-m.y,d=Math.hypot(ex,ey)||1;if(d<m.size*1.3+e.rad){e.kx+=ex/d*520;e.ky+=ey/d*520;e.daze=.6;}}}}
+  MOUNT=MOUNT.filter(m=>m.t<1.2);
+  // 火山: 群れの真ん中で噴火
+  if(J('火山')&&tick('kazan',dt,7)){let best=null,bn=0;for(const e of E){if(!e.alive||e.isBoss||!onView(e.x,e.y))continue;let n=0;for(const o of E)if(o.alive&&!o.isBoss&&Math.hypot(o.x-e.x,o.y-e.y)<160*SF)n++;if(n>bn){bn=n;best=e;}}
+    if(best){const x=best.x,y=best.y;for(let i=0;i<4;i++)RG.push({x,y,r:0,R:(90+i*50)*SF,life:.5+i*.1,max:.5+i*.1,c:i%2?C.kin:C.shu,w:8});for(let i=0;i<40;i++){const a=rnd(-2.8,-.3);P.push({k:'ink',x,y,vx:Math.cos(a)*rnd(200,600),vy:Math.sin(a)*rnd(200,600),life:.9,max:.9,s:rnd(3,6)*SF,c:C.shu});}
+      shake=Math.max(shake,12*shakeK());SFX.boom();for(const e of E){if(!e.alive||e.isBoss||e.captive)continue;const ex=e.x-x,ey=e.y-y,d=Math.hypot(ex,ey)||1;if(d<170*SF){e.kx+=ex/d*600;e.ky+=ey/d*600;dmgEnemy(e,7);}}}}
+  // 山火: 燃える地面が広がる
+  if(J('山火')&&tick('yamabi',dt,.9)){const t=nearest(hx,hy,300*SF);if(t)ROT.push({x:t.x+rnd(-30,30),y:t.y+rnd(-30,30),r:55*SF,life:3.5,tk:0,fire:true});}
+  // 雨水: 雨が水たまりを残す
+  if(J('雨水')&&tick('amamizu',dt,.6)){const a=rnd(0,6.28),d=rnd(60,300)*SF;ROT.push({x:hx+Math.cos(a)*d,y:hy+Math.sin(a)*d,r:44*SF,life:4,tk:0,puddle:true});}
+}
+
+
+/* ---------- Heroine: 魚 swims behind the hero, collects ink, flicks water ---------- */
+function tickFish(dt){
+  const bx=hero.x-hero.lastDir[0]*70*SF+Math.sin(time*1.3)*24*SF,by=hero.y-hero.lastDir[1]*70*SF-30*SF+Math.cos(time*1.7)*16*SF;
+  fish.vx+=(bx-fish.x)*14*dt;fish.vy+=(by-fish.y)*14*dt;fish.vx*=Math.pow(.04,dt);fish.vy*=Math.pow(.04,dt);
+  fish.x+=fish.vx*dt;fish.y+=fish.vy*dt;
+  const sp=Math.hypot(fish.vx,fish.vy);if(sp>8){let want=Math.atan2(fish.vy,fish.vx),d=want-fish.ang;while(d>Math.PI)d-=6.283;while(d<-Math.PI)d+=6.283;fish.ang+=d*Math.min(1,dt*6);}
+  fish.shootT-=dt;
+  if(fish.shootT<=0){fish.shootT=1.5*HS.fish;const t=nearest(fish.x,fish.y,300*SF);
+    if(t){const a=Math.atan2(t.y-fish.y,t.x-fish.x);PROJ.push({k:'bead',x:fish.x,y:fish.y,vx:Math.cos(a)*480*SF,vy:Math.sin(a)*480*SF,dm:2,pierce:0,hit:new Set(),life:.9});}}
+}
+
+/* ---------- Update ---------- */
+function update(dt){
+  if(state==='title'){time+=dt;for(const e of E){e.t+=dt;e.x+=e.vx*dt;e.y+=e.vy*dt;if(e.x<-W/2-80)e.x=W/2+80;if(e.x>W/2+80)e.x=-W/2-80;if(e.y<-H/2-80)e.y=H/2+80;if(e.y>H/2+80)e.y=-H/2-80;e.face=e.vx<0?-1:1;}return;}
+  if(state!=='play'&&state!=='dying')return;
+  if(slowT>0){slowT-=dt;ts=.25;}else ts=Math.min(1,ts+dt*3);
+  const real=dt;dt*=ts;
+  updCamera(real);
+  if(state==='dying'){dyingT-=real;stepFX(dt);if(dyingT<=0)gameOver();return;}
+  time+=dt;redV=Math.max(0,redV-dt*1.5);
+  night+=((boss?1:0)-night)*Math.min(1,dt*2.2);
+  const nc=night>.5;if(nc!==document.body.classList.contains('night'))document.body.classList.toggle('night',nc);
+  if(time>12&&time<12.5)$('hint').hidden=true;
+  if(bossIntro>0){bossIntro-=dt;reveal=Math.min(1,reveal+dt/2.2);if(boss){boss.t+=dt;}stepFX(dt);return;}
+  if(!boss&&time>=nextBoss)spawnBoss();
+  spawnT-=dt;
+  if(spawnT<=0){spawnT=Math.max(1.3,3.1-time*.005);if(E.length<20)spawnEnemy();}
+  if(boss)tickBoss(dt);
+  tickHero(dt);
+  if(hasForm('休')&&!restCharged){restT+=dt;if(restT>=3){restCharged=true;SFX.lv();addText(hero.x,hero.y-60*SF,'休 — 力が満ちた',18*SF+6,C.kin,1);}}
+  tickTeaser(dt);
+  for(const r of ROT){r.life-=dt;r.tk-=dt;const tickNow=r.tk<=0;if(tickNow)r.tk=1;for(const e of E)if(e.alive&&Math.hypot(e.x-r.x,e.y-r.y)<r.r+e.rad){if(r.puddle)e.slow=.4;else if(tickNow)dmgEnemy(e,3);}}ROT=ROT.filter(r=>r.life>0);
+  for(const sp of SPARK){sp.t+=dt;let tg=null,bd=360*SF;for(const e of E){if(!e.alive||e.isBoss||e.gift||e.typed||e.locked||e===sp.from)continue;const d=Math.hypot(e.x-sp.x,e.y-sp.y);if(d<bd){bd=d;tg=e;}}
+    if(tg&&sp.t>.25){const a=Math.atan2(tg.y-sp.y,tg.x-sp.x);sp.vx+=Math.cos(a)*1800*dt;sp.vy+=Math.sin(a)*1800*dt;}sp.vx*=Math.pow(.2,dt);sp.vy*=Math.pow(.2,dt);sp.x+=sp.vx*dt;sp.y+=sp.vy*dt;
+    if(tg&&bd<tg.rad){sp.done=true;breakPart(tg,sp.vx/600,sp.vy/600,'splash');}if(sp.t>2.5)sp.done=true;}
+  SPARK=SPARK.filter(sp=>!sp.done);
+  if(HS.regen&&tick('regen',dt,HS.regen)&&hp<maxHp){hp++;updHP();addText(hero.x,hero.y-50*SF,'命 +一',20,C.shu,1);}
+  for(const e of E){
+    if(!e.alive||e.isBoss)continue;
+    e.t+=dt;e.flash=Math.max(0,e.flash-dt);e.pulse=Math.max(0,e.pulse-dt*4);e.slow=Math.max(0,e.slow-dt);
+    const dx=hero.x-e.x,dy=hero.y-e.y,d=Math.hypot(dx,dy)||1,ux=dx/d,uy=dy/d;
+    e.daze=Math.max(0,(e.daze||0)-dt);
+    if(e.bq>0){e.bqT-=dt;if(e.bqT<=0){e.bq--;e.bqT=.22;hitstop=Math.max(hitstop,.03);SFX.thud();if(breakPart(e,rnd(-1,1),-1)){continue;}}}
+    const sp=e.spd*(e.slow>0?.45:1)*(e.locked?.3:1)*(e.daze>0?.15:1);
+    let vx=ux*sp,vy=uy*sp;
+    if(e.beh==='fly'||e.beh==='swarmling'){const o=Math.cos(e.t*3.2)*sp*1.1;vx+=-uy*o;vy+=ux*o;}
+    if(e.beh==='zig'){e.zigT-=dt;if(e.zigT<=0){e.zigT=rnd(.4,.8);e.zs*=-1;}vx+=-uy*sp*1.4*e.zs;vy+=ux*sp*1.4*e.zs;}
+    if(e.captive){vx=0;vy=Math.sin(e.t*2)*8;}
+    else if(e.gift){vx=-uy*sp*1.6+ux*sp*.4;vy=ux*sp*1.6+uy*sp*.4;}
+    e.vx=vx;e.vy=vy;
+    e.x+=(vx+e.kx)*dt;e.y+=(vy+e.ky)*dt;e.kx*=Math.pow(.07,dt);e.ky*=Math.pow(.07,dt);
+    if(Math.abs(vx)>3)e.face=vx<0?-1:1;
+    e.tilt+=((vx/(sp+1))*.1-e.tilt)*Math.min(1,dt*6);
+    if(!e.gift&&d<e.rad+heroR()){if(hero.inv>0||hero.state==='dash'){const push=(e.rad+heroR()-d);e.x-=ux*push;e.y-=uy*push;}else hurt(e);}
+    if(e.gift&&!e.captive&&e.t>24)e.alive=false;
+    if(Math.hypot(e.x-cam.x,e.y-cam.y)>Math.max(W,H)*1.6&&!e.locked&&!e.captive)e.alive=false;
+  }
+  for(let i=0;i<E.length;i++){const a=E[i];if(!a.alive||a.isBoss)continue;for(let j=i+1;j<E.length;j++){const b=E[j];if(!b.alive||b.isBoss)continue;const dx=b.x-a.x,dy=b.y-a.y,dd=Math.hypot(dx,dy),m=(a.rad+b.rad)*.85;if(dd<m&&dd>.01){const p=(m-dd)/2/dd;a.x-=dx*p;a.y-=dy*p;b.x+=dx*p;b.y+=dy*p;}}}
+  weapons(dt);stepFX(dt);
+  E=E.filter(e=>e.alive);
+  if(state==='play'&&hero.state==='idle'&&slowT<=0&&jukuQ.length){const j=jukuQ.shift();owned[j.w]=1;updArms();cinematic(j.a,j.b,j.w,`${j.a} ＋ ${j.b} ＝ ${j.w}（熟語）`,`${j.en.toUpperCase()}　—　${j.d}`,{});}
+  else if(state==='play'&&hero.state==='idle'&&slowT<=0&&pendingLv>0)openLevelUp();
+}
+function tickBoss(dt){
+  const b=boss;b.t+=dt;b.fxT+=dt;
+  // 句の位置へ主人公が飛び込めるよう、今の句の中央をワールド座標に置く
+  const lay=poemLayout(b),ln=b.poem.lines[b.li];
+  b.x=cam.x;b.y=cam.y+lay.y-H/2;b.size=lay.P;b.rad=lay.P*.6;
+  if(false){
+    if(b.lineT<=0){// 時間切れ: 句の字が降ってくる
+      for(const[j,ch]of[...ln[0]].entries()){PROJ.push({k:'verse',ch,x:cam.x+lay.x0+j*lay.P-W/2,y:cam.y+lay.y-H/2,vx:0,vy:0,t:-j*.12,dm:0,pierce:99,hit:new Set(),life:3});}
+      showBanner('詩が襲う',ln[1].toUpperCase(),true);SFX.warn();b.lineT=b.lineMax;b.typed='';}}
+  if(b.fx==='frost')for(const e of E)if(e.alive&&!e.isBoss)e.slow=.2;
+  taikoT-=dt;if(taikoT<=0){taikoT=1.4;SFX.taiko();}
+}
+let camOff=0;
+function updCamera(dt){
+  // dead-zone + exponential lag: the camera moves only once the hero leaves the centre box, then catches up softly
+  const dz=Math.min(W,H)*(calm?.24:.14),tau=calm?.6:.32;
+  camOff+=((boss?poemLayout(boss).bottom*.5:0)-camOff)*Math.min(1,dt*3);
+  const dx=hero.x-cam.x,dy=(hero.y-camOff)-cam.y;
+  const tx=Math.abs(dx)>dz?hero.x-Math.sign(dx)*dz:cam.x,ty=Math.abs(dy)>dz?hero.y-camOff-Math.sign(dy)*dz:cam.y;
+  const k=1-Math.exp(-dt/tau);cam.x+=(tx-cam.x)*k;cam.y+=(ty-cam.y)*k;
+}
+function stepFX(dt){
+  for(const p of P){
+    if(p.k==='drop'){p.y+=p.vy*dt;if(p.y>=p.ty){p.life=0;RG.push({x:p.x,y:p.ty,r:0,R:26*SF,life:.25,max:.25,c:C.sumi,w:2});for(const e of E)if(e.alive&&Math.hypot(e.x-p.x,e.y-p.ty)<e.rad+22*SF){dmgEnemy(e,p.dm);if(!e.typed)e.slow=Math.max(e.slow||0,.8);}}continue;}
+    p.x+=p.vx*dt;p.y+=p.vy*dt;p.vx*=Math.pow(.05,dt);p.vy*=Math.pow(.05,dt);p.life-=dt;}
+  P=P.filter(p=>p.life>0);if(P.length>1400)P.splice(0,P.length-1400);
+  for(const g of GEMS){g.age+=dt;if(g.age<0)continue;const k=clamp((g.age-.15)/.6,0,1);const dx=hero.x,dy=hero.y;const cx=g.fx+(dx-g.fx)*.35+g.side*80*SF,cy=g.fy+(dy-g.fy)*.35-80*SF;
+    const ax=g.fx+(cx-g.fx)*k,ay=g.fy+(cy-g.fy)*k,bx=cx+(dx-cx)*k,by=cy+(dy-cy)*k;g.x=ax+(bx-ax)*k;g.y=ay+(by-ay)*k;
+    if(g.age>=.75&&state==='play'){g.done=true;gainXP(g.v);}}
+  GEMS=GEMS.filter(g=>!g.done);
+  for(const t of TX){t.y+=t.vy*dt;t.vy*=Math.pow(.2,dt);t.life-=dt;}TX=TX.filter(t=>t.life>0);
+  for(const s of SL)s.life-=dt;SL=SL.filter(s=>s.life>0);
+  for(const r of RG){r.life-=dt;r.r=r.R*(1-Math.pow(r.life/r.max,3));}RG=RG.filter(r=>r.life>0);
+  for(const b of BOLT)b.life-=dt;BOLT=BOLT.filter(b=>b.life>0);
+  for(const s of STAMP)s.life-=dt;STAMP=STAMP.filter(s=>s.life>0);
+  for(const g of GHOST){g.life-=dt;if(g.rise)g.y-=dt*40;if(g.follow){g.x=g.follow.x;g.y=g.follow.y;}}GHOST=GHOST.filter(g=>g.life>0);
+  for(const s of SHARD){s.x+=s.vx*dt;s.y+=s.vy*dt;s.vy+=500*dt;s.r+=s.vr*dt;s.life-=dt;}SHARD=SHARD.filter(s=>s.life>0);
+  for(const t of TRAIL)t.life-=dt;TRAIL=TRAIL.filter(t=>t.life>0);
+  for(const d of DEBRIS){d.x+=d.vx*dt;d.y+=d.vy*dt;d.vy+=700*dt;d.r+=d.vr*dt;d.life-=dt;}DEBRIS=DEBRIS.filter(d=>d.life>0);
+  for(const s of STAIN)s.age+=dt;
+  shake*=Math.pow(.004,dt);flash=Math.max(0,flash-dt*1.8);
+}
+function gainXP(v){xp+=v;xpSnd-=1;if(xpSnd<=0){SFX.xp();xpSnd=3;}while(xp>=need()){xp-=need();level++;pendingLv++;}updHUD();}
+const need=()=>10+level*7+Math.floor(Math.pow(level,1.5));
+
+/* ---------- Level-up: type the English word to take the glyph. Every third rank, the hero evolves. ---------- */
+function openLevelUp(){
+  state='levelup';SFX.lv();const firstLvDone=lvOpened++>0;
+  const cand=[];
+  FUSIONS.filter(f=>!owned[f.id]&&f.ok()).forEach(f=>cand.push({t:'f',id:f.id,en:f.en,w:9}));
+  Object.keys(WEAP).filter(id=>!owned['_x'+id]&&L(id)<WEAP[id].max).forEach(id=>cand.push({t:'w',id,en:WEAP[id].en,w:1.4}));
+  // 進化素材（いまの字と組み合わさる字）を毎回かならず1枚。残り2枚は進化しない武器・合体
+  const evoIds=[...new Set(childrenOf(form).flatMap(matsOf))].filter(id=>(PARTS[id]&&L(id)<3)||(WEAP[id]&&!owned['_x'+id]&&L(id)<WEAP[id].max));
+  const pool=[];
+  if(evoIds.length){const done=evoIds.filter(id=>evoStatus(id).some(x=>!x.lack));let id=pick(done.length&&Math.random()<.6?done:evoIds);
+    // 最初の三択では、かならず犬が進化素材として出る（人＋犬＝伏。犬はその後も連れとしてついてくる）
+    if(!firstLvDone&&evoIds.includes('犬'))id='犬';pool.push(PARTS[id]&&!WEAP[id]?{t:'p',id,en:PARTS[id]}:{t:'w',id,en:WEAP[id].en});}
+  for(const c0 of cand)c0.r=Math.random()*c0.w;
+  cand.sort((a,b)=>b.r-a.r);
+  for(const c0 of cand){if(pool.length>=3)break;if(evoIds.includes(c0.id))continue;if(!pool.some(p=>p.en[0]===c0.en[0]))pool.push(c0);}
+  if(pool.length<3)pool.push({t:'h',id:'癒',en:'heal'});
+  shuffle(pool);
+  if(pool.length<3)pool.push({t:'h',id:'癒',en:'heal'});
+  cards=pool.map((p,i)=>({...p,i,acc:[p.en],typed:''}));
+  renderCards(true);renderLvMe();$('levelup').hidden=false;
+}
+function renderLvMe(){
+  const pic=path.length===1&&OR[form],node=EVO[form];
+  const meaning=pic?(OR_EN[form]||''):(node?node.en:(EN[form]||''));
+  const abil=ABIL[form]||(pic?'まっすぐ突っ込んで、字の部品を1つ崩す':'');
+  const chain=path.map(q=>q.includes('|')?q.split('|')[1]:q).join(' → ');
+  $('lvMe').innerHTML=`<span class="lb">いまの字</span><div class="g">${pic?'<canvas width="256" height="256"></canvas>':COMPO[form]?'<span class="cmp"></span>':esc(form)}</div><div><div class="en">${esc(meaning)}</div><div class="ab">${pic?'象形文字の「'+esc(form)+'」　':''}${esc(abil)}</div>${path.length>1?`<div class="p">${esc(chain)}</div>`:''}</div>`;
+  if(COMPO[form]&&!pic){const sp=sprite(form,110,'shu');sp.style.cssText='width:110px;height:auto';$('lvMe').querySelector('.cmp').appendChild(sp);}
+  if(pic)drawOracle($('lvMe').querySelector('canvas').getContext('2d'),form,128,128,224,'#d23a24',{lw:3});
+}
+const wordHTML=t=>`<span class="d">${esc(t.en.slice(0,t.typed.length))}</span>${esc(t.en.slice(t.typed.length))}`;
+// 三枚とも同じ「素材」。どれが進化を起こすかは書かない
+function renderCards(full){
+  if(full)$('cards').innerHTML=cards.map(p=>{
+    let big=p.id,desc='';
+    if(p.t==='f'){const f=FUSIONS.find(x=>x.id===p.id);desc=`${f.from[0]}と${f.from[1]}が合わさる。${f.d}`;}
+    else if(p.t==='h'){desc='命を二つ回復する';}
+    else if(p.t==='w'){desc=WEAP[p.id].d[L(p.id)];}
+    else desc=TRAIT_TXT[VIA_TRAIT[p.id]]||'';
+    const n=L(p.id),st=evoStatus(p.id),evo=st.filter(x=>!x.lack).map(x=>x.n),part=st.filter(x=>x.lack);
+    const me=path.length===1?form:form;
+    const partTxt=part.map(x=>`<span class="evo">${esc(me)} ＋ ${x.m.map(esc).join(' ＋ ')} → ${x.n.ch}（あと${x.lack}つ。そろうまで仲間として待つ）</span>`).join('');
+    const jk=JUKU.find(j=>j.b===p.id&&!owned[j.w]&&got.includes(j.a));
+    const evoTxt=(jk&&!evo.length?`<span class="evo">${jk.a} ＋ ${jk.b} → ${jk.w}（熟語 ${jk.en}）</span>`:'')+(evo.length?`<span class="evo">${evo.map(x=>esc(me)+' ＋ '+matsOf(x).map(esc).join(' ＋ ')+' → '+x.ch).join('<br>')}${evo.length>1?'（どれかに進化）':''}${evo.some(x=>matsOf(x).length>1)?'　複数合体':''}</span>`:(evo.length?'':partTxt));
+    return `<div class="kcard${evo.length||part.length?' evok':''}" id="kc${p.i}">${evo.length?'<span class="badge">進化素材</span>':part.length?'<span class="badge">合体素材</span>':jk?'<span class="badge">熟語</span>':''}<span class="big">${big}</span><span class="w" id="kw${p.i}"></span><span class="pips">素材${n?'　'+(n+1)+'枚目':''}</span><span class="ds">${evoTxt}${desc}</span></div>`;
+  }).join('');
+  for(const p of cards){const w=$('kw'+p.i);if(w)w.innerHTML=wordHTML(p);const k=$('kc'+p.i);if(k)k.classList.toggle('on',p.typed.length>0);}
+}
+function chooseCard(i){
+  const p=cards[i];if(!p||state!=='levelup')return;
+  state='choosing';$('kc'+i).classList.add('got');SFX.hit();
+  setTimeout(()=>{
+    $('levelup').hidden=true;pendingLv--;
+    if(p.t==='h'){hp=Math.min(maxHp,hp+2);updHP();}
+    else if(p.t==='w'||p.t==='p'){
+      if(!got.includes(p.id))got.push(p.id);for(const j of JUKU)if(!owned[j.w]&&!jukuQ.includes(j)&&got.includes(j.a)&&got.includes(j.b)&&got.indexOf(j.a)<got.indexOf(j.b))jukuQ.push(j);
+      owned[p.id]=L(p.id)+1;if(p.id==='命'){maxHp++;hp=maxHp;updHP();}
+      if(p.t==='p'){const tr=VIA_TRAIT[p.id];if(tr){traits[tr]=(traits[tr]||0)+1;if(tr==='hp'){maxHp++;hp++;updHP();}}HS=heroStats();}
+      updArms();
+      // 隠し進化: 今の字＋手に入れた字の組み合わせがあれば、その場で変わる（複数あればランダム）
+      const hits=evoHits(p.id);
+      if(hits.length){evolve(pick(hits),p.id);return;}
+      const wait=childrenOf(form).filter(n=>matsOf(n).length>1&&matsOf(n).includes(p.id));
+      if(wait.length){const x=wait[0],m=matsOf(x),need={};for(const q of m)need[q]=(need[q]||0)+1;const lack=Object.entries(need).reduce((a,[k,v])=>a+Math.max(0,v-L(k)),0);setTimeout(()=>showBanner(`${x.ch} まで あと${lack}つ`,`${form} ＋ ${m.join(' ＋ ')} → ${x.ch}`),420);}
+    }
+    else{const f=FUSIONS.find(x=>x.id===p.id);owned[f.id]=1;for(const id of FUSE_CONSUME[f.id]){delete owned[id];owned['_x'+id]=1;}updArms();
+      cinematic(f.from[0],f.from[1],f.id,`${f.from[0]} ＋ ${f.from[1]} ＝ ${f.id}`,f.e.toUpperCase(),{});return;}
+    state='play';
+  },380);
+}
+function evolve(n,got){
+  const prev=form,pic=path.length===1,mats=matsOf(n);form=n.ch;path.push(mats.join('+')+'|'+n.ch);
+  // 合体した仲間は主人公に溶け込み、その能力を主人公が継承する（以後は主人公の位置から出る）
+  for(const id of mats)if(WEAP[id])absorbed[id]=1;updArms();
+  if(mats.length>1){HS=heroStats();updMe();hero.morph=1;
+    cinematic(prev,mats,n.ch,`${prev} ＋ ${mats.join(' ＋ ')} ＝ ${n.ch}`,`複数合体　${n.en.toUpperCase()}　—　${ABIL[n.ch]||''}`,{pic,lay:'multi',heroPic:pic});return;}
+  HS=heroStats();updMe();hero.morph=1;
+  const how=VIA_NAME[n.via]&&n.via!=='月'?`（${VIA_NAME[n.via]}）`:'';
+  const lay=n.via==='背'?'back':n.via==='反'?'flip':n.via==='並'?'side':(n.ch==='从'?'follow':'pair');
+  cinematic(prev,got,n.ch,`${prev} ＋ ${got}${how} ＝ ${n.ch}`,`${n.en.toUpperCase()}　—　${ABIL[n.ch]||TRAIT_TXT[VIA_TRAIT[got]]||''}${WEAP[got]?'　（'+got+'の力を継承）':''}`,{pic,lay,heroPic:pic});
+}
+// 合体演出: 甲骨文の人が実際に動き、反転し、並んで、新しい字になる
+function cinematic(a,b,res,cap1,cap2,o={}){
+  state='fusion';SFX.fuse();const el=$('fusion');
+  el.innerHTML=`<canvas id="fcv"></canvas><div class="cap"><b>${esc(cap1)}</b>${esc(cap2)}</div>`;
+  el.hidden=false;
+  const fc=$('fcv'),fx=fc.getContext('2d');fc.width=W*DPR;fc.height=H*DPR;fc.style.cssText=`position:absolute;inset:0;width:${W}px;height:${H}px`;fx.setTransform(DPR,0,0,DPR,0,0);
+  const S=Math.min(W,H)*.34,cx=W/2,cy=H*.42,T0=performance.now(),DUR=1500;
+  const lay=o.lay||'pair';
+  const glyph=(ch,x,y,size,col,opt,who)=>{if(OR[ch]&&((who==='a'&&o.pic&&path.length<=2&&o.heroPic)||(who==='b'&&ch==='魚'))){drawOracle(fx,ch,x,y,size,col,Object.assign({lw:2.6},opt));}else{fx.save();fx.translate(x,y);if(opt.rot)fx.rotate(opt.rot);fx.scale(opt.sx||1,opt.sy||1);fx.font=`900 ${size*.85}px ${GF}`;fx.textAlign='center';fx.textBaseline='middle';fx.fillStyle=col;fx.fillText(ch,0,0);fx.restore();}};
+  // final arrangement of the two parts
+  const END={multi:[[-.3,0,1,0],[.3,0,1,0]],pair:[[-.28,0,1,0],[.28,0,1,0]],side:[[-.2,0,1,0],[.2,0,1,0]],follow:[[-.24,.04,1,0],[.2,-.04,1,0]],back:[[-.2,0,-1,0],[.2,0,1,0]],flip:[[-.22,0,1,0],[.22,0,1,Math.PI]]}[lay];
+  const step=()=>{
+    const ms=performance.now()-T0,k=Math.min(1,ms/DUR);
+    fx.clearRect(0,0,W,H);
+    const m=Math.min(1,k/.5),e=m<.5?2*m*m:1-Math.pow(-2*m+2,2)/2;
+    if(k<.62&&Array.isArray(b)){
+      const n=b.length,hx0=cx+(-.9+(-.3+.9)*e)*S*1.4;
+      glyph(a,hx0,cy,S,rgba(C.shu),{glow:20,gc:rgba(C.shu)},'a');
+      b.forEach((ch,i)=>{const fy=(i-(n-1)/2)*.62,ang=(i/n)*6.28;const sx0=cx+(1.1+Math.cos(ang)*.15)*S*1.4,sy0=cy+fy*S*1.7+Math.sin(ang)*S*.3;
+        const tx=cx+.32*S*1.4,ty=cy+fy*S*.75;const ee=Math.min(1,Math.max(0,(m-i*.12)/(1-.12*(n-1))));const e2=ee<.5?2*ee*ee:1-Math.pow(-2*ee+2,2)/2;
+        fx.strokeStyle=rgba(C.kin,.35*(1-e2));fx.lineWidth=3;fx.beginPath();fx.moveTo(sx0+(tx-sx0)*e2,sy0+(ty-sy0)*e2);fx.lineTo(hx0,cy);fx.stroke();
+        glyph(ch,sx0+(tx-sx0)*e2,sy0+(ty-sy0)*e2,S*.62,rgba(C.kin),{glow:20,gc:rgba(C.kin)},'b');});
+    }
+    else if(k<.62){
+      const ea=END[0],eb=END[1];
+      glyph(a,cx+(-.9+(ea[0]+.9)*e)*S*1.4,cy+ea[1]*S,S,rgba(C.shu),{sx:1+(ea[2]-1)*e,rot:ea[3]*e,glow:20,gc:rgba(C.shu)},'a');
+      glyph(b,cx+(.9+(eb[0]-.9)*e)*S*1.4,cy+eb[1]*S,S,rgba(C.kin),{sx:1+(eb[2]-1)*e,rot:eb[3]*e,glow:20,gc:rgba(C.kin)},'b');
+    }
+    if(k>.5&&k<.8){const f=(k-.5)/.3;fx.fillStyle=`rgba(235,232,225,${(1-f)*.9})`;fx.fillRect(0,0,W,H);fx.strokeStyle=rgba(C.kin,1-f);fx.lineWidth=10*(1-f);fx.beginPath();fx.arc(cx,cy,S*(.3+f*1.6),0,6.28);fx.stroke();}
+    if(k>=.62){const f=Math.min(1,(k-.62)/.2),sc=1+(1-f)*1.4;fx.save();fx.globalAlpha=f;fx.translate(cx,cy);fx.scale(sc,sc);fx.font=`900 ${S*(res.length>1?.8:1.2)}px ${GF}`;fx.textAlign='center';fx.textBaseline='middle';fx.shadowColor=rgba(C.kin);fx.shadowBlur=40;fx.fillStyle=rgba(C.washi);gtext(fx,res,0,0,S*(res.length>1?.8:1.2),0);fx.restore();}
+    if(k<1&&!el.hidden)requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+  setTimeout(()=>{el.hidden=true;state='play';flash=calm?.3:.8;flashCol=C.kin;shake=14*shakeK();for(let i=0;i<5;i++)RG.push({x:hero.x,y:hero.y,r:0,R:(120+i*90)*SF,life:.5+i*.1,max:.5+i*.1,c:i%2?C.shu:C.kin,w:6});},DUR+700);
+}
+
+/* ---------- HUD ---------- */
+let lastTimeTxt='';
+function updHUD(){const tt=fmtT(time);if(tt!==lastTimeTxt){$('tTime').textContent=tt;lastTimeTxt=tt;}$('tLv').textContent=kn(level);$('tKills').textContent='撃破 '+kills;$('xpFill').style.width=Math.min(100,xp/need()*100)+'%';}
+function updCombo(pop){const el=$('combo');if(combo<2){el.hidden=true;return;}el.hidden=false;el.innerHTML=`${kn(combo)}連撃<small>${combo} COMBO</small>`;if(pop){el.classList.remove('pop');void el.offsetWidth;el.classList.add('pop');}}
+function updHP(){$('hp').innerHTML=Array.from({length:maxHp},(_,i)=>`<span class="${i<hp?'':'lost'}">命</span>`).join('');}
+function updMe(){const mg=$('meGlyph');if(path.length===1&&OR[form]){mg.innerHTML='<canvas width="108" height="108" style="width:54px;height:54px"></canvas>';drawOracle(mg.firstChild.getContext('2d'),form,54,54,96,'#d23a24',{lw:3});}else if(COMPO[form]){const sp=sprite(form,54,'shu');sp.style.cssText='width:54px;height:auto';mg.innerHTML='';mg.appendChild(sp);}else mg.textContent=form;$('meTag').textContent=(path.length===1?'象形文字の「'+form+'」　'+(OR_EN[form]||''):'「'+form+'」　'+((EVO[form]||{}).en||''));}
+function updArms(){const ids=Object.keys(owned).filter(k=>k[0]!=='_');$('arms').innerHTML=ids.map(id=>{if(JUKU.some(j=>j.w===id))return `<div class="arm fu jk"><i>${id}</i><em>熟語</em></div>`;const fu=FUSIONS.some(f=>f.id===id)||absorbed[id];return `<div class="arm${fu?' fu':''}"><i>${id}</i><em>${absorbed[id]?'継'+L(id):fu?'合':'●'.repeat(L(id))}</em></div>`;}).join('');}
+
+
+/* ---------- Render ---------- */
+function render(){
+  const ink=mix(C.sumi,C.washi,night*.92),paper=mix(C.washi,C.yoru,night);
+  const inkKey=night>.5?'inkN':'ink';
+  c.setTransform(DPR,0,0,DPR,0,0);
+  const sx=(Math.random()-.5)*shake,sy=(Math.random()-.5)*shake;
+  drawBackground(sx,sy);
+  c.save();c.translate(W/2-cam.x+sx,H/2-cam.y+sy);
+  // stains (world)
+  for(const s of STAIN){const a=Math.max(0,1-s.age/60)*(1-night*.8);if(a<=0)continue;c.globalAlpha=a;c.drawImage(s.k,s.x-s.R,s.y-s.R);}c.globalAlpha=1;
+  c.restore();
+  if(night>.01){c.fillStyle=rgba(C.yoru,night*.93);c.fillRect(0,0,W,H);}
+  c.save();c.translate(W/2-cam.x+sx,H/2-cam.y+sy);
+  const hx=hero.x,hy=hero.y,live=state!=='title';
+  for(const tr of TRAP){c.globalAlpha=Math.min(1,tr.life/tr.max*3)*.55;c.strokeStyle=rgba(C.shu);c.lineWidth=3*SF;const s=tr.s;c.strokeRect(tr.x-s/2,tr.y-s/2,s,s);c.beginPath();c.moveTo(tr.x,tr.y-s/2);c.lineTo(tr.x,tr.y+s/2);c.moveTo(tr.x-s/2,tr.y);c.lineTo(tr.x+s/2,tr.y);c.stroke();c.globalAlpha=1;}
+  const auraLv=L('明')?4:L('日');
+  if(live&&auraLv){const[ax,ay]=AP(L('明')?'明':'日');const R=(70+auraLv*18)*SF;const g=c.createRadialGradient(ax,ay,R*.2,ax,ay,R);g.addColorStop(0,'rgba(210,58,36,0)');g.addColorStop(.75,`rgba(210,58,36,${.08+Math.sin(time*4)*.03})`);g.addColorStop(1,'rgba(198,160,70,.28)');c.fillStyle=g;c.beginPath();c.arc(ax,ay,R,0,6.28);c.fill();}
+  for(const w of waveRings){if(w.r<w.R*.35){const k2=w.r/(w.R*.35),sp=sprite('水',40*SF,'ally');c.globalAlpha=1-k2;c.drawImage(sp,w.x-sp.lw/2,w.y-sp.lh/2-k2*30*SF,sp.lw,sp.lh);c.globalAlpha=1;}c.strokeStyle=rgba(C.ai,.55*(1-w.r/w.R));c.lineWidth=10*SF*(1-w.r/w.R)+2;c.beginPath();c.arc(w.x,w.y,w.r,0,6.28);c.stroke();}
+  for(const r of ROOTS){if(r.t<.35){c.strokeStyle=rgba(C.shu,.5);c.setLineDash([4,4]);c.beginPath();c.arc(r.x,r.y,r.size*.5*(r.t/.35),0,6.28);c.stroke();c.setLineDash([]);}else{const k=Math.min(1,(r.t-.35)/.12),f=1-Math.max(0,(r.t-.6)/.3);c.globalAlpha=f;{const sp=sprite(L('林')?'林':'木',r.size*k,inkKey);c.drawImage(sp,r.x-sp.lw/2,r.y-r.size*.3*k-sp.lh/2,sp.lw,sp.lh);}c.globalAlpha=1;}}
+  for(const r of RG){c.strokeStyle=rgba(r.c===C.sumi?ink:r.c,r.life/r.max);c.lineWidth=r.w*SF*(r.life/r.max)+1;c.beginPath();c.arc(r.x,r.y,r.r,0,6.28);c.stroke();}
+  if(boss){c.restore();c.save();c.setTransform(DPR,0,0,DPR,0,0);drawPoemFx(boss);c.restore();c.save();c.translate(W/2-cam.x+sx,H/2-cam.y+sy);}
+  for(const e of E)if(e.alive&&!e.isBoss){if(e.captive)drawCaptive(e,ink);else{drawLiving(e,ink,inkKey);if(e.crack>.3)drawCrack(e);}}
+  for(const p of PROJ){if(p.k==='verse'){if(p.t<0)continue;const spr=sprite(p.ch,34*SF,'kin');c.drawImage(spr,p.x-spr.lw/2,p.y-spr.lh/2,spr.lw,spr.lh);continue;}if(p.k==='bead'){c.fillStyle=rgba(night>.5?C.aiN:C.ai);c.beginPath();c.arc(p.x,p.y,4.5*SF,0,6.28);c.fill();continue;}{const sp=sprite('矢',30*SF,night>.5?'allyN':'ally');c.save();c.translate(p.x,p.y);c.rotate(Math.atan2(p.vy,p.vx)+Math.PI/2);c.drawImage(sp,-sp.lw/2,-sp.lh/2,sp.lw,sp.lh);c.restore();}}
+  for(const m of crescents){const sp=sprite('月',34*SF,'kin');c.save();c.translate(m.x,m.y);c.rotate(m.spin);c.drawImage(sp,-sp.lw/2,-sp.lh/2,sp.lw,sp.lh);c.restore();}
+  if(live)for(const r of ROT){if(!r.fire)continue;const mx=r.max||3,u=1-r.life/mx,env=Math.min(1,u/.15)*Math.min(1,r.life/(mx*.35));const spr=sprite('火',r.r*1.2,'shu');
+    c.save();c.globalAlpha=env*(.75+Math.sin(time*22+r.x)*.2);c.translate(r.x,r.y+r.r*.3);c.scale(.8+Math.sin(time*17+r.y)*.08,(.6+env*.5)*(1+Math.sin(time*13+r.x)*.1));c.drawImage(spr,-spr.lw/2,-spr.lh*.85,spr.lw,spr.lh);c.restore();
+    if(Math.random()<.25*env)P.push({k:'ink',x:r.x+rnd(-r.r*.4,r.r*.4),y:r.y-r.r*.4,vx:rnd(-20,20),vy:rnd(-90,-40),life:.4,max:.4,s:rnd(1.5,3)*SF,c:C.shu});}
+  // dash after-images
+  {const pic=path.length===1&&OR[form];const hs=pic?null:sprite(form,heroSize(),'shu');for(const t of TRAIL){c.globalAlpha=t.life/t.max*.4;if(pic)drawOracle(c,form,t.x,t.y,heroSize()*1.15,rgba(C.shu),{lw:3});else c.drawImage(hs,t.x-hs.lw/2,t.y-hs.lh/2,hs.lw,hs.lh);}c.globalAlpha=1;}
+  if(live&&state!=='dying'&&state!=='over'){drawAllies(ink);drawHero(ink);}
+  for(const g of GEMS){if(g.age<0)continue;c.fillStyle=rgba(g.gold||night>.5?C.kin:ink,.9);c.beginPath();c.moveTo(g.x,g.y-6*SF);c.lineTo(g.x+4*SF,g.y);c.lineTo(g.x,g.y+6*SF);c.lineTo(g.x-4*SF,g.y);c.closePath();c.fill();}
+  for(const p of P){const a=Math.min(1,p.life/p.max*1.5);if(p.k==='drop'){c.strokeStyle=rgba(ink,.7);c.lineWidth=2;c.beginPath();c.moveTo(p.x,p.y-18);c.lineTo(p.x,p.y);c.stroke();continue;}c.fillStyle=rgba(p.c===C.sumi?ink:p.c,a);c.beginPath();c.arc(p.x,p.y,p.s*(.4+.6*a),0,6.28);c.fill();}
+  for(const s of SHARD){c.save();c.translate(s.x,s.y);c.rotate(s.r);c.strokeStyle=rgba(C.kin,Math.min(1,s.life/s.max*1.5));c.lineWidth=s.lw;c.lineCap='round';c.shadowColor=rgba(C.shu);c.shadowBlur=16;c.beginPath();s.pts.forEach((p,i)=>i?c.lineTo(p[0],p[1]):c.moveTo(p[0],p[1]));c.stroke();c.restore();}
+  for(const d of DEBRIS){const spr=sprite(d.ch,d.size,inkKey);c.save();c.globalAlpha=Math.min(1,d.life/d.max*1.6);c.translate(d.x,d.y);c.rotate(d.r);c.drawImage(spr,-spr.lw/2,-spr.lh/2,spr.lw,spr.lh);c.restore();}c.globalAlpha=1;
+  for(const sp of SPARK){const spr=sprite(sp.ch,26*SF,'shu');c.save();c.translate(sp.x,sp.y);c.rotate(sp.t*8);c.drawImage(spr,-spr.lw/2,-spr.lh/2,spr.lw,spr.lh);c.restore();}
+  for(const r of ROT){const a=Math.min(1,r.life);c.fillStyle=r.fire?`rgba(210,58,36,${.14*Math.min(1,r.life/((r.max||3)*.35))})`:r.puddle?`rgba(31,63,110,${.18*a})`:`rgba(80,70,30,${.12*a})`;c.beginPath();c.arc(r.x,r.y,r.r,0,6.28);c.fill();}
+  for(const m of MOUNT){const k=Math.min(1,m.t/.15),f=1-Math.max(0,(m.t-.7)/.5);const sp=sprite('山',m.size,inkKey);c.globalAlpha=f;c.drawImage(sp,m.x-sp.lw/2,m.y-sp.lh*k*.9,sp.lw,sp.lh*k);c.globalAlpha=1;}
+  if(teaser)drawTeaser(ink);
+  for(const s of SL)drawSlash(s,ink);
+  for(const g of GHOST){const k=g.life/g.max;
+    if(g.modern){c.globalAlpha=Math.min(1,(1-k)*4)*Math.min(1,k*3);const spr=sprite(g.ch,g.size,'kin');c.drawImage(spr,g.x-spr.lw/2,g.y-spr.lh/2,spr.lw,spr.lh);c.globalAlpha=1;continue;}
+    c.globalAlpha=Math.min(1,k*2)*(g.follow?.9:.75);drawOracle(c,g.ch,g.x,g.y-(g.rise?(1-k)*20:0),g.size,rgba(C.shu),{lw:1.8});c.globalAlpha=1;}
+  for(const s of STAMP){const k=s.life/s.max,sc2=k>.8?1+(k-.8)*8:1,sz=40*SF*sc2;c.save();c.translate(s.x,s.y-30*SF);c.rotate(s.rot);c.globalAlpha=Math.min(1,k*2.5);c.fillStyle=rgba(C.shu);c.fillRect(-sz/2,-sz/2,sz,sz);c.fillStyle=rgba(C.washi);c.font=`900 ${sz*.72/(s.ch.length>1?1.7:1)}px ${GF}`;c.textAlign='center';c.textBaseline='middle';c.fillText(s.ch,0,2);c.restore();c.globalAlpha=1;}
+  for(const b of BOLT){c.strokeStyle=rgba(C.kin,b.life/b.max);c.lineWidth=4;c.shadowColor=rgba(C.kin);c.shadowBlur=20;c.beginPath();for(let i=0;i<b.pts.length-1;i++){const[a1,b1]=b.pts[i],[a2,b2]=b.pts[i+1];c.moveTo(a1,b1);for(let k=1;k<6;k++){const f=k/6;c.lineTo(a1+(a2-a1)*f+rnd(-12,12),b1+(b2-b1)*f+rnd(-12,12));}c.lineTo(a2,b2);}c.stroke();c.shadowBlur=0;}
+  if(live){for(const e of E)if(e.alive&&!e.isBoss)drawLabel(e,ink,paper);if(boss&&bossIntro<=0)drawBossCage(boss);}
+  if(live&&boss){c.restore();drawBoss(boss);if(bossIntro<=0)drawBossTag(boss);c.save();c.translate(W/2-cam.x+sx,H/2-cam.y+sy);}
+  for(const t of TX){c.globalAlpha=Math.min(1,t.life/t.max*2);c.font=`900 ${t.s}px ${GF}`;c.textAlign='center';c.textBaseline='middle';c.lineWidth=4;c.strokeStyle=rgba(paper);c.strokeText(t.t,t.x,t.y);c.fillStyle=rgba(t.c===C.sumi?ink:t.c);c.fillText(t.t,t.x,t.y);c.globalAlpha=1;}
+  c.restore();
+  if(flash>0){c.fillStyle=rgba(flashCol,Math.min(.8,flash));c.fillRect(0,0,W,H);}
+  if(redV>0){const g=c.createRadialGradient(W/2,H/2,Math.min(W,H)*.3,W/2,H/2,Math.max(W,H)*.7);g.addColorStop(0,'rgba(210,58,36,0)');g.addColorStop(1,`rgba(210,58,36,${redV*.55})`);c.fillStyle=g;c.fillRect(0,0,W,H);}
+  if(combo>=25&&state==='play'){const g=c.createRadialGradient(W/2,H/2,Math.min(W,H)*.35,W/2,H/2,Math.max(W,H)*.75);g.addColorStop(0,'rgba(198,160,70,0)');g.addColorStop(1,`rgba(198,160,70,${Math.min(.35,(combo-20)/200)+Math.sin(time*6)*.04})`);c.fillStyle=g;c.fillRect(0,0,W,H);}
+}
+// The glyph itself is the creature: it bends, gallops, flickers or slithers according to what it depicts.
+function drawLiving(e,ink,inkKey){
+  const s=e.size,t=e.t,mo=e.mo;
+  const key=e.flash>0?'shu':e.gift?'kin':inkKey;
+  const spr=sprite(e.ch,s,key),w=spr.lw,h=spr.lh;
+  let tx=0,ty=0,rot=e.tilt,sx=1,sy=1,flip=1,strip=null,off=null,alpha=1;
+  const st=e.step;
+  switch(mo){
+    case 'gallop':{const g=Math.abs(Math.sin(t*st*.9));flip=e.face;ty=-g*s*.16;rot=-.14*e.face*(.5+g*.5)*0+e.face*(.08-g*.12);sx=1+(1-g)*.08;sy=1-(1-g)*.08+g*.04;strip='row';off=u=>u>.55?Math.sin(t*st*.9*2+u*2)*s*.07*(u-.55)/.45*e.face:0;break;}
+    case 'slither':flip=e.face;strip='col';off=u=>Math.sin(t*7-u*7)*s*.12;break;
+    case 'swim':flip=e.face;strip='col';off=u=>Math.sin(t*6-u*5)*s*.08*(.3+u);rot=Math.sin(t*3)*.06;break;
+    case 'flutter':ty=Math.sin(t*7+e.ph)*s*.14;sx=1+Math.sin(t*26)*.16;sy=1-Math.sin(t*26)*.05;rot=Math.sin(t*3.3)*.12;break;
+    case 'flicker':strip='row';off=u=>Math.sin(t*15+u*9+e.ph)*s*.07*(1-u);sy=1+Math.sin(t*11)*.07+Math.sin(t*23)*.03;ty=-(sy-1)*s*.5;
+      if(Math.random()<.12)P.push({k:'ink',x:e.x+rnd(-s*.2,s*.2),y:e.y-s*.4,vx:rnd(-20,20),vy:rnd(-90,-40),life:.5,max:.5,s:rnd(1.5,3)*SF,c:C.shu});break;
+    case 'sway':strip='row';off=u=>Math.sin(t*2.2+e.ph)*s*.16*Math.pow(1-u,2);break;
+    case 'rumble':{const stomp=Math.max(0,Math.sin(t*2.4+e.ph));tx=rnd(-1,1)*s*.012;sy=1-Math.pow(stomp,8)*.12;sx=1+Math.pow(stomp,8)*.08;ty=s*.5*(1-sy);break;}
+    case 'drip':strip='row';off=u=>Math.sin(t*4+u*10+e.ph)*s*.04;sy=1+Math.sin(t*3)*.04;
+      if(Math.random()<.04)P.push({k:'ink',x:e.x+rnd(-s*.2,s*.2),y:e.y+s*.45,vx:0,vy:80,life:.5,max:.5,s:2.2*SF,c:e.ch==='血'?C.shu:C.sumi});break;
+    case 'drift':alpha=.7+Math.sin(t*2+e.ph)*.22;ty=Math.sin(t*1.5+e.ph)*s*.12;strip='row';off=u=>Math.sin(t*3+u*4+e.ph)*s*.07;break;
+    case 'crawl':rot=e.tilt+Math.sin(t*30)*.07;tx=Math.sin(t*25)*s*.025;strip='col';off=u=>Math.sin(t*22+u*14)*s*.03;break;
+    case 'chew':{const b=Math.max(0,Math.sin(t*5+e.ph));sy=1-Math.pow(b,6)*.35;sx=1+Math.pow(b,6)*.1;ty=Math.abs(Math.sin(t*st*.5))*-s*.06;break;}
+    default:{const g=Math.abs(Math.sin(t*st*.55));ty=-g*s*.2;const land=Math.pow(1-g,4);sy=1-land*.14+g*.05;sx=1+land*.12-g*.03;}
+  }
+  if(e.pulse>0){sx*=1+e.pulse*.12;sy*=1+e.pulse*.12;}
+  // shadow
+  c.fillStyle=rgba(ink,.12);c.beginPath();c.ellipse(e.x,e.y+s*.55,s*.4*e.w,s*.09,0,0,6.28);c.fill();
+  // being typed: its pictographic ancestor shows through
+  c.save();c.globalAlpha=alpha;c.translate(e.x+tx,e.y+ty);c.rotate(rot);c.scale(sx*flip,sy);
+  if(!strip)c.drawImage(spr,-w/2,-h/2,w,h);
+  else{const N=10,ps=spr.width/w;
+    if(strip==='row'){const sh=h/N;for(let i=0;i<N;i++){const u=(i+.5)/N,o=off(u);c.drawImage(spr,0,i*sh*ps,spr.width,sh*ps+1,-w/2+o,-h/2+i*sh,w,sh+.6);}}
+    else{const sw=w/N;for(let i=0;i<N;i++){const u=(i+.5)/N,o=off(u);c.drawImage(spr,i*sw*ps,0,sw*ps+1,spr.height,-w/2+i*sw,-h/2+o,sw+.6,h);}}}
+  c.restore();
+}
+function drawHpBar(e,ink){
+  // 画数 = HP. Short counts show one notch per stroke.
+  const s=e.size,bw=Math.max(26*SF,Math.min(s*.62*e.w,90*SF)),x=e.x-bw/2,y=e.y-s*.74-(e.mo==='flutter'?s*.12:0),h=4*SF;
+  const r=Math.max(0,e.hp/e.maxHp);
+  c.fillStyle=rgba(C.washi,.75);c.fillRect(x-1,y-1,bw+2,h+2);
+  c.fillStyle=rgba(ink,.18);c.fillRect(x,y,bw,h);
+  c.fillStyle=rgba(r<.34?C.shu:ink,.9);c.fillRect(x,y,bw*r,h);
+  if(e.maxHp<=14){c.fillStyle=rgba(C.washi,.9);for(let i=1;i<e.maxHp;i++){const xx=x+bw*i/e.maxHp;c.fillRect(xx-.5,y,1,h);}}
+}
+function drawLabel(e,ink,paper){
+  const s=e.size,y=e.y+s*.62,on=!!e.typed,line=e.word,done=e.typed.length;
+  const fs=Math.round((on?17:14)*Math.max(.85,SF));
+  c.font=`800 ${fs}px ${MF}`;const tw=c.measureText(line).width;
+  const w=tw+12,h=fs+8,x=e.x-w/2,locked=e.locked;
+  c.fillStyle=on?rgba(ink):rgba(paper,locked?.4:.88);c.fillRect(x,y,w,h);
+  if(!on){c.strokeStyle=rgba(ink,.35);c.lineWidth=1;c.strokeRect(x+.5,y+.5,w-1,h-1);}
+  const fg=on?paper:ink;c.textBaseline='top';c.textAlign='left';
+  const a=line.slice(0,done),b=line.slice(done);
+  c.fillStyle=rgba(C.shu);c.fillText(a,e.x-tw/2,y+4);
+  c.fillStyle=rgba(e.gift?C.kin:fg,locked?.4:1);c.fillText(b,e.x-tw/2+c.measureText(a).width,y+4);
+}
+// 漢詩そのものがボス。縦書きの巨大な句が夜空に浮かび、景色が起こる
+function drawBoss(b){
+  c.save();c.setTransform(DPR,0,0,DPR,0,0);
+  const lay=poemLayout(b);
+  {const g=c.createLinearGradient(0,lay.top-10,0,lay.bottom+18);g.addColorStop(0,rgba(C.yoru,.78));g.addColorStop(.85,rgba(C.yoru,.72));g.addColorStop(1,rgba(C.yoru,0));c.fillStyle=g;c.fillRect(0,lay.top-10,W,lay.bottom-lay.top+28);
+   c.strokeStyle=rgba(C.kin,.5);c.lineWidth=1;c.beginPath();c.moveTo(W*.1,lay.top-10.5);c.lineTo(W*.9,lay.top-10.5);c.stroke();}
+  const ln=b.poem.lines[b.li][0],rev=bossIntro>0?reveal:1,warn=false;
+  c.font=`700 ${Math.round(14*Math.max(.85,SF))}px ${UF}`;c.fillStyle=rgba(C.washi,.65);c.textAlign='center';c.textBaseline='middle';
+  c.fillText(`漢詩「${b.poem.title}」${b.poem.author}　第${kn(b.li+1)}句 / ${kn(b.poem.lines.length)}句`,W/2,lay.top+6);
+  c.font=`900 ${lay.P*.88}px ${GF}`;
+  [...ln].forEach((ch,j)=>{if((j+1)/lay.n>rev+.05)return;
+    c.shadowColor=rgba(warn?C.shu:C.kin);c.shadowBlur=14;c.fillStyle=rgba(warn?C.shu:C.kin);
+    c.fillText(ch,lay.x0+j*lay.P,lay.y+Math.sin(b.t*2+j)*1.5);});
+  c.shadowBlur=0;c.restore();
+}
+function drawPoemFx(b){
+  const f=b.fx,t=b.fxT,a=Math.min(1,t/1.2);
+  if(f==='moon'){const r=Math.min(W,H)*.2;const g=c.createRadialGradient(W*.18,H*.24,r*.2,W*.18,H*.24,r*2.4);g.addColorStop(0,`rgba(240,236,210,${.55*a})`);g.addColorStop(.35,`rgba(240,236,210,${.12*a})`);g.addColorStop(1,'rgba(0,0,0,0)');c.fillStyle=g;c.fillRect(0,0,W,H);c.fillStyle=`rgba(245,240,215,${.9*a})`;c.beginPath();c.arc(W*.18,H*.24-(1-a)*80,r*.55,0,6.28);c.fill();}
+  if(f==='frost'){c.fillStyle=`rgba(220,235,255,${.18*a})`;c.fillRect(0,H*(1-.5*a),W,H*.5*a);c.strokeStyle=`rgba(230,240,255,${.5*a})`;c.lineWidth=1;for(let i=0;i<40;i++){const x=(i*97)%W,y=H-((i*53)%(H*.5))*a;c.beginPath();for(let k=0;k<6;k++){const an=k*1.047;c.moveTo(x,y);c.lineTo(x+Math.cos(an)*7,y+Math.sin(an)*7);}c.stroke();}}
+  if(f==='home'){const g=c.createRadialGradient(W/2,H*.9,10,W/2,H*.9,H*.7);g.addColorStop(0,`rgba(210,120,50,${.35*a})`);g.addColorStop(1,'rgba(0,0,0,0)');c.fillStyle=g;c.fillRect(0,0,W,H);}
+  if(f==='sunset'){const r=Math.min(W,H)*.35,y=H*.78+t*10;c.fillStyle=`rgba(220,110,40,${.75*a})`;c.beginPath();c.arc(W*.5,y,r,Math.PI,0);c.fill();c.fillStyle=`rgba(14,13,18,1)`;c.beginPath();c.moveTo(0,H);for(let x=0;x<=W;x+=W/8)c.lineTo(x,H*.8-Math.abs(Math.sin(x*.01))*H*.12*a);c.lineTo(W,H);c.fill();}
+  if(f==='river'){for(let i=0;i<6;i++){c.strokeStyle=`rgba(198,160,70,${.25*a})`;c.lineWidth=10;c.beginPath();for(let x=0;x<=W;x+=20){const y=H*.62+i*18+Math.sin(x*.012+t*3+i)*12;x?c.lineTo(x,y):c.moveTo(x,y);}c.stroke();}}
+  if(f==='far'){c.strokeStyle=`rgba(235,232,225,${.12*a})`;c.lineWidth=2;for(let i=0;i<36;i++){const an=i/36*6.28,r0=60+((t*200+i*40)%400);c.beginPath();c.moveTo(W/2+Math.cos(an)*r0,H/2+Math.sin(an)*r0);c.lineTo(W/2+Math.cos(an)*(r0+60),H/2+Math.sin(an)*(r0+60));c.stroke();}}
+  if(f==='climb'){c.strokeStyle=`rgba(198,160,70,${.2*a})`;c.lineWidth=3;for(let i=0;i<10;i++){const y=H-((t*120+i*H/10)%H);c.beginPath();c.moveTo(W*.1,y);c.lineTo(W*.9,y);c.stroke();}}
+  if(f==='mist'){const g=c.createLinearGradient(0,H*.3,0,H);g.addColorStop(0,'rgba(0,0,0,0)');g.addColorStop(1,`rgba(140,80,170,${.45*a})`);c.fillStyle=g;c.fillRect(0,0,W,H);}
+  if(f==='fall'){c.strokeStyle=`rgba(200,220,255,${.35*a})`;c.lineWidth=2;for(let i=0;i<60;i++){const x=W*.3+(i*37%(W*.4)),y=((t*600+i*71)%H);c.beginPath();c.moveTo(x,y);c.lineTo(x,y+40);c.stroke();}}
+  if(f==='galaxy'){for(let i=0;i<120;i++){const x=(i*131+t*40)%W,y=H*.1+((i*67)%(H*.8))+Math.sin(i+t)*10;c.fillStyle=`rgba(235,232,225,${(.3+(i%5)/8)*a})`;c.fillRect(x,y,2,2);}}
+}
+function drawBossCage(b){
+  if(fishJoined||!b||bossIntro>0)return;
+  const x=cam.x+W*.42+Math.sin(b.t*1.3)*6-40*SF,y=cam.y+H*.12,s=36*SF;
+  c.strokeStyle=rgba(C.kin,.6);c.lineWidth=1.5;c.beginPath();c.moveTo(x,y-s);c.lineTo(x,cam.y-H/2);c.stroke();
+  drawCaptive({x,y,size:s,t:b.t},null);
+}
+function drawBossTag(b){
+  // 打つ英訳は画面下中央。打った文字だけ朱に。下の線は残り時間
+  c.save();c.setTransform(DPR,0,0,DPR,0,0);
+  const lay=poemLayout(b),fs=lay.fs;c.font=`800 ${fs}px ${MF}`;c.textBaseline='top';c.textAlign='left';
+  const ph=b.phrase,tw=c.measureText(ph).width,x=W/2-tw/2,y=lay.ey+6;
+  c.fillStyle=rgba(C.yoru,.95);c.fillRect(x-14,y-8,tw+28,fs+16);
+  c.strokeStyle=rgba(C.kin);c.lineWidth=2;c.strokeRect(x-14,y-8,tw+28,fs+16);
+  let n=b.typed.length,xx=x;
+  for(const ch of ph){const isL=/[a-z]/.test(ch);c.fillStyle=rgba(isL&&n>0?C.shu:b.locked?C.kin:C.washi);c.fillText(ch,xx,y);xx+=c.measureText(ch).width;if(isL&&n>0)n--;}
+  c.restore();
+}
+const heroSize=()=>62*SF;
+function drawHero(ink){
+  const sz=heroSize();
+  if(hero.inv>0&&hero.state!=='dash'&&hero.state!=='linger'&&Math.floor(hero.inv*14)%2)return;
+  c.fillStyle=rgba(ink,.14);c.beginPath();c.ellipse(hero.x,hero.y+sz*.5,sz*.32,sz*.07,0,0,6.28);c.fill();
+  const breath=Math.sin(time*1.75);
+  let rot=0,sx=1,sy=1,ty=0;
+  if(hero.dk>.05&&hero.to){const dx=hero.to[0]-hero.from[0];rot=clamp(dx/(Math.abs(dx)+60),-1,1)*.3*hero.dk;sx=1+.16*hero.dk;sy=1-.1*hero.dk;}
+  sy+=-hero.land*.13+breath*.015;sx+=hero.land*.11;ty=hero.land*sz*.06-breath*1.2;
+  const m=hero.morph;if(m>0){const k=Math.sin(m*Math.PI);sx*=1+k*.5;sy*=1+k*.5;}
+  if(hero.dk>.3||m>0){c.save();c.shadowColor=rgba(C.shu);c.shadowBlur=18;}
+  if(path.length===1&&OR[form]){drawOracle(c,form,hero.x,hero.y+ty,sz*1.15,rgba(C.shu),{rot,sx:sx*hero.face,sy,lw:3,wob:.25,t:time*2});}
+  else{const spr=sprite(form,sz,'hero');c.save();c.translate(hero.x,hero.y+ty);c.rotate(rot);c.scale(sx,sy);c.drawImage(spr,-spr.lw/2,-spr.lh/2,spr.lw,spr.lh);c.restore();}
+  {const m=path.length===1?(OR_EN[form]||EN[form]||''):((EVO[form]||{}).en||EN[form]||'');c.font=`700 ${Math.round(12*Math.max(.85,SF))}px ${MF}`;c.textAlign='center';c.textBaseline='top';c.lineWidth=3;c.strokeStyle=rgba(night>.5?C.yoru:C.washi,.9);c.strokeText(m,hero.x,hero.y+sz*.56);c.fillStyle=rgba(C.shu);c.fillText(m,hero.x,hero.y+sz*.56);}
+  if(restCharged){c.strokeStyle=rgba(C.kin,.6+Math.sin(time*10)*.3);c.lineWidth=3;c.beginPath();c.arc(hero.x,hero.y,sz*.7,0,6.28);c.stroke();}
+  for(let i=0;i<shield;i++){const a=time*2+i*2.09;const spr2=sprite('付',22*SF,'shu');c.drawImage(spr2,hero.x+Math.cos(a)*sz*.8-spr2.lw/2,hero.y+Math.sin(a)*sz*.8-spr2.lh/2,spr2.lw,spr2.lh);}
+  if(hero.dk>.3||m>0)c.restore();
+}
+function drawCaptive(e,ink){
+  // 囚われの魚: 網（囗）の中でもがく甲骨文の魚
+  const s=e.size,r=s*.75;
+  c.save();c.translate(e.x,e.y);
+  c.strokeStyle=rgba(C.shu,.8);c.lineWidth=3*SF;c.setLineDash([6,5]);c.strokeRect(-r,-r,r*2,r*2);c.setLineDash([]);
+  c.strokeStyle=rgba(ink||C.washi,.35);c.lineWidth=1;for(let i=-3;i<=3;i++){c.beginPath();c.moveTo(i*r/3.5,-r);c.lineTo(i*r/3.5,r);c.moveTo(-r,i*r/3.5);c.lineTo(r,i*r/3.5);c.stroke();}
+  c.restore();
+  drawOracle(c,'魚',e.x+Math.sin(e.t*7)*3,e.y,s*1.1,rgba(night>.5?C.aiN:C.ai),{rot:Math.sin(e.t*3)*.25,lw:2.4,wob:.6,t:e.t*2,glow:16,gc:rgba(C.kin)});
+}
+function drawFish(){
+  const col=night>.5?C.aiN:C.ai;
+  drawOracle(c,'魚',fish.x,fish.y,44*SF,rgba(col),{rot:fish.ang+Math.PI/2,lw:2.2,wob:.5,t:time*2,glow:night>.3?14:0,gc:rgba(C.aiN)});
+}
+function drawSlash(s,ink){
+  const k=s.life/s.max;const col=s.boss?C.kin:s.cut?C.shu:ink;
+  const N=18;let px=s.x1,py=s.y1;const head=Math.min(1,(1-k)*4);
+  for(let i=1;i<=N;i++){const f=i/N;if(f>head)break;const u=1-f;const x=u*u*s.x1+2*u*f*s.cx+f*f*s.x2,y=u*u*s.y1+2*u*f*s.cy+f*f*s.y2;
+    c.strokeStyle=rgba(col,Math.min(1,k*1.6));c.lineWidth=s.w*Math.sin(f*Math.PI)*(.4+k*.6)+1;c.lineCap='round';c.beginPath();c.moveTo(px,py);c.lineTo(x,y);c.stroke();px=x;py=y;}
+}
+
+
+/* ---------- Title / hero select ---------- */
+function buildHeroes(){
+  titleCards=HEROES.map(h=>({h,ok:unlocked(h),en:h.en,acc:[h.en],typed:''}));
+  $('heroes').innerHTML=titleCards.map((t,i)=>`<button class="hero${t.ok?'':' locked'}" id="hr${i}" aria-pressed="${t.h===heroDef}"${t.ok?'':' disabled'}><span class="hc">${t.h.ch}</span><span class="w" id="hw${i}"></span><span class="ds">${t.h.d}</span>${t.ok?'':`<span class="lk">鍵 — ${t.h.lock.t}</span>`}</button>`).join('');
+  titleCards.forEach((t,i)=>{$('hr'+i).onclick=()=>{if(t.ok)selectHero(t.h);};
+    if(OR[t.h.ch]){const hc=$('hr'+i).querySelector('.hc');const k=document.createElement('canvas');k.width=k.height=112;k.style.cssText='width:56px;height:56px';drawOracle(k.getContext('2d'),t.h.ch,56,56,100,t.ok?'#d23a24':'#8a8378',{lw:3});hc.replaceWith(k);}});
+  renderHeroes();
+}
+function renderHeroes(){titleCards.forEach((t,i)=>{const w=$('hw'+i);if(w)w.innerHTML=wordHTML(t);});}
+function selectHero(h){heroDef=h;store.set('ks_hero',h.ch);buildHeroes();SFX.tick();}
+function titleDemo(){E=[];const sample=['犬','森','休','花','火','木','鬱','明','炎','林','鳥','山','嵐','秋','男','囚'];for(const ch of sample){spawnEnemy({ch},{x:rnd(-W/2,W/2),y:rnd(-H/2,H/2)});}for(const e of E){const a=rnd(0,6.28);e.vx=Math.cos(a)*rnd(15,35);e.vy=Math.sin(a)*rnd(15,35);}}
+
+/* ---------- Flow ---------- */
+function start(){
+  AU.init();if(AU.ctx&&AU.ctx.state==='suspended')AU.ctx.resume();
+  reset();state='play';
+  for(const id of['title','over','levelup','pause'])$(id).hidden=true;
+  for(const id of['hudTop','me','arms','hint'])$(id).hidden=false;
+  $('combo').hidden=true;updHP();updMe();updArms();updHUD();focusIme();
+  for(let i=0;i<3;i++){const d={ch:['林','休','明'][i]};const a=-1.2+i*1.2,r=Math.min(W,H)*.4;spawnEnemy(d,{x:Math.cos(a)*r,y:Math.sin(a)*r});}
+  showBanner('開戦','SURVIVE THE GLYPHS');
+}
+function gameOver(){
+  $('autoTag').hidden=true;overT=0;
+  state='over';
+  const before=HEROES.filter(unlocked).map(h=>h.ch);
+  meta.kills+=kills;meta.best=Math.max(meta.best,time);saveMeta();
+  const fresh=HEROES.filter(h=>unlocked(h)&&!before.includes(h.ch));
+  const wpm=time>0?Math.round(typedOK/5/(time/60)):0,acc=typedOK+misses?Math.round(typedOK/(typedOK+misses)*100):100;
+  $('overTitle').textContent=fmtT(time)+' 生存';
+  $('stats').innerHTML=[[kills,'撃破 KILLS'],[maxCombo,'最大連撃 COMBO'],[wpm,'WPM'],[acc+'%','正確さ ACC'],[kn(level),'段位 LEVEL'],[bossIdx,'封じた古代神']].map(([v,l])=>`<div><b>${v}</b><small>${l}</small></div>`).join('');
+  $('path').innerHTML=path.map((p,i)=>{if(!i)return `<span>${p}</span>`;const[v,ch]=p.split('|');return `<i>→ ＋${esc(v.split('+').join('＋'))}</i><span>${ch}</span>`;}).join('');
+  const um=$('unlockMsg');if(fresh.length){um.hidden=false;um.textContent='新しい字が目覚めた：'+fresh.map(h=>h.ch).join('・')+'（主人公に選べます）';}else um.hidden=true;
+  const sl=Object.entries(slain).sort((a,b)=>b[1]-a[1]).slice(0,40);
+  $('slain').innerHTML=sl.map(([k,v])=>`<span>${k}<sup>${v}</sup></span>`).join('')||'<span>—</span>';
+  const arms=Object.keys(owned).filter(k=>k[0]!=='_').join('');
+  const chain=path.map(p=>p.includes('|')?p.split('|')[1]:p).join('→');
+  $('shareTxt').value=`漢字SURVIVOR｜${chain}｜${fmtT(time)}生存・${kills}字撃破・最大${kn(maxCombo)}連撃・WPM ${wpm}${arms?'・装備「'+arms+'」':''}${bossIdx?'・古代神'+bossIdx+'体封印':''}\n#漢字SURVIVOR #文字の反乱`;
+  for(const id of['hudTop','me','arms','hint','combo'])$(id).hidden=true;
+  $('fishBtn').hidden=!(unlocked(HEROES[1])&&heroDef.ch!=='魚');
+  $('copyBtn').textContent='結果をコピー';$('over').hidden=false;
+  $('best').textContent=fmtT(meta.best);
+}
+function toTitle(){state='title';for(const id of['over','pause'])$(id).hidden=true;$('title').hidden=false;cam.x=cam.y=0;night=0;document.body.classList.remove('night');titleDemo();buildHeroes();}
+function togglePause(){
+  if(state==='play'){state='paused';$('pause').hidden=false;}
+  else if(state==='paused'){state='play';$('pause').hidden=true;focusIme();}
+}
+
+/* ---------- Input ----------
+   Desktop: nothing editable is focused, so the OS IME never composes; letters are read straight from keydown
+   (and from the physical key code when the IME reports "Process"). Touch: a hidden e-mail field raises the
+   soft keyboard; anything it sends is normalised (full-width → ASCII) and non-letters are dropped. */
+const ime=$('ime');
+const touch=window.matchMedia&&matchMedia('(pointer:coarse)').matches;
+function focusIme(){if(!touch)return;try{ime.focus({preventScroll:true});}catch(e){}}
+function letterOf(e){
+  if(e.ctrlKey||e.metaKey||e.altKey)return null;
+  if(e.key&&e.key.length===1){const k=e.key.normalize('NFKC').toLowerCase();if(/^[a-z]$/.test(k))return k;}
+  if((e.key==='Process'||e.keyCode===229||e.key==='Unidentified')&&/^Key[A-Z]$/.test(e.code||''))return e.code[3].toLowerCase();
+  return null;
+}
+const feedText=v=>{for(const ch of v.normalize('NFKC').toLowerCase().replace(/[^a-z]/g,''))key(ch);};
+ime.addEventListener('compositionend',e=>{ime.value='';});
+ime.addEventListener('input',e=>{if(e.isComposing)return;const v=ime.value;ime.value='';feedText(v);});
+window.addEventListener('keydown',e=>{
+  if(e.key==='Enter'){if(state==='title'&&!$('startBtn').disabled){e.preventDefault();start();}else if(state==='over'){e.preventDefault();start();}else if(state==='paused')togglePause();return;}
+  if(e.key==='F6'){e.preventDefault();if(state!=='title')setAuto(!autoOn);return;}
+  if(e.key==='Escape'){if(state==='play'||state==='paused')togglePause();return;}
+  if(e.key==='Backspace'||e.key===' '){if(state!=='over')e.preventDefault();return;}
+  const k=letterOf(e);
+  if(k&&(state==='play'||state==='levelup'||state==='title')){e.preventDefault();if(!e.repeat)key(k);}
+},true);
+cv.addEventListener('pointerdown',()=>{if(state==='play'||state==='levelup')focusIme();});
+$('levelup').addEventListener('pointerdown',()=>focusIme());
+$('startBtn').addEventListener('click',start);
+$('againBtn').addEventListener('click',start);
+$('fishBtn').addEventListener('click',()=>{heroDef=HEROES[1];store.set('ks_hero','魚');start();});
+$('titleBtn').addEventListener('click',toTitle);
+$('pauseBtn').addEventListener('click',togglePause);
+$('resumeBtn').addEventListener('click',togglePause);
+function restart(){if(!['play','paused','levelup','over'].includes(state))return;const a=autoOn;start();if(a)setAuto(true);}
+$('restartBtn').addEventListener('click',restart);$('pRestartBtn').addEventListener('click',restart);
+$('pTitleBtn').addEventListener('click',()=>{if(state==='paused'){if(autoOn)setAuto(false);toTitle();}});
+$('muteBtn').addEventListener('click',()=>{AU.on=!AU.on;$('muteBtn').textContent=AU.on?'音':'無';focusIme();});
+$('copyBtn').addEventListener('click',()=>{const t=$('shareTxt');const ok=()=>{$('copyBtn').textContent='コピーしました';};try{navigator.clipboard.writeText(t.value).then(ok,()=>t.select());}catch(e){t.select();}});
+function setCalm(v){calm=v;store.set('ks_calm',v?'1':'0');$('cStd').setAttribute('aria-pressed',!v);$('cCalm').setAttribute('aria-pressed',v);}
+$('cStd').addEventListener('click',()=>setCalm(false));$('cCalm').addEventListener('click',()=>setCalm(true));
+setCalm(calm);
+document.addEventListener('visibilitychange',()=>{if(document.hidden&&state==='play')togglePause();});
+window.addEventListener('resize',resize);if(window.visualViewport)window.visualViewport.addEventListener('resize',resize);
+if(meta.best)$('best').textContent=fmtT(meta.best);
+{const saved=HEROES.find(h=>h.ch===store.get('ks_hero'));if(saved&&unlocked(saved))heroDef=saved;}
+
+/* ---------- Boot ---------- */
+HS=heroStats();
+resize();titleDemo();buildHeroes();
+/* ---------- Auto battle: a slow, readable typist (about 3 letters a second) ---------- */
+let autoOn=false,autoT=0,autoPlan=null,overT=0,autoLvOpen=false;
+function setAuto(v){autoOn=v;$('autoBtn').setAttribute('aria-pressed',v);$('autoTag').hidden=!v||state==='title';autoPlan=null;autoT=.6;}
+function autoPick(){
+  if(state==='levelup'){const ev=cards.find(c=>evoStatus(c.id).some(x=>!x.lack))||cards.find(c=>evoStatus(c.id).length);return ev||pick(cards);}
+  const list=typables();if(!list.length)return null;
+  const cap=list.find(t=>t.captive);if(cap)return cap;
+  let best=null,bd=1e9;for(const t of list){if(t.isBoss)continue;const d=Math.hypot(t.x-hero.x,t.y-hero.y);if(d<bd){bd=d;best=t;}}
+  const b=list.find(t=>t.isBoss);
+  if(b&&(!best||bd>Math.min(W,H)*.32))return b; // 近くに雑魚がいなければ漢詩を打つ
+  return best||b;
+}
+function autoTick(dt){
+  if(!autoOn)return;
+  if(state==='over'){overT+=dt;if(overT>5){overT=0;start();setAuto(true);}return;}
+  if(state==='title'){return;}
+  if(state!=='play'&&state!=='levelup')return;
+  if(state==='play'&&bossIntro>0)return;
+  // 三択は読めるように、開いてから3.5秒待ってから、ゆっくり打つ
+  if(state==='levelup'&&!autoLvOpen){autoLvOpen=true;autoT=3.5;autoPlan=null;$('autoTag').textContent='自動戦闘中 — 三択を読んでいます…';}
+  if(state!=='levelup'&&autoLvOpen){autoLvOpen=false;$('autoTag').textContent='自動戦闘中 — F6 か「自」で手動に戻す';}
+  autoT-=dt;if(autoT>0)return;
+  const valid=t=>t&&(state==='levelup'?cards.includes(t):(t.alive&&!t.locked&&typables().includes(t)));
+  if(!valid(autoPlan)||(autoPlan.isBoss&&!autoPlan.isBoss)){autoPlan=autoPick();if(!autoPlan){autoT=.3;return;}}
+  const w=autoPlan.acc[0],ch=w[autoPlan.typed.length];
+  if(!ch){autoPlan=null;autoT=.3;return;}
+  const tgt=autoPlan;key(ch);
+  const isCard=cards.includes(tgt);
+  if(state==='levelup'&&isCard&&tgt.typed!==''){autoT=rnd(.42,.55);return;}
+  if(tgt.locked||(!isCard&&!tgt.alive)||state!=='play'&&state!=='levelup'||tgt.typed===''){autoPlan=null;autoT=rnd(.55,.85);}
+  else autoT=rnd(.24,.38);
+  // 雑魚が迫ったら漢詩を中断して迎え撃つ（漢詩の打ちかけは消えない）
+  if(autoPlan&&autoPlan.isBoss){const near=typables().some(t=>!t.isBoss&&Math.hypot(t.x-hero.x,t.y-hero.y)<Math.min(W,H)*.22);if(near)autoPlan=null;}
+}
+$('autoBtn').addEventListener('click',()=>{setAuto(!autoOn);focusIme();});
+$('watchBtn').addEventListener('click',()=>{start();setAuto(true);});
+function loop(ts_){const now=ts_/1000;let dt=Math.min(.05,now-(lastT||now));lastT=now;
+  autoTick(dt);
+  if(hitstop>0){hitstop-=dt;dt=0;}
+  update(dt);render();if(state==='play')updHUD();requestAnimationFrame(loop);}
+requestAnimationFrame(loop);
+const allChars=[...new Set((Object.keys(STK).join('')+'明炎林雷癒封福薬命連撃途切会心一二三四五六七八九十百千万〇象虎龍鬼田矢力刀人日月雨木火水！').split(''))].join('');
+Promise.race([Promise.all([document.fonts.load(`900 48px "Zen Old Mincho"`,allChars),document.fonts.load(`900 48px "Noto Serif JP"`,allChars),document.fonts.load(`800 16px "JetBrains Mono"`,'abc'),document.fonts.load(`700 14px "Zen Kaku Gothic New"`,'あいうえおかきくけこ')]),new Promise(r=>setTimeout(r,4000))])
+  .catch(()=>{}).then(()=>{for(const k in sampleCache)delete sampleCache[k];for(const k in spriteCache)delete spriteCache[k];const b=$('startBtn');b.disabled=false;b.textContent='始める';});
+})();
+</script>
+</body></html>

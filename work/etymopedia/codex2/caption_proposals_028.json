@@ -1,0 +1,233 @@
+[
+  {
+    "filename": "about.png",
+    "en": "The guide and visitor talk about the seashells.",
+    "ja": "ガイドと訪問者が貝殻について話している。",
+    "review": "ok",
+    "note": ""
+  },
+  {
+    "filename": "all.png",
+    "en": "The child holds all six apples in one basket.",
+    "ja": "子供が6個すべてのリンゴを一つのかごに入れて抱えている。",
+    "review": "ok",
+    "note": ""
+  },
+  {
+    "filename": "also.png",
+    "en": "She also asks for tea, holding up an empty cup.",
+    "ja": "彼女もお茶を求め、空のカップを掲げている。",
+    "review": "ok",
+    "note": ""
+  },
+  {
+    "filename": "and.png",
+    "en": "The server carries tea and two pieces of toast on one tray.",
+    "ja": "給仕が1枚のトレーでお茶と2切れのトーストを運んでいる。",
+    "review": "ok",
+    "note": ""
+  },
+  {
+    "filename": "as.png",
+    "en": "The child spreads both arms as the robin spreads its wings.",
+    "ja": "子供がコマドリの羽のように両腕を広げている。",
+    "review": "ok",
+    "note": ""
+  },
+  {
+    "filename": "at.png",
+    "en": "The woman waits at the bus stop as a bus approaches.",
+    "ja": "バスが近づく中、女性がバス停で待っている。",
+    "review": "ok",
+    "note": ""
+  },
+  {
+    "filename": "be.png",
+    "en": "Her apron and bread show her to be a baker.",
+    "ja": "エプロンとパンから、彼女がパン職人だと分かる。",
+    "review": "needs_revision",
+    "note": "原文にないパン棚が1台ある。次修正：棚を除去し、パン職人・カウンター・パン・パン用のへらを原文どおりに残す。"
+  },
+  {
+    "filename": "been.png",
+    "en": "He has been a sailor; his photograph shows his younger self.",
+    "ja": "彼はかつて船乗りで、写真には若い頃の姿が写っている。",
+    "review": "ok",
+    "note": ""
+  },
+  {
+    "filename": "but.png",
+    "en": "Rain falls heavily, but the walker smiles beneath an umbrella.",
+    "ja": "激しい雨が降っているが、歩く人は傘の下で笑っている。",
+    "review": "ok",
+    "note": ""
+  },
+  {
+    "filename": "by.png",
+    "en": "The blue bicycle stands by the tree on its kickstand.",
+    "ja": "青い自転車が木のそばでスタンドを立てて止まっている。",
+    "review": "ok",
+    "note": ""
+  },
+  {
+    "filename": "can.png",
+    "en": "The child can ride a bicycle without training wheels.",
+    "ja": "子供は補助輪なしで自転車に乗ることができる。",
+    "review": "ok",
+    "note": ""
+  },
+  {
+    "filename": "could.png",
+    "en": "He could swim when he was younger, as the photograph shows.",
+    "ja": "写真のとおり、彼は若い頃、泳ぐことができた。",
+    "review": "ok",
+    "note": ""
+  },
+  {
+    "filename": "do.png",
+    "en": "She uses a sponge to do the dishes.",
+    "ja": "彼女はスポンジで食器を洗っている。",
+    "review": "needs_revision",
+    "note": "人物の下半身が描かれず、人物全体を見せる指定を満たさない。次修正：人物の手足を含む全身と流し台を枠内に収め、皿洗いの動作を保つ。"
+  },
+  {
+    "filename": "for.png",
+    "en": "The child offers a gift for the seated grandmother.",
+    "ja": "子供が椅子に座った祖母に向けて贈り物を差し出している。",
+    "review": "ok",
+    "note": ""
+  },
+  {
+    "filename": "from.png",
+    "en": "The traveler walks from the house with a small suitcase.",
+    "ja": "旅人が小さなスーツケースを持ち、家から歩き出している。",
+    "review": "ok",
+    "note": ""
+  },
+  {
+    "filename": "have.png",
+    "en": "I have my teddy bear in my arms.",
+    "ja": "私は自分のぬいぐるみのクマを腕に抱えている。",
+    "review": "ok",
+    "note": ""
+  },
+  {
+    "filename": "he.png",
+    "en": "He sits on a chair and reads a book.",
+    "ja": "彼は椅子に座って本を読んでいる。",
+    "review": "ok",
+    "note": ""
+  },
+  {
+    "filename": "her.png",
+    "en": "The friend points to her yellow handbag.",
+    "ja": "友人が彼女の黄色いハンドバッグを指している。",
+    "review": "ok",
+    "note": ""
+  },
+  {
+    "filename": "him.png",
+    "en": "A man passes him a wrapped gift.",
+    "ja": "男性が彼に包んだ贈り物を渡している。",
+    "review": "ok",
+    "note": ""
+  },
+  {
+    "filename": "his.png",
+    "en": "The man holds his bicycle and its key.",
+    "ja": "男性は自分の自転車とその鍵を持っている。",
+    "review": "ok",
+    "note": ""
+  },
+  {
+    "filename": "if.png",
+    "en": "The gardener can enter if the key opens the locked door.",
+    "ja": "鍵で施錠された扉を開けられれば、庭師は中に入れる。",
+    "review": "ok",
+    "note": ""
+  },
+  {
+    "filename": "in.png",
+    "en": "The kitten sits in the box with all four flaps open.",
+    "ja": "子猫が、四つのふたを開いた箱の中に座っている。",
+    "review": "ok",
+    "note": ""
+  },
+  {
+    "filename": "is.png",
+    "en": "The cup is blue, and the teacher shows it.",
+    "ja": "カップは青く、先生がそれを見せている。",
+    "review": "ok",
+    "note": ""
+  },
+  {
+    "filename": "it.png",
+    "en": "One friend points to it, and both watch the steaming soup.",
+    "ja": "一人がそれを指し、二人とも湯気の立つスープを見ている。",
+    "review": "ok",
+    "note": ""
+  },
+  {
+    "filename": "me.png",
+    "en": "",
+    "ja": "",
+    "review": "safety_hold",
+    "note": "実サービスの安全ブロックによりPNG未保存。画像未確認のため日英キャプションは保留。"
+  },
+  {
+    "filename": "more.png",
+    "en": "Two more apples are being lowered into the child's basket.",
+    "ja": "子供のかごに、さらに2個のリンゴが入れられている。",
+    "review": "ok",
+    "note": ""
+  },
+  {
+    "filename": "my.png",
+    "en": "I hold my green hat and point to myself.",
+    "ja": "私は自分の緑の帽子を抱え、自分を指している。",
+    "review": "ok",
+    "note": ""
+  },
+  {
+    "filename": "not.png",
+    "en": "He does not accept the apple, keeping his yellow pear.",
+    "ja": "彼はリンゴを受け取らず、黄色い洋ナシを持ったままだ。",
+    "review": "ok",
+    "note": ""
+  },
+  {
+    "filename": "of.png",
+    "en": "The handle of the cup is attached at both ends.",
+    "ja": "カップの取っ手は、両端でカップにつながっている。",
+    "review": "ok",
+    "note": ""
+  },
+  {
+    "filename": "on.png",
+    "en": "The red cup and saucer rest on the wooden table.",
+    "ja": "赤いカップと受け皿が木のテーブルの上に置かれている。",
+    "review": "ok",
+    "note": ""
+  },
+  {
+    "filename": "other.png",
+    "en": "The child reaches for the other mitten, the blue one.",
+    "ja": "子供がもう一方の青いミトンに手を伸ばしている。",
+    "review": "ok",
+    "note": ""
+  },
+  {
+    "filename": "out.png",
+    "en": "The dog steps out through the open doorway.",
+    "ja": "犬が開いた戸口を通って外へ出ている。",
+    "review": "ok",
+    "note": ""
+  },
+  {
+    "filename": "she.png",
+    "en": "She paints at an easel while two others watch.",
+    "ja": "彼女はイーゼルで絵を描き、ほかの二人が見ている。",
+    "review": "ok",
+    "note": ""
+  }
+]

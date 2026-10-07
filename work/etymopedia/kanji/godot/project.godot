@@ -1,0 +1,41 @@
+; Engine configuration file.
+config_version=5
+
+[application]
+
+config/name="漢字SURVIVOR"
+config/description="すべての漢字が生き物になったタイピング・ローグライク"
+run/main_scene="res://main.tscn"
+config/features=PackedStringArray("4.7", "GL Compatibility")
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=800
+window/size/window_width_override=1280
+window/size/window_height_override=800
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
+[gui]
+
+common/drop_mouse_on_gui_input_disabled=true
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0.92, 0.91, 0.88, 1)
+2d/snap/snap_2d_transforms_to_pixel=false
+
+[debug]
+
+gdscript/warnings/inference_on_variant=0
+gdscript/warnings/integer_division=0
+gdscript/warnings/narrowing_conversion=0
+gdscript/warnings/unused_variable=0
+gdscript/warnings/unused_parameter=0
+gdscript/warnings/shadowed_variable=0
+gdscript/warnings/confusable_local_declaration=0
+gdscript/warnings/standalone_ternary=0
+gdscript/warnings/incompatible_ternary=0

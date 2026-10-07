@@ -7,3 +7,5 @@ assets/word/illustration-index.js text eol=lf
 app/games/picture-words/catalog.js text eol=lf
 app/games/picture-words/reviewed-catalog-report.json text eol=lf
 app/games/picture-words/scene-assets/*.js text eol=lf
+app/eigo-no-e/data.js text eol=lf
+work/etymopedia/png_creation_dates.csv text eol=lf

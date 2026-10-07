@@ -1,0 +1,217 @@
+﻿KANJI SURVIVOR（仮）
+甲骨文・古代文字素材メモ / ライセンス・運用注意
+調査日: 2026-10-05
+
+保存先想定:
+D:\etymolingo\work\etymopedia\kanji\
+
+1. JiaGuWen-master
+Source: https://github.com/Chinese-Traditional-Culture/JiaGuWen
+
+概要:
+・現代漢字と対応する甲骨文画像の対照データベース。
+・JSON / SQLite があり、「現代漢字 → 甲骨文画像」の参照に便利。
+
+License:
+・MIT
+・製品に含める場合は著作権表示とMIT Licenseを残す。
+
+注意:
+・画像ベース。アニメーション素材にするなら別途ベクター化が必要。
+・甲骨文と現代漢字の対応には異体字・字形変遷・学説差がある。
+・図鑑等では「唯一の祖形」と断定しない。
+
+
+2. oracle-bone-jgw-1203-main
+Source: https://github.com/aylqs2025/oracle-bone-jgw-1203
+
+概要:
+・解読済み甲骨文字形 1,203 点。
+・生成済みSVGと線分/パラメトリックデータを収録。
+・KANJI SURVIVORのアニメーション素材として第一候補。
+
+主なデータ:
+・data/svg_polyline/ : 元形状への忠実度を優先したSVG
+・data/svg_parametric/ : 構造解析・変形向けSVG
+・data/jgw_1203_labeled.json : glyph_id / modern_char 等
+・data/provenance_manifest.csv : 出典・同定情報等
+
+License:
+・/src のコード: MIT
+・/data と /figs: CC BY 4.0
+
+重要:
+・SVGをゲームで使用・改変する場合はCC BY 4.0の帰属表示が必要。
+・THIRD_PARTY_NOTICES等に作者、データセット名、ライセンス、元URLを記載する。
+・glyph_id を一意IDとして扱う。
+・modern_char は一意キーとは限らない。複数字形が同じ現代漢字に対応し得る。
+・異体字はボス差分・進化形として活用できる。
+
+
+3. oracle_bone_script_F5000.ttf
+Oracular公式: https://oracular.azurewebsites.net/glyphs/download
+保存したミラー由来: https://github.com/pannous/hieros/blob/master/fonts/oracle_bone_script_F5000.ttf
+
+概要:
+・Oracular（鏡原甲骨文字庫）の字形を含むフォントを第三者側でPUAへリマップした派生TTF。
+・公式配布の Oracular-Regular.ttf そのものではない。
+
+Oracular公式ライセンス:
+・SIL Open Font License 1.1（OFL 1.1）
+・公式ページでは個人、研究、商用利用可。
+
+2026-10-05時点:
+・公式ダウンロードページ自体は表示可能。
+・v1.0.1、Oracular-Regular.ttf / Oracular-Inverted.ttf の案内はある。
+・ただし実際のダウンロード導線が正常に動かない状態を確認。
+・そのため現在はGitHub上のリマップ版を保存。
+
+重要:
+・F5000版は公式ファイルそのものではなく「リマップ版」。
+・普通の漢字Unicodeを入力してそのまま対応字形が出るとは限らない。
+・PUAを使っているので、コードポイントだけで現代漢字と結びつけない。
+・字形名/対応表を介して modern_char と結びつける。
+・公式配布が復旧したら Oracular-Regular.ttf も保存して比較する。
+
+SVG化:
+・OFLは商用利用・改変を広く認めるが、ライセンス表示は維持する。
+・元TTF、改変フォント、抽出SVGは別フォルダで管理する。
+・元TTFは上書きしない。
+・大量の字形をSVG素材として製品に同梱する場合は、リリース前にOFL条件を再確認する。
+
+
+============================================================
+KANJI SURVIVORでの推奨優先順位
+============================================================
+
+第一候補: oracle-bone-jgw-1203 の SVG
+理由:
+・最初からSVG
+・1,203文字形
+・線分構造が扱える
+・変形/分解アニメーション向き
+・ライセンスが明示的
+
+用途例:
+・線を一本ずつ出現
+・筆画を揺らす
+・脚/角に相当する線だけ動かす
+・攻撃時に伸縮
+・被弾時に筆画分離
+・撃破時に線へ崩壊
+・現代漢字へモーフィング
+
+第二候補: Oracular
+・大量の甲骨文字形。
+・OFLで商用利用可能。
+・jgw-1203に無い文字の補完に有力。
+・ただし現在のF5000版は第三者リマップ版で、対応表生成とSVG抽出が必要。
+
+第三候補: JiaGuWen
+・現代漢字から引きやすい。
+・SQLite/JSONで実装しやすい。
+・他2つの照合・補助データ向き。
+
+
+============================================================
+他フォントについての注意
+============================================================
+
+■ 白川フォント
+公式: https://www.dl.is.ritsumei.ac.jp/Shirakawa/search/
+
+・非商用の無償利用では「トリミング以外の加工不可」。
+・ゲーム等は商用利用許諾の対象。
+・SVG化→変形→ボスアニメーション素材として無断採用しない。
+・採用したい場合はゲーム用途と加工内容を明示して確認する。
+
+■ DynaFont 甲金文体
+公式:
+https://www.dynacw.co.jp/business/licensing_usage.aspx
+https://www.dynacw.co.jp/business/business_licensing.aspx
+
+・昔購入したパッケージ版でも、ゲーム利用が通常購入権だけで済むとは限らない。
+・フォント→アウトライン→SVG→ゲーム素材、のような利用は特に要確認。
+・採用するならダイナコムウェアへ事前確認する。
+・確認前は製品版アセットに入れない。
+
+
+============================================================
+推奨データ管理
+============================================================
+
+kanji/
+    JiaGuWen-master/
+    oracle-bone-jgw-1203-main/
+    oracle_bone_script_F5000.ttf
+
+    licenses/
+        THIRD_PARTY_NOTICES.txt
+        Oracular_OFL-1.1.txt
+        oracle-bone-jgw-1203_CC-BY-4.0.txt
+        oracle-bone-jgw-1203_MIT.txt
+        JiaGuWen_MIT.txt
+
+    derived/
+        oracle_svg/
+        normalized_svg/
+        animated/
+
+    mapping/
+        glyph_map.csv
+
+推奨 glyph_map.csv 項目:
+modern_char
+glyph_id
+source
+source_file
+source_unicode
+license
+attribution_required
+identity_confidence
+variant_no
+svg_path
+approved_for_game
+note
+
+
+============================================================
+学術面の注意
+============================================================
+
+・「甲骨文 = 現代漢字の昔の形」と単純化できない場合がある。
+・同じ現代字に複数の古文字が対応することがある。
+・後世に複数の文字へ分化したケースもある。
+・似ているだけで同一字と確定していない場合もある。
+・図鑑/教育説明では「原型」「起源」と断定せず、
+  「対応する甲骨文字形」「古い字形の一例」などを基本にする。
+・同定確度が低い字形は「異形」「未詳」としてゲーム演出に活用可能。
+
+
+============================================================
+制作方針
+============================================================
+
+通常敵: 現代漢字
+強敵/ボス: 甲骨文など古い字形
+進化案: 甲骨文 → 金文 → 小篆 → 現代漢字
+
+ゲームの核:
+「文字の反乱を、文字で制する。」
+敵も漢字、味方も漢字。
+「古い文字ほど原初的で強い」はあくまでゲーム上の世界観として扱う。
+
+
+============================================================
+確認元
+============================================================
+Oracular: https://oracular.azurewebsites.net/glyphs/download
+Oracularリマップ版: https://github.com/pannous/hieros
+oracle-bone-jgw-1203: https://github.com/aylqs2025/oracle-bone-jgw-1203
+JiaGuWen: https://github.com/Chinese-Traditional-Culture/JiaGuWen
+白川フォント: https://www.dl.is.ritsumei.ac.jp/Shirakawa/search/
+DynaFont: https://www.dynacw.co.jp/business/licensing_usage.aspx
+
+※2026-10-05時点の調査メモ。
+※製品リリース前に各配布元の最新LICENSE/利用規約を再確認すること。
+※法的助言ではない。
