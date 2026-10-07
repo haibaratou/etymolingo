@@ -3,16 +3,16 @@
   "meta": {
     "schema": 2,
     "sourceWordsSha256": "531c5c563eedd26021245e9980fb26021d201a9af40001532c364cb8a83edb77",
-    "scenesSha256": "ed7ae309b25568697095965ae05283436ddff3ba15343aa72a066173db9c8158",
+    "scenesSha256": "12a493c7de0f10c5f781e219113dc105a475945efdbf64aa957ab3735749fcaf",
     "indexSha256": "ddb93d2c612450dee02a29ec94263a28b777af4332a19e8f1ed15a6330ad7755",
     "imageDatesSha256": "ffd0ac01d82c46248f907740979ff5f96078d58f35e3bdc6213618018b053863",
     "count": 14803,
     "wordEntryCount": 13486,
     "ownershipPendingCount": 1292,
     "descriptionCounts": {
-      "reviewed": 1706,
-      "held": 147,
-      "missing": 12950
+      "reviewed": 1806,
+      "missing": 12850,
+      "held": 147
     },
     "playableCounts": {
       "en": 13125,
@@ -30,13 +30,13 @@
     "conflictingFiles": 15,
     "preservedProtectedBindings": 605
   },
-  "sceneEntries": 1706,
+  "sceneEntries": 1806,
   "existingIdsPreserved": 262,
   "legacyIdsPreserved": 80,
-  "imageBytes": 3155625428,
+  "imageBytes": 3156631618,
   "emittedRows": 14803,
-  "lazyAssets": 1706,
-  "lazyAssetBytes": 421215398,
+  "lazyAssets": 1806,
+  "lazyAssetBytes": 443456998,
   "inventoryNamesSha256": "ca83dcdcbb1b278282ec75ec2d34246689d0aff6437bab9e4db295b2528e84c1",
   "inclusionPolicy": "all_observed_valid_generated_PNGs",
   "dateGateApplied": false,
