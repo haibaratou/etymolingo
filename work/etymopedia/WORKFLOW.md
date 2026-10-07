@@ -30,8 +30,8 @@
 - 共通サンプル：[prompt_rows_template.csv](etymopedia_sample/prompt_rows_template.csv)
 - 唯一の画風参照：[invidious.png](etymopedia_sample/references/invidious.png)。CSV内は従来の `references/invidious.png` を保持し、この実体1枚へ解決する
 - 画像日付表：[png_creation_dates.csv](png_creation_dates.csv)
-- [dot](dot/README.md)：009・011・028〜030。[Codex](codex/README.md)：007・008・010・012〜027。000〜006は担当未確認の履歴としてルートに保持する
-- dot/codexは画像生成担当の区分であり、担当1/担当2という工程名とは別。既存割り当てを変更しない
+- [codex2（旧dotフォルダ）](codex2/README.md)：009・011・028〜030。[Codex](codex/README.md)：007・008・010・012〜027。000〜006は担当未確認の履歴として `old/` に保持する
+- codex2/codexは画像生成担当の作業フォルダの区分であり、担当1/担当2という工程名とは別。既存割り当てを変更しない
 - プロンプト新規作成はレア度数値の昇順。同順位は見出し語の大小文字をそろえた辞書順、順序付き語根ID配列、正式画像名の順。進行中CSVをこの理由で並べ替えない
 - 新規バッチは原則500件、最終分は500件未満可。番号は全担当共通で、既存バッチ・正式画像名を重複させない
 - 本当に解決できない語は `prompt_review_pending.csv`（ファイル名／単語／問題／発見バッチ／状態）へ記録。解決後も削除せず状態を更新する

@@ -1,0 +1,20 @@
+{
+  "batch": "028",
+  "through": 33,
+  "edit_prefix": "\n\nCorrect the attached generated draft only to fulfill the CSV description above: ",
+  "old_suffix": "\n\nShared production requirements: Include only the people, characters and objects specified above. Follow every composition detail and exact quantity, and keep the complete composition inside the square.",
+  "new_suffix": "\n\nShared production requirements: Include only the people, characters and objects specified above. Follow every composition detail and exact quantity, and keep the complete composition inside the square. Omit decorative foliage, bags, binoculars, extra tools, and extra characters unless the CSV prompt specifies them.",
+  "new_suffix_from": 7,
+  "edits": {
+    "1": "Remove the guide's binoculars and the visitor's backpack entirely; these objects are not in the CSV. Keep exactly two people, the small table, exactly three different shells on the tabletop, and the matching spiral shell held by the visitor. Preserve the guide's pointing gesture and the shared focus on the shells. Preserve the transparent background and drawing style.",
+    "5": "Remove both green grass tufts from the foot of the fence. Preserve exactly the smiling child balancing with both arms out, the single robin spreading its wings, and the low wooden fence. Leave genuine transparent space below and around the fence; add no decorations or other objects.",
+    "6": "Remove the waiting person's shoulder bag and its strap completely. Let that arm rest naturally at their side. Preserve the person standing beside the bus-stop pole, the curbside pad, and the approaching bus. Do not add any new objects.",
+    "14": "Turn the child's head and eyes toward the grandmother, so the child is clearly looking at her while offering the gift. Show both of the child's hands visibly supporting the wrapped gift, with one hand on each side or beneath it. Keep exactly these two people, one gift and the grandmother's chair, and keep her pleased expression and reaching hands.",
+    "15": "Remove the traveler's backpack and both shoulder straps entirely. Keep the single small suitcase in the same hand and let the other empty hand swing naturally while walking away from the cottage. Preserve the open doorway and the short wet footprint trail connecting its doorstep to the traveler's feet. Do not add another bag or object.",
+    "17": "Redraw the green-shirt adult's gesturing arm so the open hand extends horizontally past the companion toward the reader, into the clear gap between the companion and reader. The companion's arms rest down at her sides, leaving this gesture unobstructed. Tilt the reader's head downward noticeably, with both eyes near the lower part of the face directed at the book. Preserve the three figures and other objects.",
+    "19": "Redraw the blue-shirt recipient as an adult man, with adult body proportions, longer legs and long trousers instead of a child's shorts. He should be about the same height as the adult giver, and still reach toward the parcel with both hands. Preserve the distinct giver and observer, her open-hand gesture toward the recipient, and the single wrapped parcel. Remove the three decorative rays above the parcel.",
+    "20": "Turn the yellow-shirt pointing observer's head and gaze to his companion on the right, while his extended hand continues pointing left toward the bicycle. Keep the owner holding its handlebars and the key in his other hand, three people and one bicycle. Remove the two decorative rays above the key.",
+    "32": "Clean the perimeter of the small exterior grass patch: give its full outside edge one smooth thick dark-brown outline matching the rest of the illustration, with no stray green or yellow pixels, glow, or fringe beyond it. Preserve the dog stepping out through the door with its front paws outside and hind paws inside, and keep genuine transparent surroundings."
+  },
+  "source": "Exact final tool-call texts from this conversation; no prompts inferred from images."
+}

@@ -14,3 +14,7 @@ work/*
 work/etymopedia/_illust/
 # 参考にする辞書の生ページ(私用のキャッシュ。持ち出さない)
 app/data/pie/cache_refs/
+# Godot recreates these editor caches; keep the source project and artwork shared.
+work/etymopedia/kanji/godot/.godot/
+# Temporary files used only while uploading generated dictionary bundles.
+.dot-upload-*/

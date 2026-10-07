@@ -84,18 +84,43 @@ html,body{margin:0;width:1920px;height:1080px;overflow:hidden;background:var(--b
 #runner img{height:230px;animation:bob .35s ease-in-out infinite}
 #runner img+img{animation-delay:.17s}
 
+
+/* S4.5 パズル(Pictlingo) */
+#sP{animation:in .3s both 18.6s,out .45s forwards 29.0s}
+#sP .head{animation:up .6s var(--pop) both 18.7s}
+#wcard{left:110px;top:250px;width:640px;padding:30px 34px 34px;animation:pop .7s var(--pop) both 18.9s}
+#wcard .wimg{display:flex;align-items:center;gap:26px}
+#wcard .wimg img{width:230px;height:230px;object-fit:contain;background:#fff8e6;border-radius:28px;border:3px solid #f1e4cf}
+#wcard h3{margin:0;font:600 104px/1 var(--en)}
+#wcard h3+span{display:block;font:900 40px var(--jp);color:#7a6150;margin-top:6px}
+#wcard .pz{display:flex;gap:18px;margin-top:30px}
+#wcard .pz span{flex:1;text-align:center;font:900 32px var(--jp);padding:18px 0 20px;border:4px solid var(--ink);border-radius:999px;box-shadow:0 6px 0 var(--ink);background:#fff}
+#wcard .pz span.on{background:var(--blue);color:#fff}
+#wcard .pz span.on2{background:var(--red);color:#fff}
+#wlabel{display:block;margin-top:22px;font:800 26px var(--jp);color:#7a6150;text-align:center}
+#phone{left:1000px;top:205px;width:450px;height:860px;border-radius:64px;background:var(--ink);padding:16px;box-shadow:0 18px 0 rgba(58,38,24,.25);animation:pop .8s var(--pop) both 19.75s}
+#phone img{display:block;width:418px;height:815px;object-fit:cover;object-position:top;border-radius:50px;background:#fff}
+#cursor{position:absolute;left:0;top:0;width:70px;height:70px;z-index:9;opacity:0;filter:drop-shadow(0 4px 0 rgba(58,38,24,.3))}
+#feat{left:1510px;top:270px;width:380px;display:flex;flex-direction:column;gap:22px}
+#feat div{font:900 29px/1.35 var(--jp);background:#fff;border:4px solid var(--ink);border-radius:28px;box-shadow:0 6px 0 var(--ink);padding:18px 22px;opacity:0;animation:pop .6s var(--pop) both}
+#feat div i{font-style:normal;display:block;font:600 26px var(--en);color:var(--blue)}
+#pzGirl{left:1560px;top:760px;height:300px;animation:pop .7s var(--pop) both 24.6s}
+#pzBoy{left:770px;top:770px;height:290px;animation:fromL .7s var(--pop) both 26.4s}
+#pname{left:1000px;top:150px;width:450px;text-align:center;font:600 46px var(--en);animation:up .5s var(--pop) both 19.9s}
+#pname small{font:800 24px var(--jp);color:#7a6150;margin-left:8px}
+
 /* S5 */
-#s5{animation:in .5s both 18.55s}
-#heroWrap{position:absolute;inset:0;animation:shrink .9s var(--pop) both 20.5s}
+#s5{animation:in .5s both 29.35s}
+#heroWrap{position:absolute;inset:0;animation:shrink .9s var(--pop) both 31.3s}
 @keyframes shrink{from{transform:none}to{transform:translate(-335px,-10px) scale(.6)}}
-#hero{position:absolute;inset:0;background:url(hero-carnival.png) center 78%/cover;animation:kb 2s ease-out both 18.55s,frame .9s both 20.5s}
+#hero{position:absolute;inset:0;background:url(hero-carnival.png) center 78%/cover;animation:kb 2s ease-out both 29.35s,frame .9s both 31.3s}
 @keyframes kb{from{transform:scale(1.16)}to{transform:scale(1)}}
 @keyframes frame{to{border-radius:56px;box-shadow:0 0 0 8px var(--ink),0 20px 0 8px var(--ink)}}
-#endtxt{position:absolute;left:1270px;top:170px;width:600px;animation:up .7s var(--pop) both 21.0s}
+#endtxt{position:absolute;left:1270px;top:170px;width:600px;animation:up .7s var(--pop) both 31.8s}
 #endtxt p{margin:0;font:900 62px/1.2 var(--jp)}
 #endtxt p b{display:block;font:600 120px/1 var(--en);color:var(--blue)}
 #endtxt small{display:block;font:800 30px/1.5 var(--jp);color:#7a6150;margin-top:14px}
-#cele{left:1330px;top:560px;height:440px;animation:pop .8s var(--pop) both 21.4s}
+#cele{left:1330px;top:560px;height:440px;animation:pop .8s var(--pop) both 32.2s}
 #fade{position:absolute;inset:0;background:#fff;opacity:0}
 </style></head><body>
 <div class="stage">
@@ -133,6 +158,26 @@ html,body{margin:0;width:1920px;height:1080px;overflow:hidden;background:var(--b
     <div id="runner" class="abs"><img src="c/boy-running.png" alt=""><img src="c/girl-running.png" alt=""></div>
   </section>
 
+  
+  <section class="scene" id="sP">
+    <div class="head">見つけた絵で、そのまま<em>パズル</em>。</div>
+    <div id="wcard" class="card">
+      <div class="wimg"><img src="w/cat.png" alt=""><div><h3>cat</h3><span>ねこ</span></div></div>
+      <div class="pz"><span id="pzEn">英語パズル ↗</span><span id="pzJa">日本語パズル ↗</span></div>
+      <span id="wlabel">Pictpedia の単語ページから</span>
+    </div>
+    <div id="pname" class="abs">Pictlingo<small>ことばパズル</small></div>
+    <div id="phone" class="abs"><img id="screen" src="clip/en_0140.jpg" alt=""></div>
+    <div id="feat" class="abs">
+      <div style="animation-delay:20.6s"><i>Trace!</i>絵を見て、文字をなぞる</div>
+      <div style="animation-delay:21.4s"><i>EN / JA</i>英語でも日本語でも</div>
+      <div style="animation-delay:22.2s"><i>Collect!</i>見つけた単語は辞書にたまる</div>
+    </div>
+    <img id="pzGirl" class="abs" src="c/girl-joy.png" alt="">
+    <img id="pzBoy" class="abs" src="c/boy-surprised.png" alt="">
+    <svg id="cursor" viewBox="0 0 24 24"><path d="M4 2l15 9-6.5 1.6L16 20l-3 1.4-3.6-7.4L4 18z" fill="#fff" stroke="#3a2618" stroke-width="1.6" stroke-linejoin="round"/></svg>
+  </section>
+
   <section class="scene" id="s5">
     <div id="heroWrap"><div id="hero"></div></div>
     <div id="endtxt"><p><b>12,344</b>枚の英単語イラスト</p><small>英語でも日本語でも<br>さがせるイラスト辞典</small></div>
@@ -158,9 +203,26 @@ window.render=t=>{
   document.getElementById('typed').textContent=t<4.0?'':word.slice(0,k);
   document.getElementById('caret').style.opacity=(Math.floor(t*2.2)%2===0||t<5)?1:0;
   document.getElementById('btn').style.transform=(t>4.8&&t<5.05)?'scale(.92)':'none';
-  document.getElementById('fade').style.opacity=t>23.4?Math.min(1,(t-23.4)/0.6):0;
+
+  const lerp=(a,b,k)=>a+(b-a)*Math.max(0,Math.min(1,k)), ease=k=>k<0?0:k>1?1:k*k*(3-2*k);
+  const cur=document.getElementById('cursor');
+  const pts=[[18.9,900,1000],[19.4,282,572],[19.6,282,572],[25.9,282,572],[26.3,574,572],[26.6,574,572],[28.9,574,572]];
+  let cx=pts[0][1],cy=pts[0][2];
+  for(let i=0;i<pts.length-1;i++){const [t0,x0,y0]=pts[i],[t1,x1,y1]=pts[i+1];if(t>=t0&&t<=t1){const k=ease((t-t0)/(t1-t0));cx=lerp(x0,x1,k);cy=lerp(y0,y1,k);}}
+  if(t>28.9){cx=574;cy=572;}
+  const down=(t>19.45&&t<19.65)||(t>26.35&&t<26.55);
+  cur.style.opacity=(t>19.0&&t<29.0)?1:0;
+  cur.style.transform=`translate(${cx}px,${cy}px) scale(${down?.85:1})`;
+  document.getElementById('pzEn').className=(t>19.45&&t<26.35)?'on':'';
+  document.getElementById('pzJa').className=t>26.35?'on2':'';
+  let src;
+  if(t<26.5){const f=Math.round(140+Math.max(0,t-19.9)*30);src='clip/en_'+String(Math.min(330,f)).padStart(4,'0')+'.jpg';}
+  else{const f=Math.round(150+(t-26.5)*30*1.45);src='clip/ja_'+String(Math.min(300,f)).padStart(4,'0')+'.jpg';}
+  const scr=document.getElementById('screen'); if(!scr.src.endsWith(src))scr.src=src;
+  document.getElementById('fade').style.opacity=t>34.2?Math.min(1,(t-34.2)/0.6):0;
 };
 document.getAnimations().forEach(a=>a.pause());
 window.ready=true;
+window.screenReady=()=>document.getElementById('screen').decode().catch(()=>0);
 </script>
 </body></html>

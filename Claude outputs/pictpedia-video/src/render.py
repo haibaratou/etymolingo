@@ -1,6 +1,6 @@
 import asyncio, sys, os
 from playwright.async_api import async_playwright
-FPS=30; DUR=24.0
+FPS=30; DUR=34.8
 async def main(mode):
     async with async_playwright() as p:
         b=await p.chromium.launch()
@@ -10,14 +10,14 @@ async def main(mode):
         await pg.evaluate("Promise.all([...document.images].map(i=>i.decode().catch(()=>0)))")
         await pg.wait_for_timeout(800)
         if mode=='stills':
-            for t in [19.5,20.8,23.0]:
-                await pg.evaluate(f'render({t})'); await pg.wait_for_timeout(50)
+            for t in [19.5,21.0,23.5,25.5,27.8,33.5]:
+                await pg.evaluate(f'render({t})'); await pg.evaluate('screenReady()'); await pg.wait_for_timeout(50)
                 await pg.screenshot(path=f'/tmp/claude-0/video/still_{t}.png')
         else:
             os.makedirs('/tmp/claude-0/video/frames',exist_ok=True)
             n=int(DUR*FPS)
             for i in range(n):
-                await pg.evaluate(f'render({i/FPS})')
+                await pg.evaluate(f'render({i/FPS})'); await pg.evaluate('screenReady()')
                 await pg.screenshot(path=f'/tmp/claude-0/video/frames/f{i:04d}.jpg',type='jpeg',quality=95)
         await b.close()
 asyncio.run(main(sys.argv[1]))
