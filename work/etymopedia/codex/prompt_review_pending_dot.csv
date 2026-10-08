@@ -1,0 +1,30 @@
+﻿ファイル名,単語,問題,発見バッチ,状態,元CSV,元CSV行番号
+appealing.png,appealing,画像は「訴えかける」場面で、第一語義「魅力的な」と一致しない。,007,未解決,work/etymopedia/codex/prompt_rows_007.csv,6
+spark.png,spark,第一語義は物理的な「火花」だが、画像は恋愛感情の場面。,007,未解決,work/etymopedia/codex/prompt_rows_007.csv,32
+realism.png,realism,画像は美術の「写実主義」で、第一語義「現実主義」と一致しない。,007,未解決,work/etymopedia/codex/prompt_rows_007.csv,64
+butt.png,butt,両手で押す場面で、buttの「頭や角で突く」動作がない。虚偽を避け解説に見出し語を未挿入。,007,未解決,work/etymopedia/codex/prompt_rows_007.csv,72
+offset.png,offset,画像は位置の「ずれ」で、第一語義「相殺」と一致しない。,007,未解決,work/etymopedia/codex/prompt_rows_007.csv,108
+stove.png,stove,画像は調理用コンロ。第一語義「ストーブ／heater」は代表語義の再確認が必要。,007,未解決,work/etymopedia/codex/prompt_rows_007.csv,114
+strand.png,strand,画像は動詞「座礁させる」で、第一語義「より糸」と一致しない。虚偽を避け見出し語を未挿入。,007,未解決,work/etymopedia/codex/prompt_rows_007.csv,115
+conduction.png,conduction,伝導という第一語義に対し荷車を引く場面。伝導を示す要素が確認できない。,008,未解決,work/etymopedia/codex/prompt_rows_008.csv,7
+guarded.png,guarded,"現行第一日本語義『防護されている』と画像は一致するが第一英語義『cautious, circumspect』は慎重な態度を表し不一致。原本英語義の確認・修正が必要。",008,未解決,work/etymopedia/codex/prompt_rows_008.csv,11
+super-.png,super-,接頭辞super-（超〜）に対し建物管理人superの場面。見出し語を自然に含む解説と一致しない。,008,未解決,work/etymopedia/codex/prompt_rows_008.csv,20
+tenderness.png,tenderness,第一語義は柔らかさだが、画像はあざへの圧痛を示している。,008,未解決,work/etymopedia/codex/prompt_rows_008.csv,41
+extra-.png,extra-,画像は追加の意味と一致するが、接頭辞見出しextra-の正確な形を自然な解説に入れるにはvalidatorの接頭辞扱い確認が必要。,008,未解決,work/etymopedia/codex/prompt_rows_008.csv,78
+sic@so-ko.png,sic,原文の誤りをそのまま示すsicの標記や対応が画像から確認できず、語義と一致する解説を確定できない。,008,未解決,work/etymopedia/codex/prompt_rows_008.csv,84
+skip.png,skip,第一語義『飛ばす／omit』に対し、画像は跳ねながら進む別語義を示している。,008,未解決,work/etymopedia/codex/prompt_rows_008.csv,85
+CIA.png,CIA,現行第一日本語義と画像はコラーゲン誘発関節炎だが、第一英語義はCentral Intelligence Agencyで不一致。原本語義の確認・修正が必要。,008,未解決,work/etymopedia/codex/prompt_rows_008.csv,95
+fountain.png,fountain,第一語義は泉／springだが実画像は人工の噴水。原本第一語義と画像の対応確認が必要。,008,未解決,work/etymopedia/codex/prompt_rows_008.csv,110
+sandy.png,sandy,第一語義『砂の』に対し、画像はSandyという人名と混同した人物像。,008,未解決,work/etymopedia/codex/prompt_rows_008.csv,113
+sterile.png,sterile,第一語義は不妊の／infertileだが画像は滅菌・無菌の別語義。,008,未解決,work/etymopedia/codex/prompt_rows_008.csv,114
+Ernest.png,Ernest,正本の英語第一語義earnestnessは人名Ernest・日本語アーネストと不一致。人名の語義への正本修正確認が必要。,010,未解決,work/etymopedia/codex/prompt_rows_010.csv,18
+trailer.png,trailer,正本の対象語義は予告編だが、実PNGは荷物運搬用トレーラー。第一語義に合う画像が必要。,010,未解決,work/etymopedia/codex/prompt_rows_010.csv,63
+assimilation.png,assimilation,正本の対象語義は同化だが、実PNGはスポンジによる吸水。吸収との取り違えがあり、第一語義に合う画像が必要。,010,未解決,work/etymopedia/codex/prompt_rows_010.csv,87
+impress@en-per4.png,impress,正本の第一語義は感銘を与えるだが、実PNGは押印する別義。第一語義に合う画像が必要。,010,未解決,work/etymopedia/codex/prompt_rows_010.csv,108
+canon.png,canon,正本の対象語義は規範だが、実PNGは聖書の正典を示す別義。第一語義との対応確認が必要。,010,未解決,work/etymopedia/codex/prompt_rows_010.csv,118
+Flora_cap.png,Flora,日本語第一語義フローラ・女神の実画像と、第一英語義plant lifeに不整合。語義対応の確認が必要。,011,未解決,work/etymopedia/codex2/prompt_rows_011.csv,11
+bachelor.png,bachelor,日本語第一語義は独身男性だが第一英語義は若い騎士。実画像は一人分の食事を整える男性。語義対応の確認が必要。,011,未解決,work/etymopedia/codex2/prompt_rows_011.csv,40
+quantify.png,quantify,日本語第一語義は量を計るだが第一英語義は量化子による限定。実画像は水量の計測。語義対応の確認が必要。,011,未解決,work/etymopedia/codex2/prompt_rows_011.csv,49
+ism.png,ism,地図を読む少年は見えるが、特定のイズムを示す内容は確認できず、語義との対応が不明確。,011,未解決,work/etymopedia/codex2/prompt_rows_011.csv,88
+plaque.png,plaque,日本語第一語義の飾り額と第一英語義の装飾ブローチに不整合。実画像は壁掛けの飾り額。,011,未解決,work/etymopedia/codex2/prompt_rows_011.csv,91
+safeguard.png,safeguard,"日本語第一語義の護衛と第一英語義pass, safe-conductの対応確認が必要。実画像は人物の護衛。",011,未解決,work/etymopedia/codex2/prompt_rows_011.csv,95
