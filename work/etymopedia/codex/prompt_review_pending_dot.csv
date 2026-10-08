@@ -1,89 +1,92 @@
-﻿ファイル名,単語,問題,発見バッチ,状態,元CSV,元CSV行番号
-appealing.png,appealing,画像は「訴えかける」場面で、第一語義「魅力的な」と一致しない。,007,未解決,work/etymopedia/codex/prompt_rows_007.csv,6
-spark.png,spark,第一語義は物理的な「火花」だが、画像は恋愛感情の場面。,007,未解決,work/etymopedia/codex/prompt_rows_007.csv,32
-realism.png,realism,画像は美術の「写実主義」で、第一語義「現実主義」と一致しない。,007,未解決,work/etymopedia/codex/prompt_rows_007.csv,64
-butt.png,butt,両手で押す場面で、buttの「頭や角で突く」動作がない。虚偽を避け解説に見出し語を未挿入。,007,未解決,work/etymopedia/codex/prompt_rows_007.csv,72
-offset.png,offset,画像は位置の「ずれ」で、第一語義「相殺」と一致しない。,007,未解決,work/etymopedia/codex/prompt_rows_007.csv,108
-stove.png,stove,画像は調理用コンロで、第一語義の暖房器具「ストーブ／heater」と一致しない。,007,未解決,work/etymopedia/codex/prompt_rows_007.csv,114
-strand.png,strand,画像は動詞「座礁させる」で、第一語義「より糸」と一致しない。虚偽を避け見出し語を未挿入。,007,未解決,work/etymopedia/codex/prompt_rows_007.csv,115
-as-.png,as-,比較の副詞asの末尾ハイフン誤記。見出し語修正を原本に採用するまで保留。,007,未解決,work/etymopedia/codex/prompt_rows_007.csv,145
-cab.png,cab,画像はワインで、第一語義「タクシー」と一致しない。,007,未解決,work/etymopedia/codex/prompt_rows_007.csv,146
-pipes.png,pipes,画像は分子模型で、第一語義「パイプ」と一致しない。虚偽を避け見出し語を未挿入。,007,未解決,work/etymopedia/codex/prompt_rows_007.csv,170
-turnover.png,turnover,画像は舟の転覆で、第一語義「売上高」と一致しない。,007,未解決,work/etymopedia/codex/prompt_rows_007.csv,276
-conduction.png,conduction,伝導という第一語義に対し荷車を引く場面。伝導を示す要素が確認できない。,008,未解決,work/etymopedia/codex/prompt_rows_008.csv,7
-guarded.png,guarded,"現行第一日本語義『防護されている』と画像は一致するが第一英語義『cautious, circumspect』は慎重な態度を表し不一致。原本英語義の確認・修正が必要。",008,未解決,work/etymopedia/codex/prompt_rows_008.csv,11
-super-.png,super-,接頭辞super-（超〜）に対し建物管理人superの場面。見出し語を自然に含む解説と一致しない。,008,未解決,work/etymopedia/codex/prompt_rows_008.csv,20
-tenderness.png,tenderness,第一語義は柔らかさだが、画像はあざへの圧痛を示している。,008,未解決,work/etymopedia/codex/prompt_rows_008.csv,41
-extra-.png,extra-,画像は追加の意味と一致するが、接頭辞見出しextra-の正確な形を自然な解説に入れるにはvalidatorの接頭辞扱い確認が必要。,008,未解決,work/etymopedia/codex/prompt_rows_008.csv,78
-sic@so-ko.png,sic,原文の誤りをそのまま示すsicの標記や対応が画像から確認できず、語義と一致する解説を確定できない。,008,未解決,work/etymopedia/codex/prompt_rows_008.csv,84
-skip.png,skip,第一語義『飛ばす／omit』に対し、画像は跳ねながら進む別語義を示している。,008,未解決,work/etymopedia/codex/prompt_rows_008.csv,85
-CIA.png,CIA,現行第一日本語義と画像はコラーゲン誘発関節炎だが、第一英語義はCentral Intelligence Agencyで不一致。原本語義の確認・修正が必要。,008,未解決,work/etymopedia/codex/prompt_rows_008.csv,95
-fountain.png,fountain,第一語義は泉／springだが実画像は人工の噴水。原本第一語義と画像の対応確認が必要。,008,未解決,work/etymopedia/codex/prompt_rows_008.csv,110
-sandy.png,sandy,第一語義『砂の』に対し、画像はSandyという人名と混同した人物像。,008,未解決,work/etymopedia/codex/prompt_rows_008.csv,113
-sterile.png,sterile,第一語義は不妊の／infertileだが画像は滅菌・無菌の別語義。,008,未解決,work/etymopedia/codex/prompt_rows_008.csv,114
-RV.png,RV,現行第一日本語義は右心室で画像も一致するが、第一英語義はrecreational vehicleで不一致。原本英語義の確認・修正が必要。,008,未解決,work/etymopedia/codex/prompt_rows_008.csv,128
-stacked.png,stacked,画像は筋肉質の男性。現行英語義having large breastsと一致せず、肉体美という日本語義との対応も要確認。,008,未解決,work/etymopedia/codex/prompt_rows_008.csv,139
-Tamil.png,Tamil,第一語義はタミル語だが画像は文化的装いの人物と寺院で、言語を示す具体的要素がない。,008,未解決,work/etymopedia/codex/prompt_rows_008.csv,167
-Iris_cap.png,Iris,第一日本語義は女神イリスで画像も一致するが、第一英語義colored eye ringは虹彩。原本英語義の確認・修正が必要。,008,未解決,work/etymopedia/codex/prompt_rows_008.csv,187
-biting.png,biting,第一日本語義『辛辣な』に対し、画像は冷たい風の別語義。,008,未解決,work/etymopedia/codex/prompt_rows_008.csv,189
-yielding.png,yielding,第一日本語義『曲がりやすい』と画像は一致するが、第一英語義productiveは別義。原本英語義の確認・修正が必要。,008,未解決,work/etymopedia/codex/prompt_rows_008.csv,203
-account_for.png,,現行公開単語データと公式作業一覧に対応語・順序付き語根・正式画像名の一意な組が見つからない。画像内容のみ確認。,008,未解決,work/etymopedia/codex/prompt_rows_008.csv,226
-at_hand.png,,現行公開単語データと公式作業一覧で正式な語の対応を確認できない。画像内容のみ確認。,008,未解決,work/etymopedia/codex/prompt_rows_008.csv,227
-long_ago.png,,現行公開単語データと公式作業一覧で正式な語の対応を確認できない。画像内容のみ確認。,008,未解決,work/etymopedia/codex/prompt_rows_008.csv,228
-carefree.png,,現行公開単語データと公式作業一覧で正式な語の対応を確認できない。画像内容のみ確認。,008,未解決,work/etymopedia/codex/prompt_rows_008.csv,229
-a_moment_ago.png,,現行公開単語データと公式作業一覧で正式な語の対応を確認できない。画像内容のみ確認。,008,未解決,work/etymopedia/codex/prompt_rows_008.csv,232
-after_all.png,,現行公開単語データと公式作業一覧で正式な語の対応を確認できない。画像内容のみ確認。,008,未解決,work/etymopedia/codex/prompt_rows_008.csv,233
-convinced.png,,現行公開単語データと公式作業一覧で正式な語の対応を確認できない。画像内容のみ確認。,008,未解決,work/etymopedia/codex/prompt_rows_008.csv,235
-actual_feeling.png,,現行公開単語データと公式作業一覧で正式な語の対応を確認できない。画像内容のみ確認。,008,未解決,work/etymopedia/codex/prompt_rows_008.csv,236
-way_of_life.png,,現行公開単語データと公式作業一覧で正式な語の対応を確認できない。画像内容のみ確認。,008,未解決,work/etymopedia/codex/prompt_rows_008.csv,237
-well_then.png,,現行公開単語データと公式作業一覧で正式な語の対応を確認できない。画像内容のみ確認。,008,未解決,work/etymopedia/codex/prompt_rows_008.csv,238
-as_expected.png,,現行公開単語データと公式作業一覧で正式な語の対応を確認できない。画像内容のみ確認。,008,未解決,work/etymopedia/codex/prompt_rows_008.csv,239
-a.png,,a.pngの現行画像が見つからず、現行aには四つの異なる語根レコードがある。旧行と正式画像の一意な対応を確認できないため未検品。,008,未解決,work/etymopedia/codex/prompt_rows_008.csv,241
-equation.png,equation,equation.pngの現行画像が存在せず、実画を確認できない。,009,未解決,work/etymopedia/codex2/prompt_rows_009.csv,46
-hung@x.png,hung,hung@xの現行第一語義は結論の出ないだが、実画像は吊るしたの別語義。,009,未解決,work/etymopedia/codex2/prompt_rows_009.csv,63
-admitted.png,admitted,第一語義『認めた／acknowledged』に対し、画像は入場を許可されたの別語義。,009,未解決,work/etymopedia/codex2/prompt_rows_009.csv,86
-virtual.png,virtual,第一語義『事実上の／effective』に対し、実画像は仮想現実の別語義。,009,未解決,work/etymopedia/codex2/prompt_rows_009.csv,102
-checked.png,checked,第一語義『確認した／verified』に対し、実画像は格子柄の別語義。,009,未解決,work/etymopedia/codex2/prompt_rows_009.csv,108
-grounds.png,grounds,第一語義『根拠／reasons』に対し、実画像は敷地の別語義。,009,未解決,work/etymopedia/codex2/prompt_rows_009.csv,109
-a@apo.png,a,a@apoは『〜の』に対し英語義oneで原本語義が不一致。通常の不定冠詞aを含むだけでは指定語根の用例にならず要確認。,009,未解決,work/etymopedia/codex2/prompt_rows_009.csv,110
-tied.png,tied,第一語義『結ばれた／bound』に対し、実画像は同点の別語義。,009,未解決,work/etymopedia/codex2/prompt_rows_009.csv,130
-occupied.png,occupied,第一日本語義『占領された』に対し、実画像は席が使用中という別語義。,009,未解決,work/etymopedia/codex2/prompt_rows_009.csv,149
-crazy.png,crazy,第一語義『頭がおかしい／insane』に対し、画像は趣味に夢中という別語義。,009,未解決,work/etymopedia/codex2/prompt_rows_009.csv,156
-fuck.png,fuck,第一語義は性交するだが、画像は失敗時の怒りや驚きで、感嘆詞の別語義。,009,未解決,work/etymopedia/codex2/prompt_rows_009.csv,164
-liability.png,liability,第一語義『負債／debt』に対し、画像は破損への責任・弁償の場面。負債そのものの対応を確認できない。,009,未解決,work/etymopedia/codex2/prompt_rows_009.csv,165
-Ernest.png,Ernest,正本の英語第一語義earnestnessは人名Ernest・日本語アーネストと不一致。人名の語義への正本修正確認が必要。,010,未解決,work/etymopedia/codex/prompt_rows_010.csv,18
-trailer.png,trailer,正本の対象語義は予告編だが、実PNGは荷物運搬用トレーラー。第一語義に合う画像が必要。,010,未解決,work/etymopedia/codex/prompt_rows_010.csv,63
-assimilation.png,assimilation,正本の対象語義は同化だが、実PNGはスポンジによる吸水。吸収との取り違えがあり、第一語義に合う画像が必要。,010,未解決,work/etymopedia/codex/prompt_rows_010.csv,87
-impress@en-per4.png,impress,正本の第一語義は感銘を与えるだが、実PNGは押印する別義。第一語義に合う画像が必要。,010,未解決,work/etymopedia/codex/prompt_rows_010.csv,108
-canon.png,canon,正本の対象語義は規範だが、実PNGは聖書の正典を示す別義。第一語義との対応確認が必要。,010,未解決,work/etymopedia/codex/prompt_rows_010.csv,118
-staging.png,staging,正本の日本語第一語義は上演だが、英語第一語義scaffoldingは足場。英語語義の正本修正確認が必要。,010,未解決,work/etymopedia/codex/prompt_rows_010.csv,128
-topical.png,topical,正本の対象語義は時事のだが、実PNGは外用のという別義。第一語義に合う画像が必要。,010,未解決,work/etymopedia/codex/prompt_rows_010.csv,131
-MG.png,MG,正本の見出しMG・日本語マグネシウム・英語milligramが不一致。Mgとmgの区別を含め、原本の語の識別確認が必要。,010,未解決,work/etymopedia/codex/prompt_rows_010.csv,135
-mortar.png,mortar,公開正本のart_sensesでmortar.pngは追加語義の迫撃砲と確認。第一語義はモルタル・masonry binderで、正式第一画像はmortar@construction。第一語義としての対応は不一致。,010,未解決,work/etymopedia/codex/prompt_rows_010.csv,202
-Beatrice.png,Beatrice,正本の英語第一語義blessed womanは人名Beatrice・日本語ベアトリーチェと不一致。人名語義と語源的意味の混同を確認する必要がある。,010,未解決,work/etymopedia/codex/prompt_rows_010.csv,208
-capillary.png,capillary,正本の対象語義は毛細血管のだが、実PNGは物理的な毛細管現象。第一語義に合う画像が必要。,010,未解決,work/etymopedia/codex/prompt_rows_010.csv,218
-Flora_cap.png,Flora,日本語第一語義フローラ・女神の実画像と、第一英語義plant lifeに不整合。語義対応の確認が必要。,011,未解決,work/etymopedia/codex2/prompt_rows_011.csv,11
-bachelor.png,bachelor,日本語第一語義は独身男性だが第一英語義は若い騎士。実画像は一人分の食事を整える男性。語義対応の確認が必要。,011,未解決,work/etymopedia/codex2/prompt_rows_011.csv,40
-quantify.png,quantify,日本語第一語義は量を計るだが第一英語義は量化子による限定。実画像は水量の計測。語義対応の確認が必要。,011,未解決,work/etymopedia/codex2/prompt_rows_011.csv,49
-ism.png,ism,地図を読む少年は見えるが、特定のイズムを示す内容は確認できず、語義との対応が不明確。,011,未解決,work/etymopedia/codex2/prompt_rows_011.csv,88
-plaque.png,plaque,日本語第一語義の飾り額と第一英語義の装飾ブローチに不整合。実画像は壁掛けの飾り額。,011,未解決,work/etymopedia/codex2/prompt_rows_011.csv,91
-safeguard.png,safeguard,"日本語第一語義の護衛と第一英語義pass, safe-conductの対応確認が必要。実画像は人物の護衛。",011,未解決,work/etymopedia/codex2/prompt_rows_011.csv,95
-Vancouver.png,Vancouver,日本語名と実画像は都市バンクーバーとして自然だが、第一英語義は航海者George Vancouver。語義対応の確認が必要。,011,未解決,work/etymopedia/codex2/prompt_rows_011.csv,102
-clit.png,clit,指定コミットに採用PNGなし（入力image=null、URL404）。実画像未確認のため解説未作成。,011,未解決,work/etymopedia/codex2/prompt_rows_011.csv,108
-stride.png,stride,日本語第一語義は大股で歩くだが、第一英語義は脚を開いて立つ。品詞・語義対応の確認が必要。,011,未解決,work/etymopedia/codex2/prompt_rows_011.csv,117
-uterine.png,uterine,日本語第一語義は子宮のだが、第一英語義は同母異父。実画像は子宮の解剖図。,011,未解決,work/etymopedia/codex2/prompt_rows_011.csv,119
-distressed.png,distressed,日本語第一語義の苦しんでいると第一英語義の経済的困窮に範囲の不整合。画像に経済状況の手掛かりはない。,011,未解決,work/etymopedia/codex2/prompt_rows_011.csv,161
-divinity.png,divinity,日本語第一語義の神性と第一英語義theologyに不整合。実画像は神性を示す宗教的な像。,011,未解決,work/etymopedia/codex2/prompt_rows_011.csv,162
-exhaustive.png,exhaustive,日本語第一語義の消耗させると、見出し語exhaustiveの通常語義・第一英語義の網羅的なに不整合。実画像は疲労を伴う運搬。,011,未解決,work/etymopedia/codex2/prompt_rows_011.csv,163
-mo.png,mo,日本語第一語義は瞬間だが第一英語義はmonth。実画像は水滴がはねる一瞬。,011,未解決,work/etymopedia/codex2/prompt_rows_011.csv,183
-breathless.png,breathless,日本語第一語義の息苦しそうなに画像は合うが、第一英語義not breathingとの対応確認が必要。,011,未解決,work/etymopedia/codex2/prompt_rows_011.csv,219
-herbal.png,herbal,日本語第一語義は草本のだが第一英語義は薬草書。実画像は草花とハーブティー。,011,未解決,work/etymopedia/codex2/prompt_rows_011.csv,223
-suicidal.png,suicidal,第一英語義は生命を危険にさらす意味だが、画像は苦悩する人物への支援。自殺念慮そのものは画像から判断できない。,011,未解決,work/etymopedia/codex2/prompt_rows_011.csv,231
-trans-.png,trans-,日本語第一語義は接頭辞の越えて・横切ってだが、第一英語義はtransgender。実画像は橋を渡る人物。,011,未解決,work/etymopedia/codex2/prompt_rows_011.csv,232
-bug.png,bug,指定コミットに採用PNGなし（入力image=null）。実画像未確認のため解説未作成。,011,未解決,work/etymopedia/codex2/prompt_rows_011.csv,243
-nickel.png,nickel,日本語第一語義は5セント白銅貨だが、第一英語義と実画像は金属ニッケル。画像・語義対応の確認が必要。,011,未解決,work/etymopedia/codex2/prompt_rows_011.csv,253
-violet.png,violet,日本語第一語義はスミレ色だが第一英語義は植物のスミレ。実画像は紫色のスカーフ。,011,未解決,work/etymopedia/codex2/prompt_rows_011.csv,261
-Sol_cap.png,Sol,日本語第一語義と実画像はペルーの通貨だが、第一英語義はSun。語義対応の確認が必要。,011,未解決,work/etymopedia/codex2/prompt_rows_011.csv,285
-competency.png,competency,日本語第一語義の資格に対し、第一英語義と実画像は技能・能力。資格そのものは描かれていない。,011,未解決,work/etymopedia/codex2/prompt_rows_011.csv,305
-mentality.png,mentality,日本語第一語義の精神構造と実画像の心構えに対し、第一英語義は知力・能力。語義対応の確認が必要。,011,未解決,work/etymopedia/codex2/prompt_rows_011.csv,312
-probabilistic.png,probabilistic,正本の第一英語義はprobabilismに関する意味で、日本語「確率的な」および実画像と不一致。英語義の修正が必要。,012,未解決,work/etymopedia/codex/prompt_rows_012.csv,5
+﻿ファイル名,単語,問題,発見バッチ,状態,元CSV,元CSV行番号,修正後の代表語義,根拠URL,対応予定
+appealing.png,appealing,画像は「訴えかける」場面で、第一語義「魅力的な」と一致しない。,007,未解決,work/etymopedia/codex/prompt_rows_007.csv,6,,,
+spark.png,spark,第一語義は物理的な「火花」だが、画像は恋愛感情の場面。,007,未解決,work/etymopedia/codex/prompt_rows_007.csv,32,,,
+realism.png,realism,画像は美術の「写実主義」で、第一語義「現実主義」と一致しない。,007,未解決,work/etymopedia/codex/prompt_rows_007.csv,64,,,
+butt.png,butt,両手で押す場面で、buttの「頭や角で突く」動作がない。虚偽を避け解説に見出し語を未挿入。,007,未解決,work/etymopedia/codex/prompt_rows_007.csv,72,,,
+offset.png,offset,画像は位置の「ずれ」で、第一語義「相殺」と一致しない。,007,未解決,work/etymopedia/codex/prompt_rows_007.csv,108,,,
+stove.png,stove,画像は調理用コンロで、第一語義の暖房器具「ストーブ／heater」と一致しない。,007,未解決,work/etymopedia/codex/prompt_rows_007.csv,114,,,
+strand.png,strand,画像は動詞「座礁させる」で、第一語義「より糸」と一致しない。虚偽を避け見出し語を未挿入。,007,未解決,work/etymopedia/codex/prompt_rows_007.csv,115,,,
+as-.png,as-,比較の副詞asの末尾ハイフン誤記。見出し語修正を原本に採用するまで保留。,007,未解決,work/etymopedia/codex/prompt_rows_007.csv,145,,,
+cab.png,cab,画像はワインで、第一語義「タクシー」と一致しない。,007,未解決,work/etymopedia/codex/prompt_rows_007.csv,146,,,
+pipes.png,pipes,画像は分子模型で、第一語義「パイプ」と一致しない。虚偽を避け見出し語を未挿入。,007,未解決,work/etymopedia/codex/prompt_rows_007.csv,170,,,
+turnover.png,turnover,画像は舟の転覆で、第一語義「売上高」と一致しない。,007,未解決,work/etymopedia/codex/prompt_rows_007.csv,276,,,
+conduction.png,conduction,伝導という第一語義に対し荷車を引く場面。伝導を示す要素が確認できない。,008,未解決,work/etymopedia/codex/prompt_rows_008.csv,7,,,
+guarded.png,guarded,"現行第一日本語義『防護されている』と画像は一致するが第一英語義『cautious, circumspect』は慎重な態度を表し不一致。原本英語義の確認・修正が必要。",008,未解決,work/etymopedia/codex/prompt_rows_008.csv,11,,,
+super-.png,super-,接頭辞super-（超〜）に対し建物管理人superの場面。見出し語を自然に含む解説と一致しない。,008,未解決,work/etymopedia/codex/prompt_rows_008.csv,20,,,
+tenderness.png,tenderness,第一語義は柔らかさだが、画像はあざへの圧痛を示している。,008,未解決,work/etymopedia/codex/prompt_rows_008.csv,41,,,
+extra-.png,extra-,画像は追加の意味と一致するが、接頭辞見出しextra-の正確な形を自然な解説に入れるにはvalidatorの接頭辞扱い確認が必要。,008,未解決,work/etymopedia/codex/prompt_rows_008.csv,78,,,
+sic@so-ko.png,sic,原文の誤りをそのまま示すsicの標記や対応が画像から確認できず、語義と一致する解説を確定できない。,008,未解決,work/etymopedia/codex/prompt_rows_008.csv,84,,,
+skip.png,skip,第一語義『飛ばす／omit』に対し、画像は跳ねながら進む別語義を示している。,008,未解決,work/etymopedia/codex/prompt_rows_008.csv,85,,,
+CIA.png,CIA,現行第一日本語義と画像はコラーゲン誘発関節炎だが、第一英語義はCentral Intelligence Agencyで不一致。原本語義の確認・修正が必要。,008,未解決,work/etymopedia/codex/prompt_rows_008.csv,95,,,
+fountain.png,fountain,第一語義は泉／springだが実画像は人工の噴水。原本第一語義と画像の対応確認が必要。,008,未解決,work/etymopedia/codex/prompt_rows_008.csv,110,,,
+sandy.png,sandy,第一語義『砂の』に対し、画像はSandyという人名と混同した人物像。,008,未解決,work/etymopedia/codex/prompt_rows_008.csv,113,,,
+sterile.png,sterile,第一語義は不妊の／infertileだが画像は滅菌・無菌の別語義。,008,未解決,work/etymopedia/codex/prompt_rows_008.csv,114,,,
+RV.png,RV,現行第一日本語義は右心室で画像も一致するが、第一英語義はrecreational vehicleで不一致。原本英語義の確認・修正が必要。,008,未解決,work/etymopedia/codex/prompt_rows_008.csv,128,,,
+stacked.png,stacked,画像は筋肉質の男性。現行英語義having large breastsと一致せず、肉体美という日本語義との対応も要確認。,008,未解決,work/etymopedia/codex/prompt_rows_008.csv,139,,,
+Tamil.png,Tamil,第一語義はタミル語だが画像は文化的装いの人物と寺院で、言語を示す具体的要素がない。,008,未解決,work/etymopedia/codex/prompt_rows_008.csv,167,,,
+Iris_cap.png,Iris,第一日本語義は女神イリスで画像も一致するが、第一英語義colored eye ringは虹彩。原本英語義の確認・修正が必要。,008,未解決,work/etymopedia/codex/prompt_rows_008.csv,187,,,
+biting.png,biting,第一日本語義『辛辣な』に対し、画像は冷たい風の別語義。,008,未解決,work/etymopedia/codex/prompt_rows_008.csv,189,,,
+yielding.png,yielding,第一日本語義『曲がりやすい』と画像は一致するが、第一英語義productiveは別義。原本英語義の確認・修正が必要。,008,未解決,work/etymopedia/codex/prompt_rows_008.csv,203,,,
+account_for.png,,現行公開単語データと公式作業一覧に対応語・順序付き語根・正式画像名の一意な組が見つからない。画像内容のみ確認。,008,未解決,work/etymopedia/codex/prompt_rows_008.csv,226,,,
+at_hand.png,,現行公開単語データと公式作業一覧で正式な語の対応を確認できない。画像内容のみ確認。,008,未解決,work/etymopedia/codex/prompt_rows_008.csv,227,,,
+long_ago.png,,現行公開単語データと公式作業一覧で正式な語の対応を確認できない。画像内容のみ確認。,008,未解決,work/etymopedia/codex/prompt_rows_008.csv,228,,,
+carefree.png,,現行公開単語データと公式作業一覧で正式な語の対応を確認できない。画像内容のみ確認。,008,未解決,work/etymopedia/codex/prompt_rows_008.csv,229,,,
+a_moment_ago.png,,現行公開単語データと公式作業一覧で正式な語の対応を確認できない。画像内容のみ確認。,008,未解決,work/etymopedia/codex/prompt_rows_008.csv,232,,,
+after_all.png,,現行公開単語データと公式作業一覧で正式な語の対応を確認できない。画像内容のみ確認。,008,未解決,work/etymopedia/codex/prompt_rows_008.csv,233,,,
+convinced.png,,現行公開単語データと公式作業一覧で正式な語の対応を確認できない。画像内容のみ確認。,008,未解決,work/etymopedia/codex/prompt_rows_008.csv,235,,,
+actual_feeling.png,,現行公開単語データと公式作業一覧で正式な語の対応を確認できない。画像内容のみ確認。,008,未解決,work/etymopedia/codex/prompt_rows_008.csv,236,,,
+way_of_life.png,,現行公開単語データと公式作業一覧で正式な語の対応を確認できない。画像内容のみ確認。,008,未解決,work/etymopedia/codex/prompt_rows_008.csv,237,,,
+well_then.png,,現行公開単語データと公式作業一覧で正式な語の対応を確認できない。画像内容のみ確認。,008,未解決,work/etymopedia/codex/prompt_rows_008.csv,238,,,
+as_expected.png,,現行公開単語データと公式作業一覧で正式な語の対応を確認できない。画像内容のみ確認。,008,未解決,work/etymopedia/codex/prompt_rows_008.csv,239,,,
+a.png,,a.pngの現行画像が見つからず、現行aには四つの異なる語根レコードがある。旧行と正式画像の一意な対応を確認できないため未検品。,008,未解決,work/etymopedia/codex/prompt_rows_008.csv,241,,,
+equation.png,equation,equation.pngの現行画像が存在せず、実画を確認できない。,009,未解決,work/etymopedia/codex2/prompt_rows_009.csv,46,,,
+hung@x.png,hung,hung@xの現行第一語義は結論の出ないだが、実画像は吊るしたの別語義。,009,未解決,work/etymopedia/codex2/prompt_rows_009.csv,63,,,
+admitted.png,admitted,第一語義『認めた／acknowledged』に対し、画像は入場を許可されたの別語義。,009,未解決,work/etymopedia/codex2/prompt_rows_009.csv,86,,,
+virtual.png,virtual,第一語義『事実上の／effective』に対し、実画像は仮想現実の別語義。,009,未解決,work/etymopedia/codex2/prompt_rows_009.csv,102,,,
+checked.png,checked,第一語義『確認した／verified』に対し、実画像は格子柄の別語義。,009,未解決,work/etymopedia/codex2/prompt_rows_009.csv,108,,,
+grounds.png,grounds,第一語義『根拠／reasons』に対し、実画像は敷地の別語義。,009,未解決,work/etymopedia/codex2/prompt_rows_009.csv,109,,,
+a@apo.png,a,a@apoは『〜の』に対し英語義oneで原本語義が不一致。通常の不定冠詞aを含むだけでは指定語根の用例にならず要確認。,009,未解決,work/etymopedia/codex2/prompt_rows_009.csv,110,,,
+tied.png,tied,第一語義『結ばれた／bound』に対し、実画像は同点の別語義。,009,未解決,work/etymopedia/codex2/prompt_rows_009.csv,130,,,
+occupied.png,occupied,第一日本語義『占領された』に対し、実画像は席が使用中という別語義。,009,未解決,work/etymopedia/codex2/prompt_rows_009.csv,149,,,
+crazy.png,crazy,第一語義『頭がおかしい／insane』に対し、画像は趣味に夢中という別語義。,009,未解決,work/etymopedia/codex2/prompt_rows_009.csv,156,,,
+fuck.png,fuck,第一語義は性交するだが、画像は失敗時の怒りや驚きで、感嘆詞の別語義。,009,未解決,work/etymopedia/codex2/prompt_rows_009.csv,164,,,
+liability.png,liability,第一語義『負債／debt』に対し、画像は破損への責任・弁償の場面。負債そのものの対応を確認できない。,009,未解決,work/etymopedia/codex2/prompt_rows_009.csv,165,,,
+Ernest.png,Ernest,正本の英語第一語義earnestnessは人名Ernest・日本語アーネストと不一致。人名の語義への正本修正確認が必要。,010,未解決,work/etymopedia/codex/prompt_rows_010.csv,18,,,
+trailer.png,trailer,正本の対象語義は予告編だが、実PNGは荷物運搬用トレーラー。第一語義に合う画像が必要。,010,未解決,work/etymopedia/codex/prompt_rows_010.csv,63,,,
+assimilation.png,assimilation,正本の対象語義は同化だが、実PNGはスポンジによる吸水。吸収との取り違えがあり、第一語義に合う画像が必要。,010,未解決,work/etymopedia/codex/prompt_rows_010.csv,87,,,
+impress@en-per4.png,impress,正本の第一語義は感銘を与えるだが、実PNGは押印する別義。第一語義に合う画像が必要。,010,未解決,work/etymopedia/codex/prompt_rows_010.csv,108,,,
+canon.png,canon,正本の対象語義は規範だが、実PNGは聖書の正典を示す別義。第一語義との対応確認が必要。,010,未解決,work/etymopedia/codex/prompt_rows_010.csv,118,,,
+staging.png,staging,正本の日本語第一語義は上演だが、英語第一語義scaffoldingは足場。英語語義の正本修正確認が必要。,010,未解決,work/etymopedia/codex/prompt_rows_010.csv,128,,,
+topical.png,topical,正本の対象語義は時事のだが、実PNGは外用のという別義。第一語義に合う画像が必要。,010,未解決,work/etymopedia/codex/prompt_rows_010.csv,131,,,
+MG.png,MG,正本の見出しMG・日本語マグネシウム・英語milligramが不一致。Mgとmgの区別を含め、原本の語の識別確認が必要。,010,未解決,work/etymopedia/codex/prompt_rows_010.csv,135,,,
+mortar.png,mortar,公開正本のart_sensesでmortar.pngは追加語義の迫撃砲と確認。第一語義はモルタル・masonry binderで、正式第一画像はmortar@construction。第一語義としての対応は不一致。,010,未解決,work/etymopedia/codex/prompt_rows_010.csv,202,,,
+Beatrice.png,Beatrice,正本の英語第一語義blessed womanは人名Beatrice・日本語ベアトリーチェと不一致。人名語義と語源的意味の混同を確認する必要がある。,010,未解決,work/etymopedia/codex/prompt_rows_010.csv,208,,,
+capillary.png,capillary,正本の対象語義は毛細血管のだが、実PNGは物理的な毛細管現象。第一語義に合う画像が必要。,010,未解決,work/etymopedia/codex/prompt_rows_010.csv,218,,,
+Flora_cap.png,Flora,日本語第一語義フローラ・女神の実画像と、第一英語義plant lifeに不整合。語義対応の確認が必要。,011,未解決,work/etymopedia/codex2/prompt_rows_011.csv,11,,,
+bachelor.png,bachelor,日本語第一語義は独身男性だが第一英語義は若い騎士。実画像は一人分の食事を整える男性。語義対応の確認が必要。,011,未解決,work/etymopedia/codex2/prompt_rows_011.csv,40,,,
+quantify.png,quantify,日本語第一語義は量を計るだが第一英語義は量化子による限定。実画像は水量の計測。語義対応の確認が必要。,011,未解決,work/etymopedia/codex2/prompt_rows_011.csv,49,,,
+ism.png,ism,地図を読む少年は見えるが、特定のイズムを示す内容は確認できず、語義との対応が不明確。,011,未解決,work/etymopedia/codex2/prompt_rows_011.csv,88,,,
+plaque.png,plaque,日本語第一語義の飾り額と第一英語義の装飾ブローチに不整合。実画像は壁掛けの飾り額。,011,未解決,work/etymopedia/codex2/prompt_rows_011.csv,91,,,
+safeguard.png,safeguard,"日本語第一語義の護衛と第一英語義pass, safe-conductの対応確認が必要。実画像は人物の護衛。",011,未解決,work/etymopedia/codex2/prompt_rows_011.csv,95,,,
+Vancouver.png,Vancouver,日本語名と実画像は都市バンクーバーとして自然だが、第一英語義は航海者George Vancouver。語義対応の確認が必要。,011,未解決,work/etymopedia/codex2/prompt_rows_011.csv,102,,,
+clit.png,clit,指定コミットに採用PNGなし（入力image=null、URL404）。実画像未確認のため解説未作成。,011,未解決,work/etymopedia/codex2/prompt_rows_011.csv,108,,,
+stride.png,stride,日本語第一語義は大股で歩くだが、第一英語義は脚を開いて立つ。品詞・語義対応の確認が必要。,011,未解決,work/etymopedia/codex2/prompt_rows_011.csv,117,,,
+uterine.png,uterine,日本語第一語義は子宮のだが、第一英語義は同母異父。実画像は子宮の解剖図。,011,未解決,work/etymopedia/codex2/prompt_rows_011.csv,119,,,
+distressed.png,distressed,日本語第一語義の苦しんでいると第一英語義の経済的困窮に範囲の不整合。画像に経済状況の手掛かりはない。,011,未解決,work/etymopedia/codex2/prompt_rows_011.csv,161,,,
+divinity.png,divinity,日本語第一語義の神性と第一英語義theologyに不整合。実画像は神性を示す宗教的な像。,011,未解決,work/etymopedia/codex2/prompt_rows_011.csv,162,,,
+exhaustive.png,exhaustive,日本語第一語義の消耗させると、見出し語exhaustiveの通常語義・第一英語義の網羅的なに不整合。実画像は疲労を伴う運搬。,011,未解決,work/etymopedia/codex2/prompt_rows_011.csv,163,,,
+mo.png,mo,日本語第一語義は瞬間だが第一英語義はmonth。実画像は水滴がはねる一瞬。,011,未解決,work/etymopedia/codex2/prompt_rows_011.csv,183,,,
+breathless.png,breathless,日本語第一語義の息苦しそうなに画像は合うが、第一英語義not breathingとの対応確認が必要。,011,未解決,work/etymopedia/codex2/prompt_rows_011.csv,219,,,
+herbal.png,herbal,日本語第一語義は草本のだが第一英語義は薬草書。実画像は草花とハーブティー。,011,未解決,work/etymopedia/codex2/prompt_rows_011.csv,223,,,
+suicidal.png,suicidal,第一英語義は生命を危険にさらす意味だが、画像は苦悩する人物への支援。自殺念慮そのものは画像から判断できない。,011,未解決,work/etymopedia/codex2/prompt_rows_011.csv,231,,,
+trans-.png,trans-,日本語第一語義は接頭辞の越えて・横切ってだが、第一英語義はtransgender。実画像は橋を渡る人物。,011,未解決,work/etymopedia/codex2/prompt_rows_011.csv,232,,,
+bug.png,bug,指定コミットに採用PNGなし（入力image=null）。実画像未確認のため解説未作成。,011,未解決,work/etymopedia/codex2/prompt_rows_011.csv,243,,,
+nickel.png,nickel,日本語第一語義は5セント白銅貨だが、第一英語義と実画像は金属ニッケル。画像・語義対応の確認が必要。,011,未解決,work/etymopedia/codex2/prompt_rows_011.csv,253,,,
+violet.png,violet,日本語第一語義はスミレ色だが第一英語義は植物のスミレ。実画像は紫色のスカーフ。,011,未解決,work/etymopedia/codex2/prompt_rows_011.csv,261,,,
+Sol_cap.png,Sol,日本語第一語義と実画像はペルーの通貨だが、第一英語義はSun。語義対応の確認が必要。,011,未解決,work/etymopedia/codex2/prompt_rows_011.csv,285,,,
+competency.png,competency,日本語第一語義の資格に対し、第一英語義と実画像は技能・能力。資格そのものは描かれていない。,011,未解決,work/etymopedia/codex2/prompt_rows_011.csv,305,,,
+mentality.png,mentality,日本語第一語義の精神構造と実画像の心構えに対し、第一英語義は知力・能力。語義対応の確認が必要。,011,未解決,work/etymopedia/codex2/prompt_rows_011.csv,312,,,
+probabilistic.png,probabilistic,正本の第一英語義はprobabilismに関する意味で、日本語「確率的な」および実画像と不一致。英語義の修正が必要。,012,未解決,work/etymopedia/codex/prompt_rows_012.csv,5,,,
+conservatory.png,conservatory,代表語義を保存のにし、温室・音楽学校を明示的に除いた保存処置のプロンプト。ユーザーは既に生成済みの誤った画像を報告。後日、温室の画像へ修正。,026,後日画像修正,work/etymopedia/codex/prompt_rows_026.csv,270,温室（名詞）。音楽学校も名詞義。保存のはまれな形容詞義として区別。,https://www.merriam-webster.com/dictionary/conservatory ; https://www.collinsdictionary.com/dictionary/english/conservatory,ユーザー指示2026-10-08：メモを保存し、画像は後日修正。Codex元CSV・既存PNGはこの作業で変更しない。
+partiality.png,partiality,部分的であることとして未完成のジグソーパズルを指示。現行第一英語義biasとも矛盾し、代表的なひいき・偏りの意味を表さない。後日画像修正。,025,後日画像修正,work/etymopedia/codex/prompt_rows_025.csv,82,偏愛・ひいき／偏り（名詞）,https://dictionary.cambridge.org/us/dictionary/english/partiality ; https://www.collinsdictionary.com/dictionary/english/partiality,ユーザー指示2026-10-08：メモを保存し、画像は後日修正。Codex元CSV・既存PNGはこの作業で変更しない。
+rigour.png,rigour,まひとして冷やされ反応しないオジギソウを指示。現代の一般的な代表語義である厳密さ・厳格さと異なる限定的な生理学的意味。後日画像修正。,025,後日画像修正,work/etymopedia/codex/prompt_rows_025.csv,340,厳密さ・厳格さ（名詞）,https://dictionary.cambridge.org/us/dictionary/english/rigour ; https://www.collinsdictionary.com/us/dictionary/english/rigor,ユーザー指示2026-10-08：メモを保存し、画像は後日修正。Codex元CSV・既存PNGはこの作業で変更しない。
