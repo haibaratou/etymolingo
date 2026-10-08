@@ -1432,7 +1432,17 @@ Style: Use the attached invidious.png for drawing style only. Match its thick ro
 
 Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
 
-Output: 512x512 PNG, RGBA, genuine transparent background. No text, speech balloons, explanatory captions, empty bubbles, numerals, logos or watermark.",作成済み,,references/invidious.png,neither,"[""ne"",""kʷo-""]",nor,f10f02079649b17296c09b701f583790c289317780e3be9a36833e7f49fd7170,,,,prompt_ready,,,,
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, speech balloons, explanatory captions, empty bubbles, numerals, logos or watermark.",作成済み,,references/invidious.png,neither,"[""ne"",""kʷo-""]",nor,f10f02079649b17296c09b701f583790c289317780e3be9a36833e7f49fd7170,"Subject: A person declining both available choices.
+
+Composition: Show a seated adult facing two offered drinks, one cup of tea and one glass of juice, and gently raising both open palms in refusal. Both drinks remain with the server, while the person's empty place setting confirms that neither was accepted.
+
+Style: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.
+
+Framing: One compact composition, with the complete subject using about 80-90% of the square. Keep everything inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, speech balloons, explanatory captions, empty bubbles, numerals, logos or watermark.
+
+Shared production requirements: Include only the people, characters and objects specified above. Follow every composition detail and exact quantity, and keep the complete composition inside the square. Omit decorative foliage, bags, binoculars, extra tools, and extra characters unless the CSV prompt specifies them.","The man accepts neither the tea nor the juice, raising both palms in refusal.",男性が両手を上げて断り、お茶もジュースも受け取っていない。,reviewed,7711d437983b5563d7a0e771c023022467d8fce4a4432f1072f6dac73e886c34,933d541e5d4d1e2396f1009e5ce9bcf6081554f9,2026-10-08T11:34:18+09:00,実画像・第一語義・日英解説を照合。白/紺/桃背景512px検品。
 regarding.png,〜に関して,〜に関して,"Subject: Shared attention directed toward a broken bicycle.
 
 Composition: Show a mechanic and a cyclist standing beside one bicycle, both concentrating on its bent front wheel. The mechanic points closely at the damaged rim while the cyclist follows the gesture, keeping the bicycle as their clear common subject without any dialogue.
