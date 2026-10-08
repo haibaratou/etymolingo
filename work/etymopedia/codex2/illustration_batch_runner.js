@@ -2,7 +2,7 @@ async function etymo2Next(action="save", correction="", caption=null){
 const py="C:\\Users\\haiba\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe";
 const io="D:\\etymolingo\\work\\etymopedia\\codex2\\illustration_batch_io.py";
 const stateFile="D:\\etymolingo\\work\\etymopedia\\_illust\\.codex2-generation-state.json";
-const run=async mode=>{const r=await tools.exec_command({cmd:"& '"+py+"' '"+io+"' "+mode,max_output_tokens:8000});if(r.exit_code!==0)throw new Error(r.output);return JSON.parse(r.output.trim());};
+const run=async mode=>{let r=await tools.exec_command({cmd:"& '"+py+"' '"+io+"' "+mode,max_output_tokens:8000,yield_time_ms:30000});let output=r.output;while(r.session_id&&r.exit_code===undefined){r=await tools.write_stdin({session_id:r.session_id,chars:"",max_output_tokens:8000,yield_time_ms:30000});output+=r.output;}if(r.exit_code!==0)throw new Error(output);return JSON.parse(output.trim());};
 const write=async value=>{const valueText=JSON.stringify(value,null,2);const r=await tools.exec_command({cmd:"[IO.File]::WriteAllText('"+stateFile+"', @'\n"+valueText+"\n'@, (New-Object Text.UTF8Encoding($false)))",max_output_tokens:100});if(r.exit_code!==0)throw new Error(r.output);};
 let state=await run("read");
 if(action==="save"&&state.pending){if(!caption)throw new Error("Final image caption and review required before saving");state.pending.caption=caption;await write(state);const saved=await run("save");notify(saved.saved?"保存完了 "+saved.row.batch+"/"+saved.row.name+"（画像・実行プロンプト・日英解説・検品状態）":"語義変化を記録して保留 "+saved.row.name);state=await run("read");}

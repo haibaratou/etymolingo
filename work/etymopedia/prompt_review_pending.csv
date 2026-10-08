@@ -1336,3 +1336,8 @@ ruinous.png,ruinous,"正本の第一英語義「dilapidated, ruined」と対象�
 POS.png,POS,正本の第一英語義「position」と対象語義「経口の」が一致しない。正本側の語義組を確認するまで生成保留。,026,要確認
 cracker.png,cracker,対象語義「かんしゃく玉」と正本の第一英語義「a bragging liar : boaster」が一致しない。語義確認後に再開。,026,要確認
 snag.png,snag,対象語義「沈み木」と正本の第一英語義「a concealed or unexpected difficulty or obstacle」が一致しない。正本の語義対応を確認後に再開。,026,要確認
+Hyman.png,Hyman,正本には固有名詞「Hyman／ハイマン」以外の語義・人物情報がなく、現行案のバイオリン修理職は根拠がない。描写対象を確認後に再開。,026,要確認
+Roxanne.png,Roxanne,正本には人名「Roxanne／ロクサーヌ」以外の人物情報がなく、現行案の容姿や花を飾る場面に根拠がない。描写対象を確認後に再開。,026,要確認
+Cesar.png,Cesar,正本には人名「Cesar／シーザー」以外の人物情報がなく、現行案の木工職と鳥小屋作りに根拠がない。描写対象を確認後に再開。,026,要確認
+dampen.png,dampen,日本語の第一語義「湿らせる」と英語の第一語義「勢いや活動を弱める」が一致しないため、語義確認まで画像生成を保留,prompt_rows_026,保留
+goosebumps.png,goosebumps,日本語語義欄は作品名の説明だが、英語第一語義は寒さ・恐怖などで皮膚に生じる鳥肌を指し、意味が一致しない。原本確認まで画像生成を保留,prompt_rows_026,保留
