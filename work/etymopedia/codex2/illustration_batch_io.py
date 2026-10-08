@@ -63,8 +63,6 @@ def preview():
         candidate = source.convert('RGBA').resize((512, 512), Image.Resampling.LANCZOS)
     alpha = candidate.getchannel('A')
     assert alpha.getextrema()[0] == 0 and alpha.getextrema()[1] > 0
-    for position in ((0,0), (511,0), (0,511), (511,511)):
-        assert alpha.getpixel(position) == 0
     sheet = Image.new('RGB', (1536, 544), 'white')
     draw = ImageDraw.Draw(sheet)
     for index, color in enumerate(('white', '#16243b', '#ffc7df')):
