@@ -1,0 +1,593 @@
+{
+  "schema": "etymopedia-wild-display-assets",
+  "version": 1,
+  "createdAt": "2026-10-10T00:36:14.440766+09:00",
+  "purpose": "Homepage visual display only. This selection does not change candidate review or adoption decisions.",
+  "originalAssetsUnchanged": true,
+  "rootIdMapping": {
+    "bha": "bha2",
+    "men": "men1",
+    "genu": "genu (file stem root-genu1)"
+  },
+  "count": 12,
+  "assets": [
+    {
+      "id": "kaput",
+      "file": "root-kaput-v004.png",
+      "name": "Head · Kaput · Cattabage",
+      "candidateId": "v004",
+      "source": "top100/root-kaput-v004.png",
+      "sourceRootId": "kaput",
+      "rootKey": "kaput-",
+      "root": "*kaput-",
+      "meaning": "頭",
+      "kana": "アタマ・カプト・キャタベージ",
+      "sourceManifest": "work/wildwordopia/top100/candidates.json",
+      "sourceAbsolutePath": "D:\\etymolingo\\work\\wildwordopia\\sample\\top100\\root-kaput-v004.png",
+      "sourceStatus": "candidate",
+      "sourceOverallDecision": null,
+      "motifWords": [
+        "cattle",
+        "cabbage",
+        "biceps",
+        "captain"
+      ],
+      "sourceSHA256": "61ac7b499b73ddcbe0c89f458f71e292e37a0ebd944419e92db1aac57ec42188",
+      "validation": {
+        "width": 512,
+        "height": 512,
+        "mode": "RGBA",
+        "alphaRange": [
+          0,
+          255
+        ],
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "fullyTransparentPixels": 119189,
+        "fullyOpaquePixels": 1352,
+        "alphaBoundingBox": [
+          35,
+          16,
+          473,
+          490
+        ]
+      },
+      "copySHA256": "61ac7b499b73ddcbe0c89f458f71e292e37a0ebd944419e92db1aac57ec42188",
+      "sha256MatchesSource": true
+    },
+    {
+      "id": "ane",
+      "file": "root-ane-v002.png",
+      "name": "Iki Ane Animix",
+      "candidateId": "v002",
+      "source": "root-ane-v002.png",
+      "sourceRootId": "ane",
+      "rootKey": "anə-",
+      "root": "*anə-",
+      "meaning": "息をする",
+      "kana": "イキ・アネ・アニミックス",
+      "sourceManifest": "work/wildwordopia/sample/candidates.json",
+      "sourceAbsolutePath": "D:\\etymolingo\\work\\wildwordopia\\sample\\root-ane-v002.png",
+      "sourceStatus": "candidate",
+      "sourceOverallDecision": "unselected",
+      "motifWords": [
+        "anime",
+        "animation",
+        "animal",
+        "animatronic"
+      ],
+      "sourceSHA256": "4bcec03d715a557b18912302be2585e52d4aeecf9bc720be6cae534555e50885",
+      "validation": {
+        "width": 512,
+        "height": 512,
+        "mode": "RGBA",
+        "alphaRange": [
+          0,
+          255
+        ],
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "fullyTransparentPixels": 146531,
+        "fullyOpaquePixels": 2234,
+        "alphaBoundingBox": [
+          34,
+          16,
+          484,
+          496
+        ]
+      },
+      "copySHA256": "4bcec03d715a557b18912302be2585e52d4aeecf9bc720be6cae534555e50885",
+      "sha256MatchesSource": true
+    },
+    {
+      "id": "bha",
+      "file": "root-bha2-v009.png",
+      "name": "To Speak · Bha · Infairy",
+      "candidateId": "v009",
+      "source": "top100/root-bha2-v009.png",
+      "sourceRootId": "bha2",
+      "rootKey": "bhā-2",
+      "root": "*bhā-2",
+      "meaning": "話す",
+      "kana": "ハナス・バァ・インフェアリー",
+      "sourceManifest": "work/wildwordopia/top100/candidates.json",
+      "sourceAbsolutePath": "D:\\etymolingo\\work\\wildwordopia\\sample\\top100\\root-bha2-v009.png",
+      "sourceStatus": "candidate",
+      "sourceOverallDecision": null,
+      "motifWords": [
+        "fairy",
+        "infant",
+        "phone",
+        "fable"
+      ],
+      "sourceSHA256": "96b30e080adacb90e86d10ae51b582b18ac3deb5e81be40e41d9db2f6a1d5e7c",
+      "validation": {
+        "width": 512,
+        "height": 512,
+        "mode": "RGBA",
+        "alphaRange": [
+          0,
+          255
+        ],
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "fullyTransparentPixels": 140209,
+        "fullyOpaquePixels": 1602,
+        "alphaBoundingBox": [
+          16,
+          16,
+          496,
+          482
+        ]
+      },
+      "copySHA256": "96b30e080adacb90e86d10ae51b582b18ac3deb5e81be40e41d9db2f6a1d5e7c",
+      "sha256MatchesSource": true
+    },
+    {
+      "id": "gwei",
+      "file": "root-gwei-v007.png",
+      "name": "To Live · Gwei · Survitamin",
+      "candidateId": "v007",
+      "source": "top100/root-gwei-v007.png",
+      "sourceRootId": "gwei",
+      "rootKey": "gwei-",
+      "root": "*gwei-",
+      "meaning": "生きる",
+      "kana": "イキル・グウェイ・サーヴィタミン",
+      "sourceManifest": "work/wildwordopia/top100/candidates.json",
+      "sourceAbsolutePath": "D:\\etymolingo\\work\\wildwordopia\\sample\\top100\\root-gwei-v007.png",
+      "sourceStatus": "candidate",
+      "sourceOverallDecision": null,
+      "motifWords": [
+        "vitamin",
+        "zoo",
+        "survive"
+      ],
+      "sourceSHA256": "dcad6ac28c34b5f7e9b76b54d756b908c81fd447c6ef392f377e5c89d1818bb4",
+      "validation": {
+        "width": 512,
+        "height": 512,
+        "mode": "RGBA",
+        "alphaRange": [
+          0,
+          255
+        ],
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "fullyTransparentPixels": 141269,
+        "fullyOpaquePixels": 1266,
+        "alphaBoundingBox": [
+          16,
+          24,
+          489,
+          493
+        ]
+      },
+      "copySHA256": "dcad6ac28c34b5f7e9b76b54d756b908c81fd447c6ef392f377e5c89d1818bb4",
+      "sha256MatchesSource": true
+    },
+    {
+      "id": "oino",
+      "file": "root-oino-v006.png",
+      "name": "One · Oino · Unitcorn",
+      "candidateId": "v006",
+      "source": "top100/root-oino-v006.png",
+      "sourceRootId": "oino",
+      "rootKey": "oi-no-",
+      "root": "*oi-no-",
+      "meaning": "ひとつ",
+      "kana": "ヒトツ・オイノ・ユニットコーン",
+      "sourceManifest": "work/wildwordopia/top100/candidates.json",
+      "sourceAbsolutePath": "D:\\etymolingo\\work\\wildwordopia\\sample\\top100\\root-oino-v006.png",
+      "sourceStatus": "candidate",
+      "sourceOverallDecision": null,
+      "motifWords": [
+        "unicycle",
+        "onion",
+        "unicorn",
+        "unit"
+      ],
+      "sourceSHA256": "565fbd6b60bf23f39e9ecd7ddd6390ba9b046b1d2316a65e6d87e42ba333563e",
+      "validation": {
+        "width": 512,
+        "height": 512,
+        "mode": "RGBA",
+        "alphaRange": [
+          0,
+          255
+        ],
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "fullyTransparentPixels": 166107,
+        "fullyOpaquePixels": 1410,
+        "alphaBoundingBox": [
+          65,
+          16,
+          495,
+          491
+        ]
+      },
+      "copySHA256": "565fbd6b60bf23f39e9ecd7ddd6390ba9b046b1d2316a65e6d87e42ba333563e",
+      "sha256MatchesSource": true
+    },
+    {
+      "id": "reg",
+      "file": "root-reg-v003.png",
+      "name": "To Lead Straight · Reg · Rakerail",
+      "candidateId": "v003",
+      "source": "root-reg-v003.png",
+      "sourceRootId": "reg",
+      "rootKey": "reg-",
+      "root": "*reg-",
+      "meaning": "まっすぐ導く",
+      "kana": "マッスグミチビク・レグ・レイクレール",
+      "sourceManifest": "work/wildwordopia/top100/candidates.json",
+      "sourceAbsolutePath": "D:\\etymolingo\\work\\wildwordopia\\sample\\root-reg-v003.png",
+      "sourceStatus": "candidate",
+      "sourceOverallDecision": null,
+      "motifWords": [
+        "rectangle",
+        "rail",
+        "rake",
+        "royal",
+        "dress"
+      ],
+      "sourceSHA256": "1a494c7b53780cee42deb80a70d70ec4bb465512d71a3fd46364d15ea0d9ac7f",
+      "validation": {
+        "width": 512,
+        "height": 512,
+        "mode": "RGBA",
+        "alphaRange": [
+          0,
+          255
+        ],
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "fullyTransparentPixels": 157611,
+        "fullyOpaquePixels": 4259,
+        "alphaBoundingBox": [
+          16,
+          16,
+          490,
+          496
+        ]
+      },
+      "copySHA256": "1a494c7b53780cee42deb80a70d70ec4bb465512d71a3fd46364d15ea0d9ac7f",
+      "sha256MatchesSource": true
+    },
+    {
+      "id": "weid",
+      "file": "root-weid-v003.png",
+      "name": "To See · Weid · Kaleidrift",
+      "candidateId": "v003",
+      "source": "root-weid-v003.png",
+      "sourceRootId": "weid",
+      "rootKey": "weid-",
+      "root": "*weid-",
+      "meaning": "見る・知る",
+      "kana": "ミル・ウェイド・カレイドリフト",
+      "sourceManifest": "work/wildwordopia/top100/candidates.json",
+      "sourceAbsolutePath": "D:\\etymolingo\\work\\wildwordopia\\sample\\root-weid-v003.png",
+      "sourceStatus": "candidate",
+      "sourceOverallDecision": null,
+      "motifWords": [
+        "kaleidoscope",
+        "story",
+        "guide",
+        "idol"
+      ],
+      "sourceSHA256": "f64ecfeab877878ae2ce1de6fc89528bac5d037855adca0e8d733a5841bc9117",
+      "validation": {
+        "width": 512,
+        "height": 512,
+        "mode": "RGBA",
+        "alphaRange": [
+          0,
+          255
+        ],
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "fullyTransparentPixels": 156598,
+        "fullyOpaquePixels": 1943,
+        "alphaBoundingBox": [
+          16,
+          25,
+          496,
+          489
+        ]
+      },
+      "copySHA256": "f64ecfeab877878ae2ce1de6fc89528bac5d037855adca0e8d733a5841bc9117",
+      "sha256MatchesSource": true
+    },
+    {
+      "id": "ye",
+      "file": "root-ye-v001.png",
+      "name": "To Throw · Ye · Jetject",
+      "candidateId": "v001",
+      "source": "root-ye-v001.png",
+      "sourceRootId": "ye",
+      "rootKey": "yē-",
+      "root": "*yē-",
+      "meaning": "投げる",
+      "kana": "ナゲル・イェ・ジェットジェクト",
+      "sourceManifest": "work/wildwordopia/top100/candidates.json",
+      "sourceAbsolutePath": "D:\\etymolingo\\work\\wildwordopia\\sample\\root-ye-v001.png",
+      "sourceStatus": "candidate",
+      "sourceOverallDecision": "unselected",
+      "motifWords": [
+        "jet",
+        "projector",
+        "injection",
+        "eject"
+      ],
+      "sourceSHA256": "0baf7f9312515b178bbfb7a3f915cffc4939d456613f448d9c05ebaf4467c494",
+      "validation": {
+        "width": 512,
+        "height": 512,
+        "mode": "RGBA",
+        "alphaRange": [
+          0,
+          255
+        ],
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "fullyTransparentPixels": 148933,
+        "fullyOpaquePixels": 2513,
+        "alphaBoundingBox": [
+          27,
+          37,
+          487,
+          486
+        ]
+      },
+      "copySHA256": "0baf7f9312515b178bbfb7a3f915cffc4939d456613f448d9c05ebaf4467c494",
+      "sha256MatchesSource": true
+    },
+    {
+      "id": "mori",
+      "file": "root-mori-v001.png",
+      "name": "Umi Mori Submermaid",
+      "candidateId": "v001",
+      "source": "root-mori-v001.png",
+      "sourceRootId": "mori",
+      "rootKey": "mori-",
+      "root": "*mori-",
+      "meaning": "海・水域",
+      "kana": "ウミ・モリ・サブマーメイド",
+      "sourceManifest": "work/wildwordopia/sample/candidates.json",
+      "sourceAbsolutePath": "D:\\etymolingo\\work\\wildwordopia\\sample\\root-mori-v001.png",
+      "sourceStatus": "candidate",
+      "sourceOverallDecision": "unselected",
+      "motifWords": [
+        "submarine",
+        "mermaid",
+        "aquamarine",
+        "rosemary",
+        "marsh"
+      ],
+      "sourceSHA256": "f303a481c7d8b7c24aaf98594a40c4bf89cd6f01261cad268406554443c7eb3f",
+      "validation": {
+        "width": 512,
+        "height": 512,
+        "mode": "RGBA",
+        "alphaRange": [
+          0,
+          255
+        ],
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "fullyTransparentPixels": 148720,
+        "fullyOpaquePixels": 1337,
+        "alphaBoundingBox": [
+          16,
+          16,
+          472,
+          496
+        ]
+      },
+      "copySHA256": "f303a481c7d8b7c24aaf98594a40c4bf89cd6f01261cad268406554443c7eb3f",
+      "sha256MatchesSource": true
+    },
+    {
+      "id": "men",
+      "file": "root-men1-v003.png",
+      "name": "To Think · Men · Monstromix",
+      "candidateId": "v003",
+      "source": "top100/root-men1-v003.png",
+      "sourceRootId": "men1",
+      "rootKey": "men-1",
+      "root": "*men-1",
+      "meaning": "考える",
+      "kana": "カンガエル・メン・モンストロミックス",
+      "sourceManifest": "work/wildwordopia/top100/candidates.json",
+      "sourceAbsolutePath": "D:\\etymolingo\\work\\wildwordopia\\sample\\top100\\root-men1-v003.png",
+      "sourceStatus": "candidate",
+      "sourceOverallDecision": null,
+      "motifWords": [
+        "music",
+        "monitor",
+        "monster",
+        "mantis"
+      ],
+      "sourceSHA256": "89dda15fca09dda2071af5c21b3467a743be66892cac1f99e7bc380901485951",
+      "validation": {
+        "width": 512,
+        "height": 512,
+        "mode": "RGBA",
+        "alphaRange": [
+          0,
+          255
+        ],
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "fullyTransparentPixels": 149635,
+        "fullyOpaquePixels": 1111,
+        "alphaBoundingBox": [
+          16,
+          21,
+          495,
+          493
+        ]
+      },
+      "copySHA256": "89dda15fca09dda2071af5c21b3467a743be66892cac1f99e7bc380901485951",
+      "sha256MatchesSource": true
+    },
+    {
+      "id": "do",
+      "file": "root-do-v004.png",
+      "name": "To Give · Do · Dosecalendar",
+      "candidateId": "v004",
+      "source": "top100/root-do-v004.png",
+      "sourceRootId": "do",
+      "rootKey": "dō-",
+      "root": "*dō-",
+      "meaning": "与える",
+      "kana": "アタエル・ドー・ドーズカレンダー",
+      "sourceManifest": "work/wildwordopia/top100/candidates.json",
+      "sourceAbsolutePath": "D:\\etymolingo\\work\\wildwordopia\\sample\\top100\\root-do-v004.png",
+      "sourceStatus": "candidate",
+      "sourceOverallDecision": null,
+      "motifWords": [
+        "dose",
+        "date",
+        "data",
+        "add"
+      ],
+      "sourceSHA256": "dcb669882563525db9100945cd7932d0ca663ee9dbd44f40cbd174aa81440784",
+      "validation": {
+        "width": 512,
+        "height": 512,
+        "mode": "RGBA",
+        "alphaRange": [
+          0,
+          255
+        ],
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "fullyTransparentPixels": 162841,
+        "fullyOpaquePixels": 1805,
+        "alphaBoundingBox": [
+          16,
+          22,
+          477,
+          491
+        ]
+      },
+      "copySHA256": "dcb669882563525db9100945cd7932d0ca663ee9dbd44f40cbd174aa81440784",
+      "sha256MatchesSource": true
+    },
+    {
+      "id": "genu",
+      "file": "root-genu1-v001.png",
+      "name": "Hiza Genu Hexaknee",
+      "candidateId": "v001",
+      "source": "root-genu1-v001.png",
+      "sourceRootId": "genu",
+      "rootKey": "genu-1",
+      "root": "*genu-1",
+      "meaning": "ひざ・角",
+      "kana": "ヒザ・ゲヌ・ヘクサニー",
+      "sourceManifest": "work/wildwordopia/sample/candidates.json",
+      "sourceAbsolutePath": "D:\\etymolingo\\work\\wildwordopia\\sample\\root-genu1-v001.png",
+      "sourceStatus": "candidate",
+      "sourceOverallDecision": "unselected",
+      "motifWords": [
+        "knee",
+        "hexagon",
+        "pentagon",
+        "octagon",
+        "diagonal"
+      ],
+      "sourceSHA256": "c9f173a13b45090c16620080616a316a2218abf2396176d375ea4739afc25209",
+      "validation": {
+        "width": 512,
+        "height": 512,
+        "mode": "RGBA",
+        "alphaRange": [
+          0,
+          255
+        ],
+        "cornerAlpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "fullyTransparentPixels": 196246,
+        "fullyOpaquePixels": 1960,
+        "alphaBoundingBox": [
+          24,
+          22,
+          489,
+          487
+        ]
+      },
+      "copySHA256": "c9f173a13b45090c16620080616a316a2218abf2396176d375ea4739afc25209",
+      "sha256MatchesSource": true
+    }
+  ]
+}
