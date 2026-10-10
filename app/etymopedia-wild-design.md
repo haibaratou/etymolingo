@@ -1,10 +1,11 @@
 # エティモペディア：語源クリーチャー版の引継ぎ
 
-2026-10-10。対象は `app/etymopedia.html`。かわいい図鑑の方向から、奇妙な語源キャラを大きく見せる方向へ更新した。
+2026-10-10。対象は比較ページ `app/etymopedia-wild.html`。かわいい図鑑の方向から、奇妙な語源キャラを大きく見せる方向を試す。元ページ `app/etymopedia.html` は元の内容を維持する。
 
 ## 変更範囲
 
-- `etymopedia.html` は字体、追加CSS/JS、既存のロード・ホーム描画・語根描画への3つの呼出しのみ変更。
+- `etymopedia-wild.html` は元ページを基にした比較版。字体、追加CSS/JS、既存のロード・ホーム描画・語根描画への3つの呼出しを追加。
+- `etymopedia.html` を上書きしない。追加CSS/JSと今回のキャラ素材は比較ページだけで利用する。
 - `etymopedia-wild.css` が配色、文字、切抜きキャラ、カード、スマホ配置を担当。
 - `etymopedia-wild.js` がホームを描画し、読み込まれた12語根のキャラ表示パスと表示用メタデータを差し替える。
 - `../assets/chara/etymopedia-wild/characters.js` が語根IDと表示素材を対応付ける。`provenance.json` が素材の出典、レビュー時点の状態、コピー照合を記録する。
@@ -40,8 +41,8 @@
 
 ## 開き方と確認
 
-通常はリポジトリ全体をHTTP配信し、`/app/etymopedia.html` を開く。例：リポジトリルートで `python -m http.server 8765 --bind 127.0.0.1` を起動し、`http://127.0.0.1:8765/app/etymopedia.html` へアクセス。HTTP時は既存の `app/data/*.csv` が優先される。
+通常はリポジトリ全体をHTTP配信し、`/app/etymopedia-wild.html` を開く。例：リポジトリルートで `python -m http.server 8765 --bind 127.0.0.1` を起動し、`http://127.0.0.1:8765/app/etymopedia-wild.html` へアクセス。HTTP時は既存の `app/data/*.csv` が優先される。元ページとの比較は同じ配信元の `/app/etymopedia.html` で行う。
 
-ファイルを直接開く場合は従来の埋込CSVフォールバックを利用する。追加CSS/JSと `../assets/` は外部ファイルなので、HTML単独を移動せずフォルダ構成を保持する。既存の巨大な埋込画像・CSVは今回変更していない。
+直接開く場合は `app/etymopedia-wild.html` を開き、従来の埋込CSVフォールバックを利用する。追加CSS/JSと `../assets/` は外部ファイルなので、比較HTML単独を移動せずフォルダ構成を保持する。元ページの巨大な埋込画像・CSVは変更しない。
 
 変更後はPCと360〜390pxの幅で、ホーム、検索から単語詳細、祖先詳細、語派、未登録概念、戻る操作、♥保存、画像読込を確認する。ゲームボタンは引き続き「開発中」の通知であり、ゲームへの入口が完成した状態ではない。
