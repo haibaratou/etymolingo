@@ -108,7 +108,7 @@ window.ETYMOPEDIA_WILD = (() => {
       }[id] || [];
       const familyWords = words.map(word => word[0]);
       const tags = [...preferred.filter(word => familyWords.includes(word)), ...familyWords].filter((word, at, all) => all.indexOf(word) === at).slice(0, 3);
-      return `<a class="rootCard wild-root-card" style="--rc:${esc(root.c)};--wild-card-bg:${colours[index % colours.length]}" href="${rootLink(id)}">
+      return `<a class="rootCard wild-root-card" data-family-search="${esc(words.map(w => w.join(" ")).join(" "))}" style="--rc:${esc(root.c)};--wild-card-bg:${colours[index % colours.length]}" href="${rootLink(id)}">
         <div class="wild-root-art"><span class="wild-root-index">ETYMON / ${String(index + 1).padStart(2, "0")}</span>
           ${imageTag(root, imgURL, 'loading="lazy" width="512" height="512"')}<span class="wild-root-go" aria-hidden="true">↗</span></div>
         <div class="wild-root-info"><div class="wild-root-meaning">${esc(root.jp)}<i>${esc(root.r)}</i></div>
