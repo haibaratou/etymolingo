@@ -8,20 +8,21 @@
   ];
   const img = p => `<img src="${art+p.file}" alt="${p.name}" width="512" height="512">`;
   const card = p => `<a class="ip-product" href="wildwords-product.html?character=${p.id}"><div class="ip-merch" style="background:${p.color}"><span class="ip-ring" aria-hidden="true"></span>${img(p)}<span class="ip-product-stamp">WILD WORDS<br>KEY CHARM</span></div><small>ACRYLIC KEY CHARM / 01</small><h3>${p.name} アクリルキーホルダー</h3><p>¥880 <small>税込・企画価格</small><span>見る ↗</span></p></a>`;
-  const portal = () => `<div class="ip-banner"><span>WORDS ARE ALIVE.</span><a href="wildwords-world.html">奇妙な世界の、その先へ ↗</a></div><section class="ip-section"><div class="ip-section-head"><div><small>THE WORLD BEHIND THE WORDS</small><h2>この世界、<br>ちょっと話が通じない。</h2></div><a href="wildwords-world.html">世界をのぞく ↗</a></div><div class="ip-places">${people.map((p,i)=>`<a href="wildwords-world.html#${p.id}" class="ip-place" style="--place:${p.color}"><small>PLACE 0${i+1}</small>${img(p)}<h3>${p.place}</h3><p>${p.story}</p><span>ここにいた祖先 →</span></a>`).join('')}</div></section><section class="ip-section ip-shop-teaser"><div class="ip-section-head"><div><small>WILD WORDS / THE STORE</small><h2>絶滅したのに、<br>お出かけは好き。</h2></div><a href="wildwords-shop.html">ストアへ ↗</a></div><div class="ip-products">${people.map(card).join('')}</div><p class="ip-disclaimer">グッズは商品化イメージです。販売開始前のため、注文・決済は受け付けていません。</p></section>`;
   const initHome = () => {
-    if (!document.querySelector('.wild-stage') || document.getElementById('ipPortal')) return;
+    if (!document.querySelector('.wild-stage') || document.querySelector('.ip-home-ready')) return;
     const nav = document.getElementById('nav');
     nav.innerHTML = '<a href="wildwords-world.html">WORLD</a><a href="#roots">CHARACTERS</a><a href="wildwords-shop.html">STORE</a>';
-    const el = document.createElement('div'); el.id='ipPortal'; el.innerHTML=portal();
-    document.getElementById('wildIntro').before(el);
-    document.querySelector('.wild-eyebrow').textContent='失われた世界から、こんにちは。';
-    document.querySelector('#hero h1').innerHTML='きみの言葉に、<br><span class="wild-title">ヘンな祖先が</span><br>住んでいる。';
-    document.querySelector('#heroCtas').innerHTML='<a class="btn wild-primary" href="wildwords-world.html">世界をのぞく ↗</a><a class="btn" href="#roots">言葉の祖先を調べる ↓</a>';
-    document.querySelector('.wild-stage-hint').textContent='そこにいるのは、英語のご先祖。';
-    document.querySelector('.wild-stage-word').textContent='HELLO!';
-    document.querySelector('.wild-stamp').innerHTML='<span>絶滅しました。</span><strong>たぶん。</strong>';
-
+    document.getElementById('hero').classList.add('ip-home-ready');
+    document.querySelector('.wild-eyebrow').textContent='';
+    document.querySelector('#hero h1').textContent='WILD WORDS';
+    document.querySelector('#hero .lead').textContent='言葉の祖先、ワイルドワード。';
+    document.querySelector('#heroCtas').innerHTML='<a class="btn wild-primary" href="#roots">キャラクターに会う ↓</a>';
+    document.querySelector('.wild-stage-hint').textContent='気になるやつを、タップ。';
+    document.querySelector('.wild-stage-word').textContent='';
+    document.querySelector('.wild-stamp').hidden=true;
+    document.getElementById('roots').after(document.getElementById('wildIntro'));
+    document.getElementById('rootsHead').innerHTML='キャラクター';
+    document.getElementById('rootsSub').innerHTML='気になる祖先から、言葉の一族へ。';
     const field=document.createElement('div'); field.className='ip-dictionary';
     field.innerHTML='<label for="ipWordSearch">祖先をさがす</label><input id="ipWordSearch" type="search" placeholder="head、one、頭…"><p id="ipSearchStatus" role="status"></p>';
     document.getElementById('rootStrip').before(field);
