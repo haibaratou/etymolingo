@@ -79,6 +79,8 @@ def validate_caption(entry,word,art,image):
  if not entry:return None,'missing','caption_not_created'
  if entry.get('status',entry.get('review',{}).get('status'))!='reviewed' or entry.get('review',{}).get('status')!='reviewed':return None,'held','caption_not_reviewed'
  expected=sense_of(word)
+ # Match the runtime's fail-closed caption gate; preserve incomplete source scenes.
+ if not expected['ja'] or not expected['en']:return None,'held','canonical_first_sense_missing'
  if any(entry.get('sense',{}).get(k)!=v for k,v in expected.items()):return None,'stale','first_sense_changed'
  if any(entry.get('image',{}).get(k)!=image[k] for k in ['path','sha256','git_blob_sha']):return None,'stale','image_changed'
  en=normalize(entry.get('scene',{}).get('en'));ja=normalize(entry.get('scene',{}).get('ja'));head=normalize(word['w'])
@@ -156,6 +158,13 @@ def build_catalog_rows(root=ROOT,include_packs=True):
  for asset in resolved['assets']:
   if asset['art'] in date_rows:asset['recordedUpdatedAt']=[date_rows[asset['art']]['LatestUpdatedAtJST']]
  seed_data=read(root/'app/data/generated-image-legacy-ids.json');seeds=seed_data['rows'];prior={};safe_ids={}
+ # Published IDs follow their physical image path even when ownership changes.
+ published_ids={}
+ for mapping in seed_data.get('publishedIdMappings',[]):
+  if not isinstance(mapping,dict):raise ValueError('Invalid published image ID mapping')
+  art=mapping.get('art');identifier=mapping.get('id')
+  if not isinstance(art,str) or art not in inv or art in published_ids or not isinstance(identifier,str) or not identifier or identifier in JS_INHERITED_KEYS or identifier in published_ids.values():raise ValueError('Invalid or duplicate published image ID mapping')
+  published_ids[art]=identifier
  for mapping in seed_data.get('safeIdMappings',[]):
   identity=(mapping['w'],tuple(mapping['p']),mapping['art'])
   if identity in safe_ids or mapping['art'] not in JS_INHERITED_KEYS or mapping['id']!='word:'+mapping['art']:raise ValueError('Invalid or duplicate safe stable ID mapping')
@@ -177,6 +186,7 @@ def build_catalog_rows(root=ROOT,include_packs=True):
  for art,binding in owned.items():
   word=words[binding['dictionaryIndex']];key=(word['w'],tuple(word.get('p',[])),art);old=prior.get(key);meta=assets[art];image={k:inv[art][k] for k in ['path','sha256','git_blob_sha']};sense=sense_of(word)
   candidate=old['id'] if old else ('mortar' if key==('mortar',('mer-2',),'mortar@construction') else art)
+  candidate=published_ids.get(art,candidate)
   if candidate in JS_INHERITED_KEYS:
    if old:raise ValueError('Unsafe legacy ID requires an explicit history migration: '+candidate)
    if key not in safe_ids:raise ValueError('Inherited object-key ID needs an explicit stable mapping: '+candidate)
@@ -216,7 +226,7 @@ def build_catalog_rows(root=ROOT,include_packs=True):
  # Every remaining physical PNG stays visible without inventing an English meaning.
  for art,meta in sorted(assets.items()):
   if art in owned:continue
-  candidate=art if art in legacy_ids and art not in used_ids else 'asset:'+art
+  candidate=published_ids.get(art,art if art in legacy_ids and art not in used_ids else 'asset:'+art)
   if candidate in used_ids:raise ValueError('Duplicate asset ID')
   used_ids.add(candidate);role=meta['assetRole'];status='alternate' if meta['canonicalOwner'] else 'ownership_pending';reason=meta['reason'] or role;dates=meta['recordedUpdatedAt'];image={k:inv[art][k] for k in ['path','sha256','git_blob_sha']}
   rows.append({'id':candidate,'pic':art,'en':'','w':'','ja':'','roots':[],'dictionaryIndex':None,'rank':99999,'generatedImage':True,'updatedArt':after_cutoff(dates),'bindingStatus':status,'assetRole':role,'primaryArt':meta['primaryArt'],'image':image,'description':{'status':'missing','en':'','ja':'','reason':'ownership_pending' if status=='ownership_pending' else 'alternate_image','ttsAllowed':False},'availability':{l:{'playable':False,'answer':'','reason':reason} for l in ['en','ja']},'issues':[{'code':reason,'detail':'画像の対応確認中' if status=='ownership_pending' else '別の画像・旧版','imageSha256':image['sha256'],'scope':'play_blocking','blocksPlay':True}],'recordedUpdatedAt':max(dates) if dates else None,'imageDateProvenance':{'source':'published_image_date_ledger','commit':date_rows[art].get('LatestUpdatedCommit'),'createdAt':date_rows[art].get('CreatedAtJST')} if art in date_rows else {'source':'recorded_exact_tuple' if dates else 'unknown'},'pos':''})
@@ -225,6 +235,7 @@ def build_catalog_rows(root=ROOT,include_packs=True):
  if len(rows)!=len(inv) or len(used_ids)!=len(inv):raise ValueError('Every physical PNG must appear exactly once')
  if not seed_ids.issubset(used_ids):raise ValueError('Existing catalog IDs disappeared')
  if not legacy_ids.issubset(used_ids):raise ValueError('Legacy IDs disappeared')
+ if not set(published_ids.values()).issubset(used_ids):raise ValueError('Published image IDs disappeared')
  meta={'schema':2,'sourceWordsSha256':digest(words_raw),'scenesSha256':digest(scenes_raw),'indexSha256':digest(index_raw),'imageDatesSha256':digest(date_path.read_bytes()) if date_path.is_file() else None,'count':len(rows),'wordEntryCount':len(owned),'ownershipPendingCount':sum(r['bindingStatus']=='ownership_pending' for r in rows),'descriptionCounts':dict(Counter(r['description']['status'] for r in rows)),'playableCounts':{l:sum(bool(r['availability'][l]['playable']) for r in rows) for l in ['en','ja']}}
  report={'schema':2,'meta':meta,'ownership':resolved['summary'],'sceneEntries':len(payload['entries']),'existingIdsPreserved':len(seed_ids),'legacyIdsPreserved':len(legacy_ids),'imageBytes':sum(r['bytes'] for r in inv.values()),'emittedRows':len(rows),'lazyAssets':len(packs),'lazyAssetBytes':sum(len(b) for b in packs.values()),'inventoryNamesSha256':digest(compact(sorted(inv)).encode()),'inclusionPolicy':'all_observed_generated_PNGs','dateGateApplied':False,'captionGateApplied':False,'posGateApplied':False,'exclusionCounts':{},'inputHashes':{p:digest((root/p).read_bytes()) for p in ['app/data/generated-image-issues.json','app/data/generated-image-legacy-ids.json','app/data/generated_image_resolver.py','app/data/build_generated_image_catalog.py','app/data/puzzle-ja-answers.json','app/games/picture-words/updated-art.json','app/games/picture-words/build_catalog.py']},'ownershipPending':[{k:r.get(k) for k in ['art','path','reason','candidateIdentities']} for r in resolved['assets'] if r['bindingStatus']=='ownership_pending'],'issues':[{k:r[k] for k in ['id','pic','issues']} for r in rows if r['issues']]}
  if invalid_files:

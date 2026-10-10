@@ -10,9 +10,9 @@
     },
     "words": {
       "file": "words.json",
-      "bytes": 19977915,
-      "count": 49170,
-      "sha256": "531c5c563eedd26021245e9980fb26021d201a9af40001532c364cb8a83edb77"
+      "bytes": 21499592,
+      "count": 49168,
+      "sha256": "5375a6efb548b721ff6d884291527633a4e954e952ab63b2a597dd9f6116d5c1"
     },
     "affixes": {
       "file": "affixes.json",
@@ -28,9 +28,9 @@
     },
     "details_brief": {
       "file": "details_brief.json",
-      "bytes": 147511,
-      "count": 49170,
-      "sha256": "bdc45c17a04c6676053dbc85764f4f064697df1e03e4accb01f480817219e0f9"
+      "bytes": 147505,
+      "count": 49168,
+      "sha256": "8d53d34db151acfb67776b835193cc08379eb3c39774c17f76b077570f32c62c"
     },
     "eo_slugs": {
       "file": "eo_slugs.json",
@@ -40,19 +40,19 @@
     },
     "illustration_scenes": {
       "file": "illustration-scenes.json",
-      "bytes": 2446261,
-      "count": 1806,
-      "sha256": "12a493c7de0f10c5f781e219113dc105a475945efdbf64aa957ab3735749fcaf"
+      "bytes": 5708048,
+      "count": 6017,
+      "sha256": "17ae950d6ce2e0b428ea2157e2459e01da2b38bb74a368ab352e47ad03699439"
     },
     "word_suika_words": {
       "file": "word-suika-words.json",
-      "bytes": 2,
-      "count": 0,
-      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      "bytes": 3517358,
+      "count": 14688,
+      "sha256": "9877d3f7d29d13740c36708f074f56ef28970b550ca410949c48d92bf1a90dab"
     },
     "det": {
       "file": "det/*.json",
-      "bytes": 42770988,
+      "bytes": 42769574,
       "count": 27
     },
     "eo": {
@@ -62,9 +62,9 @@
     },
     "semantic_classifications": {
       "file": "semantic-classifications.json",
-      "bytes": 11108,
+      "bytes": 11255,
       "count": 8,
-      "sha256": "fea4ec902d6c170749f13cdf1b79df2a8e60ec0dde8622ca25ad6012d55e05ec"
+      "sha256": "fd17a499919db2f99d5f411167f869fff31b84afda8044b370cf567b49814e5f"
     }
   }
 }

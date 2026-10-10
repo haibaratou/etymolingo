@@ -4939,5 +4939,23 @@
       "art": "constructor",
       "id": "word:constructor"
     }
+  ],
+  "publishedIdMappings": [
+    {
+      "art": "semi-",
+      "id": "semi-"
+    },
+    {
+      "art": "nets",
+      "id": "nets"
+    },
+    {
+      "art": "rack",
+      "id": "rack"
+    },
+    {
+      "art": "rack@wreg",
+      "id": "asset:rack@wreg"
+    }
   ]
 }

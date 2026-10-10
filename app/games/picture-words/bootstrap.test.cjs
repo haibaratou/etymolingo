@@ -25,7 +25,7 @@ test('actual captionless solve preserves old saved IDs and displays 解説未作
 
 test('a genuinely unsupported Japanese answer explains its unavailability on tap without changing image',async()=>{
  const app=await boot({query:captionlessQuery}),before=app.snapshot();
- const reason=app.window.WordBloomReviewedScenes.unavailableReason(captionless,'ja');
+ const reason=app.window.WordBloomReviewedScenes.unavailableReason(captionless,'ja',before.mode);
  assert.equal(app.get('modeToggle').disabled,false);assert.equal(app.get('modeToggle').getAttribute('aria-disabled'),'false');assert.ok(app.get('modeToggle').title);assert.match(app.get('modeLabel').textContent,/未確認|未対応/);
  app.get('modeToggle').click();assert.deepEqual(app.snapshot(),before);assert.ok(app.get('feedback').textContent);
  app.get('modeToggle').dispatch('click');assert.equal(app.snapshot().mode,'en');assert.equal(app.snapshot().id,captionless.id);assert.deepEqual(app.snapshot().letters,captionlessLetters);assert.match(app.get('feedback').textContent,new RegExp(reason));assert.equal(app.speech.length,0);
