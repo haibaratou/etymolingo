@@ -1,0 +1,2529 @@
+window.ETYMOPEDIA_BRAINROT = {
+  "schema": "wildwordopia-root-candidate-library",
+  "version": 1,
+  "title": "Root Creature Candidates",
+  "generator": "built-in ImageGen",
+  "size": [
+    512,
+    512
+  ],
+  "transparent_background": true,
+  "builtAt": "2026-10-09T16:39:26.344824+09:00",
+  "creationTime": null,
+  "selectionPolicy": "All entries are candidates. Human review only; preview order is not adoption. Face-only feedback is not an overall adoption.",
+  "historicalPromptPolicy": "Earlier mandatory dot-face instructions are preserved as history, not current design rules.",
+  "counts": {
+    "roots": 12,
+    "candidates": 17
+  },
+  "characters": [
+    {
+      "id": "kaput",
+      "name": "Atama Kaput Cabbagino",
+      "kana": "アターマ・カプト・キャバジーノ",
+      "root": "*kaput-",
+      "meaning": "頭",
+      "meaningEn": "Head",
+      "file": "root-kaput-v001.png",
+      "motifs": [
+        {
+          "word": "cabbage",
+          "ja": "キャベツ",
+          "part": "A round cabbage head"
+        },
+        {
+          "word": "cattle",
+          "ja": "ウシ・家畜",
+          "part": "A piebald cattle body with four hoofed legs"
+        },
+        {
+          "word": "biceps",
+          "ja": "上腕二頭筋",
+          "part": "Two enormous muscular arms",
+          "partial": true,
+          "note": "The -ceps part comes from head; bi- means two."
+        },
+        {
+          "word": "captain",
+          "ja": "キャプテン・船長",
+          "part": "A captain's hat and cropped sleeveless uniform"
+        }
+      ],
+      "sources": [
+        {
+          "title": "cabbage",
+          "url": "https://www.etymonline.com/word/cabbage"
+        },
+        {
+          "title": "cattle",
+          "url": "https://www.etymonline.com/word/cattle"
+        },
+        {
+          "title": "biceps",
+          "url": "https://www.etymonline.com/word/biceps"
+        },
+        {
+          "title": "captain",
+          "url": "https://www.etymonline.com/word/captain"
+        }
+      ],
+      "rootKey": "kaput-",
+      "stem": "root-kaput",
+      "candidates": [
+        {
+          "id": "kaput",
+          "name": "Atama Kaput Cabbagino",
+          "kana": "アターマ・カプト・キャバジーノ",
+          "root": "*kaput-",
+          "meaning": "頭",
+          "meaningEn": "Head",
+          "file": "root-kaput-v001.png",
+          "motifs": [
+            {
+              "word": "cabbage",
+              "ja": "キャベツ",
+              "part": "A round cabbage head"
+            },
+            {
+              "word": "cattle",
+              "ja": "ウシ・家畜",
+              "part": "A piebald cattle body with four hoofed legs"
+            },
+            {
+              "word": "biceps",
+              "ja": "上腕二頭筋",
+              "part": "Two enormous muscular arms",
+              "partial": true,
+              "note": "The -ceps part comes from head; bi- means two."
+            },
+            {
+              "word": "captain",
+              "ja": "キャプテン・船長",
+              "part": "A captain's hat and cropped sleeveless uniform"
+            }
+          ],
+          "sources": [
+            {
+              "title": "cabbage",
+              "url": "https://www.etymonline.com/word/cabbage"
+            },
+            {
+              "title": "cattle",
+              "url": "https://www.etymonline.com/word/cattle"
+            },
+            {
+              "title": "biceps",
+              "url": "https://www.etymonline.com/word/biceps"
+            },
+            {
+              "title": "captain",
+              "url": "https://www.etymonline.com/word/captain"
+            }
+          ],
+          "rootKey": "kaput-",
+          "stem": "root-kaput",
+          "candidateId": "v001",
+          "conceptFile": "root-kaput-v001.md",
+          "legacyFile": "atama-kaput-cabbagino.png",
+          "status": "candidate",
+          "overallDecision": "unselected",
+          "face": "かわいい子ウシの丸い目と短い牛の口元。おじさん顔にはしない。",
+          "concept": "キャベツの頭、かわいい子ウシの顔、牛の胴体と四本の蹄、巨大な上腕二頭筋、キャプテンの帽子と袖なし制服を融合。",
+          "generationMetadata": "generation-prompts.json",
+          "reviewHistory": [],
+          "archivedSource": "D:/etymolingo/work/wildwordopia/sample/_sources/root-kaput-v001.png",
+          "localSource": "_sources/root-kaput-v001.png",
+          "sourceKind": "saved_512_copy_original_unknown",
+          "creationTime": null,
+          "creationTimeNote": "正確な制作日時は不明。ファイル更新日時から制作日時を推定しない。",
+          "originalSourceNote": "選択PNGに対応する生成原本を特定できないため、保存済み512 PNGを原本控えとして保持。"
+        }
+      ],
+      "conceptFile": "root-kaput-v001.md",
+      "status": "candidate",
+      "overallDecision": "unselected"
+    },
+    {
+      "id": "ane",
+      "name": "Iki Ane Animatron",
+      "kana": "イキ・アネ・アニマトロン",
+      "root": "*anə-",
+      "meaning": "息をする",
+      "meaningEn": "Breathe",
+      "file": "root-ane-v001.png",
+      "motifs": [
+        {
+          "word": "animal",
+          "ja": "動物",
+          "part": "A furry animal head and paws",
+          "partJa": "大きな動物の顔と毛の胴体"
+        },
+        {
+          "word": "animation",
+          "ja": "アニメーション",
+          "part": "Four paper panels showing successive animation poses",
+          "partJa": "胴体に組み込まれたパラパラ漫画"
+        },
+        {
+          "word": "anime",
+          "ja": "アニメ",
+          "part": "Anime-inspired expressive animal eyes",
+          "partJa": "セル画のような大きな目"
+        },
+        {
+          "word": "animatronic",
+          "ja": "動く機械人形",
+          "part": "Exposed moving mechanical joints",
+          "partial": true,
+          "partJa": "むき出しの機械の関節",
+          "note": "The animation-derived component shares this root; electronics has separate ancestry."
+        }
+      ],
+      "sources": [
+        {
+          "title": "animal",
+          "url": "https://www.etymonline.com/word/animal"
+        },
+        {
+          "title": "animation",
+          "url": "https://www.etymonline.com/word/animation"
+        },
+        {
+          "title": "anime",
+          "url": "https://www.etymonline.com/word/anime"
+        },
+        {
+          "title": "animatronic",
+          "url": "https://www.etymonline.com/word/animatronic"
+        }
+      ],
+      "rootKey": "anə-",
+      "stem": "root-ane",
+      "candidates": [
+        {
+          "id": "ane",
+          "name": "Iki Ane Animatron",
+          "kana": "イキ・アネ・アニマトロン",
+          "root": "*anə-",
+          "meaning": "息をする",
+          "meaningEn": "Breathe",
+          "file": "root-ane-v001.png",
+          "motifs": [
+            {
+              "word": "animal",
+              "ja": "動物",
+              "part": "A furry animal head and paws",
+              "partJa": "大きな動物の顔と毛の胴体"
+            },
+            {
+              "word": "animation",
+              "ja": "アニメーション",
+              "part": "Four paper panels showing successive animation poses",
+              "partJa": "胴体に組み込まれたパラパラ漫画"
+            },
+            {
+              "word": "anime",
+              "ja": "アニメ",
+              "part": "Anime-inspired expressive animal eyes",
+              "partJa": "セル画のような大きな目"
+            },
+            {
+              "word": "animatronic",
+              "ja": "動く機械人形",
+              "part": "Exposed moving mechanical joints",
+              "partial": true,
+              "partJa": "むき出しの機械の関節",
+              "note": "The animation-derived component shares this root; electronics has separate ancestry."
+            }
+          ],
+          "sources": [
+            {
+              "title": "animal",
+              "url": "https://www.etymonline.com/word/animal"
+            },
+            {
+              "title": "animation",
+              "url": "https://www.etymonline.com/word/animation"
+            },
+            {
+              "title": "anime",
+              "url": "https://www.etymonline.com/word/anime"
+            },
+            {
+              "title": "animatronic",
+              "url": "https://www.etymonline.com/word/animatronic"
+            }
+          ],
+          "rootKey": "anə-",
+          "stem": "root-ane",
+          "concept": "An outrageous living ANIMATRONIC ANIMAL is built around a gigantic OPEN FLIPBOOK animation torso: the book's top page becomes an oversized furry smiling dog-like animal head with long rabbit-like ears, clearly a whole ANIMAL chimera. The head has extremely oversized expressive two-dimensional cel-painted ANIME EYES embedded in a realistic fuzzy muzzle. Below the head, the torso is a tall fan of thick cream paper pages visibly showing the same small dog in four sequential running poses like ANIMATION frames, tiny wordless image panels, no letters. The pages form the entire belly and ribs. Four highly visible mechanical ANIMATRONIC jointed legs extend from the page spine with exposed steel joints, small electric motors and furry paw ends; one side of the face has a hinged cheek revealing a mechanical servo underneath fuzzy fur. No ordinary human costume. Asymmetric big animated ears, one turned sideways, funny dazed grin. Real paper + soft russet fur + expressive cel eyes + gleaming robotic joints. No flower.",
+          "prompt": "Use case: stylized-concept. Asset type: original educational game character cutout. Style: absurd AI-brainrot 3D chimera with photographic realistic texture and polished whimsical IP design, emotionally appealing to children, physically fused anatomy rather than a humanoid holding objects. Dominant components huge and legible at 512px. Full body square front three-quarter view with at least 7 percent transparent margin all around and no cropped extremities. Soft studio lighting, vivid material contrast. Young friendly, ridiculous slightly dazed face, not old. Real alpha transparency, no floor, no background, no ground shadow, no text captions, no logos, no watermark. Only specified motifs plus connecting anatomy, no unrelated themed accessories.\nPrimary request: An outrageous living ANIMATRONIC ANIMAL is built around a gigantic OPEN FLIPBOOK animation torso: the book's top page becomes an oversized furry smiling dog-like animal head with long rabbit-like ears, clearly a whole ANIMAL chimera. The head has small minimalist cel-painted ANIME DOT EYES embedded in a realistic fuzzy muzzle. Below the head, the torso is a tall fan of thick cream paper pages visibly showing the same small dog in four sequential running poses like ANIMATION frames, tiny wordless image panels, no letters. The pages form the entire belly and ribs. Four highly visible mechanical ANIMATRONIC jointed legs extend from the page spine with exposed steel joints, small electric motors and furry paw ends; one side of the face has a hinged cheek revealing a mechanical servo underneath fuzzy fur. No ordinary human costume. Asymmetric big animated ears, one turned sideways, funny dazed grin. Real paper + soft russet fur + expressive cel eyes + gleaming robotic joints. No flower.\nMandatory series face language: extremely simple flat ink-black DOT EYES and ONE SMALL thin CURVED SMILE, visually (• ◡ •), like a minimalist adventure cartoon emoticon. Exactly two solid round/vertical oval black dot eyes; no whites, irises, pupils, reflections, eyelashes, brow ridges or detailed facial musculature. The mouth is one short clean U-shaped dark curve, no visible teeth/tongue/lips. Facial marks are small in the center of face with wide spacing and lots of blank space, printed/painted directly on the creature's material. Keep realistic 3D absurd chimera body texture, but face stays minimalist 2D graphical black dots and curve. This face rule OVERRIDES any mention of large glossy eyes, pupil, toothy grins, infant/animal realism or detailed eye shapes in subject description.\nNo iris or white area: anime motif uses the cel-painted face marks and animated illustrated flipbook. Two black dots only.",
+          "source": "C:/Users/haiba/.codex/generated_images/01a11f58-4477-7010-abd2-7853b355e1fb/exec-3e4465d2-97f2-4b6c-8382-7f2b6fac5292.png",
+          "face_revision_prompt": "Use case: precise-object-edit. The supplied transparent furry animal animation automaton is the sole edit target. Change ONLY the pasted facial features on its head, making a naturally integrated appealing young CARTOON ANIMAL face that combines Japanese-anime expressiveness with realistic three-dimensional soft animal fur. Remove the flat black dot eyes and pasted U smile from the blank fur. Replace them with two big recessed almond/oval animal eyes, physically set into volumetric furry eye sockets, with visible warm amber irises, dark pupils, small natural catchlights, and thin upper eyelids. Position the eyes anatomically above and on either side of the EXISTING real black dog nose, appropriate to the existing head's three-quarter perspective; keep that one real black nose centered on the existing rounded dog muzzle. Add a small natural soft W-shaped animal mouth DIRECTLY BELOW that real nose. Expression is cheerful and curiously alert, with gently asymmetric furry brows and the existing ears expressing curiosity. This must unmistakably be an expressive furry ANIMAL face, not a human baby face, not old-man eyes, not flat ink dots pasted to fur. No extra nose, no extra eyes, no extra mouth. Keep realistic soft fur texture, rounded muzzle volume, warm brown-and-white fur pattern, and naturally shadowed eye sockets. Precisely preserve EVERY NONFACE component and the original full-body anatomy: both long rabbit ears and their existing poses, doglike head outline and body, exposed mechanical cheek servo and wires, fluffy tail, all four mechanical articulated legs and joints, furry paw feet, the open layered animation flipbook ribs, every illustrated page and running-animal drawing, all screws/metal textures, proportions, pose, color palette, camera angle, and lighting. Do not humanize the body or redesign/simplify any part. Full original body and all extremities completely visible, adding only transparent canvas margin if needed without altering object shape. Genuine transparent background with clean alpha, no scene, no text or watermark.",
+          "candidateId": "v001",
+          "conceptFile": "root-ane-v001.md",
+          "legacyFile": "iki-ane-animatron.png",
+          "status": "candidate",
+          "overallDecision": "unselected",
+          "face": "毛皮に自然に埋まった琥珀色の動物の目、実物の黒い鼻、その直下の柔らかいW字の口。",
+          "generationMetadata": "generation-prompts-new-roots.json",
+          "reviewHistory": [
+            {
+              "actor": "user",
+              "scope": "face",
+              "verdict": "does_not_fit",
+              "quote": "合ってない",
+              "note": "過去の毛皮に貼った点目顔に対するコメント。現在の自然な動物顔への全体不採用ではない。",
+              "overallDecision": "unselected",
+              "appliesTo": "earlier face style",
+              "createdAt": null,
+              "timeNote": "正確な発言時刻は不明。制作時刻や採用時刻を推定しない。"
+            }
+          ],
+          "archivedSource": "D:/etymolingo/work/wildwordopia/sample/_sources/root-ane-v001.png",
+          "localSource": "_sources/root-ane-v001.png",
+          "sourceKind": "generated_original",
+          "creationTime": null,
+          "creationTimeNote": "正確な制作日時は不明。ファイル更新日時から制作日時を推定しない。"
+        },
+        {
+          "id": "ane",
+          "name": "Iki Ane Animix",
+          "kana": "イキ・アネ・アニミックス",
+          "root": "anə-",
+          "meaning": "息をする",
+          "meaningEn": "Breathe",
+          "file": "root-ane-v002.png",
+          "motifs": [
+            {
+              "word": "anime",
+              "ja": "アニメ",
+              "part": "A layered cel head, blue hair, large anime eyes, and a wink",
+              "partJa": "大きなアニメ目とウインク、青い髪、ちび頭身。セルの積層でできた頭",
+              "meaning": "日本のアニメーション",
+              "lineage": "日本語でanimationが短縮され、英語へ入った語。animation経由でanə-",
+              "source": "https://www.etymonline.com/word/anime"
+            },
+            {
+              "word": "animation",
+              "ja": "アニメーション",
+              "part": "A flipbook torso with successive poses and transparent cel limbs",
+              "partJa": "胴体そのものがパラパラ漫画。横へ広がるページに連続ポーズを描く。透明なセルの腕・脚",
+              "meaning": "アニメーション",
+              "lineage": "Latin animationem / animare / anima（息・生命）→ anə-",
+              "source": "https://www.etymonline.com/word/animation"
+            },
+            {
+              "word": "animal",
+              "ja": "動物",
+              "part": "Furry animal ears and a large tail",
+              "partJa": "毛のある動物耳と大きな尾",
+              "meaning": "動物",
+              "lineage": "Latin animale / animalis / anima（息）→ anə-。描かれた動物種名が同根という主張ではない",
+              "source": "https://www.etymonline.com/word/animal"
+            },
+            {
+              "word": "animatronic",
+              "ja": "動く機械人形",
+              "part": "Exposed mechanical joints at the shoulders, elbows, knees, and ears",
+              "partial": true,
+              "partJa": "肩・肘・膝・耳の露出した金属関節と機構",
+              "note": "The animation-derived component shares this root; electronics has separate ancestry.",
+              "meaning": "生き物を模した機械仕掛けの",
+              "lineage": "animation + electronicsの混成語。anə-を共有するのはanimation由来の部分",
+              "source": "https://www.etymonline.com/word/animatronic"
+            }
+          ],
+          "sources": [
+            {
+              "title": "anime",
+              "url": "https://www.etymonline.com/word/anime"
+            },
+            {
+              "title": "animation",
+              "url": "https://www.etymonline.com/word/animation"
+            },
+            {
+              "title": "animal",
+              "url": "https://www.etymonline.com/word/animal"
+            },
+            {
+              "title": "animatronic",
+              "url": "https://www.etymonline.com/word/animatronic"
+            }
+          ],
+          "rootKey": "anə-",
+          "stem": "root-ane-v002",
+          "concept": "パラパラ漫画の束を胴体にした、クールでかわいいアニメちびクリーチャー。透明なセル画の手足を露出機械関節でつなぎ、動物耳と毛皮の尾が融合する。既存の毛皮主体案とは構造も顔も異なる、比較用の独立した新案。",
+          "prompt": "Use case: stylized-concept. Asset type: isolated original game character sprite, a new STRUCTURALLY DIFFERENT candidate for PIE *anə- / *ane- meaning breathe. Create one striking Japanese ANIME CHIBI character with both COOLNESS and CUTENESS, an absurd animation-animal-animatronic hybrid. This is a new character, not an edit of an existing furry creature. The character is about 2.5 heads tall. Four central motifs are ANIME, ANIMATION, ANIMAL and ANIMATRONIC; integrate them INTO THE BODY, not as handheld accessories or ordinary cosplay. BODY STRUCTURE: the entire torso is a thick, open physical FLIPBOOK with a visible bound spine and many layered off-white paper leaves; pages fan sideways as integral body panels. Several exposed pages show successive little cel-animation poses of this same character, like an animation sequence, with no text. The belly and chest are literally the layered book pages, not a normal clothed human torso carrying a book. Upper arms and lower leg panels are translucent blue/cyan ANIMATION CELS with drawn colour fills, their edges and layering visibly like clear film sheets. Exposed compact metal ANIMATRONIC JOINTS and spring/gear mechanisms connect shoulders, elbows and knees; machinery is readable but polished and friendly. HEAD/FACE: expressive Japanese anime face, large luminous gold/violet anime eyes with one confident wink, slight spirited asymmetric smile, angular swept short navy-blue hair with teal highlight; the head is a sculpted stack of animation cel layers, stylish and very cute, not flat dot eyes. ANIMAL aspects: two soft furry triangular animal ears clearly emerging from the head, pale cream inner fur, and one fluffy navy/cream tail emerging from the flipbook spine. These animal features represent animal, not a claim that the English species word is from this root. Silhouette and pose: dynamic self-confident mini hero stance, one arm bent with a small fist, other arm extended so the transparent cel layers and exposed joints can be read; oversized head and compact feet. Two wide paper-page fans flowing from the flipbook torso make a dramatic swooping silhouette while remaining body pages, not cloth or unrelated wings. No carried book, wand, weapon or arbitrary additional props. Style: polished high-end 2.5D/3D cel-shaded game collectible; richly readable tactile paper, clear cel sheets, glossy small metal mechanisms and soft fur, strong crisp outlines and charming facial expression. Palette navy, teal/cyan, warm cream paper with tiny vivid magenta accents. The body is a playful improbable hybrid rather than a conventional anime child in costume. Keep whole body, ears, tail and every paper panel fully visible with generous clear margins, centered in a square composition. Truly TRANSPARENT background, clean alpha, no floor, no environment, no cast backdrop, no words, labels, watermark, border or caption. No flowers/anemone. Original design with no existing franchise character. Deliver ONE individual complete character, suitable for a 512x512 transparent PNG.",
+          "source": "C:/Users/haiba/.codex/generated_images/01a11f58-1369-71d1-92c7-d9835a442f7b/exec-f058253f-c61c-4054-8700-31dabe7bee19.png",
+          "face_revision_prompt": "Use case: precise-object-edit. The supplied transparent furry animal animation automaton is the sole edit target. Change ONLY the pasted facial features on its head, making a naturally integrated appealing young CARTOON ANIMAL face that combines Japanese-anime expressiveness with realistic three-dimensional soft animal fur. Remove the flat black dot eyes and pasted U smile from the blank fur. Replace them with two big recessed almond/oval animal eyes, physically set into volumetric furry eye sockets, with visible warm amber irises, dark pupils, small natural catchlights, and thin upper eyelids. Position the eyes anatomically above and on either side of the EXISTING real black dog nose, appropriate to the existing head's three-quarter perspective; keep that one real black nose centered on the existing rounded dog muzzle. Add a small natural soft W-shaped animal mouth DIRECTLY BELOW that real nose. Expression is cheerful and curiously alert, with gently asymmetric furry brows and the existing ears expressing curiosity. This must unmistakably be an expressive furry ANIMAL face, not a human baby face, not old-man eyes, not flat ink dots pasted to fur. No extra nose, no extra eyes, no extra mouth. Keep realistic soft fur texture, rounded muzzle volume, warm brown-and-white fur pattern, and naturally shadowed eye sockets. Precisely preserve EVERY NONFACE component and the original full-body anatomy: both long rabbit ears and their existing poses, doglike head outline and body, exposed mechanical cheek servo and wires, fluffy tail, all four mechanical articulated legs and joints, furry paw feet, the open layered animation flipbook ribs, every illustrated page and running-animal drawing, all screws/metal textures, proportions, pose, color palette, camera angle, and lighting. Do not humanize the body or redesign/simplify any part. Full original body and all extremities completely visible, adding only transparent canvas margin if needed without altering object shape. Genuine transparent background with clean alpha, no scene, no text or watermark.",
+          "candidateId": "v002",
+          "conceptFile": "root-ane-v002.md",
+          "status": "candidate",
+          "overallDecision": "unselected",
+          "face": "大きな金紫のアニメ目、片目ウインク、元気な非対称の開いた笑顔。セルの色・線・ちび頭身に合う顔を選択。一律の点目顔ではない。",
+          "generationMetadata": "generation-candidates-ane.json",
+          "reviewHistory": [
+            {
+              "date": "2026-10-09 JST",
+              "scope": "方向性・新案の追加",
+              "userFeedback": "日本のアニメキャラ、ちびキャラ的なカッコよさ、可愛さがあるキャラもたまにようい。例えば ane- はアニメーションの起源なので、そういう設定が似合うだろう。以前のものを消すのではなく、新しく用意して、比較検討が簡単にできるようにする。",
+              "response": "既存案を保全し、aneのv002として構造が異なるアニメちび案を新規生成。キャラそのものの採用は未決定。",
+              "status": "candidate"
+            }
+          ],
+          "archivedSource": "D:/etymolingo/work/wildwordopia/sample/_sources/root-ane-v002.png",
+          "localSource": "_sources/root-ane-v002.png",
+          "sourceKind": "generated_original",
+          "creationTime": null,
+          "creationTimeNote": "正確な制作日時は不明。ファイル更新日時から制作日時を推定しない。",
+          "displayRoot": "*ane-",
+          "nameParts": {
+            "japanese": "Iki＝息",
+            "pie": "Ane＝*anə-",
+            "english": "Animix＝anime / animation / animatronicの混成"
+          },
+          "generator": "built-in ImageGen",
+          "exclusions": [
+            "anemoneは語源説に不確実性があり使用しない",
+            "animalの耳・尾を特定動物種名の語源として教えない",
+            "既存案の削除・置換・上書きはしない"
+          ],
+          "validation": {
+            "format": "PNG",
+            "size": [
+              512,
+              512
+            ],
+            "channels": "RGBA",
+            "cornerAlpha": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "transparentPixels": 146531,
+            "opaquePixels": 2234,
+            "partialAlphaPixels": 113379,
+            "alphaBounds": [
+              34,
+              16,
+              483,
+              495
+            ],
+            "visual": "最終512画像を目視。耳・尾・手足・ページ全体が画面内。モチーフと顔が読み取れる。"
+          }
+        }
+      ],
+      "conceptFile": "root-ane-v001.md",
+      "status": "candidate",
+      "overallDecision": "unselected"
+    },
+    {
+      "id": "bha",
+      "name": "Koe Bha Fablephone",
+      "kana": "コエ・バァ・フェイブルフォン",
+      "root": "*bhā-2",
+      "meaning": "話す",
+      "meaningEn": "Speak",
+      "file": "root-bha2-v001.png",
+      "motifs": [
+        {
+          "word": "phone",
+          "ja": "電話",
+          "part": "An enormous red telephone receiver",
+          "partJa": "巨大な赤い受話器の胴体"
+        },
+        {
+          "word": "infant",
+          "ja": "赤ちゃん",
+          "part": "A round baby face in the middle of the receiver",
+          "partial": true,
+          "partJa": "受話器の真ん中の赤ちゃん顔",
+          "note": "The in- part means not; the other part means speaking."
+        },
+        {
+          "word": "microphone",
+          "ja": "マイク",
+          "part": "Silver mesh microphones on coiled-cord arms",
+          "partial": true,
+          "partJa": "銀色のマイクの腕",
+          "note": "The -phone part means sound or voice; micro- means small."
+        },
+        {
+          "word": "gramophone",
+          "ja": "蓄音機",
+          "part": "A large brass gramophone horn",
+          "partial": true,
+          "partJa": "頭上の大きなラッパ",
+          "note": "The -phone part means sound or voice; the other part refers to writing or recording."
+        },
+        {
+          "word": "fable",
+          "ja": "寓話",
+          "part": "Illustrated fable books forming the feet",
+          "partJa": "開いた寓話の本の足"
+        }
+      ],
+      "sources": [
+        {
+          "title": "phone",
+          "url": "https://www.etymonline.com/word/phone"
+        },
+        {
+          "title": "infant",
+          "url": "https://www.etymonline.com/word/infant"
+        },
+        {
+          "title": "microphone",
+          "url": "https://www.etymonline.com/word/microphone"
+        },
+        {
+          "title": "gramophone",
+          "url": "https://www.etymonline.com/word/gramophone"
+        },
+        {
+          "title": "fable",
+          "url": "https://www.etymonline.com/word/fable"
+        }
+      ],
+      "rootKey": "bhā-2",
+      "stem": "root-bha2",
+      "candidates": [
+        {
+          "id": "bha",
+          "name": "Koe Bha Fablephone",
+          "kana": "コエ・バァ・フェイブルフォン",
+          "root": "*bhā-2",
+          "meaning": "話す",
+          "meaningEn": "Speak",
+          "file": "root-bha2-v001.png",
+          "motifs": [
+            {
+              "word": "phone",
+              "ja": "電話",
+              "part": "An enormous red telephone receiver",
+              "partJa": "巨大な赤い受話器の胴体"
+            },
+            {
+              "word": "infant",
+              "ja": "赤ちゃん",
+              "part": "A round baby face in the middle of the receiver",
+              "partial": true,
+              "partJa": "受話器の真ん中の赤ちゃん顔",
+              "note": "The in- part means not; the other part means speaking."
+            },
+            {
+              "word": "microphone",
+              "ja": "マイク",
+              "part": "Silver mesh microphones on coiled-cord arms",
+              "partial": true,
+              "partJa": "銀色のマイクの腕",
+              "note": "The -phone part means sound or voice; micro- means small."
+            },
+            {
+              "word": "gramophone",
+              "ja": "蓄音機",
+              "part": "A large brass gramophone horn",
+              "partial": true,
+              "partJa": "頭上の大きなラッパ",
+              "note": "The -phone part means sound or voice; the other part refers to writing or recording."
+            },
+            {
+              "word": "fable",
+              "ja": "寓話",
+              "part": "Illustrated fable books forming the feet",
+              "partJa": "開いた寓話の本の足"
+            }
+          ],
+          "sources": [
+            {
+              "title": "phone",
+              "url": "https://www.etymonline.com/word/phone"
+            },
+            {
+              "title": "infant",
+              "url": "https://www.etymonline.com/word/infant"
+            },
+            {
+              "title": "microphone",
+              "url": "https://www.etymonline.com/word/microphone"
+            },
+            {
+              "title": "gramophone",
+              "url": "https://www.etymonline.com/word/gramophone"
+            },
+            {
+              "title": "fable",
+              "url": "https://www.etymonline.com/word/fable"
+            }
+          ],
+          "rootKey": "bhā-2",
+          "stem": "root-bha2",
+          "concept": "A giant glossy cherry-red old TELEPHONE HANDSET stands vertically as an impossible living body, curved into a sideways crescent. A very cute round INFANT FACE with large expressive eyes, plump baby cheeks and one soft curl is fused into the CENTER of the receiver; no full human baby's body. Two flexible black coiled telephone cords grow out as arms and end in huge real silver mesh MICROPHONE heads as hands. One gigantic polished brass GRAMOPHONE HORN sprouts from the top of the receiver like an outrageous trumpet-shaped hairstyle, horn opening facing viewer, scaled half as large as handset. The two solid lower feet are an OPEN thick illustrated FABLE STORYBOOK split into two walking page blocks, its leather cover wrapping underneath. Pages show small wordless picture story panels and no legible writing. Rich shiny red plastic, silver mic mesh, brass horn, worn cream pages. A weird adorable talking infant telephone gramophone, all five large motifs apparent.",
+          "prompt": "Use case: stylized-concept. Asset type: original English-etymology game character isolated transparent PNG. Style: absurd AI-brainrot surreal 3D chimera, convincing photographic materials, polished character IP, ridiculous yet child-approachable. Every major motif must be physically fused into main anatomy, large and legible at 512 pixels. No anime human in a themed costume. Full creature entirely visible in square frame, including tips, tail and feet, with AT LEAST 7 percent empty transparent padding on ALL sides. Never crop any part. Three-quarter front view, soft studio lighting, high material contrast. Young charming face, big soulful eyes, funny dazed expression. Transparent alpha background; no floor, no environment, no ground shadow, no captions, no logos, no watermark, no extra props. Ordinary anatomy may connect only the described motifs.\nPrimary request: A giant glossy cherry-red old TELEPHONE HANDSET stands vertically as an impossible living body, curved into a sideways crescent. A very cute round INFANT FACE with large expressive eyes, plump baby cheeks and one soft curl is fused into the CENTER of the receiver; no full human baby's body. Two flexible black coiled telephone cords grow out as arms and end in huge real silver mesh MICROPHONE heads as hands. One gigantic polished brass GRAMOPHONE HORN sprouts from the top of the receiver like an outrageous trumpet-shaped hairstyle, horn opening facing viewer, scaled half as large as handset. The two solid lower feet are an OPEN thick illustrated FABLE STORYBOOK split into two walking page blocks, its leather cover wrapping underneath. Pages show small wordless picture story panels and no legible writing. Rich shiny red plastic, silver mic mesh, brass horn, worn cream pages. A weird adorable talking infant telephone gramophone, all five large motifs apparent.",
+          "source": "C:\\Users\\haiba\\.codex\\generated_images\\01a11c2c-2aea-7d31-acf8-4d418bf98912\\exec-fe994b3e-4fb6-4728-9641-2be28676aaa9.png",
+          "candidateId": "v001",
+          "conceptFile": "root-bha2-v001.md",
+          "legacyFile": "koe-bha-fablephone.png",
+          "status": "candidate",
+          "overallDecision": "unselected",
+          "face": "丸い赤ちゃんの顔。大きな目と幼い表情を電話の立体素材と組み合わせる。",
+          "generationMetadata": "generation-prompts-new-roots.json",
+          "reviewHistory": [],
+          "archivedSource": "D:/etymolingo/work/wildwordopia/sample/_sources/root-bha2-v001.png",
+          "localSource": "_sources/root-bha2-v001.png",
+          "sourceKind": "generated_original",
+          "creationTime": null,
+          "creationTimeNote": "正確な制作日時は不明。ファイル更新日時から制作日時を推定しない。"
+        },
+        {
+          "id": "bha",
+          "name": "Koe Bha Microlull",
+          "kana": "コエ・バァ・マイクロラル",
+          "root": "*bhā-2",
+          "meaning": "話す",
+          "meaningEn": "Speak",
+          "file": "root-bha2-v002.png",
+          "motifs": [
+            {
+              "word": "microphone",
+              "ja": "マイク",
+              "part": "A narrow silver microphone barrel forms the tall body",
+              "partial": true,
+              "partJa": "細長い銀色のマイクの胴体",
+              "note": "The -phone part means sound or voice; micro- means small."
+            },
+            {
+              "word": "infant",
+              "ja": "赤ちゃん",
+              "part": "An oversized infant head is fused into the microphone grille",
+              "partial": true,
+              "partJa": "銀色のグリル上に融合した大きな赤ちゃんの頭",
+              "note": "The in- part means not; the other part means speaking."
+            },
+            {
+              "word": "phone",
+              "ja": "電話",
+              "part": "Coiled telephone cords and red receivers form the arms",
+              "partJa": "電話コードの腕と赤い受話器の手"
+            },
+            {
+              "word": "gramophone",
+              "ja": "蓄音機",
+              "part": "A huge brass gramophone horn grows out of the back",
+              "partial": true,
+              "partJa": "背中から直接生える大きな蓄音機のラッパ",
+              "note": "The -phone part means sound or voice; the other part refers to writing or recording."
+            },
+            {
+              "word": "fable",
+              "ja": "寓話",
+              "part": "Two open illustrated fable books form the feet",
+              "partJa": "厚い挿絵本が左右の足"
+            }
+          ],
+          "sources": [
+            {
+              "title": "phone",
+              "url": "https://www.etymonline.com/word/phone"
+            },
+            {
+              "title": "infant",
+              "url": "https://www.etymonline.com/word/infant"
+            },
+            {
+              "title": "microphone",
+              "url": "https://www.etymonline.com/word/microphone"
+            },
+            {
+              "title": "gramophone",
+              "url": "https://www.etymonline.com/word/gramophone"
+            },
+            {
+              "title": "fable",
+              "url": "https://www.etymonline.com/word/fable"
+            }
+          ],
+          "rootKey": "bhā-2",
+          "stem": "root-bha2",
+          "concept": "マイクが細い胴体、赤ちゃんの大きな頭、受話器の腕、蓄音機の背中、寓話本の足。縦長の頭でっかちな形。",
+          "prompt": "Use case: stylized-concept. Asset type: original English-etymology game creature, one isolated transparent PNG. Create an outrageous absurd AI-brainrot physically fused chimera with convincingly textured 3D materials, memorable polished character-IP silhouette and an expressive playful face suitable for children. It must read as impossible fused anatomy, not a human in costume holding props. Full body and all extremities in square frame, at least 7 percent empty transparent margin on every side, front three-quarter view, soft studio lighting. True transparent alpha background, no ground shadow or scenery, no captions, brand logos, watermark, or separate objects. Primary components large and unmistakable at 512 pixels. Only described motifs and necessary connecting anatomy.\nSubject: A tall skinny living SILVER MICROPHONE is the entire body/neck of a bizarre creature. The recognizable cylindrical microphone barrel has chrome ridges and a metal mesh head, and TWO giant soft peach INFANT CHEEKS and a HUGE adorable BABY HEAD are physically fused into and emerging from its upper microphone grille. Exaggerated oversized infant head, one curled lock, large blue anime-inspired expressive eyes with visible irises, raised mischievous eyebrow and a funny smug tiny mouth; no flat dot-eye face, no adult man. The skin is a polished soft toy material, no human baby body. Two huge TELEPHONE CORD arms sprout from the microphone barrel, each terminating in one end of a chunky glossy RED TELEPHONE RECEIVER that curves as the creature's connected hand structure. The arms and receivers are clear and integrated. A giant BRASS GRAMOPHONE HORN grows from the back at waist level and curls to one side so its flared opening is visible, an actual ribbed flower-like phonograph horn attached as its back/tail. At the bottom two thick OPEN ILLUSTRATED FABLE BOOKS form its huge outward-splayed feet; tiny animal-story pictures visible on pages, no readable words. Dominant silhouette: enormous infant head high atop long skinny microphone body, looping red receiver arms, large flared horn at hip, two broad book feet. No conventional torso, no additional hats, musical instruments, or floating props. All five motifs readable; all parts contained within transparent frame.",
+          "source": "C:\\Users\\haiba\\.codex\\generated_images\\01a11c2c-2aea-7d31-acf8-4d418bf98912\\exec-c08229fd-9ec9-4116-802c-534b129f2339.png",
+          "candidateId": "v002",
+          "conceptFile": "root-bha2-v002.md",
+          "status": "candidate",
+          "overallDecision": "unselected",
+          "face": "大きなアニメ風の赤ちゃんの目、片眉を上げた得意げな口。点目にはしない。",
+          "generationMetadata": "generation-candidates-bha.json",
+          "reviewHistory": [],
+          "archivedSource": "D:/etymolingo/work/wildwordopia/sample/_sources/root-bha2-v002.png",
+          "localSource": "_sources/root-bha2-v002.png",
+          "sourceKind": "generated_original",
+          "creationTime": null,
+          "creationTimeNote": "正確な制作日時は不明。ファイル更新日時から制作日時を推定しない。",
+          "parts": {
+            "microphone": "細長い銀色のマイクの胴体",
+            "infant": "銀色のグリル上に融合した大きな赤ちゃんの頭",
+            "phone": "電話コードの腕と赤い受話器の手",
+            "gramophone": "背中から直接生える大きな蓄音機のラッパ",
+            "fable": "厚い挿絵本が左右の足"
+          },
+          "partsEn": {
+            "microphone": "A narrow silver microphone barrel forms the tall body",
+            "infant": "An oversized infant head is fused into the microphone grille",
+            "phone": "Coiled telephone cords and red receivers form the arms",
+            "gramophone": "A huge brass gramophone horn grows out of the back",
+            "fable": "Two open illustrated fable books form the feet"
+          }
+        },
+        {
+          "id": "bha",
+          "name": "Koe Bha Fableclack",
+          "kana": "コエ・バァ・フェイブルクラック",
+          "root": "*bhā-2",
+          "meaning": "話す",
+          "meaningEn": "Speak",
+          "file": "root-bha2-v003.png",
+          "motifs": [
+            {
+              "word": "fable",
+              "ja": "寓話",
+              "part": "A wide open illustrated fable book forms the body and paper face",
+              "partJa": "開いた厚い寓話本そのものの胴体"
+            },
+            {
+              "word": "microphone",
+              "ja": "マイク",
+              "part": "Two silver mesh microphones form the short walking legs",
+              "partial": true,
+              "partJa": "銀色のマイクでできた二本の脚",
+              "note": "The -phone part means sound or voice; micro- means small."
+            },
+            {
+              "word": "phone",
+              "ja": "電話",
+              "part": "A red telephone receiver arcs across the top edge",
+              "partJa": "頭の上を横切る大きな赤い受話器"
+            },
+            {
+              "word": "gramophone",
+              "ja": "蓄音機",
+              "part": "A flared brass gramophone horn grows from the book spine",
+              "partial": true,
+              "partJa": "本の背に直接融合した大きな金色ラッパ",
+              "note": "The -phone part means sound or voice; the other part refers to writing or recording."
+            }
+          ],
+          "sources": [
+            {
+              "title": "phone",
+              "url": "https://www.etymonline.com/word/phone"
+            },
+            {
+              "title": "microphone",
+              "url": "https://www.etymonline.com/word/microphone"
+            },
+            {
+              "title": "gramophone",
+              "url": "https://www.etymonline.com/word/gramophone"
+            },
+            {
+              "title": "fable",
+              "url": "https://www.etymonline.com/word/fable"
+            }
+          ],
+          "rootKey": "bhā-2",
+          "stem": "root-bha2",
+          "concept": "開いた寓話本が横に広い胴体と顔、マイクが脚、受話器が眉兼取っ手、蓄音機のラッパが背骨から生える。",
+          "prompt": "Use case: stylized-concept. Asset type: original English-etymology game creature, one isolated transparent PNG. Create an outrageous absurd AI-brainrot physically fused chimera with convincingly textured 3D materials, memorable polished character-IP silhouette and an expressive playful face suitable for children. It must read as impossible fused anatomy, not a human in costume holding props. Full body and all extremities in square frame, at least 7 percent empty transparent margin on every side, front three-quarter view, soft studio lighting. True transparent alpha background, no ground shadow or scenery, no captions, brand logos, watermark, or separate objects. Primary components large and unmistakable at 512 pixels. Only described motifs and necessary connecting anatomy.\nSubject: A very WIDE OPEN LEATHER FABLE BOOK is the ENTIRE living creature's flattened body/head; thick warm ivory pages fan outward on both sides, a turquoise leather spine and cover form its outer silhouette. It stands like a short broad open-book crab, with two stubby SILVER MESH MICROPHONES physically fused below the covers as walking legs, their rounded microphone heads contacting the ground, and only small cord joints. The open paper page spread is the face: expressive asymmetrical clean black ink LINE eyes, one an angular closed WINK and the other a tall slender oval with a tiny pupil; one amused SLOPING OPEN PAPER SMILE in the central fold, not two simple dots with a U smile. A tiny baby-cheek illustration embossed in the upper paper is optional and must not dominate. A HUGE CHUNKY CHERRY-RED TELEPHONE HANDSET arcs across the upper edge as a solid handle/brow, attached into both corners of the book cover; the unmistakable receiver cups face outward. A conspicuous HUGE brass GRAMOPHONE HORN grows directly out of the book's central spine behind its head and curls sideways, with ribbed flared open bell visible. On the bottom outer corners of the open pages, visible small classic fable-scene engravings of animals illustrate the book's fable identity, integrated into the paper, no separate animals. Main motifs are fable, microphone, phone, gramophone; the character has no human torso or separate head. Funny sly bibliophile expression; real paper/chrome/brass/red plastic materials. Entire horn, both microphone legs, both receiver ends and covers clearly visible without crop.",
+          "source": "C:\\Users\\haiba\\.codex\\generated_images\\01a11c2c-2aea-7d31-acf8-4d418bf98912\\exec-7aae9fe1-1ed0-4eb7-9c80-d8a15d0db589.png",
+          "candidateId": "v003",
+          "conceptFile": "root-bha2-v003.md",
+          "status": "candidate",
+          "overallDecision": "unselected",
+          "face": "紙面の左右に表情が分かれる線の顔。片目は閉じてウインク、もう片目は細長い目、斜めの笑顔。点目２個とU口にはしない。",
+          "generationMetadata": "generation-candidates-bha.json",
+          "reviewHistory": [],
+          "archivedSource": "D:/etymolingo/work/wildwordopia/sample/_sources/root-bha2-v003.png",
+          "localSource": "_sources/root-bha2-v003.png",
+          "sourceKind": "generated_original",
+          "creationTime": null,
+          "creationTimeNote": "正確な制作日時は不明。ファイル更新日時から制作日時を推定しない。",
+          "parts": {
+            "fable": "開いた厚い寓話本そのものの胴体",
+            "microphone": "銀色のマイクでできた二本の脚",
+            "phone": "頭の上を横切る大きな赤い受話器",
+            "gramophone": "本の背に直接融合した大きな金色ラッパ"
+          },
+          "partsEn": {
+            "fable": "A wide open illustrated fable book forms the body and paper face",
+            "microphone": "Two silver mesh microphones form the short walking legs",
+            "phone": "A red telephone receiver arcs across the top edge",
+            "gramophone": "A flared brass gramophone horn grows from the book spine"
+          }
+        }
+      ],
+      "conceptFile": "root-bha2-v001.md",
+      "status": "candidate",
+      "overallDecision": "unselected"
+    },
+    {
+      "id": "gwei",
+      "name": "Inochi Gwei Vitazoo",
+      "kana": "イノチ・グウェイ・ビタズー",
+      "root": "*gwei-",
+      "meaning": "生きる",
+      "meaningEn": "Live",
+      "file": "root-gwei-v001.png",
+      "motifs": [
+        {
+          "word": "vitamin",
+          "ja": "ビタミン",
+          "part": "A giant translucent vitamin capsule body",
+          "partial": true,
+          "partJa": "半透明の巨大なカプセルの胴体",
+          "note": "The vita- part means life; the rest comes from amine."
+        },
+        {
+          "word": "zoo",
+          "ja": "動物園",
+          "part": "A tiny zoo visible inside the clear capsule",
+          "partJa": "カプセルの中の小さな動物園"
+        },
+        {
+          "word": "quick",
+          "ja": "すばやい",
+          "part": "A springing, fast running pose",
+          "partJa": "走っている姿勢"
+        },
+        {
+          "word": "survive",
+          "ja": "生きのびる",
+          "part": "A survival lifebuoy fused around the waist",
+          "partial": true,
+          "partJa": "体に融合した救命浮き輪",
+          "note": "The -vive part means live; sur- means over."
+        },
+        {
+          "word": "amphibian",
+          "ja": "両生類",
+          "part": "Green frog-like amphibian limbs",
+          "partial": true,
+          "partJa": "カエルのような脚",
+          "note": "The Greek bios ('life') component shares the root; amphi- means both. This is not the Latin bi- prefix meaning two."
+        }
+      ],
+      "sources": [
+        {
+          "title": "vitamin",
+          "url": "https://www.etymonline.com/word/vitamin"
+        },
+        {
+          "title": "zoo",
+          "url": "https://www.etymonline.com/word/zoo"
+        },
+        {
+          "title": "quick",
+          "url": "https://www.etymonline.com/word/quick"
+        },
+        {
+          "title": "survive",
+          "url": "https://www.etymonline.com/word/survive"
+        },
+        {
+          "title": "amphibian",
+          "url": "https://www.etymonline.com/word/amphibian"
+        }
+      ],
+      "rootKey": "gwei-",
+      "stem": "root-gwei",
+      "candidates": [
+        {
+          "id": "gwei",
+          "name": "Inochi Gwei Vitazoo",
+          "kana": "イノチ・グウェイ・ビタズー",
+          "root": "*gwei-",
+          "meaning": "生きる",
+          "meaningEn": "Live",
+          "file": "root-gwei-v001.png",
+          "motifs": [
+            {
+              "word": "vitamin",
+              "ja": "ビタミン",
+              "part": "A giant translucent vitamin capsule body",
+              "partial": true,
+              "partJa": "半透明の巨大なカプセルの胴体",
+              "note": "The vita- part means life; the rest comes from amine."
+            },
+            {
+              "word": "zoo",
+              "ja": "動物園",
+              "part": "A tiny zoo visible inside the clear capsule",
+              "partJa": "カプセルの中の小さな動物園"
+            },
+            {
+              "word": "quick",
+              "ja": "すばやい",
+              "part": "A springing, fast running pose",
+              "partJa": "走っている姿勢"
+            },
+            {
+              "word": "survive",
+              "ja": "生きのびる",
+              "part": "A survival lifebuoy fused around the waist",
+              "partial": true,
+              "partJa": "体に融合した救命浮き輪",
+              "note": "The -vive part means live; sur- means over."
+            },
+            {
+              "word": "amphibian",
+              "ja": "両生類",
+              "part": "Green frog-like amphibian limbs",
+              "partial": true,
+              "partJa": "カエルのような脚",
+              "note": "The Greek bios ('life') component shares the root; amphi- means both. This is not the Latin bi- prefix meaning two."
+            }
+          ],
+          "sources": [
+            {
+              "title": "vitamin",
+              "url": "https://www.etymonline.com/word/vitamin"
+            },
+            {
+              "title": "zoo",
+              "url": "https://www.etymonline.com/word/zoo"
+            },
+            {
+              "title": "quick",
+              "url": "https://www.etymonline.com/word/quick"
+            },
+            {
+              "title": "survive",
+              "url": "https://www.etymonline.com/word/survive"
+            },
+            {
+              "title": "amphibian",
+              "url": "https://www.etymonline.com/word/amphibian"
+            }
+          ],
+          "rootKey": "gwei-",
+          "stem": "root-gwei",
+          "concept": "A gigantic vertical VITAMIN CAPSULE with orange opaque upper half and clear glassy lower half is a living creature's entire body. Two bright youthful silly eyes and a grin sit on orange capsule top, which also has two smaller mottled green frog-like eye protrusions. Inside the clearly transparent lower capsule body, create a MICRO ZOO enclosure: a very recognizable tiny giraffe, miniature elephant and small striped zebra stand together behind simple visible vertical fence bars, contained inside its huge belly, each clearly visible from front, not a random aquarium. A bright red-white SURVIVAL LIFEBUOY ring is fused around capsule waist just ABOVE this clear zoo window so it does not obscure animals. Below grow two gigantic green mottled AMPHIBIAN FROG LEGS, one kicked high and one touching down, with dramatic QUICK RUNNING pose; one short frog arm stretches forward and the other back. No clothes or unrelated running shoes. Large capsule first, tiny zoo readable, buoy waist, frog spring legs. Funny broad squat-running silhouette rather than humanoid.",
+          "prompt": "Use case: stylized-concept. Asset type: original educational game character cutout. Style: absurd AI-brainrot 3D chimera with photographic realistic texture and polished whimsical IP design, emotionally appealing to children, physically fused anatomy rather than a humanoid holding objects. Dominant components huge and legible at 512px. Full body square front three-quarter view with at least 7 percent transparent margin all around and no cropped extremities. Soft studio lighting, vivid material contrast. Young friendly, ridiculous slightly dazed face, not old. Real alpha transparency, no floor, no background, no ground shadow, no text captions, no logos, no watermark. Only specified motifs plus connecting anatomy, no unrelated themed accessories.\nPrimary request: A gigantic vertical VITAMIN CAPSULE with orange opaque upper half and clear glassy lower half is a living creature's entire body. Two bright youthful silly eyes and a grin sit on orange capsule top, with absolutely no additional eyes or eye protrusions. Inside the clearly transparent lower capsule body, create a MICRO ZOO enclosure: a very recognizable tiny giraffe, miniature elephant and small striped zebra stand together behind simple visible vertical fence bars, contained inside its huge belly, each clearly visible from front, not a random aquarium. A bright red-white SURVIVAL LIFEBUOY ring is fused around capsule waist just ABOVE this clear zoo window so it does not obscure animals. Below grow two gigantic green mottled AMPHIBIAN FROG LEGS, one kicked high and one touching down, with dramatic QUICK RUNNING pose; one short frog arm stretches forward and the other back. No clothes or unrelated running shoes. Large capsule first, tiny zoo readable, buoy waist, frog spring legs. Funny broad squat-running silhouette rather than humanoid.\nMandatory series face language: extremely simple flat ink-black DOT EYES and ONE SMALL thin CURVED SMILE, visually (• ◡ •), like a minimalist adventure cartoon emoticon. Exactly two solid round/vertical oval black dot eyes; no whites, irises, pupils, reflections, eyelashes, brow ridges or detailed facial musculature. The mouth is one short clean U-shaped dark curve, no visible teeth/tongue/lips. Facial marks are small in the center of face with wide spacing and lots of blank space, printed/painted directly on the creature's material. Keep realistic 3D absurd chimera body texture, but face stays minimalist 2D graphical black dots and curve. This face rule OVERRIDES any mention of large glossy eyes, pupil, toothy grins, infant/animal realism or detailed eye shapes in subject description.\nOnly two SMALL printed black dot eyes on capsule surface. Froglike legs do not add frog eyes.",
+          "source": "C:/Users/haiba/.codex/generated_images/01a11f58-1369-71d1-92c7-d9835a442f7b/exec-487e7b88-7b22-4036-95d3-71e4e0fc6ecf.png",
+          "face_revision_prompt": "Use case: precise-object-edit. The input is the EDIT TARGET: a transparent 3D orange vitamin capsule creature with green frog limbs, a red/white life buoy belt and transparent micro-zoo capsule bottom. Change ONLY THE FACE to a unique absurd sleepy goofy FROG face, replacing the flat dot-eye smile. Remove the current 2 black dots and U smile, restore glossy orange material there. Make EXACTLY TWO strongly frog-like 3D eyeballs protruding just ABOVE the capsule dome, attached with small fleshy green frog eye hoods matching the frog limbs. They are a comically lopsided pair, pale yellow sclera, green irises, tiny off-center black pupils, droopy heavy eyelids; one eye more sleepy than the other, a slightly outward unfocused stare. Give the orange capsule front a broad subtle off-center FROG SMIRK, a low curved mouth crease that looks like a frog mouth, barely open at one corner, very amusing and unconcerned. The result is a bizarre brainrot frog capsule with character and asymmetry, not a symmetric smiley, not dot eyes, not human photoreal eyes, not a dollface. Preserve EVERYTHING ELSE EXACTLY: orange capsule overall shape, shiny realistic vitamin material, red/white lifebuoy, clear glass micro-zoo body, silver cage bars, tiny giraffe/elephant/zebra all clearly visible and unchanged, straw, existing two frog arms and two frog legs, running pose, raised right foot, webbed/finger toes, proportions, framing, camera, light and colour. No extra third eye, no new props or limbs, no words or watermark, no gore or horror. Keep whole creature isolated with all body parts and both new top eyes fully inside frame with clear margins. TRUE transparent background and preserve alpha. A surgical face-only variant of this exact design.",
+          "candidateId": "v001",
+          "conceptFile": "root-gwei-v001.md",
+          "legacyFile": "inochi-gwei-vitazoo.png",
+          "status": "candidate",
+          "overallDecision": "unselected",
+          "face": "半開きの目で眠そうな、立体的なカエル系の顔。",
+          "generationMetadata": "generation-prompts-new-roots.json",
+          "reviewHistory": [],
+          "archivedSource": "D:/etymolingo/work/wildwordopia/sample/_sources/root-gwei-v001.png",
+          "localSource": "_sources/root-gwei-v001.png",
+          "sourceKind": "generated_original",
+          "creationTime": null,
+          "creationTimeNote": "正確な制作日時は不明。ファイル更新日時から制作日時を推定しない。"
+        }
+      ],
+      "conceptFile": "root-gwei-v001.md",
+      "status": "candidate",
+      "overallDecision": "unselected"
+    },
+    {
+      "id": "oino",
+      "name": "Hitotsu Oino Onicycle",
+      "kana": "ヒトツ・オイノ・オニサイクル",
+      "root": "*oi-no-",
+      "meaning": "ひとつ",
+      "meaningEn": "One",
+      "file": "root-oino-v001.png",
+      "motifs": [
+        {
+          "word": "onion",
+          "ja": "タマネギ",
+          "part": "A giant layered onion body",
+          "partJa": "巨大なタマネギの胴体"
+        },
+        {
+          "word": "unicorn",
+          "ja": "ユニコーン",
+          "part": "One spiraled unicorn horn",
+          "partial": true,
+          "partJa": "一本だけの螺旋状の角",
+          "note": "The uni- part means one; corn refers to the horn."
+        },
+        {
+          "word": "unicycle",
+          "ja": "一輪車",
+          "part": "One unicycle wheel attached beneath the body",
+          "partial": true,
+          "partJa": "体の下に直結した一輪車",
+          "note": "The uni- part means one; cycle has a separate ancestry."
+        },
+        {
+          "word": "uniform",
+          "ja": "制服",
+          "part": "A fitted navy school uniform",
+          "partial": true,
+          "partJa": "胴体に食い込む制服",
+          "note": "The uni- part means one; form has a separate ancestry."
+        },
+        {
+          "word": "one",
+          "ja": "ひとつ・1",
+          "part": "One eye, one horn and one unicycle wheel",
+          "partJa": "一輪の車輪と一本の角"
+        }
+      ],
+      "sources": [
+        {
+          "title": "onion",
+          "url": "https://www.etymonline.com/word/onion"
+        },
+        {
+          "title": "unicorn",
+          "url": "https://www.etymonline.com/word/unicorn"
+        },
+        {
+          "title": "unicycle",
+          "url": "https://www.etymonline.com/word/unicycle"
+        },
+        {
+          "title": "uniform",
+          "url": "https://www.etymonline.com/word/uniform"
+        },
+        {
+          "title": "one",
+          "url": "https://www.etymonline.com/word/one"
+        }
+      ],
+      "rootKey": "oi-no-",
+      "stem": "root-oino",
+      "candidates": [
+        {
+          "id": "oino",
+          "name": "Hitotsu Oino Onicycle",
+          "kana": "ヒトツ・オイノ・オニサイクル",
+          "root": "*oi-no-",
+          "meaning": "ひとつ",
+          "meaningEn": "One",
+          "file": "root-oino-v001.png",
+          "motifs": [
+            {
+              "word": "onion",
+              "ja": "タマネギ",
+              "part": "A giant layered onion body",
+              "partJa": "巨大なタマネギの胴体"
+            },
+            {
+              "word": "unicorn",
+              "ja": "ユニコーン",
+              "part": "One spiraled unicorn horn",
+              "partial": true,
+              "partJa": "一本だけの螺旋状の角",
+              "note": "The uni- part means one; corn refers to the horn."
+            },
+            {
+              "word": "unicycle",
+              "ja": "一輪車",
+              "part": "One unicycle wheel attached beneath the body",
+              "partial": true,
+              "partJa": "体の下に直結した一輪車",
+              "note": "The uni- part means one; cycle has a separate ancestry."
+            },
+            {
+              "word": "uniform",
+              "ja": "制服",
+              "part": "A fitted navy school uniform",
+              "partial": true,
+              "partJa": "胴体に食い込む制服",
+              "note": "The uni- part means one; form has a separate ancestry."
+            },
+            {
+              "word": "one",
+              "ja": "ひとつ・1",
+              "part": "One eye, one horn and one unicycle wheel",
+              "partJa": "一輪の車輪と一本の角"
+            }
+          ],
+          "sources": [
+            {
+              "title": "onion",
+              "url": "https://www.etymonline.com/word/onion"
+            },
+            {
+              "title": "unicorn",
+              "url": "https://www.etymonline.com/word/unicorn"
+            },
+            {
+              "title": "unicycle",
+              "url": "https://www.etymonline.com/word/unicycle"
+            },
+            {
+              "title": "uniform",
+              "url": "https://www.etymonline.com/word/uniform"
+            },
+            {
+              "title": "one",
+              "url": "https://www.etymonline.com/word/one"
+            }
+          ],
+          "rootKey": "oi-no-",
+          "stem": "root-oino",
+          "concept": "A gigantic peeled golden-brown ONION is the entire round living body and head, with visibly layered real onion skin and one oversized charming cyclops eye. A thick spiraled UNICORN HORN sprouts directly from the onion top. The onion's lower half is tightly fused into a crisp navy school UNIFORM blazer with red tie, two short onion-layer arms extending from sleeves gripping a tiny unicycle handle. The entire creature balances on ONE large black rubber UNICYCLE WHEEL mounted directly below it, with shiny single-wheel metal frame, small pedals, and two small onion-root feet touching pedals. The visual read must unmistakably be onion + unicorn + uniform + unicycle; one-wheel circus absurdity. No horse head or horse body. No background scene.",
+          "prompt": "Use case: stylized-concept. Asset type: original English-etymology game character, isolated transparent PNG cutout. Style: absurd AI-brainrot surreal 3D creature with convincing photographic materials, polished game-IP design, charismatic ridiculous expression, approachable for children. A physically fused impossible chimera, highly memorable silhouette, NOT a cute anime humanoid wearing themed accessories. Every major component below must be large and visually legible at 512 pixels. Full creature in frame including extremities; centered square composition, modest transparent padding. Front three-quarter view, crisp edges, warm soft studio illumination, high color/material contrast. Transparent alpha background, no floor, no backdrop, no cast ground shadow, no captions, no watermark, no brand logo, no extra floating props. Only the stated components and ordinary connecting anatomy. Face should be young, endearing and mischievously dazed, not middle-aged.\nPrimary request: A gigantic peeled golden-brown ONION is the entire round living body and head, with visibly layered real onion skin and one oversized charming cyclops eye. A thick spiraled UNICORN HORN sprouts directly from the onion top. The onion's lower half is tightly fused into a crisp navy school UNIFORM blazer with red tie, two short onion-layer arms extending from sleeves gripping a tiny unicycle handle. The entire creature balances on ONE large black rubber UNICYCLE WHEEL mounted directly below it, with shiny single-wheel metal frame, small pedals, and two small onion-root feet touching pedals. The visual read must unmistakably be onion + unicorn + uniform + unicycle; one-wheel circus absurdity. No horse head or horse body. No background scene.",
+          "source": "C:/Users/haiba/.codex/generated_images/01a11c2c-2aea-7d31-acf8-4d418bf98912/exec-46f3b583-01bd-4874-9160-d376550e41b9.png",
+          "candidateId": "v001",
+          "conceptFile": "root-oino-v001.md",
+          "legacyFile": "hitotsu-oino-onicycle.png",
+          "status": "candidate",
+          "overallDecision": "unselected",
+          "face": "玉ねぎに埋まった大きな一つ眼。細い線の顔や貼り付けた点目には置き換えない。",
+          "generationMetadata": "generation-prompts-new-roots.json",
+          "reviewHistory": [
+            {
+              "actor": "user",
+              "scope": "face",
+              "verdict": "does_not_fit",
+              "quote": "合ってない最悪",
+              "note": "過去の一律の点目顔に対するコメント。現在の一つ眼案への全体不採用ではない。",
+              "overallDecision": "unselected",
+              "appliesTo": "earlier face style",
+              "createdAt": null,
+              "timeNote": "正確な発言時刻は不明。制作時刻や採用時刻を推定しない。"
+            }
+          ],
+          "archivedSource": "D:/etymolingo/work/wildwordopia/sample/_sources/root-oino-v001.png",
+          "localSource": "_sources/root-oino-v001.png",
+          "sourceKind": "generated_original",
+          "creationTime": null,
+          "creationTimeNote": "正確な制作日時は不明。ファイル更新日時から制作日時を推定しない。"
+        },
+        {
+          "id": "oino",
+          "name": "Hitotsu Oino Wheelion",
+          "kana": "ヒトツ・オイノ・ウィーリオン",
+          "root": "*oi-no-",
+          "meaning": "ひとつ",
+          "meaningEn": "One",
+          "file": "root-oino-v002.png",
+          "motifs": [
+            {
+              "word": "onion",
+              "ja": "タマネギ",
+              "part": "A layered onion hub fused into the center of the giant wheel",
+              "partJa": "ホイール中心に融合した大きな層状の玉ねぎハブ",
+              "sharedpart": "語全体",
+              "note": "ラテン語の『一つ』に関係する語を経る既存モチーフ。玉ねぎの由来は既存oi-no-コンセプトの出典を踏襲。"
+            },
+            {
+              "word": "unicorn",
+              "ja": "ユニコーン",
+              "part": "One spiraled horn growing from the onion hub above the wheel rim",
+              "partial": true,
+              "partJa": "玉ねぎハブから生え、ホイールの上に突き出す一本の螺旋角",
+              "note": "共有するのは『一つ』を表すuni-。corn/角の部分は別の語源。",
+              "sharedpart": "uni-"
+            },
+            {
+              "word": "unicycle",
+              "ja": "一輪車",
+              "part": "One giant wheel forms the whole torso, with spokes, cranks, and pedals",
+              "partial": true,
+              "partJa": "胴体そのものを作る一つの巨大ホイール、金属スポーク、クランクとペダル",
+              "note": "共有するのはuni-。cycleの部分は別の語源。",
+              "sharedpart": "uni-"
+            },
+            {
+              "word": "uniform",
+              "ja": "制服",
+              "part": "Navy uniform sleeves, white cuffs, and a collar fused around the hub",
+              "partial": true,
+              "partJa": "ホイール左右から伸びる紺の制服袖、白い袖口、ハブ下部の制服襟",
+              "note": "共有するのはuni-。formの部分は別の語源。",
+              "sharedpart": "uni-"
+            },
+            {
+              "word": "one",
+              "ja": "ひとつ、1",
+              "part": "One eye, one horn, and one wheel",
+              "partJa": "一つの眼、一輪の車輪、一本の角",
+              "sharedpart": "語全体",
+              "note": "数の意味を個数で示す。数字や文字は画像に描かない。"
+            }
+          ],
+          "sources": [
+            {
+              "title": "onion",
+              "url": "https://www.etymonline.com/word/onion"
+            },
+            {
+              "title": "unicorn",
+              "url": "https://www.etymonline.com/word/unicorn"
+            },
+            {
+              "title": "unicycle",
+              "url": "https://www.etymonline.com/word/unicycle"
+            },
+            {
+              "title": "uniform",
+              "url": "https://www.etymonline.com/word/uniform"
+            },
+            {
+              "title": "one",
+              "url": "https://www.etymonline.com/word/one"
+            }
+          ],
+          "rootKey": "oi-no-",
+          "stem": "root-oino",
+          "concept": "一輪車の巨大ホイール自体が円盤状の主胴体。輪の中心の玉ねぎハブが一つ眼の顔になり、制服の両袖が腕として左右に生える。玉ねぎの上には一本のユニコーン角。",
+          "prompt": "Use case: stylized-concept.\nAsset type: one original English-etymology game character candidate, standalone transparent PNG cutout, designed to read clearly at 512x512.\nPrimary request: Create a radically absurd physically fused onion-unicorn-unicycle-uniform creature. This is a NEW structural candidate, not an onion mascot sitting on a small wheel.\nMain body and silhouette: ONE ENORMOUS upright black rubber UNICYCLE WHEEL is the entire circular torso, taking up most of the creature. See the wheel in a near-front three-quarter view so its circular silhouette and rubber sidewall, metal spokes, and axle remain unmistakable. The visible rim surrounds a large real layered golden ONION HUB, which is anatomically fused into the axle as the living face and core, not a separate onion riding above the wheel. There is no separate onion head above this wheel body. Two short sleeved arms protrude directly from the left and right edges of the wheel at the upper sides. The uniform sleeves are fitted navy SCHOOL UNIFORM cloth with white cuffs, attached to the wheel body; the short hands at their ends are onion-layer connecting anatomy. A small navy blazer collar and small white shirt patch are fused around the onion hub, but the big tyre and spokes stay plainly exposed. ONE thick ivory spiral UNICORN HORN grows directly from the top of the onion hub and extends above the upper wheel rim, so one horn is clear. A pair of functional unicycle pedal cranks protrude at the wheel axle sides. No second wheel, no conventional legs, no tiny vehicle below a giant onion.\nFace: ONE oversized charismatic cyclops eye embedded in the front of the onion hub. A richly detailed teal iris, glassy cornea, soft three-dimensional eyelids, and an upward slightly off-center mischievous gaze. One small asymmetrical softly parted mouth below the eye; an endearing bewildered expression. NOT dot eyes, NOT two eyes, NOT a thin drawn smile, NOT old or wrinkled, NOT a horror eye. The face belongs to the onion material.\nMaterials and rendering: surreal polished 3D creature with convincingly photographed rubber tread, glossy metal spokes, thin papery onion skin and translucent onion layers, woven uniform cloth and a smooth spiral horn. Physical material boundaries and impossible anatomical fusion are the main joke. The result must look strange and charismatic, not a generic cute child mascot with accessories. Warm gentle studio illumination; strong material contrast; crisp cutout edges.\nComposition: isolated single character, square canvas, full body and all protrusions visible. Center the creature with at least 7 percent empty margin around the horn, cuffs and bottom tyre. Near-front three-quarter view. Actual transparent alpha background. No floor, no cast ground shadow, no backdrop.\nAllowed learning motifs ONLY: onion, unicorn, unicycle, uniform, and one represented by one eye, one horn and one wheel. Ordinary anatomical connectors, uniform cuffs and mechanical wheel parts are only structure, not extra learning motifs. The shared PIE root is *oi-no- meaning one; for unicorn, unicycle and uniform the shared part is uni-, not the whole word.\nAvoid: text, letters, numerals, labels, logo, watermark, floating props, extra animal species, wings, crown, weapon, backdrop, checkerboard pattern painted as a background, cropped edges, a small wheel under an onion torso, a person riding a unicycle, a uniformed normal humanoid.",
+          "source": "C:\\Users\\haiba\\.codex\\generated_images\\01a11c2d-64d0-7441-b557-2dd9387c1175\\exec-f5d22bee-a260-466b-b9e4-9742a302f138.png",
+          "candidateId": "v002",
+          "conceptFile": "root-oino-v002.md",
+          "status": "candidate",
+          "overallDecision": "unselected",
+          "face": "玉ねぎハブに大きな一つ目。青緑の虹彩、透明感のある角膜、厚みのあるまぶた、少し上を見るいたずらっぽい視線。細い線の笑顔や点目にはしない。短い非対称の口で気の抜けた愛嬌。",
+          "generationMetadata": "generation-candidates-oino.json",
+          "reviewHistory": [],
+          "archivedSource": "D:/etymolingo/work/wildwordopia/sample/_sources/root-oino-v002.png",
+          "localSource": "_sources/root-oino-v002.png",
+          "sourceKind": "generated_original",
+          "creationTime": null,
+          "creationTimeNote": "正確な制作日時は不明。ファイル更新日時から制作日時を推定しない。",
+          "description": "一輪車の巨大ホイール自体が円盤状の主胴体。輪の中心の玉ねぎハブが一つ眼の顔になり、制服の両袖が腕として左右に生える。玉ねぎの上には一本のユニコーン角。",
+          "generatedsource": "C:\\Users\\haiba\\.codex\\generated_images\\01a11c2d-64d0-7441-b557-2dd9387c1175\\exec-f5d22bee-a260-466b-b9e4-9742a302f138.png",
+          "method": "built-in ImageGen",
+          "sourcecopy": "D:/etymolingo/work/wildwordopia/sample/_sources/root-oino-v002.png",
+          "fullprompt": "Use case: stylized-concept.\nAsset type: one original English-etymology game character candidate, standalone transparent PNG cutout, designed to read clearly at 512x512.\nPrimary request: Create a radically absurd physically fused onion-unicorn-unicycle-uniform creature. This is a NEW structural candidate, not an onion mascot sitting on a small wheel.\nMain body and silhouette: ONE ENORMOUS upright black rubber UNICYCLE WHEEL is the entire circular torso, taking up most of the creature. See the wheel in a near-front three-quarter view so its circular silhouette and rubber sidewall, metal spokes, and axle remain unmistakable. The visible rim surrounds a large real layered golden ONION HUB, which is anatomically fused into the axle as the living face and core, not a separate onion riding above the wheel. There is no separate onion head above this wheel body. Two short sleeved arms protrude directly from the left and right edges of the wheel at the upper sides. The uniform sleeves are fitted navy SCHOOL UNIFORM cloth with white cuffs, attached to the wheel body; the short hands at their ends are onion-layer connecting anatomy. A small navy blazer collar and small white shirt patch are fused around the onion hub, but the big tyre and spokes stay plainly exposed. ONE thick ivory spiral UNICORN HORN grows directly from the top of the onion hub and extends above the upper wheel rim, so one horn is clear. A pair of functional unicycle pedal cranks protrude at the wheel axle sides. No second wheel, no conventional legs, no tiny vehicle below a giant onion.\nFace: ONE oversized charismatic cyclops eye embedded in the front of the onion hub. A richly detailed teal iris, glassy cornea, soft three-dimensional eyelids, and an upward slightly off-center mischievous gaze. One small asymmetrical softly parted mouth below the eye; an endearing bewildered expression. NOT dot eyes, NOT two eyes, NOT a thin drawn smile, NOT old or wrinkled, NOT a horror eye. The face belongs to the onion material.\nMaterials and rendering: surreal polished 3D creature with convincingly photographed rubber tread, glossy metal spokes, thin papery onion skin and translucent onion layers, woven uniform cloth and a smooth spiral horn. Physical material boundaries and impossible anatomical fusion are the main joke. The result must look strange and charismatic, not a generic cute child mascot with accessories. Warm gentle studio illumination; strong material contrast; crisp cutout edges.\nComposition: isolated single character, square canvas, full body and all protrusions visible. Center the creature with at least 7 percent empty margin around the horn, cuffs and bottom tyre. Near-front three-quarter view. Actual transparent alpha background. No floor, no cast ground shadow, no backdrop.\nAllowed learning motifs ONLY: onion, unicorn, unicycle, uniform, and one represented by one eye, one horn and one wheel. Ordinary anatomical connectors, uniform cuffs and mechanical wheel parts are only structure, not extra learning motifs. The shared PIE root is *oi-no- meaning one; for unicorn, unicycle and uniform the shared part is uni-, not the whole word.\nAvoid: text, letters, numerals, labels, logo, watermark, floating props, extra animal species, wings, crown, weapon, backdrop, checkerboard pattern painted as a background, cropped edges, a small wheel under an onion torso, a person riding a unicycle, a uniformed normal humanoid.",
+          "prompthistory": [
+            {
+              "type": "generate",
+              "prompt": "Use case: stylized-concept.\nAsset type: one original English-etymology game character candidate, standalone transparent PNG cutout, designed to read clearly at 512x512.\nPrimary request: Create a radically absurd physically fused onion-unicorn-unicycle-uniform creature. This is a NEW structural candidate, not an onion mascot sitting on a small wheel.\nMain body and silhouette: ONE ENORMOUS upright black rubber UNICYCLE WHEEL is the entire circular torso, taking up most of the creature. See the wheel in a near-front three-quarter view so its circular silhouette and rubber sidewall, metal spokes, and axle remain unmistakable. The visible rim surrounds a large real layered golden ONION HUB, which is anatomically fused into the axle as the living face and core, not a separate onion riding above the wheel. There is no separate onion head above this wheel body. Two short sleeved arms protrude directly from the left and right edges of the wheel at the upper sides. The uniform sleeves are fitted navy SCHOOL UNIFORM cloth with white cuffs, attached to the wheel body; the short hands at their ends are onion-layer connecting anatomy. A small navy blazer collar and small white shirt patch are fused around the onion hub, but the big tyre and spokes stay plainly exposed. ONE thick ivory spiral UNICORN HORN grows directly from the top of the onion hub and extends above the upper wheel rim, so one horn is clear. A pair of functional unicycle pedal cranks protrude at the wheel axle sides. No second wheel, no conventional legs, no tiny vehicle below a giant onion.\nFace: ONE oversized charismatic cyclops eye embedded in the front of the onion hub. A richly detailed teal iris, glassy cornea, soft three-dimensional eyelids, and an upward slightly off-center mischievous gaze. One small asymmetrical softly parted mouth below the eye; an endearing bewildered expression. NOT dot eyes, NOT two eyes, NOT a thin drawn smile, NOT old or wrinkled, NOT a horror eye. The face belongs to the onion material.\nMaterials and rendering: surreal polished 3D creature with convincingly photographed rubber tread, glossy metal spokes, thin papery onion skin and translucent onion layers, woven uniform cloth and a smooth spiral horn. Physical material boundaries and impossible anatomical fusion are the main joke. The result must look strange and charismatic, not a generic cute child mascot with accessories. Warm gentle studio illumination; strong material contrast; crisp cutout edges.\nComposition: isolated single character, square canvas, full body and all protrusions visible. Center the creature with at least 7 percent empty margin around the horn, cuffs and bottom tyre. Near-front three-quarter view. Actual transparent alpha background. No floor, no cast ground shadow, no backdrop.\nAllowed learning motifs ONLY: onion, unicorn, unicycle, uniform, and one represented by one eye, one horn and one wheel. Ordinary anatomical connectors, uniform cuffs and mechanical wheel parts are only structure, not extra learning motifs. The shared PIE root is *oi-no- meaning one; for unicorn, unicycle and uniform the shared part is uni-, not the whole word.\nAvoid: text, letters, numerals, labels, logo, watermark, floating props, extra animal species, wings, crown, weapon, backdrop, checkerboard pattern painted as a background, cropped edges, a small wheel under an onion torso, a person riding a unicycle, a uniformed normal humanoid.",
+              "generatedsource": "C:\\Users\\haiba\\.codex\\generated_images\\01a11c2d-64d0-7441-b557-2dd9387c1175\\exec-f5d22bee-a260-466b-b9e4-9742a302f138.png"
+            },
+            {
+              "type": "alpha-edge-cleanup-attempt",
+              "prompt": "Use case: background-extraction and precise-object-edit.\nInput image: edit target, the finished candidate oino-v002. Keep this exact character, exact silhouette, face, materials, clothing, anatomy, pose, colors, single horn, single wheel and all existing components. Preserve full body framing and current generous empty margins.\nChange ONLY accidental bright red and yellow cutout contamination: remove the neon red/yellow pixel speckles and thin colored fringes around onion skin edges and within the transparent gaps between wheel spokes. Those red/yellow speckles are an unwanted alpha-cutout artifact, not part of the character's design. Restore these contaminated edge pixels to clean natural edge colors matching nearby onion or metal, fading smoothly to transparency. Clean natural cutout perimeter, clean transparent voids between spokes; no detached dots.\nNo new parts, no new costume, no altered face, no new pose, no eye-count change, no changes to body proportions. Actual transparent alpha background. No floor, cast shadow, background, text, watermark or logo.",
+              "referencedImage": "D:/etymolingo/work/wildwordopia/sample/root-oino-v002.png",
+              "generatedsource": "C:\\Users\\haiba\\.codex\\generated_images\\01a11c2d-64d0-7441-b557-2dd9387c1175\\exec-aedb803c-d695-4e56-a96f-c36ecea22aca.png",
+              "selected": false
+            }
+          ],
+          "cleanupattempt": {
+            "prompt": "Use case: background-extraction and precise-object-edit.\nInput image: edit target, the finished candidate oino-v002. Keep this exact character, exact silhouette, face, materials, clothing, anatomy, pose, colors, single horn, single wheel and all existing components. Preserve full body framing and current generous empty margins.\nChange ONLY accidental bright red and yellow cutout contamination: remove the neon red/yellow pixel speckles and thin colored fringes around onion skin edges and within the transparent gaps between wheel spokes. Those red/yellow speckles are an unwanted alpha-cutout artifact, not part of the character's design. Restore these contaminated edge pixels to clean natural edge colors matching nearby onion or metal, fading smoothly to transparency. Clean natural cutout perimeter, clean transparent voids between spokes; no detached dots.\nNo new parts, no new costume, no altered face, no new pose, no eye-count change, no changes to body proportions. Actual transparent alpha background. No floor, cast shadow, background, text, watermark or logo.",
+            "generatedsource": "C:\\Users\\haiba\\.codex\\generated_images\\01a11c2d-64d0-7441-b557-2dd9387c1175\\exec-aedb803c-d695-4e56-a96f-c36ecea22aca.png",
+            "sourcecopy": "D:/etymolingo/work/wildwordopia/sample/_sources/root-oino-v002-cleanup-attempt.png",
+            "selected": false,
+            "reason": "形状・構図を保持した原生成（v003は余白修正）を候補画像として維持。"
+          },
+          "createdAt": "2026-10-09 JST",
+          "initialsourcecopy": null,
+          "qa": {
+            "width": 512,
+            "height": 512,
+            "format": "PNG RGBA (Format32bppArgb)",
+            "cornerAlpha": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "alphaZeroPixels": 170864,
+            "alphaFullPixels": 2394,
+            "visibleBboxAlpha16": [
+              53,
+              35,
+              463,
+              468
+            ],
+            "visual": "最終512画像を目視。円盤状のホイール胴体、玉ねぎハブの一つ眼、一本の角、制服袖、ペダルが全部読める。全身の切れ・文字・地面影なし。",
+            "edgeNote": "プレビューで赤く見えた494pxはすべてalpha1〜16。alpha>16の鮮赤は0px。"
+          }
+        },
+        {
+          "id": "oino",
+          "name": "Hitotsu Oino Unipeel",
+          "kana": "ヒトツ・オイノ・ユニピール",
+          "root": "*oi-no-",
+          "meaning": "ひとつ",
+          "meaningEn": "One",
+          "file": "root-oino-v003.png",
+          "motifs": [
+            {
+              "word": "onion",
+              "ja": "タマネギ",
+              "part": "Onion layers form the horse head, long curved neck, and torso",
+              "partJa": "馬頭、長い首、胴体そのものを作る玉ねぎの層",
+              "sharedpart": "語全体",
+              "note": "ラテン語の『一つ』に関係する語を経る既存モチーフ。玉ねぎの由来は既存oi-no-コンセプトの出典を踏襲。"
+            },
+            {
+              "word": "unicorn",
+              "ja": "ユニコーン",
+              "part": "A long-necked unicorn anatomy with one horn on the forehead",
+              "partial": true,
+              "partJa": "玉ねぎ層の馬頭と長い首、額の一本の角",
+              "note": "共有するのは『一つ』を表すuni-。corn/角の部分は別の語源。",
+              "sharedpart": "uni-"
+            },
+            {
+              "word": "unicycle",
+              "ja": "一輪車",
+              "part": "One wheel, fork, and pedals replace the horse legs",
+              "partial": true,
+              "partJa": "馬の脚に代わり下半身となった一つの車輪、フォークとペダル",
+              "note": "共有するのはuni-。cycleの部分は別の語源。",
+              "sharedpart": "uni-"
+            },
+            {
+              "word": "uniform",
+              "ja": "制服",
+              "part": "A navy uniform vest and white collar fused into the layered torso",
+              "partial": true,
+              "partJa": "層状の胴体に融合した紺の制服ベストと白襟",
+              "note": "共有するのはuni-。formの部分は別の語源。",
+              "sharedpart": "uni-"
+            },
+            {
+              "word": "one",
+              "ja": "ひとつ、1",
+              "part": "One horn and one supporting wheel",
+              "partJa": "一輪の車輪、一本の角",
+              "sharedpart": "語全体",
+              "note": "数の意味を個数で示す。数字や文字は画像に描かない。"
+            }
+          ],
+          "sources": [
+            {
+              "title": "onion",
+              "url": "https://www.etymonline.com/word/onion"
+            },
+            {
+              "title": "unicorn",
+              "url": "https://www.etymonline.com/word/unicorn"
+            },
+            {
+              "title": "unicycle",
+              "url": "https://www.etymonline.com/word/unicycle"
+            },
+            {
+              "title": "uniform",
+              "url": "https://www.etymonline.com/word/uniform"
+            },
+            {
+              "title": "one",
+              "url": "https://www.etymonline.com/word/one"
+            }
+          ],
+          "rootKey": "oi-no-",
+          "stem": "root-oino",
+          "concept": "玉ねぎの薄い層が長い首、馬頭、ずんぐりした胴体そのものを作るユニコーン。制服ベストが層状の胴に食い込み、四本脚の代わりに一輪車の一本の車輪が下半身を形成する。丸いホイール胴体とは異なる縦長・曲線の輪郭。",
+          "prompt": "Use case: stylized-concept.\nAsset type: one original English-etymology game character candidate, standalone transparent PNG cutout, designed to read clearly at 512x512.\nPrimary request: Create a radically absurd onion-built long-neck UNICORN whose whole lower body becomes a single UNICYCLE WHEEL. This is a NEW structural candidate, not a normal pony wearing an onion costume, not a spherical onion cyclops, not a wheel-shaped torso.\nMain anatomy and silhouette: A very tall curved neck and recognizable small unicorn horse head grow from a short bulky oval torso. The head, elongated S-curving neck, muzzle, ears and bulky torso are ALL physically made of overlapping peeled ONION LAYERS: pale ivory fleshy lamellae inside with golden-brown papery skin edges. The long neck has large layered rings and flaking papery sheets, making the onion identity conspicuous rather than using a normal fur-covered horse. The torso has a large naturally split onion shell on the forward side that visibly exposes concentric onion layers. No normal horse coat, no fuzzy plush toy surface. ONE thick elegant ivory spiral UNICORN HORN grows from the forehead. The silhouette combines a small expressive horse head, very long curling onion neck, short broad onion torso and one round mechanical lower body.\nLower body: Instead of any horse legs, the torso's onion layers narrow downward and fuse directly into the fork and hub of ONE substantial black rubber UNICYCLE WHEEL. One single wheel is the creature's entire supporting lower body. Its tyre, shiny metal fork and pair of pedal cranks are plainly legible; no other wheels, no horse hooves, no normal four-legged pony.\nUniform: A fitted navy SCHOOL UNIFORM VEST with a white shirt collar is physically embedded around the oval onion torso. Keep a large exposed region of onion layers on the belly and all the long neck visible; the vest is recognizably tailored uniform clothing, not a blanket or saddle. No rider. No uniform hat. No conventional human arms.\nFace: TWO youthful animal eyes located naturally on the small horse head and both readable in a three-quarter view. Expressive large almond-shaped eyes with detailed warm amber irises, bright catchlights, gentle sculpted eyelids, and a playful curious gaze. A short rounded bovine-free horse muzzle with small nostrils and a softly open little smiling mouth formed in the onion layers. Sweet young animal facial anatomy with a touch of anime expressiveness, while the material remains an onion. NOT dot eyes, NOT a cyclops, NOT a line-drawn smile, NOT aged human facial features, NOT a realistic grim old horse.\nMaterials and rendering: surreal polished 3D creature with photographic onion texture, translucent onion flesh, papery onion skin, woven navy vest cloth, black rubber and polished metal. Strange physical fusion must be dominant. Keep recognizable onion and one-wheel anatomy, not a generic adorable pony in themed clothing. Warm gentle studio lighting, convincing volume, crisp cutout edges.\nComposition: single isolated creature, square canvas, complete head, one horn, long neck, onion body and wheel all visible. Center the full tall curved silhouette with at least 7 percent empty margin around horn, head, torso and tyre. Three-quarter view with the head gently tilted toward the viewer. Actual transparent alpha background. No floor, no cast ground shadow, no backdrop.\nAllowed learning motifs ONLY: onion, unicorn, unicycle, uniform and one represented by one horn and one wheel. Horse anatomy is part of the unicorn image, not a new independent vocabulary motif. Ordinary anatomy, vest trim and mechanical parts are only structure. The shared PIE root is *oi-no- meaning one; for unicorn, unicycle and uniform the shared part is uni-, not the whole word.\nAvoid: text, letters, numerals, labels, logo, watermark, floating props, extra animals, wings, crown, flowers, weapon, saddle, rider, tail ornament, background, painted checkerboard, cropped extremities, normal four-legged pony, onion accessories hanging from a normal horse, spherical onion cyclops body.",
+          "source": "C:\\Users\\haiba\\.codex\\generated_images\\01a11c2d-64d0-7441-b557-2dd9387c1175\\exec-374c41ca-ea53-4a13-92e9-a8e38e2dc3f7.png",
+          "candidateId": "v003",
+          "conceptFile": "root-oino-v003.md",
+          "status": "candidate",
+          "overallDecision": "unselected",
+          "face": "二つの大きな子馬らしいアーモンド形の眼。琥珀の虹彩、強い光の反射、柔らかいまぶた。丸い短めの鼻口部と少し開いた柔らかい口で、若い動物顔の愛嬌。点目・一つ眼・細い線の顔にしない。",
+          "generationMetadata": "generation-candidates-oino.json",
+          "reviewHistory": [],
+          "archivedSource": "D:/etymolingo/work/wildwordopia/sample/_sources/root-oino-v003.png",
+          "localSource": "_sources/root-oino-v003.png",
+          "sourceKind": "generated_original",
+          "creationTime": null,
+          "creationTimeNote": "正確な制作日時は不明。ファイル更新日時から制作日時を推定しない。",
+          "description": "玉ねぎの薄い層が長い首、馬頭、ずんぐりした胴体そのものを作るユニコーン。制服ベストが層状の胴に食い込み、四本脚の代わりに一輪車の一本の車輪が下半身を形成する。丸いホイール胴体とは異なる縦長・曲線の輪郭。",
+          "originalgeneratedsource": "C:\\Users\\haiba\\.codex\\generated_images\\01a11c2d-64d0-7441-b557-2dd9387c1175\\exec-f3175fe4-5c8c-483a-9aaf-96161d769281.png",
+          "generatedsource": "C:\\Users\\haiba\\.codex\\generated_images\\01a11c2d-64d0-7441-b557-2dd9387c1175\\exec-374c41ca-ea53-4a13-92e9-a8e38e2dc3f7.png",
+          "editprompt": "Use case: precise-object-edit.\nInput image: edit target, the newly generated onion-layer long-neck unicorn with navy uniform vest and one unicycle wheel.\nChange only framing and clean cutout edges. Keep the exact character identity, two detailed amber animal eyes, young expressive horse face, onion-layer horse head and long S-shaped onion neck, one spiral ivory horn, wide layered onion torso, navy school uniform vest with white collar, and one black unicycle wheel with metal fork and two pedals. Preserve the exact materials, all motifs, proportions, pose and colors.\nZoom the whole character out to occupy approximately 75 percent of a square canvas height and center it, leaving generous TRANSPARENT empty space on every side. Show the entire uncut ear tips and horn tip clearly inside the frame. Keep the full wheel and pedals in frame. Do not change the anatomy or add any new object.\nActual transparent alpha background. Clean natural anti-aliased perimeter, no red or yellow color fringe outside the subject, no detached speckles or stray pixels. No floor, cast ground shadow, text, labels, numerals, logo, watermark, backdrop or painted checkerboard.",
+          "method": "built-in ImageGen",
+          "sourcecopy": "D:/etymolingo/work/wildwordopia/sample/_sources/root-oino-v003.png",
+          "fullprompt": "Use case: stylized-concept.\nAsset type: one original English-etymology game character candidate, standalone transparent PNG cutout, designed to read clearly at 512x512.\nPrimary request: Create a radically absurd onion-built long-neck UNICORN whose whole lower body becomes a single UNICYCLE WHEEL. This is a NEW structural candidate, not a normal pony wearing an onion costume, not a spherical onion cyclops, not a wheel-shaped torso.\nMain anatomy and silhouette: A very tall curved neck and recognizable small unicorn horse head grow from a short bulky oval torso. The head, elongated S-curving neck, muzzle, ears and bulky torso are ALL physically made of overlapping peeled ONION LAYERS: pale ivory fleshy lamellae inside with golden-brown papery skin edges. The long neck has large layered rings and flaking papery sheets, making the onion identity conspicuous rather than using a normal fur-covered horse. The torso has a large naturally split onion shell on the forward side that visibly exposes concentric onion layers. No normal horse coat, no fuzzy plush toy surface. ONE thick elegant ivory spiral UNICORN HORN grows from the forehead. The silhouette combines a small expressive horse head, very long curling onion neck, short broad onion torso and one round mechanical lower body.\nLower body: Instead of any horse legs, the torso's onion layers narrow downward and fuse directly into the fork and hub of ONE substantial black rubber UNICYCLE WHEEL. One single wheel is the creature's entire supporting lower body. Its tyre, shiny metal fork and pair of pedal cranks are plainly legible; no other wheels, no horse hooves, no normal four-legged pony.\nUniform: A fitted navy SCHOOL UNIFORM VEST with a white shirt collar is physically embedded around the oval onion torso. Keep a large exposed region of onion layers on the belly and all the long neck visible; the vest is recognizably tailored uniform clothing, not a blanket or saddle. No rider. No uniform hat. No conventional human arms.\nFace: TWO youthful animal eyes located naturally on the small horse head and both readable in a three-quarter view. Expressive large almond-shaped eyes with detailed warm amber irises, bright catchlights, gentle sculpted eyelids, and a playful curious gaze. A short rounded bovine-free horse muzzle with small nostrils and a softly open little smiling mouth formed in the onion layers. Sweet young animal facial anatomy with a touch of anime expressiveness, while the material remains an onion. NOT dot eyes, NOT a cyclops, NOT a line-drawn smile, NOT aged human facial features, NOT a realistic grim old horse.\nMaterials and rendering: surreal polished 3D creature with photographic onion texture, translucent onion flesh, papery onion skin, woven navy vest cloth, black rubber and polished metal. Strange physical fusion must be dominant. Keep recognizable onion and one-wheel anatomy, not a generic adorable pony in themed clothing. Warm gentle studio lighting, convincing volume, crisp cutout edges.\nComposition: single isolated creature, square canvas, complete head, one horn, long neck, onion body and wheel all visible. Center the full tall curved silhouette with at least 7 percent empty margin around horn, head, torso and tyre. Three-quarter view with the head gently tilted toward the viewer. Actual transparent alpha background. No floor, no cast ground shadow, no backdrop.\nAllowed learning motifs ONLY: onion, unicorn, unicycle, uniform and one represented by one horn and one wheel. Horse anatomy is part of the unicorn image, not a new independent vocabulary motif. Ordinary anatomy, vest trim and mechanical parts are only structure. The shared PIE root is *oi-no- meaning one; for unicorn, unicycle and uniform the shared part is uni-, not the whole word.\nAvoid: text, letters, numerals, labels, logo, watermark, floating props, extra animals, wings, crown, flowers, weapon, saddle, rider, tail ornament, background, painted checkerboard, cropped extremities, normal four-legged pony, onion accessories hanging from a normal horse, spherical onion cyclops body.",
+          "prompthistory": [
+            {
+              "type": "generate",
+              "prompt": "Use case: stylized-concept.\nAsset type: one original English-etymology game character candidate, standalone transparent PNG cutout, designed to read clearly at 512x512.\nPrimary request: Create a radically absurd onion-built long-neck UNICORN whose whole lower body becomes a single UNICYCLE WHEEL. This is a NEW structural candidate, not a normal pony wearing an onion costume, not a spherical onion cyclops, not a wheel-shaped torso.\nMain anatomy and silhouette: A very tall curved neck and recognizable small unicorn horse head grow from a short bulky oval torso. The head, elongated S-curving neck, muzzle, ears and bulky torso are ALL physically made of overlapping peeled ONION LAYERS: pale ivory fleshy lamellae inside with golden-brown papery skin edges. The long neck has large layered rings and flaking papery sheets, making the onion identity conspicuous rather than using a normal fur-covered horse. The torso has a large naturally split onion shell on the forward side that visibly exposes concentric onion layers. No normal horse coat, no fuzzy plush toy surface. ONE thick elegant ivory spiral UNICORN HORN grows from the forehead. The silhouette combines a small expressive horse head, very long curling onion neck, short broad onion torso and one round mechanical lower body.\nLower body: Instead of any horse legs, the torso's onion layers narrow downward and fuse directly into the fork and hub of ONE substantial black rubber UNICYCLE WHEEL. One single wheel is the creature's entire supporting lower body. Its tyre, shiny metal fork and pair of pedal cranks are plainly legible; no other wheels, no horse hooves, no normal four-legged pony.\nUniform: A fitted navy SCHOOL UNIFORM VEST with a white shirt collar is physically embedded around the oval onion torso. Keep a large exposed region of onion layers on the belly and all the long neck visible; the vest is recognizably tailored uniform clothing, not a blanket or saddle. No rider. No uniform hat. No conventional human arms.\nFace: TWO youthful animal eyes located naturally on the small horse head and both readable in a three-quarter view. Expressive large almond-shaped eyes with detailed warm amber irises, bright catchlights, gentle sculpted eyelids, and a playful curious gaze. A short rounded bovine-free horse muzzle with small nostrils and a softly open little smiling mouth formed in the onion layers. Sweet young animal facial anatomy with a touch of anime expressiveness, while the material remains an onion. NOT dot eyes, NOT a cyclops, NOT a line-drawn smile, NOT aged human facial features, NOT a realistic grim old horse.\nMaterials and rendering: surreal polished 3D creature with photographic onion texture, translucent onion flesh, papery onion skin, woven navy vest cloth, black rubber and polished metal. Strange physical fusion must be dominant. Keep recognizable onion and one-wheel anatomy, not a generic adorable pony in themed clothing. Warm gentle studio lighting, convincing volume, crisp cutout edges.\nComposition: single isolated creature, square canvas, complete head, one horn, long neck, onion body and wheel all visible. Center the full tall curved silhouette with at least 7 percent empty margin around horn, head, torso and tyre. Three-quarter view with the head gently tilted toward the viewer. Actual transparent alpha background. No floor, no cast ground shadow, no backdrop.\nAllowed learning motifs ONLY: onion, unicorn, unicycle, uniform and one represented by one horn and one wheel. Horse anatomy is part of the unicorn image, not a new independent vocabulary motif. Ordinary anatomy, vest trim and mechanical parts are only structure. The shared PIE root is *oi-no- meaning one; for unicorn, unicycle and uniform the shared part is uni-, not the whole word.\nAvoid: text, letters, numerals, labels, logo, watermark, floating props, extra animals, wings, crown, flowers, weapon, saddle, rider, tail ornament, background, painted checkerboard, cropped extremities, normal four-legged pony, onion accessories hanging from a normal horse, spherical onion cyclops body.",
+              "generatedsource": "C:\\Users\\haiba\\.codex\\generated_images\\01a11c2d-64d0-7441-b557-2dd9387c1175\\exec-f3175fe4-5c8c-483a-9aaf-96161d769281.png"
+            },
+            {
+              "type": "framing-edit",
+              "prompt": "Use case: precise-object-edit.\nInput image: edit target, the newly generated onion-layer long-neck unicorn with navy uniform vest and one unicycle wheel.\nChange only framing and clean cutout edges. Keep the exact character identity, two detailed amber animal eyes, young expressive horse face, onion-layer horse head and long S-shaped onion neck, one spiral ivory horn, wide layered onion torso, navy school uniform vest with white collar, and one black unicycle wheel with metal fork and two pedals. Preserve the exact materials, all motifs, proportions, pose and colors.\nZoom the whole character out to occupy approximately 75 percent of a square canvas height and center it, leaving generous TRANSPARENT empty space on every side. Show the entire uncut ear tips and horn tip clearly inside the frame. Keep the full wheel and pedals in frame. Do not change the anatomy or add any new object.\nActual transparent alpha background. Clean natural anti-aliased perimeter, no red or yellow color fringe outside the subject, no detached speckles or stray pixels. No floor, cast ground shadow, text, labels, numerals, logo, watermark, backdrop or painted checkerboard.",
+              "referencedImage": "C:\\Users\\haiba\\.codex\\generated_images\\01a11c2d-64d0-7441-b557-2dd9387c1175\\exec-f3175fe4-5c8c-483a-9aaf-96161d769281.png",
+              "generatedsource": "C:\\Users\\haiba\\.codex\\generated_images\\01a11c2d-64d0-7441-b557-2dd9387c1175\\exec-374c41ca-ea53-4a13-92e9-a8e38e2dc3f7.png"
+            },
+            {
+              "type": "alpha-edge-cleanup-attempt",
+              "prompt": "Use case: background-extraction and precise-object-edit.\nInput image: edit target, the finished candidate oino-v003. Keep this exact character, exact silhouette, face, materials, clothing, anatomy, pose, colors, single horn, single wheel and all existing components. Preserve full body framing and current generous empty margins.\nChange ONLY accidental bright red and yellow cutout contamination: remove the neon red/yellow pixel speckles and thin colored fringes around onion skin edges and within the transparent gaps between wheel spokes. Those red/yellow speckles are an unwanted alpha-cutout artifact, not part of the character's design. Restore these contaminated edge pixels to clean natural edge colors matching nearby onion or metal, fading smoothly to transparency. Clean natural cutout perimeter, clean transparent voids between spokes; no detached dots.\nNo new parts, no new costume, no altered face, no new pose, no eye-count change, no changes to body proportions. Actual transparent alpha background. No floor, cast shadow, background, text, watermark or logo.",
+              "referencedImage": "D:/etymolingo/work/wildwordopia/sample/root-oino-v003.png",
+              "generatedsource": "C:\\Users\\haiba\\.codex\\generated_images\\01a11c2d-64d0-7441-b557-2dd9387c1175\\exec-5f696840-5355-4ed6-bac7-b9c61e34b252.png",
+              "selected": false
+            }
+          ],
+          "cleanupattempt": {
+            "prompt": "Use case: background-extraction and precise-object-edit.\nInput image: edit target, the finished candidate oino-v003. Keep this exact character, exact silhouette, face, materials, clothing, anatomy, pose, colors, single horn, single wheel and all existing components. Preserve full body framing and current generous empty margins.\nChange ONLY accidental bright red and yellow cutout contamination: remove the neon red/yellow pixel speckles and thin colored fringes around onion skin edges and within the transparent gaps between wheel spokes. Those red/yellow speckles are an unwanted alpha-cutout artifact, not part of the character's design. Restore these contaminated edge pixels to clean natural edge colors matching nearby onion or metal, fading smoothly to transparency. Clean natural cutout perimeter, clean transparent voids between spokes; no detached dots.\nNo new parts, no new costume, no altered face, no new pose, no eye-count change, no changes to body proportions. Actual transparent alpha background. No floor, cast shadow, background, text, watermark or logo.",
+            "generatedsource": "C:\\Users\\haiba\\.codex\\generated_images\\01a11c2d-64d0-7441-b557-2dd9387c1175\\exec-5f696840-5355-4ed6-bac7-b9c61e34b252.png",
+            "sourcecopy": "D:/etymolingo/work/wildwordopia/sample/_sources/root-oino-v003-cleanup-attempt.png",
+            "selected": false,
+            "reason": "形状・構図を保持した原生成（v003は余白修正）を候補画像として維持。"
+          },
+          "createdAt": "2026-10-09 JST",
+          "initialsourcecopy": "D:/etymolingo/work/wildwordopia/sample/_sources/root-oino-v003-initial.png",
+          "qa": {
+            "width": 512,
+            "height": 512,
+            "format": "PNG RGBA (Format32bppArgb)",
+            "cornerAlpha": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "alphaZeroPixels": 228977,
+            "alphaFullPixels": 1316,
+            "visibleBboxAlpha16": [
+              180,
+              61,
+              347,
+              456
+            ],
+            "visual": "最終512画像を目視。玉ねぎ層の馬頭と長い首、層状胴体、制服ベスト、一輪の下半身が全部読める。二つの動物眼、耳と角の先まで収まり、全身の切れ・文字・地面影なし。",
+            "edgeNote": "プレビューの鮮赤247pxのうち243pxはalpha1〜16。残る4pxは玉ねぎの自然な褐色域。"
+          }
+        }
+      ],
+      "conceptFile": "root-oino-v001.md",
+      "status": "candidate",
+      "overallDecision": "unselected"
+    },
+    {
+      "id": "reg",
+      "name": "Massugu Reg Richruler",
+      "kana": "マッスグ・レグ・リッチルーラー",
+      "root": "*reg-",
+      "meaning": "まっすぐ導く",
+      "meaningEn": "Straight · Rule",
+      "file": "root-reg-v001.png",
+      "motifs": [
+        {
+          "word": "ruler",
+          "ja": "定規",
+          "part": "A long measuring-ruler body",
+          "partJa": "縦に長い定規の胴体"
+        },
+        {
+          "word": "dress",
+          "ja": "ドレス",
+          "part": "A huge flared velvet dress",
+          "partJa": "巨大なドレスの裾"
+        },
+        {
+          "word": "royal",
+          "ja": "王族の",
+          "part": "A jeweled royal crown and royal dress",
+          "partJa": "ドレスと一体の王冠"
+        },
+        {
+          "word": "rich",
+          "ja": "金持ちの",
+          "part": "Gold coins forming the face and shoes",
+          "partJa": "顔と靴の山盛りの金貨"
+        },
+        {
+          "word": "right",
+          "ja": "右・正しい",
+          "part": "A ruler arm pointing to the right",
+          "partJa": "右を指す定規の腕"
+        }
+      ],
+      "sources": [
+        {
+          "title": "ruler",
+          "url": "https://www.etymonline.com/word/ruler"
+        },
+        {
+          "title": "dress",
+          "url": "https://www.etymonline.com/word/dress"
+        },
+        {
+          "title": "royal",
+          "url": "https://www.etymonline.com/word/royal"
+        },
+        {
+          "title": "rich",
+          "url": "https://www.etymonline.com/word/rich"
+        },
+        {
+          "title": "right",
+          "url": "https://www.etymonline.com/word/right"
+        }
+      ],
+      "rootKey": "reg-",
+      "stem": "root-reg",
+      "candidates": [
+        {
+          "id": "reg",
+          "name": "Massugu Reg Richruler",
+          "kana": "マッスグ・レグ・リッチルーラー",
+          "root": "*reg-",
+          "meaning": "まっすぐ導く",
+          "meaningEn": "Straight · Rule",
+          "file": "root-reg-v001.png",
+          "motifs": [
+            {
+              "word": "ruler",
+              "ja": "定規",
+              "part": "A long measuring-ruler body",
+              "partJa": "縦に長い定規の胴体"
+            },
+            {
+              "word": "dress",
+              "ja": "ドレス",
+              "part": "A huge flared velvet dress",
+              "partJa": "巨大なドレスの裾"
+            },
+            {
+              "word": "royal",
+              "ja": "王族の",
+              "part": "A jeweled royal crown and royal dress",
+              "partJa": "ドレスと一体の王冠"
+            },
+            {
+              "word": "rich",
+              "ja": "金持ちの",
+              "part": "Gold coins forming the face and shoes",
+              "partJa": "顔と靴の山盛りの金貨"
+            },
+            {
+              "word": "right",
+              "ja": "右・正しい",
+              "part": "A ruler arm pointing to the right",
+              "partJa": "右を指す定規の腕"
+            }
+          ],
+          "sources": [
+            {
+              "title": "ruler",
+              "url": "https://www.etymonline.com/word/ruler"
+            },
+            {
+              "title": "dress",
+              "url": "https://www.etymonline.com/word/dress"
+            },
+            {
+              "title": "royal",
+              "url": "https://www.etymonline.com/word/royal"
+            },
+            {
+              "title": "rich",
+              "url": "https://www.etymonline.com/word/rich"
+            },
+            {
+              "title": "right",
+              "url": "https://www.etymonline.com/word/right"
+            }
+          ],
+          "rootKey": "reg-",
+          "stem": "root-reg",
+          "concept": "A very tall transparent amber measuring RULER is the living creature's vertical main body, with obvious dark measurement tick marks and small numerals. A round face built from stacked shiny GOLD COINS representing RICH sits near the upper third, with two young glossy eyes and happy tiny smile embossed into the coins. A comically huge deep crimson velvet ROYAL BALL DRESS grows directly around the lower half of this narrow ruler body and flares out as a gigantic bell, puffed skirt supported by tiny gold-coin shoes. The ruler stretches conspicuously high ABOVE the coin face and ends in a jewel-encrusted gold ROYAL CROWN, giving an absurd long neck silhouette. One hinged straight ruler arm extends to the RIGHT into a single pointing finger shape; the other arm straight down. Body is truly clear ruler stick, no human torso or humanoid skin. Scale contrast: stick body, giant dress, tiny rich gold feet, oversized crown.",
+          "prompt": "Use case: stylized-concept. Asset type: original English-etymology game character isolated transparent PNG. Style: absurd AI-brainrot surreal 3D chimera, convincing photographic materials, polished character IP, ridiculous yet child-approachable. Every major motif must be physically fused into main anatomy, large and legible at 512 pixels. No anime human in a themed costume. Full creature entirely visible in square frame, including tips, tail and feet, with AT LEAST 7 percent empty transparent padding on ALL sides. Never crop any part. Three-quarter front view, soft studio lighting, high material contrast. Young charming face, big soulful eyes, funny dazed expression. Transparent alpha background; no floor, no environment, no ground shadow, no captions, no logos, no watermark, no extra props. Ordinary anatomy may connect only the described motifs.\nPrimary request: A very tall transparent amber measuring RULER is the living creature's vertical main body, with obvious dark measurement tick marks and small numerals. A round face built from stacked shiny GOLD COINS representing RICH sits near the upper third, with two young glossy eyes and happy tiny smile embossed into the coins. A comically huge deep crimson velvet ROYAL BALL DRESS grows directly around the lower half of this narrow ruler body and flares out as a gigantic bell, puffed skirt supported by tiny gold-coin shoes. The ruler stretches conspicuously high ABOVE the coin face and ends in a jewel-encrusted gold ROYAL CROWN, giving an absurd long neck silhouette. One hinged straight ruler arm extends to the RIGHT into a single pointing finger shape; the other arm straight down. Body is truly clear ruler stick, no human torso or humanoid skin. Scale contrast: stick body, giant dress, tiny rich gold feet, oversized crown.",
+          "source": "C:/Users/haiba/.codex/generated_images/01a11f58-4477-7010-abd2-7853b355e1fb/exec-3a9d738c-c00b-4bb6-9e1b-ce099b3e8d3f.png",
+          "face_revision_prompt": "Use case: precise-object-edit. This supplied image is the sole edit target: full-body golden ruler queen with a stacked-coin head, jeweled red crown, intricate red velvet dress, gold ruler arms, one pointing hand and gold shoes. Make ONLY a localized facial-expression change on the coin head. Replace its big round shiny eyes and open mouth with a different, regal haughty expression made from flat elegant black graphic lines on the realistic gold surface: two narrow CLOSED LINE eyes shaped as gently curved horizontal arches, one tiny eyebrow raised slightly higher, and a tiny off-center knowing SMIRK. The eyes must be thin closed strokes, NOT round dots and not open eyes. The smirk must be a short asymmetrical curved line, NOT a central U-shaped happy smile. Face feels smug, poised and royal yet charming, with plenty of blank coin surface; no detailed iris/white/pupil, lashes, glossy eye glints, teeth, tongue or pink lips. Precisely preserve every non-face part and the full original anatomy: stacked coin ridges, all tall ruler dimensions and engraved marks, intricate crown gems, dress fabric/folds, all pearls and jewels, sleeves, ruler arms, hand positions, pointing direction, shoes, silhouette, pose, camera, colors and realistic texture/lighting. No redesign or simplification of body. Full body fully visible, truly transparent background; if needed only add transparent canvas margin while preserving shape. No captions or watermark.",
+          "candidateId": "v001",
+          "conceptFile": "root-reg-v001.md",
+          "legacyFile": "massugu-reg-richruler.png",
+          "status": "candidate",
+          "overallDecision": "unselected",
+          "face": "閉じた細い線の目、少し上げた片眉、小さく非対称な得意げな笑み。",
+          "generationMetadata": "generation-prompts-new-roots.json",
+          "reviewHistory": [],
+          "archivedSource": "D:/etymolingo/work/wildwordopia/sample/_sources/root-reg-v001.png",
+          "localSource": "_sources/root-reg-v001.png",
+          "sourceKind": "generated_original",
+          "creationTime": null,
+          "creationTimeNote": "正確な制作日時は不明。ファイル更新日時から制作日時を推定しない。"
+        }
+      ],
+      "conceptFile": "root-reg-v001.md",
+      "status": "candidate",
+      "overallDecision": "unselected"
+    },
+    {
+      "id": "weid",
+      "name": "Miru Weid Videowiz",
+      "kana": "ミル・ウェイド・ビデオウィズ",
+      "root": "*weid-",
+      "meaning": "見る・知る",
+      "meaningEn": "See · Know",
+      "file": "root-weid-v001.png",
+      "motifs": [
+        {
+          "word": "video",
+          "ja": "動画",
+          "part": "A CRT video screen for a head",
+          "partJa": "頭のブラウン管モニター"
+        },
+        {
+          "word": "vision",
+          "ja": "視覚",
+          "part": "The giant eye on the screen represents vision",
+          "partJa": "画面いっぱいの巨大な目"
+        },
+        {
+          "word": "wizard",
+          "ja": "魔法使い",
+          "part": "A dramatically bent wizard hat",
+          "partJa": "画面と融合した魔法帽"
+        },
+        {
+          "word": "story",
+          "ja": "物語",
+          "part": "Open illustrated storybooks forming four legs",
+          "partJa": "開いた物語の本の胴体"
+        },
+        {
+          "word": "idol",
+          "ja": "偶像",
+          "part": "A golden idol at the end of a cable tail",
+          "partJa": "背中から伸びる金色の小像"
+        }
+      ],
+      "sources": [
+        {
+          "title": "video",
+          "url": "https://www.etymonline.com/word/video"
+        },
+        {
+          "title": "vision",
+          "url": "https://www.etymonline.com/word/vision"
+        },
+        {
+          "title": "wizard",
+          "url": "https://www.etymonline.com/word/wizard"
+        },
+        {
+          "title": "story",
+          "url": "https://www.etymonline.com/word/story"
+        },
+        {
+          "title": "idol",
+          "url": "https://www.etymonline.com/word/idol"
+        }
+      ],
+      "rootKey": "weid-",
+      "stem": "root-weid",
+      "candidates": [
+        {
+          "id": "weid",
+          "name": "Miru Weid Videowiz",
+          "kana": "ミル・ウェイド・ビデオウィズ",
+          "root": "*weid-",
+          "meaning": "見る・知る",
+          "meaningEn": "See · Know",
+          "file": "root-weid-v001.png",
+          "motifs": [
+            {
+              "word": "video",
+              "ja": "動画",
+              "part": "A CRT video screen for a head",
+              "partJa": "頭のブラウン管モニター"
+            },
+            {
+              "word": "vision",
+              "ja": "視覚",
+              "part": "The giant eye on the screen represents vision",
+              "partJa": "画面いっぱいの巨大な目"
+            },
+            {
+              "word": "wizard",
+              "ja": "魔法使い",
+              "part": "A dramatically bent wizard hat",
+              "partJa": "画面と融合した魔法帽"
+            },
+            {
+              "word": "story",
+              "ja": "物語",
+              "part": "Open illustrated storybooks forming four legs",
+              "partJa": "開いた物語の本の胴体"
+            },
+            {
+              "word": "idol",
+              "ja": "偶像",
+              "part": "A golden idol at the end of a cable tail",
+              "partJa": "背中から伸びる金色の小像"
+            }
+          ],
+          "sources": [
+            {
+              "title": "video",
+              "url": "https://www.etymonline.com/word/video"
+            },
+            {
+              "title": "vision",
+              "url": "https://www.etymonline.com/word/vision"
+            },
+            {
+              "title": "wizard",
+              "url": "https://www.etymonline.com/word/wizard"
+            },
+            {
+              "title": "story",
+              "url": "https://www.etymonline.com/word/story"
+            },
+            {
+              "title": "idol",
+              "url": "https://www.etymonline.com/word/idol"
+            }
+          ],
+          "rootKey": "weid-",
+          "stem": "root-weid",
+          "concept": "A squat old teal CRT VIDEO TELEVISION is the head of a strange storybook wizard, screen filled by a single HUGE glossy alert eye representing VISION. The monitor case is fused with a dramatically bent deep-purple WIZARD HAT that grows out of its top, oversized and slightly lopsided. The entire torso and four stubby walking limbs consist of an OPEN thick leather STORYBOOK with many visible paper pages, the page blocks folding outward like four articulated book legs. No readable text on pages, only tiny indistinct illustrated story scenes. Behind its shoulder a curved metal cable tail ends in a conspicuous gold human-shaped IDOL STATUETTE fused onto the cable, as large as one foot. Rich turquoise screen glass, violet felt, tan leather, gilded idol. The real book and CRT are the main silhouette; no human child body.",
+          "prompt": "Use case: stylized-concept. Asset type: original English-etymology game character, isolated transparent PNG cutout. Style: absurd AI-brainrot surreal 3D creature with convincing photographic materials, polished game-IP design, charismatic ridiculous expression, approachable for children. A physically fused impossible chimera, highly memorable silhouette, NOT a cute anime humanoid wearing themed accessories. Every major component below must be large and visually legible at 512 pixels. Full creature in frame including extremities; centered square composition, modest transparent padding. Front three-quarter view, crisp edges, warm soft studio illumination, high color/material contrast. Transparent alpha background, no floor, no backdrop, no cast ground shadow, no captions, no watermark, no brand logo, no extra floating props. Only the stated components and ordinary connecting anatomy. Face should be young, endearing and mischievously dazed, not middle-aged.\nPrimary request: A squat old teal CRT VIDEO TELEVISION is the head of a strange storybook wizard, screen filled by a single HUGE glossy alert eye representing VISION. The monitor case is fused with a dramatically bent deep-purple WIZARD HAT that grows out of its top, oversized and slightly lopsided. The entire torso and four stubby walking limbs consist of an OPEN thick leather STORYBOOK with many visible paper pages, the page blocks folding outward like four articulated book legs. No readable text on pages, only tiny indistinct illustrated story scenes. Behind its shoulder a curved metal cable tail ends in a conspicuous gold human-shaped IDOL STATUETTE fused onto the cable, as large as one foot. Rich turquoise screen glass, violet felt, tan leather, gilded idol. The real book and CRT are the main silhouette; no human child body.",
+          "source": "C:\\Users\\haiba\\.codex\\generated_images\\01a11c2c-2aea-7d31-acf8-4d418bf98912\\exec-c3c2459a-ef7f-4d7e-8960-c357157d6833.png",
+          "candidateId": "v001",
+          "conceptFile": "root-weid-v001.md",
+          "legacyFile": "miru-weid-videowiz.png",
+          "status": "candidate",
+          "overallDecision": "unselected",
+          "face": "ブラウン管いっぱいの大きな一つ眼。金の偶像も元の立体表情を残す。",
+          "generationMetadata": "generation-prompts-new-roots.json",
+          "reviewHistory": [],
+          "archivedSource": "D:/etymolingo/work/wildwordopia/sample/_sources/root-weid-v001.png",
+          "localSource": "_sources/root-weid-v001.png",
+          "sourceKind": "generated_original",
+          "creationTime": null,
+          "creationTimeNote": "正確な制作日時は不明。ファイル更新日時から制作日時を推定しない。"
+        }
+      ],
+      "conceptFile": "root-weid-v001.md",
+      "status": "candidate",
+      "overallDecision": "unselected"
+    },
+    {
+      "id": "ye",
+      "name": "Nage Ye Jetject",
+      "kana": "ナゲ・イェ・ジェットジェクト",
+      "root": "*yē-",
+      "meaning": "投げる",
+      "meaningEn": "Throw",
+      "file": "root-ye-v001.png",
+      "motifs": [
+        {
+          "word": "jet",
+          "ja": "ジェット機・噴出",
+          "part": "Jet turbines forming both arms",
+          "partJa": "ジェットエンジンの腕"
+        },
+        {
+          "word": "projector",
+          "ja": "映写機",
+          "part": "Film reels and a projector-lens face",
+          "partial": true,
+          "partJa": "レンズとフィルムリールの胴体",
+          "note": "The -ject- part means throw; pro- means forward."
+        },
+        {
+          "word": "injection",
+          "ja": "注射",
+          "part": "A large blunt syringe forming the spine and tail",
+          "partial": true,
+          "partJa": "注射器の背骨と尾",
+          "note": "The -ject- part means throw; in- means into."
+        },
+        {
+          "word": "eject",
+          "ja": "外へ投げ出す",
+          "part": "An ejection seat on an attached spring",
+          "partial": true,
+          "partJa": "体から飛び出す座席",
+          "note": "The -ject- part means throw; e- means out."
+        }
+      ],
+      "sources": [
+        {
+          "title": "jet",
+          "url": "https://www.etymonline.com/word/jet"
+        },
+        {
+          "title": "projector",
+          "url": "https://www.etymonline.com/word/projector"
+        },
+        {
+          "title": "injection",
+          "url": "https://www.etymonline.com/word/injection"
+        },
+        {
+          "title": "eject",
+          "url": "https://www.etymonline.com/word/eject"
+        }
+      ],
+      "rootKey": "yē-",
+      "stem": "root-ye",
+      "candidates": [
+        {
+          "id": "ye",
+          "name": "Nage Ye Jetject",
+          "kana": "ナゲ・イェ・ジェットジェクト",
+          "root": "*yē-",
+          "meaning": "投げる",
+          "meaningEn": "Throw",
+          "file": "root-ye-v001.png",
+          "motifs": [
+            {
+              "word": "jet",
+              "ja": "ジェット機・噴出",
+              "part": "Jet turbines forming both arms",
+              "partJa": "ジェットエンジンの腕"
+            },
+            {
+              "word": "projector",
+              "ja": "映写機",
+              "part": "Film reels and a projector-lens face",
+              "partial": true,
+              "partJa": "レンズとフィルムリールの胴体",
+              "note": "The -ject- part means throw; pro- means forward."
+            },
+            {
+              "word": "injection",
+              "ja": "注射",
+              "part": "A large blunt syringe forming the spine and tail",
+              "partial": true,
+              "partJa": "注射器の背骨と尾",
+              "note": "The -ject- part means throw; in- means into."
+            },
+            {
+              "word": "eject",
+              "ja": "外へ投げ出す",
+              "part": "An ejection seat on an attached spring",
+              "partial": true,
+              "partJa": "体から飛び出す座席",
+              "note": "The -ject- part means throw; e- means out."
+            }
+          ],
+          "sources": [
+            {
+              "title": "jet",
+              "url": "https://www.etymonline.com/word/jet"
+            },
+            {
+              "title": "projector",
+              "url": "https://www.etymonline.com/word/projector"
+            },
+            {
+              "title": "injection",
+              "url": "https://www.etymonline.com/word/injection"
+            },
+            {
+              "title": "eject",
+              "url": "https://www.etymonline.com/word/eject"
+            }
+          ],
+          "rootKey": "yē-",
+          "stem": "root-ye",
+          "concept": "A battered teal vintage MOVIE PROJECTOR with TWO large unmistakable film REELS is the compact living body of an outrageous creature. The circular glass projector LENS is a single friendly enormous eye, with tiny smiling mouth in the metal below it. Two massive realistic silver JET TURBINES grow as its left and right arms, turbine fan blades plainly visible, small translucent blue exhaust plume attached to back of each. The creature's spine and long curved rear tail are one enormous CLEAR MEDICAL SYRINGE: chunky graduated barrel filled with pink fluid, huge round plunger behind its head, a tapered safe BLUNT nozzle at tail end, no sharp exposed needle and no gore. Its two short forward walking legs are folded movie-film strips. A conspicuous tiny padded EJECTION SEAT is raised out of the top above the projector body on a visible telescopic spring mechanism, attached as anatomy not detached floating prop. Absurd recognizably projector+jet+injection+eject; film reels, eye lens, engines and syringe all comparable readable scale.",
+          "prompt": "Use case: stylized-concept. Asset type: original educational game character cutout. Style: absurd AI-brainrot 3D chimera with photographic realistic texture and polished whimsical IP design, emotionally appealing to children, physically fused anatomy rather than a humanoid holding objects. Dominant components huge and legible at 512px. Full body square front three-quarter view with at least 7 percent transparent margin all around and no cropped extremities. Soft studio lighting, vivid material contrast. Young friendly, ridiculous slightly dazed face, not old. Real alpha transparency, no floor, no background, no ground shadow, no text captions, no logos, no watermark. Only specified motifs plus connecting anatomy, no unrelated themed accessories.\nPrimary request: A battered teal vintage MOVIE PROJECTOR with TWO large unmistakable film REELS is the compact living body of an outrageous creature. The circular glass projector LENS is a clear face panel with two SMALL solid ink-black dots and a short thin curve smile, with tiny smiling mouth in the metal below it. Two massive realistic silver JET TURBINES grow as its left and right arms, turbine fan blades plainly visible, small translucent blue exhaust plume attached to back of each. The creature's spine and long curved rear tail are one enormous CLEAR MEDICAL SYRINGE: chunky graduated barrel filled with pink fluid, huge round plunger behind its head, a tapered safe BLUNT nozzle at tail end, no sharp exposed needle and no gore. Its two short forward walking legs are folded movie-film strips. A conspicuous tiny padded EJECTION SEAT is raised out of the top above the projector body on a visible telescopic spring mechanism, attached as anatomy not detached floating prop. Absurd recognizably projector+jet+injection+eject; film reels, eye lens, engines and syringe all comparable readable scale.\nMandatory series face language: extremely simple flat ink-black DOT EYES and ONE SMALL thin CURVED SMILE, visually (• ◡ •), like a minimalist adventure cartoon emoticon. Exactly two solid round/vertical oval black dot eyes; no whites, irises, pupils, reflections, eyelashes, brow ridges or detailed facial musculature. The mouth is one short clean U-shaped dark curve, no visible teeth/tongue/lips. Facial marks are small in the center of face with wide spacing and lots of blank space, printed/painted directly on the creature's material. Keep realistic 3D absurd chimera body texture, but face stays minimalist 2D graphical black dots and curve. This face rule OVERRIDES any mention of large glossy eyes, pupil, toothy grins, infant/animal realism or detailed eye shapes in subject description.\nLens itself remains glass, but no realistic eyeball; the two-dot expression is on the lens surface.",
+          "source": "C:/Users/haiba/.codex/generated_images/01a11c2c-2aea-7d31-acf8-4d418bf98912/exec-f90f36a2-6500-4750-a6dc-f9d5ab856072.png",
+          "candidateId": "v001",
+          "conceptFile": "root-ye-v001.md",
+          "legacyFile": "nage-ye-jetject.png",
+          "status": "candidate",
+          "overallDecision": "unselected",
+          "face": "映写機レンズ上の小さい点目二つとU字の笑顔。これは顔についての肯定を受けた例。",
+          "generationMetadata": "generation-prompts-new-roots.json",
+          "reviewHistory": [
+            {
+              "actor": "user",
+              "scope": "face",
+              "verdict": "good",
+              "quote": "こういうのは良い",
+              "note": "カレンダーではなく、映写機レンズの点目と曲線の口に対するコメント。",
+              "overallDecision": "unselected",
+              "appliesTo": "this facial style",
+              "createdAt": null,
+              "timeNote": "正確な発言時刻は不明。制作時刻や採用時刻を推定しない。"
+            }
+          ],
+          "archivedSource": "D:/etymolingo/work/wildwordopia/sample/_sources/root-ye-v001.png",
+          "localSource": "_sources/root-ye-v001.png",
+          "sourceKind": "generated_original",
+          "creationTime": null,
+          "creationTimeNote": "正確な制作日時は不明。ファイル更新日時から制作日時を推定しない。"
+        }
+      ],
+      "conceptFile": "root-ye-v001.md",
+      "status": "candidate",
+      "overallDecision": "unselected"
+    },
+    {
+      "id": "mori",
+      "name": "Umi Mori Submermaid",
+      "kana": "ウミ・モリ・サブマーメイド",
+      "root": "*mori-",
+      "meaning": "海・水域",
+      "meaningEn": "Sea · Water area",
+      "file": "root-mori-v001.png",
+      "motifs": [
+        {
+          "word": "submarine",
+          "ja": "潜水艦",
+          "part": "A yellow submarine body with portholes",
+          "partial": true,
+          "partJa": "潜水艦の胴体",
+          "note": "The marine part means sea; sub- means under."
+        },
+        {
+          "word": "mermaid",
+          "ja": "人魚",
+          "part": "A mermaid head, arms and curled fish tail",
+          "partial": true,
+          "partJa": "人魚の上半身と尾",
+          "note": "The mer- part means sea; maid has a separate ancestry."
+        },
+        {
+          "word": "aquamarine",
+          "ja": "アクアマリン",
+          "part": "Translucent aquamarine crystal fins",
+          "partial": true,
+          "partJa": "青い宝石のひれ",
+          "note": "The marine part means sea; aqua means water."
+        },
+        {
+          "word": "rosemary",
+          "ja": "ローズマリー",
+          "part": "Real rosemary sprigs forming the hair",
+          "partJa": "頭と背中のローズマリー",
+          "partial": true,
+          "sharedComponent": "Latin marinus in ros marinus",
+          "note": "The shared component is Latin marinus ('of the sea') in ros marinus. Ros ('dew') has separate ancestry; modern English rosemary does not contain a marine substring."
+        },
+        {
+          "word": "marsh",
+          "ja": "湿地",
+          "part": "A tiny planted marsh on the submarine's back",
+          "partJa": "潜水艦の上の小さな湿地"
+        }
+      ],
+      "sources": [
+        {
+          "title": "submarine",
+          "url": "https://www.etymonline.com/word/submarine"
+        },
+        {
+          "title": "mermaid",
+          "url": "https://www.etymonline.com/word/mermaid"
+        },
+        {
+          "title": "aquamarine",
+          "url": "https://www.etymonline.com/word/aquamarine"
+        },
+        {
+          "title": "rosemary",
+          "url": "https://www.etymonline.com/word/rosemary"
+        },
+        {
+          "title": "marsh",
+          "url": "https://www.etymonline.com/word/marsh"
+        }
+      ],
+      "rootKey": "mori-",
+      "stem": "root-mori",
+      "candidates": [
+        {
+          "id": "mori",
+          "name": "Umi Mori Submermaid",
+          "kana": "ウミ・モリ・サブマーメイド",
+          "root": "*mori-",
+          "meaning": "海・水域",
+          "meaningEn": "Sea · Water area",
+          "file": "root-mori-v001.png",
+          "motifs": [
+            {
+              "word": "submarine",
+              "ja": "潜水艦",
+              "part": "A yellow submarine body with portholes",
+              "partial": true,
+              "partJa": "潜水艦の胴体",
+              "note": "The marine part means sea; sub- means under."
+            },
+            {
+              "word": "mermaid",
+              "ja": "人魚",
+              "part": "A mermaid head, arms and curled fish tail",
+              "partial": true,
+              "partJa": "人魚の上半身と尾",
+              "note": "The mer- part means sea; maid has a separate ancestry."
+            },
+            {
+              "word": "aquamarine",
+              "ja": "アクアマリン",
+              "part": "Translucent aquamarine crystal fins",
+              "partial": true,
+              "partJa": "青い宝石のひれ",
+              "note": "The marine part means sea; aqua means water."
+            },
+            {
+              "word": "rosemary",
+              "ja": "ローズマリー",
+              "part": "Real rosemary sprigs forming the hair",
+              "partJa": "頭と背中のローズマリー",
+              "partial": true,
+              "sharedComponent": "Latin marinus in ros marinus",
+              "note": "The shared component is Latin marinus ('of the sea') in ros marinus. Ros ('dew') has separate ancestry; modern English rosemary does not contain a marine substring."
+            },
+            {
+              "word": "marsh",
+              "ja": "湿地",
+              "part": "A tiny planted marsh on the submarine's back",
+              "partJa": "潜水艦の上の小さな湿地"
+            }
+          ],
+          "sources": [
+            {
+              "title": "submarine",
+              "url": "https://www.etymonline.com/word/submarine"
+            },
+            {
+              "title": "mermaid",
+              "url": "https://www.etymonline.com/word/mermaid"
+            },
+            {
+              "title": "aquamarine",
+              "url": "https://www.etymonline.com/word/aquamarine"
+            },
+            {
+              "title": "rosemary",
+              "url": "https://www.etymonline.com/word/rosemary"
+            },
+            {
+              "title": "marsh",
+              "url": "https://www.etymonline.com/word/marsh"
+            }
+          ],
+          "rootKey": "mori-",
+          "stem": "root-mori",
+          "concept": "A smiling glamorous MERMAID with a small charming youthful face is horribly yet hilariously fused into a chunky yellow weathered SUBMARINE: her shoulders and arms emerge from the submarine conning tower, while her long fish tail emerges from the rear and curls underneath as a standing support. The submarine's round yellow hull is the giant belly, with obvious bolted round portholes and a periscope. Two exaggerated translucent pale-blue AQUAMARINE CRYSTAL FINS grow as the side fins of the hull, prismatic and gemlike. Dense actual ROSEMARY SPRIGS with narrow needle leaves and tiny blue flowers form her wild sea-hair and grow along the submarine back; a small planted MARSH of reeds with wet dark-green moss is physically contained around conning tower base, not an external landscape. Expressive large soft eyes and playful lips; NO old man's face, no nudity. Five extremely readable fused motifs, boat-metal belly, gem fins, fish tail, real rosemary hair. Full curled tail and both crystal fins visible.",
+          "prompt": "Use case: stylized-concept. Asset type: original English-etymology game character, isolated transparent PNG cutout. Style: absurd AI-brainrot surreal 3D creature with convincing photographic materials, polished game-IP design, charismatic ridiculous expression, approachable for children. A physically fused impossible chimera, highly memorable silhouette, NOT a cute anime humanoid wearing themed accessories. Every major component below must be large and visually legible at 512 pixels. Full creature in frame including extremities; centered square composition, modest transparent padding. Front three-quarter view, crisp edges, warm soft studio illumination, high color/material contrast. Transparent alpha background, no floor, no backdrop, no cast ground shadow, no captions, no watermark, no brand logo, no extra floating props. Only the stated components and ordinary connecting anatomy. Face should be young, endearing and mischievously dazed, not middle-aged.\nPrimary request: A smiling glamorous MERMAID with a small charming youthful face is horribly yet hilariously fused into a chunky yellow weathered SUBMARINE: her shoulders and arms emerge from the submarine conning tower, while her long fish tail emerges from the rear and curls underneath as a standing support. The submarine's round yellow hull is the giant belly, with obvious bolted round portholes and a periscope. Two exaggerated translucent pale-blue AQUAMARINE CRYSTAL FINS grow as the side fins of the hull, prismatic and gemlike. Dense actual ROSEMARY SPRIGS with narrow needle leaves and tiny blue flowers form her wild sea-hair and grow along the submarine back; a small planted MARSH of reeds with wet dark-green moss is physically contained around conning tower base, not an external landscape. Expressive large soft eyes and playful lips; NO old man's face, no nudity. Five extremely readable fused motifs, boat-metal belly, gem fins, fish tail, real rosemary hair. Full curled tail and both crystal fins visible.",
+          "source": "C:\\Users\\haiba\\.codex\\generated_images\\01a11c2c-2aea-7d31-acf8-4d418bf98912\\exec-2ad5e35a-b9ed-4bbf-b7b3-00e161ff90e3.png",
+          "candidateId": "v001",
+          "conceptFile": "root-mori-v001.md",
+          "legacyFile": "umi-mori-submermaid.png",
+          "status": "candidate",
+          "overallDecision": "unselected",
+          "face": "大きな目と柔らかい口元を持つ、アニメに近い若い人魚の顔。",
+          "generationMetadata": "generation-prompts-new-roots.json",
+          "reviewHistory": [],
+          "archivedSource": "D:/etymolingo/work/wildwordopia/sample/_sources/root-mori-v001.png",
+          "localSource": "_sources/root-mori-v001.png",
+          "sourceKind": "generated_original",
+          "creationTime": null,
+          "creationTimeNote": "正確な制作日時は不明。ファイル更新日時から制作日時を推定しない。"
+        }
+      ],
+      "conceptFile": "root-mori-v001.md",
+      "status": "candidate",
+      "overallDecision": "unselected"
+    },
+    {
+      "id": "men",
+      "name": "Omoi Men Musimonster",
+      "kana": "オモイ・メン・ミュージモンスター",
+      "root": "*men-1",
+      "meaning": "考える",
+      "meaningEn": "Think",
+      "file": "root-men1-v001.png",
+      "motifs": [
+        {
+          "word": "mind",
+          "ja": "心・精神",
+          "part": "A brain-shaped head representing the mind",
+          "partJa": "脳のような大きな頭"
+        },
+        {
+          "word": "monster",
+          "ja": "怪物",
+          "part": "A many-limbed, big-faced monster body",
+          "partJa": "大口の奇妙な体"
+        },
+        {
+          "word": "music",
+          "ja": "音楽",
+          "part": "A piano-key collar and drum body",
+          "partJa": "ピアノ鍵盤の口と太鼓の胴体"
+        },
+        {
+          "word": "mantis",
+          "ja": "カマキリ",
+          "part": "Large green praying-mantis limbs",
+          "partJa": "大きな鎌状の腕と脚"
+        },
+        {
+          "word": "monitor",
+          "ja": "モニター",
+          "part": "A small monitoring screen in the forehead",
+          "partJa": "額に埋まった小さな画面"
+        }
+      ],
+      "sources": [
+        {
+          "title": "mind",
+          "url": "https://www.etymonline.com/word/mind"
+        },
+        {
+          "title": "monster",
+          "url": "https://www.etymonline.com/word/monster"
+        },
+        {
+          "title": "music",
+          "url": "https://www.etymonline.com/word/music"
+        },
+        {
+          "title": "mantis",
+          "url": "https://www.etymonline.com/word/mantis"
+        },
+        {
+          "title": "monitor",
+          "url": "https://www.etymonline.com/word/monitor"
+        }
+      ],
+      "rootKey": "men-1",
+      "stem": "root-men1",
+      "candidates": [
+        {
+          "id": "men",
+          "name": "Omoi Men Musimonster",
+          "kana": "オモイ・メン・ミュージモンスター",
+          "root": "*men-1",
+          "meaning": "考える",
+          "meaningEn": "Think",
+          "file": "root-men1-v001.png",
+          "motifs": [
+            {
+              "word": "mind",
+              "ja": "心・精神",
+              "part": "A brain-shaped head representing the mind",
+              "partJa": "脳のような大きな頭"
+            },
+            {
+              "word": "monster",
+              "ja": "怪物",
+              "part": "A many-limbed, big-faced monster body",
+              "partJa": "大口の奇妙な体"
+            },
+            {
+              "word": "music",
+              "ja": "音楽",
+              "part": "A piano-key collar and drum body",
+              "partJa": "ピアノ鍵盤の口と太鼓の胴体"
+            },
+            {
+              "word": "mantis",
+              "ja": "カマキリ",
+              "part": "Large green praying-mantis limbs",
+              "partJa": "大きな鎌状の腕と脚"
+            },
+            {
+              "word": "monitor",
+              "ja": "モニター",
+              "part": "A small monitoring screen in the forehead",
+              "partJa": "額に埋まった小さな画面"
+            }
+          ],
+          "sources": [
+            {
+              "title": "mind",
+              "url": "https://www.etymonline.com/word/mind"
+            },
+            {
+              "title": "monster",
+              "url": "https://www.etymonline.com/word/monster"
+            },
+            {
+              "title": "music",
+              "url": "https://www.etymonline.com/word/music"
+            },
+            {
+              "title": "mantis",
+              "url": "https://www.etymonline.com/word/mantis"
+            },
+            {
+              "title": "monitor",
+              "url": "https://www.etymonline.com/word/monitor"
+            }
+          ],
+          "rootKey": "men-1",
+          "stem": "root-men1",
+          "concept": "A hilariously chaotic MUSIC MONSTER has an ENORMOUS smooth pink rubber BRAIN-shaped head with soft ridged folds representing MIND, two huge young silly eyes and a wide gaping friendly mouth whose teeth are actual alternating black and ivory PIANO KEYS in a curved keyboard jaw. The torso beneath is one gigantic real red lacquered SNARE DRUM, taut cream drumskin and shiny chrome drum hardware. Growing from the drum are two oversized vividly green PRAYING MANTIS SCYTHE ARMS, clearly angular insect pincers, and four bent green MANTIS LEGS planted widely, so the body has a low six-limbed insect silhouette. The mantis arm tips double as rounded built-in drum beaters naturally bent toward its own drum body. One small chunky MONITOR SCREEN is inset INTO the brain forehead above two eyes like a third eye, showing a simple bright green monitoring waveform on black with no text. Keep big brain head, piano teeth, drum belly and mantis limbs dominant; screen remains small but clearly readable. Bright pink/red/lime with glossy black ivory teeth; playful musical monster, no gore, no grotesque decay.",
+          "prompt": "Use case: stylized-concept. Asset type: transparent character PNG for English-learning game. Style: outrageous AI-brainrot surreal 3D chimera rendered with convincing photographic materials, eccentric creature IP, friendly funny face for children. Every motif fused into actual anatomy and large enough to read at 512 pixels. No conventional anime humanoid costume. Centered full body, square image with 7 percent empty transparent padding on every side, no cropped tips or feet. Soft studio lighting, strong distinct textures, young endearing mischievous face. True transparent alpha backdrop, no ground, no cast ground shadow, no captions, no logos, no watermark, no decorative props outside the described word motifs.\nPrimary request: A hilariously chaotic MUSIC MONSTER has an ENORMOUS smooth pink rubber BRAIN-shaped head with soft ridged folds representing MIND, two SMALL black dot eyes and one short thin U-curved smile; a curved alternating black-and-ivory PIANO KEYBOARD is physically fused below the smile as a neck-collar, not teeth and not an open mouth. The torso beneath is one gigantic real red lacquered SNARE DRUM, taut cream drumskin and shiny chrome drum hardware. Growing from the drum are two oversized vividly green PRAYING MANTIS SCYTHE ARMS, clearly angular insect pincers, and four bent green MANTIS LEGS planted widely, so the body has a low six-limbed insect silhouette. The mantis arm tips double as rounded built-in drum beaters naturally bent toward its own drum body. One small chunky MONITOR SCREEN is inset INTO the brain forehead above two eyes like a third eye, showing a simple bright green monitoring waveform on black with no text. Keep big brain head, piano teeth, drum belly and mantis limbs dominant; screen remains small but clearly readable. Bright pink/red/lime with glossy black ivory teeth; playful musical monster, no gore, no grotesque decay.\nMandatory series face language: extremely simple flat ink-black DOT EYES and ONE SMALL thin CURVED SMILE, visually (• ◡ •), like a minimalist adventure cartoon emoticon. Exactly two solid round/vertical oval black dot eyes; no whites, irises, pupils, reflections, eyelashes, brow ridges or detailed facial musculature. The mouth is one short clean U-shaped dark curve, no visible teeth/tongue/lips. Facial marks are small in the center of face with wide spacing and lots of blank space, printed/painted directly on the creature's material. Keep realistic 3D absurd chimera body texture, but face stays minimalist 2D graphical black dots and curve. This face rule OVERRIDES any mention of large glossy eyes, pupil, toothy grins, infant/animal realism or detailed eye shapes in subject description.\nKeep piano keys large as the neck collar. Face mouth remains a single thin curve, no teeth or tongue.",
+          "source": "C:/Users/haiba/.codex/generated_images/01a11f58-1369-71d1-92c7-d9835a442f7b/exec-3f9448c8-bbcd-4883-b665-a7fa4ccdbce3.png",
+          "face_revision_prompt": "Use case: precise-object-edit. The input is the EDIT TARGET: a transparent 3D brain music mantis monster. Change ONLY THE FACE, replacing the 2 flat black dot eyes and little U smile with an ecstatic intensely expressive MANIC CARTOON MONSTER face. Create EXACTLY TWO asymmetric black-and-white cartoon eyes: the left eye a huge round bulging googly white eyeball with small off-center black pupil looking outward/up, the right eye much smaller with a sharp half-squinted white shape and black pupil looking inward/down; exuberant mismatched proportions and wildly different gaze. Give the creature a BROAD CROOKED OPEN GRIN that arcs higher on one side, a dark graphic mouth cavity with a few oversized rounded white cartoon teeth, an ecstatically laughing expression. Funky, exaggerated, endearingly deranged brainrot cartoon face rendered into the realistically textured PINK BRAIN surface; not a generic cute dollface, not anime lashes, not a symmetric face, not flat dot eyes, not just a tiny closed smile. Preserve EVERYTHING ELSE EXACTLY: entire pink glossy brain shape and folds, embedded silver-rimmed forehead MONITOR with green audio waveform, white/black PIANO keyboard collar, large red metal-rimmed SNARE DRUM body, green praying-mantis forelimbs holding the existing two white mallets above the drum, all four green mantis legs and curved dark claws, pose, proportions, silhouette, existing materials, colours, lighting, camera and centering. No added arms, new instruments or accessories. No gore, blood, horror or injury. No text or watermark. Keep the full existing creature entirely inside frame with clear margins and true transparent background with alpha. Surgical expression-only variant; all body motifs remain intact.",
+          "candidateId": "v001",
+          "conceptFile": "root-men1-v001.md",
+          "legacyFile": "omoi-men-musimonster.png",
+          "status": "candidate",
+          "overallDecision": "unselected",
+          "face": "左右非対称の狂った目と勢いのある怪物の表情。脳に貼った一律の点目顔ではない。",
+          "generationMetadata": "generation-prompts-new-roots.json",
+          "reviewHistory": [
+            {
+              "actor": "user",
+              "scope": "face",
+              "verdict": "does_not_fit",
+              "quote": "合ってない",
+              "note": "過去のピンクの脳に貼った点目顔に対するコメント。現在の狂った顔への全体不採用ではない。",
+              "overallDecision": "unselected",
+              "appliesTo": "earlier face style",
+              "createdAt": null,
+              "timeNote": "正確な発言時刻は不明。制作時刻や採用時刻を推定しない。"
+            }
+          ],
+          "archivedSource": "D:/etymolingo/work/wildwordopia/sample/_sources/root-men1-v001.png",
+          "localSource": "_sources/root-men1-v001.png",
+          "sourceKind": "generated_original",
+          "creationTime": null,
+          "creationTimeNote": "正確な制作日時は不明。ファイル更新日時から制作日時を推定しない。"
+        }
+      ],
+      "conceptFile": "root-men1-v001.md",
+      "status": "candidate",
+      "overallDecision": "unselected"
+    },
+    {
+      "id": "do",
+      "name": "Ageru Do Datadon",
+      "kana": "アゲル・ドー・データドン",
+      "root": "*dō-",
+      "meaning": "与える",
+      "meaningEn": "Give",
+      "file": "root-do-v001.png",
+      "motifs": [
+        {
+          "word": "donation",
+          "ja": "寄付",
+          "part": "A donation box receiving coins",
+          "partJa": "硬貨を受け取る寄付箱の体"
+        },
+        {
+          "word": "data",
+          "ja": "データ",
+          "part": "Server drives and binary displays on the side",
+          "partJa": "側面のデータ表示とサーバー"
+        },
+        {
+          "word": "date",
+          "ja": "日付",
+          "part": "A tear-off calendar face; date means a calendar date",
+          "partJa": "めくり式カレンダーの顔"
+        },
+        {
+          "word": "dose",
+          "ja": "薬の一回分の量",
+          "part": "Graduated measuring-spoon arms representing a dose",
+          "partJa": "目盛り付き計量スプーンの腕"
+        },
+        {
+          "word": "antidote",
+          "ja": "解毒剤",
+          "part": "Medicine bottles representing an antidote",
+          "partial": true,
+          "partJa": "解毒薬の瓶の足",
+          "note": "The -dote part means given; anti- means against."
+        }
+      ],
+      "sources": [
+        {
+          "title": "donation",
+          "url": "https://www.etymonline.com/word/donation"
+        },
+        {
+          "title": "data",
+          "url": "https://www.etymonline.com/word/data"
+        },
+        {
+          "title": "date",
+          "url": "https://www.etymonline.com/word/date"
+        },
+        {
+          "title": "dose",
+          "url": "https://www.etymonline.com/word/dose"
+        },
+        {
+          "title": "antidote",
+          "url": "https://www.etymonline.com/word/antidote"
+        }
+      ],
+      "rootKey": "dō-",
+      "stem": "root-do",
+      "candidates": [
+        {
+          "id": "do",
+          "name": "Ageru Do Datadon",
+          "kana": "アゲル・ドー・データドン",
+          "root": "*dō-",
+          "meaning": "与える",
+          "meaningEn": "Give",
+          "file": "root-do-v001.png",
+          "motifs": [
+            {
+              "word": "donation",
+              "ja": "寄付",
+              "part": "A donation box receiving coins",
+              "partJa": "硬貨を受け取る寄付箱の体"
+            },
+            {
+              "word": "data",
+              "ja": "データ",
+              "part": "Server drives and binary displays on the side",
+              "partJa": "側面のデータ表示とサーバー"
+            },
+            {
+              "word": "date",
+              "ja": "日付",
+              "part": "A tear-off calendar face; date means a calendar date",
+              "partJa": "めくり式カレンダーの顔"
+            },
+            {
+              "word": "dose",
+              "ja": "薬の一回分の量",
+              "part": "Graduated measuring-spoon arms representing a dose",
+              "partJa": "目盛り付き計量スプーンの腕"
+            },
+            {
+              "word": "antidote",
+              "ja": "解毒剤",
+              "part": "Medicine bottles representing an antidote",
+              "partial": true,
+              "partJa": "解毒薬の瓶の足",
+              "note": "The -dote part means given; anti- means against."
+            }
+          ],
+          "sources": [
+            {
+              "title": "donation",
+              "url": "https://www.etymonline.com/word/donation"
+            },
+            {
+              "title": "data",
+              "url": "https://www.etymonline.com/word/data"
+            },
+            {
+              "title": "date",
+              "url": "https://www.etymonline.com/word/date"
+            },
+            {
+              "title": "dose",
+              "url": "https://www.etymonline.com/word/dose"
+            },
+            {
+              "title": "antidote",
+              "url": "https://www.etymonline.com/word/antidote"
+            }
+          ],
+          "rootKey": "dō-",
+          "stem": "root-do",
+          "concept": "A squat chunky turquoise metal DONATION BOX merged with a DATA SERVER cabinet forms the entire body of a charming bizarre creature. At the top a clearly visible horizontal donation COIN SLOT is swallowing several large shiny gold coins physically wedged in the slot, expressing giving. Its large front face is a thick white tear-off DATE CALENDAR with red top binding and two brass hanging rings, the exposed page has one BIG bold BLACK numeral 7 and two bright young glass eyes above numeral plus a little smiling mouth below. Two exposed server-panel bays on its side contain tiny green lit binary digits and recognizable silver hard-drive shapes representing DATA. The two arms are enormous translucent orange graduated MEDICINE MEASURING SPOONS, clear measurement ticks visible, rounded scoop tips spread outward, for DOSE. The two short stubby feet are giant thick glass ANTIDOTE MEDICINE BOTTLES filled with luminous emerald liquid, cork/white screw caps embedded into body, each bottle has a simple plain leaf-shaped sticker, no skull or cross or words. Boxlike little walking calendar coin robot with bottle feet and spoon arms, surreal but cuddly; face is the CALENDAR, not a separate human head. All five motifs physically integrated and readable. No plus signs, no fruit dates, no wrapped gifts.",
+          "prompt": "Use case: stylized-concept. Asset type: transparent character PNG for English-learning game. Style: outrageous AI-brainrot surreal 3D chimera rendered with convincing photographic materials, eccentric creature IP, friendly funny face for children. Every motif fused into actual anatomy and large enough to read at 512 pixels. No conventional anime humanoid costume. Centered full body, square image with 7 percent empty transparent padding on every side, no cropped tips or feet. Soft studio lighting, strong distinct textures, young endearing mischievous face. True transparent alpha backdrop, no ground, no cast ground shadow, no captions, no logos, no watermark, no decorative props outside the described word motifs.\nPrimary request: A squat chunky turquoise metal DONATION BOX merged with a DATA SERVER cabinet forms the entire body of a charming bizarre creature. At the top a clearly visible horizontal donation COIN SLOT is swallowing several large shiny gold coins physically wedged in the slot, expressing giving. Its large front face is a thick white tear-off DATE CALENDAR with red top binding and two brass hanging rings, the exposed page has one BIG bold BLACK numeral 7 and two bright young glass eyes above numeral plus a little smiling mouth below. Two exposed server-panel bays on its side contain tiny green lit binary digits and recognizable silver hard-drive shapes representing DATA. The two arms are enormous translucent orange graduated MEDICINE MEASURING SPOONS, clear measurement ticks visible, rounded scoop tips spread outward, for DOSE. The two short stubby feet are giant thick glass ANTIDOTE MEDICINE BOTTLES filled with luminous emerald liquid, cork/white screw caps embedded into body, each bottle has a simple plain leaf-shaped sticker, no skull or cross or words. Boxlike little walking calendar coin robot with bottle feet and spoon arms, surreal but cuddly; face is the CALENDAR, not a separate human head. All five motifs physically integrated and readable. No plus signs, no fruit dates, no wrapped gifts.\nMandatory series face language: extremely simple flat ink-black DOT EYES and ONE SMALL thin CURVED SMILE, visually (• ◡ •), like a minimalist adventure cartoon emoticon. Exactly two solid round/vertical oval black dot eyes; no whites, irises, pupils, reflections, eyelashes, brow ridges or detailed facial musculature. The mouth is one short clean U-shaped dark curve, no visible teeth/tongue/lips. Facial marks are small in the center of face with wide spacing and lots of blank space, printed/painted directly on the creature's material. Keep realistic 3D absurd chimera body texture, but face stays minimalist 2D graphical black dots and curve. This face rule OVERRIDES any mention of large glossy eyes, pupil, toothy grins, infant/animal realism or detailed eye shapes in subject description.",
+          "source": "C:\\Users\\haiba\\.codex\\generated_images\\01a11c2c-2aea-7d31-acf8-4d418bf98912\\exec-90dfb753-671a-4c44-a08f-be4dee327454.png",
+          "candidateId": "v001",
+          "conceptFile": "root-do-v001.md",
+          "legacyFile": "ageru-do-datadon.png",
+          "status": "candidate",
+          "overallDecision": "unselected",
+          "face": "カレンダーの小さい点目二つと曲線の笑顔。これは顔についての肯定を受けた例。",
+          "generationMetadata": "generation-prompts-new-roots.json",
+          "reviewHistory": [
+            {
+              "actor": "user",
+              "scope": "face",
+              "verdict": "good",
+              "quote": "良い",
+              "note": "カレンダーの点目と曲線の口に対するコメント。",
+              "overallDecision": "unselected",
+              "appliesTo": "this facial style",
+              "createdAt": null,
+              "timeNote": "正確な発言時刻は不明。制作時刻や採用時刻を推定しない。"
+            }
+          ],
+          "archivedSource": "D:/etymolingo/work/wildwordopia/sample/_sources/root-do-v001.png",
+          "localSource": "_sources/root-do-v001.png",
+          "sourceKind": "generated_original",
+          "creationTime": null,
+          "creationTimeNote": "正確な制作日時は不明。ファイル更新日時から制作日時を推定しない。"
+        }
+      ],
+      "conceptFile": "root-do-v001.md",
+      "status": "candidate",
+      "overallDecision": "unselected"
+    },
+    {
+      "id": "genu",
+      "name": "Hiza Genu Hexaknee",
+      "kana": "ヒザ・ゲヌ・ヘクサニー",
+      "root": "*genu-1",
+      "meaning": "ひざ・角",
+      "meaningEn": "Knee · Angle",
+      "file": "root-genu1-v001.png",
+      "motifs": [
+        {
+          "word": "knee",
+          "ja": "ひざ",
+          "part": "An oversized bent toy knee joint",
+          "partJa": "巨大な曲がった膝の胴体"
+        },
+        {
+          "word": "hexagon",
+          "ja": "六角形",
+          "part": "A six-sided hexagon face",
+          "partial": true,
+          "partJa": "正六角形の顔",
+          "note": "The -gon part means angle; hexa- means six."
+        },
+        {
+          "word": "pentagon",
+          "ja": "五角形",
+          "part": "Five-sided pentagon hands",
+          "partial": true,
+          "partJa": "五角形の手",
+          "note": "The -gon part means angle; penta- means five."
+        },
+        {
+          "word": "octagon",
+          "ja": "八角形",
+          "part": "Eight-sided octagon feet",
+          "partial": true,
+          "partJa": "八角形の足",
+          "note": "The -gon part means angle; octa- means eight."
+        },
+        {
+          "word": "diagonal",
+          "ja": "対角線",
+          "part": "Diagonal stripes across the octagon feet",
+          "partial": true,
+          "partJa": "八角形の足を横切る光る対角線",
+          "note": "The -gon part means angle; dia- means across."
+        }
+      ],
+      "sources": [
+        {
+          "title": "knee",
+          "url": "https://www.etymonline.com/word/knee"
+        },
+        {
+          "title": "hexagon",
+          "url": "https://www.etymonline.com/word/hexagon"
+        },
+        {
+          "title": "pentagon",
+          "url": "https://www.etymonline.com/word/pentagon"
+        },
+        {
+          "title": "octagon",
+          "url": "https://www.etymonline.com/word/octagon"
+        },
+        {
+          "title": "diagonal",
+          "url": "https://www.etymonline.com/word/diagonal"
+        }
+      ],
+      "rootKey": "genu-1",
+      "stem": "root-genu1",
+      "candidates": [
+        {
+          "id": "genu",
+          "name": "Hiza Genu Hexaknee",
+          "kana": "ヒザ・ゲヌ・ヘクサニー",
+          "root": "*genu-1",
+          "meaning": "ひざ・角",
+          "meaningEn": "Knee · Angle",
+          "file": "root-genu1-v001.png",
+          "motifs": [
+            {
+              "word": "knee",
+              "ja": "ひざ",
+              "part": "An oversized bent toy knee joint",
+              "partJa": "巨大な曲がった膝の胴体"
+            },
+            {
+              "word": "hexagon",
+              "ja": "六角形",
+              "part": "A six-sided hexagon face",
+              "partial": true,
+              "partJa": "正六角形の顔",
+              "note": "The -gon part means angle; hexa- means six."
+            },
+            {
+              "word": "pentagon",
+              "ja": "五角形",
+              "part": "Five-sided pentagon hands",
+              "partial": true,
+              "partJa": "五角形の手",
+              "note": "The -gon part means angle; penta- means five."
+            },
+            {
+              "word": "octagon",
+              "ja": "八角形",
+              "part": "Eight-sided octagon feet",
+              "partial": true,
+              "partJa": "八角形の足",
+              "note": "The -gon part means angle; octa- means eight."
+            },
+            {
+              "word": "diagonal",
+              "ja": "対角線",
+              "part": "Diagonal stripes across the octagon feet",
+              "partial": true,
+              "partJa": "八角形の足を横切る光る対角線",
+              "note": "The -gon part means angle; dia- means across."
+            }
+          ],
+          "sources": [
+            {
+              "title": "knee",
+              "url": "https://www.etymonline.com/word/knee"
+            },
+            {
+              "title": "hexagon",
+              "url": "https://www.etymonline.com/word/hexagon"
+            },
+            {
+              "title": "pentagon",
+              "url": "https://www.etymonline.com/word/pentagon"
+            },
+            {
+              "title": "octagon",
+              "url": "https://www.etymonline.com/word/octagon"
+            },
+            {
+              "title": "diagonal",
+              "url": "https://www.etymonline.com/word/diagonal"
+            }
+          ],
+          "rootKey": "genu-1",
+          "stem": "root-genu1",
+          "concept": "ベージュの玩具の関節で構成された、膝を曲げて立つクリーチャー。曲がった膝を読み取りやすくし、胴体前面に六角形のシアンの顔、左右の腕先に五角形の黄色い手、下部に八角形のオレンジの足を融合する。足面にはシアンの対角線を大きく出す。最終PNGは生々しい人間の皮膚ではなく、丸い関節と立体玩具の素材で表現している。",
+          "prompt": "Use case: stylized-concept. Asset type: original surreal game-creature transparent PNG. Make a funny 3D geometric KNEE MONSTER built from a LARGE beige silicone ARTICULATED TOY KNEE JOINT, the sort of nonhuman plastic joint on an educational mannequin. The main body is the bent V-shaped joint with a round molded kneecap, completely artificial matte silicone and visible mechanical seams. No real human flesh, no naked person, no medical gore. Its face is a large cyan regular HEXAGON plate with exactly SIX sides mounted over the kneecap. Paint TWO VERY SMALL solid round black DOT EYES and ONE SHORT thin U-shaped black SMILE in the center of the flat cyan face, like (• ◡ •), no whites, iris, pupils, eyebrows, glossy reflections, lips, teeth or tongue. Two articulated beige toy arms end in bright yellow regular PENTAGON plates with exactly FIVE sides as palms. Two lower toy shins end in broad orange OCTAGON plates with exactly EIGHT sides as feet, each with one wide cyan DIAGONAL line linking non-neighboring vertices. Show all geometric vertices clearly. Absurd brainrot-style impossible creature, physically real silicone/plastic materials with a minimal flat graphic friendly face. Every component fused into the body. Full body, square composition, soft studio lighting, at least 6 percent blank transparent padding ALL sides, no crops, no floor, no backdrop, no labels, no watermark. Highlight unmistakable bent knee+hexagon head+pentagon hands+octagon feet+diagonals.",
+          "source": "C:\\Users\\haiba\\.codex\\generated_images\\01a11c2c-2aea-7d31-acf8-4d418bf98912\\exec-78b630b5-64a5-437a-9eec-89fec1a52585.png",
+          "candidateId": "v001",
+          "conceptFile": "root-genu1-v001.md",
+          "legacyFile": "hiza-genu-hexaknee.png",
+          "status": "candidate",
+          "overallDecision": "unselected",
+          "face": "六角形の面に収まるシンプルなグラフィックの顔。",
+          "generationMetadata": "generation-prompts-new-roots.json",
+          "reviewHistory": [],
+          "archivedSource": "D:/etymolingo/work/wildwordopia/sample/_sources/root-genu1-v001.png",
+          "localSource": "_sources/root-genu1-v001.png",
+          "sourceKind": "generated_original",
+          "creationTime": null,
+          "creationTimeNote": "正確な制作日時は不明。ファイル更新日時から制作日時を推定しない。"
+        }
+      ],
+      "conceptFile": "root-genu1-v001.md",
+      "status": "candidate",
+      "overallDecision": "unselected"
+    }
+  ]
+};
