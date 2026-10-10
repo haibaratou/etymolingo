@@ -273,3 +273,40 @@ footer b { color: var(--yellow); }
   .wild-creature.main, #ticker .track { animation: none; }
   *, *::before, *::after { transition-duration: .01ms !important; }
 }
+
+/* The comparison page tells the lost-ancestor story, without contribution UI. */
+#searchBox, #words, #join, .pmeta, .likeBtn { display: none !important; }
+#wildIntro, #wildLineage { scroll-margin-top: 0; }
+.wild-story-copy p { margin-bottom: 22px; line-height: 2.1; }
+.wild-story-copy .wild-story-punch { font-size: 22px; font-weight: 900; line-height: 1.6; }
+#wildLineage { background: #423eee; color: #f6f3e9; border-block: 3px solid #191a20; }
+#wildLineage .wild-section-no { color: #eaff64; }
+#wildLineage h2 { font-size: clamp(30px, 4vw, 54px); line-height: 1.4; margin: 0 0 25px; }
+.wild-lineage-lead { max-width: 850px; font-size: 17px; line-height: 2; }
+.wild-lineage-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; margin: 35px 0 65px; }
+.wild-lineage-grid article { color: #191a20; background: #f6f3e9; border: 3px solid #191a20; box-shadow: 6px 6px 0 #191a20; padding: 26px; }
+.wild-lineage-grid article > span { font: 36px Anton, sans-serif; color: #423eee; }
+.wild-lineage-grid h3 { font-size: 19px; margin: 14px 0; }
+.wild-lineage-grid p { font-size: 14px; line-height: 1.9; }
+.wild-lineage-grid b { display: block; margin-top: 22px; font-size: 24px; }
+.wild-evidence { display: grid; grid-template-columns: 1.2fr 1fr; align-items: center; gap: 40px; }
+.wild-evidence h3 { font-size: clamp(27px, 3vw, 40px); line-height: 1.6; margin: 0 0 25px; }
+.wild-evidence p { font-size: 16px; line-height: 2; margin-bottom: 22px; }
+.wild-evidence .btn { background: #eaff64; color: #191a20; margin-top: 8px; }
+.wild-evidence-art { display: flex; flex-direction: column; align-items: center; background: #eaff64; border: 3px solid #191a20; color: #191a20; padding: 20px; transform: rotate(2deg); box-shadow: 8px 8px 0 #191a20; }
+.wild-evidence-art img { width: 100%; max-width: 360px; height: auto; }
+.wild-evidence-art b { font-size: 18px; }
+.wild-world-note { border-top: 1px solid #ffffff55; padding-top: 25px; margin-top: 55px; font-size: 12px; line-height: 1.9; opacity: .8; }
+@media (max-width: 720px) {
+  .wild-story-copy p { font-size: 14px; line-height: 2; }
+  .wild-story-copy .wild-story-punch { font-size: 18px; }
+  .wild-lineage-grid, .wild-evidence { grid-template-columns: 1fr; gap: 22px; }
+  .wild-lineage-grid { margin-bottom: 45px; }
+  .wild-lineage-lead, .wild-evidence p { font-size: 14px; }
+  .wild-evidence-art { max-width: 420px; width: 100%; margin-inline: auto; box-sizing: border-box; }
+}
+@media (max-width: 450px) {
+  nav { flex-basis: 100%; justify-content: space-between; order: 2; }
+  nav a:last-child { display: inline-flex; }
+  .wild-eyebrow { font-size: 9px; }
+}

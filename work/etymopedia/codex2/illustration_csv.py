@@ -1,7 +1,8 @@
 """Preserve assigned CSVs while recording image production and review.
 
-Only the three assigned CSVs and their baseline are writable here. Importing
-this module loads validation definitions, never dictionary data or a sidecar.
+Only the CSVs in the selected complete assignment and its baseline are writable
+here. Importing loads validation definitions and the assignment setting, never
+dictionary data or image sidecars.
 """
 from __future__ import annotations
 
@@ -14,6 +15,7 @@ import os
 import re
 import sys
 import threading
+import time
 import uuid
 from collections import defaultdict
 from datetime import datetime, timezone
@@ -23,10 +25,32 @@ ROOT = Path(__file__).resolve().parent.parent
 CSV_DIR = ROOT / "codex2"
 TODO = Path(r"D:\etymon-source\tools\word-art-todo.csv")
 SCENE_FUNCTIONS = Path(r"D:\etymon-source\tools\illustration_scenes.py")
-BASELINE = ROOT / "_illust" / ".codex2-csv-baseline.json"
+GENERATION_STATE = ROOT / "_illust" / ".codex2-generation-state.json"
+ASSIGNMENTS = {
+    ("028", "029", "030"): ".codex2-csv-baseline.json",
+    ("031", "032", "033", "034", "035"): ".codex2-csv-baseline-031-035.json",
+}
+
+
+def assigned_batches(state=None):
+    """Accept only an entire known assignment; omission preserves old scope."""
+    if state is None:
+        state = json.loads(GENERATION_STATE.read_text(encoding="utf-8")) if GENERATION_STATE.exists() else {}
+    if not isinstance(state, dict):
+        raise ValueError("Generation state must be a JSON object")
+    values = state.get("assigned_batches", ["028", "029", "030"])
+    if not isinstance(values, list) or any(not isinstance(value, str) for value in values):
+        raise ValueError("assigned_batches must be a complete allowed string array")
+    batches = tuple(values)
+    if batches not in ASSIGNMENTS:
+        raise ValueError("assigned_batches must be exactly 028-030 or 031-035 in order")
+    return batches
+
+
+BATCHES = assigned_batches()
+BASELINE = ROOT / "_illust" / ASSIGNMENTS[BATCHES]
 PENDING_REVIEW = ROOT / "prompt_review_pending.csv"
 PENDING_COLUMNS = ("ファイル名", "単語", "問題", "発見バッチ", "状態")
-BATCHES = ("028", "029", "030")
 LEGACY_COLUMNS = (
     "ファイル名", "語義", "対象語義", "画像生成プロンプト",
     "プロンプト準備状況", "要確認理由", "画風参照画像",
@@ -38,6 +62,17 @@ ADDITIONAL_COLUMNS = (
 )
 STATES = {"prompt_ready", "generated", "reviewed", "needs_revision", "error"}
 _WRITE_LOCK = threading.RLock()
+_TODO_CACHE_BYTES = None
+_TODO_CACHE_BINDINGS = None
+_BASELINE_CACHE_BYTES = None
+_BASELINE_CACHE_VALUE = None
+
+
+class _CanonicalBindings(defaultdict):
+    def __init__(self):
+        super().__init__(list)
+        self.by_identity = defaultdict(list)
+
 
 # This file contains definitions and standard-library imports only. Do not call
 # export_scenes or import builders that read app/data/pie/.
@@ -66,7 +101,7 @@ def _batch(value) -> str:
         raise ValueError("Invalid batch")
     number = f"{int(number):03d}"
     if number not in BATCHES:
-        raise ValueError("Only assigned batches 028, 029, 030 are allowed")
+        raise ValueError("Only assigned batches " + ", ".join(BATCHES) + " are allowed")
     return number
 
 
@@ -120,7 +155,16 @@ def _safe_csv_replace(path: Path, original_data: bytes, fields, rows):
             raise ValueError("CSV read-back verification failed")
         if path.read_bytes() != original_data:
             raise RuntimeError(f"Concurrent CSV change detected: {path.name}")
-        os.replace(temporary, path)
+        for retry in range(11):
+            if retry and path.read_bytes() != original_data:
+                raise RuntimeError(f"Concurrent CSV change detected: {path.name}")
+            try:
+                os.replace(temporary, path)
+                break
+            except PermissionError:
+                if retry == 10:
+                    raise
+                time.sleep(0.1)
         if path.read_bytes() != data:
             raise RuntimeError(f"CSV changed after replacement: {path.name}")
     finally:
@@ -130,23 +174,30 @@ def _safe_csv_replace(path: Path, original_data: bytes, fields, rows):
 
 
 def _read_todo():
-    data = TODO.read_bytes()
-    fields, rows = _decode_csv(data)
-    required = {"ファイル名", "単語", "語根", "語義", "英語"}
-    if not required.issubset(fields):
-        raise ValueError("Canonical work list is missing identity columns")
-    by_filename = defaultdict(list)
-    for row in rows:
-        roots = row["語根"].split("+") if row["語根"] else []
-        ja, en = first_senses({"ja": row["語義"], "en": row["英語"]})
-        binding = {
-            "word": row["単語"], "roots": roots, "filename": row["ファイル名"],
-            "first_ja": ja, "first_en": en,
-            "sense_sha256": sense_digest(row["単語"], roots, ja, en),
-            "full_ja": row["語義"], "full_en": row["英語"],
-        }
-        by_filename[row["ファイル名"]].append(binding)
-    return data, by_filename
+    global _TODO_CACHE_BYTES, _TODO_CACHE_BINDINGS
+    with _WRITE_LOCK:
+        data = TODO.read_bytes()
+        if data == _TODO_CACHE_BYTES:
+            return data, _TODO_CACHE_BINDINGS
+        fields, rows = _decode_csv(data)
+        required = {"ファイル名", "単語", "語根", "語義", "英語"}
+        if not required.issubset(fields):
+            raise ValueError("Canonical work list is missing identity columns")
+        by_filename = _CanonicalBindings()
+        for row in rows:
+            roots = row["語根"].split("+") if row["語根"] else []
+            ja, en = first_senses({"ja": row["語義"], "en": row["英語"]})
+            binding = {
+                "word": row["単語"], "roots": roots, "filename": row["ファイル名"],
+                "first_ja": ja, "first_en": en,
+                "sense_sha256": sense_digest(row["単語"], roots, ja, en),
+                "full_ja": row["語義"], "full_en": row["英語"],
+            }
+            by_filename[row["ファイル名"]].append(binding)
+            by_filename.by_identity[(binding["word"], tuple(binding["roots"]))].append(binding)
+        _TODO_CACHE_BYTES = data
+        _TODO_CACHE_BINDINGS = by_filename
+        return data, by_filename
 
 
 def _unique_binding(by_filename, filename):
@@ -156,6 +207,64 @@ def _unique_binding(by_filename, filename):
     result = matches[0]
     if not result["word"] or not result["first_ja"]:
         raise ValueError(f"Canonical word or first Japanese sense missing: {filename}")
+    return result
+
+
+def _check_assigned_filename(filename):
+    """Allow literal Unicode/space names while rejecting Windows path escapes."""
+    if (not isinstance(filename, str) or not filename.endswith(".png")
+            or not filename[:-4] or ".." in filename
+            or any(character in '/\\:<>"|?*' or ord(character) < 32 for character in filename)
+            or filename != filename.rstrip(" .")
+            or Path(filename).is_absolute() or Path(filename).name != filename):
+        raise ValueError(f"Unsafe or non-PNG formal filename: {filename}")
+    device = filename.split(".", 1)[0].upper()
+    if device in {"CON", "PRN", "AUX", "NUL"} or re.fullmatch(r"(?:COM|LPT)[1-9]", device):
+        raise ValueError(f"Reserved Windows formal filename: {filename}")
+
+
+def _row_binding(by_filename, row, *, initial=False):
+    """Bind new-assignment variants without changing the requested filename.
+
+    A start snapshot requires all supplied identity and first-sense cells to
+    agree. Later lookups return the current canonical sense for comparison to
+    that immutable snapshot, so dictionary drift becomes needs_revision.
+    """
+    filename = row["ファイル名"]
+    if BATCHES == ("028", "029", "030"):
+        return _unique_binding(by_filename, filename)
+    _check_assigned_filename(filename)
+    word = row.get("単語")
+    try:
+        roots = json.loads(row.get("語根ID_JSON", ""))
+    except (ValueError, TypeError) as error:
+        raise ValueError(f"Missing or malformed ordered roots: {filename}") from error
+    if (not isinstance(word, str) or not word or not isinstance(roots, list)
+            or any(not isinstance(root, str) or not root for root in roots)):
+        raise ValueError(f"Missing headword or ordered roots: {filename}")
+    key = (word, tuple(roots))
+    if filename in by_filename:
+        binding = _unique_binding(by_filename, filename)
+        if (binding["word"], tuple(binding["roots"])) != key:
+            raise ValueError(f"Exact filename belongs to another word or ordered roots: {filename}")
+    else:
+        identity_index = getattr(by_filename, "by_identity", None)
+        matches = (identity_index.get(key, []) if identity_index is not None else
+                   [binding for bindings in by_filename.values() for binding in bindings
+                    if (binding["word"], tuple(binding["roots"])) == key])
+        if len(matches) != 1:
+            raise ValueError(f"Headword and ordered roots have {len(matches)} canonical matches: {filename}")
+        binding = matches[0]
+        if not binding["first_ja"]:
+            raise ValueError(f"Canonical first Japanese sense missing: {filename}")
+    if initial and (
+            normalize(row.get("対象語義", "")) != binding["first_ja"]
+            or row.get("第一英語義") != binding["first_en"]
+            or row.get("語義SHA256") != binding["sense_sha256"]):
+        raise ValueError(f"Variant start identity or first-sense cells do not match canonical work list: {filename}")
+    result = binding.copy()
+    result["canonical_filename"] = binding["filename"]
+    result["filename"] = filename
     return result
 
 
@@ -178,7 +287,7 @@ def _new_baseline():
     for batch in BATCHES:
         path = _csv_path(batch)
         data, fields, rows = _read_assigned(path)
-        bindings = [_unique_binding(by_filename, row["ファイル名"]) for row in rows]
+        bindings = [_row_binding(by_filename, row, initial=True) for row in rows]
         value["batches"][batch] = {
             "csv_path": str(path), "original_csv_sha256": _sha256(data),
             "original_columns": fields, "original_rows": rows,
@@ -193,29 +302,44 @@ def _new_baseline():
 
 
 def _baseline():
-    if BASELINE.exists():
-        value = json.loads(BASELINE.read_text(encoding="utf-8"))
-        if value.get("schema") != 1 or set(value.get("batches", {})) != set(BATCHES):
-            raise ValueError("Unsupported CSV baseline")
+    global _BASELINE_CACHE_BYTES, _BASELINE_CACHE_VALUE
+    with _WRITE_LOCK:
+        if BASELINE.exists():
+            data = BASELINE.read_bytes()
+            if _BASELINE_CACHE_BYTES is not None:
+                if data != _BASELINE_CACHE_BYTES:
+                    raise RuntimeError("Immutable CSV baseline changed after loading")
+                return _BASELINE_CACHE_VALUE
+            value = json.loads(data.decode("utf-8"))
+            if value.get("schema") != 1 or set(value.get("batches", {})) != set(BATCHES):
+                raise ValueError("Unsupported CSV baseline")
+            _BASELINE_CACHE_BYTES = data
+            _BASELINE_CACHE_VALUE = value
+            return value
+        if _BASELINE_CACHE_BYTES is not None:
+            raise RuntimeError("Immutable CSV baseline disappeared after loading")
+        value = _new_baseline()
+        data = (json.dumps(value, ensure_ascii=False, indent=2) + "\n").encode("utf-8")
+        BASELINE.parent.mkdir(parents=True, exist_ok=True)
+        temporary = _temporary(BASELINE)
+        try:
+            with temporary.open("xb") as stream:
+                stream.write(data)
+                stream.flush()
+                os.fsync(stream.fileno())
+            if json.loads(temporary.read_text(encoding="utf-8")) != value:
+                raise ValueError("Baseline read-back verification failed")
+            # On Windows rename refuses an existing destination; never replace a
+            # baseline from an earlier run or another writer.
+            os.rename(temporary, BASELINE)
+        finally:
+            if temporary.exists():
+                temporary.unlink()
+        if BASELINE.read_bytes() != data:
+            raise RuntimeError("CSV baseline changed after creation")
+        _BASELINE_CACHE_BYTES = data
+        _BASELINE_CACHE_VALUE = value
         return value
-    value = _new_baseline()
-    data = (json.dumps(value, ensure_ascii=False, indent=2) + "\n").encode("utf-8")
-    BASELINE.parent.mkdir(parents=True, exist_ok=True)
-    temporary = _temporary(BASELINE)
-    try:
-        with temporary.open("xb") as stream:
-            stream.write(data)
-            stream.flush()
-            os.fsync(stream.fileno())
-        if json.loads(temporary.read_text(encoding="utf-8")) != value:
-            raise ValueError("Baseline read-back verification failed")
-        # On Windows rename refuses an existing destination; never replace a
-        # baseline from an earlier run or another writer.
-        os.rename(temporary, BASELINE)
-    finally:
-        if temporary.exists():
-            temporary.unlink()
-    return value
 
 
 def _check_original_rows(batch_baseline, fields, rows):
@@ -250,9 +374,14 @@ def initialize():
             rows = [{field: row.get(field, "") for field in fields} for row in old_rows]
             held = []
             for index, (row, binding) in enumerate(zip(rows, recorded["bindings"]), 1):
-                current = _unique_binding(by_filename, row["ファイル名"])
                 mismatch = normalize(row["対象語義"]) != binding["first_ja"]
-                changed = not _same_binding(current, binding)
+                change_reason = "作業開始時から原本作業一覧の識別情報または語義が変更。自動上書きせず要確認。"
+                try:
+                    current = _row_binding(by_filename, row)
+                    changed = not _same_binding(current, binding)
+                except ValueError as error:
+                    changed = True
+                    change_reason = f"原本作業一覧との一意対応が失効: {error}。自動上書きせず要確認。"
                 initial = {
                     "単語": binding["word"],
                     "語根ID_JSON": json.dumps(binding["roots"], ensure_ascii=False, separators=(",", ":")),
@@ -270,7 +399,7 @@ def initialize():
                         note = f"語義照合要確認: CSV対象語義={row['対象語義']}、作業開始時一覧第一語義={binding['first_ja']}、第一英語義={binding['first_en']}。旧7列を保持し、自動変更しない。"
                         row["検品メモ"] = _append_note(row["検品メモ"], note)
                     if changed:
-                        row["検品メモ"] = _append_note(row["検品メモ"], "作業開始時から原本作業一覧の識別情報または語義が変更。自動上書きせず要確認。")
+                        row["検品メモ"] = _append_note(row["検品メモ"], change_reason)
                     held.append({"index": index, "filename": row["ファイル名"]})
                 if row["制作状態"] not in STATES:
                     raise ValueError(f"Unrecognized or forbidden production state: {row['制作状態']}")
@@ -317,6 +446,8 @@ def _check_reviewed(row):
     filename = row["ファイル名"]
     if not filename.endswith(".png") or Path(filename).name != filename:
         raise ValueError("Unsafe or non-PNG formal filename")
+    if BATCHES == ("031", "032", "033", "034", "035"):
+        _check_assigned_filename(filename)
     roots = json.loads(row["語根ID_JSON"])
     entry = {
         "w": row["単語"], "p": roots, "art": filename[:-4],
@@ -325,8 +456,22 @@ def _check_reviewed(row):
         "image": {"path": f"assets/word/{filename}", "sha256": row["画像SHA256"], "git_blob_sha": row["画像GitBlobSHA"]},
         "review": {"status": "reviewed", "reviewed_at": row["検品日時"], "method": "検品メモに記録した実画像と日英解説の確認", "notes": row["検品メモ"]},
     }
-    validate_entry(entry)
-    image_path = ROOT / "_illust" / f"prompt_rows_{_batch(row['_batch'])}" / filename
+    if BATCHES == ("031", "032", "033", "034", "035"):
+        # The shared dictionary validator permits ASCII art stems only. These
+        # CSVs preserve independently verified older Unicode/space filenames.
+        # Substitute only its synthetic path/stem for validation; retain every
+        # actual word, root, sense, caption, review, and hash check unchanged.
+        validation_entry = dict(entry, art="assigned_image")
+        validation_entry["image"] = dict(entry["image"], path="assets/word/assigned_image.png")
+        validate_entry(validation_entry)
+        if entry["art"] != filename[:-4] or entry["image"]["path"] != f"assets/word/{filename}":
+            raise ValueError("Actual reviewed filename/path binding changed")
+    else:
+        validate_entry(entry)
+    image_folder = ROOT / "_illust" / f"prompt_rows_{_batch(row['_batch'])}"
+    image_path = image_folder / filename
+    if image_path.resolve().parent != image_folder.resolve():
+        raise ValueError("Reviewed image resolves outside its assigned folder")
     data = image_path.read_bytes()
     blob = hashlib.sha1(b"blob " + str(len(data)).encode("ascii") + b"\0" + data).hexdigest()
     if _sha256(data) != row["画像SHA256"] or blob != row["画像GitBlobSHA"]:
@@ -378,7 +523,7 @@ def update_row(batch, index, values):
             raise ValueError("Cannot replace the original sense fingerprint")
         todo_data, by_filename = _read_todo()
         try:
-            current = _unique_binding(by_filename, row["ファイル名"])
+            current = _row_binding(by_filename, row)
             changed = not _same_binding(current, binding)
             reason = "作業開始時から原本作業一覧の識別情報または語義が変更。自動上書きせず要確認。"
         except ValueError as error:
@@ -504,7 +649,7 @@ def verify_row_identity(batch, index):
         _, by_filename = _read_todo()
         reason = ""
         try:
-            current = _unique_binding(by_filename, row["ファイル名"])
+            current = _row_binding(by_filename, row)
             if not _same_binding(current, binding):
                 reason = "作業開始時から見出し語・順序付き語根ID・第一和英語義または語義ハッシュが変更。自動上書きせず要確認。"
         except ValueError as error:

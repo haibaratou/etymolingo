@@ -47,12 +47,15 @@ test('correct-answer narration waits for the fanfare and cancels when the solved
  const schedule=game.slice(timerStart,timerEnd)+'\nthis.clearNarration=clearPending;\nfunction scheduleNarration(){if(!roundScene?.playable)return;\n'+game.slice(start,end)+'\n}';
  function setup(mode,scenario={recordKind:'independent',milestone:false,combo:1,award:{pageCompleted:false}}){
   const calls=[],timers=new Map(),entry={id:'book'},roundScene={status:'reviewed',playable:true,ttsAllowed:true,entry:{scene:{en:'An open book.',ja:'開いた本。'}}};let serial=0;
-  const c={entry,roundScene,mode,phase:'solved',document:{hidden:false},saved:{sound:true},generation:0,pending:new Set(),feedbackTimer:0,COMBO_STEP:5,...scenario,speech:{speakScene:(...args)=>calls.push(args)},setTimeout:(fn,ms)=>{timers.set(++serial,{fn,ms});return serial;},clearTimeout:id=>timers.delete(id)};
+  const c={entry,roundScene,mode,phase:'solved',document:{hidden:false},saved:{sound:true},generation:0,pending:new Set(),feedbackTimer:0,COMBO_STEP:5,captureMs:0,...scenario,speech:{speakScene:(...args)=>calls.push(args)},setTimeout:(fn,ms)=>{timers.set(++serial,{fn,ms});return serial;},clearTimeout:id=>timers.delete(id)};
   vm.runInNewContext(schedule,c);return {c,calls,timers,entry,roundScene};
  }
  for(const mode of ['en','ja']){
   for(const [scenario,delay] of [[{recordKind:'independent',milestone:false,combo:1,award:{pageCompleted:false}},1400],[{recordKind:'independent',milestone:true,combo:5,award:{pageCompleted:false}},2700],[{recordKind:'independent',milestone:false,combo:1,award:{pageCompleted:true}},2700],[{recordKind:'assisted',milestone:true,combo:5,award:{pageCompleted:false}},2050]]){
    const x=setup(mode,scenario);x.c.scheduleNarration();assert.equal(x.calls.length,0);assert.equal(x.timers.size,1);const timer=[...x.timers.values()][0];assert.equal(timer.ms,delay);timer.fn();assert.equal(x.calls.length,1);assert.deepEqual(x.calls[0],[x.entry,x.roundScene,mode]);
+  }
+  { // The capture (capsule) sequence runs first; narration waits for it as well.
+   const x=setup(mode,{recordKind:'independent',milestone:false,combo:1,award:{pageCompleted:false},captureMs:3100});x.c.scheduleNarration();assert.equal([...x.timers.values()][0].ms,1400+3100);
   }
   for(const cancel of [c=>c.phase='playing',c=>c.document.hidden=true,c=>c.saved.sound=false,c=>c.generation++]){
    const x=setup(mode);x.c.scheduleNarration();cancel(x.c);[...x.timers.values()][0].fn();assert.equal(x.calls.length,0);

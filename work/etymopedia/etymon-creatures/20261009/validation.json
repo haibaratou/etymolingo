@@ -1,0 +1,62 @@
+[
+  {
+    "file": "fukura-bhel-bowloon.png",
+    "format": "PNG",
+    "size": [
+      512,
+      512
+    ],
+    "mode": "RGBA",
+    "alpha": [
+      0,
+      255
+    ],
+    "corners": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "sha256": "10204f95f671936a4be97782560119cccf13c1ec6ae82e54ad5c170f0521247e"
+  },
+  {
+    "file": "ashi-ped-pajamino.png",
+    "format": "PNG",
+    "size": [
+      512,
+      512
+    ],
+    "mode": "RGBA",
+    "alpha": [
+      0,
+      255
+    ],
+    "corners": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "sha256": "d2a43cdafa4d2d524f358f96f1d4125cc122bfe6c942c14ba43bc29ff58cf2d6"
+  },
+  {
+    "file": "atama-kaput-cabbagino.png",
+    "format": "PNG",
+    "size": [
+      512,
+      512
+    ],
+    "mode": "RGBA",
+    "alpha": [
+      0,
+      255
+    ],
+    "corners": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "sha256": "d43a81054c178a87abc508145448864188a062d1bce41850db6a19ce160f59bc"
+  }
+]

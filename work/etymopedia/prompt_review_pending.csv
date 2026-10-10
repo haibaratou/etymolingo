@@ -640,7 +640,7 @@ Hertz.png,Hertz,第一英語語義は周波数の単位だが、登録プロン�
 Nassau.png,Nassau,担当CSVの語義「ナッソー郡」、正本の第一英語義がバハマの都市、プロンプトがニューヨーク州の郡庁舎で一致しない。対象語義確認が必要。,prompt_rows_025,要修正
 tat.png,tat,作業CSVの対象語義「軽くたたく」と画像生成プロンプトが、正本の第一語義「a tattoo on a person's skin」と不一致。,025,要修正
 buy-in.png,buy-in,作業CSVの対象語義「株の買い付け」とプロンプトが、正本の第一英語義「acceptance of and willingness to actively support and participate in something」と不一致。,025,要修正
-testicular.png,testicular,画像生成サービスがsexual安全判定で拒否（医学的・非グラフィック表現）,020,安全判定保留
+testicular.png,testicular,非グラフィックな医学教材画像の初回生成と簡略化した再試行が、ともにsexual安全判定で拒否。画像未生成。,020,安全判定保留
 sacral.png,sacral,画像は宗教儀式だが、正本第一語義は仙骨に関する意味で対象語義と不一致。,020,要修正
 Macedonian.png,Macedonian,画像とプロンプトはマケドニア人の書店員だが、正本第一英語義は古代マケドニア語。対象語義と不一致。,020,要修正
 Appalachian.png,Appalachian,画像は山並みだけだが、正本第一英語義はアパラチア地域の出身者・居住者。対象が不一致。,prompt_rows_021,要修正
@@ -1270,7 +1270,6 @@ prepaid.png,prepaid,日本語の語義が空欄で対象語義を決定できな
 vasodilation.png,vasodilation,日本語の語義が空欄で対象語義を決定できない,prompt_rows_027.csv,保留
 YMCA.png,YMCA,日本語の語義が空欄で対象語義を決定できない,prompt_rows_027.csv,保留
 slut.png,slut,侮蔑的な性的評価の非文字表現は文脈確認が必要,prompt_rows_018_no_dialogue_review,保留
-loud.png,loud,第一語義照合相違: CSV「音が大きい」、開始時原本「大きい」。,prompt_rows_029,保留
 prejudicial.png,prejudicial,第一日本語語義は「偏見を抱かせる」だが第一英語義は「有害な」で語義ペアが不一致,prompt_rows_024.csv,保留
 tabular.png,tabular,第一日本語語義は「板状の」だが第一英語義は表形式で語義ペアが不一致,prompt_rows_024.csv,保留
 Brie.png,Brie,第一日本語語義はブリ地方、第一英語義は白カビ熟成チーズで同綴り語の対応が不一致,prompt_rows_024.csv,保留
@@ -1301,7 +1300,7 @@ Hertz.png,Hertz,第一英語語義は周波数の単位だが、登録プロン�
 Nassau.png,Nassau,担当CSVの語義「ナッソー郡」、正本の第一英語義がバハマの都市、プロンプトがニューヨーク州の郡庁舎で一致しない。対象語義確認が必要。,prompt_rows_025,要修正
 tat.png,tat,作業CSVの対象語義「軽くたたく」と画像生成プロンプトが、正本の第一語義「a tattoo on a person's skin」と不一致。,025,要修正
 buy-in.png,buy-in,作業CSVの対象語義「株の買い付け」とプロンプトが、正本の第一英語義「acceptance of and willingness to actively support and participate in something」と不一致。,025,要修正
-testicular.png,testicular,画像生成サービスがsexual安全判定で拒否（医学的・非グラフィック表現）,020,安全判定保留
+testicular.png,testicular,非グラフィックな医学教材画像の初回生成と簡略化した再試行が、ともにsexual安全判定で拒否。画像未生成。,020,安全判定保留
 sacral.png,sacral,画像は宗教儀式だが、正本第一語義は仙骨に関する意味で対象語義と不一致。,020,要修正
 Macedonian.png,Macedonian,画像とプロンプトはマケドニア人の書店員だが、正本第一英語義は古代マケドニア語。対象語義と不一致。,020,要修正
 Appalachian.png,Appalachian,画像は山並みだけだが、正本第一英語義はアパラチア地域の出身者・居住者。対象が不一致。,prompt_rows_021,要修正
@@ -1341,3 +1340,167 @@ Roxanne.png,Roxanne,正本には人名「Roxanne／ロクサーヌ」以外の�
 Cesar.png,Cesar,正本には人名「Cesar／シーザー」以外の人物情報がなく、現行案の木工職と鳥小屋作りに根拠がない。描写対象を確認後に再開。,026,要確認
 dampen.png,dampen,日本語の第一語義「湿らせる」と英語の第一語義「勢いや活動を弱める」が一致しないため、語義確認まで画像生成を保留,prompt_rows_026,保留
 goosebumps.png,goosebumps,日本語語義欄は作品名の説明だが、英語第一語義は寒さ・恐怖などで皮膚に生じる鳥肌を指し、意味が一致しない。原本確認まで画像生成を保留,prompt_rows_026,保留
+physicality.png,physicality,日本語語義「身体的な特徴」と英語第一語義「精神・精神性・社会性より身体面を重視する傾向」が一致しない。正本確認まで画像生成を保留,prompt_rows_026,保留
+cardinality.png,cardinality,対象語義「濃度」と第一英語義「集合の要素数」が不一致。正本で語義を確認・修正するまで画像生成保留。,026,要確認
+frosted.png,frosted,対象語義「霜でおおわれた」と辞書原本第一英語語義 “coated or decorated with icing” が不一致。原本要確認。,026,要確認
+three-way.png,three-way,対象語義「3方向」と原本第一英語語義 “involving three people or groups” が不一致。語義確認が必要。,026,要確認
+unaccustomed.png,unaccustomed,対象語義「不慣れな」と原本第一英語語義 “not customary : not usual or common” が不一致。語義確認が必要。,026,要確認
+clam.png,clam,"日本語対象語義「ハマグリ」と第一英語義「clamp, clasp」が一致しない。原本の語義確認が必要。",prompt_rows_026,要確認
+shrapnel.png,shrapnel,CSVの対象語義と正本の第一英語義が一致せず、第一語義の選定が必要。発見バッチ prompt_rows_026。,prompt_rows_026,要確認
+cleanly.png,cleanly,CSVの日本語対象語義と正本の第一英語義で品詞・意味が一致せず、第一語義の選定が必要。発見バッチ prompt_rows_026。,prompt_rows_026,要確認
+vulva.png,vulva,画像生成が出力段階で安全判定（sexual category）により拒否され、PNG未生成。,026,要確認
+storied.png,storied,対象語義「物語で名高い」と正本第一英語義「物語や歴史を表す図柄で飾られた」が意味不一致。原本の語義対応を確認後に再開。,prompt_rows_026,要確認
+chargeable.png,chargeable,対象語義「支払われるべきで」と正本第一英語義「financially burdensome : expensive」が意味不一致。原本の語義対応を確認後に再開。,prompt_rows_026,要確認
+subculture.png,subculture,草稿はスケートボード文化だが正本第一英語語義は別の培養から派生した培養で不一致。どの語義を対象にするか要確認。,026,要確認
+telltale.png,telltale,対象語義は暴露する人だが正本第一英語語義は外に現れる兆候で意味不一致。どの語義にするか要確認。,026,要確認
+Balaam.png,Balaam,対象語義は埋め草だが正本第一英語語義は旧約聖書の預言者。意味不一致のため要確認。,026,要確認
+footman.png,footman,対象語義「従僕」と正本第一英語義「a traveler on foot : pedestrian」が一致しない。意味を確定するまで保留。,prompt_rows_021,要確認
+deep-seated.png,deep-seated,対象の「深い座り心地」と正本第一英語義「situated far below the surface」が一致しない。語義を確認するまで保留。,prompt_rows_022,要確認
+Corinthian.png,Corinthian,正本第一英語義はコリントの住民を指すが、対象語義と画像はコリント式建築の柱頭を示しており不一致。,prompt_rows_023,要確認
+McFarland.png,McFarland,正本の第一英語義が空欄で、固有名詞と既存画像の人物との対応を確認できない。,prompt_rows_023,要確認
+finesse.png,finesse,"対象語義「策略」と正本第一英語義「refinement or delicacy of workmanship, structure, or texture」が不一致。語義確認まで生成を保留。",prompt_rows_027,要確認
+unkind.png,unkind,担当CSVの対象語義「不親切な」と正本第一語義「not pleasing or mild : inclement」が不一致。正本の語義順・識別を要確認。,020,要確認
+gutter.png,gutter,対象語義の道路脇の側溝と正本第一語義の軒先の雨樋が不一致。語義識別・順序を要確認。,020,要確認
+Brit.png,Brit,対象語義「英国人」と現在の第一英語義「minute marine animals (such as copepods) on which right whales feed」が不一致。現在の画像も英国人を描くため、語義確認まで採用保留。,prompt_rows_020,要確認
+constancy.png,constancy,語義の対応が不一致。日本語第一義「不変」と画像は一定した水位を示す一方、第一英語義は「steadfastness of mind under duress : fortitude」。,prompt_rows_020,要確認
+overrun.png,overrun,対象語義・画像は「費用が上回る」だが、現在の第一英語義は「to defeat decisively and occupy the positions of」。語義対応の確認が必要。,prompt_rows_020,要確認
+racy.png,racy,対象語義・画像は「際どい／性的にきわどい」だが、現在の第一英語義は「full of zest or vigor」。代表語義の対応確認が必要。,prompt_rows_020,要確認
+Coventry.png,Coventry,対象語義「コベントリ」と画像は都市名だが、現在の第一英語義は「a state of ostracism or exclusion」。代表語義の確認が必要。,prompt_rows_020,要確認
+cynicism.png,cynicism,画像は皮肉を込めた贈り物の場面だが、正本の第一英語義は「the doctrine of the Cynics」で、語義が一致しない。,prompt_rows_020,要確認
+non-invasive.png,non-invasive,画像は超音波検査を描くが、正本の第一英語義は「not tending to spread; specifically: not tending to infiltrate and destroy healthy tissue」で、検査手技の語義と一致するか要確認。,prompt_rows_020,要確認
+princely.png,princely,画像は豊作の野菜を差し出す場面だが、正本の第一英語義は「of or relating to a prince: royal」で、「かなりの、相当な」と対応せず要確認。,prompt_rows_020,要確認
+tributary.png,tributary,画像は本流から海へ枝分かれする河口の分流（distributary）に見え、正本第一英語義「feeder stream」の支流と向きが逆。,prompt_rows_020,要確認
+Benin.png,Benin,画像はベナン共和国の地図だが、正本第一英語義はナイジェリア南部のベニン川を指すため、対象の同綴り語義を要確認。,prompt_rows_020,要確認
+programmatic.png,programmatic,対象語義・画像は計画立案を表すが、正本の第一英語義は「relating to program music」で不一致。,prompt_rows_020,要確認
+sigmoid.png,sigmoid,対象語義・画像はS状結腸を表すが、正本の第一英語義は「curved like the letter C」で不一致。,prompt_rows_020,要確認
+cf.png,cf,対象語義は「比較せよ」だが、正本の第一英語義が「calf」で意味が不一致。,prompt_rows_020,要確認
+crispy.png,crispy,対象語義は「二日酔い」だが、正本の第一英語義が「appealingly crunchy : crisp」で意味が不一致。,prompt_rows_020,要確認
+homely.png,homely,対象語義「美しくない」と正本第一英語義「suggestive or characteristic of a place of residence or home」が不一致。,prompt_rows_021,要確認
+Anastasia.png,Anastasia,日本語対象語義は人名「アナスタシア」だが、正本の第一英語義は「resurrection」。画像は読書中の女性で意味が一致しない。,prompt_rows_021,要確認
+bourbon.png,bourbon,画像はバーボン酒だが、正本の第一英語義は「member of a French family founded in 1272」。同綴り語義の対応を要確認。,prompt_rows_021,要確認
+disorderly.png,disorderly,対象語義は「散らかった」だが、正本の第一英語義は「engaged in conduct offensive to public order」。語義が不一致。,prompt_rows_021,要確認
+dope.png,dope,対象語義・画像は麻薬（大麻）だが、正本の第一英語義は「a stupid person」。同綴り語義の対応を要確認。,prompt_rows_021,要確認
+a@kap.png,a@kap,日本語の対象語義「持つ」と、語義参照の第一英語義「one」が一致せず、絵だけでは正確な語義を確定できない。,prompt_rows_022確認時,要確認
+all-time.png,all-time,日本語の対象語義「これまでで最も〜な」と、語義参照の第一英語義「full-time」が一致しない。,prompt_rows_022確認時,要確認
+unqualified.png,unqualified,日本語の対象語義「制限のない」と、語義参照の第一英語義「not fit : not having requisite qualifications」が一致しない。現画像も無条件の支援を描き、語義を確定できない。,prompt_rows_022確認時,要確認
+consecration.png,consecration,日本語の対象語義「献身」と、語義参照の第一英語義「the act or ceremony of consecrating」が一致しない。画像も動物の世話を描き、聖別の儀式とは異なる。,prompt_rows_022確認時,要確認
+muck.png,muck,日本語の対象語義「泥」と、語義参照の第一英語義「soft moist farmyard manure」が一致しない。現画像は泥土で、肥料の語義を表さない。,prompt_rows_022確認時,要確認
+commonality.png,commonality,日本語の対象語義「共有していること」と、語義参照の第一英語義「the common people」が一致しない。現画像は同じ本を持つ人々を描いている。,prompt_rows_022確認時,要確認
+slug.png,slug,日本語の対象語義「ナメクジ」と、語義参照の第一英語義「sluggard」が一致しない。画像はナメクジとして修正したが、見出し語の語義対応確認まで解説・検品合格を保留。,prompt_rows_022確認時,要確認
+Atlantis.png,Atlantis,第一英語義は「大西洋の伝説上の島」だが、日本語対象語義と現画像はスペースシャトルAtlantis号を示しており、英日語義が一致しない。,prompt_rows_022確認時,要確認
+siding.png,siding,対象語義「側線」と正本第一英語義「the taking of sides : partisanship」が不一致。正本の確認が必要。,prompt_rows_022,要確認
+Derry.png,Derry,第一語義はニューハンプシャー州の都市だが、画像は田園の家屋で都市の場面と一致しない。,prompt_rows_022,要確認
+fucker.png,fucker,第一語義は侮蔑語としての人を指すが、画像の人物場面が語義を表していない。,prompt_rows_022,要確認
+genitalia.png,genitalia,第一語義は主に外性器を指すが、画像は子宮を中心とする内部の生殖器官を描いている。,prompt_rows_022,要確認
+lashing.png,lashing,第一語義は結束・固定用のひも等だが、画像は人物をむち打つ場面になっている。,prompt_rows_022,要確認
+deafness.png,deafness,画像では会話する子どもが描かれているが、難聴を示す視覚的手掛かりがなく、語義との対応を確認できない。,prompt_rows_022,要確認
+politic.png,politic,画像は食卓で意見を交わす子どもたちだが、思慮深さ・慎重さを示す行動が読み取れない。,prompt_rows_022,要確認
+pop-up.png,pop-up,画像は飛び出す本だが、正本第一英語義は野球のポップフライ。第一語義に合う画像へ修正が必要。,prompt_rows_022,要確認
+recapture.png,recapture,画像は旅の思い出を想起する場面だが、正本第一英語義は「再奪取・奪還」。英語第一語義と対象語義の対応確認が必要。,prompt_rows_022,要確認
+unfaithful.png,unfaithful,画像は封筒を手渡す人物を描いているが、不誠実さや不貞を示す手掛かりがないため、語義と場面の対応を確認する。,prompt_rows_022,要確認
+comforter.png,comforter,対象語義は「聖霊」だが、画像は子ども同士が慰め合う場面で、語義と一致しない。,prompt_rows_023,要確認
+philosophic.png,philosophic,画像は子どもを励ます場面だが、対象語義の「悟り切った・淡々たる」姿勢を示していない。,prompt_rows_023,要確認
+stuffy.png,stuffy,"対象語義の日本語「息苦しい」と正本第一英語義「ill-natured, ill-humored」が不一致。画像も密閉した部屋を描いているため、語義対応の確認が必要。",prompt_rows_023,要確認
+Nazism.png,Nazism,画像はナチス関係者の集会を描くが、ナチ主義の政治・経済思想を学習的に示さず、賛美とも誤読され得るため差し替えが必要。,prompt_rows_023,要確認
+ferment.png,ferment,対象語義は発酵だが、画像は発酵過程や発酵食品を示さず、炊いた穀物の器に見える。,prompt_rows_023,要確認
+lapsed.png,lapsed,対象語義は実践・会員資格・信仰をやめた状態だが、画像は人物が机で金品を扱うだけで、意味を示していない。,prompt_rows_023,要確認
+Saskatchewan.png,Saskatchewan,対象語義は「サスカチュワン州」だが、正本第一英語義はカナダ中南部を流れる川。地名の対応確認が必要。,prompt_rows_023,要確認
+drab.png,drab,画像は面談中の二人だが、対象語義の「売春婦」を示す場面や手掛かりがない。,prompt_rows_023,要確認
+incest.png,incest,画像は家族構成図を示すが、近親相姦や近親交配を表す関係が確認できない。,prompt_rows_023,要確認
+sod.png,sod,画像は洗濯機からあふれる洗剤の泡を描いているが、対象語義は芝地・芝土のsod。別の綴りの意味になっている。,prompt_rows_023,要確認
+Tripoli.png,Tripoli,対象語義「トリポリ」と正本第一英語義「珪質の柔らかい堆積土」が別の語義を指している。画像も地理的な地図で、語義の対応確認が必要。,prompt_rows_023,要確認
+heretical.png,heretical,画像は子どもたちの宗教画制作だが、教会の教義に反する考えや異端性を示す手掛かりがない。,prompt_rows_023,要確認
+inscrutable.png,inscrutable,二人が会話に困っている様子だが、対象語義の「不可解・神秘的」な性質を示す特徴が画像にない。,prompt_rows_023,要確認
+troll.png,troll,画像は流し釣りをする人を描いているが、正本第一英語義は北欧伝承の洞窟・丘に住む怪物。対象語義と英語の照合が必要。,prompt_rows_023,要確認
+baton.png,baton,画像は指揮者の指揮棒だが、正本第一英語義は警棒・棍棒。対象語義との不一致を解消する必要がある。,prompt_rows_023,要確認
+childless.png,childless,画像には子どもたちの写真が飾られ、対象語義「子どものいない」と矛盾している。,prompt_rows_023,要確認
+Attic.png,Attic,正本第一英語義は古典建築の主階上部の低い壁・階層だが、対象語義は「アッティカの」。画像はアッティカ地方の古典建築であり、語義対応を確認する必要がある。,prompt_rows_023,要確認
+Shiloh.png,Shiloh,対象語義はテネシー州南西部の特定の地域名だが、画像は場所を特定できない一般的な丸太小屋。,prompt_rows_023,要確認
+consummation.png,consummation,画像は橋の組み立てを完成させる場面だが、正本第一英語義は特に婚姻の成就。対象語義と第一義が異なる。,prompt_rows_023,要確認
+haemorrhage.png,haemorrhage,画像は医療従事者が採血する場面で、出血・大量出血を表す画像ではない。,prompt_rows_023,要確認
+illogical.png,illogical,画像は植木鉢をめぐる子どもたちの場面だが、非論理性を示す根拠が読み取れない。,prompt_rows_023,要確認
+inquest.png,inquest,画像はこぼれた水を片付ける場面で、公的な審問・検視を示していない。,prompt_rows_023,要確認
+insular.png,insular,画像は地理的な島だが、正本第一英語義は新しい考えや他文化に閉じていること。語義と絵が不一致。,prompt_rows_023,要確認
+rickety.png,rickety,画像はぐらつく椅子を示すが、正本第一英語義はくる病にかかった状態。日英語義との対応確認が必要。,prompt_rows_023,要確認
+tithe.png,tithe,画像はリンゴを一つ取り分ける場面だが、正本第一英語義は教会への十分の一税。徴収や献納の手掛かりがない。,prompt_rows_023,要確認
+Barbie.png,Barbie,画像はバービー人形だが、対象語義の「バーベキュー」と一致しない。,prompt_rows_023,要確認
+comeback.png,comeback,画像は競走の場面で、対象語義の「復帰」と第一英語義の「機知に富んだ返答」のどちらも示していない。,prompt_rows_023,要確認
+freer.png,freer,画像は博物館で像を眺める場面に見え、誰かを解放する人・物を自由にする場面ではない。,prompt_rows_023,要確認
+indentation.png,indentation,画像は布にギザギザの切れ込みを作る場面だが、正本第一英語義は字下げで生じる空白。日英語義の対応確認が必要。,prompt_rows_023,要確認
+takeaway.png,takeaway,画像は持ち帰り用の食事だが、正本第一英語義は提示された事実から得る結論・要点。語義が一致しない。,prompt_rows_023,要確認
+Bethesda.png,Bethesda,画像は一般的な街路で、メリーランド州のベセスダを示す地理的手掛かりがない。,prompt_rows_023,要確認
+Iroquois.png,Iroquois,画像は川とカヌーを描くが、正本第一英語義はニューヨーク州先住民のイロコイ連合。対象語義との不一致。,prompt_rows_023,要確認
+barbarism.png,barbarism,画像は整った庭園と噴水で、正本第一英語義の野蛮・未開状態を示していない。,prompt_rows_023,要確認
+neckline.png,neckline,画像は後頭部の髪の生え際を示すが、対象語義は衣服の首回り。英語第一義と日本語対象語義の対応も確認が必要。,prompt_rows_023,要確認
+Chesapeake.png,Chesapeake,対象語義はバージニア州南東部のチェサピーク市だが、画像は一般的な運河・水辺の風景で地名を示す手掛かりがない。,prompt_rows_023,要確認
+cert.png,cert,画像は果物を持つ場面で、対象語義の証明・確実性・本命馬のいずれも示していない。,prompt_rows_023,要確認
+chuck.png,chuck,画像は旋盤の部品であるチャックだが、正本第一英語義は「投げる」。同綴り別語の語義対応を確認する必要がある。,prompt_rows_023,要確認
+ea.png,ea,"Image depicts the Mesopotamian deity Ea, but the source row maps lowercase ea to “each” (Japanese: エア). Confirm the intended headword/sense mapping before captioning.",024,要確認
+sensibly.png,sensibly,"The source target is Japanese “目立って” (noticeably), while the illustration and caption show sensible candle-lighting. Confirm the intended sense before captioning.",024,要確認
+elaborately.png,elaborately,"The source target is Japanese “わざとらしく,” while the illustration shows careful, detailed decorating. Confirm the intended sense before captioning.",024,要確認
+hind@ko.png,hind,担当CSVでは対象語義が「後ろの」ですが、第一英語義は “farm laborer” です。語義ID・同綴り異義語の対応を確認する必要があります。,024,要確認
+scape.png,scape,担当CSVでは対象語義が「花茎」ですが、第一英語義は “escape” です。語義ID・見出し対応を確認する必要があります。,024,要確認
+minimalist.png,minimalist,担当CSVの第一英語義は政治組織・目標を最小限にする立場ですが、登録プロンプトは持ち物を減らす生活様式です。第一語義と一致する構図の確認が必要です。,025,要確認
+partiality.png,partiality,日本語対象語義は「部分的であること」ですが、公式作業一覧の第一英語義は “bias” です。登録プロンプトの未完成パズルは第一英語義に合わず、正確な語義対応の確認が必要です。,025,要確認
+brag.png,brag,日本語の対象語義は動詞「自慢する」だが、正本の第一英語義は名詞 “a pompous or boastful statement”。品詞・意味の不一致を正本確認するまで生成保留。,025,要確認
+cesarean.png,cesarean,日本語対象語義「シーザーの、ローマ皇帝の」と第一英語義 “cesarean section” の意味対応が不一致。正本確認まで生成保留。,025,要確認
+nigga.png,nigga,日本語対象語義「おまえ」と第一英語義の空欄では、見出し語の語用と侮蔑性を記録できず、親しい呼びかけとして扱うと意味を誤る。辞書原本確認まで生成保留。,025,要確認
+pocket.png,pocket,生成サービスの安全ブロック。request_id=c2fb2cd1-2b48-4150-92a8-f80f1160d960。,prompt_rows_029,保留
+potted.png,potted,"担当CSVの対象語義は「鉢植えの」だが、正本第一英語義は “preserved in a pot, jar, or can”。語義対応を確認するまで画像生成と解説を保留。",prompt_rows_025,要確認
+sunscreen.png,sunscreen,正本ワークリストにP1再確認および承認済み語義・英訳・画像対応の変更警告あり。作業開始時との差分と採用語義を確認するまで生成保留。,prompt_rows_025,要確認
+Sumerian.png,Sumerian,担当対象語義「シュメールの」は形容詞だが、正本第一英語義 “a native of Sumer” は名詞。品詞・語義対応を確定するまで画像生成を保留。,prompt_rows_025,解決済み
+beep.png,beep,担当対象語義「ビープ音」は名詞だが、正本第一英語義 “to cause to sound” は動詞。語義と品詞を確認するまで画像生成を保留。,prompt_rows_025,解決済み
+hurling.png,hurling,担当CSVの対象語義「投げること」と正本の英語第一語義（Irish game resembling field hockey）が不一致。語義の確認が必要。,prompt_rows_025,要確認
+paltry.png,paltry,"正本の日本語語義「わずかばかりの」と英語第一語義「inferior, trashy」が不一致。対象語義の確認が必要。",prompt_rows_025,要確認
+blackout.png,blackout,担当CSVの日本語語義は停電だが、正本の第一英語義は舞台照明を消す意味で不一致,prompt_rows_025,要確認
+broiler.png,broiler,日本語第一語義「若鶏」と英語第一語義 one that broils の対応が未判定。正本作業一覧も語義候補の選択をP2要検討としているため、対象語義を確定してから画像生成が必要。,prompt_rows_025.csv,要確認
+clout.png,clout,正本の日本語第一語義「殴る」と英語第一語義「a piece of cloth or leather : rag」が品詞・意味で不一致。対象語義の確認が必要。 Cambridgeは動詞用法として強く打つ意味を記載。正本側で語義ペアを確定してから制作する。,prompt_rows_025.csv,要確認
+limousine.png,limousine,正本の第一英語義（運転手付き高級セダン）と第一日本語義・担当プロンプト（リムジンバス）が不一致,prompt_rows_025,要確認
+mace.png,mace,正本の第一日本語義・担当プロンプト（儀礼用の笏）と第一英語義（ナツメグの外皮から作る香辛料）が不一致。正本確認まで生成保留。,prompt_rows_025,要確認
+rec.png,rec,正本の第一日本語義はレクリエーション・娯楽、第一英語義はreceivedで一致しない。担当プロンプトはレクリエーションの場面のため、正本確認まで生成保留。,prompt_rows_025,要確認
+Hunan.png,Hunan,正本の第一日本語義は湖南省だが、第一英語義は湖南料理を指し不一致。担当プロンプトは湖南省の地形を描くため、正本確認まで生成保留。,prompt_rows_025,要確認
+Tonga.png,Tonga,対象語義「トンガ」と正本第一英語義（インドで使う一頭立て二輪馬車）が不一致。正本確認が必要。,prompt_rows_025,保留
+ashen.png,ashen,対象語義「灰の」と正本第一英語義「pale」の対応が曖昧で、第一語義の確認が必要。,prompt_rows_025,解決済み
+gratuitous.png,gratuitous,担当CSVの対象語義「無料の」および場面案「無料提供」が、作業一覧・第一英語義 “unnecessary” と不一致。正本側で語義対応を確認するまで生成保留。,prompt_rows_025,要確認
+toolbar.png,toolbar,担当CSVの対象語義は「ツールバー」だが、作業一覧の第一英語義は taskbar。関連するが別のUI要素のため、辞書原本の代表語義を確認するまで生成保留。,prompt_rows_025,要確認
+far-fetched.png,far-fetched,担当CSVの対象語義は「ありそうもない」だが、作業一覧の第一英語義は brought from a remote time or place。意味が一致しないため、辞書原本の代表語義を確認するまで生成保留。,prompt_rows_025,要確認
+spectre.png,spectre,作業一覧と担当CSVの第一英語義が空欄で、第一語義の英語内容を確定できない。日本語対象語義「幽霊」はあるが、英語義を推測せず原本確認まで生成保留。,prompt_rows_025,要確認
+Akkadian.png,Akkadian,担当CSVの対象語義は「アッカド人」だが、作業一覧の第一英語義は古代メソポタミアの消滅したセム語。意味の確認が必要なため生成保留。,prompt_rows_025,要確認
+outage.png,outage,担当CSVの対象語義「供給停止」と正本の第一英語義「輸送・保管中の物資の損失」が不一致。正本の語義対応を確認するまで生成保留。,prompt_rows_027,要確認
+self-centered.png,self-centered,正本の第一日本語義「自己中心的な」と第一英語義「independent of outside force or influence : self-sufficient」が一致しない,prompt_rows_027,要確認
+cranky.png,cranky,日本語第一語義「風変わりな」と英語第一語義（怒りっぽく不機嫌な）が一致しない。,prompt_rows_027,要確認
+workhouse.png,workhouse,担当CSVの第一日本語義「矯正院」と正本の第一英語義「poorhouse」が一致しない。どちらかへ自動補正せず、語義確認まで画像生成を保留。,027,要確認
+condescension.png,condescension,日本語第一語義「へりくだり、謙遜」と正本の英語第一語義 “patronizing attitude or behavior” が不一致。代表語義を確認するまで生成保留。,027,要確認
+scrotum.png,scrotum,非性的な解剖学教材の依頼が画像生成の安全判定（sexual）で拒否されたため、再試行せず要確認。,prompt_rows_027,要確認
+Moll.png,Moll,画像案は一般的な女性像だが、正本第一英語義は有償の性労働を指し、語義と画像案が一致しない。語義と安全な表現を確認するまで生成を保留。,prompt_rows_027,要確認
+amp.png,amp,対象語義はアデノシン一リン酸だが、正本の第一英語義は ampere。単語の別語義と対象画像が食い違うため、語義IDを確認するまで生成を保留。,prompt_rows_027,要確認
+combo.png,combo,対象語義は食事の組み合わせだが、正本第一英語義はジャズまたはダンスの小編成バンド。別語義を対象にしているため、語義IDを確認するまで生成を保留。,prompt_rows_027,要確認
+ferret@bher1.png,ferret,正本第一英語義「searcher」と画像案の対象「フェレット（動物）」が一致しない。語義IDとファイル割当を確認するまで要確認。,prompt_rows_027,要確認
+inbox.png,inbox,対象語義は「メッセージを送る」だが、正本第一英語義は受信した社内郵便を入れる箱・トレイ。別語義の不一致があるため語義ID確認まで生成を保留。,prompt_rows_027,要確認
+antimony.png,antimony,日本語は元素アンチモン、第一英語義は輝安鉱stibnite。正本の語義整合確認待ち,prompt_rows_027画像生成引継ぎ時,未解決
+backlog.png,backlog,日本語は未処理分、第一英語義は炉の奥の薪。正本の語義整合確認待ち,prompt_rows_027画像生成引継ぎ時,未解決
+caster.png,caster,プロンプトは車輪、日本語はキャスター、第一英語義は鋳造する人・機械。正本の語義整合確認待ち,prompt_rows_027画像生成引継ぎ時,未解決
+catfish.png,catfish,日本語はキャットフィッシングの動詞、第一英語義は魚。正本の語義整合確認待ち,prompt_rows_027画像生成引継ぎ時,未解決
+comp.png,comp,日本語はタンパク質、第一英語義は無料券。正本の語義整合確認待ち,prompt_rows_027画像生成引継ぎ時,未解決
+monstrosity.png,monstrosity,日本語は巨大なもの、第一英語義は動植物の奇形。正本の語義整合確認待ち,prompt_rows_027画像生成引継ぎ時,未解決
+gusto.png,gusto,日本語は嗜好、第一英語義は熱意。正本の語義整合確認待ち,prompt_rows_027画像生成引継ぎ時,未解決
+layman.png,layman,日本語は素人、第一英語義は非聖職者。正本の語義整合確認待ち,prompt_rows_027画像生成引継ぎ時,未解決
+Sphinx.png,Sphinx,日本語とプロンプトは像、第一英語義はギリシャ神話の翼ある女性怪物。正本の語義整合確認待ち,prompt_rows_027画像生成引継ぎ時,未解決
+bilinear.png,bilinear,日本語は2本の線、第一英語義は二変数それぞれについて線形。正本の語義整合確認待ち,prompt_rows_027画像生成引継ぎ時,未解決
+faceless.png,faceless,日本語は顔のない、第一英語義は個性に乏しい。正本の語義整合確認待ち,prompt_rows_027画像生成引継ぎ時,未解決
+fingering.png,fingering,日本語とプロンプトは指いじり、第一英語義は楽器の運指。正本の語義整合確認待ち,prompt_rows_027画像生成引継ぎ時,未解決
+relatable.png,relatable,日本語は話すことのできる、第一英語義は因果・論理的に関連付けられる。正本の語義整合確認待ち,prompt_rows_027画像生成引継ぎ時,未解決
+brainstorm.png,brainstorm,日本語は突然の妙案、第一英語義は集団で案を出す動詞。正本の語義整合確認待ち,prompt_rows_027画像生成引継ぎ時,未解決
+candor.png,candor,日本語は公平無私、第一英語義は正直さ。正本の語義整合確認待ち,prompt_rows_027画像生成引継ぎ時,未解決
+cavalier.png,cavalier,日本語は紳士、第一英語義は尊大で軽んじる態度。正本の語義整合確認待ち,prompt_rows_027画像生成引継ぎ時,未解決
+noodle.png,noodle,日本語はヌードル、第一英語義は愚かな人。正本の語義整合確認待ち,prompt_rows_027画像生成引継ぎ時,未解決
+retainer.png,retainer,日本語とプロンプトは物を保持する人、第一英語義は家に仕える家臣・使用人。正本の語義整合確認待ち,prompt_rows_027画像生成引継ぎ時,未解決
+raving.png,raving,日本語と構図は荒れ狂う形容詞、第一英語義は支離滅裂な発言の名詞。正本の語義整合確認待ち,prompt_rows_027画像生成引継ぎ時,未解決
+townhouse.png,townhouse,日本語と構図は町の別邸、第一英語義は共通側壁で連なる住宅。正本の語義整合確認待ち,prompt_rows_027画像生成引継ぎ時,未解決
+multifactorial.png,multifactorial,構図は植物の環境条件、日本語は多因子の、第一英語義は複数の遺伝子と環境による遺伝。正本の語義整合確認待ち,prompt_rows_027画像生成引継ぎ時,未解決
+regionalism.png,regionalism,日本語と構図は地方分権、第一英語義は地域への意識と忠誠。正本の語義整合確認待ち,prompt_rows_027画像生成引継ぎ時,未解決
+quizzical.png,quizzical,日本語と構図は怪訝な表情、第一英語義は滑稽で風変わりな。正本の語義整合確認待ち,prompt_rows_027画像生成引継ぎ時,未解決
+playlist.png,playlist,日本語と構図はニュース等を含む放送予定表、第一英語義は音楽のリスト。正本の語義整合確認待ち,prompt_rows_027画像生成引継ぎ時,未解決
+prehistory.png,prehistory,日本語と構図は先史時代の生活、第一英語義は先史人類の研究。正本の語義整合確認待ち,prompt_rows_027画像生成引継ぎ時,未解決
+misalignment.png,misalignment,日本語と構図は照準を外して矢が的に当たらないこと、第一英語義は位置や調整が正しく揃っていないこと。正本の語義整合確認待ち,prompt_rows_027画像生成引継ぎ時,未解決
+labia.png,labia,画像生成ツールの安全判定で入力拒否（moderation_blocked、request ID fd1063c7-0b7a-43d3-8554-418dbfb1c90b）,prompt_rows_027画像生成引継ぎ時,未解決

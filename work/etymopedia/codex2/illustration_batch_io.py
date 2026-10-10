@@ -2,7 +2,6 @@ import csv
 import hashlib
 import json
 import os
-import re
 import sys
 import time
 from datetime import datetime, timedelta, timezone
@@ -15,7 +14,14 @@ STATE = ROOT / '_illust' / '.codex2-generation-state.json'
 HELD = set()
 
 def read_state():
-    return json.loads(STATE.read_text(encoding='utf-8')) if STATE.exists() else {}
+    state = json.loads(STATE.read_text(encoding='utf-8')) if STATE.exists() else {}
+    if illustration_csv.assigned_batches(state) != illustration_csv.BATCHES:
+        raise RuntimeError('Assignment changed while loading generation state')
+    for key in ('current', 'pending'):
+        item = state.get(key)
+        if item and item.get('row', {}).get('batch') not in illustration_csv.BATCHES:
+            raise ValueError('Generation ' + key + ' is outside the assigned batches')
+    return state
 
 def write_state(value):
     STATE.parent.mkdir(parents=True, exist_ok=True)
@@ -26,12 +32,8 @@ def write_state(value):
 def queue():
     held = HELD | set(read_state().get('held', []))
     missing = []
-    batches = []
-    for path in (ROOT / 'codex2').glob('prompt_rows_*.csv'):
-        match = re.fullmatch(r'prompt_rows_(\d+)\.csv', path.name)
-        if match and int(match.group(1)) in (28, 29, 30):
-            batches.append((int(match.group(1)), match.group(1), path))
-    for _, batch, csv_path in sorted(batches):
+    for batch in illustration_csv.BATCHES:
+        csv_path = ROOT / 'codex2' / ('prompt_rows_' + batch + '.csv')
         folder = ROOT / '_illust' / ('prompt_rows_' + batch)
         with csv_path.open(encoding='utf-8-sig', newline='') as stream:
             for index, row in enumerate(csv.DictReader(stream), 1):
@@ -53,7 +55,8 @@ def queue():
             break
         illustration_csv.record_pending_review(row['batch'], row['index'], binding['reason'])
         missing.pop(0)
-    return {'rows': missing[:1], 'remaining': len(missing)}
+    return {'rows': missing[:1], 'remaining': len(missing),
+            'assigned_batches': list(illustration_csv.BATCHES)}
 
 def preview():
     state = read_state()

@@ -69,8 +69,11 @@ void fragment() {
 		o.a = max(o.a, gsum * glow * 0.7);
 	}
 	// 墨がにじんで現れる（reveal 0→1）
-	float rn = vnoise(uv * vec2(6.0 * cells, 6.0)) * 0.7 + vnoise(uv * vec2(23.0 * cells, 23.0)) * 0.3;
-	float vis = smoothstep(rn - 0.06, rn + 0.03, reveal * 1.12 - 0.02);
+	float vis = 1.0;
+	if (reveal < 1.0) {
+		float rn = vnoise(uv * vec2(6.0 * cells, 6.0)) * 0.7 + vnoise(uv * vec2(23.0 * cells, 23.0)) * 0.3;
+		vis = smoothstep(rn - 0.06, rn + 0.03, reveal * 1.12 - 0.02);
+	}
 	o.a *= vis * alpha;
 	COLOR = o;
 }

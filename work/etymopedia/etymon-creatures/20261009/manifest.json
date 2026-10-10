@@ -1,0 +1,58 @@
+{
+  "created_date_jst": "2026-10-09",
+  "dimensions": [
+    512,
+    512
+  ],
+  "format": "PNG",
+  "color_mode": "RGBA",
+  "transparent_background": true,
+  "generator": "built-in ImageGen",
+  "reference_design_image_id": "exec-0f6e4010-8c96-41ba-9bae-a1d8d8d4e397",
+  "characters": [
+    {
+      "file": "fukura-bhel-bowloon.png",
+      "name": "Fukura Bhel Bowloon",
+      "ja": "フクラ・ベル・ボウルーン",
+      "root": "bhel-2",
+      "root_meaning": "ふくらむ",
+      "components": [
+        "balloon",
+        "ball",
+        "bowl",
+        "football (ball component)",
+        "baseball (ball component)"
+      ],
+      "source_image": "C:\\Users\\haiba\\.codex\\generated_images\\01a11c2c-2aea-7d31-acf8-4d418bf98912\\exec-eb9bb12d-64d9-4a55-bee6-47266506753b.png"
+    },
+    {
+      "file": "ashi-ped-pajamino.png",
+      "name": "Ashi Ped Pajamino",
+      "ja": "アシ・ペド・パジャミーノ",
+      "root": "ped-",
+      "root_meaning": "足",
+      "components": [
+        "foot",
+        "pedal",
+        "pawn (chess)",
+        "pajamas",
+        "tripod"
+      ],
+      "source_image": "C:\\Users\\haiba\\.codex\\generated_images\\01a11c2c-2aea-7d31-acf8-4d418bf98912\\exec-853358d3-fe16-467a-8e3b-3deba8ae0145.png"
+    },
+    {
+      "file": "atama-kaput-cabbagino.png",
+      "name": "Atama Kaput Cabbagino",
+      "ja": "アターマ・カプト・キャバジーノ",
+      "root": "kaput-",
+      "root_meaning": "頭",
+      "components": [
+        "cabbage",
+        "cattle",
+        "biceps",
+        "captain"
+      ],
+      "source_image": "C:\\Users\\haiba\\.codex\\generated_images\\01a11c2c-2aea-7d31-acf8-4d418bf98912\\exec-1362cb8e-f2fd-4bd5-96f3-d6c32724715b.png"
+    }
+  ]
+}

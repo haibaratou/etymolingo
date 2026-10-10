@@ -215,6 +215,22 @@
       }
       if (combo >= 2 && combo % COMBO_STEP === 0) [783.99, 987.77, 1174.66, 1567.98].forEach((f, i) => this.tone(f, .9, .8 + i * .06, .14, 0, 'square'));
     }
+    sweep(from, to, duration = .3, delay = 0, volume = .2, type = 'sine') {
+      if (!saved.sound || !this.ctx || this.ctx.state !== 'running') return;
+      const ctx = this.ctx, at = ctx.currentTime + delay, oscillator = ctx.createOscillator(), gain = ctx.createGain();
+      oscillator.type = type; oscillator.frequency.setValueAtTime(from, at); oscillator.frequency.exponentialRampToValueAtTime(to, at + duration);
+      gain.gain.setValueAtTime(0, at); gain.gain.linearRampToValueAtTime(volume, at + .02); gain.gain.exponentialRampToValueAtTime(.001, at + duration);
+      oscillator.connect(gain); gain.connect(this.master); this.voices.add(oscillator);
+      oscillator.onended = () => { oscillator.disconnect(); gain.disconnect(); this.voices.delete(oscillator); };
+      oscillator.start(at); oscillator.stop(at + duration + .03);
+    }
+    // Capture sequence: a short chime on solving, then throw / absorb / three ticks / lock.
+    solved() { this.unlock(); this.tone(1046.5, .18, 0, .2); this.tone(1567.98, .26, .07, .14); }
+    captureThrow() { this.sweep(260, 900, .42, 0, .1, 'triangle'); }
+    captureAbsorb() { this.sweep(420, 1900, .32, 0, .16); this.tone(2093, .25, .28, .07, 0, 'triangle'); }
+    captureDrop() { this.tone(330, .09, 0, .16, 0, 'triangle'); this.tone(247, .12, .1, .12, 0, 'triangle'); }
+    captureTick(step) { this.tone(1760 - step * 120, .05, 0, .2, 0, 'square'); this.tone(880, .07, .015, .08, 0, 'triangle'); }
+    captureLock() { this.tone(2637, .05, 0, .2, 0, 'square'); this.tone(1318.5, .12, .03, .15, 0, 'triangle'); }
     comboBreak() { this.unlock(); this.tone(523.25, .14, .3, .09, 0, 'triangle'); this.tone(392, .18, .4, .09, 0, 'triangle'); this.tone(261.63, .3, .5, .08, 0, 'triangle'); }
     duck(speaking) {
       if (this.ctx && this.master) this.master.gain.setTargetAtTime(speaking ? .055 : .28, this.ctx.currentTime, .07);
@@ -752,7 +768,7 @@
     phase = 'solved'; $('game').dataset.state = phase; updateLabels(); flyLetters(); vibrate([12, 35, 20]);
     if (comboEligible) { saved.combo++; saved.bestCombo = Math.max(saved.bestCombo, saved.combo); }
     const combo = comboEligible ? saved.combo : 0, newBest = combo >= 2 && combo === saved.bestCombo;
-    sound.win(combo); renderCombo(combo ? 'bump' : '');
+    sound.solved(); renderCombo(combo ? 'bump' : '');
     const stars = Math.max(1, 3 - Math.min(2, (round.viewed[mode] ? 2 : 0) + (mistakes > 0 ? 1 : 0)));
     const first = !saved[mode].stars[entry.id];
     const newDiscovery = !saved.ja.stars[entry.id] && !saved.en.stars[entry.id];
@@ -821,7 +837,8 @@
     $('rewardComboNote').textContent = mode === 'ja' ? '答えを見ず・間違いなしで正解' : 'Correct without hints or mistakes';
     $('game').classList.toggle('combo-win', combo >= 2);
     $('rewardScene').classList.toggle('has-combo', combo >= 2);
-    later(() => {
+    const shakes = award.added ? 3 : 1;
+    const revealReward = () => {
       $('wordReward').hidden = false; $('rewardScene').hidden = false;
       $('rewardScroll').scrollTop = 0;
       $('rewardScene').showPopover?.(); $('rewardBackdrop').hidden = false;
@@ -830,19 +847,139 @@
       if (recordKind === 'independent' && (milestone || award.pageCompleted)) later(() => { petals.burst(innerWidth / 2, innerHeight * .25, 150, 'gold'); sound.win(10); }, 380);
       later(() => { $('rewardScene').classList.add('page-filled'); updateProgress(); }, 420);
       if (award.added) later(animateAcquisition, 500);
-    }, reducedMotion.matches ? 0 : PRAISE_TIME);
+    };
+    // Pokédex-style moment: the picture is caught in a word capsule, the capsule
+    // wobbles, locks with a click, and only then does the dictionary page open.
+    const dex = $('dexBanner');
+    dex.classList.toggle('repeat', !award.added);
+    $('dexTitle').textContent = award.added ? 'ずかんに とうろく！' : 'ずかんデータを こうしん';
+    $('dexNumber').textContent = `No.${String((entry.rank || index + 1)).padStart(4, '0')}`;
+    $('rewardScene').classList.toggle('dex-new', award.added);
+    const captureMs = reducedMotion.matches ? 0 : captureDuration(shakes);
+    later(() => runCapture({ shakes, combo, label: mode === 'ja' ? entry.ja : entry.en.toUpperCase() }, revealReward), reducedMotion.matches ? 0 : PRAISE_TIME);
     $('winPronunciation').replaceChildren();
     $('winPronunciation').hidden = roundScene.status !== 'reviewed' || roundScene.ttsAllowed !== true;
     if (!$('winPronunciation').hidden) $('winPronunciation').append(pronunciationPanel(entry, mode, roundScene));
     if (roundScene.status === 'reviewed' && roundScene.ttsAllowed === true) {
       // Let the success fanfare (including the delayed collection bonus) finish.
       const bonusFanfare = recordKind === 'independent' && (milestone || award.pageCompleted);
-      const narrationDelay = bonusFanfare ? 2700 : combo >= 2 && combo % COMBO_STEP === 0 ? 2050 : 1400;
+      const narrationDelay = captureMs + (bonusFanfare ? 2700 : combo >= 2 && combo % COMBO_STEP === 0 ? 2050 : 1400);
       later(() => {
         if (phase === 'solved' && !document.hidden && saved.sound) speech.speakScene(entry, roundScene, mode);
       }, narrationDelay);
     }
-    queueAdvance(award.pageCompleted ? 4400 : REWARD_DURATION);
+    queueAdvance(captureMs + (award.pageCompleted ? 4400 : REWARD_DURATION));
+  }
+
+  const CAPTURE = { throw: 520, absorb: 380, drop: 360, shake: 470, lockHold: 820 };
+  function captureDuration(shakes) { return PRAISE_TIME + CAPTURE.throw + CAPTURE.absorb + CAPTURE.drop + shakes * CAPTURE.shake + CAPTURE.lockHold; }
+  function runCapture({ shakes, combo, label }, done) {
+    const stage = $('captureStage'), orb = $('captureOrb'), art = $('captureArt'), text = $('captureText');
+    if (reducedMotion.matches || !stage) { sound.win(combo); done(); return; }
+    let finished = false, fanfare = false;
+    const timers = [];
+    const step = (ms, fn) => timers.push(later(() => { if (!finished) fn(); }, ms));
+    const playFanfare = () => { if (!fanfare) { fanfare = true; sound.win(combo); } };
+    const finish = () => {
+      if (finished) return; finished = true;
+      timers.forEach(id => { clearTimeout(id); pending.delete(id); });
+      playFanfare();
+      stage.getAnimations?.({ subtree: true }).forEach(animation => animation.cancel());
+      try { if (stage.matches?.(':popover-open')) stage.hidePopover(); } catch { /* not open */ }
+      stage.hidden = true; stage.onpointerdown = null;
+      $('pictureCard').classList.remove('captured');
+      if (phase === 'solved') done();
+    };
+    // Geometry: throw from the letter board up to the picture, then drop to the middle of the screen.
+    const pic = $('clueImage').getBoundingClientRect(), board = $('wheel').getBoundingClientRect();
+    const size = Math.round(Math.min(132, Math.max(92, innerWidth * .3)));
+    const picCenter = { x: pic.left + pic.width / 2, y: pic.top + pic.height / 2 };
+    const start = { x: board.left + board.width / 2, y: Math.min(innerHeight - size, board.top + board.height * .7) };
+    const rest = { x: innerWidth / 2, y: innerHeight * .44 };
+    stage.style.setProperty('--orb', `${size}px`);
+    stage.style.setProperty('--rest-x', `${rest.x}px`); stage.style.setProperty('--rest-y', `${rest.y}px`);
+    stage.style.setProperty('--rarity', difficulty.tiers[entry.tier].color);
+    art.src = $('clueImage').currentSrc || $('clueImage').src;
+    Object.assign(art.style, { left: `${pic.left}px`, top: `${pic.top}px`, width: `${pic.width}px`, height: `${pic.height}px` });
+    orb.style.left = `${-size / 2}px`; orb.style.top = `${-size / 2}px`;
+    orb.className = 'capture-orb'; text.className = 'capture-text'; text.replaceChildren();
+    const dots = [...(stage.querySelectorAll?.('.capture-dots i') || [])];
+    dots.forEach((dot, i) => { dot.className = ''; dot.hidden = i >= shakes; });
+    stage.classList.remove('locked'); stage.hidden = false; stage.showPopover?.();
+    stage.onpointerdown = event => { event.preventDefault(); finish(); };
+    $('pictureCard').classList.add('captured');
+    const at = (p, extra = '') => `translate(${p.x}px,${p.y}px) ${extra}`;
+    // 1. Throw: an arc from the board to the picture.
+    sound.captureThrow();
+    const lift = Math.max(120, (start.y - picCenter.y) * .45);
+    orb.animate?.([
+      { transform: at(start, 'rotate(0deg) scale(.55)'), opacity: 0 },
+      { transform: at(start, 'rotate(40deg) scale(.7)'), opacity: 1, offset: .12 },
+      { transform: at({ x: (start.x + picCenter.x) / 2, y: Math.min(start.y, picCenter.y) - lift }, 'rotate(320deg) scale(.95)'), offset: .55 },
+      { transform: at(picCenter, 'rotate(540deg) scale(1)') },
+    ], { duration: CAPTURE.throw, easing: 'cubic-bezier(.3,.1,.4,1)', fill: 'forwards' });
+    // 2. Absorb: the picture turns to light and is pulled into the capsule.
+    let t = CAPTURE.throw;
+    step(t, () => {
+      sound.captureAbsorb(); vibrate(15);
+      orb.classList.add('open');
+      art.animate?.([
+        { transform: 'translate(0,0) scale(1)', filter: 'brightness(1)', opacity: 1, borderRadius: '18px' },
+        { transform: 'translate(0,0) scale(1.04)', filter: 'brightness(2.6) saturate(0)', opacity: 1, offset: .35, borderRadius: '40%' },
+        { transform: 'translate(0,0) scale(.02)', filter: 'brightness(3) saturate(0)', opacity: .2, borderRadius: '50%' },
+      ], { duration: CAPTURE.absorb, easing: 'cubic-bezier(.6,0,.8,.4)', fill: 'forwards' });
+      orb.animate?.([{ transform: at(picCenter, 'scale(1)') }, { transform: at(picCenter, 'scale(1.18)') }, { transform: at(picCenter, 'scale(1)') }],
+        { duration: CAPTURE.absorb, easing: 'ease-in-out', fill: 'forwards' });
+    });
+    t += CAPTURE.absorb;
+    // 3. Drop to the floor with a little bounce.
+    step(t, () => {
+      orb.classList.remove('open'); orb.classList.add('sealed'); sound.captureDrop();
+      orb.animate?.([
+        { transform: at(picCenter) },
+        { transform: at(rest, 'scaleY(.86) scaleX(1.1)'), offset: .62 },
+        { transform: at({ x: rest.x, y: rest.y - 22 }), offset: .8 },
+        { transform: at(rest) },
+      ], { duration: CAPTURE.drop, easing: 'cubic-bezier(.5,0,.6,1)', fill: 'forwards' });
+      stage.classList.add('resting');
+    });
+    t += CAPTURE.drop;
+    // 4. Wobble: one tick per shake, a dot lights for each.
+    for (let k = 0; k < shakes; k++) {
+      step(t + k * CAPTURE.shake, () => {
+        sound.captureTick(k); vibrate(8); dots[k].className = 'on';
+        const lean = k % 2 ? 1 : -1;
+        orb.animate?.([
+          { transform: at(rest, 'rotate(0deg)') },
+          { transform: at({ x: rest.x + lean * 6, y: rest.y }, `rotate(${lean * 24}deg)`), offset: .3 },
+          { transform: at({ x: rest.x - lean * 3, y: rest.y }, `rotate(${-lean * 10}deg)`), offset: .65 },
+          { transform: at(rest, 'rotate(0deg)') },
+        ], { duration: CAPTURE.shake - 90, easing: 'ease-in-out', fill: 'forwards' });
+      });
+    }
+    t += shakes * CAPTURE.shake;
+    // 5. Click! The capsule locks, stars fly, and the fanfare plays.
+    step(t, () => {
+      sound.captureLock(); playFanfare(); vibrate([12, 30, 25]);
+      stage.classList.add('locked');
+      orb.animate?.([{ transform: at(rest, 'scale(1)') }, { transform: at(rest, 'scale(1.22)') }, { transform: at(rest, 'scale(1)') }], { duration: 320, easing: 'cubic-bezier(.34,1.56,.64,1)', fill: 'forwards' });
+      for (let i = 0; i < 10; i++) {
+        const star = document.createElement('span'); star.className = 'capture-star'; star.textContent = '★';
+        star.style.left = `${rest.x}px`; star.style.top = `${rest.y}px`; stage.append(star);
+        const angle = -Math.PI / 2 + (i - 4.5) * .32, distance = 90 + (i % 3) * 30;
+        star.animate?.([
+          { transform: 'translate(-50%,-50%) scale(.3) rotate(0deg)', opacity: 1 },
+          { transform: `translate(calc(-50% + ${Math.cos(angle) * distance}px),calc(-50% + ${Math.sin(angle) * distance}px)) scale(1.1) rotate(160deg)`, opacity: 1, offset: .7 },
+          { transform: `translate(calc(-50% + ${Math.cos(angle) * distance * 1.15}px),calc(-50% + ${Math.sin(angle) * distance * 1.15 + 30}px)) scale(.6) rotate(220deg)`, opacity: 0 },
+        ], { duration: 760, easing: 'cubic-bezier(.2,.8,.3,1)', fill: 'forwards' })?.addEventListener?.('finish', () => star.remove());
+      }
+      const word = document.createElement('b'); word.textContent = label;
+      const got = document.createElement('span'); got.textContent = 'を ゲット！';
+      text.style.left = `${rest.x}px`; text.style.top = `${rest.y + size * .62 + 34}px`;
+      text.replaceChildren(word, got); text.classList.add('show');
+    });
+    t += CAPTURE.lockHold;
+    step(t, finish);
   }
 
   function animateAcquisition() {

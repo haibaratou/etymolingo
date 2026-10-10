@@ -1,0 +1,128 @@
+Batches: 025-027
+Rows: 1500 PNG files: 1358 complete rows: 1355
+Held rows: 92 unstarted rows: 53
+HOLD: 025:2: held as needs_revision: Nassau.png
+HOLD: 025:35: held as needs_revision: tat.png
+HOLD: 025:52: held as needs_revision: buy-in.png
+HOLD: 025:76: held as needs_revision: minimalist.png
+HOLD: 025:82: held as needs_revision: partiality.png
+HOLD: 025:99: held as needs_revision: cesarean.png
+HOLD: 025:118: held as needs_revision: nigga.png
+HOLD: 025:135: held as needs_revision: toolbar.png
+HOLD: 025:156: held as needs_revision: far-fetched.png
+HOLD: 025:178: held as needs_revision: potted.png
+HOLD: 025:183: held as needs_revision: sunscreen.png
+HOLD: 025:212: held as needs_revision: hurling.png
+HOLD: 025:222: held as needs_revision: paltry.png
+HOLD: 025:242: held as needs_revision: blackout.png
+HOLD: 025:286: held as needs_revision: broiler.png
+HOLD: 025:321: held as needs_revision: clout.png
+HOLD: 025:333: held as needs_revision: limousine.png
+HOLD: 025:334: held as needs_revision: mace.png
+HOLD: 025:338: held as needs_revision: rec.png
+HOLD: 025:351: held as needs_revision: Hunan.png
+HOLD: 025:357: held as needs_revision: Tonga.png
+HOLD: 025:459: held as needs_revision: gratuitous.png
+HOLD: 025:480: held as needs_revision: spectre.png
+HOLD: 025:485: held as needs_revision: Akkadian.png
+HOLD: 026:14: held as needs_revision: quill.png
+HOLD: 026:32: held as needs_revision: Manchu.png
+HOLD: 026:54: held as needs_revision: grinder.png
+HOLD: 026:61: held as needs_revision: palladium.png
+HOLD: 026:66: held as needs_revision: recliner.png
+HOLD: 026:67: held as needs_revision: robin.png
+HOLD: 026:90: held as needs_revision: biker.png
+HOLD: 026:93: held as needs_revision: catholic.png
+HOLD: 026:101: held as needs_revision: eponymous.png
+HOLD: 026:111: held as needs_revision: jot.png
+HOLD: 026:120: held as needs_revision: reversion.png
+HOLD: 026:123: held as needs_revision: ruinous.png
+HOLD: 026:134: held as needs_revision: POS.png
+HOLD: 026:149: held as needs_revision: cracker.png
+HOLD: 026:165: held as needs_revision: snag.png
+HOLD: 026:174: held as needs_revision: Hyman.png
+HOLD: 026:175: held as needs_revision: Roxanne.png
+HOLD: 026:214: held as needs_revision: Cesar.png
+HOLD: 026:225: held as needs_revision: dampen.png
+HOLD: 026:231: held as needs_revision: goosebumps.png
+HOLD: 026:243: held as needs_revision: physicality.png
+HOLD: 026:266: held as needs_revision: cardinality.png
+HOLD: 026:281: held as needs_revision: frosted.png
+HOLD: 026:304: held as needs_revision: three-way.png
+HOLD: 026:306: held as needs_revision: unaccustomed.png
+HOLD: 026:317: held as needs_revision: clam.png
+HOLD: 026:352: held as needs_revision: shrapnel.png
+HOLD: 026:372: held as needs_revision: cleanly.png
+HOLD: 026:406: held as error: vulva.png
+HOLD: 026:440: held as needs_revision: storied.png
+HOLD: 026:454: held as needs_revision: chargeable.png
+HOLD: 026:484: held as needs_revision: subculture.png
+HOLD: 026:488: held as needs_revision: telltale.png
+HOLD: 026:492: held as needs_revision: Balaam.png
+HOLD: 027:10: held as needs_revision: finesse.png
+HOLD: 027:27: held as needs_revision: outage.png
+HOLD: 027:35: held as needs_revision: self-centered.png
+HOLD: 027:59: held as needs_revision: cranky.png
+HOLD: 027:101: held as needs_revision: workhouse.png
+HOLD: 027:164: held as needs_revision: condescension.png
+HOLD: 027:189: held as needs_revision: scrotum.png
+HOLD: 027:199: held as needs_revision: Moll.png
+HOLD: 027:201: held as needs_revision: amp.png
+HOLD: 027:206: held as needs_revision: combo.png
+HOLD: 027:211: held as needs_revision: ferret@bher1.png
+HOLD: 027:219: held as needs_revision: inbox.png
+HOLD: 027:251: held as needs_revision: antimony.png
+HOLD: 027:252: held as needs_revision: backlog.png
+HOLD: 027:257: held as needs_revision: caster.png
+HOLD: 027:286: held as needs_revision: raving.png
+HOLD: 027:294: held as needs_revision: townhouse.png
+HOLD: 027:311: held as needs_revision: catfish.png
+HOLD: 027:313: held as needs_revision: comp.png
+HOLD: 027:333: held as needs_revision: monstrosity.png
+HOLD: 027:334: held as needs_revision: multifactorial.png
+HOLD: 027:349: held as needs_revision: regionalism.png
+HOLD: 027:380: held as needs_revision: gusto.png
+HOLD: 027:385: held as needs_revision: layman.png
+HOLD: 027:415: held as needs_revision: Sphinx.png
+HOLD: 027:417: held as needs_revision: bilinear.png
+HOLD: 027:428: held as needs_revision: faceless.png
+HOLD: 027:429: held as needs_revision: fingering.png
+HOLD: 027:452: held as needs_revision: relatable.png
+HOLD: 027:453: held as needs_revision: retainer.png
+HOLD: 027:475: held as needs_revision: brainstorm.png
+HOLD: 027:476: held as needs_revision: candor.png
+HOLD: 027:477: held as needs_revision: cavalier.png
+HOLD: 027:501: held as needs_revision: noodle.png
+FAIL: 025:59: English explanation omits exact headword '' (disillusionment.png)
+FAIL: 025:119: English explanation omits exact headword '' (nominate.png)
+FAIL: 025:385: English explanation omits exact headword '' (impetuous.png)
+FAIL: 025:386: English explanation omits exact headword '' (indolent.png)
+FAIL: 025:387: English explanation omits exact headword '' (isle.png)
+FAIL: 025:388: English explanation omits exact headword '' (jasmine.png)
+FAIL: 025:389: English explanation omits exact headword '' (lengthwise.png)
+FAIL: 025:390: English explanation omits exact headword '' (leniency.png)
+FAIL: 025:391: English explanation omits exact headword '' (litany.png)
+FAIL: 025:392: English explanation omits exact headword '' (lithe.png)
+FAIL: 025:393: English explanation omits exact headword '' (magnify.png)
+FAIL: 025:394: English explanation omits exact headword '' (medially.png)
+FAIL: 025:395: English explanation omits exact headword '' (metamorphic.png)
+FAIL: 025:396: English explanation omits exact headword '' (objectification.png)
+FAIL: 025:397: English explanation omits exact headword '' (outpouring.png)
+FAIL: 025:398: English explanation omits exact headword '' (peacetime.png)
+FAIL: 025:399: English explanation omits exact headword '' (pike.png)
+FAIL: 025:400: English explanation omits exact headword '' (postmodernism.png)
+FAIL: 025:401: English explanation omits exact headword '' (presumptive.png)
+FAIL: 025:402: English explanation omits exact headword '' (rapt.png)
+FAIL: 025:403: English explanation omits exact headword '' (sodden.png)
+FAIL: 025:404: English explanation omits exact headword '' (tetanus.png)
+FAIL: 025:405: English explanation omits exact headword '' (togetherness.png)
+FAIL: 025:406: English explanation omits exact headword '' (tumbler.png)
+FAIL: 025:407: English explanation omits exact headword '' (unconnected.png)
+FAIL: 025:408: English explanation omits exact headword '' (undecided.png)
+FAIL: 025:409: English explanation omits exact headword '' (undetermined.png)
+FAIL: 025:410: English explanation omits exact headword '' (Abner.png)
+FAIL: 025:411: English explanation omits exact headword '' (Alfredo.png)
+FAIL: 025:412: English explanation omits exact headword '' (Brandenburg.png)
+FAIL: 025:413: English explanation omits exact headword '' (Grecian.png)
+FAIL: 025:458: English explanation omits exact headword '' (fornication.png)
+RESULT: FAIL

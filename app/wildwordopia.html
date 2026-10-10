@@ -1,0 +1,959 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f4f0e7">
+  <meta name="description" content="Compare strange word creatures and earlier alternatives. Every creature combines English words from a shared Proto-Indo-European root.">
+  <title>キャラクター比較 · Wild Wordopia</title>
+  <style>
+    :root { color-scheme: light; --ink:#242221; --muted:#6f6a63; --paper:#f4f0e7; --line:#dfdbd3; --orange:#ff704d; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; color:var(--ink); background:var(--paper); font-family:Arial,Helvetica,sans-serif; -webkit-font-smoothing:antialiased; }
+    button,a,summary { -webkit-tap-highlight-color:transparent; }
+    a { color:inherit; }
+    button:focus-visible,a:focus-visible,summary:focus-visible { outline:3px solid #2f74d0; outline-offset:4px; }
+    .shell { width:100%; margin:0 auto; padding:0 24px; }
+    .masthead { display:flex; align-items:center; justify-content:space-between; gap:18px; padding-top:24px; padding-bottom:22px; border-bottom:1px solid var(--line); }
+    .brand { display:flex; align-items:center; gap:10px; font-weight:900; letter-spacing:-.045em; font-size:22px; text-decoration:none; }
+    .brand-symbol { display:grid; place-items:center; width:30px; height:30px; border-radius:10px; background:var(--ink); color:white; font-size:19px; letter-spacing:-3px; padding-right:3px; }
+    .back-link { color:var(--muted); font-size:13px; font-weight:700; text-decoration:none; }
+    .back-link:hover { color:var(--ink); text-decoration:underline; }
+    .hero { display:grid; grid-template-columns:1.5fr 1fr; align-items:end; gap:32px; padding:48px 0 35px; }
+    .eyebrow { margin:0 0 15px; font-size:11px; line-height:1.4; font-weight:800; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); }
+    h1 { margin:0; font-size:clamp(40px,5.5vw,72px); line-height:.98; font-weight:900; letter-spacing:-.06em; }
+    h1 .accent { color:var(--orange); }
+    .hero-copy { max-width:365px; margin:0 0 5px; color:#655f58; font-size:16px; line-height:1.6; }
+    .hero-copy strong { color:var(--ink); font-weight:800; }
+    .controls { display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:24px; }
+    .mode-switch { display:flex; gap:4px; padding:5px; border:1px solid var(--line); border-radius:15px; background:#eae6de; }
+    .mode-switch button { border:0; background:transparent; color:var(--muted); padding:12px 18px; border-radius:10px; font:700 13px/1.2 Arial,Helvetica,sans-serif; cursor:pointer; transition:background .15s,color .15s,box-shadow .15s; }
+    .mode-switch button[aria-pressed="true"] { background:var(--ink); color:white; box-shadow:0 2px 4px #00000010; }
+    .family-count { white-space:nowrap; font-size:13px; color:var(--muted); }
+    .family-count strong { color:var(--ink); }
+    .gallery { display:grid; grid-template-columns:1fr; gap:14px; align-items:start; padding-bottom:45px; }
+    .card { --tint:#e8875a; min-width:0; border:1px solid #e4ded4; border-radius:22px; background:white; overflow:hidden; box-shadow:0 6px 20px #3b332908; }
+    .art-stage { position:relative; aspect-ratio:1; background:radial-gradient(ellipse at 50% 65%,color-mix(in srgb,var(--tint) 12%,white) 0%,white 70%); }
+    .card-number { flex-shrink:0; color:#8b8478; font-size:11px; font-weight:700; font-variant-numeric:tabular-nums; }
+    .creature-art { display:block; width:100%; height:100%; padding:0; object-fit:contain; }
+    .rarity-row { display:flex; align-items:center; justify-content:center; gap:12px; padding:4px 8px 10px; }
+    .rarity-row .rarity { padding:0; }
+    .like-button { margin:0; padding:8px 14px; border:1px solid #ddc5cb; border-radius:20px; background:white; color:#9c4261; font-weight:700; cursor:pointer; }
+    .like-button[aria-pressed="true"] { background:#ffe4ed; border-color:#d64f7f; color:#ae2452; }
+    .rarity { display:flex; justify-content:center; align-items:center; gap:7px; margin:0; padding:0 12px 7px; font-size:11px; line-height:1.4; color:var(--muted); }
+    .rarity-stars { color:#be790b; font-size:20px; line-height:1; letter-spacing:2px; }
+    .rarity-stars .empty-star { color:#ddd7cb; }
+    .rarity-note { margin:0 0 12px; font-size:12px; line-height:1.6; color:var(--muted); }
+    .creature-art[hidden] { display:none; }
+    .original-art { display:none; }
+    .is-original .new-art { display:none; }
+    .is-original .original-art { display:block; }
+    .is-original .new-name,.is-original .english-name,.is-original .anatomy { display:none; }
+    .original-name { display:none; }
+    .is-original .original-name { display:block; }
+    .missing-art { position:absolute; inset:12px; display:flex; align-items:center; justify-content:center; text-align:center; color:var(--muted); font-size:14px; line-height:1.5; }
+    .is-original .missing-art { display:none; }
+    .card-copy { padding:4px 16px 12px; }
+    .meaning { margin:0 0 7px; font-size:10px; line-height:1.4; font-weight:800; color:var(--muted); letter-spacing:.12em; text-transform:uppercase; }
+    .card h2 { margin:0; min-height:48px; font-size:22px; line-height:1.12; letter-spacing:-.035em; font-weight:900; overflow-wrap:break-word; }
+    .card .new-name { min-height:0; font-size:19px; line-height:1.25; }
+    .root-meaning-head { padding:14px 16px 0; }
+    .root-meaning-top { display:flex; align-items:baseline; justify-content:space-between; gap:10px; }
+    .card .root-meaning-title,.compare-candidate .root-meaning-title { margin:0; min-height:0; font-size:32px; line-height:1.2; letter-spacing:-.03em; font-weight:900; color:var(--ink); overflow-wrap:anywhere; word-break:normal; }
+    .root-meaning-source { display:flex; flex-wrap:wrap; gap:2px 8px; margin:4px 0 0; font-size:12px; line-height:1.5; font-weight:700; color:#4b463f; overflow-wrap:anywhere; }
+    .english-name { margin:4px 0 0; font-size:13px; line-height:1.4; color:#625b51; font-weight:700; overflow-wrap:anywhere; }
+    .word-tags { display:flex; flex-wrap:wrap; gap:4px; margin:6px 0; align-content:start; }
+    .word-tag { display:inline-block; font-size:11px; line-height:1.1; font-weight:700; padding:5px 7px; border:1px solid #e7e2da; background:#faf8f3; border-radius:7px; }
+    .card-details { border-top:1px solid #ebe7df; }
+    .lesson-details { margin:6px 0; border-top:1px solid #ebe7df; }
+    .lesson-details>summary { cursor:pointer; padding:8px 0; font-size:12px; font-weight:800; }
+    .lesson-copy { margin:3px 0 10px; font-size:14px; line-height:1.75; white-space:pre-line; }
+    .lesson-note { margin:0 0 9px; font-size:11px; line-height:1.5; color:var(--muted); }
+    .lesson-hook { margin:8px 0; padding:8px 10px; background:#edf4e8; border-radius:7px; font-size:13px; line-height:1.6; font-weight:700; }
+    .lesson-motifs { margin:8px 0; padding-left:18px; font-size:12px; line-height:1.7; }
+    .lesson-motifs li { margin:5px 0; }
+    .lesson-sources { font-size:11px; line-height:1.6; color:var(--muted); }
+    .lesson-sources>summary { cursor:pointer; padding:6px 0; }
+    .lesson-sources a { display:inline-block; margin:3px 8px 3px 0; }
+    .card-details>summary { display:flex; align-items:center; justify-content:space-between; gap:12px; cursor:pointer; list-style:none; padding:8px 0 0; font-size:12px; font-weight:800; }
+    summary::-webkit-details-marker { display:none; }
+    .details-chevron { flex-shrink:0; transition:transform .18s; }
+    details[open]>summary .details-chevron { transform:rotate(180deg); }
+    .motif-list { margin:14px 0 0; }
+    .motif-item { padding:11px 0; border-top:1px solid #f0ede7; }
+    .motif-item:first-child { border:0; padding-top:0; }
+    .motif-item dt { margin:0 0 4px; font-size:13px; font-weight:800; }
+    .motif-item dd { margin:0; color:var(--muted); font-size:12px; line-height:1.55; }
+    .partial-note { display:block; margin-top:5px; font-size:11px; color:#786247; }
+    .root-explanation { margin:12px 0 0; padding:10px 12px; border-radius:9px; background:#f8f5ee; color:var(--muted); font-size:11px; line-height:1.55; }
+    .source-links { display:flex; flex-wrap:wrap; gap:9px 12px; padding-top:13px; font-size:11px; color:var(--muted); }
+    .source-links a { text-underline-offset:3px; }
+    .download { display:flex; align-items:center; justify-content:center; gap:7px; margin-top:16px; min-height:40px; border:1px solid #e2ddd3; border-radius:10px; color:#5b554d; font-size:11px; font-weight:700; text-decoration:none; }
+    .download:hover { border-color:#8b8378; color:var(--ink); background:#faf8f3; }
+    .footer { display:flex; justify-content:space-between; gap:20px; padding:22px 0 30px; border-top:1px solid var(--line); color:var(--muted); font-size:12px; line-height:1.6; }
+    .footer p { margin:0; }
+    .footer a { font-weight:700; text-underline-offset:4px; }
+    .status { grid-column:1/-1; padding:70px 20px; text-align:center; color:var(--muted); line-height:1.6; }
+    button,textarea { font-family:inherit; }
+    .review-toolbar { display:flex; flex-wrap:wrap; align-items:center; gap:10px; margin:-3px 0 12px; padding:14px 16px; background:white; border:1px solid var(--line); border-radius:14px; }
+    .toolbar-button { border:1px solid #d9d3c9; border-radius:9px; background:white; color:var(--ink); padding:10px 13px; font-size:12px; font-weight:700; cursor:pointer; }
+    .toolbar-button.primary { background:var(--ink); color:white; border-color:var(--ink); }
+    .review-progress { margin-left:auto; font-size:12px; line-height:1.5; color:var(--muted); }
+    .review-instruction { margin:0 0 22px; color:var(--muted); font-size:12px; line-height:1.6; }
+    .review-feedback { min-height:18px; margin:0 0 9px; font-size:12px; color:#4c654b; }
+    .candidate-head { display:flex; flex-wrap:wrap; align-items:center; gap:5px; margin:0 0 7px; font-size:10px; color:var(--muted); }
+    .candidate-head .campaign-label { margin:0; padding:3px 5px; font-size:10px; }
+    .candidate-head .style-chips { display:contents; }
+    .candidate-head .style-chip { padding:3px 5px; }
+    .candidate-head .decision-badge { margin-left:auto; }
+    .candidate-id { font-weight:700; letter-spacing:.02em; }
+    .decision-badge { display:none; align-items:center; white-space:nowrap; padding:5px 7px; border-radius:6px; background:#f1efeb; color:#776f62; font-size:10px; font-weight:700; }
+    .decision-badge.adopt { background:#e4f1e1; color:#35682d; }
+    .decision-badge.revise { background:#fff0d0; color:#8a5d13; }
+    .decision-badge.hold { background:#e9eafa; color:#575c90; }
+    .decision-badge.reject { background:#f7e6e3; color:#9d514b; }
+    .candidate-nav { margin-top:6px; padding-top:6px; border-top:1px solid #ebe7df; }
+    .nav-top { display:flex; align-items:center; justify-content:space-between; gap:8px; font-size:11px; color:var(--muted); }
+    .candidate-counts { display:block; margin-top:3px; font-size:10px; line-height:1.35; }
+    .nav-step { display:flex; align-items:center; gap:4px; }
+    .arrow-button { min-width:32px; min-height:32px; padding:0; border:1px solid #ded8cf; border-radius:8px; background:white; cursor:pointer; color:var(--ink); font-size:15px; }
+    .arrow-button:disabled { opacity:.3; cursor:default; }
+    .candidate-thumbs { display:grid; grid-template-columns:repeat(auto-fit,minmax(90px,1fr)); gap:8px; margin-top:7px; padding:2px 1px; }
+    .candidate-thumb { min-width:0; padding:3px; border:1.5px solid #e6e0d6; border-radius:7px; background:#fcfbf8; cursor:pointer; color:var(--muted); font-size:10px; }
+    .candidate-thumb[aria-pressed="true"] { border-color:#575348; box-shadow:0 0 0 1px #575348; color:var(--ink); background:white; }
+    .candidate-thumb img { width:100%; height:auto; aspect-ratio:1; object-fit:contain; display:block; }
+
+    .card:has(.decision-badge.adopt), .compare-candidate:has(.decision-badge.adopt), .candidate-thumb:has([data-status="adopt"]) { border:3px solid #3f873c; }
+    .card:has(.decision-badge.revise), .compare-candidate:has(.decision-badge.revise), .candidate-thumb:has([data-status="revise"]) { border:3px solid #dd9c20; }
+    .card:has(.decision-badge.hold), .compare-candidate:has(.decision-badge.hold), .candidate-thumb:has([data-status="hold"]) { border:3px solid #8176cb; }
+    .card:has(.decision-badge.reject), .compare-candidate:has(.decision-badge.reject), .candidate-thumb:has([data-status="reject"]) { border:3px solid #c95757; }
+    .candidate-thumb[aria-pressed="true"] { outline:2px solid #242221; outline-offset:2px; }
+    .thumb-label { display:block; margin-top:2px; font-weight:700; white-space:nowrap; }
+    .thumb-decision { display:none; margin-top:2px; font-size:9px; white-space:nowrap; }
+    .compare-button { width:100%; margin-top:11px; padding:10px 8px; border:1px solid #ded8cf; border-radius:9px; background:#f7f4ec; color:#544e44; font-size:11px; font-weight:700; cursor:pointer; }
+    .nav-step .compare-button { width:auto; min-height:32px; margin:0; padding:5px 7px; white-space:nowrap; }
+    .review-panel { margin:8px 0; padding:8px; border-radius:11px; background:#f8f6f1; border:1px solid #ede7db; }
+    .review-label { display:block; margin:0 0 4px; font-size:11px; font-weight:700; color:#625a4e; }
+    .decision-buttons { display:flex; flex-wrap:wrap; gap:5px; }
+    .decision-button { flex:1; min-width:40px; min-height:34px; padding:7px 3px; border:1px solid #ddd6c9; border-radius:7px; background:white; color:#6e6658; font-size:10px; font-weight:700; cursor:pointer; }
+    .decision-button[aria-pressed="true"] { background:var(--ink); color:white; border-color:var(--ink); }
+    .decision-button[data-decision="adopt"][aria-pressed="true"] { background:#3f7134; border-color:#3f7134; }
+    .decision-button[data-decision="revise"][aria-pressed="true"] { background:#997020; border-color:#997020; }
+    .decision-button[data-decision="hold"][aria-pressed="true"] { background:#6267a0; border-color:#6267a0; }
+    .decision-button[data-decision="reject"][aria-pressed="true"] { background:#a45b53; border-color:#a45b53; }
+    .comment-label { display:block; margin:12px 0 6px; font-size:10px; font-weight:700; color:var(--muted); }
+    .comment-details { margin-top:6px; }
+    .comment-details>summary { cursor:pointer; padding:4px 0; font-size:10px; font-weight:700; color:var(--muted); }
+    .comment-details .review-comment { margin-top:5px; }
+    .review-comment { display:block; width:100%; min-height:67px; max-height:180px; resize:vertical; padding:9px 10px; border:1px solid #ddd6c9; border-radius:7px; background:white; color:var(--ink); font-size:12px; line-height:1.5; }
+    .review-comment:focus { outline:2px solid #686054; outline-offset:1px; }
+    .family-warning { margin:9px 0 0; font-size:11px; line-height:1.5; color:#9c5b19; }
+    .family-warning:empty { display:none; }
+    .asset-links { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+    .asset-links .download { margin-top:6px; min-height:32px; padding:0 5px; text-align:center; }
+    .is-original .candidate-head,.is-original .candidate-nav,.is-original .review-panel { display:none; }
+    .original-review-note { display:none; margin:16px 0; font-size:11px; line-height:1.5; color:var(--muted); }
+    .is-original .original-review-note { display:block; }
+    .compare-dialog { width:min(1160px,calc(100vw - 30px)); max-height:90vh; max-height:90svh; margin:auto; padding:0; overflow:auto; overscroll-behavior:contain; border:1px solid #e0dacd; border-radius:19px; background:var(--paper); color:var(--ink); box-shadow:0 18px 70px #00000030; }
+    .compare-dialog::backdrop { background:#25211cb0; }
+    .concept-dialog { width:min(800px,calc(100vw - 30px)); }
+    .concept-content { padding:18px 22px; overflow-wrap:anywhere; }
+    .concept-content p { line-height:1.65; }
+    .concept-content li { margin:8px 0; line-height:1.65; }
+    .concept-content details { margin-top:18px; }
+    .concept-content summary { cursor:pointer; font-weight:700; }
+    .concept-content pre { white-space:pre-wrap; overflow-wrap:anywhere; font:13px/1.7 Arial,Helvetica,sans-serif; background:#fff; padding:14px; border:1px solid var(--line); border-radius:10px; }
+    button.download { background:transparent; cursor:pointer; font-family:inherit; }
+    .dialog-head { position:sticky; top:0; z-index:3; display:flex; justify-content:space-between; align-items:start; gap:18px; padding:19px 22px; background:var(--paper); border-bottom:1px solid var(--line); }
+    .dialog-head h2 { margin:0 0 6px; font-size:22px; line-height:1.2; letter-spacing:-.035em; }
+    .dialog-head p { margin:0; color:var(--muted); font-size:11px; line-height:1.6; }
+    .dialog-close { flex-shrink:0; width:34px; height:34px; border:1px solid #d4cbbd; border-radius:50%; color:var(--ink); background:white; font-size:22px; cursor:pointer; }
+    .compare-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:16px; padding:20px; align-items:start; }
+    .compare-candidate { min-width:0; overflow:hidden; background:white; border:1px solid #e2dacd; border-radius:14px; }
+    .compare-art { display:block; width:100%; height:auto; aspect-ratio:1; padding:8px; object-fit:contain; background:#fffefc; }
+    .compare-copy { padding:13px 16px 17px; }
+    .compare-copy h3 { margin:0 0 9px; min-height:36px; font-size:19px; line-height:1.15; letter-spacing:-.035em; }
+    .compare-copy .word-tags { min-height:0; margin-bottom:13px; }
+    .compare-copy .review-panel { margin:12px 0; padding:10px 9px; }
+    .compare-copy .toolbar-button { width:100%; margin-top:11px; font-size:11px; }
+    @media(max-width:1050px) { .review-progress { flex-basis:100%; margin-left:0; } }
+    @media(max-width:720px) { .compare-grid { grid-template-columns:1fr; padding:13px; gap:15px; } .compare-dialog { width:calc(100vw - 22px); max-height:92svh; } .dialog-head { padding:15px 16px; } .dialog-head h2 { font-size:19px; } .compare-copy h3 { min-height:0; } }
+    @media(max-width:650px) { .review-toolbar { padding:12px; } .toolbar-button { flex:1; padding:10px 8px; font-size:11px; } .review-progress { font-size:11px; } .review-instruction { font-size:11px; } .decision-button { min-height:38px; font-size:11px; } }
+    .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+    @media(max-width:1050px) { .gallery { grid-template-columns:repeat(2,minmax(0,1fr)); } .hero { grid-template-columns:1.2fr 1fr; } h1 { font-size:58px; } }
+    @media(max-width:650px) { .shell { padding:0 18px; } .masthead { padding-top:18px; padding-bottom:18px; } .brand { font-size:19px; } .back-link { font-size:11px; } .hero { grid-template-columns:1fr; gap:21px; padding:32px 0 26px; } h1 { font-size:clamp(42px,12vw,60px); } .hero-copy { max-width:100%; font-size:14px; line-height:1.6; } .controls { flex-wrap:wrap; gap:12px; margin-bottom:20px; } .mode-switch { width:100%; } .mode-switch button { flex:1; padding:12px 8px; } .family-count { width:100%; text-align:center; font-size:11px; } .gallery { grid-template-columns:1fr; gap:20px; } .card { border-radius:20px; } .card h2 { font-size:25px; min-height:0; } .card-copy { padding:10px 23px 20px; } .word-tags { min-height:0; margin-top:14px; } .creature-art { padding-top:40px; } .footer { flex-direction:column; gap:10px; } }
+    @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } *,*::before,*::after { transition:none!important; } }
+    .search-bar { display:grid; grid-template-columns:auto minmax(180px,1fr) auto; gap:12px; align-items:center; margin:0 0 12px; }
+    .search-bar label { font-size:12px; font-weight:700; }
+    .search-bar input { min-width:0; border:1px solid var(--line); border-radius:12px; padding:13px 15px; font:inherit; background:white; color:var(--ink); }
+    .search-bar input:focus { outline:2px solid #5aa7e8; outline-offset:2px; }
+    #search-result { font-size:12px; color:var(--muted); white-space:nowrap; }
+    .ranking-note { color:var(--muted); font-size:11px; line-height:1.6; margin:0 0 26px; }
+    .candidate-style { font-size:12px; line-height:1.55; color:var(--muted); margin:12px 0; }
+    @media(max-width:720px) { .search-bar { grid-template-columns:1fr auto; }.search-bar label { grid-column:1/-1; }.controls { align-items:flex-start; flex-direction:column; } }
+  
+    .filter-bar { display:flex; flex-wrap:wrap; gap:12px; margin:0 0 16px; }
+    .family-count { white-space:normal; line-height:1.6; }
+    .campaign-label { display:inline-block; margin:8px 0 0; padding:5px 8px; border-radius:6px; background:#e9f1e5; color:#36552a; font-size:11px; font-weight:800; }
+    .campaign-label.history { background:#f1ece4; color:#695d49; }
+    .root-core { margin:14px 0; padding:12px; border-radius:10px; background:#f4f7f0; }
+    .root-core h3 { margin:0 0 9px; font-size:14px; line-height:1.5; color:var(--ink); }
+    .root-core dt { font-size:11px; font-weight:800; margin-top:8px; }
+    .root-core dd { margin:3px 0 0; font-size:12px; line-height:1.6; color:#443f37; }
+    .visual-review { margin:14px 0; padding:12px; border:1px solid #e4d7c1; border-radius:10px; background:#fbf6ec; color:var(--ink); }
+    .visual-review h3 { margin:0 0 8px; font-size:14px; line-height:1.5; }
+    .visual-review p { margin:8px 0; font-size:12px; line-height:1.7; overflow-wrap:anywhere; }
+    .visual-review .inspection-note { font-size:11px; color:#62594c; }
+    .visual-review .inspection-entry + .inspection-entry { margin-top:14px; padding-top:10px; border-top:1px solid #e4d7c1; }
+    .filter-bar label { display:flex; align-items:center; gap:8px; font-size:12px; color:var(--muted); }
+    .filter-bar select { max-width:100%; border:1px solid var(--line); border-radius:9px; padding:10px 12px; background:white; color:var(--ink); font:inherit; }
+    .pending-stage { display:grid; place-items:center; text-align:center; height:100%; padding:12px; }
+    .pending-mark { display:grid; place-items:center; width:85px; height:85px; margin:0 auto 17px; border:1px dashed #c9c3b7; border-radius:25px; font-size:32px; color:#b0a79b; }
+    .pending-label { font-size:15px; font-weight:800; color:#7c756a; }
+    .pending-note { font-size:12px; color:var(--muted); line-height:1.65; }
+    .pending-definition { margin:16px 0 0; font-size:12px; line-height:1.65; color:var(--muted); }
+    .style-chips { display:flex; flex-wrap:wrap; gap:5px; margin:10px 0 0; }
+    .style-chip { padding:4px 7px; border-radius:5px; background:#f1f0e9; color:#746e62; font-size:10px; }
+    .is-original .card.no-original .new-art { display:block; opacity:.35; }
+    .is-original .card.no-original .missing-art { display:flex; }
+    .card.no-original .original-art { display:none; }
+    @media(max-width:650px) { .filter-bar { display:grid; grid-template-columns:1fr; } .filter-bar label { justify-content:space-between; }.filter-bar select { flex:1; min-width:0; max-width:70%; } }
+    @media(max-width:650px) { .card-copy { padding:4px 16px 12px; } .card .word-tags { margin:6px 0; } .creature-art { padding:6px 12px; } }
+    @media(max-width:360px) { .candidate-thumbs { grid-template-columns:repeat(3,minmax(0,1fr)); } }
+
+    @media(min-width:700px) {
+      .card { display:grid; grid-template-columns:minmax(260px,380px) minmax(0,1fr); align-items:start; }
+      .card>.root-meaning-head { grid-column:1 / -1; }
+      .card>.art-stage { grid-column:1; grid-row:2; }
+      .card>.rarity-row { grid-column:1; grid-row:3; }
+      .card>.card-copy { grid-column:2; grid-row:2 / span 2; padding:8px 16px 12px; }
+      .card .candidate-thumbs { grid-template-columns:repeat(auto-fit,minmax(100px,1fr)); }
+      .card .candidate-thumb img { max-height:120px; }
+      .card .candidate-nav { margin-top:8px; padding-top:8px; }
+      .card .review-panel { margin-top:8px; padding:8px; }
+      .card h2 { min-height:0; }
+    }
+  .candidate-thumb-item{min-width:0;display:flex;flex-direction:column;gap:8px}.candidate-thumb-item .candidate-thumb{width:100%;flex:1}.dislike-button{font:inherit;font-size:12px;padding:9px;border:1px solid #bbb3a6;border-radius:9px;background:#fff;cursor:pointer}.dislike-button[aria-pressed="true"]{background:#403832;color:white}.thumb-reactions{display:flex;justify-content:center;gap:6px}.thumb-reactions button{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;min-height:34px;margin:0;padding:0;border:1px solid #ddd4c6;border-radius:8px;background:#fff;font-size:17px;cursor:pointer}.thumb-reactions button[aria-pressed="true"]{background:#e9d9ad;border-color:#635943}</style>
+</head>
+<body>
+  <div class="shell">
+    <header class="masthead">
+      <a class="brand" href="https://haibaratou.github.io/etymolingo/app/etymopedia.html"><span class="brand-symbol" aria-hidden="true">ww</span>Wild Wordopia</a>
+      <a class="back-link" href="https://haibaratou.github.io/etymolingo/app/etymopedia.html">Explore Etymopedia ↗</a>
+    </header>
+    <main>
+      <section class="hero" aria-labelledby="page-title">
+        <div>
+          <p class="eyebrow">Wild Wordopia · Character review</p>
+          <h1 id="page-title" lang="ja">キャラクター<br><span class="accent">比較</span></h1>
+        </div>
+        <p class="hero-copy" lang="ja"><strong id="hero-root-count">0</strong>語根 · 新案 <strong id="hero-candidate-count">0</strong>点<br>同じ語根の新旧の候補を、ここで比較できます。<strong>原義がどんな体になり、派生英単語がどの部品になったか</strong>を確かめてください。</p>
+      </section>
+      <div class="controls">
+        <div class="mode-switch" role="group" aria-label="Character artwork">
+          <button type="button" data-mode="new" aria-pressed="true">New creatures</button>
+          <button type="button" data-mode="original" aria-pressed="false">Original characters</button>
+        </div>
+        <div class="family-count" lang="ja"><strong id="family-count">0</strong>語根 · 新案 <strong id="candidate-count">0</strong> / <strong id="target-candidate-count">0</strong> · 履歴 <strong id="history-candidate-count">0</strong> · 全候補 <strong id="retained-candidate-count">0</strong></div>
+      </div>
+      <div class="review-toolbar" lang="ja">
+        <button type="button" class="toolbar-button primary" id="save-review">バックアップを書き出す（任意）</button>
+        <button type="button" class="toolbar-button" id="import-review">チェック結果を読み込む</button>
+        <button type="button" class="toolbar-button" id="show-figure-candidates" hidden>ちびフィギュア案を見る</button>
+        <input type="file" id="review-file" accept="application/json,.json" hidden>
+        <span class="review-progress" id="review-progress" aria-live="polite">チェック済み 0 / 0</span>
+      </div>
+      <p class="review-feedback" id="review-feedback" aria-live="polite" lang="ja"></p>
+      <p class="review-instruction" lang="ja">同じ語根の案を切り替えて比較できます。表示しただけでは採用されません。いいね・チェック・メモは入力するとすぐ自動保存されます。このブラウザーで開き直しても残ります。保存ボタンの操作は不要です。</p>
+      <div class="search-bar"><label for="root-search" lang="ja">語根・単語・名前・番号で探す</label><input type="search" id="root-search" placeholder="例：ped / foot / 025" autocomplete="off"><span id="search-result" aria-live="polite"></span></div>
+      <div class="filter-bar" lang="ja">
+        <label for="style-filter">造形<select id="style-filter"><option value="">すべての造形</option><option>精密メカ</option><option>動物</option><option>架空の小動物マスコット</option><option>可愛い頭＋怪物</option><option>立体ちび</option><option>立体クリーチャー</option></select></label>
+        <label for="production-filter">制作状況<select id="production-filter"><option value="">すべての語根</option><option value="saved">画像あり</option><option value="pending">制作待ち</option><option value="partial">制作途中</option><option value="complete">３案保存済み</option></select></label>
+        <label for="campaign-filter">新旧の候補<select id="campaign-filter"><option value="all">新旧すべて</option><option value="current">今回の新案</option><option value="history">履歴の案</option></select></label>
+      </div>
+      <p class="ranking-note" id="ranking-note" lang="ja">保存済みの候補を読み込んでいます。</p>
+    <p class="rarity-note" lang="ja">レアリティ：1〜20位 ★1 · 21〜40位 ★2 · 41〜60位 ★3 · 61〜80位 ★4 · 81〜100位 ★5。接頭辞を中心に広がった語根は★2以下。星数はゲーム用の設定です。</p>
+      <p id="mode-status" class="sr-only" aria-live="polite">Showing new creatures.</p>
+      <section class="gallery" id="gallery" aria-label="Root creature gallery">
+        <p class="status">Your creatures are arriving…</p>
+      </section>
+      <noscript><p>The creature gallery needs JavaScript to show its word families.</p></noscript>
+    </main>
+    <footer class="footer">
+      <p>A wild way to meet Proto-Indo-European roots.<br>One family, many familiar English words.</p>
+      <a href="https://haibaratou.github.io/etymolingo/app/etymopedia.html">Continue exploring →</a>
+    </footer>
+  </div>
+  <dialog class="compare-dialog" id="compare-dialog" aria-labelledby="compare-title">
+    <div class="dialog-head">
+      <div><h2 id="compare-title">同じ語根の候補</h2><p lang="ja">体の構成と表情を比べて、人の判断でチェックしてください。</p></div>
+      <button class="dialog-close" type="button" id="close-compare" aria-label="比較を閉じる">×</button>
+    </div>
+    <div class="compare-grid" id="compare-grid"></div>
+  </dialog>
+  <dialog class="compare-dialog concept-dialog" id="concept-dialog" aria-labelledby="concept-title">
+    <div class="dialog-head">
+      <div><h2 id="concept-title"></h2><p id="concept-english" lang="en"></p></div>
+      <button class="dialog-close" type="button" id="close-concept" aria-label="コンセプトを閉じる">×</button>
+    </div>
+    <div class="concept-content">
+      <p id="concept-name-reason"></p>
+      <ul id="concept-name-elements"></ul>
+      <h3>この案の内容</h3><p id="concept-design"></p>
+      <details><summary>生成時の記録（旧名を含む）</summary>
+        <p>保存された原文です。現在のキャラクター名は上段に表示しています。</p>
+        <a class="download" id="concept-record-link" target="_blank" rel="noopener">元の記録を開く ↗</a>
+        <pre id="concept-record"></pre>
+      </details>
+    </div>
+  </dialog>
+  <script src="../assets/chara/brainrot/library/library.js?v=kap007-20261010"></script>
+  <script src="../assets/chara/brainrot/library/name-prefixes.js"></script>
+  <script src="../assets/chara/brainrot/library/root-character-names.js"></script>
+  <script src="../assets/chara/brainrot/library/root-lessons.js"></script>
+  <script src="../assets/chara/brainrot/library/rarity-rules.js"></script>
+  <script>
+    'use strict';
+    const collection = window.WILDWORDOPIA_LIBRARY || window.WILDWORDOPIA_TOP100;
+    const rootCatalog = collection?.rootCatalog || [];
+    const gallery = document.getElementById('gallery');
+    const dialog = document.getElementById('compare-dialog');
+    const compareGrid = document.getElementById('compare-grid');
+    const conceptDialog = document.getElementById('concept-dialog');
+    let rootStems = Object.fromEntries(rootCatalog.map(root => [root.id,root.stem]));
+    const escapeHtml = value => String(value ?? '').replace(/[&<>"']/g, character => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[character]));
+    function rootCharacterName(candidate) {
+      const definitions = window.WILDWORDOPIA_ROOT_CHARACTER_NAMES?.roots || [];
+      const fileRoot = /^root-([a-z0-9]+)-v\d{3,}\.png$/.exec(candidate.file || '')?.[1];
+      const ids = [candidate.rootId, candidate.id, fileRoot];
+      const registered = definitions.find(definition => ids.includes(definition.rootId));
+      return registered || candidate.rootCharacterName;
+    }
+    function englishNameParts(candidate) {
+      const fixed = rootCharacterName(candidate);
+      if (fixed) return fixed.name.split(/\s*[·・]\s*/).filter(Boolean);
+      return Array.isArray(candidate.englishNameParts) ? [...candidate.englishNameParts] :
+        (candidate.englishName || candidate.name || '').split(/\s*[·・]\s*/).filter(Boolean);
+    }
+    function displayName(candidate) {
+      const fixed = rootCharacterName(candidate);
+      if (fixed) return fixed.kana;
+      return candidate.kana || englishNameParts(candidate).join(' · ');
+    }
+
+    function englishNameHtml(candidate) {
+      return '<p class="english-name" lang="en">' + escapeHtml(englishNameParts(candidate).join(' · ')) + '</p>';
+    }
+
+    function rootMeaningText(family) {
+      return family.meaning || '語義未登録';
+    }
+    function rootMeaningHtml(family) {
+      const rank = Number.isFinite(family.rank) ? 'No.' + String(family.rank).padStart(3,'0') : (family.collectionLabel || '初期の語根');
+      return '<header class="root-meaning-head" lang="ja"><div class="root-meaning-top"><h2 class="root-meaning-title">' + escapeHtml(rootMeaningText(family)) + '</h2><span class="card-number">' + escapeHtml(rank) + '</span></div><p class="root-meaning-source"><span lang="en">' + escapeHtml(family.meaningEn || '') + '</span><span lang="en">' + escapeHtml(family.root || '') + '</span></p></header>';
+    }
+    function rarityFor(family) {
+      const rules = window.WILDWORDOPIA_RARITY_RULES;
+      const rank = Number.isFinite(family.rank) ? family.rank : null;
+      const band = rules?.rankBands.find(item => rank !== null && rank <= item.maxRank);
+      if (!band) return {stars:null,prefixDominant:false};
+      const prefixDominant = rules.prefixDominantRoots.some(item => item.rootId === family.id);
+      return {stars:prefixDominant ? Math.min(band.stars,rules.prefixStarCap) : band.stars,
+        prefixDominant};
+    }
+    function rarityHtml(family) {
+      const rarity = rarityFor(family);
+      if (rarity.stars === null) return '<p class="rarity" lang="ja">順位未設定 · 星数未設定</p>';
+      const label = rarity.stars + '星' + (rarity.prefixDominant ? ' · 接頭辞で広がった語根' : '');
+      return '<p class="rarity" lang="ja" aria-label="レアリティ ' + escapeHtml(label) + '"><span class="rarity-stars" aria-hidden="true">' + '★'.repeat(rarity.stars) + '<span class="empty-star">' + '☆'.repeat(5-rarity.stars) + '</span></span></p>';
+    }
+    function lessonDetails(family) {
+      const lesson = (window.WILDWORDOPIA_LESSONS?.roots || []).find(item => item.rootId === family.id);
+      if (!lesson) return '';
+      const elements = lesson.learningElements || [];
+      const motifs = elements.map(item => '<li><strong>' + escapeHtml((item.word || item.labelJa) + (item.kind === 'root-meaning' ? '（原義・主役）' : '')) + '</strong>：' + escapeHtml(item.visualRequirement) + '</li>').join('');
+      const sources = elements.filter(item => item.sourceUrl).map(item => '<a href="' + escapeHtml(item.sourceUrl) + '" target="_blank" rel="noopener noreferrer">' + escapeHtml(item.word) + ' ↗</a>').join('');
+      const databaseText = [lesson.sourceDefinition, lesson.sourceNote].filter(Boolean).map(text => '<p>' + escapeHtml(text) + '</p>').join('');
+      const extraSources = (lesson.sourceRefs?.external || []).map(item => '<a href="' + escapeHtml(item.url) + '" target="_blank" rel="noopener noreferrer">' + escapeHtml(item.title) + ' ↗</a>').join('');
+      const exclusions = (lesson.sourceRefs?.excludedCandidateWords || []).map(item => '<li><strong>' + escapeHtml(item.word) + '</strong>：' + escapeHtml(item.reasonJa) + ' <a href="' + escapeHtml(item.sourceUrl) + '" target="_blank" rel="noopener noreferrer">語源の根拠 ↗</a></li>').join('');
+      const reviewedNotes = exclusions ? '<div class="lesson-source-review"><strong>以前の案の語源確認</strong><ul class="lesson-motifs">' + exclusions + '</ul></div>' : '';
+      return '<details class="lesson-details" data-lesson-root="' + escapeHtml(family.id) + '" lang="ja"' + (lessonOpened.has(family.id) ? ' open' : '') + '><summary>次の生成に使う解説</summary><p class="lesson-note">原義から派生語をたどる解説 · 原義を主役に、語源ネタもなるべく造形へ入れます。</p><p class="lesson-copy">' + escapeHtml(lesson.explanationJa) + '</p><p class="lesson-hook">' + escapeHtml(lesson.hookJa) + '</p>' + reviewedNotes + '<strong>造形のモチーフ候補</strong><ul class="lesson-motifs">' + motifs + '</ul><details class="lesson-sources" open><summary>語源の根拠を見る</summary>' + databaseText + sources + extraSources + '<a href="' + escapeHtml(artFolder + lesson.lessonId + '.md') + '" target="_blank" rel="noopener noreferrer">解説と対応表 ↗</a></details></details>';
+    }
+    const artFolder = '../assets/chara/brainrot/library/';
+    const originalArtFolder = '../assets/';
+    const storageKey = 'wildwordopia.root-candidate-review.v1';
+    const backupStorageKey = 'wildwordopia.root-candidate-review.backup.v1';
+    const legacyBackupStorageKeys = ['wildwordopia.root-candidate-review.top100-backup.v1'];
+    const reviewSchema = 'wildwordopia-root-candidate-review';
+    const decisionLabels = {unselected:'未選択',adopt:'採用',revise:'修正',hold:'保留',reject:'不採用'};
+    const decisionOrder = Object.keys(decisionLabels);
+    const chevron = '<svg class="details-chevron" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m4 6 4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    const downloadIcon = '<svg width="13" height="13" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v8m-3-3 3 3 3-3M3 11v3h10v-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    let mode = 'new';
+    let families = [];
+    let compareRootId = null;
+    let bodyOverflow = '';
+    const reviewRecords = Object.create(null);
+    const previewIds = Object.create(null);
+    const detailsOpened = new Set();
+    const lessonOpened = new Set();
+
+    function reviewKey(rootId,candidateId) { return rootId + ':' + candidateId; }
+    function currentReviewRootId(rootId) { return rootId === 'genu' ? 'genu1' : rootId; }
+    function reviewTimestamp(record) { return Date.parse(record?.updatedAt || '') || 0; }
+    function recordFor(rootId,candidateId) {
+      return reviewRecords[reviewKey(rootId,candidateId)] || {decision:'unselected',comment:'',updatedAt:null,history:[]};
+    }
+    function feedback(message) { document.getElementById('review-feedback').textContent = message; }
+    function validRecord(record) {
+      if (!record || !decisionOrder.includes(record.decision)) return null;
+      return {decision:record.decision,liked:record.liked === true,comment:typeof record.comment === 'string' ? record.comment : '',updatedAt:typeof record.updatedAt === 'string' ? record.updatedAt : null,history:Array.isArray(record.history) ? record.history : []};
+    }
+
+    function localState(key) {
+      try { const value = JSON.parse(localStorage.getItem(key) || 'null'); return value && typeof value === 'object' ? value : {}; }
+      catch { return {}; }
+    }
+    function mergedLocalState() {
+      const merged = {reviews:{},previews:{}};
+      for (const key of [...legacyBackupStorageKeys,backupStorageKey,storageKey]) {
+        const state = localState(key);
+        for (const [id,record] of Object.entries(state.reviews || {})) {
+          const existing = merged.reviews[id];
+          const incomingAt = Date.parse(record?.updatedAt || '') || 0;
+          const existingAt = Date.parse(existing?.updatedAt || '') || 0;
+          if (!existing || incomingAt >= existingAt) merged.reviews[id] = record;
+        }
+        Object.assign(merged.previews,state.previews || {});
+      }
+      // Keep the old key as a backup; the current key wins ties and newer edits.
+      for (const [key,value] of Object.entries(merged.reviews)) {
+        const [oldRootId,candidateId] = key.split(':');
+        const rootId = currentReviewRootId(oldRootId);
+        if (rootId === oldRootId || !validRecord(value)) continue;
+        const currentKey = reviewKey(rootId,candidateId);
+        const existing = validRecord(merged.reviews[currentKey]);
+        if (!existing || reviewTimestamp(value) > reviewTimestamp(existing)) merged.reviews[currentKey] = value;
+      }
+      if (!Object.hasOwn(merged.previews,'genu1') && Object.hasOwn(merged.previews,'genu')) merged.previews.genu1 = merged.previews.genu;
+      return merged;
+    }
+    function persistReview() {
+      try {
+        const retained = mergedLocalState();
+        const state = {reviews:{...retained.reviews,...reviewRecords},previews:{...retained.previews,...previewIds}};
+        localStorage.setItem(storageKey,JSON.stringify(state));
+        localStorage.setItem(backupStorageKey,JSON.stringify(state));
+      } catch (error) { feedback('自動保存に失敗しました。ブラウザーの保存設定または空き容量を確認してください。'); }
+    }
+    function restoreLocalReview() {
+      const {reviews,previews} = mergedLocalState();
+      for (const [key,value] of Object.entries(reviews)) {
+        const [rootId,candidateId] = key.split(':');
+        const record = validRecord(value);
+        if (record && rootStems[rootId] && /^v\d{3,}$/.test(candidateId || '')) reviewRecords[key] = record;
+      }
+      for (const [rootId,candidateId] of Object.entries(previews)) {
+        if (rootStems[rootId] && /^v\d{3,}$/.test(candidateId || '')) previewIds[rootId] = candidateId;
+      }
+    }
+
+    function familyFor(rootId) { return families.find(family => family.id === rootId); }
+    function candidateFor(rootId,candidateId) { return familyFor(rootId)?.candidates.find(candidate => candidate.candidateId === candidateId); }
+
+    function candidateMatchesStyle(candidate) {
+      const style = document.getElementById('style-filter').value;
+      return !style || (candidate.styleTags || []).includes(style);
+    }
+    function candidateMatchesCampaign(candidate) {
+      const campaign = document.getElementById('campaign-filter').value;
+      return campaign === 'all' || candidate.campaign === campaign;
+    }
+    let showingTrash = false;
+    const trashAtLoad = new Set();
+    function visibleCandidates(family) {
+      return family.candidates.filter(candidate => candidateMatchesStyle(candidate) && candidateMatchesCampaign(candidate) && (showingTrash === trashAtLoad.has(reviewKey(family.id,candidate.candidateId))));
+    }
+    function previewFor(family) {
+      const chosen = family.candidates.find(candidate => candidate.candidateId === previewIds[family.id]);
+      const matching = visibleCandidates(family);
+      const preferred = matching.find(candidate => candidate.candidateId === family.defaultPreviewCandidateId);
+      return chosen && matching.includes(chosen) ? chosen : preferred || matching[0];
+    }
+
+    function sourceLinks(sources) {
+      return (Array.isArray(sources) ? sources : []).map((source,index) => {
+        const url = typeof source === 'string' ? source : source?.url;
+        const title = typeof source === 'string' ? 'Source ' + (index + 1) : (source?.title || 'Source ' + (index + 1));
+        if (!/^https:\/\//i.test(url || '')) return '';
+        return '<a href="' + escapeHtml(url) + '" target="_blank" rel="noopener noreferrer">' + escapeHtml(title) + ' ↗</a>';
+      }).join('');
+    }
+
+    function motifDetails(motif) {
+      const partialNote = motif.partial ? '<span class="partial-note">' + escapeHtml(motif.note || (typeof motif.partial === 'string' ? motif.partial : 'One component of this compound carries the shared root.')) + '</span>' : (motif.note ? '<span class="partial-note">' + escapeHtml(motif.note) + '</span>' : '');
+      return '<div class="motif-item"><dt>' + escapeHtml(motif.word) + '</dt><dd><span class="anatomy">' + escapeHtml(motif.part) + '</span>' + partialNote + '</dd></div>';
+    }
+
+    function decisionBadge(rootId,candidateId) {
+      const decision = recordFor(rootId,candidateId).decision;
+      return '<span class="decision-badge ' + decision + '" data-decision-label data-review-key="' + escapeHtml(reviewKey(rootId,candidateId)) + '">' + decisionLabels[decision] + '</span>';
+    }
+    function decisionButtons(rootId,candidateId) {
+      const key = reviewKey(rootId,candidateId);
+      const decision = recordFor(rootId,candidateId).decision;
+      return '<div class="decision-buttons" role="group" aria-label="この候補のチェック" data-review-key="' + escapeHtml(key) + '">' + decisionOrder.map(value => '<button type="button" class="decision-button" data-action="decision" data-root="' + escapeHtml(rootId) + '" data-candidate="' + escapeHtml(candidateId) + '" data-decision="' + value + '" aria-pressed="' + String(value === decision) + '">' + decisionLabels[value] + '</button>').join('') + '</div>';
+    }
+    function candidateMeta(family,candidate) {
+      const history = candidate.campaign === 'history';
+      return '<div class="candidate-head"><span class="candidate-id">' + escapeHtml(rootStems[family.id] + '-' + candidate.candidateId) + '</span><span class="campaign-label' + (history ? ' history' : '') + '" lang="ja">' + (history ? '履歴の案' : '今回の新案') + '</span>' + styleChips(candidate) + decisionBadge(family.id,candidate.candidateId) + '</div>';
+    }
+    function warningFor(family) {
+      return family.candidates.filter(candidate => recordFor(family.id,candidate.candidateId).decision === 'adopt').length > 1 ? '同じ語根で複数の案が「採用」になっています。最終案を確認してください。' : '';
+    }
+    function dislikeButton(rootId,candidateId) {
+      const rejected = recordFor(rootId,candidateId).decision === 'reject';
+      return '<button type="button" class="dislike-button" aria-label="良くないね" title="良くないね（もう一度押すと取消）" data-action="dislike" data-root="' + escapeHtml(rootId) + '" data-candidate="' + escapeHtml(candidateId) + '" aria-pressed="' + rejected + '">' + '👎' + '</button>';
+    }
+    function likeButton(rootId,candidateId) {
+      const liked = recordFor(rootId,candidateId).liked === true;
+      return '<button type="button" class="like-button" aria-label="いいね" title="いいね（もう一度押すと取消）" data-action="like" data-root="' + escapeHtml(rootId) + '" data-candidate="' + escapeHtml(candidateId) + '" aria-pressed="' + liked + '">' + '👍' + '</button>';
+    }
+    function toggleLike(rootId,candidateId) {
+      if (!candidateFor(rootId,candidateId)) return;
+      const record = recordFor(rootId,candidateId), liked = !record.liked;
+      const now = new Date().toISOString();
+      reviewRecords[reviewKey(rootId,candidateId)] = {...record,liked,updatedAt:now,history:[...record.history,{event:'like',liked,at:now,source:'human'}]};
+      persistReview();
+      document.querySelectorAll('button[data-action="like"]').forEach(button => {
+        if (button.dataset.root === rootId && button.dataset.candidate === candidateId) {
+          button.setAttribute('aria-pressed',String(liked)); button.textContent = '👍';
+        }
+      });
+    }
+    function reviewPanel(family,candidate,withComment) {
+      const record = recordFor(family.id,candidate.candidateId);
+      const commentId = 'comment-' + family.id + '-' + candidate.candidateId;
+      return '<section class="review-panel" lang="ja" aria-label="候補のチェック"><span class="review-label">この案をチェック</span>' + decisionButtons(family.id,candidate.candidateId) +
+        (withComment ? '<details class="comment-details"' + (record.comment ? ' open' : '') + '><summary>メモ・修正点を書く（任意）</summary><label class="sr-only" for="' + commentId + '">メモ・修正してほしい点（任意）</label><textarea class="review-comment" id="' + commentId + '" data-root="' + escapeHtml(family.id) + '" data-candidate="' + escapeHtml(candidate.candidateId) + '" placeholder="例：顔は案1、体の構成は案2がよい">' + escapeHtml(record.comment) + '</textarea></details>' : '') +
+        '<p class="family-warning" data-warning-root="' + escapeHtml(family.id) + '">' + escapeHtml(warningFor(family)) + '</p></section>';
+    }
+    function tagsFor(candidate) {
+      const lesson = (window.WILDWORDOPIA_LESSONS?.roots || []).find(item => item.rootId === candidate.rootId);
+      const words = lesson?.designWordSet || [];
+      return '<div class="word-tags" aria-label="語根共通のデザイン単語と日本語訳">' + words.map(item => '<span class="word-tag"><strong>' + escapeHtml(item.word) + '</strong> · ' + escapeHtml(item.meaningJa) + '</span>').join('') + '</div>';
+    }
+
+    function rootCoreDetails(candidate) {
+      const core = candidate.rootMeaningCore;
+      if (!core) return '';
+      const fields = [['主役の形',core.primaryImage],['体のどこに表れるか',core.mainBodyPart],['動き',core.action]];
+      return '<section class="root-core" lang="ja"><h3>この体が表す語根の意味</h3><dl>' + fields.filter(item => item[1]).map(item => '<dt>' + escapeHtml(item[0]) + '</dt><dd>' + escapeHtml(item[1]) + '</dd>').join('') + '</dl></section>';
+    }
+    function visualReviewDetails(candidate) {
+      const review = candidate.visualReview;
+      if (review?.method !== 'direct-image-inspection' || review.imageSha256 !== candidate.imageSha256 || !Array.isArray(review.entries)) return '';
+      const entries = review.entries.filter(entry => Array.isArray(entry.findings) && entry.findings.length);
+      if (!entries.length) return '';
+      return '<section class="visual-review" lang="ja"><h3>画像で確認したこと</h3><p class="inspection-note">表示画像を実見した記録です。採用・不採用の判断は含みません。</p>' + entries.map(entry =>
+        '<div class="inspection-entry">' + entry.findings.map(item => '<p><strong>' + escapeHtml(item.label) + '：</strong>' + escapeHtml(item.text) + '</p>').join('') +
+        (entry.motifFindings || []).map(item => '<p><strong lang="en">' + escapeHtml(item.word) + '：</strong>' + escapeHtml(item.text) + '</p>').join('') +
+        (entry.issues || []).map(text => '<p><strong>気になる点：</strong>' + escapeHtml(text) + '</p>').join('') +
+        (entry.comparison ? '<p><strong>同じ語根の3案：</strong>' + escapeHtml(entry.comparison) + '</p>' : '') + '</div>').join('') + '</section>';
+    }
+    function wordDetails(family,candidate,open) {
+      const sources = sourceLinks(candidate.sources);
+      return '<details class="card-details" data-details-root="' + escapeHtml(family.id) + '"' + (open ? ' open' : '') + '><summary><span>Discover the word family</span>' + chevron + '</summary>' + rootCoreDetails(candidate) + visualReviewDetails(candidate) + '<dl class="motif-list">' + candidate.motifs.map(motifDetails).join('') + '</dl><p class="root-explanation">These words share an ancestral root. In a compound, the connection can belong to just one component.</p>' + (sources ? '<div class="source-links" aria-label="Etymology sources">' + sources + '</div>' : '') + '</details>';
+    }
+
+    function assetLinks(candidate) {
+      const imageLink = candidate.file ? '<a class="download" href="' + escapeHtml(artFolder + candidate.file) + '" download="' + escapeHtml(candidate.file) + '">' + downloadIcon + '<span>PNG · 512 × 512</span></a>' : '';
+      const conceptLink = candidate.conceptFile ? '<button class="download" type="button" data-action="concept" data-root="' + escapeHtml(candidate.rootId) + '" data-candidate="' + escapeHtml(candidate.candidateId) + '"><span lang="ja">コンセプトを見る</span></button>' : '';
+      return '<div class="asset-links">' + imageLink + conceptLink + '</div>';
+    }
+    function rootNoteValue(rootId) {
+      try { return localStorage.getItem('wildwordopia.root-note.v1.' + rootId) || ''; } catch { return ''; }
+    }
+    function rootNotePanel(family) {
+      const id = 'root-note-' + family.id;
+      return '<section class="review-panel" lang="ja"><label class="review-label" for="' + escapeHtml(id) + '">このPIE語根の全案へのメモ・修正点</label><textarea class="review-comment root-review-note" id="' + escapeHtml(id) + '" data-root="' + escapeHtml(family.id) + '" placeholder="この語根の候補すべてに共通する修正点">' + escapeHtml(rootNoteValue(family.id)) + '</textarea><span class="root-note-status" role="status" style="font-size:11px;color:var(--muted)">入力するとすぐ自動保存</span></section>';
+    }
+    function candidateNavigation(family,candidate) {
+      const index = family.candidates.indexOf(candidate);
+      const columns = Math.ceil(family.candidates.length / Math.ceil(family.candidates.length / 6));
+      const thumbnails = family.candidates.length > 0 ? '<div class="candidate-thumbs" style="--thumb-columns:' + columns + ';--thumb-columns-small:' + Math.min(3,columns) + '">' + visibleCandidates(family).map((item,position) => '<div class="candidate-thumb-item"><button type="button" class="candidate-thumb" data-action="preview" data-root="' + escapeHtml(family.id) + '" data-candidate="' + escapeHtml(item.candidateId) + '" aria-label="案' + (position + 1) + 'をプレビュー：' + escapeHtml(displayName(item)) + '" aria-pressed="' + String(item === candidate) + '"><img src="' + escapeHtml(artFolder + item.file) + '" alt="" width="40" height="40" loading="lazy"><span class="thumb-label">' + escapeHtml(item.candidateId) + '</span><span class="thumb-decision" data-status="' + recordFor(family.id,item.candidateId).decision + '" data-decision-label data-review-key="' + escapeHtml(reviewKey(family.id,item.candidateId)) + '">' + decisionLabels[recordFor(family.id,item.candidateId).decision] + '</span></button>' + '<span class="thumb-reactions">' + likeButton(family.id,item.candidateId) + dislikeButton(family.id,item.candidateId) + '</span></div>').join('') + '</div>' : '';
+      const counts = '今回 ' + (family.currentCandidateCount || 0) + ' / ' + family.requiredCandidateIds.length + '案 · 履歴 ' + (family.historyCandidateCount || 0) + '案';
+      return '<div class="candidate-nav" lang="ja"><div class="nav-top"><span>プレビュー ' + (index + 1) + ' / ' + family.candidates.length + '<span class="candidate-counts">' + counts + '</span></span><span class="nav-step"><button type="button" class="arrow-button" data-action="step" data-root="' + escapeHtml(family.id) + '" data-step="-1" aria-label="前の案"' + (index === 0 ? ' disabled' : '') + '>←</button><button type="button" class="arrow-button" data-action="step" data-root="' + escapeHtml(family.id) + '" data-step="1" aria-label="次の案"' + (index === family.candidates.length - 1 ? ' disabled' : '') + '>→</button><button type="button" class="compare-button" data-action="compare" data-root="' + escapeHtml(family.id) + '" aria-label="同じ語根の案を並べて比較（' + family.candidates.length + '）">並べて比較</button></span></div>' + thumbnails + '</div>';
+    }
+
+    function styleChips(candidate) {
+      return '<div class="style-chips">' + (candidate.styleTags || []).map(tag => '<span class="style-chip">' + escapeHtml(tag) + '</span>').join('') + '</div>';
+    }
+    function originalImage(family) {
+      return family.art ? '<img class="creature-art original-art" src="' + escapeHtml(originalArtFolder + family.art) + '" alt="Original ' + escapeHtml(family.meaning || family.root) + ' character" width="512" height="512" loading="lazy" decoding="async">' : '';
+    }
+    function cardHtml(family,index) {
+      const candidate = previewFor(family);
+      const className = 'card' + (family.art ? '' : ' no-original');
+      if (!candidate) {
+        const name = rootCharacterName(family)?.kana || family.root;
+        return '<article class="' + className + ' pending-card" id="root-' + escapeHtml(family.id) + '" style="--tint:' + escapeHtml(family.color || '#b4a996') + '">' + rootMeaningHtml(family) + '<div class="art-stage">' +
+          '<div class="pending-stage new-art"><div><span class="pending-mark" aria-hidden="true">?</span><span class="pending-label" lang="ja">今回の新案は制作待ち</span><p class="pending-note" lang="ja">今回 ' + (family.currentCandidateCount || 0) + ' / ' + family.requiredCandidateIds.length + '案 · 履歴 ' + (family.historyCandidateCount || 0) + '案</p></div></div>' + originalImage(family) +
+          '</div>' + rarityHtml(family) + '<div class="card-copy"><p class="meaning">' + escapeHtml(family.meaningEn || (family.meaning ? family.meaning : 'Meaning not supplied')) + '</p><h2>' + escapeHtml(name) + '</h2><p class="pending-note">' + escapeHtml(family.meaning || '') + '</p>' +
+          lessonDetails(family) + '<details class="card-details" data-details-root="' + escapeHtml(family.id) + '"' + (detailsOpened.has(family.id) ? ' open' : '') + '><summary><span lang="ja">語根の説明</span>' + chevron + '</summary><p class="pending-definition">' + escapeHtml(family.definition || 'A creature for this root is being prepared.') + '</p>' +
+          (family.note ? '<p class="pending-definition">' + escapeHtml(family.note) + '</p>' : '') + '</details>' + (family.candidates.length ? '<button type="button" class="compare-button" data-action="compare" data-root="' + escapeHtml(family.id) + '">保存済みの新旧候補を比較（' + family.candidates.length + '）</button>' : '') + '</div></article>';
+      }
+      const name = displayName(candidate);
+      const art = candidate.file ? artFolder + candidate.file : '';
+      const image = art ? '<img class="creature-art new-art" src="' + escapeHtml(art) + '" alt="' + escapeHtml(name + ': ' + candidate.motifs.map(motif => motif.word).join(', ')) + '" width="512" height="512" loading="' + (index < 3 ? 'eager' : 'lazy') + '" decoding="async">' : '<div class="missing-art" lang="ja">画像を読み込めません。</div>';
+      return '<article class="' + className + '" id="root-' + escapeHtml(family.id) + '" style="--tint:' + escapeHtml(family.color || '#e8875a') + '">' + rootMeaningHtml(family) + '<div class="art-stage">' + image + originalImage(family) +
+        (family.art ? '' : '<div class="missing-art original-name" lang="ja">この語根には元キャラの画像がありません。</div>') + '</div>' + '<div class="rarity-row">' + rarityHtml(family) + likeButton(family.id,candidate.candidateId) + '</div>' +
+        '<div class="card-copy">' + candidateMeta(family,candidate) + '<h2 class="new-name" lang="ja" tabindex="-1">' + escapeHtml(name) + '</h2>' + englishNameHtml(candidate) + '<h2 class="original-name">' + escapeHtml(family.meaning || family.root) + ' character</h2>' + tagsFor(candidate) +
+        candidateNavigation(family,candidate) + rootNotePanel(family) + reviewPanel(family,candidate,true) + '<p class="original-review-note" lang="ja">原作を表示しています。新作の候補チェックは「New creatures」で行えます。</p>' + lessonDetails(family) + wordDetails(family,candidate,detailsOpened.has(family.id)) + assetLinks(candidate) + '</div></article>';
+    }
+
+    function bindCardDetails(element) {
+      element.querySelectorAll('[data-lesson-root]').forEach(details => details.addEventListener('toggle',() => {
+        if (details.open) lessonOpened.add(details.dataset.lessonRoot); else lessonOpened.delete(details.dataset.lessonRoot);
+      }));
+      element.querySelectorAll('[data-details-root]').forEach(details => details.addEventListener('toggle',() => {
+        if (details.open) detailsOpened.add(details.dataset.detailsRoot); else detailsOpened.delete(details.dataset.detailsRoot);
+      }));
+      element.querySelectorAll('.new-art').forEach(image => image.addEventListener('error',() => {
+        image.hidden = true;
+        const message = document.createElement('div');
+        message.className = 'missing-art';
+        message.textContent = 'This creature is getting ready.';
+        image.after(message);
+      },{once:true}));
+    }
+    function renderFamily(rootId) {
+      const family = familyFor(rootId);
+      const oldCard = document.getElementById('root-' + rootId);
+      if (!family || !oldCard) return;
+      oldCard.outerHTML = cardHtml(family,families.indexOf(family));
+      bindCardDetails(document.getElementById('root-' + rootId));
+    }
+
+    function updateProgress() {
+      let checked = 0, adopted = 0, total = 0;
+      for (const family of families) for (const candidate of family.candidates) {
+        total++;
+        const decision = recordFor(family.id,candidate.candidateId).decision;
+        if (decision !== 'unselected') checked++;
+        if (decision === 'adopt') adopted++;
+      }
+      const target = families.reduce((sum,family) => sum + family.requiredCandidateIds.length,0);
+      const current = families.reduce((sum,family) => sum + (family.currentCandidateCount || 0),0);
+      const readyRoots = families.filter(family => family.currentCandidateCount).length;
+      document.getElementById('family-count').textContent = families.length;
+      document.getElementById('hero-root-count').textContent = families.length;
+      document.getElementById('history-candidate-count').textContent = total - current;
+      const ranks = families.map(family => family.rank).filter(Number.isFinite);
+      const range = ranks.length ? ' No.' + String(Math.min(...ranks)).padStart(3,'0') + '〜' + String(Math.max(...ranks)).padStart(3,'0') : '';
+      const earlyRoots = families.filter(family => !Number.isFinite(family.rank)).length;
+      document.getElementById('ranking-note').textContent = 'エティモン・エクスプローラーの一覧順' + range + (earlyRoots ? 'と、初期の' + earlyRoots + '語根' : '') + '。番号は派生語の多さをもとにした順で、英単語の使用頻度順位ではありません。新案と以前の候補を同じ画面で比較できます。保存済みの画像だけを表示し、画像がない語根は「制作待ち」です。';
+      document.getElementById('candidate-count').textContent = current;
+      document.getElementById('hero-candidate-count').textContent = current;
+      document.getElementById('retained-candidate-count').textContent = total;
+      document.getElementById('target-candidate-count').textContent = target;
+      document.getElementById('show-figure-candidates').hidden = true;
+      document.getElementById('review-progress').textContent = '今回の画像あり ' + readyRoots + '語根 · 今回 ' + current + '/' + target + '案 · 全保持 ' + total + '案 · チェック ' + checked + ' · 採用 ' + adopted;
+    }
+
+    function refreshDecision(rootId,candidateId) {
+      const key = reviewKey(rootId,candidateId);
+      const decision = recordFor(rootId,candidateId).decision;
+      document.querySelectorAll('[data-review-key]').forEach(element => {
+        if (element.dataset.reviewKey !== key) return;
+        if (element.hasAttribute('data-decision-label')) {
+          element.textContent = decisionLabels[decision]; element.dataset.status = decision;
+          if (element.classList.contains('decision-badge')) element.className = 'decision-badge ' + decision;
+        } else element.querySelectorAll('[data-decision]').forEach(button => button.setAttribute('aria-pressed',String(button.dataset.decision === decision)));
+      });
+      document.querySelectorAll('[data-warning-root]').forEach(element => {
+        if (element.dataset.warningRoot === rootId) element.textContent = warningFor(familyFor(rootId));
+      });
+      updateProgress();
+    }
+    function setDecision(rootId,candidateId,decision) {
+      if (!candidateFor(rootId,candidateId) || !decisionOrder.includes(decision)) return;
+      const current = recordFor(rootId,candidateId);
+      const now = new Date().toISOString();
+      reviewRecords[reviewKey(rootId,candidateId)] = {...current,decision,updatedAt:now,history:[...current.history,{event:'decision',decision,comment:current.comment,at:now,source:'human'}]};
+      persistReview();
+      if(showingTrash && decision !== 'reject'){
+        trashAtLoad.delete(reviewKey(rootId,candidateId));
+        renderGallery();
+      }
+      refreshDecision(rootId,candidateId);
+      document.querySelectorAll('[data-action="dislike"]').forEach(button => {
+        if(button.dataset.root === rootId && button.dataset.candidate === candidateId){const rejected=decision==='reject';button.setAttribute('aria-pressed',String(rejected));button.textContent='👎';}
+      });
+    }
+    function setPreview(rootId,candidateId) {
+      const chosenCandidate = candidateFor(rootId,candidateId);
+      if (!chosenCandidate) return;
+      if (!candidateMatchesStyle(chosenCandidate)) document.getElementById('style-filter').value = '';
+      if (!candidateMatchesCampaign(chosenCandidate)) document.getElementById('campaign-filter').value = 'all';
+      renderGallery();
+      previewIds[rootId] = candidateId;
+      persistReview();
+      renderFamily(rootId);
+      const card = document.getElementById('root-' + rootId);
+      const focusTarget = card?.querySelector('.candidate-thumb[aria-pressed="true"]') || card?.querySelector('.new-name');
+      focusTarget?.focus({preventScroll:true});
+    }
+    function renderComparison(rootId) {
+      const family = familyFor(rootId);
+      if (!family || !family.candidates.length) return;
+      document.getElementById('compare-title').textContent = rootMeaningText(family) + ' · ' + family.root;
+      compareGrid.innerHTML = visibleCandidates(family).map(candidate => '<article class="compare-candidate">' + rootMeaningHtml(family) + '<img class="compare-art" src="' + escapeHtml(artFolder + candidate.file) + '" alt="' + escapeHtml(displayName(candidate)) + '" width="512" height="512">' + '<div class="rarity-row">' + rarityHtml(family) + likeButton(family.id,candidate.candidateId) + '</div><div class="compare-copy">' + candidateMeta(family,candidate) + '<h3 lang="ja">' + escapeHtml(displayName(candidate)) + '</h3>' + englishNameHtml(candidate) + tagsFor(candidate) + '<p class="candidate-style">' + escapeHtml(candidate.concept || '') + '</p>' + reviewPanel(family,candidate,false) + wordDetails(family,candidate,true) + assetLinks(candidate) + '<button type="button" class="toolbar-button" lang="ja" data-action="choose-from-compare" data-root="' + escapeHtml(rootId) + '" data-candidate="' + escapeHtml(candidate.candidateId) + '">この案をメイン表示する</button></div></article>').join('');
+    }
+    function openComparison(rootId) {
+      compareRootId = rootId;
+      renderComparison(rootId);
+      bodyOverflow = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+      dialog.showModal();
+    }
+
+
+    function renderGallery() {
+      const term = document.getElementById('root-search').value.trim().toLocaleLowerCase();
+      const rankTerm = term.replace(/^no\.?\s*/, '');
+      const numericRank = /^\d{1,3}$/.test(rankTerm) ? Number(rankTerm) : null;
+      const style = document.getElementById('style-filter').value;
+      const production = document.getElementById('production-filter').value;
+      const shown = families.filter(family => {
+        if (!visibleCandidates(family).length && (family.candidates.length || showingTrash)) return false;
+        if (style && !visibleCandidates(family).length) return false;
+        if (document.getElementById('campaign-filter').value === 'history' && !visibleCandidates(family).length) return false;
+        if (production === 'saved' && !family.currentCandidateCount) return false;
+        if (production && production !== 'saved' && family.productionStatus !== production) return false;
+        if (!term) return true;
+        if (numericRank !== null) return family.rank === numericRank;
+        return [rootMeaningText(family),family.root,family.rootKey,family.meaning,family.meaningEn,rootCharacterName(family)?.kana,rootCharacterName(family)?.name,...family.candidates.flatMap(candidate => [displayName(candidate),candidate.name,candidate.kana,candidate.romanizedName,...(candidate.aliases || []),englishNameParts(candidate).join(' '),...(candidate.styleTags || []),candidate.file,...candidate.motifs.map(motif => motif.word)])].join(' ').toLocaleLowerCase().includes(term);
+      });
+      gallery.innerHTML = shown.length ? shown.map(family => cardHtml(family,families.indexOf(family))).join('') : '<p class="status" lang="ja">一致する語根がありません。</p>';
+      bindCardDetails(gallery);
+      document.getElementById('search-result').textContent = shown.length + ' / ' + families.length + ' roots';
+    }
+    document.getElementById('style-filter').addEventListener('change',renderGallery);
+    document.getElementById('production-filter').addEventListener('change',renderGallery);
+    document.getElementById('campaign-filter').addEventListener('change',renderGallery);
+    document.getElementById('root-search').addEventListener('input', renderGallery);
+    document.getElementById('show-figure-candidates').addEventListener('click', () => {
+      for (const family of families) {
+        const figure = family.candidates.find(candidate => candidate.styleVariant === 'chibi-figure');
+        if (figure) previewIds[family.id] = figure.candidateId;
+      }
+      document.querySelector('[data-mode="new"]').click();
+      document.getElementById('root-search').value = 'ちびフィギュア';
+      persistReview();
+      renderGallery();
+    });
+
+    function render(data) {
+      const characters = Array.isArray(data) ? data : data.characters;
+      if (!Array.isArray(characters)) throw new Error('The creature collection is unavailable.');
+      families = characters.map(character => {
+        const original = character;
+        const rawCandidates = Array.isArray(character.candidates) ? character.candidates : [];
+        const candidates = rawCandidates.map((item,index) => {
+          const candidate = {...character,...item};
+          candidate.candidateId = /^v\d{3,}$/.test(item.candidateId || '') ? item.candidateId : 'v' + String(index + 1).padStart(3,'0');
+          candidate.name = candidate.name || original.meaning + ' creature';
+          candidate.file = typeof candidate.file === 'string' ? candidate.file : '';
+          candidate.conceptFile = typeof candidate.conceptFile === 'string' ? candidate.conceptFile : rootStems[original.id] + '-' + candidate.candidateId + '.md';
+          candidate.motifs = Array.isArray(candidate.motifs) ? candidate.motifs : [];
+          candidate.sources = Array.isArray(candidate.sources) ? candidate.sources : [];
+          return candidate;
+        });
+        return {...original,root:character.root || original.root || '',requiredCandidateIds:Array.isArray(character.requiredCandidateIds) ? character.requiredCandidateIds : [],candidates};
+      });
+      if (!families.length) throw new Error('No root families found');
+      rootStems = Object.fromEntries(families.map(family => [family.id,family.stem || rootStems[family.id] || 'root-' + family.id]));
+      restoreLocalReview();
+      Object.entries(reviewRecords).forEach(([key,record]) => { if(record.decision === 'reject') trashAtLoad.add(key); });
+      const trashButton = document.createElement('button');
+      trashButton.id='show-trash';trashButton.type='button';trashButton.className='toolbar-button';
+      trashButton.textContent='ゴミ箱 ('+trashAtLoad.size+')';trashButton.setAttribute('aria-pressed','false');
+      document.getElementById('save-review').after(trashButton);
+      trashButton.addEventListener('click',()=>{showingTrash=!showingTrash;trashButton.setAttribute('aria-pressed',String(showingTrash));trashButton.textContent=showingTrash?'通常一覧へ戻る':'ゴミ箱 ('+trashAtLoad.size+')';renderGallery();});
+      persistReview();
+      renderGallery();
+      gallery.classList.toggle('is-original',mode === 'original');
+      bindCardDetails(gallery);
+      updateProgress();
+    }
+
+    function handleReviewClick(event) {
+      const button = event.target.closest('button[data-action]');
+      if (!button) return;
+      const rootId = button.dataset.root;
+      const candidateId = button.dataset.candidate;
+      switch (button.dataset.action) {
+        case 'like': toggleLike(rootId,candidateId); break;
+        case 'dislike': setDecision(rootId,candidateId,recordFor(rootId,candidateId).decision === 'reject' ? 'unselected' : 'reject'); break;
+        case 'decision': setDecision(rootId,candidateId,button.dataset.decision); break;
+        case 'preview': setPreview(rootId,candidateId); break;
+        case 'step': {
+          const family = familyFor(rootId);
+          const index = family.candidates.indexOf(previewFor(family)) + Number(button.dataset.step);
+          if (family.candidates[index]) setPreview(rootId,family.candidates[index].candidateId);
+          break;
+        }
+        case 'compare': openComparison(rootId); break;
+        case 'concept': openConcept(rootId,candidateId); break;
+        case 'choose-from-compare':
+          setPreview(rootId,candidateId);
+          dialog.close();
+          document.getElementById('root-' + rootId)?.querySelector('.new-name')?.focus();
+          break;
+      }
+    }
+    gallery.addEventListener('click',handleReviewClick);
+    compareGrid.addEventListener('click',handleReviewClick);
+    gallery.addEventListener('input',event => {
+      if (event.target.matches('.root-review-note')) {
+        try { localStorage.setItem('wildwordopia.root-note.v1.' + event.target.dataset.root,event.target.value); event.target.parentElement.querySelector('.root-note-status').textContent = '自動保存済み'; }
+        catch { event.target.parentElement.querySelector('.root-note-status').textContent = '自動保存に失敗しました。'; }
+        return;
+      }
+      if (!event.target.matches('.review-comment')) return;
+      const {root,candidate} = event.target.dataset;
+      const current = recordFor(root,candidate);
+      reviewRecords[reviewKey(root,candidate)] = {...current,comment:event.target.value,updatedAt:new Date().toISOString()};
+      persistReview();
+      feedback('メモを自動保存しました。');
+    });
+    gallery.addEventListener('change',event => {
+      if (event.target.matches('.root-review-note')) {
+        try { localStorage.setItem('wildwordopia.root-note.v1.' + event.target.dataset.root,event.target.value); event.target.parentElement.querySelector('.root-note-status').textContent = '自動保存済み'; }
+        catch { event.target.parentElement.querySelector('.root-note-status').textContent = '自動保存に失敗しました。'; }
+        return;
+      }
+      if (!event.target.matches('.review-comment')) return;
+      const {root,candidate} = event.target.dataset;
+      const record = recordFor(root,candidate);
+      reviewRecords[reviewKey(root,candidate)] = {...record,history:[...record.history,{event:'comment',decision:record.decision,comment:record.comment,at:record.updatedAt,source:'human'}]};
+      persistReview();
+    });
+    document.getElementById('close-compare').addEventListener('click',() => dialog.close());
+    let conceptBodyOverflow = '';
+    let conceptLoadId = 0;
+    async function openConcept(rootId,candidateId) {
+      const candidate = candidateFor(rootId,candidateId);
+      if (!candidate || !/^root-[a-z0-9]+-v\d{3,}\.md$/.test(candidate.conceptFile || '')) return;
+      const fixed = rootCharacterName(candidate);
+      document.getElementById('concept-title').textContent = displayName(candidate);
+      document.getElementById('concept-english').textContent = englishNameParts(candidate).join(' · ');
+      document.getElementById('concept-name-reason').textContent = fixed?.reasonJa || '';
+      const nameElements = document.getElementById('concept-name-elements');
+      nameElements.replaceChildren();
+      for (const element of fixed?.nameElements || []) {
+        const item = document.createElement('li');
+        const words = (element.sourceWords || []).join(' + ');
+        item.textContent = (element.part ? element.part + '：' : '') + (words ? words + ' — ' : '') + (element.explanationJa || '');
+        nameElements.append(item);
+      }
+      document.getElementById('concept-design').textContent = candidate.concept || candidate.conceptJa || '';
+      const record = document.getElementById('concept-record');
+      record.textContent = '記録を読み込み中…';
+      const recordUrl = artFolder + candidate.conceptFile;
+      document.getElementById('concept-record-link').href = recordUrl;
+      const loadId = ++conceptLoadId;
+      if (!conceptDialog.open) {
+        conceptBodyOverflow = document.body.style.overflow;
+        document.body.style.overflow = 'hidden';
+        conceptDialog.showModal();
+      }
+      try {
+        const response = await fetch(recordUrl);
+        if (!response.ok) throw new Error('Concept not found');
+        const text = await response.text();
+        if (loadId === conceptLoadId) record.textContent = text;
+      } catch (error) {
+        if (loadId === conceptLoadId) record.textContent = '記録を読み込めません。「元の記録を開く」から保存済みファイルを確認できます。';
+      }
+    }
+    document.getElementById('close-concept').addEventListener('click',() => conceptDialog.close());
+    conceptDialog.addEventListener('close',() => { document.body.style.overflow = conceptBodyOverflow; conceptLoadId++; });
+    conceptDialog.addEventListener('click',event => {
+      const bounds = conceptDialog.getBoundingClientRect();
+      if (event.target === conceptDialog && (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom)) conceptDialog.close();
+    });
+    dialog.addEventListener('close',() => { document.body.style.overflow = bodyOverflow; compareRootId = null; });
+    dialog.addEventListener('click',event => {
+      const bounds = dialog.getBoundingClientRect();
+      if (event.target === dialog && (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom)) dialog.close();
+    });
+
+    document.getElementById('save-review').addEventListener('click',() => {
+      if (!families.length) return;
+      const reviews = families.flatMap(family => family.candidates.map(candidate => ({rootId:family.id,root:candidate.root || family.root,candidateId:candidate.candidateId,file:candidate.file,conceptFile:candidate.conceptFile,name:rootCharacterName(candidate)?.name || candidate.name,kana:displayName(candidate),...recordFor(family.id,candidate.candidateId)})));
+      const result = {schema:reviewSchema,version:1,savedAt:new Date().toISOString(),rootNotes:Object.fromEntries(families.map(family => [family.id,rootNoteValue(family.id)])),reviews};
+      const blob = new Blob([JSON.stringify(result,null,2) + '\n'],{type:'application/json;charset=utf-8'});
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'wildwordopia-review-' + new Date().toLocaleDateString('sv-SE') + '.json';
+      document.body.append(link);
+      link.click();
+      link.remove();
+      setTimeout(() => URL.revokeObjectURL(url),1000);
+      feedback('チェック結果をJSONで保存しました。');
+    });
+    const reviewFileInput = document.getElementById('review-file');
+    document.getElementById('import-review').addEventListener('click',() => reviewFileInput.click());
+    reviewFileInput.addEventListener('change',async () => {
+      const file = reviewFileInput.files[0];
+      if (!file) return;
+      try {
+        const imported = JSON.parse((await file.text()).replace(/^\uFEFF/,''));
+        if (imported.schema !== reviewSchema || !Array.isArray(imported.reviews)) throw new Error('Review format mismatch');
+        let count = 0;
+        for (const item of imported.reviews) {
+          const record = validRecord(item);
+          const rootId = currentReviewRootId(item.rootId);
+          if (!record || !candidateFor(rootId,item.candidateId)) continue;
+          const key = reviewKey(rootId,item.candidateId);
+          const existing = reviewRecords[key];
+          if (rootId === 'genu1' && existing && reviewTimestamp(record) <= reviewTimestamp(existing)) continue;
+          reviewRecords[key] = record;
+          count++;
+        }
+        persistReview();
+        renderGallery();
+        bindCardDetails(gallery);
+        updateProgress();
+        if (dialog.open && compareRootId) renderComparison(compareRootId);
+        feedback(count + '件のチェック結果を読み込みました。ファイルにない候補のチェックは保持しています。');
+      } catch (error) { feedback('このファイルは読み込めません。この画面で保存したチェック結果のJSONを選んでください。'); }
+      reviewFileInput.value = '';
+    });
+
+    document.querySelectorAll('[data-mode]').forEach(button => button.addEventListener('click',() => {
+      mode = button.dataset.mode;
+      document.querySelectorAll('[data-mode]').forEach(item => item.setAttribute('aria-pressed',String(item === button)));
+      gallery.classList.toggle('is-original',mode === 'original');
+      document.getElementById('mode-status').textContent = mode === 'original' ? 'Showing original characters.' : 'Showing new creatures.';
+    }));
+
+    (async function loadCollection() {
+      try {
+        const localData = window.WILDWORDOPIA_LIBRARY || window.WILDWORDOPIA_TOP100;
+        if (localData) return render(localData);
+        const response = await fetch(artFolder + 'library.json', {cache:'no-store'});
+        if (!response.ok) throw new Error('Collection not found');
+        render(await response.json());
+      } catch (error) {
+        gallery.innerHTML = '<p class="status">The creatures could not arrive this time.<br>Please reopen the collection in a moment.</p>';
+      }
+    })();
+  </script>
+</body>
+</html>
+

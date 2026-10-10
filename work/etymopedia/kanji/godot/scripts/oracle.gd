@@ -21,6 +21,8 @@ static func pts_of(ch: String) -> Array:
 	return out
 
 static var cache = {}
+## 映画的なカメラ（オープニング用）。ふだんは単位行列
+static var BASE := Transform2D.IDENTITY
 static var glow_tex: Texture2D
 
 ## ci に甲骨文を描く。o: rot, sx, sy, lw, wob, t, reveal, glow(0..1)
@@ -36,7 +38,7 @@ static func draw(ci: CanvasItem, ch: String, pos: Vector2, size: float, col: Col
 	var s = size / max(vw, vh)
 	var sx: float = o.get("sx", 1.0)
 	var sy: float = o.get("sy", 1.0)
-	ci.draw_set_transform(pos, o.get("rot", 0.0), Vector2(s * sx, s * sy))
+	ci.draw_set_transform_matrix(BASE * Transform2D(o.get("rot", 0.0), Vector2(s * sx, s * sy), 0.0, pos))
 	var base: float = g.w * o.get("lw", 1.7)
 	var wob: float = o.get("wob", 0.0)
 	var t: float = o.get("t", 0.0)
@@ -94,7 +96,7 @@ static func draw(ci: CanvasItem, ch: String, pos: Vector2, size: float, col: Col
 					break
 			if m == 1:
 				ci.draw_circle(prev, base * wmul * 0.5, c)
-	ci.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+	ci.draw_set_transform_matrix(BASE)
 
 static func _seg(ci: CanvasItem, a: Vector2, b: Vector2, wa: float, wb: float, c: Color) -> void:
 	var d = b - a

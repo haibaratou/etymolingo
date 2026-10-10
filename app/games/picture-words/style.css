@@ -1032,3 +1032,60 @@ html.phone-host body> :not(.desktop-phone-host){display:none!important}
 #modeToggle .mode-ja,#modeToggle .mode-en{display:flex;flex-direction:column;align-items:center;line-height:1.15}
 #modeToggle[data-unavailable=ja] .mode-ja,#modeToggle[data-unavailable=en] .mode-en{color:#646d7b}
 #modeToggle #modeLabel small{display:block;font-size:7px;line-height:1.1;margin-top:2px;font-weight:700}
+
+/* =====================================================================
+   Capture → Pictpedia registration (2026-10)
+   Solve → a word capsule is thrown at the picture, absorbs it, drops,
+   wobbles (3 ticks for a new word, 1 for a known one), locks with a click,
+   then the dictionary page opens with a scan-in. Tap anywhere to skip.
+   ===================================================================== */
+.capture-stage{position:fixed;inset:0;width:100vw;height:100dvh;max-width:none;max-height:none;margin:0;padding:0;border:0;overflow:hidden;color:#fff;
+  background:radial-gradient(circle at var(--rest-x,50%) var(--rest-y,50%),#ffffff00 0,#2a1d4a55 40%,#140c2acc 100%);animation:capture-dim .35s ease-out both;cursor:pointer;touch-action:none;z-index:2147483647}
+.capture-stage::backdrop{background:transparent}
+@keyframes capture-dim{from{background-color:transparent;opacity:0}to{opacity:1}}
+.capture-art{position:fixed;object-fit:contain;background:#fff;border-radius:18px;pointer-events:none;transform-origin:50% 50%;will-change:transform,filter}
+#pictureCard.captured #clueImage{visibility:hidden}
+.capture-orb{position:absolute;left:0;top:0;width:var(--orb,84px);height:calc(var(--orb,84px) * 1.12);pointer-events:none;will-change:transform;
+  filter:drop-shadow(0 0 0 #fff) drop-shadow(0 3px 0 #fff) drop-shadow(0 -3px 0 #fff) drop-shadow(3px 0 0 #fff) drop-shadow(-3px 0 0 #fff) drop-shadow(0 10px 14px #0006)}
+.orb-body{position:absolute;inset:0;display:grid;place-items:center;clip-path:polygon(50% 0,94% 25%,94% 75%,50% 100%,6% 75%,6% 25%);
+  background:linear-gradient(155deg,color-mix(in srgb,var(--rarity) 30%,#fff) 0 30%,var(--rarity) 30% 64%,color-mix(in srgb,var(--rarity) 70%,#000) 64%)}
+.orb-facet{position:absolute;inset:20% 22%;clip-path:polygon(50% 0,94% 25%,94% 75%,50% 100%,6% 75%,6% 25%);background:linear-gradient(170deg,#fffffff0,color-mix(in srgb,var(--rarity) 25%,#fff) 70%);opacity:.9}
+.orb-core{position:relative;z-index:1;font-size:calc(var(--orb,84px) * .36);line-height:1;color:var(--rarity);text-shadow:0 0 0 #fff;transition:color .2s,text-shadow .2s,transform .2s}
+.capture-orb.open .orb-core{color:#fff;text-shadow:0 0 18px #fff,0 0 36px #fff;transform:scale(1.5)}
+.capture-orb.open .orb-facet{background:#fff;opacity:1}
+.capture-stage.locked .orb-core{color:#ffcf3f;text-shadow:0 0 12px #ffd75e,0 2px 0 #c98400}
+.capture-stage.locked .capture-orb{filter:drop-shadow(0 0 0 #fff) drop-shadow(0 3px 0 #fff) drop-shadow(0 -3px 0 #fff) drop-shadow(3px 0 0 #fff) drop-shadow(-3px 0 0 #fff) drop-shadow(0 0 22px #ffd75e)}
+.capture-dots{position:absolute;left:var(--rest-x,50%);top:calc(var(--rest-y,50%) + var(--orb,84px) * .62 + 4px);transform:translateX(-50%);display:flex;gap:10px;opacity:0;transition:opacity .2s}
+.capture-stage.resting .capture-dots{opacity:1}
+.capture-dots i{width:12px;height:12px;border-radius:50%;background:#ffffff40;box-shadow:inset 0 0 0 2px #ffffff80;transition:background .15s,transform .15s}
+.capture-dots i.on{background:#ffd75e;box-shadow:0 0 10px #ffd75e;transform:scale(1.2)}
+.capture-stage.locked .capture-dots i{background:#ffd75e}
+.capture-star{position:absolute;font-size:26px;line-height:1;color:#ffd75e;text-shadow:0 2px 0 #c98400,0 0 12px #fff8;pointer-events:none}
+.capture-text{position:absolute;transform:translateX(-50%) scale(0);display:grid;justify-items:center;gap:2px;white-space:nowrap;text-align:center;opacity:0;pointer-events:none}
+.capture-text.show{animation:capture-text .5s cubic-bezier(.34,1.56,.64,1) both}
+.capture-text b{font-size:clamp(28px,9vw,44px);font-weight:800;line-height:1.05;color:#fff;-webkit-text-stroke:7px var(--rarity);paint-order:stroke fill;text-shadow:0 5px 0 color-mix(in srgb,var(--rarity) 55%,#000)}
+.capture-text span{font-size:clamp(16px,5vw,22px);font-weight:800;color:#ffe27a;-webkit-text-stroke:5px #3d2c5c;paint-order:stroke fill}
+@keyframes capture-text{0%{opacity:0;transform:translateX(-50%) scale(.3) rotate(-8deg)}100%{opacity:1;transform:translateX(-50%) scale(1)}}
+.capture-skip{position:absolute;left:50%;bottom:calc(18px + env(safe-area-inset-bottom));transform:translateX(-50%);font-size:11px;font-weight:700;color:#ffffffb3;letter-spacing:.06em}
+
+/* Pictpedia registration header + scan-in on the reward card */
+.dex-banner{display:flex;align-items:center;gap:8px;align-self:stretch;margin:-6px -6px 10px;padding:8px 12px;border-radius:16px;color:#fff;
+  background:linear-gradient(100deg,color-mix(in srgb,var(--rarity) 85%,#000),var(--rarity));box-shadow:inset 0 -3px 0 #0002;animation:dex-in .45s cubic-bezier(.34,1.56,.64,1) both}
+.dex-banner b{flex:1;text-align:left;font-size:15px;font-weight:800;letter-spacing:.04em}
+.dex-banner small{font-size:12px;font-weight:800;font-variant-numeric:tabular-nums;padding:2px 8px;border-radius:9px;background:#ffffff2e}
+.dex-led{width:12px;height:12px;border-radius:50%;background:#7dffc4;box-shadow:0 0 0 2px #fff,0 0 10px #7dffc4;animation:dex-led .9s ease-in-out 3}
+.dex-banner.repeat{background:linear-gradient(100deg,#6c5b8f,#8a7aac)}
+.dex-banner.repeat .dex-led{background:#ffd75e;box-shadow:0 0 0 2px #fff,0 0 8px #ffd75e}
+@keyframes dex-in{0%{opacity:0;transform:translateY(-10px) scale(.9)}100%{opacity:1;transform:none}}
+@keyframes dex-led{50%{opacity:.35}}
+.reward-art-wrap{position:relative}
+.dex-new .reward-art-wrap img{animation:dex-scan-img .9s .15s steps(1,end) both,dex-scan-reveal .9s .15s linear both}
+@keyframes dex-scan-reveal{0%{clip-path:inset(0 0 100% 0)}100%{clip-path:inset(0 0 0 0)}}
+@keyframes dex-scan-img{0%{filter:brightness(1.6) saturate(.2)}100%{filter:none}}
+.dex-new .reward-art-wrap::after{content:"";position:absolute;left:-6%;right:-6%;height:4px;top:0;border-radius:2px;background:#7dffc4;box-shadow:0 0 12px #7dffc4,0 0 26px #7dffc4aa;opacity:0;animation:dex-scanline .9s .15s linear both;pointer-events:none}
+@keyframes dex-scanline{0%{top:0;opacity:1}95%{opacity:1}100%{top:100%;opacity:0}}
+@media(prefers-reduced-motion:reduce){.dex-new .reward-art-wrap img,.dex-new .reward-art-wrap::after,.dex-led,.dex-banner{animation:none}}
+.capture-stage{background:radial-gradient(circle at var(--rest-x,50%) var(--rest-y,45%),#ffffff1a 0,#2a1d4a99 34%,#120a26e6 100%)}
+#pictureCard.captured .picture-stamp{visibility:hidden}
+.capture-stage{background:radial-gradient(circle at var(--rest-x,50%) var(--rest-y,45%),#fff6d626 0,#1a1035c4 30%,#0c0620f2 100%)}
+.capture-dots i{width:15px;height:15px}

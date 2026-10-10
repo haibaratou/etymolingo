@@ -1,0 +1,138 @@
+window.WILDWORDOPIA_RARITY_RULES = {
+  "schema": "wildwordopia-rarity-rules",
+  "version": 2,
+  "status": "provisional",
+  "policy": "暫定ゲーム設定。Explorer順位を20位ずつ1〜5星へ分ける。接頭辞中心の分類は既存DB解説を参考にした手動設定で、全派生語に占める正確な比率は未検証。星数は語源の価値や英単語の使用頻度の評価ではない。星数による画像縮小・拡大は禁止。全PNGは512×512のまま同じ視認サイズで比較する。低レアの子ども・小動物らしさは、新案の身体構造に反映する。",
+  "rankBands": [
+    {
+      "maxRank": 20,
+      "stars": 1,
+      "displayScale": 1
+    },
+    {
+      "maxRank": 40,
+      "stars": 2,
+      "displayScale": 1
+    },
+    {
+      "maxRank": 60,
+      "stars": 3,
+      "displayScale": 1
+    },
+    {
+      "maxRank": 80,
+      "stars": 4,
+      "displayScale": 1
+    },
+    {
+      "maxRank": 100,
+      "stars": 5,
+      "displayScale": 1
+    }
+  ],
+  "prefixStarCap": 2,
+  "prefixScaleCap": 1,
+  "unranked": {
+    "stars": null,
+    "displayScale": 1
+  },
+  "prefixDominantRoots": [
+    {
+      "rootId": "per1",
+      "evidence": "英語への流入はロマンス語派が600語あまりと圧倒的で、pro-(前へ)・pre-(前の)・per-(通して)という顔ぶれで入り、ギリシャ語派からは peri-(周り)が加わる。",
+      "note": "DB解説に基づく接頭辞中心の暫定設定。全派生語での比率は未検証。"
+    },
+    {
+      "rootId": "kom",
+      "evidence": "英語に来た道はほぼロマンス語派で、600語近くが com-(共に)や co-(一緒に)の顔で入っている。",
+      "note": "DB解説に基づく接頭辞中心の暫定設定。全派生語での比率は未検証。"
+    },
+    {
+      "rootId": "en",
+      "evidence": "英語に来た道は560語あまりがロマンス語派で、in-(中に)・en-(中に)・inter-(間で)という顔ぶれが並び、ギリシャ語経由では energy のように en- がそのまま残った。",
+      "note": "DB解説に基づく接頭辞中心の暫定設定。全派生語での比率は未検証。"
+    },
+    {
+      "rootId": "ne",
+      "evidence": "英語での顔は三つあり、ラテン語経由の in-(否定)が240語余りと最も多く、ギリシャ語経由の a-(否定)、ゲルマン語のまま残った un-(否定)が続く。",
+      "note": "否定接頭辞の由来。no/not等の独立語もある。全派生語での比率は未検証。"
+    },
+    {
+      "rootId": "re",
+      "evidence": "英語への流入はほぼラテン語一本で、460語ほどが re-(再び)というたった一つの顔で入ってきている。",
+      "note": "DB解説に基づく接頭辞中心の暫定設定。全派生語での比率は未検証。"
+    },
+    {
+      "rootId": "eghs",
+      "evidence": "英語に来た道は400語がロマンス語派で、そのほとんどが ex-(外へ)という一つの顔をしている。",
+      "note": "DB解説中の「ほとんど」を根拠にした暫定設定。全派生語での比率は未検証。"
+    },
+    {
+      "rootId": "ad",
+      "evidence": "英語ではほとんどがラテン語経由で、360語余りが ad-(向かって)の顔をしており、ゲルマン語からは前置詞 at がそのまま残っている。",
+      "note": "DB解説に基づく接頭辞中心の暫定設定。全派生語での比率は未検証。"
+    },
+    {
+      "rootId": "de",
+      "evidence": "英語ではラテン語経由の de-(離れる)が270語余りを占め、decide は文字どおり「切り落とす」、迷いを断ち切るのが決めることだった。",
+      "note": "to等の独立語もある。dis-とは別系統。全派生語での比率は未検証。"
+    },
+    {
+      "rootId": "dwis",
+      "evidence": "英語に来た道はほぼ一本で、224語のほぼ全部がラテン語のdis-(離れて)を通っており、綴りのうえではdi-やdif-、時にはde-にまで姿を変えて入っている。",
+      "note": "DB解説中の「ほぼ全部」を根拠にした暫定設定。全派生語での比率は未検証。"
+    },
+    {
+      "rootId": "apo",
+      "evidence": "英語に来た道は三本で、いちばん太いのはラテン語のab-(離れて)を通った148語、次にギリシャ語のapo-で34語、そして古英語のまま残った29語がある。",
+      "note": "of/off/after等の独立語もある。全派生語での比率は未検証。"
+    },
+    {
+      "rootId": "upo",
+      "evidence": "英語にはラテン語のsub-(下に)を通って144語、ギリシャ語のhypo-を通って25語、そして古英語のまま36語が入っている。",
+      "note": "up/above等の独立語もある。全派生語での比率は未検証。"
+    },
+    {
+      "rootId": "epi",
+      "evidence": "英語ではラテン語のob-(〜に向かって)を通った103語が主力で、ギリシャ語のepi-(上に)からも32語が入っている。",
+      "note": "DB解説に基づく接頭辞中心の暫定設定。全派生語での比率は未検証。"
+    },
+    {
+      "rootId": "ambhi",
+      "evidence": "英語ではゲルマン語派の73語が最も多く、by と、51語につく接頭辞 be-(between、before、become)がその中心にいて、ラテン語からは ambi-、ギリシャ語からは amphi- が加わった。",
+      "note": "by/but等の独立語もある。接頭辞経路が中心という暫定設定で、全派生語での比率は未検証。"
+    },
+    {
+      "rootId": "uper",
+      "evidence": "英語への流入はロマンス語派71語が最も多く、super- と sur- の顔で入り、そこにゲルマン語派の over-、ギリシャ語派の hyper- が重なる。",
+      "note": "DB解説に基づく接頭辞中心の暫定設定。全派生語での比率は未検証。"
+    },
+    {
+      "rootId": "tere2",
+      "evidence": "英語への道はほとんどラテン語経由で、ロマンス語派77語のうち64語が trans- を掲げており、ゲルマン語派からは through が直接残った。",
+      "note": "64/77はロマンス語派内の説明。全派生語の割合を示す数値ではない。接頭辞中心の暫定設定で、全派生語での比率は未検証。"
+    },
+    {
+      "rootId": "an",
+      "evidence": "英語に入った65語のうち、ゲルマン語派の29語は前置詞 on の姿か、語頭で a- に縮んだ姿で残っている。ギリシャ語派の35語はほぼ ana- の形で入り、33語がこの接頭辞を持つ。",
+      "note": "onとa-の内訳は分離されていない。接頭辞中心の暫定設定で、全派生語での比率は未検証。"
+    },
+    {
+      "rootId": "ksun",
+      "evidence": "英語に入った58語のうち54語がギリシャ語派で、syn- が l の前では syl-、b や p の前では sym- と姿を変えながら並んでいる。",
+      "note": "DB解説に基づく接頭辞中心の暫定設定。全派生語での比率は未検証。"
+    }
+  ],
+  "displayScalePolicy": "互換性のため全設定を1に固定する。画像の表示倍率には使わない。旧snapshotの縮尺は歴史記録で、現行表示へ適用しない。",
+  "bodyDesignRules": {
+    "lowRarity": {
+      "directionJa": "原義と選択モチーフから生まれた架空の小動物・マスコットとして、大きい頭、短い胴や手足、丸い支持肢、弾む身ぶりで可愛くする。語源と無関係な実在動物の顔・耳・鼻・毛皮・尾を加えない。人型・四足・塊・メカなどの構造を変え、全員を同じ形にしない。",
+      "promptInstruction": "Build a compact imaginary creature whose anatomy grows directly from the root meaning and selected etymological objects. Use rounded body masses, short supports, expressive gestures and cute faces. Do not introduce unrelated real animal species, ears, muzzle, fur, paws or tail as a stylistic base. Animal parts are permitted only when that animal is explicitly selected from the root lesson. These are physical body structures, never smaller image framing. Vary humanoid, quadruped, blob, mechanical and other plans. Use a proportionally large head, short torso or limbs, and an original imaginary species with rounded anatomy and gestures."
+    },
+    "other": {
+      "directionJa": "原義・選択モチーフに合う独自の身体構造を選ぶ。レアリティで体の型・顔・画質・画像の視認サイズを統一しない。",
+      "promptInstruction": "Choose a distinctive physical body plan that embodies this root meaning and its selected motifs. Rarity does not prescribe a shared anatomy, face, material, image size or quality."
+    },
+    "imagePolicyJa": "全案の図鑑画像は同じ視認サイズ。PNGは512×512透過の全身構図を保ち、既存画像を縮小加工しない。新しい身体案は別IDで生成して比較する。"
+  }
+};
