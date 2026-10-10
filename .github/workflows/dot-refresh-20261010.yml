@@ -1,0 +1,49 @@
+name: One-time reviewed data refresh 2026-10-10
+on:
+  push:
+    branches: [main]
+    paths: ['.dot-refresh-20261010/plan.json']
+permissions: {}
+concurrency:
+  group: one-time-reviewed-data-refresh-20261010
+  cancel-in-progress: false
+jobs:
+  refresh:
+    if: github.repository == 'haibaratou/etymolingo'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    permissions:
+      contents: write
+    steps:
+      - name: Check out initiating commit, excluding old derived binary assets
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          fetch-depth: 2
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /.github/
+            /.dot-refresh-20261010/
+            /.gitattributes
+            /.gitignore
+            /app/
+            /assets/word/
+            /assets/pictpedia/
+            /work/etymopedia/png_creation_dates.csv
+            !/app/games/picture-words/scene-assets/
+            !/app/eigo-no-e/thumbs/
+      - name: Set up Python
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1
+        with:
+          python-version: '3.12'
+      - name: Set up Node.js
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38
+        with:
+          node-version: '22'
+      - name: Install pinned official renderer
+        run: python -m pip install --disable-pip-version-check --only-binary=:all: Pillow==12.3.0
+      - name: Verify, apply, regenerate, test, and commit exact reviewed files
+        shell: bash
+        run: |
+          set -euo pipefail
+          printf '%s  %s\n' '3448bb1c11ec660e384a06ec65c2a2fbbf2d125659ccdb647bb609f00e97dda1' '.dot-refresh-20261010/plan.json' 'a898ce1088f95500ad4d3e7f3a594e4be0b9a6050fb6a2f2839fe65597c71180' '.dot-refresh-20261010/run_release.py' | sha256sum --check --strict
+          python .dot-refresh-20261010/run_release.py
