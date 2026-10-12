@@ -172,6 +172,22 @@ const KANA_ORIGIN = {"あ": "安", "い": "以", "う": "宇", "か": "加", "�
 var KANA: Array = []
 ## 字で解く仕掛け: 水墨画の川（橋の仲間がいれば渡れる）
 var RIVERS: Array = []
+## 字の状態: 氷（炎がないと攻撃を弾く）・毒（打つと自分も傷つく。清が浄める）・闇（出ると全体が闇に溶ける。光が照らして倒す）
+var dark_k = 0.0
+var seen_react = {}
+var cursed = false
+## 試験場（起動画面から）: 相性と仲間の効果をその場で試す
+var lab_on = false
+## 開発用の全体マップ（M キー）と、景ごとの配置（data/game.json の MAPS）
+var devmap = false
+var devmap_z = 1.0
+var map_done = {}
+var stage_origin = Vector2.ZERO
+var lab_mode = 0      # 0 相性 / 1 仲間
+var lab_i = 0
+var lab_flag = 0      # 相性: 0 仲間なし 1 あり / 仲間: レベル（合体の字は 0 素材 1 合体）
+var EFIRE: Array = []
+var THUNDER: Array = []
 ## 決戦の闇から襲ってくる字
 const DARK = ["闇", "鬼", "魔", "影", "夜", "黒", "呪", "死", "怨", "魂", "暗", "骨", "鬱"]
 
@@ -336,6 +352,99 @@ func _ready() -> void:
 			await get_tree().process_frame
 		await get_tree().create_timer(1.0).timeout
 		print("[playkeys] after hero=", Vector2(hero.x, hero.y), " cam=", cam)
+	if test_mode.has("kl"):
+		start_kl()
+		if test_mode.has("klch"):
+			kl.cur = String(test_mode.klch)
+			kl_party_set(Array(String(test_mode.klch).split(",")).map(func(x): return String(x)))
+			kl.cur = kl.party[0]
+		if test_mode.has("klsc"):
+			kl_set_sc(int(test_mode.klsc))
+		await get_tree().create_timer(float(test_mode.get("klwait", "6"))).timeout
+		print("[kl] party=", kl.party, " sc=", kl.sc, " t=%.1f done=%.1f eat=%d left=%d touch=%d" % [kl.t, kl.done, kl_eaten(), movers(), kl.touch], " fx=", KFX.size())
+	if test_mode.has("onitest"):
+		if state != "play":
+			start()
+		await get_tree().create_timer(0.5).timeout
+		spawn_boss()
+		for q in int(float(test_mode.get("oniwait", "4")) * 4):
+			await get_tree().create_timer(0.25).timeout
+			if state == "levelup":
+				state = "play"
+			pending_lv = 0
+			xp = 0
+		print("[oni] hero=", Vector2(hero.x, hero.y), " oni=", Vector2(oni.x, oni.y) if oni != null else null, " hp=", hp)
+	if test_mode.has("lvtest"):
+		if state != "play":
+			start()
+		await get_tree().create_timer(1.0).timeout
+		souls["木"] = 2
+		pending_lv = 1
+		open_level_up()
+		await get_tree().create_timer(1.0).timeout
+		print("[lv] cards=", cards.map(func(c): return c.t + ":" + c.id))
+	if test_mode.has("craft"):
+		if state != "play":
+			start()
+		await get_tree().create_timer(0.8).timeout
+		souls = {"木": 3, "火": 2, "戌": 1, "水": 2, "日": 1, "月": 1, "兆": 1}
+		owned["火"] = 1
+		open_craft()
+		await get_tree().create_timer(0.5).timeout
+		for w in String(test_mode.get("ckeys", "treetree")):
+			var ev = InputEventKey.new()
+			ev.pressed = true
+			ev.keycode = KEY_A + (w.unicode_at(0) - 97)
+			ev.unicode = w.unicode_at(0)
+			craft_key(ev)
+		await get_tree().create_timer(1.2).timeout
+		print("[craft] list=", craft_list().map(func(q): return q[1] + "+" + q[2] + "=" + q[0]), " souls=", souls, " owned=", owned, " made=", craft.made, " msg=", craft.msg)
+		if test_mode.has("cclose"):
+			close_craft()
+			await get_tree().create_timer(2.0).timeout
+			print("[craft] after close ALLY=", ALLY.keys(), " state=", state)
+	if test_mode.has("devmap"):
+		if state != "play":
+			start()
+		if test_mode.has("dmstage"):
+			boss_idx = int(test_mode.dmstage)
+			enter_stage()
+		await get_tree().create_timer(float(test_mode.get("dmwait", "3"))).timeout
+		var gs = E.filter(func(e): return e.alive and e.has("guard")).map(func(e): return e.ch)
+		print("[devmap] placed=", map_done.size(), " guards=", gs, " rivers=", RIVERS.size())
+		devmap = true
+		if test_mode.has("dmz"):
+			devmap_z = float(test_mode.dmz)
+	if test_mode.has("lab"):
+		start_lab()
+		if test_mode.has("labstart"):
+			lab_i = int(test_mode.labstart)
+			lab_apply()
+		if test_mode.has("labmode"):
+			for q in int(test_mode.get("labmode", "1")) if String(test_mode.labmode) != "" else 1:
+				lab_switch()
+		var n = int(test_mode.get("labn", "10"))
+		for i in n:
+			await get_tree().create_timer(1.2).timeout
+			print("[lab] ", lab_mode, " ", lab_i, " flag=", lab_flag, " E=", E.filter(func(e): return e.alive and not e.get("still", false)).map(func(e): return e.ch))
+			lab_toggle()
+			await get_tree().create_timer(2.6).timeout
+			print("[lab]   after toggle: ", E.filter(func(e): return e.alive and not e.get("still", false)).map(func(e): return e.ch), " owned=", owned)
+			lab_next(1)
+	if test_mode.has("states"):
+		if state != "play":
+			start()
+		var e1 = spawn_enemy({"ch": "氷"}, Vector2(hero.x + 220, hero.y - 80)); e1.born = 1.0
+		var e2 = spawn_enemy({"ch": "毒"}, Vector2(hero.x - 220, hero.y - 60)); e2.born = 1.0
+		var e3 = spawn_enemy({"ch": "闇"}, Vector2(hero.x + 60, hero.y + 200)); e3.born = 1.0
+		await get_tree().create_timer(1.6).timeout
+		dmg_enemy(e1, 3, "月")
+		print("[states] ice after hit=", e1.ch, " alive=", e1.alive)
+		owned["炎"] = 1; owned["清"] = 1; owned["明"] = 1
+		await get_tree().create_timer(0.6).timeout
+		dmg_enemy(e1, 3, "月")
+		await get_tree().create_timer(2.8).timeout
+		print("[states] ice->", e1.ch, " poison alive=", e2.alive, " dark alive=", e3.alive, " dark_k=", dark_k)
 	if test_mode.has("river"):
 		if state != "play":
 			start()
@@ -347,7 +456,7 @@ func _ready() -> void:
 		hero.y = r0.y + (40 if hero.y > r0.y else -40)
 		await get_tree().process_frame
 		print("[river] no bridge hero.y=", hero.y, " river=", r0.y)
-		souls["木"] = true; souls["喬"] = true
+		souls["木"] = 1; souls["喬"] = 1
 		owned["木"] = 1
 		owned["橋"] = 1
 		await get_tree().create_timer(1.5).timeout
@@ -357,7 +466,7 @@ func _ready() -> void:
 	if test_mode.has("fusetest"):
 		if state != "play":
 			start()
-		souls["日"] = true; souls["月"] = true
+		souls["日"] = 1; souls["月"] = 1
 		owned["日"] = 1
 		await get_tree().create_timer(1.0).timeout
 		print("[fz] before ALLY=", ALLY.keys())
@@ -382,7 +491,7 @@ func _ready() -> void:
 		if state != "play":
 			start()
 		await get_tree().create_timer(0.8).timeout
-		souls["火"] = true
+		souls["火"] = 1
 		owned["火"] = 1
 		start_revive("日")
 		owned["日"] = 1
@@ -481,18 +590,18 @@ func _sync_monster() -> void:
 		ms = oni.ms
 		t = oni.t
 		var r: float = clamp(reveal, 0.0, 1.0) if boss_intro > 0 else 1.0
-		a = r * 0.42
-		# 画面いっぱいの背景として立つ。詩を読むほど墨が焼けて欠ける
-		ms = H * 0.4
+		a = r
+		# 野に立って迫ってくる。詩を読むほど墨が焼けて欠ける
 		var prog: float = float(boss.li) / boss.poem.lines.size() if boss != null else 1.0
 		dis = (1.0 - r) * 0.5 + prog * 0.35
 		if oni.has("dead"):
 			dis = 0.35 + clamp(oni.dead / 1.8, 0.0, 1.0) * 0.8
-			a = 0.42
-		fl = oni.fl * 0.4
-		# 背景なので揺らさない（画面の揺れも打ち消して、奥に静かに立たせる）
-		pos = Vector2(cam.x, cam.y + poem_layout().bottom * 0.25) - shake_off
-		rot = 0.0
+		fl = max(oni.fl, 0.6 if oni.bite_t > 1.2 else 0.0) * 0.6
+		var bob: float = sin(t * 3.2) * ms * 0.04
+		pos = Vector2(oni.x, oni.y + bob)
+		rot = sin(t * 1.6) * 0.04
+		if oni.daze > 0:
+			rot += sin(t * 9) * 0.06
 	elif false:
 		on = true
 		kind = boss.monster
@@ -660,7 +769,7 @@ func Lw(id: String) -> int:
 const WOOD_TIER = {"林": 4, "休": 2, "相": 3, "東": 3, "果": 3, "村": 3, "森": 8, "焚": 5, "禁": 5}
 
 ## 水の系統（仲間の合体で育つ）。水の力への上乗せ
-const WATER_TIER = {"沝": 2, "沐": 2, "泪": 2, "江": 3, "淼": 4, "淋": 4, "淡": 4, "減": 5, "滅": 7}
+const WATER_TIER = {"清": 2, "沝": 2, "沐": 2, "泪": 2, "江": 3, "淼": 4, "淋": 4, "淡": 4, "減": 5, "滅": 7}
 
 ## いまの水の仲間（波紋はこの字から広がる）
 func water_id() -> String:
@@ -732,7 +841,7 @@ func reset() -> void:
 	DEBRIS = []; SPARK = []; ROT = []; shield = 0; rest_t = 0; rest_charged = false; teaser = null; teased = -1
 	E = []; P = []; TX = []; SL = []; RG = []; BOLT = []; STAMP = []; PROJ = []; TRAP = []; ROOTS = []; GROVE = []; SHARD = []; STAIN = []; GEMS = []; TRAIL = []; crescents = []; wave_rings = []
 	time = 0; hp = 10; max_hp = 10; level = 1; xp = 0; pending_lv = 0; combo = 0; max_combo = 0; kills = 0; typed_ok = 0; misses = 0; words = 0
-	owned = {}; dmg_by = {}; souls = {}; SOULFX = []; REVIVE = []; KANA = []; RIVERS = []; timers = {}; spawn_t = 2; shake = 0; hitstop = 0; flash = 0; red_v = 0; night = 0; ts = 1; slow_t = 0
+	owned = {}; dmg_by = {}; souls = {}; SOULFX = []; REVIVE = []; KANA = []; RIVERS = []; map_done = {}; stage_origin = Vector2.ZERO; dark_k = 0.0; EFIRE = []; THUNDER = []; PUDDLE = []; cursed = false; timers = {}; spawn_t = 2; shake = 0; hitstop = 0; flash = 0; red_v = 0; night = 0; ts = 1; slow_t = 0
 	boss = null; boss_idx = 0; next_boss = 60; boss_intro = 0; reveal = 0; dying_t = 0; slain = {}
 	wave = {"i": 0, "t": 9.0, "dir": 0.0, "warned": false}
 	DIRS = []
@@ -746,6 +855,74 @@ func reset() -> void:
 	cine = null
 
 # ---------- 敵（生きている字） ----------
+## 字ごとの動きの個性（まっすぐ来るだけではない）
+func beh_move(e: Dictionary, u: Vector2, d: float, sp: float, v: Vector2, dt: float) -> Vector2:
+	var side = Vector2(-u.y, u.x)
+	match e.beh:
+		"charge":
+			# 近づくと身構えて震え、一直線に突進して通り過ぎる
+			var cs: String = e.get("cs", "go")
+			e.ct = e.get("ct", 0.0) - dt
+			if cs == "go":
+				if d < 250 * SF and e.ct <= 0:
+					e.cs = "wind"
+					e.ct = 0.8
+				return v
+			elif cs == "wind":
+				e.tilt = sin(e.t * 40) * 0.12
+				if e.ct <= 0:
+					e.cs = "dash"
+					e.ct = 0.7
+					e.cd_dir = u
+					add_text(e.x, e.y - e.size * 0.6, "突", 16 * SF, KD.SHU, 0.4)
+				return Vector2.ZERO
+			else:
+				if e.ct <= 0:
+					e.cs = "go"
+					e.ct = 1.5
+				return e.cd_dir * sp * 5.0
+		"kite":
+			# 間合いを取って横に回り込む（撃ってくる字）
+			var want: float = 300 * SF
+			var rad_v: float = (1.0 if d > want + 50 * SF else (-1.0 if d < want - 50 * SF else 0.0))
+			return u * sp * rad_v + side * sp * 0.8 * sin(e.t * 0.6 + e.ph)
+		"leap":
+			# 間をおいて大きく跳ぶ
+			var lp: float = fmod(e.t + e.ph, 1.4)
+			if lp < 0.4:
+				e.tilt = -0.2
+				return u * sp * 3.6
+			return Vector2.ZERO
+		"spiral":
+			# 渦を巻きながら近づく
+			return side * sp * 1.4 + u * sp * 0.45
+		"burrow":
+			# 地にもぐって速く近づき、顔を出して止まる
+			var bp: float = fmod(e.t + e.ph, 3.0)
+			e.hidden = bp < 1.8
+			e.sink = 1.0 if bp < 1.8 else max(0.0, 1.0 - (bp - 1.8) / 0.25)
+			if bp < 1.8 and tick("dirt%d" % e.id, dt, 0.15):
+				P.append({"k": "ink", "x": e.x + rnd(-8, 8), "y": e.y + e.size * 0.3, "vx": rnd(-30, 30), "vy": rnd(-60, -20), "life": 0.4, "max": 0.4, "s": 2.5 * SF, "c": KD.SUMI})
+			return u * sp * 2.2 if bp < 1.8 else Vector2.ZERO
+		"flee":
+			# 臆病: 近づかれると逃げる
+			if d < 220 * SF:
+				return -u * sp * 1.3 + side * sp * 0.5 * sin(e.t * 3)
+			return u * sp * 0.6
+		"blink":
+			# ふっと消えて、近くに現れる
+			e.bt = e.get("bt", rnd(1.0, 2.5)) - dt
+			if e.bt <= 0 and d > 140 * SF:
+				e.bt = 2.6
+				for k in 10:
+					var an = rnd(0, TAU)
+					P.append({"k": "ink", "x": e.x, "y": e.y, "vx": cos(an) * 90, "vy": sin(an) * 90, "life": 0.5, "max": 0.5, "s": 3 * SF, "c": Color(0.5, 0.35, 0.6)})
+				var jump: float = min(d - 120 * SF, 170 * SF)
+				e.x += u.x * jump + side.x * rnd(-50, 50) * SF
+				e.y += u.y * jump + side.y * rnd(-50, 50) * SF
+			return u * sp * 0.35
+	return v
+
 func enemy_speed(stk: int, beh: String) -> float:
 	return 21 * SF * (1 + time / 480.0) * clamp(1.4 - stk * 0.036, 0.38, 1.35) * rnd(0.9, 1.1) * {"fast": 1.4, "fly": 1.05, "swarmling": 1.25, "gift": 0.55, "heal": 0.55}.get(beh, 1.0)
 
@@ -1067,10 +1244,9 @@ func spawn_boss() -> void:
 	uid += 1
 	set_poem_line()
 	E.append(boss)
-	# 蚩尤は画面の端から現れる
-	var a = rnd(0, TAU)
-	var R = edge_r(a) + 60 * SF
-	oni = {"x": cam.x + cos(a) * R, "y": cam.y + sin(a) * R, "t": 0.0, "st": "walk", "st_t": 3.0, "ldir": Vector2.ZERO, "kx": 0.0, "ky": 0.0, "daze": 0.0, "bite_t": 0.0, "ms": 100.0 * SF, "rad": 52.0 * SF, "fl": 0.0, "is_boss": true}
+	# 蚩尤は右から迫ってくる（触れると命が減る。逃げながら詩を打つ）
+	var oms: float = 120.0 * SF
+	oni = {"x": cam.x + W / 2 + oms * 1.6, "y": hero.y, "t": 0.0, "st": "walk", "st_t": 3.0, "ldir": Vector2.ZERO, "kx": 0.0, "ky": 0.0, "daze": 0.0, "bite_t": 0.0, "ms": oms, "rad": oms * 0.62, "fl": 0.0, "is_boss": true}
 	boss_intro = 2.4
 	reveal = 0
 	show_banner("漢詩　" + pm.title, "TYPE THE POEM", true)
@@ -1079,7 +1255,7 @@ func spawn_boss() -> void:
 	sfx.play("gong", -4)
 	flash = 0.55 if not calm else 0.3
 	flash_col = Color(0.02, 0.01, 0.05)
-	set_hint("上の漢詩の英文を打ち切るたびに詩が変わる。全句を読み解けば、奥に立つ蚩尤も墨に還る", 9)
+	set_hint("右から蚩尤が迫る。触れると命が減る。字へ突っ込んで逃げながら、上の漢詩の英文を打ち切れ", 9)
 	for e in E:
 		if e != boss and e.alive and not e.captive and not e.get("still", false):
 			kill_enemy(e, "blast")
@@ -1229,7 +1405,7 @@ func typables() -> Array:
 		return cards
 	if state != "play" or boss_intro > 0:
 		return []
-	var out = E.filter(func(e): return e.alive and not e.locked and e.get("rest", 0.0) <= 0 and (e.is_boss or on_view(e.x, e.y + e.size * 0.9, 8)))
+	var out = E.filter(func(e): return e.alive and not e.locked and not e.get("hidden", false) and e.get("rest", 0.0) <= 0 and (e.is_boss or on_view(e.x, e.y + e.size * 0.9, 8)))
 	return out
 
 ## 移動の字の組。上・下・左・右の4つは、いつも同じ仲間の一文字の字（方角だけは向きどおり）
@@ -1484,7 +1660,7 @@ func _tick_hero(dt: float) -> void:
 		if int(time * 60) % 2 == 0:
 			TRAIL.append({"x": hero.x, "y": hero.y, "life": 0.14, "max": 0.14})
 	if hero.state == "dash":
-		hero.t += dt / max(0.035, HS.dash)
+		hero.t += dt / max(0.035, HS.dash * (2.0 if cursed else 1.0))
 		var k: float = min(1.0, hero.t)
 		if alive(hero.target):
 			hero.to = strike_point(hero.target)
@@ -1535,6 +1711,25 @@ func resolve_hit(t) -> void:
 	if t.get("obj", "") != "":
 		use_obj(t)
 		return
+	if t.ch == "氷":
+		if has_counter("氷"):
+			melt_ice(t)
+		else:
+			# 炎がなければ、氷は斬撃を弾く
+			ice_bounce(t, true)
+			hero.x -= dir.x * 40 * SF
+			hero.y -= dir.y * 40 * SF
+			return
+	if t.ch == "岩" and not has_counter("岩"):
+		# 岩はまだ壊せない（戌＝鉞を手に入れると割れるようになる）
+		ice_bounce(t, true)
+		first_react("岩固", "岩は固くて壊せない", Vector2(t.x, t.y))
+		hero.x -= dir.x * 40 * SF
+		hero.y -= dir.y * 40 * SF
+		return
+	if t.ch == "毒" and not has_counter("毒"):
+		# 毒の字を斬ると、毒を浴びる
+		poison_splash(t)
 	var charged = rest_charged
 	rest_charged = false
 	rest_t = 0
@@ -1640,6 +1835,17 @@ func eat_letter(e: Dictionary, n := 1, lv := 1, src := "") -> bool:
 		return false
 	if time < float(e.get("shield_t", -1.0)):
 		return false
+	if e.ch == "氷":
+		if has_counter("氷"):
+			melt_ice(e)
+			return true
+		ice_bounce(e)
+		return false
+	if e.ch == "岩" and not has_counter("岩"):
+		ice_bounce(e)
+		return false
+	if e.get("hidden", false):
+		return false
 	if src != "":
 		if not e.has("cdt"):
 			e.cdt = {}
@@ -1662,7 +1868,7 @@ func eat_letter(e: Dictionary, n := 1, lv := 1, src := "") -> bool:
 				BOLT.append({"pts": [src_p, Vector2(e.x, e.y)], "life": 0.18, "max": 0.18, "ray": true, "w": 0.35, "c": KD.KIN if src == "日" else Color(0.82, 0.88, 1.0)})
 		# どの武器が当たったか: 当たった所に武器の字が小さく跳ねる
 		if true:
-			TX.append({"x": e.x + rnd(-e.rad, e.rad) * 0.6, "y": e.y - e.rad * 0.4, "t": src, "s": 16.0 * max(0.85, SF) + 2, "c": KD.KIN if night > 0.5 else KD.AI, "life": 0.45, "max": 0.45, "vy": -70.0})
+			TX.append({"x": e.x + rnd(-e.rad, e.rad) * 0.6, "y": e.y - e.rad * 0.4, "t": src.trim_prefix("K:"), "s": 16.0 * max(0.85, SF) + 2, "c": KD.KIN if night > 0.5 else KD.AI, "life": 0.45, "max": 0.45, "vy": -70.0})
 	elif e.get("eat_cd", 0.0) > 0:
 		return false
 	var aic: Color = KD.AIN if night > 0.5 else KD.AI
@@ -1738,6 +1944,12 @@ func movers() -> int:
 	return n
 
 func do_spawn() -> void:
+	if lab_on:
+		spawn_t = 1.0
+		return
+	_do_spawn()
+
+func _do_spawn() -> void:
 	var n = movers()
 	if boss != null:
 		# 決戦は闇の字が絶えず押し寄せる（2〜3体ずつ）
@@ -1830,6 +2042,7 @@ func _wpick(rng: RandomNumberGenerator, items: Array, wi: int):
 
 func gen_chunk(k: Vector2i) -> void:
 	chunks[k] = true
+	place_map_items(k)
 	var rng = RandomNumberGenerator.new()
 	rng.seed = hash([field_seed, k.x, k.y, stage_i()])
 	var o = Vector2(k.x, k.y) * CHS()
@@ -1854,6 +2067,51 @@ func gen_chunk(k: Vector2i) -> void:
 			place_plant(_wpick(rng, plants_now(), 2), p3, k)
 			placed.append(p3)
 
+## 景の配置（レベルデザイン）: その区画に入った時に置く
+func map_items() -> Array:
+	var m = KD.D.get("MAPS", [])
+	return m[stage_i()] if stage_i() < m.size() else []
+
+func map_pos(it: Dictionary) -> Vector2:
+	return stage_origin + Vector2(float(it.x), float(it.y)) * CHS()
+
+func place_map_items(k: Vector2i) -> void:
+	if lab_on:
+		return
+	var items: Array = map_items()
+	for i in items.size():
+		var it: Dictionary = items[i]
+		var key = "%d:%d" % [stage_i(), i]
+		if map_done.has(key):
+			continue
+		var p: Vector2 = map_pos(it)
+		var kk = Vector2i(floori(p.x / CHS()), floori(p.y / CHS()))
+		if it.kind == "river":
+			# 川は出発の区画から近ければ置く
+			if abs(kk.y - k.y) > 0:
+				continue
+		elif kk != k:
+			continue
+		map_done[key] = true
+		match it.kind:
+			"guard":
+				var e = spawn_enemy({"ch": it.ch}, p)
+				e.guard = true
+				e.born = 1.0
+			"obj":
+				place_obj(it.ch, p, Vector2i(1 << 20, 0))
+			"rock":
+				for j in int(it.get("n", 4)):
+					var e2 = spawn_enemy({"ch": "岩"}, p + Vector2((j - it.n / 2.0) * 70 * SF, sin(j * 1.7) * 20 * SF))
+					e2.guard = true
+					e2.wall = true
+					e2.born = 1.0
+			"grove":
+				for j in int(it.get("n", 5)):
+					place_plant([it.ch, "", 1], p + Vector2.from_angle(j * 2.4) * (30 + j * 22) * SF, Vector2i(1 << 20, 1))
+			"river":
+				RIVERS.append({"y": p.y, "h": 90 * SF, "x0": stage_origin.x + float(it.x) * CHS(), "x1": stage_origin.x + float(it.x1) * CHS(), "bx": null, "bt": 0.0, "t": 0.0, "map": true})
+
 func place_plant(pl: Array, p: Vector2, k: Vector2i) -> Dictionary:
 	var def = {"ch": pl[0]} if pl[1] == "" else {"ch": pl[0], "en": pl[1]}
 	var e = spawn_enemy(def, p, "still")
@@ -1876,6 +2134,524 @@ func place_obj(kind: String, p: Vector2, k: Vector2i) -> Dictionary:
 	return e
 
 ## 名所に着いた: 井＝命、鐘＝周りの字を打ち崩す、硯＝墨（経験）、祠＝三択
+## ---- 字の状態 ----
+func first_react(key: String, txt_s: String, p: Vector2) -> void:
+	if seen_react.has(key):
+		add_text(p.x, p.y - 50 * SF, txt_s, 16 * SF + 4, KD.SHU, 0.8)
+		return
+	seen_react[key] = true
+	slow_t = max(slow_t, 0.7)
+	add_text(p.x, p.y - 60 * SF, txt_s, 24 * SF + 6, KD.SHU, 1.6)
+
+func ice_bounce(e: Dictionary, loud := false) -> void:
+	if time < float(e.get("bounce_t", -1.0)) and not loud:
+		return
+	e.bounce_t = time + 0.6
+	add_text(e.x, e.y - e.size * 0.6, "弾", (24 if loud else 16) * SF, Color(0.75, 0.9, 1.0), 0.5)
+	for k in 8:
+		var an = rnd(0, TAU)
+		P.append({"k": "ink", "x": e.x, "y": e.y, "vx": cos(an) * 180, "vy": sin(an) * 180, "life": 0.3, "max": 0.3, "s": 2.5 * SF, "c": Color(0.75, 0.9, 1.0)})
+	sfx.play("tick", -4 if loud else -12, 1.8)
+
+## 氷は炎で溶けて水になる（点が溶ける）
+func melt_ice(e: Dictionary) -> void:
+	for k in 18:
+		var an = rnd(PI * 1.1, PI * 1.9)
+		P.append({"k": "ink", "x": e.x + rnd(-1, 1) * e.rad, "y": e.y, "vx": cos(an) * 60, "vy": sin(an) * 140, "life": 0.9, "max": 0.9, "s": rnd(4, 7) * SF, "c": Color(0.92, 0.94, 0.96)})
+	first_react("氷水", "氷 → 水　炎で溶けた", Vector2(e.x, e.y))
+	set_node(e, KD.mk_node("水"))
+	e.flash = 0.3
+	sfx.play("soft", -6, 0.6)
+
+func poison_splash(e: Dictionary) -> void:
+	first_react("毒", "毒を浴びた", Vector2(hero.x, hero.y))
+	if hero.inv <= 0.35:
+		hp -= 1
+		red_v = 1.0
+		shake = max(shake, 10 * shake_k())
+		sfx.play("hurt", -6)
+		if hp <= 0:
+			hp = 0
+			die()
+
+## 相性: 困った字（敵）と、それを自動で解く仲間の字。仲間がいれば光の筋を当てて解く
+const COUNTERS = [
+	{"foe": "氷", "by": ["炎"], "into": "水", "say": "氷 → 水　炎で溶けた", "d": "氷の殻。炎がないと攻撃を弾く", "c": Color(0.95, 0.35, 0.2)},
+	{"foe": "毒", "by": ["清"], "into": "", "say": "清 → 毒を浄めた", "d": "毒の墨。斬ると自分も毒を浴びる", "c": Color(0.5, 0.75, 1.0)},
+	{"foe": "闇", "by": ["明", "日"], "into": "", "say": "光が闇を照らし消した", "d": "現れると全体が闇に沈む", "c": Color(1.0, 0.85, 0.4)},
+	{"foe": "霧", "by": ["嵐"], "into": "雨", "say": "霧 → 雨　嵐が吹き払った", "d": "まわりの字の英単語を隠す", "c": Color(0.8, 0.85, 0.9)},
+	{"foe": "鬼", "by": ["桃"], "into": "", "say": "桃が鬼を祓った", "d": "ときどき姿を消して狙えない", "c": Color(1.0, 0.6, 0.7)},
+	{"foe": "呪", "by": ["祝"], "into": "", "say": "呪 → 祝　呪いが祝いに変わった（命 +1）", "d": "いるあいだ、主人公の踏み込みが鈍る", "c": Color(1.0, 0.75, 0.3)},
+	{"foe": "炎", "by": ["水"], "into": "火", "say": "炎 → 火　水で鎮めた", "d": "通った跡に火を残す", "c": Color(0.4, 0.6, 1.0)},
+	{"foe": "枯", "by": ["雨"], "into": "木", "say": "枯 → 木　雨でよみがえった", "d": "近くの仲間の木を枯らす", "c": Color(0.45, 0.55, 0.9)},
+	{"foe": "雷", "by": ["金"], "into": "", "say": "金が雷を引き受けた", "d": "主人公めがけて雷を落とす", "c": Color(1.0, 0.9, 0.3)},
+	{"foe": "岩", "by": ["戌"], "into": "石", "say": "岩 → 石　鉞で割った", "d": "固くて、斬撃も仲間の攻撃も弾く。戌（もとは鉞）を手に入れると割れるようになる", "c": Color(0.85, 0.8, 0.7)},
+	{"foe": "蛇", "by": ["清"], "into": "", "say": "清 → 毒の跡を浄めた", "d": "通った跡に毒溜まりを残す（踏むと命が減る）", "c": Color(0.5, 0.75, 1.0), "passive": true},
+	{"foe": "弓", "by": ["刀"], "into": "", "say": "刀が矢を斬り落とした", "d": "矢を撃ってくる（矢も英単語を打てば斬れる）", "c": Color(0.6, 0.7, 0.9), "passive": true},
+	{"foe": "雲", "by": ["嵐"], "into": "", "say": "嵐が雲を吹き払った", "d": "雨粒を撃ってくる", "c": Color(0.8, 0.85, 0.9)},
+	{"foe": "砲", "by": ["刀"], "into": "", "say": "刀が石を斬り落とした", "d": "石を撃ってくる", "c": Color(0.6, 0.7, 0.9), "passive": true},
+]
+## 一字を弾のように撃ってくる字: 撃つ字 → 弾の字
+const SHOOTERS = {"弓": ["矢", "arrow", 2.6], "砲": ["石", "stone", 3.4], "雲": ["雨", "rain", 2.0]}
+var PUDDLE: Array = []
+
+## 霧のそばの字は英単語が隠れる
+func fogged(e: Dictionary) -> bool:
+	if e.ch == "霧" or has_counter("霧"):
+		return false
+	for f in E:
+		if f.alive and f.ch == "霧" and Vector2(f.x - e.x, f.y - e.y).length() < 230 * SF:
+			return true
+	return false
+
+func counter_of(foe: String) -> Dictionary:
+	for c in COUNTERS:
+		if c.foe == foe:
+			return c
+	return {}
+
+## その困った字を解ける仲間がいるか（水は水の系統も含む）
+func has_counter(foe: String) -> bool:
+	var c = counter_of(foe)
+	if c.is_empty():
+		return false
+	for k in c.by:
+		if (Lw(k) if k == "水" else L(k)) > 0:
+			return true
+	return false
+
+func counter_src(foe: String) -> Vector2:
+	var c = counter_of(foe)
+	for k in c.by:
+		if ALLY.has(k):
+			return AP(k)
+		if k == "水" and ALLY.has(water_id()):
+			return AP(water_id())
+	return Vector2(hero.x, hero.y - 40 * SF)
+
+func any_light() -> bool:
+	return has_counter("闇")
+
+## 相性のある字: 困った振る舞いと、仲間による自動の解決
+func tick_states(dt: float) -> void:
+	# 闇: 画面にいるあいだ、全体が闇に溶ける
+	var darks = E.filter(func(e): return e.alive and e.ch == "闇" and not e.is_boss and Vector2(e.x - cam.x, e.y - cam.y).length() < max(W, H) * 0.9)
+	dark_k += ((1.0 if darks.size() and boss == null else 0.0) - dark_k) * min(1.0, dt * 2.0)
+	cursed = false
+	for e in E:
+		if not e.alive or e.is_boss or e.captive:
+			continue
+		var c = counter_of(e.ch)
+		if c.is_empty():
+			continue
+		var near: bool = on_view(e.x, e.y, 10)
+		# ---- 困った振る舞い ----
+		match e.ch:
+			"鬼":
+				# 3秒ごとに1.2秒だけ姿を消す
+				e.ph_t = e.get("ph_t", rnd(0, 3)) + dt
+				e.hidden = fmod(e.ph_t, 3.0) > 1.8 and not has_counter("鬼")
+			"呪":
+				if near:
+					cursed = true
+			"炎":
+				if near and not has_counter("炎") and tick("enfire%d" % e.id, dt, 0.6):
+					EFIRE.append({"x": e.x, "y": e.y + e.size * 0.3, "life": 2.5})
+			"枯":
+				if tick("kare%d" % e.id, dt, 1.0):
+					for g in GROVE:
+						if Vector2(g.x - e.x, g.y - e.y).length() < 220 * SF and g.t < g.life - 2.0:
+							g.life = g.t + 1.0
+			"蛇":
+				# 通った跡に毒溜まり
+				if not has_counter("蛇") and tick("hebi%d" % e.id, dt, 0.45):
+					PUDDLE.append({"x": e.x, "y": e.y + e.size * 0.3, "life": 5.0, "r": rnd(18, 26) * SF})
+			"弓", "砲", "雲":
+				if near and not lab_hold():
+					e.sh_t = e.get("sh_t", rnd(0.5, 1.5)) - dt
+					if e.sh_t <= 0:
+						e.sh_t = SHOOTERS[e.ch][2]
+						fire_glyph(e, SHOOTERS[e.ch][0], SHOOTERS[e.ch][1])
+			"雷":
+				if near and not has_counter("雷"):
+					e.th = e.get("th", 2.0) - dt
+					if e.th <= 0:
+						e.th = 4.0
+						THUNDER.append({"x": hero.x, "y": hero.y, "t": 0.0, "hit": false})
+		# ---- 仲間による解決: 光の筋を当て続けて解く ----
+		if near and has_counter(e.ch) and not c.get("passive", false):
+			e.res = e.get("res", 0.0) + dt
+			if e.res > 1.2:
+				resolve_counter(e, c)
+	# 雷が落ちる（金がいれば金が引き受ける）
+	for th in THUNDER:
+		th.t += dt
+		if th.t > 1.0 and not th.hit:
+			th.hit = true
+			flash = max(flash, 0.2)
+			flash_col = Color(1, 1, 0.8)
+			sfx.play("zap", -4, 0.8)
+			if Vector2(hero.x - th.x, hero.y - th.y).length() < 70 * SF and hero.inv <= 0:
+				hp -= 1
+				hero.inv = 1.0
+				red_v = 1.0
+				if hp <= 0:
+					hp = 0
+					die()
+	THUNDER = THUNDER.filter(func(th): return th.t < 1.4)
+	# 炎の残り火
+	for f in EFIRE:
+		f.life -= dt
+		if Vector2(hero.x - f.x, hero.y - f.y).length() < 30 * SF and hero.inv <= 0 and hero.state != "dash":
+			hp -= 1
+			hero.inv = 1.0
+			red_v = 1.0
+			add_text(hero.x, hero.y - 50 * SF, "火傷", 18 * SF, KD.SHU, 0.6)
+			if hp <= 0:
+				hp = 0
+				die()
+	if has_counter("炎"):
+		EFIRE.clear()
+	# 毒溜まり（清がいれば浄められて消える）
+	for pd in PUDDLE:
+		pd.life -= dt
+		if has_counter("蛇") and pd.life > 0.5:
+			pd.life = 0.5
+			pd.clean = true
+		elif not pd.get("clean", false) and Vector2(hero.x - pd.x, hero.y - pd.y).length() < pd.r + 10 * SF and hero.inv <= 0 and hero.state != "dash":
+			first_react("毒跡", "毒の跡を踏んだ", Vector2(hero.x, hero.y))
+			hp -= 1
+			hero.inv = 1.0
+			red_v = 1.0
+			if hp <= 0:
+				hp = 0
+				die()
+	PUDDLE = PUDDLE.filter(func(pd): return pd.life > 0)
+	# 刀がいれば、飛んでくる字を斬り落とす
+	if L("刀") > 0:
+		for b in E:
+			if b.alive and b.get("shot", false) and Vector2(b.x - hero.x, b.y - hero.y).length() < blade_r() + 34 * SF:
+				first_react("刀弾", "刀が飛んでくる字を斬り落とした", Vector2(b.x, b.y))
+				slash(b.x - 20 * SF, b.y - 20 * SF, b.x + 20 * SF, b.y + 20 * SF, false)
+				b.alive = false
+				if b.has("spr") and is_instance_valid(b.spr):
+					b.spr.visible = false
+	EFIRE = EFIRE.filter(func(f): return f.life > 0)
+	# 闇がときどき現れる
+	if boss == null and not lab_on and time > 70 and tick("yami_ev", dt, 80.0) and not E.any(func(e): return e.alive and e.ch == "闇"):
+		var an = rnd(0, TAU)
+		spawn_enemy({"ch": "闇"}, Vector2(cam.x + cos(an) * W * 0.6, cam.y + sin(an) * H * 0.6))
+
+## ---- 試験場 ----
+## 試験場「個性」: 字ごとの動き
+const LAB_BEH = [["charge", "牛", "近づくと身構えて震え、一直線に突進して通り過ぎる（牛・虎・猪・鹿・象・熊）"], ["kite", "弓", "間合いを取って回り込み、一字を撃ってくる（弓→矢・砲→石・雲→雨）"], ["leap", "蛙", "間をおいて大きく跳ぶ（蛙・猿）"], ["spiral", "風", "渦を巻きながら近づく（風・嵐・渦）"], ["burrow", "鼠", "地にもぐって速く近づき、顔を出して止まる（鼠・蟻）"], ["flee", "羊", "臆病で、近づかれると逃げる（羊・兎・狐）"], ["blink", "霊", "ふっと消えて近くに現れる（霊・鬼・幽）"], ["zig", "影", "左右にゆれながら来る（蛇・影）"], ["fly", "鳥", "はばたいて波打ちながら来る（鳥・蝶・鷹…）"], ["root", "木", "歩かず、地にもぐって一歩先に生え直す（草木）"], ["trail", "蛇", "通った跡に毒溜まりを残す（蛇）"], ["fast", "犬", "速く駆けてくる（犬・馬・猫）"]]
+
+func lab_allies() -> Array:
+	var out = []
+	for id in KD.D.WEAP:
+		if id != "命":
+			out.append(id)
+	for r in KD.fuse_rows():
+		out.append(r[0])
+	return out
+
+func _open_devmap() -> void:
+	start()
+	devmap = true
+
+func start_lab() -> void:
+	start()
+	lab_on = true
+	next_boss = 1e9
+	banner = null
+	lab_mode = 0
+	lab_i = 0
+	lab_flag = 0
+	lab_apply()
+
+func lab_clear() -> void:
+	for e in E:
+		if e.alive and not e.get("still", false):
+			e.alive = false
+			if e.has("spr") and is_instance_valid(e.spr):
+				e.spr.visible = false
+	for k in ALLY.keys():
+		if ALLY[k].has("spr"):
+			ALLY[k].spr.queue_free()
+	ALLY.clear()
+	owned = {}
+	absorbed = {}
+	EFIRE.clear(); THUNDER.clear(); GROVE.clear(); ROT.clear(); PROJ.clear(); wave_rings.clear(); FUSE_FX.clear(); REVIVE.clear()
+	dark_k = 0.0
+	seen_react = {}
+	timers = {}
+
+func lab_apply() -> void:
+	lab_clear()
+	var hp0 = Vector2(hero.x, hero.y)
+	if lab_mode == 2:
+		var bb = LAB_BEH[lab_i % LAB_BEH.size()]
+		for k in 3:
+			var an: float = -0.6 + k * 0.6
+			var f2 = spawn_enemy({"ch": bb[1]}, hp0 + Vector2(cos(an) * 330 * SF, sin(an) * 220 * SF))
+			f2.born = 1.0
+		return
+	if lab_mode == 0:
+		var c = COUNTERS[lab_i % COUNTERS.size()]
+		if lab_flag == 1:
+			owned[c.by[0]] = 1
+		if c.foe == "枯":
+			owned["木"] = 3
+		var f = spawn_enemy({"ch": c.foe}, hp0 + Vector2(240 * SF, -70 * SF))
+		f.born = 1.0
+		f.spd *= 0.4
+		if c.foe == "霧":
+			for k in 4:
+				var o = spawn_enemy(null, hp0 + Vector2(240 * SF + cos(k * 1.6) * 120 * SF, -70 * SF + sin(k * 1.6) * 90 * SF))
+				o.born = 1.0
+				o.spd *= 0.3
+	else:
+		var id: String = lab_allies()[lab_i % lab_allies().size()]
+		var fr: Array = KD.fuse_of(id)
+		if fr.is_empty():
+			owned[id] = max(1, lab_flag)
+		elif lab_flag == 0:
+			# 素材をそろえておく（合体ボタンで合体）
+			for part in [fr[1], fr[2]]:
+				var pc: String = String(part).split("|")[0]
+				owned[pc] = L(pc) + 1
+		else:
+			owned[id] = 1
+
+func lab_next(d: int) -> void:
+	var n: int = COUNTERS.size() if lab_mode == 0 else (lab_allies().size() if lab_mode == 1 else LAB_BEH.size())
+	lab_i = (lab_i + d + n) % n
+	lab_flag = 0 if lab_mode == 0 else 1
+	if lab_mode == 1 and not KD.fuse_of(lab_allies()[lab_i]).is_empty():
+		lab_flag = 0
+	lab_apply()
+
+func lab_toggle() -> void:
+	if lab_mode == 2:
+		lab_apply()
+		return
+	if lab_mode == 0:
+		lab_flag = 1 - lab_flag
+		lab_apply()
+		return
+	var id: String = lab_allies()[lab_i]
+	var fr: Array = KD.fuse_of(id)
+	if fr.is_empty():
+		lab_flag = lab_flag % int(KD.D.WEAP[id].max) + 1
+		owned[id] = lab_flag
+	elif lab_flag == 0:
+		lab_flag = 1
+		var a: String = String(fr[1]).split("|")[0]
+		var b: String = String(fr[2]).split("|")[0]
+		do_ally_fuse([fr[0], a, b, fr[3], fr[4]])
+	else:
+		lab_flag = 0
+		lab_apply()
+
+func lab_switch() -> void:
+	lab_mode = (lab_mode + 1) % 3
+	lab_i = 0
+	lab_flag = 0 if lab_mode == 0 else 1
+	if lab_mode == 1 and not KD.fuse_of(lab_allies()[0]).is_empty():
+		lab_flag = 0
+	lab_apply()
+
+func lab_quit() -> void:
+	lab_on = false
+	lab_clear()
+	to_title()
+
+func tick_lab(dt: float) -> void:
+	if kl_on:
+		kl_tick(dt)
+		return
+	hp = max_hp
+	pending_lv = 0
+	xp = 0
+	# 仲間の試験では、まわりに字を絶やさない
+	if lab_mode == 2 and movers() == 0 and tick("lab_sp2", dt, 1.0):
+		lab_apply()
+	if lab_mode == 1 and movers() < 9 and tick("lab_sp", dt, 0.4):
+		var an = rnd(0, TAU)
+		var e = spawn_enemy(null, Vector2(hero.x + cos(an) * 320 * SF, hero.y + sin(an) * 220 * SF))
+		e.spd *= 0.35
+
+func _draw_lab(ci: CanvasItem) -> void:
+	var S: float = clamp(W / 1280.0, 0.75, 1.0)
+	var pw: float = min(W - 40, 760 * S)
+	var r = Rect2(W / 2 - pw / 2, H - 150 * S, pw, 120 * S)
+	ci.draw_rect(r, Color(KD.WASHI, 0.95))
+	ci.draw_rect(r, KD.SUMI, false, 2)
+	var title = ""
+	var desc = ""
+	var stat = ""
+	if lab_mode == 2:
+		var bb = LAB_BEH[lab_i]
+		title = "試験場・個性 %d/%d　「%s」" % [lab_i + 1, LAB_BEH.size(), bb[1]]
+		desc = bb[2]
+		stat = "主人公は倒れない。字の動きを見る（「出し直す」でもう一度）"
+	elif lab_mode == 0:
+		var c = COUNTERS[lab_i]
+		title = "試験場・相性 %d/%d　「%s」" % [lab_i + 1, COUNTERS.size(), c.foe]
+		desc = c.foe + " — " + c.d + "　／　解く仲間: " + "・".join(c.by)
+		stat = ("仲間: " + c.by[0] + "（自動で解く → " + c.say + "）") if lab_flag == 1 else "仲間: なし（困った振る舞いを見る）"
+	else:
+		var id: String = lab_allies()[lab_i]
+		var fr: Array = KD.fuse_of(id)
+		title = "試験場・仲間 %d/%d　「%s」" % [lab_i + 1, lab_allies().size(), id]
+		if fr.is_empty():
+			var dl: Array = KD.D.WEAP[id].d
+			desc = dl[min(lab_flag - 1, dl.size() - 1)]
+			stat = "Lv %d / %d" % [lab_flag, int(KD.D.WEAP[id].max)]
+		else:
+			desc = "%s ＋ %s ＝ %s　%s" % [fr[1].replace("|", "／"), fr[2], fr[0], fr[4]]
+			stat = "合体した" if lab_flag == 1 else "素材をそろえた（「合体」で合体を見る）"
+	txt(ci, UF, r.position.x + 14, r.position.y + 8, title, 14 * S, KD.SHU)
+	wrap_text(ci, UF, r.position.x + 14, r.position.y + 32 * S, desc, pw - 28, 12 * S, KD.SUMI, 2)
+	txt(ci, UF, r.position.x + 14, r.position.y + 70 * S, stat, 12 * S, KD.AI)
+	var by: float = r.end.y - 34 * S
+	var bx: float = r.position.x + 14
+	var tog = "出し直す" if lab_mode == 2 else ("仲間あり／なし" if lab_mode == 0 else ("Lv を上げる" if KD.fuse_of(lab_allies()[lab_i]).is_empty() else ("合体" if lab_flag == 0 else "素材に戻す")))
+	var modes = ["相性", "仲間", "個性"]
+	for bb in [["◀ 前", lab_next.bind(-1)], ["次 ▶", lab_next.bind(1)], [tog, lab_toggle], ["→ " + modes[(lab_mode + 1) % 3], lab_switch], ["終わる", lab_quit]]:
+		var bw: float = tw(UF, bb[0], 13 * S) + 26
+		button(ci, Rect2(bx, by, bw, 28 * S), bb[0], bb[1], "hud")
+		bx += bw + 8
+	txt(ci, UF, r.end.x - 14, by + 6 * S, "Tab 次へ　Space 切り替え　F1 相性・仲間・個性", 11 * S, Color(KD.SUMI, 0.6), 2)
+
+func lab_hold() -> bool:
+	return false
+
+## 一字を弾のように撃つ（弾の字も英単語を打てば、その場で斬り落とせる）
+func fire_glyph(e: Dictionary, ch: String, en: String) -> void:
+	var b = spawn_enemy({"ch": ch, "en": en}, Vector2(e.x, e.y), "shot")
+	var u = (Vector2(hero.x, hero.y) - Vector2(e.x, e.y)).normalized()
+	b.shot = true
+	b.svx = u.x
+	b.svy = u.y
+	b.sv = 110.0 * SF
+	b.born = 1.0
+	b.t = 0.0
+	b.size = 30 * SF
+	b.rad = 14 * SF
+	add_text(e.x, e.y - e.size * 0.6, "放", 14 * SF, KD.SHU, 0.4)
+	sfx.play("tick", -10, 0.7)
+
+func resolve_counter(e: Dictionary, c: Dictionary) -> void:
+	first_react(c.foe, c.say, Vector2(e.x, e.y))
+	flash = max(flash, 0.15)
+	flash_col = c.c
+	for k in 20:
+		var an = rnd(0, TAU)
+		P.append({"k": "ink", "x": e.x, "y": e.y, "vx": cos(an) * 200, "vy": sin(an) * 200, "life": 0.6, "max": 0.6, "s": rnd(3, 5) * SF, "c": c.c})
+	if c.foe == "呪":
+		hp = min(max_hp, hp + 1)
+	if c.into != "":
+		set_node(e, KD.mk_node(c.into))
+		e.res = 0.0
+		e.flash = 0.3
+		sfx.play("soft", -4, 0.7)
+	else:
+		kill_enemy(e, "weapon")
+		sfx.play("lv", -8, 1.5)
+
+func _draw_states(ci: CanvasItem) -> void:
+	for pd in PUDDLE:
+		var pa: float = clamp(pd.life / 1.0, 0.0, 1.0)
+		if pd.get("clean", false):
+			glow(ci, Vector2(pd.x, pd.y), pd.r * 2, Color(0.6, 0.85, 1.0, 0.5 * pa))
+		else:
+			glow(ci, Vector2(pd.x, pd.y), pd.r * 1.8, Color(0.3, 0.08, 0.35, 0.45 * pa))
+			_dash_ellipse(ci, Vector2(pd.x, pd.y), pd.r, pd.r * 0.45, Color(0.35, 0.1, 0.4, 0.7 * pa), 2)
+	# 炎の残り火
+	for f in EFIRE:
+		var fa: float = min(1.0, f.life)
+		glyph(ci, "火", Vector2(f.x, f.y), 22 * SF * (0.9 + sin(ui_time * 15 + f.x) * 0.1), Color(KD.SHU, 0.8 * fa), Color(KD.KIN, 0.3 * fa), 3)
+	# 雷の予兆と落雷
+	for th in THUNDER:
+		var p = Vector2(th.x, th.y)
+		if th.t < 1.0:
+			_dash_ellipse(ci, p, 70 * SF, 26 * SF, Color(1, 0.9, 0.3, 0.5 + 0.5 * sin(th.t * 30)), 2.5)
+		else:
+			var tgt: Vector2 = p
+			if has_counter("雷"):
+				tgt = Vector2(hero.x + 60 * SF, hero.y - 30 * SF)
+				glyph(ci, "金", tgt, 34 * SF, KD.KIN, Color(KD.SUMI, 0.8), 4)
+			var pts = PackedVector2Array([tgt + Vector2(0, -H)])
+			for k in 6:
+				pts.append(tgt + Vector2(rnd(-25, 25) * SF, -H + H * (k + 1) / 6.0))
+			ci.draw_polyline(pts, Color(1, 0.95, 0.6, 1.4 - th.t), 5 * SF, true)
+	# 呪われている
+	if cursed:
+		for k in 3:
+			var an = ui_time * 2 + k * TAU / 3
+			glyph(ci, "呪", Vector2(hero.x + cos(an) * 50 * SF, hero.y + sin(an) * 30 * SF), 16 * SF, Color(0.55, 0.25, 0.65, 0.7), Color.TRANSPARENT, 0)
+	for e in E:
+		if not e.alive or not on_view(e.x, e.y, 30):
+			continue
+		var c = counter_of(e.ch)
+		if c.is_empty():
+			continue
+		match e.ch:
+			"毒":
+				glow(ci, Vector2(e.x, e.y), e.size * 1.3, Color(0.35, 0.12, 0.4, 0.35 + sin(ui_time * 5 + e.x) * 0.08))
+				for k in 4:
+					var ph = fposmod(ui_time * 0.7 + k * 0.25 + e.x * 0.01, 1.0)
+					var a: float = ph * TAU + k
+					ci.draw_circle(Vector2(e.x + cos(a) * e.size * 0.55, e.y + e.size * 0.3 + ph * 20 * SF), (1.0 - ph) * 6 * SF, Color(0.2, 0.05, 0.22, 0.7 * (1.0 - ph)))
+			"氷":
+				ci.draw_arc(Vector2(e.x, e.y), e.size * 0.62, 0, TAU, 6, Color(0.75, 0.9, 1.0, 0.8), 3 * SF, true)
+				ci.draw_arc(Vector2(e.x, e.y), e.size * 0.5, 0.5, TAU + 0.5, 6, Color(0.85, 0.95, 1.0, 0.45), 1.5 * SF, true)
+			"岩":
+				ci.draw_arc(Vector2(e.x, e.y), e.size * 0.6, 0, TAU, 5, Color(0.45, 0.4, 0.35, 0.8), 4 * SF, true)
+				if has_counter("岩"):
+					_draw_cracks(ci, Vector2(e.x, e.y), e.size * 0.55, e.id, 0.8)
+			"霧":
+				if not has_counter("霧"):
+					for k in 5:
+						var an2 = ui_time * 0.3 + k * 1.3
+						glow(ci, Vector2(e.x + cos(an2) * 120 * SF, e.y + sin(an2) * 70 * SF), 150 * SF, Color(0.85, 0.87, 0.9, 0.35))
+			"鬼":
+				if e.get("hidden", false):
+					glow(ci, Vector2(e.x, e.y), e.size, Color(0.6, 0.3, 0.7, 0.2 + sin(ui_time * 12) * 0.08))
+			"枯":
+				glow(ci, Vector2(e.x, e.y), e.size * 1.4, Color(0.5, 0.35, 0.15, 0.25))
+			"雷":
+				if randf() < 0.3:
+					ci.draw_line(Vector2(e.x, e.y), Vector2(e.x + rnd(-30, 30) * SF, e.y + rnd(-30, 30) * SF), Color(1, 0.95, 0.5, 0.8), 2)
+		# 仲間が光の筋を当てて解いているところ
+		if e.get("res", 0.0) > 0 and has_counter(e.ch):
+			var src: Vector2 = counter_src(e.ch)
+			var k2: float = clamp(e.res / 1.2, 0.0, 1.0)
+			ci.draw_line(src, Vector2(e.x, e.y), Color(c.c, 0.35 + 0.4 * k2), (3 + 6 * k2) * SF, true)
+			glow(ci, Vector2(e.x, e.y), e.size * (0.8 + k2), Color(c.c, 0.35 * k2))
+			glyph(ci, c.by[0], src + Vector2(0, -34 * SF), 20 * SF, c.c, Color(KD.SUMI, 0.7), 3)
+
+func _draw_darkness(ci: CanvasItem) -> void:
+	if dark_k < 0.02:
+		return
+	# 主人公のまわり以外は闇に沈む
+	var c = Vector2(W / 2, H / 2) + (Vector2(hero.x, hero.y) - cam)
+	var r_in: float = 120 * SF
+	var r_out: float = max(W, H) * 1.5
+	ci.draw_arc(c, (r_in + r_out) / 2, 0, TAU, 64, Color(0.02, 0.02, 0.05, 0.82 * dark_k), r_out - r_in)
+	ci.draw_arc(c, r_in + 20 * SF, 0, TAU, 64, Color(0.02, 0.02, 0.05, 0.4 * dark_k), 40 * SF)
+	# 闇の字だけは闇の中に浮かぶ。光があればそこへ光が射す
+	for e in E:
+		if e.alive and e.ch == "闇":
+			var sp = Vector2(W / 2, H / 2) + (Vector2(e.x, e.y) - cam)
+			if any_light():
+				var src = Vector2(W / 2, H / 2) + (AP("明" if ALLY.has("明") else "日") - cam)
+				var nrm = (sp - src).orthogonal().normalized()
+				ci.draw_colored_polygon(PackedVector2Array([src + nrm * 6, src - nrm * 6, sp - nrm * e.size * 0.8, sp + nrm * e.size * 0.8]), Color(KD.KIN, 0.25 * dark_k))
+				glow(ci, sp, e.size * 1.2, Color(KD.KIN, 0.45 * min(1.0, e.get("res", 0.0))))
+			glyph(ci, "闇", sp, e.size, Color(0.6, 0.45, 0.8, dark_k), Color(0, 0, 0, 0.8 * dark_k), 4)
+
 ## ---- 水墨画の川: 字で解く仕掛け ----
 func spawn_river() -> void:
 	var up: float = -1.0 if randf() < 0.5 else 1.0
@@ -1889,7 +2665,7 @@ func spawn_river() -> void:
 	add_text(hero.x, y - up * 70 * SF, "川 — 向こう岸に宝。橋があれば渡れる", 15 * SF + 4, KD.AI, 2.6)
 
 func tick_rivers(dt: float) -> void:
-	if boss == null and tick("river_ev", dt, 55.0 if stage_i() >= 1 else 90.0) and RIVERS.is_empty() and time > 20:
+	if false and boss == null and tick("river_ev", dt, 55.0 if stage_i() >= 1 else 90.0) and RIVERS.is_empty() and time > 20:
 		spawn_river()
 	for r in RIVERS:
 		r.t += dt
@@ -1902,7 +2678,7 @@ func tick_rivers(dt: float) -> void:
 			sfx.play("thud", -4, 0.8)
 			sfx.play("koto", -6)
 			add_text(hero.x, r.y - r.h, "橋", 34 * SF, KD.KIN, 1.2)
-	RIVERS = RIVERS.filter(func(r): return abs(r.y - cam.y) < max(W, H) * 2.2)
+	RIVERS = RIVERS.filter(func(r): return r.get("map", false) or abs(r.y - cam.y) < max(W, H) * 2.2)
 
 ## 川は渡れない（橋の上だけ渡れる）
 func river_block(prev: Vector2) -> void:
@@ -2078,13 +2854,14 @@ func take_souls_of(n: Dictionary, x: float, y: float) -> void:
 func take_soul(ch: String, x: float, y: float) -> void:
 	if ch.length() != 1 or KD.D.COMP.has(ch) or not KD.fuse_of(ch).is_empty():
 		return
-	if souls.has(ch):
-		return
 	if not (KD.D.WEAP.has(ch) or KD.D.PARTS.has(ch)):
 		return
-	souls[ch] = true
-	SOULFX.append({"ch": ch, "x": x, "y": y, "t": 0.0})
-	sfx.play("soft", -8, 1.6)
+	# 魂は数で貯まる（作字台の材料）。初めての字は大きく見せる
+	var first: bool = not souls.has(ch)
+	souls[ch] = int(souls.get(ch, 0)) + 1
+	if first or SOULFX.size() < 6:
+		SOULFX.append({"ch": ch, "x": x, "y": y, "t": 0.0})
+		sfx.play("soft", -8 if first else -16, 1.6)
 
 func kill_enemy(e: Dictionary, how: String) -> void:
 	if not e.alive:
@@ -2115,6 +2892,8 @@ func kill_enemy(e: Dictionary, how: String) -> void:
 func hurt(e: Dictionary) -> void:
 	if hero.inv > 0 or hero.state == "dash":
 		return
+	if kl_on:
+		kl.touch += 1
 	var d = Vector2(e.x - hero.x, e.y - hero.y)
 	var u = d.normalized() if d.length() > 0.01 else Vector2.RIGHT
 	if shield > 0 and not e.get("is_boss", false):
@@ -2238,7 +3017,7 @@ func enter_stage() -> void:
 	if boss_idx >= st.size():
 		return
 	for e in E:
-		if e.alive and e.get("still", false) and e.get("obj", "") == "" and not on_view(e.x, e.y, 80):
+		if e.alive and (e.get("still", false) and e.get("obj", "") == "" or e.has("guard")) and not on_view(e.x, e.y, 80):
 			e.alive = false
 			if e.has("spr") and is_instance_valid(e.spr):
 				e.spr.visible = false
@@ -2248,6 +3027,11 @@ func enter_stage() -> void:
 	for dx in range(-1, 2):
 		for dy in range(-1, 2):
 			chunks[cc + Vector2i(dx, dy)] = true
+	stage_origin = Vector2(hero.x, hero.y)
+	# 前の景の川は流れ去り、新しい景の配置をいま見えている区画にも置く
+	RIVERS = RIVERS.filter(func(r): return not r.get("map", false))
+	for k in chunks:
+		place_map_items(k)
 	var sd: Dictionary = st[boss_idx]
 	later(3.6, func(): show_banner(sd.title, sd.en))
 
@@ -2277,6 +3061,10 @@ func body_ids() -> Array:
 	return out
 
 func AP(id: String) -> Vector2:
+	if id.begins_with("K:"):
+		for u in KU:
+			if "K:" + u.ch == id:
+				return Vector2(u.x, u.y)
 	if ALLY.has(id):
 		return Vector2(ALLY[id].x, ALLY[id].y)
 	if (id == "日" or id == "月") and ALLY.has("明"):
@@ -2732,6 +3520,28 @@ func weapons(dt: float) -> void:
 		kv.x += sin(kv.t * 3 + kv.a) * 30 * dt
 		kv.y -= (40 + kv.t * 60) * SF * dt
 	KANA = KANA.filter(func(kv): return kv.t < 3.0)
+	# 嵐: 3秒ごとに突風で近くの字を吹き払う
+	if L("嵐") and tick("arashi", dt, 3.0):
+		var apa = AP("嵐")
+		for e in E:
+			if e.alive and not e.is_boss and not e.get("still", false) and Vector2(e.x - hx, e.y - hy).length() < 260 * SF:
+				var ua = (Vector2(e.x, e.y) - Vector2(hx, hy)).normalized()
+				e.kx += ua.x * 260; e.ky += ua.y * 260
+		for k in 30:
+			var an = rnd(0, TAU)
+			P.append({"k": "ink", "x": apa.x, "y": apa.y, "vx": cos(an) * 420, "vy": sin(an) * 260, "life": 0.5, "max": 0.5, "s": 2.0 * SF, "c": Color(0.6, 0.65, 0.7)})
+		sfx.play("soft", -8, 0.5)
+	# 桃: 2.5秒ごとに近くの字へ桃を投げる
+	if L("桃") and tick("momo", dt, 2.5):
+		var apm3 = AP("桃")
+		var tmo = nearest(apm3, 300 * SF)
+		if tmo != null:
+			BOLT.append({"pts": [apm3, Vector2(tmo.x, tmo.y)], "life": 0.25, "max": 0.25, "ray": true, "w": 0.3, "c": Color(1.0, 0.6, 0.7)})
+			dmg_enemy(tmo, 2, "桃")
+	# 祝: 40秒ごとに命が戻る
+	if L("祝") and tick("iwai", dt, 40.0) and hp < max_hp:
+		hp += 1
+		add_text(hx, hy - 60 * SF, "祝", 26 * SF, KD.KIN, 0.8)
 	# 休: 木のそばで休むと命が戻る
 	if L("休") and tick("kyu", dt, 20.0) and hp < max_hp and GROVE.any(func(g): return Vector2(g.x - hx, g.y - hy).length() < 180 * SF):
 		hp += 1
@@ -2823,6 +3633,10 @@ func _process(delta: float) -> void:
 		_intro_sounds()
 		if intro_t > INTRO_LEN:
 			to_title()
+	if craft.fx != null:
+		craft.fx.t += dt
+	if craft.msg_t > 0:
+		craft.msg_t -= dt
 	for f in FUSE_FX:
 		f.t += dt
 	for rv in REVIVE:
@@ -2879,6 +3693,8 @@ func update(dt: float, real: float) -> void:
 		return
 	if state != "play" and state != "dying":
 		return
+	if devmap:
+		return
 	if slow_t > 0:
 		slow_t -= real
 		ts = 0.25
@@ -2907,7 +3723,11 @@ func update(dt: float, real: float) -> void:
 	tick_wave(dt)
 	tick_field(dt)
 	# 後半の景（大河・王城）では、ときどき囚われのひらがなの檻が現れる
-	tick_rivers(dt)
+	if lab_on:
+		tick_lab(dt)
+	else:
+		tick_rivers(dt)
+	tick_states(dt)
 	# （囚われのひらがなは、物語の終盤の分岐イベントで使う。野には出さない）
 	if false and boss == null and stage_i() >= 1 and tick("kana_ev", dt, 38.0) and not E.any(func(e): return e.alive and e.get("obj", "") == "kana"):
 		spawn_kana_cage()
@@ -2928,6 +3748,7 @@ func update(dt: float, real: float) -> void:
 			add_text(hero.x, hero.y - 60 * SF, "休 — 力が満ちた", 18 * SF + 6, KD.KIN, 1.0)
 	tick_teaser(dt)
 	tick_groups(dt)
+	kraft_tick(dt)
 	for r in ROT:
 		r.life -= dt
 		r.tk -= dt
@@ -3014,6 +3835,14 @@ func update(dt: float, real: float) -> void:
 			e.rest = max(0.0, e.get("rest", 0.0) - dt)
 			e.kx = 0.0; e.ky = 0.0; e.vx = 0.0; e.vy = 0.0
 			continue
+		if e.get("guard", false):
+			# 配置された字: 主人公が近づくまでその場で待つ（壁の岩は動かない）
+			if e.get("wall", false) or d > 480 * SF:
+				e.kx *= 0.5; e.ky *= 0.5
+				e.x += e.kx * dt
+				e.y += e.ky * dt
+				continue
+			e.guard = false
 		var sp: float = e.spd * (0.45 if e.slow > 0 else 1.0) * (0.3 if e.locked else 1.0) * (0.15 if e.daze > 0 else 1.0)
 		var v = u * sp
 		if e.beh == "root" and not e.has("grp"):
@@ -3048,6 +3877,7 @@ func update(dt: float, real: float) -> void:
 				e.zig_t = rnd(0.4, 0.8)
 				e.zs *= -1
 			v += Vector2(-u.y, u.x) * sp * 1.4 * e.zs
+		v = beh_move(e, u, d, sp, v, dt)
 		if e.get("fmove", false):
 			v = Vector2.ZERO
 		if e.captive:
@@ -3072,7 +3902,7 @@ func update(dt: float, real: float) -> void:
 				hurt(e)
 		if e.gift and not e.captive and e.t > 24:
 			e.alive = false
-		if Vector2(e.x - cam.x, e.y - cam.y).length() > max(W, H) * 1.6 and not e.locked and not e.captive:
+		if Vector2(e.x - cam.x, e.y - cam.y).length() > max(W, H) * 1.6 and not e.locked and not e.captive and not e.has("guard"):
 			e.alive = false
 	# 押し合い: 動く字どうし、動く字と草木（林や森は壁になる: 動かない字は押されず、相手だけが回り込む）
 	var mv = []
@@ -3138,11 +3968,6 @@ func tick_oni(dt: float) -> void:
 		if o.dead > 1.9:
 			oni = null
 		return
-	# 蚩尤は攻撃しない。画面の奥に立つ巨大な背景（画面に張り付く）
-	o.x = cam.x
-	o.y = cam.y + poem_layout().bottom * 0.25
-	o.st = "walk"
-	return
 	if boss_intro > 0:
 		return
 	o.daze = max(0.0, o.daze - dt)
@@ -3150,13 +3975,14 @@ func tick_oni(dt: float) -> void:
 	var dv = Vector2(hero.x - o.x, hero.y - o.y)
 	var d: float = max(1.0, dv.length())
 	var u = dv / d
-	var spd: float = (60.0 + min(boss_idx, 5) * 6) * SF * (1 + time / 900.0)
+	var spd: float = (58.0 + min(boss_idx, 5) * 6) * SF * (1 + time / 900.0)
 	var v = Vector2.ZERO
 	o.st_t -= dt
 	match o.st:
 		"walk":
 			v = u * spd * (0.1 if o.daze > 0 else 1.0)
-			if o.st_t <= 0 and o.daze <= 0 and d < 540 * SF:
+			# 突進はしない。ただ迫ってくる
+			if false:
 				o.st = "wind"
 				o.st_t = 0.8
 				o.ldir = u
@@ -3426,10 +4252,22 @@ func open_level_up() -> void:
 		if not pool.any(func(p): return String(p.en)[0] == String(c0.en)[0]):
 			pool.append(c0)
 	# 犬（純粋な仲間。合体しない）も、倒して魂を手に入れたら三択に出る。最初に魂を得たら優先して出す
-	if souls.has("犬") and L("犬") == 0 and not pool.any(func(q): return q.id == "犬"):
+	if false and souls.has("犬") and L("犬") == 0 and not pool.any(func(q): return q.id == "犬"):
 		if pool.size() >= 3:
 			pool.pop_back()
 		pool.insert(0, {"t": "p", "id": "犬", "en": "dog"})
+	# 自機の字: 最初の三択にはかならず出る（以後もときどき）。選ぶとその字が仲間になる
+	var hc: String = hero_ch()
+	# 自機の字は「自機の字」の札だけで出す（部品の札では出さない）
+	if hc != "" and not KD.D.WEAP.has(hc):
+		pool = pool.filter(func(q): return q.id != hc)
+	# 自機の字は一字のままでは仲間にならない（作字台の材料にだけなる）
+	if false and hc != "" and not KD.D.WEAP.has(hc) and Kraft.has(hc) and not pool.any(func(q): return q.id == hc) and (not first_done or randf() < 0.3):
+		var hen: String = String(hero_def.get("en", hc))
+		pool = pool.filter(func(q): return String(q.en)[0] != hen[0])
+		if pool.size() >= 3:
+			pool.pop_back()
+		pool.insert(0, {"t": "k", "id": hc, "en": hen})
 	while pool.size() < 3:
 		pool.append({"t": "h", "id": "癒", "en": "heal"})
 	pool.shuffle()
@@ -3449,8 +4287,29 @@ const COMPANION_DESC = {
 	"鳥": "連れ hawk — 上空を旋回し、2.6秒ごとに急降下して啄む（末尾を1文字壊す）",
 }
 
+## 自機の字（作字台ではいつでも材料にできる）
+func hero_ch() -> String:
+	return String(hero_def.get("ch", "")) if not hero_def.is_empty() else ""
+
 func card_info(p: Dictionary) -> Dictionary:
 	var desc = ""
+	if p.t == "k":
+		var lv: int = k_lv(p.id)
+		var pr: Dictionary = Kraft.prof(p.id, lv + 1)
+		var head: String = ("自機の字 %sを使役 — " % p.id) if lv == 0 else ("Lv%d→%d　" % [lv, lv + 1])
+		desc = head + "%s：%s" % [Kraft.BODY[pr.body][1], Kraft.BODY[pr.body][2]]
+		var ex: Array = []
+		for r in Kraft.USES.get(p.id, []):
+			var op: Array = Kraft.K[r].op
+			var other: String = op[1] if op[0] == p.id else op[0]
+			if craft_avail(other) > 0 and other != p.id:
+				ex.append("%s＋%s＝%s" % [op[0], op[1], r])
+			if ex.size() >= 4:
+				break
+		var nu: int = Kraft.USES.get(p.id, []).size()
+		var et: String = ex[0] if ex.size() else "%d字に組める" % nu
+		desc += "\n作字台では自機の字がいつでも材料になる（%d字に組める）" % nu + ("。いま作れる: " + "　".join(ex) if ex.size() else "")
+		return {"desc": desc, "evo": true, "part": false, "evo_txt": et, "n": lv}
 	if p.t == "h":
 		desc = "命を二つ回復する"
 	elif p.t == "w":
@@ -3483,7 +4342,7 @@ func card_info(p: Dictionary) -> Dictionary:
 		elif sb.split("|").has(p.id):
 			other = fuse_have(sa)
 		if other != "":
-			fz_lines.append("仲間の合体: %s ＋ %s → %s（%s）" % [other, p.id, r[0], r[3]])
+			fz_lines.append("作字の素材: %s ＋ %s → %s" % [other, p.id, (r[0] + "（" + r[3] + "）") if rec_known(r[0]) else "？"])
 	if fz_lines.size():
 		return {"desc": desc, "evo": true, "part": false, "evo_txt": "\n".join(fz_lines), "n": L(p.id)}
 	if evo.size():
@@ -3516,6 +4375,10 @@ func _apply_choice() -> void:
 	pending_lv -= 1
 	if p.t == "h":
 		hp = min(max_hp, hp + 2)
+	elif p.t == "k":
+		kraft_add(p.id)
+		if k_lv(p.id) == 1:
+			start_revive(p.id)
 	else:
 		if not got.has(p.id):
 			got.append(p.id)
@@ -3533,16 +4396,7 @@ func _apply_choice() -> void:
 					max_hp += 1
 					hp += 1
 			HS = hero_stats()
-		# 仲間どうしの合体（主人公の進化とは別の場面）: 手に入れた字と仲間の字が合わさる
-		var fz: Array = find_ally_fuse(p.id)
-		if fz.size():
-			# よみがえりを見せてから合体する
-			if reviving(p.id):
-				later(1.4, do_ally_fuse.bind(fz))
-			else:
-				do_ally_fuse(fz)
-			state = "play"
-			return
+		# 合体は自動では起きない。作字台（Tab）で自分の意思で合体させる
 		# 主人公は進化しない（ずっと象形文字）。育つのは仲間の字の合体だけ
 	state = "play"
 
@@ -3595,6 +4449,1441 @@ func _draw_cracks(ci: CanvasItem, c: Vector2, r: float, seed: int, a: float) -> 
 			pp += Vector2(cos(an), sin(an)) * r * 0.32
 			pts.append(pp)
 		ci.draw_polyline(pts, Color(KD.SHU, a), 1.6, true)
+
+## ---- 作字台: 魂を二つ重ねて、自分の意思で字を作る（Tab で開く。時は止まる） ----
+var craft = {"a": "", "b": "", "typed": "", "cur": 0, "msg": "", "msg_t": 0.0, "fx": null, "made": [], "rows": []}
+
+func rec_known(res: String) -> bool:
+	return meta.get("rec", {}).has(res) or craft.made.has(res)
+
+## 作った字の仲間の Lv（いなければ 0）
+func k_lv(ch: String) -> int:
+	for u in KU:
+		if u.ch == ch:
+			return int(u.lv)
+	return 0
+
+## 材料として使える数: 箱の魂＋仲間の Lv（犬・命は材料にならない）
+func craft_avail(ch: String) -> int:
+	if ch == hero_ch() and state != "title":
+		return 99
+	var n: int = int(souls.get(ch, 0)) + k_lv(ch)
+	if not ["犬", "命", "力"].has(ch):
+		n += L(ch)
+	return n
+
+## 箱に並ぶ字: 魂があるもの、または材料になる仲間
+func craft_box() -> Array:
+	Kraft.load_db()
+	var out: Array = []
+	# 自機の字はいつでも箱にある（減らない）
+	if hero_ch() != "" and Kraft.USES.has(hero_ch()):
+		out.append(hero_ch())
+	for ch in souls:
+		if int(souls[ch]) > 0 and not out.has(ch):
+			out.append(ch)
+	var al: Array = owned.keys() + KU.map(func(u): return u.ch)
+	for ch in al:
+		if out.has(ch) or craft_avail(ch) <= 0 or ["犬", "命", "力"].has(ch):
+			continue
+		if Kraft.USES.has(ch):
+			out.append(ch)
+	return out
+
+## 字典の一行: [字, 一つ目, 二つ目, 英語, 技の説明]
+func k_row(res: String, a: String, b: String) -> Array:
+	var pr: Dictionary = Kraft.prof(res)
+	var d: String = "本体 %s" % Kraft.BODY[pr.body][1]
+	for f in pr.rid:
+		d += "＋%s×%d" % [Kraft.BODY[f][1], pr.rid[f]]
+	return [res, a, b, String(Kraft.K.get(res, {}).get("en", "")), d]
+
+func craft_row(a: String, b: String) -> Array:
+	var rs: Array = Kraft.make(a, b)
+	if rs.is_empty():
+		return []
+	return k_row(rs[0], a, b)
+
+## いま作れる組み合わせ（箱の字を二つ選んで字になるもの）
+func craft_list() -> Array:
+	var out: Array = []
+	var seen = {}
+	var box: Array = craft_box()
+	for a in box:
+		for b in box:
+			if a == b and (craft_avail(a) < 2 or a == hero_ch()):
+				continue
+			for r in Kraft.REC.get(a + "+" + b, []):
+				if not seen.has(r) and Kraft.can_ally(r):
+					seen[r] = 1
+					out.append(k_row(r, a, b))
+	return out
+
+## 字典に並べる字: いま作れる字と、これまでに作った字
+func craft_dict_rows() -> Array:
+	var out: Array = craft_list()
+	var seen = {}
+	for r in out:
+		seen[r[0]] = 1
+	for c in meta.get("rec", {}):
+		if seen.has(c) or not Kraft.K.has(c):
+			continue
+		var op: Array = Kraft.K[c].op
+		if op.size() == 2:
+			out.append(k_row(c, op[0], op[1]))
+	return out
+
+func open_craft() -> void:
+	if state != "play" or lab_on:
+		return
+	state = "craft"
+	craft.a = ""
+	craft.b = ""
+	craft.typed = ""
+	craft.msg = ""
+	craft.fx = null
+	craft.made = []
+	sfx.play("brush", -8, 1.2)
+
+func close_craft() -> void:
+	if state != "craft":
+		return
+	state = "play"
+	var i = 0
+	for res in craft.made:
+		if k_lv(res) == 1:
+			later(0.15 + i * 0.5, start_revive.bind(res))
+			i += 1
+	if craft.made.size():
+		var r = craft.made[craft.made.size() - 1]
+		var row = k_row(r, "", "")
+		later(0.3, show_banner.bind(r, (String(row[3]).to_upper() + " — " + String(row[4])) if row.size() > 4 else "", false, true))
+	craft.made = []
+
+func craft_put(ch: String) -> void:
+	if craft.fx != null and craft.fx.t < 0.6:
+		return
+	if craft.a == "" or craft.b != "":
+		craft.a = ch
+		craft.b = ""
+	else:
+		craft.b = ch
+	sfx.play("tick", -4)
+	if craft.a != "" and craft.b != "":
+		craft_try()
+
+func craft_try() -> void:
+	var a: String = craft.a
+	var b: String = craft.b
+	if a == b and a == hero_ch():
+		_craft_msg("自機の字どうしは組めない。もう一つは魂を使う")
+		craft.b = ""
+		return
+	if a == b and craft_avail(a) < 2:
+		_craft_msg("%sの魂が二つ要る" % a)
+		craft.b = ""
+		return
+	var r: Array = craft_row(a, b)
+	if r.is_empty():
+		_craft_msg("%s ＋ %s では字にならない" % [a, b])
+		sfx.play("thud", -10, 1.4)
+		craft.b = ""
+		return
+	craft_use(a)
+	craft_use(b)
+	var res: String = r[0]
+	var fresh: bool = not rec_known(res)
+	kraft_add(res)
+	if not craft.made.has(res):
+		craft.made.append(res)
+	var rec: Dictionary = meta.get("rec", {})
+	rec[res] = true
+	meta.rec = rec
+	save_meta()
+	craft.fx = {"a": a, "b": b, "res": res, "en": r[3], "d": r[4], "t": 0.0, "new": fresh}
+	craft.a = ""
+	craft.b = ""
+	craft.msg = ""
+	sfx.play("fuse", -6, 1.3)
+	later(0.35, func(): sfx.play("stamp", -2))
+
+func craft_use(ch: String) -> void:
+	if ch == hero_ch():
+		return
+	# 箱の魂から先に使う。足りなければ仲間を使う（Lv が下がる）
+	if int(souls.get(ch, 0)) > 0:
+		souls[ch] = int(souls[ch]) - 1
+	elif k_lv(ch) > 0:
+		for u in KU:
+			if u.ch == ch:
+				u.lv -= 1
+				if u.lv <= 0:
+					KU.erase(u)
+				else:
+					u.pr = Kraft.prof(ch, u.lv)
+					_k_make_subs(u)
+				break
+	elif L(ch) > 0:
+		owned[ch] = L(ch) - 1
+		if owned[ch] <= 0:
+			owned.erase(ch)
+
+func _craft_msg(m: String) -> void:
+	craft.msg = m
+	craft.msg_t = 1.6
+
+func craft_key(ev: InputEventKey) -> void:
+	var kc: int = ev.keycode
+	var box: Array = craft_box()
+	if kc == KEY_TAB or kc == KEY_ESCAPE:
+		close_craft()
+		return
+	if kc == KEY_BACKSPACE:
+		if craft.typed != "":
+			craft.typed = craft.typed.substr(0, craft.typed.length() - 1)
+		elif craft.b != "":
+			craft.b = ""
+		else:
+			craft.a = ""
+		return
+	if kc >= KEY_1 and kc <= KEY_9:
+		var lst: Array = craft_list()
+		var i: int = kc - KEY_1
+		if i < lst.size():
+			craft.a = lst[i][1]
+			craft.b = lst[i][2]
+			craft_try()
+		return
+	var cols: int = craft.get("cols", 6)
+	var mv = {KEY_LEFT: -1, KEY_RIGHT: 1, KEY_UP: -cols, KEY_DOWN: cols}
+	if mv.has(kc) and box.size():
+		craft.cur = clampi(craft.cur + mv[kc], 0, box.size() - 1)
+		return
+	if (kc == KEY_SPACE or kc == KEY_ENTER or kc == KEY_KP_ENTER) and box.size():
+		craft_put(box[clampi(craft.cur, 0, box.size() - 1)])
+		return
+	var ch = ""
+	if ev.unicode >= 65 and ev.unicode <= 122:
+		ch = String.chr(ev.unicode).to_lower()
+	if ch == "" or ch < "a" or ch > "z":
+		return
+	# 英単語を打つと、その字を台に置く
+	var t: String = craft.typed + ch
+	var hit = box.filter(func(c): return craft_word(c).begins_with(t))
+	if hit.is_empty():
+		t = ch
+		hit = box.filter(func(c): return craft_word(c).begins_with(t))
+		if hit.is_empty():
+			t = ""
+	craft.typed = t
+	for c in hit:
+		if craft_word(c) == t:
+			craft.cur = box.find(c)
+			craft.typed = ""
+			craft_put(c)
+			return
+
+func craft_word(ch: String) -> String:
+	var w: String = en_of(ch).to_lower()
+	if w == "":
+		w = String(Kraft.K.get(ch, {}).get("en", ""))
+	if w == "" and KD.D.WEAP.has(ch):
+		w = String(KD.D.WEAP[ch].en).to_lower()
+	var o = ""
+	for c in w:
+		if c >= "a" and c <= "z":
+			o += c
+	return o
+
+func jp_of(ch: String) -> String:
+	if JP_GLOSS.has(ch):
+		return String(JP_GLOSS[ch])
+	return String(Kraft.K.get(ch, {}).get("jp", ""))
+
+## 字典の各行が、いま作れるか（作れるなら使う二字を返す）
+func craft_pair(r: Array) -> Array:
+	for a in String(r[1]).split("|"):
+		for b in String(r[2]).split("|"):
+			if a == b:
+				if craft_avail(a) >= 2 and a != hero_ch():
+					return [a, b]
+			elif craft_avail(a) >= 1 and craft_avail(b) >= 1:
+				return [a, b]
+	return []
+
+## 材料の書き方（「沝|沐|泪」は「沝などの水の字」）
+func mat_label(spec: String) -> String:
+	var opts = spec.split("|")
+	if opts.size() == 1:
+		return spec
+	for o in opts:
+		if craft_avail(o) > 0:
+			return o
+	return opts[0] + "など"
+
+func _draw_craft(ci: CanvasItem) -> void:
+	var S: float = clamp(min(W / 1280.0, H / 800.0), 0.7, 1.2)
+	ci.draw_rect(Rect2(0, 0, W, H), Color(KD.WASHI, 0.97))
+	var mouse: Vector2 = get_viewport().get_mouse_position()
+	var x0: float = 36 * S
+	txt(ci, UF, x0, 18 * S, "作字台", 30 * S, KD.SHU)
+	txt(ci, UF, x0 + 108 * S, 22 * S, "魂を二つ重ねて、新しい字を作る。できた字は仲間になって戦う。", 15 * S, KD.SUMI)
+	txt(ci, UF, x0 + 108 * S, 44 * S, "選び方: 字の下の英単語を打つ／クリック／矢印＋Space　　Tab で戦いに戻る（作っている間は時が止まる）", 11 * S, Color(KD.SUMI, 0.6))
+	# ---- 左上: 魂の箱 ----
+	var box: Array = craft_box()
+	var by: float = 100 * S
+	var cw: float = 82 * S
+	var chh: float = 96 * S
+	var bw: float = W * 0.48
+	var cols: int = max(3, int(bw / cw))
+	craft.cols = cols
+	txt(ci, UF, x0, by - 26 * S, "魂の箱", 15 * S, KD.SUMI)
+	txt(ci, UF, x0 + 64 * S, by - 23 * S, "字を壊すと、その部品の魂がたまる（×の数）。仲間の字も材料にできる（使うと Lv が下がる）", 10 * S, Color(KD.SUMI, 0.55))
+	if box.is_empty():
+		txt(ci, UF, x0, by + 10 * S, "まだ魂がない。字を壊すと、その部品の魂が手に入る", 13 * S, Color(KD.SUMI, 0.6))
+	var hov_ch = ""
+	for i in box.size():
+		var ch: String = box[i]
+		var r = Rect2(x0 + (i % cols) * cw, by + (i / cols) * chh, cw - 6 * S, chh - 6 * S)
+		if r.end.y > H * 0.43:
+			break
+		var sel: bool = craft.a == ch or craft.b == ch
+		var cur: bool = i == craft.cur
+		if r.has_point(mouse):
+			hov_ch = ch
+		ci.draw_rect(r, Color(KD.SHU, 0.12) if sel else Color(1, 1, 1, 0.6))
+		ci.draw_rect(r, Color(KD.SHU, 0.9) if (cur or sel) else Color(KD.SUMI, 0.25), false, (2.5 if (cur or sel) else 1.0) * S)
+		glyph(ci, ch, r.position + Vector2(r.size.x / 2, 34 * S), 42 * S, KD.SUMI)
+		var ns: int = int(souls.get(ch, 0))
+		if ch == hero_ch():
+			txt(ci, UF, r.end.x - 5 * S, r.position.y + 3 * S, "∞", 13 * S, KD.SHU, 2)
+			txt(ci, UF, r.position.x + 4 * S, r.position.y + 3 * S, "自機", 10 * S, KD.SHU)
+		elif ns > 0:
+			txt(ci, UF, r.end.x - 5 * S, r.position.y + 3 * S, "×%d" % ns, 12 * S, KD.SUMI, 2)
+		if (L(ch) > 0 or k_lv(ch) > 0) and not ["犬", "命", "力"].has(ch) and ch != hero_ch():
+			txt(ci, UF, r.position.x + 4 * S, r.position.y + 3 * S, "仲間", 10 * S, KD.KIN)
+		txt(ci, UF, r.position.x + r.size.x / 2, r.end.y - 34 * S, jp_of(ch).split("・")[0].split("（")[0], 10 * S, Color(KD.SUMI, 0.7), 1)
+		var w: String = craft_word(ch)
+		var n: int = craft.typed.length() if (craft.typed != "" and w.begins_with(craft.typed)) else 0
+		var fs: float = 12 * S
+		var wx: float = r.position.x + r.size.x / 2 - tw(PF, w, fs) / 2
+		txt(ci, PF, wx, r.end.y - 20 * S, w.substr(0, n), fs, KD.SHU)
+		txt(ci, PF, wx + tw(PF, w.substr(0, n), fs), r.end.y - 20 * S, w.substr(n), fs, KD.SUMI)
+		buttons.append([r, craft_put.bind(ch)])
+	# ---- 右上: 台（A ＋ B ＝ ？） ----
+	var rx: float = W * 0.53
+	var ry: float = 82 * S
+	var sz: float = 96 * S
+	var ra = Rect2(rx, ry, sz, sz)
+	var rb = Rect2(rx + sz + 44 * S, ry, sz, sz)
+	var rr = Rect2(rb.end.x + 44 * S, ry - 6 * S, sz + 12 * S, sz + 12 * S)
+	for q in [[ra, craft.a, "一つ目"], [rb, craft.b, "二つ目"]]:
+		ci.draw_rect(q[0], Color(1, 1, 1, 0.75))
+		ci.draw_rect(q[0], Color(KD.SUMI, 0.5), false, 2 * S)
+		if q[1] != "":
+			glyph(ci, q[1], q[0].get_center(), 66 * S, KD.SUMI)
+		else:
+			txt(ci, UF, q[0].get_center().x, q[0].get_center().y - 8 * S, q[2], 12 * S, Color(KD.SUMI, 0.35), 1)
+		buttons.append([q[0], _craft_clear.bind(q[1])])
+	txt(ci, UF, ra.end.x + 22 * S, ry + sz / 2 - 16 * S, "＋", 28 * S, KD.SUMI, 1)
+	txt(ci, UF, rb.end.x + 22 * S, ry + sz / 2 - 16 * S, "＝", 28 * S, KD.SUMI, 1)
+	ci.draw_rect(rr, Color(KD.SHU, 0.06))
+	ci.draw_rect(rr, Color(KD.SHU, 0.7), false, 2.5 * S)
+	# 台の下の説明
+	var ex: float = rx
+	var ey: float = ry + sz + 16 * S
+	var ew: float = W - rx - 30 * S
+	var f = craft.fx
+	if f != null:
+		var t: float = f.t
+		var k: float = _ease(clamp(t / 0.35, 0.0, 1.0))
+		if t < 0.4:
+			glyph(ci, f.a, ra.get_center().lerp(rr.get_center(), k), 66 * S * (1 - k * 0.3), Color(KD.SUMI, 1 - k * 0.5))
+			glyph(ci, f.b, rb.get_center().lerp(rr.get_center(), k), 66 * S * (1 - k * 0.3), Color(KD.SUMI, 1 - k * 0.5))
+		else:
+			var st: float = _ease(clamp((t - 0.35) / 0.25, 0.0, 1.0))
+			glow(ci, rr.get_center(), sz * 1.5, Color(KD.KIN, 0.5 * (1 - clamp((t - 0.6) / 1.0, 0.0, 0.7))))
+			glyph(ci, f.res, rr.get_center(), 80 * S * (1.6 - 0.6 * st), KD.KIN, Color(KD.SUMI, 0.9), 5 * S)
+			if f.new:
+				txt(ci, UF, rr.end.x, rr.position.y - 20 * S, "新しい字！", 13 * S, KD.SHU, 2)
+			txt(ci, UF, ex, ey, "%s ＋ %s ＝ %s　「%s」　%s" % [f.a, f.b, f.res, jp_of(f.res), String(f.en).to_upper()], 17 * S, KD.SUMI)
+			ey += 28 * S
+			ey += wrap_text(ci, UF, ex, ey, String(f.d), ew, 12 * S, Color(KD.SUMI, 0.85), 3) + 6 * S
+			txt(ci, UF, ex, ey, ("→ 仲間になった（戦いに戻ると字魂転生でよみがえる）" if k_lv(f.res) == 1 else "→ 仲間の%sが Lv%d になった" % [f.res, k_lv(f.res)]), 12 * S, KD.SHU)
+	else:
+		var focus: String = hov_ch if hov_ch != "" else craft.a
+		if craft.msg != "" and craft.msg_t > 0:
+			txt(ci, UF, ex, ey, craft.msg, 15 * S, KD.SHU)
+			ey += 26 * S
+		if focus != "":
+			txt(ci, UF, ex, ey, "%s　「%s」　%s" % [focus, jp_of(focus), craft_word(focus)], 16 * S, KD.SUMI)
+			ey += 26 * S
+			var uses: Array = []
+			for r in Kraft.USES.get(focus, []).slice(0, 24):
+				var op: Array = Kraft.K[r].op
+				uses.append("%s＋%s＝%s" % [op[0], op[1], r])
+			ey += wrap_text(ci, UF, ex, ey, ("この字から作れる: " + "　".join(uses)) if uses.size() else "この字は材料にならない", ew, 12 * S, Color(KD.SUMI, 0.8), 3)
+		else:
+			txt(ci, UF, ex, ey, "① 箱から字を一つ選ぶ　② もう一つ選ぶ　③ 字になれば仲間になる", 13 * S, KD.SUMI)
+			txt(ci, UF, ex, ey + 22 * S, "下の字典から、作れる字を選んでもよい（数字キー）", 12 * S, Color(KD.SUMI, 0.65))
+	# ---- 下: 字典（すべての合体） ----
+	var rows: Array = craft_dict_rows()
+	var rec: Dictionary = meta.get("rec", {})
+	var dy: float = H * 0.46
+	ci.draw_line(Vector2(x0, dy - 10 * S), Vector2(W - x0, dy - 10 * S), Color(KD.SUMI, 0.2), 1)
+	txt(ci, UF, x0, dy, "字典", 15 * S, KD.SUMI)
+	txt(ci, UF, x0 + 48 * S, dy + 3 * S, "作った字 %d／%d　　朱の枠＝いま作れる（数字キーかクリックで作る）　灰＝前に作った字（足りない材料は朱）" % [rec.size(), Kraft.K.size()], 11 * S, Color(KD.SUMI, 0.6))
+	dy += 26 * S
+	var dcols: int = 6
+	var dw: float = (W - x0 * 2) / dcols
+	var dh: float = 60 * S
+	var maxn: int = int((H - dy - 12 * S) / dh) * dcols
+	if rows.size() > maxn:
+		rows = rows.slice(0, maxn)
+	var num: int = 0
+	var detail = null
+	for i in rows.size():
+		var r: Array = rows[i]
+		var cell = Rect2(x0 + (i % dcols) * dw, dy + (i / dcols) * dh, dw - 6 * S, dh - 5 * S)
+		var pair: Array = craft_pair(r)
+		var made: bool = rec.has(r[0]) or craft.made.has(r[0])
+		var can: bool = pair.size() > 0
+		if can:
+			num += 1
+		ci.draw_rect(cell, Color(1, 1, 1, 0.7) if can else Color(KD.SUMI, 0.05))
+		ci.draw_rect(cell, Color(KD.SHU, 0.85) if can else Color(KD.SUMI, 0.18), false, (2.0 if can else 1.0) * S)
+		var gc = Vector2(cell.position.x + 30 * S, cell.get_center().y)
+		glyph(ci, r[0], gc, 40 * S, (KD.KIN if k_lv(r[0]) > 0 else KD.SUMI) if (can or made) else Color(KD.SUMI, 0.35))
+		var tx: float = cell.position.x + 60 * S
+		var ty: float = cell.position.y + 6 * S
+		# 式: 足りない材料は朱
+		var xx: float = tx
+		var parts = [mat_label(r[1]), "＋", mat_label(r[2])]
+		for j in parts.size():
+			var pc: String = parts[j]
+			var col: Color = KD.SUMI
+			if j != 1 and not can:
+				var spec: String = r[1] if j == 0 else r[2]
+				var need: int = 2 if r[1] == r[2] else 1
+				var have: bool = Array(String(spec).split("|")).any(func(o): return craft_avail(o) >= need)
+				col = Color(KD.SUMI, 0.7) if have else KD.SHU
+			txt(ci, UF, xx, ty, pc, 15 * S, col)
+			xx += tw(UF, pc, 15 * S)
+		txt(ci, UF, tx, ty + 22 * S, jp_of(r[0]) if jp_of(r[0]) != "" else String(r[3]), 10 * S, Color(KD.SUMI, 0.6))
+		if can and num <= 9:
+			txt(ci, UF, cell.end.x - 6 * S, cell.position.y + 4 * S, "%d" % num, 14 * S, KD.SHU, 2)
+		if k_lv(r[0]) > 0:
+			txt(ci, UF, cell.end.x - 6 * S, cell.end.y - 18 * S, "仲間Lv%d" % k_lv(r[0]), 9 * S, KD.KIN, 2)
+		elif made:
+			txt(ci, UF, cell.end.x - 6 * S, cell.end.y - 18 * S, "作った", 9 * S, Color(KD.SUMI, 0.5), 2)
+		if cell.has_point(mouse):
+			detail = r
+		buttons.append([cell, _craft_row_click.bind(r)])
+	# 字典の字に触れると、その説明を台の下に出す
+	if detail != null and craft.fx == null and hov_ch == "":
+		var ddy: float = ry + sz + 16 * S
+		ci.draw_rect(Rect2(rx - 8 * S, ddy - 6 * S, W - rx - 22 * S, H * 0.46 - ddy - 10 * S), Color(KD.WASHI, 1))
+		txt(ci, UF, rx, ddy, "%s　「%s」　%s　＝ %s ＋ %s" % [detail[0], jp_of(detail[0]), String(detail[3]).to_upper(), String(detail[1]).replace("|", "・"), detail[2]], 16 * S, KD.SUMI)
+		wrap_text(ci, UF, rx, ddy + 28 * S, String(detail[4]), W - rx - 30 * S, 12 * S, Color(KD.SUMI, 0.85), 3)
+
+func _craft_row_click(r: Array) -> void:
+	var pair: Array = craft_pair(r)
+	if pair.is_empty():
+		var miss = []
+		for spec in [r[1], r[2]]:
+			var need: int = 2 if r[1] == r[2] else 1
+			if not Array(String(spec).split("|")).any(func(o): return craft_avail(o) >= need):
+				miss.append(mat_label(spec))
+		_craft_msg("材料が足りない: " + "・".join(miss))
+		return
+	_craft_pick(pair[0], pair[1])
+
+## 遊んでいる時の、作字台への入口（右上のボタンの並び）
+func _draw_craft_btn(ci: CanvasItem) -> void:
+	var n: int = craft_list().size()
+	var r = Rect2(W - 296 - 172, 12, 160, 38)
+	button(ci, r, "作字台  Tab" + ("（%d）" % n if n > 0 else ""), open_craft, "main" if n > 0 else "ghost")
+
+func _craft_clear(ch: String) -> void:
+	if craft.a == ch and craft.b != ch:
+		craft.a = craft.b
+	craft.b = ""
+	if craft.a == ch:
+		craft.a = ""
+
+func _craft_pick(a: String, b: String) -> void:
+	craft.a = a
+	craft.b = b
+	craft_try()
+
+## ======== 漢字クラフトの仲間（性能は scripts/kraft.gd の足し算で決まる） ========
+const Kraft = preload("res://scripts/kraft.gd")
+var KU: Array = []      # 作った字の仲間
+var KFX: Array = []     # その技（波紋・炎・木・矢・岩…）
+var ku_id := 0
+var _k_chain := false
+
+func kraft_add(ch: String, lv := 1) -> Dictionary:
+	Kraft.load_db()
+	# 部首・冠などと合わさった字だけが仲間になる（一字だけの字は材料）
+	if not Kraft.can_ally(ch):
+		return {}
+	for u in KU:
+		if u.ch == ch:
+			u.lv += lv
+			u.pr = Kraft.prof(ch, u.lv)
+			_k_make_subs(u)
+			return u
+	ku_id += 1
+	var u = {"id": ku_id, "ch": ch, "lv": lv, "pr": Kraft.prof(ch, lv), "x": hero.x, "y": hero.y, "cd": 0.6, "t": 0.0,
+		"dash": null, "mins": [], "ang": rnd(0, TAU), "hitp": 0.0, "subs": []}
+	# 能力をくれた部首の素（猫なら犬）
+	u.ach = Kraft.src_of(ch)[1] if Kraft.src_of(ch)[1] != "" else ch
+	_k_make_subs(u)
+	KU.append(u)
+	return u
+
+## 脇の部品の技（その部品の技が、小さく付く）
+func _k_make_subs(u: Dictionary) -> void:
+	u.subs = []
+	for f in u.pr.rid:
+		var cnt: int = int(u.pr.rid[f])
+		ku_id += 1
+		var q: Dictionary = u.pr.duplicate()
+		q.kind = Kraft.BODY[f][0]
+		q.body = f
+		var m: float = min(1.0, 0.55 + 0.2 * (cnt - 1))
+		q.R = u.pr.R * m
+		q.P = max(1, int(u.pr.P) - 1 + int((cnt - 1) / 2))
+		q.C = 1 + int((cnt - 1) / 2)
+		q.A = u.pr.A * 0.8
+		q.rid = {}
+		q.sub = true
+		var ach: String = u.ch
+		for x in Kraft.K.get(u.ch, {}).get("lv", []):
+			if Kraft.fam_of(x) == f:
+				ach = x
+				break
+		u.subs.append({"id": ku_id, "ch": u.ch, "ach": ach, "par": u, "lv": u.lv, "pr": q, "x": u.x, "y": u.y, "cd": rnd(0.3, 1.2), "t": 0.0,
+			"dash": null, "mins": [], "ang": rnd(0, TAU), "hitp": 0.0, "cnt": cnt})
+
+func kraft_clear() -> void:
+	KU.clear()
+	KFX.clear()
+
+func ku_tag(u: Dictionary) -> String:
+	return "K:" + u.ch
+
+## 近くの字（植物や宝は除く）を近い順に
+func k_targets(p: Vector2, r: float, n := 99) -> Array:
+	var out: Array = []
+	for e in E:
+		if not e.alive or e.is_boss or e.get("still", false) or e.get("obj", "") != "" or e.captive:
+			continue
+		var d: float = Vector2(e.x, e.y).distance_to(p)
+		if d < r:
+			out.append([d, e])
+	out.sort_custom(func(a, b): return a[0] < b[0])
+	return out.slice(0, n).map(func(q): return q[1])
+
+## 当てる: 文字を削り、押し返す。同じ技が同じ字に当たる間隔は cd 秒。rid=false なら脇の効果は起きない
+func k_hit(u: Dictionary, e: Dictionary, from: Vector2, kn: float, cd := 0.0, key := "", rid := true, n := -1) -> bool:
+	if not e.alive:
+		return false
+	if cd > 0:
+		if not e.has("kc"):
+			e.kc = {}
+		var kk = str(u.id) + key
+		if time < float(e.kc.get(kk, -1.0)):
+			return false
+		e.kc[kk] = time + cd
+	if not e.has("cdt"):
+		e.cdt = {}
+	e.cdt.erase(ku_tag(u))
+	var nn: int = int(u.pr.P) if n < 0 else n
+	if time < float(e.get("kcurse", -1.0)):
+		nn += int(e.get("kcurse_n", 1))
+	var ok: bool = eat_letter(e, nn, 1, ku_tag(u))
+	# 濡れた字が削られたら、近くの濡れた字も一緒に削られる（水の連鎖）
+	if time < float(e.get("kwet", -1.0)) and not _k_chain:
+		_k_chain = true
+		var cnt = 0
+		for o in k_targets(Vector2(e.x, e.y), 230 * SF):
+			if o != e and time < float(o.get("kwet", -1.0)):
+				if o.has("cdt"):
+					o.cdt.erase(ku_tag(u))
+				eat_letter(o, 1, 1, ku_tag(u))
+				BOLT.append({"pts": [Vector2(e.x, e.y), Vector2(o.x, o.y)], "life": 0.18, "max": 0.18, "ray": true, "w": 0.3, "c": Kraft.FAM_COL["波"]})
+				cnt += 1
+				if cnt >= 8:
+					break
+		_k_chain = false
+	var v: Vector2 = (Vector2(e.x, e.y) - from)
+	v = v.normalized() if v.length() > 0.1 else Vector2.from_angle(rnd(0, TAU))
+	if kn > 0 and not e.get("still", false):
+		e.kx += v.x * kn
+		e.ky += v.y * kn
+	u.hitp = 1.0
+	return ok
+
+func _k_live(u) -> bool:
+	if u == null:
+		return false
+	return KU.has(u.get("par", u))
+
+## 燃える・噛まれ続ける字（脇の部品の効果の続き）
+func _k_status(dt: float) -> void:
+	for e in E:
+		if not e.alive:
+			continue
+		if float(e.get("kburn", 0.0)) > 0:
+			e.kburn -= dt
+			e.burn = max(float(e.get("burn", 0.0)), 0.3)
+			if tick("kb%d" % e.id, dt, 0.5) and _k_live(e.kburn_u):
+				k_hit(e.kburn_u, e, Vector2(e.x, e.y), 0.0, 0.0, "", false, 1)
+				# 燃え移る
+				if randf() < 0.35:
+					for o in k_targets(Vector2(e.x, e.y), 90 * SF, 3):
+						if o != e and float(o.get("kburn", 0.0)) <= 0:
+							o.kburn = 1.6
+							o.kburn_u = e.kburn_u
+							BOLT.append({"pts": [Vector2(e.x, e.y), Vector2(o.x, o.y)], "life": 0.2, "max": 0.2, "ray": true, "w": 0.3, "c": KD.SHU})
+							break
+		if int(e.get("kbleed", 0)) > 0 and time >= float(e.kbleed_t):
+			var bu = e.kbleed_u
+			var nb: int = int(e.kbleed)
+			e.kbleed = 0
+			if _k_live(bu):
+				k_hit(bu, e, Vector2(e.x, e.y), 0.0, 0.0, "", false, nb)
+
+func kraft_tick(dt: float) -> void:
+	if KU.is_empty() and KFX.is_empty():
+		return
+	var hp0 = Vector2(hero.x, hero.y)
+	var n: int = KU.size()
+	for i in n:
+		var u: Dictionary = KU[i]
+		var pr: Dictionary = u.pr
+		u.t += dt
+		u.hitp = max(0.0, u.hitp - dt * 3)
+		u.haste = max(0.0, float(u.get("haste", 0.0)) - dt * 0.08)
+		u.cd -= dt * pr.R * (1.0 + u.haste)
+		# 主人公のまわりの決まった位置へ
+		var sa: float = TAU * i / max(1, n) - PI / 2 + time * 0.25
+		var slot: Vector2 = hp0 + Vector2.from_angle(sa) * 78 * SF
+		u.slot = slot
+		if u.dash == null:
+			var k: float = 1.0 - pow(0.002, dt)
+			u.x = lerp(float(u.x), slot.x, k)
+			u.y = lerp(float(u.y), slot.y, k)
+		_k_run(u, dt, hp0)
+		for sb in u.subs:
+			sb.t += dt
+			sb.hitp = max(0.0, sb.hitp - dt * 3)
+			sb.cd -= dt * sb.pr.R
+			sb.slot = slot
+			if sb.dash == null:
+				sb.x = u.x
+				sb.y = u.y
+			_k_run(sb, dt, hp0)
+	_k_fx(dt)
+	_k_status(dt)
+
+func _k_run(u: Dictionary, dt: float, hp0: Vector2) -> void:
+		var pr: Dictionary = u.pr
+		match pr.kind:
+			"ripple": _k_ripple(u, dt)
+			"trail": _k_trail(u, dt, hp0)
+			"tree": _k_tree(u, dt, hp0)
+			"orbit": _k_orbit(u, dt, hp0)
+			"blade": _k_blade(u, dt, hp0)
+			"arrow": _k_arrow(u, dt)
+			"shout": _k_shout(u, dt)
+			"beast": _k_beast(u, dt, hp0)
+			"slam": _k_slam(u, dt, hp0)
+			"aura": _k_aura(u, dt, hp0)
+			"throw": _k_throw(u, dt)
+			"wall": _k_wall(u, dt, hp0)
+
+func _k_ripple(u: Dictionary, _dt: float) -> void:
+	if u.cd > 0:
+		return
+	u.cd = 1.8
+	for j in u.pr.C:
+		KFX.append({"k": "ring", "u": u, "x": u.x, "y": u.y, "r": 0.0, "R": 170 * SF * u.pr.A, "sp": 300 * SF, "hit": {}, "delay": j * 0.22})
+	sfx.play("soft", -14, 1.3)
+
+func _k_trail(u: Dictionary, dt: float, hp0: Vector2) -> void:
+	# 主人公のまわりを駆ける
+	u.ang += dt * 2.6 * u.pr.R
+	var R: float = 120 * SF * min(1.6, u.pr.A)
+	var p = hp0 + Vector2(cos(u.ang), sin(u.ang) * 0.75) * R
+	u.x = p.x; u.y = p.y
+	if u.cd <= 0:
+		u.cd = 0.12
+		for j in u.pr.C:
+			var o = Vector2.from_angle(rnd(0, TAU)) * (0 if j == 0 else 22 * SF)
+			KFX.append({"k": "fire", "u": u, "x": p.x + o.x, "y": p.y + o.y, "r": 26 * SF * u.pr.A, "life": 1.8 * u.pr.D, "max": 1.8 * u.pr.D})
+
+func _k_tree(u: Dictionary, _dt: float, hp0: Vector2) -> void:
+	if u.cd > 0:
+		return
+	u.cd = 1.7
+	var have = KFX.filter(func(f): return f.k == "tree" and f.u == u).size()
+	for j in u.pr.C:
+		if have + j >= 5 + u.pr.C * 2:
+			break
+		var tg = k_targets(hp0, 340 * SF, 6)
+		var an: float = rnd(0, TAU) if tg.is_empty() else atan2(tg[0].y - hp0.y, tg[0].x - hp0.x) + rnd(-0.6, 0.6)
+		var p = hp0 + Vector2.from_angle(an) * rnd(110, 150) * SF
+		KFX.append({"k": "tree", "u": u, "x": p.x, "y": p.y, "r": 26 * SF * u.pr.A, "life": 7.0 * u.pr.D, "max": 7.0 * u.pr.D, "hp": 2 + u.pr.X, "t": 0.0})
+	sfx.play("thud", -12, 1.4)
+
+func _k_orbit(u: Dictionary, dt: float, hp0: Vector2) -> void:
+	u.ang += dt * 2.4 * u.pr.R
+	var R: float = (125 if u.has("par") else 110) * SF * u.pr.A
+	for j in u.pr.C:
+		var p = hp0 + Vector2.from_angle(u.ang + TAU * j / u.pr.C) * R
+		for e in k_targets(p, 30 * SF * u.pr.A + 34 * SF, u.pr.X):
+			k_hit(u, e, hp0, u.pr.KN * 0.6, 0.5 / u.pr.R, "o")
+
+func _k_blade(u: Dictionary, dt: float, hp0: Vector2) -> void:
+	if u.dash != null:
+		u.dash.t += dt / 0.16
+		var k: float = min(1.0, u.dash.t)
+		u.x = lerp(float(u.dash.a.x), float(u.dash.b.x), k)
+		u.y = lerp(float(u.dash.a.y), float(u.dash.b.y), k)
+		if k >= 1.0:
+			var c = Vector2(u.x, u.y)
+			for e in k_targets(c, 70 * SF * u.pr.A, u.pr.X + 1):
+				k_hit(u, e, c, u.pr.KN)
+			slash(u.dash.a.x, u.dash.a.y, u.x + (u.x - u.dash.a.x) * 0.3, u.y + (u.y - u.dash.a.y) * 0.3, false)
+			sfx.play("slash", -10, rnd(1.1, 1.3))
+			u.dash.left -= 1
+			var nx = k_targets(c, 260 * SF * u.pr.A, 3).filter(func(e): return e.alive)
+			if u.dash.left > 0 and nx.size():
+				u.dash = {"a": c, "b": Vector2(nx[0].x, nx[0].y), "t": 0.0, "left": u.dash.left}
+			else:
+				u.dash = null
+		return
+	if u.cd > 0:
+		return
+	var tg = k_targets(hp0, 380 * SF * u.pr.A, 1)
+	if tg.is_empty():
+		return
+	u.cd = 0.45
+	u.dash = {"a": Vector2(u.x, u.y), "b": Vector2(tg[0].x, tg[0].y), "t": 0.0, "left": u.pr.C + 1}
+
+func _k_arrow(u: Dictionary, _dt: float) -> void:
+	if u.cd > 0:
+		return
+	var tg = k_targets(Vector2(u.x, u.y), 520 * SF * u.pr.A, u.pr.C)
+	if tg.is_empty():
+		return
+	u.cd = 0.4
+	for j in u.pr.C:
+		var e = tg[j % tg.size()]
+		var v = (Vector2(e.x, e.y) - Vector2(u.x, u.y)).normalized().rotated(rnd(-0.08, 0.08)) * 760 * SF
+		KFX.append({"k": "arrow", "u": u, "x": u.x, "y": u.y, "vx": v.x, "vy": v.y, "life": 0.9 * u.pr.A, "n": u.pr.X + 1, "hit": {}})
+	sfx.play("dash", -16, 1.6)
+
+func _k_shout(u: Dictionary, _dt: float) -> void:
+	if u.cd > 0:
+		return
+	var c = Vector2(u.x, u.y)
+	var tg = k_targets(c, 280 * SF * u.pr.A, 3 + 2 * u.pr.C)
+	if tg.is_empty():
+		return
+	u.cd = 1.6
+	var pts = []
+	for e in tg:
+		k_hit(u, e, c, u.pr.KN * 0.8)
+		pts.append(Vector2(e.x, e.y))
+	KFX.append({"k": "shout", "u": u, "x": c.x, "y": c.y, "t": 0.0, "pts": pts, "R": 280 * SF * u.pr.A})
+	sfx.play("gong", -12, 1.6)
+
+func _k_beast(u: Dictionary, dt: float, hp0: Vector2) -> void:
+	# 分身は出さない。仲間の字そのものが駆けて噛みつき、字を弾き飛ばして定位置へ戻る
+	if u.has("par"):
+		# 脇の獣: 本体のそばに来た字に噛みつくだけ（動かない・字も出さない）
+		if u.cd > 0:
+			return
+		var near = k_targets(Vector2(u.x, u.y), 120 * SF * u.pr.A, 1)
+		if near.size():
+			u.cd = 1.4
+			k_hit(u, near[0], Vector2(u.x, u.y), u.pr.KN * 1.4)
+			KFX.append({"k": "bite", "u": u, "x": near[0].x, "y": near[0].y, "t": 0.0})
+		return
+	var home: Vector2 = u.get("slot", hp0)
+	if u.dash == null:
+		if u.cd > 0:
+			return
+		var tg = k_targets(Vector2(u.x, u.y), 420 * SF * u.pr.A, 1)
+		if tg.is_empty():
+			return
+		u.dash = {"e": tg[0], "ph": 0, "t": 0.0, "left": u.pr.C}
+		sfx.play("dash", -14, 1.3)
+		return
+	var dd: Dictionary = u.dash
+	dd.t += dt
+	var sp: float = 560 * SF * (1.0 + 0.1 * (u.pr.R - 1))
+	var me := Vector2(u.x, u.y)
+	if dd.ph == 0:
+		var e: Dictionary = dd.e
+		if not e.alive or dd.t > 1.4:
+			dd.ph = 1
+			return
+		var to: Vector2 = Vector2(e.x, e.y) - me
+		u.face = -1 if to.x < 0 else 1
+		if to.length() < e.rad + 26 * SF:
+			# 噛む: 字を大きく弾き飛ばし、自分も跳ね返る（重ならない）
+			k_hit(u, e, me, u.pr.KN * 2.2)
+			KFX.append({"k": "bite", "u": u, "x": e.x, "y": e.y, "t": 0.0})
+			sfx.play("slash", -12, 0.8)
+			var back: Vector2 = -to.normalized() * (e.rad + 40 * SF)
+			u.x += back.x; u.y += back.y
+			dd.left -= 1
+			var nx = k_targets(Vector2(u.x, u.y), 260 * SF * u.pr.A, 2).filter(func(o): return o.alive and o != e)
+			if dd.left > 0 and nx.size():
+				u.dash = {"e": nx[0], "ph": 0, "t": 0.0, "left": dd.left}
+			else:
+				dd.ph = 1
+			return
+		var st: Vector2 = to.normalized() * min(to.length(), sp * dt)
+		u.x += st.x; u.y += st.y
+	else:
+		var to2: Vector2 = home - me
+		if to2.length() < 10 * SF or dd.t > 3.0:
+			u.dash = null
+			u.cd = 1.0
+			return
+		var st2: Vector2 = to2.normalized() * min(to2.length(), sp * 0.8 * dt)
+		u.x += st2.x; u.y += st2.y
+
+func _k_slam(u: Dictionary, _dt: float, hp0: Vector2) -> void:
+	if u.cd > 0:
+		return
+	var cand = k_targets(hp0, 420 * SF, 30)
+	if cand.is_empty():
+		return
+	u.cd = 1.1
+	var R: float = 120 * SF * u.pr.A
+	# 字がいちばん固まっている所へ
+	var best = []
+	for e in cand:
+		var nn = cand.filter(func(f): return Vector2(f.x, f.y).distance_to(Vector2(e.x, e.y)) < R).size()
+		best.append([nn, e])
+	best.sort_custom(func(a, b): return a[0] > b[0])
+	for j in min(u.pr.C, best.size()):
+		var e = best[j][1]
+		KFX.append({"k": "rock", "u": u, "x": e.x, "y": e.y, "t": 0.0, "delay": 0.4 + j * 0.15, "R": R})
+
+func _k_aura(u: Dictionary, dt: float, hp0: Vector2) -> void:
+	var R: float = 115 * SF * u.pr.A
+	if u.cd > 0:
+		return
+	u.cd = 0.6
+	for e in k_targets(hp0, R, 3 + u.pr.X * 2):
+		k_hit(u, e, hp0, u.pr.KN * 0.3)
+		e.slow = max(float(e.get("slow", 0.0)), 0.5 * u.pr.D)
+
+func _k_throw(u: Dictionary, _dt: float) -> void:
+	if u.cd > 0:
+		return
+	var tg = k_targets(Vector2(u.x, u.y), 420 * SF * u.pr.A, u.pr.C)
+	if tg.is_empty():
+		return
+	u.cd = 0.45
+	for j in u.pr.C:
+		var e = tg[j % tg.size()]
+		KFX.append({"k": "stone", "u": u, "x0": u.x, "y0": u.y, "x": e.x + e.kx * 0.1, "y": e.y + e.ky * 0.1, "t": 0.0, "dur": 0.4, "R": 64 * SF * u.pr.A, "delay": j * 0.08})
+
+func _k_wall(u: Dictionary, _dt: float, hp0: Vector2) -> void:
+	var R: float = 80 * SF * u.pr.A
+	for e in k_targets(hp0, R + 40 * SF, 99):
+		var d: float = Vector2(e.x, e.y).distance_to(hp0)
+		if d < R + e.rad:
+			if k_hit(u, e, hp0, u.pr.KN * 3.0, 0.7 / u.pr.R, "w") or true:
+				pass
+
+func _k_fx(dt: float) -> void:
+	for f in KFX:
+		var u: Dictionary = f.u
+		match f.k:
+			"ring":
+				if f.delay > 0:
+					f.delay -= dt
+					continue
+				f.r += f.sp * dt
+				for e in k_targets(Vector2(f.x, f.y), f.r + 30 * SF):
+					if f.hit.has(e.id):
+						continue
+					var d: float = Vector2(e.x, e.y).distance_to(Vector2(f.x, f.y))
+					if abs(d - f.r) < e.rad + 12 * SF:
+						f.hit[e.id] = 1
+						# 波紋に当たった字は濡れる（濡れた字は削られると近くの濡れた字へ連鎖する）
+						e.kwet = time + 3.0
+						k_hit(u, e, Vector2(f.x, f.y), u.pr.KN * 1.4)
+			"fire":
+				f.life -= dt
+				for e in k_targets(Vector2(f.x, f.y), f.r + 26 * SF, u.pr.X):
+					if k_hit(u, e, Vector2(f.x, f.y), 0.0, 0.45, "f"):
+						# 炎に触れた字は燃え続け、近くの字へ燃え移る
+						e.kburn = max(float(e.get("kburn", 0.0)), 2.0)
+						e.kburn_u = u
+			"tree":
+				f.life -= dt
+				f.t += dt
+				# 枝で近くの字を叩く
+				if f.t > 0.4 and tick("tb%d" % int(f.x * 7 + f.y), dt, 0.7 / u.pr.R):
+					for e in k_targets(Vector2(f.x, f.y), f.r * 3.2, 1 + u.pr.X):
+						k_hit(u, e, Vector2(f.x, f.y), 120.0)
+						BOLT.append({"pts": [Vector2(f.x, f.y - f.r), Vector2(e.x, e.y)], "life": 0.15, "max": 0.15, "ray": true, "w": 0.4, "c": Kraft.FAM_COL["樹"]})
+				for e in k_targets(Vector2(f.x, f.y), f.r + 40 * SF, 6):
+					if Vector2(e.x, e.y).distance_to(Vector2(f.x, f.y)) < f.r + e.rad:
+						if k_hit(u, e, Vector2(f.x, f.y), u.pr.KN * 2.4 + 200, 0.35, "t" + str(f.x)):
+							f.hp -= 1
+							if f.hp <= 0:
+								f.life = 0.0
+								shatter(f.x, f.y - f.r, "木", f.r * 2, 0.5, Kraft.FAM_COL["樹"])
+			"arrow":
+				f.life -= dt
+				f.x += f.vx * dt
+				f.y += f.vy * dt
+				for e in k_targets(Vector2(f.x, f.y), 40 * SF):
+					if f.hit.has(e.id) or Vector2(e.x, e.y).distance_to(Vector2(f.x, f.y)) > e.rad + 6 * SF:
+						continue
+					f.hit[e.id] = 1
+					k_hit(u, e, Vector2(f.x - f.vx, f.y - f.vy), u.pr.KN * 0.6, 0.0, "", not f.has("norid"), 1 if f.has("norid") else -1)
+					f.n -= 1
+					if f.n <= 0:
+						f.life = 0.0
+						break
+			"rock":
+				if f.delay > 0:
+					f.delay -= dt
+					if f.delay <= 0:
+						var c = Vector2(f.x, f.y)
+						for e in k_targets(c, f.R, 4 + u.pr.X * 2):
+							k_hit(u, e, c, u.pr.KN * 2.6 + 200)
+							e.daze = max(float(e.daze), 0.5 * u.pr.D)
+						shake = max(shake, 6.0)
+						sfx.play("thud", -6, 0.8)
+					continue
+				f.t += dt
+			"stone":
+				if f.delay > 0:
+					f.delay -= dt
+					continue
+				f.t += dt
+				if f.t >= f.dur and not f.has("done"):
+					f.done = true
+					var c2 = Vector2(f.x, f.y)
+					for e in k_targets(c2, f.R + 20 * SF, u.pr.X + 2):
+						k_hit(u, e, c2, u.pr.KN)
+					sfx.play("tick", -10, 0.7)
+			"shout", "echo":
+				f.t += dt
+	KFX = KFX.filter(func(f): return _k_alive(f))
+
+func _k_alive(f: Dictionary) -> bool:
+	match f.k:
+		"ring": return f.r < f.R
+		"fire", "tree", "arrow": return f.life > 0
+		"rock": return f.delay > 0 or f.t < 0.5
+		"stone": return f.t < f.dur + 0.3
+		"shout": return f.t < 0.5
+		"echo": return f.t < 0.35
+	return false
+
+func _draw_kraft(ci: CanvasItem) -> void:
+	if KU.is_empty() and KFX.is_empty():
+		return
+	var hp0 = Vector2(hero.x, hero.y)
+	# 技
+	for f in KFX:
+		var col: Color = Kraft.FAM_COL.get(f.u.pr.body, KD.SUMI)
+		match f.k:
+			"ring":
+				if f.delay <= 0:
+					var a: float = 1.0 - f.r / f.R
+					ci.draw_arc(Vector2(f.x, f.y), f.r, 0, TAU, 64, Color(col, 0.75 * a), 5 * SF * (0.4 + a), true)
+					ci.draw_arc(Vector2(f.x, f.y), f.r * 0.92, 0, TAU, 64, Color(col, 0.3 * a), 2 * SF, true)
+			"fire":
+				var k: float = f.life / f.max
+				glow(ci, Vector2(f.x, f.y), f.r * 1.6, Color(1.0, 0.45, 0.1, 0.35 * k))
+				var fl: float = 1.0 + sin(time * 18 + f.x) * 0.12
+				glyph(ci, "火", Vector2(f.x, f.y - f.r * 0.3), f.r * 1.3 * fl * (0.6 + 0.4 * k), Color(0.85, 0.2, 0.05, 0.85 * k))
+			"tree":
+				var g: float = clamp(f.t / 0.4, 0.0, 1.0)
+				var k2: float = clamp(f.life / 0.6, 0.0, 1.0)
+				ci.draw_circle(Vector2(f.x, f.y), f.r, Color(col, 0.10 * k2))
+				glyph(ci, "木", Vector2(f.x, f.y - f.r * 0.6 * g), f.r * 2.2, Color(col, k2), Color(KD.WASHI, 0.8 * k2), 3, 0.0, Vector2(1.0, max(0.05, g)))
+				for h in f.hp:
+					ci.draw_circle(Vector2(f.x - 8 * SF + h * 8 * SF, f.y + f.r * 0.9), 2.5 * SF, Color(col, 0.8 * k2))
+			"arrow":
+				var v = Vector2(f.vx, f.vy).normalized()
+				ci.draw_line(Vector2(f.x, f.y) - v * 26 * SF, Vector2(f.x, f.y), Color(col, 0.95), 3 * SF, true)
+				ci.draw_line(Vector2(f.x, f.y), Vector2(f.x, f.y) - v.rotated(0.5) * 9 * SF, Color(col, 0.95), 3 * SF, true)
+				ci.draw_line(Vector2(f.x, f.y), Vector2(f.x, f.y) - v.rotated(-0.5) * 9 * SF, Color(col, 0.95), 3 * SF, true)
+			"rock":
+				var c = Vector2(f.x, f.y)
+				if f.delay > 0:
+					var k3: float = 1.0 - f.delay / 0.4
+					ci.draw_arc(c, f.R, 0, TAU, 48, Color(col, 0.35), 2 * SF, true)
+					ci.draw_circle(c, f.R * 0.3 * k3, Color(KD.SUMI, 0.2))
+					glyph(ci, "石", c - Vector2(0, (1.0 - k3) * 260 * SF), 46 * SF, Color(col, 0.9), Color(KD.WASHI, 0.8), 3)
+				else:
+					var a2: float = 1.0 - f.t / 0.5
+					ci.draw_arc(c, f.R * (0.6 + f.t), 0, TAU, 48, Color(col, 0.7 * a2), 6 * SF * a2, true)
+					glyph(ci, "石", c, 46 * SF, Color(col, a2))
+			"stone":
+				if f.delay <= 0:
+					var k4: float = clamp(f.t / f.dur, 0.0, 1.0)
+					var p = Vector2(f.x0, f.y0).lerp(Vector2(f.x, f.y), k4) - Vector2(0, sin(k4 * PI) * 80 * SF)
+					if k4 < 1.0:
+						ci.draw_circle(p, 6 * SF, Color(col, 0.95))
+					else:
+						var a3: float = 1.0 - (f.t - f.dur) / 0.3
+						ci.draw_arc(Vector2(f.x, f.y), f.R * (1.2 - 0.4 * a3), 0, TAU, 32, Color(col, 0.7 * a3), 3 * SF, true)
+			"echo":
+				var a5: float = 1.0 - f.t / 0.35
+				ci.draw_arc(Vector2(f.x, f.y), 20 * SF + f.t * 200 * SF, 0, TAU, 32, Color(col, 0.6 * a5), 2 * SF, true)
+			"shout":
+				var a4: float = 1.0 - f.t / 0.5
+				ci.draw_arc(Vector2(f.x, f.y), 40 * SF + f.t * f.R, 0, TAU, 48, Color(col, 0.5 * a4), 3 * SF, true)
+				for p2 in f.pts:
+					ci.draw_line(Vector2(f.x, f.y), p2, Color(col, 0.6 * a4), 2.5 * SF, true)
+	# 脇の部品の効果が起きている字の印（根・呪い・噛み）
+	for e in E:
+		if not e.alive or not on_view(e.x, e.y, 40):
+			continue
+		if time < float(e.get("kroot", -1.0)):
+			var c0 = Vector2(e.x, e.y + e.rad * 0.7)
+			for j in 4:
+				var an: float = PI * 0.15 + j * PI * 0.23
+				ci.draw_line(c0, c0 + Vector2(cos(an), sin(an) * 0.4) * e.rad * 1.1, Color(Kraft.FAM_COL["樹"], 0.85), 3 * SF, true)
+		if time < float(e.get("kcurse", -1.0)):
+			_dash_ellipse(ci, Vector2(e.x, e.y), e.rad * 1.15, e.rad * 1.15, Color(Kraft.FAM_COL["霊"], 0.7), 2 * SF)
+		if time < float(e.get("kwet", -1.0)):
+			for j in 3:
+				var dp = Vector2(e.x - e.rad * 0.6 + j * e.rad * 0.6, e.y + e.rad * 0.8 + fmod(time * 40 + j * 7, 14.0) * SF)
+				ci.draw_circle(dp, 2.6 * SF, Color(Kraft.FAM_COL["波"], 0.85))
+		if int(e.get("kbleed", 0)) > 0:
+			for j2 in 3:
+				var bp = Vector2(e.x - e.rad * 0.5 + j2 * e.rad * 0.5, e.y - e.rad * 0.95)
+				ci.draw_line(bp, bp + Vector2(0, 9 * SF), Color(0.75, 0.1, 0.05, 0.9), 3 * SF, true)
+		if float(e.get("slow", 0.0)) > 0 and float(e.get("kburn", 0.0)) <= 0:
+			pass
+	# 常にある技（回る光・結界・囲い）
+	var all_u: Array = []
+	for u0 in KU:
+		all_u.append(u0)
+		all_u.append_array(u0.subs)
+	for u in all_u:
+		var pr: Dictionary = u.pr
+		var col2: Color = Kraft.FAM_COL.get(pr.body, KD.SUMI)
+		match pr.kind:
+			"orbit":
+				# 光の字（日・月…）そのものが回る
+				for j in pr.C:
+					var p3 = hp0 + Vector2.from_angle(u.ang + TAU * j / pr.C) * (125 if u.has("par") else 110) * SF * pr.A
+					# 光の玉（字の分身は出さない）
+					glow(ci, p3, 40 * SF * pr.A, Color(1.0, 0.85, 0.4, 0.45))
+					ci.draw_circle(p3, 7 * SF * sqrt(pr.A), Color(1.0, 0.93, 0.7, 0.95))
+			"aura":
+				var R: float = 115 * SF * pr.A
+				ci.draw_circle(hp0, R, Color(col2, 0.07))
+				_dash_ellipse(ci, hp0, R, R, Color(col2, 0.5 + 0.2 * sin(time * 4)), 2 * SF)
+			"wall":
+				var R2: float = 80 * SF * pr.A
+				ci.draw_arc(hp0, R2, 0, TAU, 64, Color(col2, 0.55 + 0.4 * u.hitp), (5 + 4 * u.hitp) * SF, true)
+		if u.has("par"):
+			# 脇の部品は字を出さない（技の効果だけ）
+			continue
+		# 仲間の字（技の色の縁、当てた瞬間に膨らむ）
+		var sz: float = 34 * SF * (1.0 + 0.15 * u.hitp) * (1.0 + 0.04 * min(6.0, pr.T))
+		glow(ci, Vector2(u.x, u.y), sz * 1.2, Color(col2, 0.25))
+		glyph(ci, u.ch, Vector2(u.x, u.y), sz, KD.KIN, col2, 4)
+		if u.lv > 1:
+			txt(ci, UF, u.x + sz * 0.45, u.y + sz * 0.2, "%d" % u.lv, 11 * SF + 2, col2)
+
+
+## ======== 字の試験場: あらゆる字の性能を、字に囲まれた所で試す ========
+var kl_on := false
+var kl = {}
+const KL_SC = [
+	["囲まれる", "まわり一周から24の字が迫る"],
+	["群れ", "右から30の字が押し寄せる"],
+	["硬い字", "部品の多い大きな字が6つ"],
+	["速い字", "足の速い字が16、四方から"],
+	["湧き続ける", "字が絶えず湧く（毎秒の削りを見る）"],
+]
+
+func start_kl() -> void:
+	Kraft.load_db()
+	start()
+	lab_on = true
+	kl_on = true
+	next_boss = 1e9
+	banner = null
+	set_hint("", 0)
+	kl = {"q": "", "fam": "", "sel": 0, "top": 0, "list": [], "cur": "淡", "party": ["淡"], "lv": 1, "sc": 0,
+		"t": 0.0, "kills0": 0, "touch": 0, "done": -1.0, "hist": [], "n0": 0, "eat0": {}}
+	kl_filter()
+	kl.sel = max(0, kl.list.find("淡"))
+	kl_restart()
+
+func kl_filter() -> void:
+	var q: String = kl.q
+	var out: Array = []
+	for c in Kraft.ALL:
+		var k: Dictionary = Kraft.K[c]
+		if not Kraft.can_ally(c):
+			continue
+		if kl.fam != "" and k.b != kl.fam:
+			continue
+		if q != "" and not String(k.en).begins_with(q):
+			continue
+		out.append(c)
+	kl.list = out
+	kl.sel = clampi(kl.sel, 0, max(0, out.size() - 1))
+
+func kl_party_set(chs: Array) -> void:
+	kl.party = chs
+	kl_restart()
+
+func kl_restart() -> void:
+	lab_clear()
+	kraft_clear()
+	for c in kl.party:
+		kraft_add(c, kl.lv)
+	for u in KU:
+		u.x = hero.x; u.y = hero.y
+	dmg_by = {}
+	kl.t = 0.0
+	kl.kills0 = kills
+	kl.touch = 0
+	kl.done = -1.0
+	kl.spawned = 0
+	var hp0 = Vector2(hero.x, hero.y)
+	match int(kl.sc):
+		0:
+			for i in 24:
+				var an: float = TAU * i / 24.0
+				var e = spawn_enemy(kl_def(1, 3), hp0 + Vector2(cos(an) * 360, sin(an) * 270) * SF)
+				e.born = 1.0
+		1:
+			kl.stream = 30
+		2:
+			for i in 6:
+				var an2: float = TAU * i / 6.0
+				var e2 = spawn_enemy(kl_def(3, 9), hp0 + Vector2(cos(an2) * 340, sin(an2) * 260) * SF)
+				e2.born = 1.0
+		3:
+			for i in 16:
+				var an3: float = TAU * i / 16.0
+				var e3 = spawn_enemy(kl_def(1, 2), hp0 + Vector2(cos(an3) * 380, sin(an3) * 290) * SF, "fast")
+				e3.born = 1.0
+	kl.n0 = movers()
+
+## 試験場に出す字（相性の仕掛けのある字と撃ってくる字は除く）
+func kl_def(lo: int, hi: int):
+	var pool = KD.SPAWN_DEFS.filter(func(d): return d.lv >= lo and d.lv <= hi and counter_of(d.ch).is_empty() and not SHOOTERS.has(d.ch) and not ["氷", "岩", "毒", "闇", "霧", "鬼", "呪"].has(d.ch))
+	return pool.pick_random() if pool.size() else null
+
+func kl_tick(dt: float) -> void:
+	# 主人公を、左右の札のあいだの真ん中に見せる
+	var S: float = clamp(min(W / 1280.0, H / 800.0), 0.75, 1.2)
+	cam = Vector2(hero.x, hero.y) + Vector2((340 - 260) * S / 2, 50 * S)
+	hp = max_hp
+	pending_lv = 0
+	xp = 0
+	kl.t += dt
+	var hp0 = Vector2(hero.x, hero.y)
+	if int(kl.sc) == 1 and kl.get("stream", 0) > 0 and tick("kl_st", dt, 0.18):
+		kl.stream -= 1
+		var e = spawn_enemy(kl_def(1, 3), hp0 + Vector2(480 * SF, rnd(-240, 240) * SF))
+		e.born = 1.0
+	if int(kl.sc) == 4 and movers() < 26 and tick("kl_sp", dt, 0.25):
+		var an = rnd(0, TAU)
+		var e2 = spawn_enemy(kl_def(1, 3), hp0 + Vector2(cos(an) * 380, sin(an) * 290) * SF)
+		e2.born = 1.0
+	if kl.done < 0 and int(kl.sc) != 4 and kl.t > 1.0 and movers() == 0 and kl.get("stream", 0) <= 0:
+		kl.done = kl.t
+		kl_record()
+
+func kl_eaten() -> int:
+	var n = 0
+	for u in KU:
+		n += int(dmg_by.get(ku_tag(u), 0))
+	return n
+
+func kl_record() -> void:
+	var name = "".join(kl.party)
+	kl.hist.push_front({"who": name + ("" if kl.lv == 1 else " Lv%d" % kl.lv), "sc": KL_SC[kl.sc][0], "t": kl.done, "eat": kl_eaten(), "ps": kl_eaten() / max(0.5, kl.t), "touch": kl.touch})
+	if kl.hist.size() > 6:
+		kl.hist.pop_back()
+
+func kl_key(ev: InputEventKey) -> bool:
+	var kc: int = ev.keycode
+	if kc == KEY_ESCAPE:
+		kl_on = false
+		lab_on = false
+		kraft_clear()
+		to_title()
+		return true
+	if kc == KEY_UP or kc == KEY_DOWN:
+		kl.sel = clampi(kl.sel + (1 if kc == KEY_DOWN else -1), 0, max(0, kl.list.size() - 1))
+		if kl.list.size():
+			kl.cur = kl.list[kl.sel]
+		return true
+	if kc == KEY_PAGEUP or kc == KEY_PAGEDOWN:
+		kl.sel = clampi(kl.sel + (16 if kc == KEY_PAGEDOWN else -16), 0, max(0, kl.list.size() - 1))
+		if kl.list.size():
+			kl.cur = kl.list[kl.sel]
+		return true
+	if kc == KEY_ENTER or kc == KEY_KP_ENTER:
+		if kl.list.size():
+			kl.cur = kl.list[kl.sel]
+			if ev.shift_pressed:
+				kl_add(kl.cur)
+			else:
+				kl_party_set([kl.cur])
+		return true
+	if kc == KEY_TAB:
+		kl_add(kl.cur)
+		return true
+	if kc == KEY_LEFT or kc == KEY_RIGHT:
+		kl.lv = clampi(kl.lv + (1 if kc == KEY_RIGHT else -1), 1, 9)
+		kl_restart()
+		return true
+	if kc == KEY_SPACE:
+		kl_restart()
+		return true
+	if kc >= KEY_1 and kc <= KEY_5:
+		kl.sc = kc - KEY_1
+		kl_restart()
+		return true
+	if kc == KEY_BACKSPACE:
+		if kl.q != "":
+			kl.q = kl.q.substr(0, kl.q.length() - 1)
+			kl_filter()
+		return true
+	if kc == KEY_DELETE:
+		kl.q = ""
+		kl.fam = ""
+		kl_filter()
+		return true
+	var ch = ""
+	if ev.unicode >= 65 and ev.unicode <= 122:
+		ch = String.chr(ev.unicode).to_lower()
+	if ch >= "a" and ch <= "z" and ch.length() == 1:
+		kl.q += ch
+		kl.sel = 0
+		kl_filter()
+		if kl.list.size():
+			kl.cur = kl.list[0]
+		return true
+	return true
+
+func kl_add(c: String) -> void:
+	if kl.party.has(c):
+		return
+	if kl.party.size() >= 4:
+		kl.party.pop_front()
+	kl.party.append(c)
+	kl_restart()
+
+func kl_pick(i: int) -> void:
+	kl.sel = i
+	kl.cur = kl.list[i]
+	kl_party_set([kl.cur])
+
+func kl_set_fam(f: String) -> void:
+	kl.fam = "" if kl.fam == f else f
+	kl.sel = 0
+	kl_filter()
+
+func kl_set_sc(i: int) -> void:
+	kl.sc = i
+	kl_restart()
+
+func kl_lv(d: int) -> void:
+	kl.lv = clampi(kl.lv + d, 1, 9)
+	kl_restart()
+
+func kl_remove(c: String) -> void:
+	kl.party.erase(c)
+	kl_restart()
+
+func _kl_card(ci: CanvasItem, ch: String, x: float, y: float, w: float, S: float) -> float:
+	var k: Dictionary = Kraft.K.get(ch, {})
+	if k.is_empty():
+		return y
+	var pr: Dictionary = Kraft.prof(ch, kl.lv)
+	var col: Color = Kraft.FAM_COL.get(pr.body, KD.SUMI)
+	glyph(ci, ch, Vector2(x + 50 * S, y + 50 * S), 86 * S, KD.SUMI)
+	txt(ci, PF, x + 104 * S, y + 6 * S, String(k.en), 20 * S, KD.SUMI)
+	txt(ci, UF, x + 104 * S, y + 34 * S, String(k.jp) + "　%d画" % int(k.stk), 12 * S, Color(KD.SUMI, 0.7))
+	var bd: Array = Kraft.BODY[pr.body]
+	ci.draw_rect(Rect2(x + 104 * S, y + 58 * S, w - 104 * S, 30 * S), Color(col, 0.12))
+	txt(ci, UF, x + 112 * S, y + 63 * S, "本体  %s ─ %s" % [pr.body, bd[1]], 15 * S, col)
+	y += 100 * S
+	y += wrap_text(ci, UF, x, y, String(bd[2]), w, 12 * S, KD.SUMI, 2) + 8 * S
+	# 組み立て
+	var ops: Array = k.op
+	var made: String = ("%s ＝ %s ＋ %s" % [ch, ops[0], ops[1]]) if ops.size() == 2 else "%s（これ以上は組めない素の字）" % ch
+	txt(ci, UF, x, y, made, 14 * S, KD.SUMI)
+	y += 24 * S
+	# 素（葉）: 系統の色で。どの能力値を上げたか
+	txt(ci, UF, x, y + 4 * S, "素", 12 * S, Color(KD.SUMI, 0.6))
+	var xx: float = x + 26 * S
+	for c in k.lv:
+		var f: String = Kraft.fam_of(c)
+		var cc: Color = Kraft.FAM_COL.get(f, Color(KD.SUMI, 0.35))
+		if xx > x + w - 40 * S:
+			y += 40 * S
+			xx = x + 26 * S
+		ci.draw_rect(Rect2(xx, y, 38 * S, 36 * S), Color(cc, 0.12))
+		glyph(ci, c, Vector2(xx + 19 * S, y + 14 * S), 22 * S, cc if f != "" else Color(KD.SUMI, 0.45))
+		var lab: String = Kraft.STAT_JP.get(Kraft.FAM[f].stat, "") if f != "" else "－"
+		txt(ci, UF, xx + 19 * S, y + 25 * S, lab, 9 * S, cc, 1)
+		xx += 42 * S
+	y += 46 * S
+	# 技: 本体と、脇の部品の技
+	if pr.rid.is_empty():
+		txt(ci, UF, x, y, "脇の技: なし（部品が一つの字）", 12 * S, Color(KD.SUMI, 0.55))
+		y += 20 * S
+	else:
+		for f in pr.rid:
+			var rc: Color = Kraft.FAM_COL[f]
+			var bb: Array = Kraft.BODY[f]
+			ci.draw_rect(Rect2(x, y, 4 * S, 34 * S), rc)
+			txt(ci, UF, x + 10 * S, y, "脇の技  %s ×%d（%s）" % [bb[1], pr.rid[f], f], 13 * S, rc)
+			wrap_text(ci, UF, x + 10 * S, y + 17 * S, bb[2], w - 10 * S, 10 * S, Color(KD.SUMI, 0.7), 1)
+			y += 38 * S
+	txt(ci, UF, x, y, "格 %.1f（素の数。高いほど全体が強い）　Lv %d" % [pr.T, kl.lv], 12 * S, Color(KD.SUMI, 0.75))
+	y += 22 * S
+	# 能力値
+	for st in Kraft.STATS:
+		var v: float = pr.s[st]
+		txt(ci, UF, x, y, Kraft.STAT_JP[st], 12 * S, KD.SUMI)
+		var bx: float = x + 44 * S
+		var bw: float = w - 150 * S
+		ci.draw_rect(Rect2(bx, y + 3 * S, bw, 10 * S), Color(KD.SUMI, 0.08))
+		for j in int(v):
+			ci.draw_rect(Rect2(bx + j * (bw / 6.0), y + 3 * S, bw / 6.0 - 2 * S, 10 * S), col)
+		txt(ci, UF, x + w, y, Kraft.stat_meaning(pr, st), 11 * S, Color(KD.SUMI, 0.75), 2)
+		y += 19 * S
+	y += 6 * S
+	var uses: Array = Kraft.USES.get(ch, [])
+	if uses.size():
+		y += wrap_text(ci, UF, x, y, "この字を材料に（%d）: %s" % [uses.size(), "".join(uses.slice(0, 28))], w, 12 * S, Color(KD.SUMI, 0.75), 3)
+	return y
+
+func _draw_kl(ci: CanvasItem) -> void:
+	var S: float = clamp(min(W / 1280.0, H / 800.0), 0.75, 1.2)
+	var lw: float = 260 * S
+	var rw: float = 340 * S
+	# ---- 左: 字の一覧 ----
+	ci.draw_rect(Rect2(0, 0, lw, H), Color(KD.WASHI, 0.96))
+	ci.draw_line(Vector2(lw, 0), Vector2(lw, H), Color(KD.SUMI, 0.3), 1)
+	txt(ci, UF, 14 * S, 10 * S, "字の試験場", 20 * S, KD.SHU)
+	txt(ci, UF, 14 * S, 38 * S, "%d字（全%d字）" % [kl.list.size(), Kraft.ALL.size()], 11 * S, Color(KD.SUMI, 0.6))
+	ci.draw_rect(Rect2(14 * S, 58 * S, lw - 28 * S, 28 * S), Color(1, 1, 1, 0.8))
+	ci.draw_rect(Rect2(14 * S, 58 * S, lw - 28 * S, 28 * S), Color(KD.SUMI, 0.4), false, 1)
+	txt(ci, PF, 22 * S, 62 * S, kl.q if kl.q != "" else "英語で探す（打つ）", 14 * S, KD.SUMI if kl.q != "" else Color(KD.SUMI, 0.4))
+	# 系統で絞る
+	var fx: float = 14 * S
+	var fy: float = 94 * S
+	for f in Kraft.BODY:
+		var r = Rect2(fx, fy, 36 * S, 30 * S)
+		var on: bool = kl.fam == f
+		var col: Color = Kraft.FAM_COL[f]
+		ci.draw_rect(r, col if on else Color(col, 0.12))
+		txt(ci, UF, r.get_center().x, fy + 5 * S, f, 15 * S, KD.WASHI if on else col, 1)
+		buttons.append([r, kl_set_fam.bind(f)])
+		fx += 39 * S
+		if fx > lw - 40 * S:
+			fx = 14 * S
+			fy += 33 * S
+	var ly: float = fy + 40 * S
+	var rh: float = 30 * S
+	var rows: int = int((H - ly - 10 * S) / rh)
+	if kl.sel < kl.top:
+		kl.top = kl.sel
+	if kl.sel >= kl.top + rows:
+		kl.top = kl.sel - rows + 1
+	for i in range(kl.top, min(kl.list.size(), kl.top + rows)):
+		var c: String = kl.list[i]
+		var k: Dictionary = Kraft.K[c]
+		var r2 = Rect2(8 * S, ly, lw - 16 * S, rh - 2 * S)
+		if i == kl.sel:
+			ci.draw_rect(r2, Color(KD.SHU, 0.14))
+		if kl.party.has(c):
+			ci.draw_rect(r2, Color(KD.KIN, 0.9), false, 2)
+		glyph(ci, c, Vector2(r2.position.x + 16 * S, r2.get_center().y), 22 * S, KD.SUMI)
+		txt(ci, PF, r2.position.x + 36 * S, ly + 6 * S, String(k.en), 12 * S, KD.SUMI)
+		var col2: Color = Kraft.FAM_COL.get(k.b, KD.SUMI)
+		txt(ci, UF, r2.end.x - 6 * S, ly + 5 * S, k.b, 13 * S, col2, 2)
+		txt(ci, UF, r2.end.x - 28 * S, ly + 8 * S, "%d" % k.lv.size(), 10 * S, Color(KD.SUMI, 0.45), 2)
+		buttons.append([r2, kl_pick.bind(i)])
+		ly += rh
+	# ---- 右: 字の性能 ----
+	var rx: float = W - rw
+	ci.draw_rect(Rect2(rx, 0, rw, H), Color(KD.WASHI, 0.96))
+	ci.draw_line(Vector2(rx, 0), Vector2(rx, H), Color(KD.SUMI, 0.3), 1)
+	var y: float = _kl_card(ci, kl.cur, rx + 14 * S, 12 * S, rw - 28 * S, S)
+	# いまの仲間
+	y = max(y + 10 * S, H - 150 * S)
+	txt(ci, UF, rx + 14 * S, y, "試している字（Enter 入れかえ／Tab 足す・4つまで）", 11 * S, Color(KD.SUMI, 0.6))
+	y += 20 * S
+	var px: float = rx + 14 * S
+	for c in kl.party:
+		var r3 = Rect2(px, y, 70 * S, 62 * S)
+		ci.draw_rect(r3, Color(1, 1, 1, 0.7))
+		ci.draw_rect(r3, Color(KD.KIN, 0.9), false, 2)
+		glyph(ci, c, r3.get_center() - Vector2(0, 6 * S), 36 * S, KD.SUMI)
+		var n: int = int(dmg_by.get("K:" + c, 0))
+		txt(ci, UF, r3.get_center().x, r3.end.y - 16 * S, "%d字削" % n, 10 * S, KD.SHU, 1)
+		buttons.append([Rect2(r3.end.x - 18 * S, r3.position.y, 18 * S, 18 * S), kl_remove.bind(c)])
+		txt(ci, UF, r3.end.x - 9 * S, r3.position.y + 1 * S, "×", 12 * S, Color(KD.SUMI, 0.6), 1)
+		px += 76 * S
+	y += 70 * S
+	button(ci, Rect2(rx + 14 * S, y, 40 * S, 30 * S), "−", kl_lv.bind(-1), "ghost")
+	txt(ci, UF, rx + 64 * S, y + 6 * S, "Lv %d（←→）" % kl.lv, 13 * S, KD.SUMI)
+	button(ci, Rect2(rx + 160 * S, y, 40 * S, 30 * S), "＋", kl_lv.bind(1), "ghost")
+	# ---- 下: 場面と、結果 ----
+	var bx: float = lw + 12 * S
+	var bw: float = rx - lw - 24 * S
+	var by: float = H - 132 * S
+	ci.draw_rect(Rect2(lw, by - 8 * S, rx - lw, H - by + 8 * S), Color(KD.WASHI, 0.9))
+	var sw: float = bw / KL_SC.size()
+	for i in KL_SC.size():
+		var r4 = Rect2(bx + i * sw, by, sw - 6 * S, 34 * S)
+		var on2: bool = int(kl.sc) == i
+		ci.draw_rect(r4, KD.SUMI if on2 else Color(1, 1, 1, 0.7))
+		ci.draw_rect(r4, KD.SUMI, false, 1.5)
+		txt(ci, UF, r4.get_center().x, by + 8 * S, "%d %s" % [i + 1, KL_SC[i][0]], 13 * S, KD.WASHI if on2 else KD.SUMI, 1)
+		buttons.append([r4, kl_set_sc.bind(i)])
+	by += 42 * S
+	var eat: int = kl_eaten()
+	var kd: int = kills - int(kl.kills0)
+	var st: String
+	if int(kl.sc) == 4:
+		st = "削った文字 %d　毎秒 %.1f　崩した字 %d　主人公に触れた %d" % [eat, eat / max(0.5, kl.t), kd, kl.touch]
+	elif kl.done >= 0:
+		st = "全滅まで %.1f秒　削った文字 %d　毎秒 %.1f　主人公に触れた %d" % [kl.done, eat, eat / max(0.5, kl.done), kl.touch]
+	else:
+		st = "%.1f秒　残り %d　削った文字 %d　毎秒 %.1f　主人公に触れた %d" % [kl.t, movers() + int(kl.get("stream", 0)), eat, eat / max(0.5, kl.t), kl.touch]
+	txt(ci, UF, bx, by, st, 15 * S, KD.SHU if kl.done >= 0 else KD.SUMI)
+	txt(ci, UF, bx, by + 22 * S, KL_SC[kl.sc][1] + "　　Space もう一度　1〜5 場面　↑↓ 字を選ぶ　Esc 戻る", 11 * S, Color(KD.SUMI, 0.6))
+	var hy: float = by + 42 * S
+	var hx: float = bx
+	for h in kl.hist.slice(0, 3):
+		txt(ci, UF, hx, hy, "%s %s %.1f秒 毎秒%.1f" % [h.who, h.sc, h.t, h.ps], 11 * S, Color(KD.SUMI, 0.7))
+		hx += bw / 3.0
 
 ## ---- 仲間どうしの合体 ----
 var FUSE_FX: Array = []
@@ -3656,13 +5945,12 @@ func _place_fused(id: String, p: Vector2) -> void:
 		ALLY[id].x = p.x
 		ALLY[id].y = p.y
 
-func _after_fuse(res: String) -> void:
-	# 主人公は進化しない。合体した字がさらに合体できるなら続けて合体する
-	var fz: Array = find_ally_fuse(res)
-	if fz.size() and state == "play":
-		do_ally_fuse(fz)
+func _after_fuse(_res: String) -> void:
+	# 合体は自動で続かない（作字台で自分で作る）
+	pass
 
 func _draw_fuse_fx(ci: CanvasItem) -> void:
+	_draw_states(ci)
 	_draw_revive(ci)
 	# 囚われのひらがなの檻
 	for e in E:
@@ -3792,7 +6080,11 @@ func _end_cine() -> void:
 
 # ---------- 流れ ----------
 func start() -> void:
+	lab_on = false
+	kl_on = false
+	devmap = false
 	reset()
+	kraft_clear()
 	state = "play"
 	for i in 3:
 		var a = -1.2 + i * 1.2
@@ -3879,7 +6171,7 @@ func auto_pick():
 			if evo_status(c.id).size():
 				return c
 		return cards.pick_random()
-	var list = typables().filter(func(t): return not t.get("dirm", false))
+	var list = typables().filter(func(t): return not t.get("dirm", false) and not ((t.get("ch", "") == "岩" or t.get("ch", "") == "氷") and not has_counter(t.ch)))
 	if list.is_empty():
 		return null
 	for t in list:
@@ -3952,6 +6244,20 @@ func auto_tick(dt: float) -> void:
 			start()
 			set_auto(true)
 		return
+	if state == "craft":
+		# 自動操作: 作れる字を一つ作って閉じる
+		if craft.fx == null:
+			var lst: Array = craft_list()
+			if lst.size():
+				_craft_pick(lst[lst.size() - 1][1], lst[lst.size() - 1][2])
+			else:
+				close_craft()
+		elif craft.fx.t > 1.2:
+			close_craft()
+		return
+	if state == "play" and not lab_on and not watch_mode and tick("auto_craft", dt, 12.0) and craft_list().size():
+		open_craft()
+		return
 	if state != "play" and state != "levelup":
 		auto_lv_open = false
 		return
@@ -3999,8 +6305,21 @@ func _input(ev: InputEvent) -> void:
 		if (ev is InputEventKey and ev.pressed) or (ev is InputEventMouseButton and ev.pressed):
 			to_title()
 		return
+	if ev is InputEventKey and ev.pressed and kl_on and state == "play":
+		kl_key(ev)
+		get_viewport().set_input_as_handled()
+		return
+	if ev is InputEventKey and ev.pressed and state == "craft":
+		if not ev.echo or ev.keycode in [KEY_LEFT, KEY_RIGHT, KEY_UP, KEY_DOWN, KEY_BACKSPACE]:
+			craft_key(ev)
+		get_viewport().set_input_as_handled()
+		return
 	if ev is InputEventKey and ev.pressed:
 		var kc: int = ev.keycode
+		if kc == KEY_TAB and state == "play" and not lab_on:
+			open_craft()
+			get_viewport().set_input_as_handled()
+			return
 		if kc == KEY_ENTER or kc == KEY_KP_ENTER:
 			if state == "title":
 				_watch() if watch_mode else start()
@@ -4009,6 +6328,27 @@ func _input(ev: InputEvent) -> void:
 			elif state == "paused":
 				toggle_pause()
 			return
+		if kc == KEY_F2 and (state == "play" or state == "paused"):
+			devmap = not devmap
+			return
+		if devmap and (kc == KEY_EQUAL or kc == KEY_KP_ADD):
+			devmap_z = min(4.0, devmap_z * 1.25)
+			return
+		if devmap and (kc == KEY_MINUS or kc == KEY_KP_SUBTRACT):
+			devmap_z = max(0.25, devmap_z / 1.25)
+			return
+		if lab_on and state == "play":
+			if kc == KEY_TAB:
+				lab_next(-1 if ev.shift_pressed else 1)
+				get_viewport().set_input_as_handled()
+				return
+			if kc == KEY_SPACE:
+				lab_toggle()
+				get_viewport().set_input_as_handled()
+				return
+			if kc == KEY_F1:
+				lab_switch()
+				return
 		if kc == KEY_F6:
 			if state != "title":
 				set_auto(not auto_on)
@@ -4227,7 +6567,7 @@ func _sync_visuals(dt: float) -> void:
 			# 画面の外の字は描かない（処理を軽くする）
 			spr.visible = false
 			continue
-		spr.visible = e.get("obj", "") != "kana"   # 檻の中のかなは檻と一緒に描く
+		spr.visible = e.get("obj", "") != "kana" and not e.get("hidden", false)   # 檻の中のかな・姿を消した鬼は描かない
 		var s: float = e.size
 		if e.has("pop_t0"):
 			var pk: float = clamp((time - float(e.pop_t0)) / 0.7, 0.0, 1.0)
@@ -4596,6 +6936,7 @@ func _draw_fx(ci: CanvasItem) -> void:
 	var ink = ink_col()
 	var paper = paper_col()
 	_draw_fuse_fx(ci)
+	_draw_kraft(ci)
 	# 燃えている字に小さな火
 	for e in E:
 		if e.alive and e.get("burn", 0.0) > 0 and on_view(e.x, e.y, 40):
@@ -4627,6 +6968,8 @@ func _draw_fx(ci: CanvasItem) -> void:
 			ci.draw_arc(Vector2(g.x, g.y), R * 1.1, 0, TAU, 40, Color(KD.KIN, 0.5 * g.hitp), 3 * SF, true)
 		var ch: String = ["木", "林", "森"][st]
 		var sz: float = R * 2.1 * (1.0 + g.hitp * 0.06)
+		if sz < 2.0:
+			continue
 		# 根元から縦に伸びる
 		glyph(ci, ch, Vector2(g.x, g.y + sz * 0.5 * (1.0 - grow)), sz, Color(gc, fade), Color(paper, 0.85 * fade), 6, 0.0, Vector2(1.0 - (1.0 - grow) * 0.3, max(0.02, grow)))
 	# 水の字が跳ねる
@@ -4741,6 +7084,8 @@ func _draw_labels(ci: CanvasItem) -> void:
 		# 群れは同じ単語なので、札は頭にだけ出す（打てば群れ全員へ順に斬りかかる）
 		if e.has("grp") and not e.get("lead", false):
 			continue
+		if e.get("hidden", false) or fogged(e):
+			continue
 		if e.get("rest", 0.0) > 0:
 			# 使った名所: 名前と、また使えるまでの秒数を小さく
 			var aic0 = KD.AIN if night > 0.5 else KD.AI
@@ -4806,8 +7151,9 @@ func _draw_crack(ci: CanvasItem, e: Dictionary) -> void:
 
 # ---------- 画面に固定: 漢詩の帯・閃光・被弾 ----------
 func _draw_screen_fx(ci: CanvasItem) -> void:
-	var playing = state == "play" or state == "paused" or state == "levelup" or state == "choosing" or state == "dying"
+	var playing = state == "play" or state == "paused" or state == "craft" or state == "levelup" or state == "choosing" or state == "dying"
 	if playing:
+		_draw_darkness(ci)
 		_draw_field_marks(ci)
 	if boss != null and playing:
 		_draw_dark(ci)
@@ -4953,7 +7299,7 @@ func _draw_poem_band(ci: CanvasItem) -> void:
 			if is_l and n > 0:
 				n -= 1
 	# 蚩尤が画面の外にいる時は、縁に朱の印で方角を示す
-	if false:
+	if oni != null and not oni.has("dead") and (abs(oni.x - cam.x) > W / 2 or abs(oni.y - cam.y) > H / 2):
 		var C = Vector2(W / 2, H / 2)
 		var u = Vector2(oni.x - cam.x, oni.y - cam.y).normalized()
 		var k: float = min((W / 2 - 40) / max(0.001, abs(u.x)), (H / 2 - 40) / max(0.001, abs(u.y)))
@@ -4999,18 +7345,127 @@ func _draw_ui(ci: CanvasItem) -> void:
 	if state == "title":
 		_draw_title(ci)
 		return
-	if state != "over":
+	if kl_on and (state == "play" or state == "paused"):
+		_draw_kl(ci)
+	elif state != "over":
 		_draw_hud(ci)
+		if state == "play" and not lab_on:
+			_draw_craft_btn(ci)
+		if lab_on and (state == "play" or state == "paused"):
+			_draw_lab(ci)
 	if state == "levelup" or state == "choosing":
 		_draw_fuse(ci)
 	if state == "fusion":
 		_draw_cine(ci)
 	if state == "paused":
 		_draw_pause(ci)
+	if state == "craft":
+		_draw_craft(ci)
 	if state == "over":
 		_draw_over(ci)
-	if banner != null:
+	if banner != null and state != "craft":
 		_draw_banner(ci)
+	if devmap and state != "title" and state != "intro":
+		_draw_devmap(ci)
+
+## ---- 開発用の全体マップ（F2）: 景の配置・いまの字・出る字の一覧 ----
+func _draw_devmap(ci: CanvasItem) -> void:
+	ci.draw_rect(Rect2(0, 0, W, H), Color(0.93, 0.91, 0.86, 1.0))
+	var mw: float = W * 0.66
+	var c0 = Vector2(mw / 2, H / 2)
+	var span: float = 9.0 / devmap_z   # 見える区画の数（横）
+	var sc: float = mw / (span * CHS())
+	var center = Vector2(hero.x, hero.y)
+	var to_s = func(p: Vector2) -> Vector2: return c0 + (p - center) * sc
+	# 区画の格子
+	var kx0 = floori((center.x - span * CHS() / 2) / CHS())
+	var ky0 = floori((center.y - span * 0.6 * CHS()) / CHS())
+	for kx in range(kx0, kx0 + int(span) + 2):
+		var x: float = to_s.call(Vector2(kx * CHS(), 0)).x
+		ci.draw_line(Vector2(x, 0), Vector2(x, H), Color(KD.SUMI, 0.12), 1)
+	for ky in range(ky0, ky0 + int(span) + 2):
+		var y: float = to_s.call(Vector2(0, ky * CHS())).y
+		ci.draw_line(Vector2(0, y), Vector2(mw, y), Color(KD.SUMI, 0.12), 1)
+	# 出発点
+	var so: Vector2 = to_s.call(stage_origin)
+	ci.draw_circle(so, 5, KD.SHU)
+	txt(ci, UF, so.x + 8, so.y - 8, "出発点", 10, KD.SHU)
+	# 川
+	for r in RIVERS:
+		var a: Vector2 = to_s.call(Vector2(r.x0, r.y - r.h / 2))
+		var b: Vector2 = to_s.call(Vector2(r.x1, r.y + r.h / 2))
+		ci.draw_rect(Rect2(a, b - a), Color(KD.AI, 0.35))
+	# 景の配置（まだ置かれていないものも、予定として出す）
+	var items: Array = map_items()
+	for i in items.size():
+		var it: Dictionary = items[i]
+		var p: Vector2 = to_s.call(map_pos(it))
+		var done: bool = map_done.has("%d:%d" % [stage_i(), i])
+		var col: Color = KD.SHU if it.kind == "guard" else (KD.KIN if it.kind == "obj" else (KD.AI if it.kind == "river" else KD.SUMI))
+		if it.kind == "river":
+			var a2: Vector2 = to_s.call(stage_origin + Vector2(float(it.x), float(it.y)) * CHS())
+			var b2: Vector2 = to_s.call(stage_origin + Vector2(float(it.x1), float(it.y)) * CHS())
+			ci.draw_line(a2, b2, Color(KD.AI, 0.6), 6)
+			txt(ci, UF, a2.x + 4, a2.y - 16, it.note, 10, KD.AI)
+			continue
+		ci.draw_circle(p, 14, Color(col, 0.18 if done else 0.35))
+		ci.draw_arc(p, 14, 0, TAU, 24, Color(col, 0.9), 1.5, true)
+		glyph(ci, String(it.get("ch", "岩")), p, 18, col)
+		var ly: float = p.y + 20 if it.kind == "obj" else p.y - 7
+		txt(ci, UF, p.x + (-10 if it.kind == "obj" else 16), ly, String(it.note) + ("" if done else "（未配置）"), 10, Color(KD.SUMI, 0.85))
+	# いまいる字
+	for e in E:
+		if not e.alive:
+			continue
+		var pe: Vector2 = to_s.call(Vector2(e.x, e.y))
+		if pe.x < 0 or pe.x > mw or pe.y < 0 or pe.y > H:
+			continue
+		if e.get("still", false):
+			ci.draw_circle(pe, 2, Color(0.4, 0.5, 0.35, 0.6))
+		else:
+			ci.draw_circle(pe, 3, Color(KD.SHU, 0.8))
+	# 主人公と画面の範囲
+	var hp_s: Vector2 = to_s.call(center)
+	ci.draw_rect(Rect2(hp_s - Vector2(W, H) * sc / 2, Vector2(W, H) * sc), Color(KD.SUMI, 0.6), false, 1.5)
+	Oracle.draw(ci, form, hp_s, 20, KD.SHU, {"lw": 2.5})
+	# 右の札: 景の情報と出る字
+	var px: float = mw + 16
+	ci.draw_rect(Rect2(mw, 0, W - mw, H), Color(KD.WASHI, 1))
+	ci.draw_line(Vector2(mw, 0), Vector2(mw, H), KD.SUMI, 2)
+	var st = KD.D.get("STAGES", [])
+	var sd: Dictionary = st[stage_i()] if stage_i() < st.size() else {}
+	var y: float = 14
+	txt(ci, DF, px, y, "全体マップ（開発用）", 18, KD.SHU)
+	y += 30
+	txt(ci, UF, px, y, String(sd.get("title", "")) + "　時間 " + KD.fmt_t(time) + "　次の漢詩 " + (KD.fmt_t(next_boss) if next_boss < 1e8 else "—"), 12, KD.SUMI)
+	y += 22
+	y += wrap_text(ci, UF, px, y, String(sd.get("concept", "")), W - mw - 32, 11, Color(KD.SUMI, 0.8), 4) + 8
+	txt(ci, UF, px, y, "波: 静10秒 → 増20秒 → 群7秒 → 凪7秒（くり返し）", 11, KD.SUMI)
+	y += 20
+	var pool: Array = []
+	for c in sd.get("pool", []):
+		if not pool.has(c):
+			pool.append(c)
+	var foes = pool.filter(func(c): return not counter_of(c).is_empty())
+	var shooters = pool.filter(func(c): return SHOOTERS.has(c))
+	txt(ci, UF, px, y, "出る字（%d）" % pool.size(), 12, KD.SHU)
+	y += 18
+	y += wrap_text(ci, GF, px, y, "".join(pool), W - mw - 32, 16, KD.SUMI, 6) + 6
+	txt(ci, UF, px, y, "困った字と、解く仲間", 12, KD.SHU)
+	y += 18
+	for f in foes:
+		var cc = counter_of(f)
+		var dd: String = String(cc.d)
+		txt(ci, UF, px, y, "%s → %s　%s" % [f, "・".join(cc.by), dd.substr(0, 24) + ("…" if dd.length() > 24 else "")], 10, KD.SUMI)
+		y += 15
+	y += 6
+	txt(ci, UF, px, y, "持っている魂: " + "".join(souls.keys()), 10, Color(KD.SUMI, 0.8))
+	y += 15
+	txt(ci, UF, px, y, "仲間: " + "".join(owned.keys()), 10, Color(KD.SUMI, 0.8))
+	y += 22
+	txt(ci, UF, px, y, "凡例: 朱=待ち伏せの字　金=宝　墨=岩・群生　藍=川", 10, Color(KD.SUMI, 0.7))
+	y += 15
+	txt(ci, UF, px, y, "F2 で閉じる　＋／− で拡大・縮小　配置は data/game.json の MAPS", 10, Color(KD.SUMI, 0.7))
 
 func _draw_dirs(ci: CanvasItem) -> void:
 	if state != "play" and state != "paused":
@@ -5177,7 +7632,7 @@ func _draw_title(ci: CanvasItem) -> void:
 	txt(ci, DF, x0 + ls * 1.75, y + ls * 0.02, "字", ls * 0.9, KD.WASHI, 1)
 	txt(ci, DF, x0 + ls * 2.45, y + ls * 0.02, "SURVIVOR", ls * 0.9, KD.SUMI)
 	y += ls * 1.1 + 18 * S
-	var lede = "原稿用紙の上で、すべての漢字が生き物になった。犬は駆け、蛇はうねり、火は揺らめき、木は風にしなる。字の下の英単語を打ち切ると、主人公がその字へ突っ込んで斬る。一撃ごとに字の部品がはがれて別の字になり（森→林→木）、最後の部品を崩すと消える。手に入れた字と組み合わさると、主人公はその場で漢字へ進化する（人＋木＝休）。ヒロインの「魚」は、やがて降りてくる巨大な漢詩に囚われている。"
+	var lede = "原稿用紙の上で、すべての漢字が生き物になった。犬は駆け、蛇はうねり、火は揺らめき、木は風にしなる。字の下の英単語を打ち切ると、主人公がその字へ突っ込んで斬る。一撃ごとに字の部品がはがれて別の字になり（森→林→木）、最後の部品を崩すと消える。倒した字の魂を「字魂転生」でよみがえらせて仲間にし、仲間どうしを合体させて強くする（木＋木＝林、火＋戌＝烕）。主人公はずっと象形文字のまま。ヒロインの「魚」は、やがて降りてくる巨大な漢詩に囚われている。"
 	y += wrap_text(ci, UF, x0, y, lede, min(W - x0 * 2, 820 * S), 14 * S, KD.SUMI) + 14 * S
 	txt(ci, UF, x0, y, "主人公", 12 * S, KD.SUMI)
 	txt(ci, UF, x0 + 56 * S, y, "英単語を打つか、クリックで選ぶ", 12 * S, Color(KD.SUMI, 0.7))
@@ -5229,6 +7684,9 @@ func _draw_title(ci: CanvasItem) -> void:
 	y += 52 * S
 	button(ci, Rect2(x0, y, 150 * S, 52 * S), "始める", _watch if watch_mode else start)
 	button(ci, Rect2(x0 + 176 * S, y + 4 * S, 170 * S, 44 * S), "自動戦闘で観る", _watch, "ghost")
+	button(ci, Rect2(x0 + 176 * S, y + 52 * S, 170 * S, 36 * S), "効果の試験場", start_lab, "ghost")
+	button(ci, Rect2(x0 + 356 * S, y + 52 * S, 150 * S, 36 * S), "全体マップ", _open_devmap, "ghost")
+	button(ci, Rect2(x0 + 516 * S, y + 52 * S, 170 * S, 36 * S), "字の試験場", start_kl, "main")
 	if watch_mode:
 		var wt = "自動戦闘で観る — 主人公を選んで「始める」か Enter"
 		var ww = tw(UF, wt, 13 * S) + 28 * S
@@ -5236,8 +7694,8 @@ func _draw_title(ci: CanvasItem) -> void:
 		txt(ci, UF, x0 + 382 * S, y + 16 * S, wt, 13 * S, KD.WASHI)
 	else:
 		txt(ci, UF, x0 + 368 * S, y + 16 * S, "Enter で開始　｜　最高記録 " + (KD.fmt_t(meta.best) if float(meta.get("best", 0)) > 0 else "—"), 12 * S, KD.SUMI)
-	y += 70 * S
-	wrap_text(ci, UF, x0, y, "甲骨文字形: oracle-bone-jgw-1203 — Qing-sheng Li & Yu-lin Bian, github.com/aylqs2025/oracle-bone-jgw-1203, CC BY 4.0（線データを描画用に変形）。フォント: Zen Old Mincho / Zen Kaku Gothic New / Dela Gothic One / JetBrains Mono / Noto Serif（SIL OFL）。プロトタイプ。", min(W - x0 * 2, 900 * S), 10 * S, Color(KD.SUMI, 0.6))
+	y += 100 * S
+	wrap_text(ci, UF, x0, y, "甲骨文字形: oracle-bone-jgw-1203 — Qing-sheng Li & Yu-lin Bian, github.com/aylqs2025/oracle-bone-jgw-1203, CC BY 4.0（線データを描画用に変形）。フォント: Zen Old Mincho / Zen Kaku Gothic New / Dela Gothic One / JetBrains Mono / Noto Serif（SIL OFL）。字の組み立て: CHISE IDS（cjkvi-ids）、英語の意味: KANJIDIC2（EDRDG, CC BY-SA 4.0）。プロトタイプ。", min(W - x0 * 2, 900 * S), 10 * S, Color(KD.SUMI, 0.6))
 
 func _dash_rect(ci: CanvasItem, r: Rect2, col: Color) -> void:
 	var seg = 8.0
@@ -5266,6 +7724,9 @@ func _allies_card(ci: CanvasItem, r: Rect2, S: float) -> void:
 	ci.draw_rect(r, KD.SUMI, false, 3)
 	txt(ci, UF, r.get_center().x, r.position.y + 14 * S, "使役している仲間", 12 * S, KD.SUMI, 1)
 	var ids = owned.keys().filter(func(id): return id != "命" and not absorbed.has(id))
+	for u in KU:
+		if not ids.has(u.ch):
+			ids.append(u.ch)
 	if ids.is_empty():
 		txt(ci, UF, r.get_center().x, r.position.y + 130 * S, "まだいない", 14 * S, Color(KD.SUMI, 0.5), 1)
 		return
@@ -5274,9 +7735,9 @@ func _allies_card(ci: CanvasItem, r: Rect2, S: float) -> void:
 	for i in ids.size():
 		var id: String = ids[i]
 		var c = Vector2(r.position.x + 12 * S + cw * (i % cols + 0.5), r.position.y + 70 * S + int(i / cols) * 74 * S)
-		var fused: bool = not KD.fuse_of(id).is_empty()
-		glyph(ci, id, c, 48 * S, KD.KIN if fused else KD.AI, Color(KD.WASHI, 0.9), 3)
-		txt(ci, UF, c.x, c.y + 26 * S, "●".repeat(L(id)) if not fused else "合体", 8 * S, KD.SHU, 1)
+		var kl2: int = k_lv(id)
+		glyph(ci, id, c, 48 * S, KD.KIN if kl2 > 0 else KD.AI, Color(KD.WASHI, 0.9), 3)
+		txt(ci, UF, c.x, c.y + 26 * S, "●".repeat(max(L(id), kl2)), 8 * S, KD.SHU, 1)
 
 func _hero_card(ci: CanvasItem, r: Rect2, S: float) -> void:
 	ci.draw_rect(Rect2(r.position + Vector2(7, 7), r.size), KD.SUMI)
@@ -5302,7 +7763,7 @@ func _draw_fuse(ci: CanvasItem) -> void:
 	var x0: float = max(24.0, (W - 1100 * S) / 2)
 	var y0 = 70.0 * S
 	txt(ci, DF, x0, y0 - 14 * S, "字魂転生", 54 * S, KD.SHU)
-	txt(ci, UF, x0 + 250 * S, y0 + 12 * S, "倒した字の魂を一つ選んで、仲間としてよみがえらせる — 英単語を打ち切る。朱の枠は仲間どうしの合体素材", 13 * S, KD.SUMI)
+	txt(ci, UF, x0 + 250 * S, y0 + 12 * S, "倒した字の魂を一つ選んで、仲間としてよみがえらせる — 英単語を打ち切る。朱の枠は自機の字・作字の素材", 13 * S, KD.SUMI)
 	var top = y0 + 70 * S
 	var me = Rect2(x0, top + 70 * S, 290 * S, 300 * S)
 	_allies_card(ci, me, S)
@@ -5331,7 +7792,7 @@ func _draw_fuse(ci: CanvasItem) -> void:
 		txt(ci, MF, pos.x + 112 * S + tw(MF, String(p.en).substr(0, d), 24 * S), pos.y + 16 * S, String(p.en).substr(d), 24 * S, fgc)
 		txt(ci, UF, pos.x + 112 * S, pos.y + 54 * S, ("強める　%d枚目" % (info.n + 1)) if info.n else "の魂", 12 * S, KD.SHU)
 		if hl:
-			var badge = "合体素材"
+			var badge = "自機の字" if p.t == "k" else "作字の素材"
 			var bw = tw(DF, badge, 12 * S) + 16 * S
 			ci.draw_rect(Rect2(pos.x + r.size.x - bw - 12 * S, pos.y + 12 * S, bw, 22 * S), KD.SHU)
 			txt(ci, DF, pos.x + r.size.x - bw / 2 - 12 * S, pos.y + 14 * S, badge, 12 * S, KD.WASHI, 1)
@@ -6114,7 +8575,7 @@ func _test_hook(dt: float) -> void:
 	if test_mode.has("quit") and ui_time >= float(test_mode.quit):
 		print("[done] kills=%d level=%d path=%s best=%.1f" % [kills, level, ",".join(path), float(meta.best)])
 		print("[slain] ", slain)
-		print("[owned] ", owned, " souls=", souls.keys())
+		print("[owned] ", owned, " kraft=", KU.map(func(u): return u.ch + str(u.lv)), " souls=", souls.keys())
 		get_tree().quit()
 
 func glow(ci: CanvasItem, c: Vector2, r: float, col: Color) -> void:
