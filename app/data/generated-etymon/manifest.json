@@ -38,6 +38,12 @@
       "count": 47363,
       "sha256": "bea8d96709efe8bae910522a366314b2341b6705e1e7e0ffa54abcc1e49214a7"
     },
+    "word_parts": {
+      "file": "word-parts.json",
+      "bytes": 99958,
+      "count": 1139,
+      "sha256": "3c561349d16cae48f1bc06123a40690885faafae8cafdba11696e9fac7774379"
+    },
     "illustration_scenes": {
       "file": "illustration-scenes.json",
       "bytes": 5708048,
