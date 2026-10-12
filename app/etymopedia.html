@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>エティモペディア | 描ける英語語源辞典</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Noto+Sans+JP:wght@700;900&family=Zen+Maru+Gothic:wght@500;700;900&family=Shippori+Mincho:wght@800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&family=Shippori+Mincho:wght@800&display=swap" rel="stylesheet">
 <style>
 /* ============================================================
    エティモペディア — 共創型・英語語源辞典(映像サンプル用モック)
@@ -390,7 +390,6 @@ footer b{color:var(--ink)}
   #heroArt,nav{display:none}
 }
 </style>
-<link rel="stylesheet" href="etymopedia-wild.css?v=20261010">
 </head>
 <body>
 
@@ -424,8 +423,6 @@ footer b{color:var(--ink)}
 <footer id="footer"></footer>
 <div id="toast"></div>
 
-<script src="../assets/chara/etymopedia-wild/characters.js?v=20261010"></script>
-<script src="etymopedia-wild.js?v=20261010"></script>
 <script src="../assets/word/illustration-index.js?v=a1d65cc03e86"></script>
 <script>
 "use strict";
@@ -606,7 +603,6 @@ async function loadAll(){
     ["ui.csv","roots.csv","morphs.csv","words.csv","lexicon.csv","submissions.csv","concepts.csv","branches.csv"].map(loadCSV));
   ui.forEach(r=>UI[r.key]=r.value);
   roots.forEach(r=>ROOTS[r.id]={r:r.root,jp:r.jp,c:r.color,art:r.art,note:r.note,concept:r.concept||"",pie:r.pie||""});
-  window.ETYMOPEDIA_WILD?.applyRoots(ROOTS);
   /* 語根構成の台帳(concepts.csv)。key=エティモン探索の正式キー */
   concepts.forEach(c=>CONCEPTS[c.key]={disp:c.disp,jp:c.jp,en:c.en||"",icon:c.icon,reg:c.reg});
   BRANCHES=branches;
@@ -781,7 +777,6 @@ function renderHome(){
   $("#wantedHead").textContent=UI.wanted_head||"";
   $("#wantedChips").innerHTML=WORDS.filter(w=>!topArt(w.w)).slice(0,14).map(w=>`<span class="fword" onclick="location.hash='#/word/${w.w}'">${w.w}「${w.jp.split("、")[0]}」</span>`).join("")||`<span style="color:#ffffff99">(サンプルでは多くの単語に図版があります)</span>`;
   $("#footer").innerHTML=UI.footer||"";
-  window.ETYMOPEDIA_WILD?.renderHome({UI,ROOTS,LEXICON,WORDS,SUBS,imgURL});
 }
 let gridPick=null;   // 図版のある語から40語をランダム抽選(ページを開くたびに変わる)
 function renderWordGrid(q){
@@ -919,7 +914,6 @@ function renderRoot(id){
     <div class="dictSec"><h3>派生語辞典(${lex.length}語)</h3>
       <div class="dictLegend">${UI.rar_legend||""} <span class="brLink" onclick="location.hash='#/branches'">${UI.br_legend_link||"語派バッジのひみつ →"}</span></div>
       <div class="dictList">${dict||'<div class="drow"><span class="dl">(準備中)</span></div>'}</div></div>`;
-  window.ETYMOPEDIA_WILD?.decorateRoot(r);
   requestAnimationFrame(drawRootLines);
   setTimeout(drawRootLines,320);   // フォント確定後に引き直し
 }
