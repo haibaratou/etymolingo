@@ -13,8 +13,8 @@ test('first sense must match both languages',()=>{
  assert(!scenes.firstSenseMatches(e,{...word,en:'changed'}));
  assert(!scenes.firstSenseMatches(e,{...word,ja:'別義'}));
 });
-test('unreviewed and mismatch fail closed without image requests',async()=>{
- for(const status of ['unreviewed','mismatch','stale_sense']) {
+test('unreviewed and stale records fail closed without image requests',async()=>{
+ for(const status of ['unreviewed','stale_sense']) {
   const result=await scenes.verify({...e,status},{word,imageUrl:'ignored'});assert.equal(result.status,status);
  }
 });
@@ -34,7 +34,7 @@ test('network unavailable remains explicit',async()=>{
  try{assert.equal((await scenes.verify(e,{word,imageUrl:'image.png'})).status,'unavailable');}finally{global.fetch=prev;}
 });
 test('every sample contains exact inflection; no excess length',()=>{
- for(const e of sample){assert(new RegExp('(?<![\\w])'+e.w+'(?![\\w])','i').test(e.scene.en),e.w);assert(e.scene.en.split(/\s+/).length<=18,e.w);}
+ for(const e of sample){if(e.review?.status==='mismatch'){assert(e.review.notes,e.w);continue;}assert(new RegExp('(?<![\\w])'+e.w+'(?![\\w])','i').test(e.scene.en),e.w);assert(e.scene.en.split(/\s+/).length<=18,e.w);}
 });
 
 test('shared renderer shows EN/JA directly without repeating the per-entry label',()=>{
@@ -42,3 +42,4 @@ test('shared renderer shows EN/JA directly without repeating the per-entry label
  const node={children:[],dataset:{},classList:{add(){}},replaceChildren(){this.children=[]},append(el){this.children.push(el)}};
  try{scenes.render(node,{status:'reviewed',entry:e});assert.deepEqual(node.children.map(x=>x.tagName),['p','p']);assert.deepEqual(node.children.map(x=>x.textContent),[e.scene.en,e.scene.ja]);assert.equal(node.dataset.sceneStatus,'reviewed');}finally{global.document=old;}
 });
+

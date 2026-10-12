@@ -28,9 +28,12 @@
   async function verify(entry, options = {}) {
     if (!entry) return {status:'unreviewed',entry:null};
     const status = entry.status || entry.review?.status || 'unreviewed';
-    if (status !== 'reviewed') return {status,entry};
+    if (!['reviewed','mismatch'].includes(status)) return {status,entry};
     if (options.word && !firstSenseMatches(entry, options.word)) return {status:'stale_sense',entry};
     if (!/^[a-f0-9]{64}$/.test(entry.image?.sha256 || '') || !options.imageUrl) return {status:'unavailable',entry};
+    // Local files cannot be fetched as bytes. Exported status is a dated snapshot,
+    // never a claim that a subsequently replaced local PNG has been verified.
+    if (options.snapshot && options.protocol === 'file:') return {status,entry,verification:'export_snapshot'};
     try {
       // Revalidate the same URL used by the visible artwork. A replaced PNG cannot
       // inherit a previous picture's explanation, even if its filename is unchanged.
@@ -39,7 +42,7 @@
       const bytes = await response.arrayBuffer();
       const digest = await crypto.subtle.digest('SHA-256', bytes);
       const sha = Array.from(new Uint8Array(digest), b => b.toString(16).padStart(2, '0')).join('');
-      return {status:sha === entry.image.sha256 ? 'reviewed' : 'stale_image',entry};
+      return {status:sha === entry.image.sha256 ? status : 'stale_image',entry};
     } catch { return {status:'unavailable',entry}; }
   }
   function render(container, result) {
@@ -55,9 +58,15 @@
       make('p', result.entry.scene.en, 'en');
       make('p', result.entry.scene.ja, 'ja');
     } else {
-      const labels = {unreviewed:'イラスト解説は未作成・未確認です',mismatch:'語義との一致を確認中です',stale_image:'画像が更新されたため、解説を再確認中です',stale_sense:'語義が更新されたため、解説を再確認中です',missing_image:'対応する画像を確認できません',unavailable:'イラスト解説を確認できませんでした'};
+      const labels = {unreviewed:'イラスト解説は未作成・未確認です',mismatch:'イラスト要修正',stale_image:'画像が更新されたため、解説を再確認中です',stale_sense:'語義が更新されたため、解説を再確認中です',missing_image:'対応する画像を確認できません',unavailable:'イラスト解説を確認できませんでした'};
       make('small', labels[result.status] || labels.unavailable).className = 'illustration-explanation-status';
+    }
+    if (result.verification === 'export_snapshot') {
+      const note=make('small','保存時の画像で確認済み');
+      note.className='illustration-explanation-status';
+      note.title='保存時の語義と画像に対応する解説です。現在のローカルPNGは再照合していません。画像を差し替えた場合は再確認が必要です。';
     }
   }
   return {load,find,verify,render,key,firstSenseMatches};
 });
+
