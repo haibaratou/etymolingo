@@ -40,9 +40,9 @@
     },
     "word_parts": {
       "file": "word-parts.json",
-      "bytes": 190993,
-      "count": 2167,
-      "sha256": "67bb3be81840d7b874466f51f40b2eb57a17ea3e5392229ad32d13069ee9764f",
+      "bytes": 400136,
+      "count": 4651,
+      "sha256": "96d77f0cb521aaa3c987e1e811523b9e39ade956b6fc63031b9e2e929df9a046",
       "meaning_basis": "word-formation-v1"
     },
     "illustration_scenes": {
