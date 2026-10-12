@@ -76,6 +76,103 @@ static func src_of(ch: String) -> Array:
 	var k: Dictionary = K.get(ch, {})
 	return [String(k.get("src", "")), String(k.get("via", ""))]
 
+## ---- 部首が「効果」、字の意味が「動き」 ----
+## 効果: 部首（の系統）が決める。当たった字に何が起きるか・どう見えるか
+const EFFECT_JP = {
+	"波": "濡らす（濡れた字は連鎖して削れる）", "炎": "燃やす（燃え移る）", "樹": "根で絡めて鈍らせる", "光": "光で焼く",
+	"刃": "斬る（貫く）", "矢": "射抜く", "声": "響かせて怯ませる", "獣": "噛み傷を残す（あとで裂ける）",
+	"岩": "打ちのめして止める", "霊": "祟って鈍らせる", "人": "打ちすえる", "門": "強く押し返す",
+}
+## 動き: 字の意味（英語）から決める。表にない字は部首の素の動き
+const MOTION_JP = {
+	"lamp": ["照らす", "字そのものが主人公のそばに灯り、まわりを照らし続ける。照らされた字に効果"],
+	"spread": ["広がる", "字そのものがでたらめに飛びまわり、降りた所から災いが次々と広がる"],
+	"fall": ["降る", "この字が上から降ってきて、落ちた所にしばらく溜まり、踏んだ字を削りつづける（聖水のように）"],
+	"guard": ["守る", "主人公のまわりを巡り、近づく字を押し返す"],
+	"rush": ["駆ける", "字そのものが駆けて噛みつき・体当たりし、戻る"],
+	"rampage": ["暴れる", "字そのものが縦横無尽に暴れまわり、触れた字を大きく弾き飛ばす"],
+	"flow": ["流れる", "主人公から字の群れへ、帯になって流れる"],
+	"orbit": ["巡る", "字そのものが主人公のまわりを巡って当たる"],
+	"burst": ["響く", "まわりへ一気に広がる"],
+	"bind": ["縛る", "近くの字に絡みついて動きを止める"],
+	"shoot": ["放つ", "この字を近くの字へ飛ばす"],
+	"river": ["流す", "主人公の足もとから、川の字の三筋のように下へ流れを放ちつづける"],
+	"scatter": ["溢れる", "あらゆる方向へ、でたらめにこの字を放つ"],
+	"frost": ["凍らせる", "まわりへ大量のこの字を、ゆっくりと放つ。触れた字は凍えて遅くなる"],
+	"annihilate": ["滅ぼす", "全方位へすさまじい連射。ただし次まで長く休む"],
+	"dragon": ["龍のように", "龍のように連なり、うねりながら主人公のまわりを巡って暴れ、ときに字へ食らいつく"],
+	"laser": ["射す", "光線を放ち、一直線に並んだ字をまとめて焼き貫く"],
+	"garlic": ["寄せつけない", "主人公のまわりにいつも漂い、近づいた字を削って押し返す"],
+	"": ["", ""],
+}
+## 意味に動きがない字は、部首の動き（日は光線、月は巡る、雨は降る、水は寄せつけない…）
+const RAD_MOTION = {
+	"日": "laser", "光": "laser", "白": "laser", "月": "orbit", "夕": "orbit", "雨": "fall", "冫": "frost", "川": "river",
+	"水": "garlic", "犬": "rush", "馬": "rush", "牛": "rush", "豕": "rampage", "虎": "rampage", "虍": "rampage",
+	"弓": "shoot", "矢": "shoot", "口": "burst", "言": "burst", "音": "burst", "糸": "bind", "網": "bind", "网": "bind",
+	"宀": "guard", "門": "guard", "囗": "guard", "土": "fall", "石": "fall", "山": "fall", "鳥": "scatter", "隹": "scatter", "羽": "scatter",
+	"心": "lamp", "示": "lamp", "鬼": "spread", "歹": "spread",
+}
+const MOTION_CH = {"雨": "fall", "雫": "fall", "露": "fall", "滴": "fall", "川": "river", "州": "river", "順": "river", "氾": "scatter", "氷": "frost", "滅": "annihilate", "灯": "lamp", "燈": "lamp", "照": "lamp", "燭": "lamp", "炬": "lamp", "蛍": "lamp", "災": "spread", "禍": "spread", "疫": "spread"}
+const MOTION_EN = [
+	["river", ["river", "brook", "creek", "canal"]],
+	["scatter", ["overflow", "spreadout", "spill", "gush", "spray", "splash", "scatter", "sprinkle", "flood", "inundate"]],
+	["frost", ["ice", "freeze", "frozen", "cold", "cool", "frost", "chill", "icicle", "hail", "snow"]],
+	["annihilate", ["destroy", "annihilate", "perish", "ruin", "extinct", "exterminate", "destruction", "demolish", "obliterate", "break", "explode"]],
+	["lamp", ["lamp", "lantern", "torch", "candle", "illuminate", "light", "shine", "glow", "bright", "firefly", "lighthouse", "brilliant", "dawn"]],
+	["spread", ["disaster", "calamity", "plague", "epidemic", "spread", "scatter", "chaos", "riot", "evil", "misfortune", "curse", "ruin", "disorder", "infect", "rampant", "bewitch"]],
+	["fall", ["fall", "drop", "descend", "drip", "rain", "snow", "hail", "thunder", "lightning", "dew", "frost", "sink", "drown", "shower"]],
+	["guard", ["protect", "defend", "guard", "shield", "surround", "fence", "wall", "castle", "fort", "enclose", "shelter", "prevent", "barrier", "keep", "roof", "armor", "armour", "obstruct"]],
+	["rampage", ["beast", "animal", "violence", "violent", "rage", "rampage", "storm", "rough", "savage", "brute", "monster", "frenzy", "lunatic", "mad", "crazy", "wild", "fierce", "tempest", "typhoon", "war", "fury", "angry"]],
+	["rush", ["run", "rush", "hunt", "chase", "charge", "gallop", "pursue", "attack", "raid", "assault", "dash", "race", "fight", "battle", "strike", "kill", "bite", "hurry", "leap", "jump", "advance", "invade", "cat", "dog", "hound"]],
+	["flow", ["stream", "flow", "swim", "wave", "current", "pour", "river", "flood", "tide", "sail", "wash", "bathe", "float", "drift", "overflow", "flush"]],
+	["orbit", ["loop", "circle", "round", "turn", "rotate", "revolve", "wheel", "spin", "return", "patrol", "around", "times", "whirl", "eddy"]],
+	["burst", ["explode", "burst", "shout", "cry", "roar", "bark", "call", "sing", "chirp", "sound", "voice", "yell", "scream", "echo", "howl", "song", "music", "drum", "erupt"]],
+	["bind", ["bind", "tie", "tangle", "net", "netting", "catch", "trap", "seize", "hold", "capture", "grasp", "rope", "string", "thread", "knot", "weave", "sew", "wrap", "arrest", "embrace"]],
+	["shoot", ["shoot", "throw", "launch", "release", "send", "emit", "shot", "arrow", "fling", "toss", "cast", "spit", "dispatch", "fire"]],
+]
+
+## 部首ごとの色（火は朱、水は藍…）。表にない部首は系統の色
+const RAD_COL = {
+	"火": Color(0.86, 0.16, 0.08), "赤": Color(0.86, 0.16, 0.08), "黒": Color(0.15, 0.12, 0.12),
+	"水": Color(0.12, 0.36, 0.72), "冫": Color(0.35, 0.68, 0.86), "雨": Color(0.32, 0.45, 0.62), "川": Color(0.12, 0.40, 0.70), "氷": Color(0.45, 0.75, 0.90), "風": Color(0.40, 0.58, 0.58),
+	"木": Color(0.18, 0.48, 0.20), "艸": Color(0.38, 0.62, 0.22), "竹": Color(0.25, 0.55, 0.32), "禾": Color(0.70, 0.60, 0.22), "米": Color(0.75, 0.68, 0.45),
+	"日": Color(0.92, 0.62, 0.08), "月": Color(0.78, 0.74, 0.45), "白": Color(0.62, 0.62, 0.66), "目": Color(0.42, 0.30, 0.62), "青": Color(0.15, 0.42, 0.55), "夕": Color(0.85, 0.42, 0.22),
+	"刀": Color(0.40, 0.44, 0.52), "戈": Color(0.36, 0.38, 0.46), "斤": Color(0.42, 0.40, 0.44), "弓": Color(0.55, 0.32, 0.14), "矢": Color(0.50, 0.30, 0.15), "羽": Color(0.48, 0.52, 0.66),
+	"口": Color(0.78, 0.18, 0.30), "言": Color(0.55, 0.22, 0.55), "耳": Color(0.72, 0.42, 0.40), "音": Color(0.62, 0.28, 0.56),
+	"犬": Color(0.60, 0.38, 0.14), "馬": Color(0.50, 0.30, 0.12), "鳥": Color(0.25, 0.30, 0.58), "隹": Color(0.30, 0.34, 0.58), "虫": Color(0.45, 0.50, 0.15), "魚": Color(0.15, 0.50, 0.55), "羊": Color(0.70, 0.66, 0.55), "牛": Color(0.45, 0.32, 0.22),
+	"土": Color(0.55, 0.40, 0.22), "山": Color(0.30, 0.38, 0.28), "石": Color(0.45, 0.45, 0.45), "金": Color(0.82, 0.66, 0.18), "玉": Color(0.30, 0.62, 0.50), "田": Color(0.55, 0.45, 0.20), "貝": Color(0.72, 0.55, 0.35), "阜": Color(0.48, 0.38, 0.28),
+	"示": Color(0.50, 0.25, 0.62), "心": Color(0.82, 0.30, 0.42), "鬼": Color(0.32, 0.12, 0.38), "歹": Color(0.30, 0.22, 0.28),
+	"人": Color(0.20, 0.20, 0.20), "手": Color(0.30, 0.24, 0.20), "女": Color(0.75, 0.32, 0.45), "子": Color(0.85, 0.50, 0.35), "力": Color(0.62, 0.25, 0.15), "足": Color(0.35, 0.28, 0.22), "攴": Color(0.40, 0.30, 0.25),
+	"宀": Color(0.20, 0.40, 0.45), "門": Color(0.12, 0.42, 0.45), "糸": Color(0.70, 0.20, 0.50), "衣": Color(0.45, 0.30, 0.55), "車": Color(0.35, 0.35, 0.40), "舟": Color(0.30, 0.42, 0.52), "囗": Color(0.20, 0.35, 0.40), "穴": Color(0.25, 0.22, 0.20),
+}
+
+static func col_of(ch: String) -> Color:
+	var r: String = rad_of(ch)
+	if RAD_COL.has(r):
+		return RAD_COL[r]
+	return FAM_COL.get(String(K.get(ch, {}).get("b", "人")), Color(0.2, 0.2, 0.2))
+
+static func motion_of(ch: String) -> String:
+	if MOTION_CH.has(ch):
+		return MOTION_CH[ch]
+	# 龍を含む字は、龍のように連なって暴れる（朧・瀧・襲…）
+	var lv0: Array = K.get(ch, {}).get("lv", [])
+	if lv0.size() >= 2 and (lv0.has("龍") or lv0.has("竜")):
+		return "dragon"
+	var en: String = String(K.get(ch, {}).get("en", "")).to_lower()
+	if en != "":
+		for m in MOTION_EN:
+			for w in m[1]:
+				if en == w or en == w + "s" or en == w + "ing" or en == w + "ed":
+					return m[0]
+	return RAD_MOTION.get(rad_of(ch), "")
+
+## 部首（能力をくれた素）。表示用
+static func rad_of(ch: String) -> String:
+	var v: String = src_of(ch)[1]
+	return v if v != "" else ch
+
 static func fam_of(ch: String) -> String:
 	for f in FAM:
 		if FAM[f].ch.has(ch):
@@ -116,7 +213,7 @@ static func prof(ch: String, lv := 1) -> Dictionary:
 			skipped = true
 			continue
 		rid[f] = int(rid.get(f, 0)) + 1
-	var p = {"ch": ch, "body": k.b, "kind": BODY[k.b][0], "s": s, "T": T, "lv": lv, "rid": rid}
+	var p = {"ch": ch, "body": k.b, "kind": BODY[k.b][0], "s": s, "T": T, "lv": lv, "rid": rid, "motion": motion_of(ch), "rad": String(k.get("via", "")), "col": col_of(ch)}
 	p.P = 1 + int((s.pow + T * 0.5 + L) / 2.0)          # 一撃で削る文字数
 	p.A = 1.0 + 0.22 * s.area + 0.04 * (T - 1)           # 届く広さ（倍）
 	p.R = 1.0 + 0.22 * s.rate + 0.04 * (T - 1) + 0.12 * L  # 技の速さ（倍）

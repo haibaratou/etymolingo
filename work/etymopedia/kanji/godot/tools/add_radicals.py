@@ -25,6 +25,26 @@ for f, v in d["FAM"].items():
 K = d["K"]
 nm = lambda c: NORM.get(c, c)
 
+# Make Me a Hanzi にない字（日本の新字体など）は、部品の並びから部首を推す
+RIGHT_RADS = set("刀力攴戈欠頁隹犬鳥殳斤阜彡見寸")
+def guess_rad(c):
+    lv = [nm(x) for x in K.get(c, {}).get("lv", [])]
+    if len(lv) < 2:
+        return ""
+    if lv[-1] in RIGHT_RADS:
+        return lv[-1]
+    if lv[0] in FAM_OF:
+        return lv[0]
+    for x in lv:
+        if x in FAM_OF:
+            return x
+    return lv[0]
+for c in K:
+    if c not in R and len(K[c].get("lv", [])) >= 2:
+        g = guess_rad(c)
+        if g:
+            R[c] = [g, ""]
+
 def leaves(p):
     out = [p]
     if p in K:
@@ -36,6 +56,47 @@ def holds(p, x):
         return True
     r = R.get(p)
     return bool(r and nm(r[0]) == x)
+
+# 字典にない字で、遊びに使いたいもの（朧 = 月＋龍）
+EXTRA = {"朧": {"en": "hazy", "jp": "おぼろ", "stk": 20, "g": 0, "op": ["月", "龍"], "lv": ["月", "龍"]}}
+for c, v in EXTRA.items():
+    if c not in K:
+        st = {}
+        for x in v["lv"]:
+            f = FAM_OF.get(x)
+            if f:
+                s0 = d["FAM"][f]["stat"]
+                st[s0] = st.get(s0, 0) + 1
+        K[c] = dict(v, b="光", b0=1, s=st)
+        R[c] = [v["op"][0], ""]
+        key = v["op"][0] + "+" + v["op"][1]
+        if c not in d["REC"].get(key, []):
+            d["REC"].setdefault(key, []).append(c)
+
+# 二つに割れない字（獣・流…）にも、部首＋いちばん大きな残りの部品で作れる道を足す
+REC = d["REC"]
+for c, k in K.items():
+    if k.get("op0") is not None:
+        k["op"] = k.pop("op0")
+for key in list(REC):
+    REC[key] = [r for r in REC[key] if not K.get(r, {}).get("op_rad")]
+    if not REC[key]:
+        del REC[key]
+for c, k in K.items():
+    k.pop("op_rad", None)
+    if k.get("op") or len(k.get("lv", [])) < 2:
+        continue
+    r = R.get(c)
+    rad = nm(r[0]) if r else ""
+    if not rad or rad == c or rad not in K:
+        continue
+    rest = [x for x in k["lv"] if x != rad and x in K and x != c]
+    if not rest:
+        continue
+    rest.sort(key=lambda x: -int(K[x].get("stk", 0)))
+    k["op"] = [rad, rest[0]]
+    k["op_rad"] = True
+    REC.setdefault(rad + "+" + rest[0], []).append(c)
 
 stat = {"rad": 0, "sem": 0, "part": 0, "none": 0, "single": 0}
 for c, k in K.items():
