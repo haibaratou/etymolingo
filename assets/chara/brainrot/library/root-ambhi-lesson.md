@@ -132,8 +132,8 @@ French (hôpital) ambulant ← Latin ambulare, perhaps ambi- + a verb of going; 
 ## 制作時の対応記録
 
 - 解説ID：root-ambhi-lesson
-- 版：3
-- 解説SHA256：1e33fecbfe42ddab1ac7e25bb26a2b79a94b19e30254800945a62c30d7b2dc60
+- 版：4
+- 解説SHA256：b9d571f64c2e5cb23594e5ae6894fcedf1efeb7b4bd4bed0e6210528c8f482b3
 - DBの原義と解説：production/lesson-source-index.json の ambhi
 - 同じ語根の候補はこの解説を共有し、原義の見せ方・採用する派生語・身体の組み合わせ・表情を変える。
 - 候補ごとに、描いた要素の部位対応と、描かなかった派生語の省略理由を記録する。

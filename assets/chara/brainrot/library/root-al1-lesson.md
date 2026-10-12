@@ -165,8 +165,8 @@ other・another・elseは別の方。alienはよそのもの、alter・alternate
 ## 制作時の対応記録
 
 - 解説ID：root-al1-lesson
-- 版：3
-- 解説SHA256：9503556fcf7161a7725b10b5f3ed1179b2000a584dd7ec747c6ac650b9ef43bf
+- 版：4
+- 解説SHA256：0c1dbeefb784e1582aba0ea1f477742993436c140493bce51cb9bf385f6448be
 - DBの原義と解説：production/lesson-source-index.json の al1
 - 同じ語根の候補はこの解説を共有し、原義の見せ方・採用する派生語・身体の組み合わせ・表情を変える。
 - 候補ごとに、描いた要素の部位対応と、描かなかった派生語の省略理由を記録する。

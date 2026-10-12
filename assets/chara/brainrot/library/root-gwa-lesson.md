@@ -152,8 +152,8 @@ comeで来て、welcomeで迎える。becomeは姿が変わり、incomeが入り
 ## 制作時の対応記録
 
 - 解説ID：root-gwa-lesson
-- 版：3
-- 解説SHA256：ef9d5fc4b18568a0bd23e1dfeff73bdfc167d1539918292a7a17bb90d094e8d0
+- 版：4
+- 解説SHA256：6975c3240f7692704472813f32926a52b4ff31e0446a79f086f969a64b92289d
 - DBの原義と解説：production/lesson-source-index.json の gwa
 - 同じ語根の候補はこの解説を共有し、原義の見せ方・採用する派生語・身体の組み合わせ・表情を変える。
 - 候補ごとに、描いた要素の部位対応と、描かなかった派生語の省略理由を記録する。

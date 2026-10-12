@@ -164,8 +164,8 @@ phone・telephoneで声を届け、microphone・gramophoneで声を拾う。infa
 ## 制作時の対応記録
 
 - 解説ID：root-bha2-lesson
-- 版：3
-- 解説SHA256：33f185fcdba0c4049d051f39d9b0c3d8341cb09f7b25ea0e8d042c793a608921
+- 版：4
+- 解説SHA256：01cdfa03bbcdb8b16cd5cff0dda8fa07afef4e76fa095f483caa058d05615f4b
 - DBの原義と解説：production/lesson-source-index.json の bha2
 - 同じ語根の候補はこの解説を共有し、原義の見せ方・採用する派生語・身体の組み合わせ・表情を変える。
 - 候補ごとに、描いた要素の部位対応と、描かなかった派生語の省略理由を記録する。

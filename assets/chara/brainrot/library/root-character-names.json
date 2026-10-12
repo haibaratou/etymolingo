@@ -2,25 +2,19 @@
   "schema": "wildwordopia-root-character-names-v1",
   "version": 1,
   "createdAt": "2026-10-10T06:22:46.137033+00:00",
-  "policy": {
-    "id": "one-name-per-root-v1",
-    "descriptionJa": "語根ごとに一つの固有名を固定する。日本語の語義を名前へ挿入せず、語根の呼び名と検証済み派生語からの造語を使う。画像の案を替えても名前は替えない。",
-    "generationChangesNames": false,
-    "preserveHistoricalNames": true,
-    "nameSource": "production/root-lessons.json"
-  },
+  "policy": "PIE reading + one memorable attested English word. No blends or Japanese meaning prefix. One fixed name per root.",
   "roots": [
     {
       "rootId": "per1",
-      "kana": "ペル・フォアファースト",
-      "name": "Per · Forefirst",
+      "kana": "ペル・パフューム",
+      "name": "Per · perfume",
       "nameParts": [
         "Per",
-        "Forefirst"
+        "perfume"
       ],
       "kanaParts": [
         "ペル",
-        "フォアファースト"
+        "パフューム"
       ],
       "meaningJa": "前へ",
       "meaningEn": "forward",
@@ -29,37 +23,38 @@
         {
           "part": "Per",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*per1の呼び名を、資料の表記Perで使う。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Forefirst",
+          "part": "perfume",
           "sourceWords": [
-            "before",
-            "first"
+            "perfume"
           ],
-          "explanationJa": "beforeに残るforeの音とfirstを組み合わせた固有名。前に出ることと先頭になることを響きに重ねる。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "前へ進む一族の名として、位置と順序の二つの広がりを覚えやすくする。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "per1"
         }
-      ]
+      ],
+      "representativeWord": "perfume",
+      "representativeWordKana": "パフューム"
     },
     {
       "rootId": "kom",
-      "kana": "コム・コンビニティ",
-      "name": "Kom · Combinity",
+      "kana": "コム・コンピューター",
+      "name": "Kom · computer",
       "nameParts": [
         "Kom",
-        "Combinity"
+        "computer"
       ],
       "kanaParts": [
         "コム",
-        "コンビニティ"
+        "コンピューター"
       ],
       "meaningJa": "一緒に",
       "meaningEn": "together",
@@ -68,37 +63,38 @@
         {
           "part": "Kom",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*komの呼び名を、資料の表記Komで使う。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Combinity",
+          "part": "computer",
           "sourceWords": [
-            "combine",
-            "community"
+            "computer"
           ],
-          "explanationJa": "combineとcommunityを組み合わせた固有名。一緒に結び、仲間になる響きを重ねる。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "集まる・組み合わせるという芯を、道具や身体の種類に左右されない名前にする。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "kom"
         }
-      ]
+      ],
+      "representativeWord": "computer",
+      "representativeWordKana": "コンピューター"
     },
     {
       "rootId": "en",
-      "kana": "エン・インタジー",
-      "name": "En · Intergy",
+      "kana": "エン・インターネット",
+      "name": "En · internet",
       "nameParts": [
         "En",
-        "Intergy"
+        "internet"
       ],
       "kanaParts": [
         "エン",
-        "インタジー"
+        "インターネット"
       ],
       "meaningJa": "中に",
       "meaningEn": "in",
@@ -107,37 +103,38 @@
         {
           "part": "En",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*enの呼び名を、資料の表記Enで使う。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Intergy",
+          "part": "internet",
           "sourceWords": [
-            "internet",
-            "energy"
+            "internet"
           ],
-          "explanationJa": "internetのinterとenergyの響きを組み合わせた固有名。間にあることと内側で働くことの二つの枝を重ねる。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "内側とものの間へ広がった一族を、短く弾む名前でまとめる。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "en"
         }
-      ]
+      ],
+      "representativeWord": "internet",
+      "representativeWordKana": "インターネット"
     },
     {
       "rootId": "ne",
-      "kana": "ネ・ネヴァノット",
-      "name": "Ne · Nevernot",
+      "kana": "ネ・インビジブル",
+      "name": "Ne · invisible",
       "nameParts": [
         "Ne",
-        "Nevernot"
+        "invisible"
       ],
       "kanaParts": [
         "ネ",
-        "ネヴァノット"
+        "インビジブル"
       ],
       "meaningJa": "否定",
       "meaningEn": "not",
@@ -146,37 +143,38 @@
         {
           "part": "Ne",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*neの呼び名を、資料の表記Neで使う。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Nevernot",
+          "part": "invisible",
           "sourceWords": [
-            "never",
-            "not"
+            "invisible"
           ],
-          "explanationJa": "neverとnotを組み合わせた固有名。繰り返す否定の音を、きっぱりした個性にする。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "否定の意味が聞いて分かりやすく、少し頑固で愛嬌のある響きにする。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "ne"
         }
-      ]
+      ],
+      "representativeWord": "invisible",
+      "representativeWordKana": "インビジブル"
     },
     {
       "rootId": "re",
-      "kana": "ウレ・リターコード",
-      "name": "Ure · Returcord",
+      "kana": "ウレ・レコード",
+      "name": "Ure · record",
       "nameParts": [
         "Ure",
-        "Returcord"
+        "record"
       ],
       "kanaParts": [
         "ウレ",
-        "リターコード"
+        "レコード"
       ],
       "meaningJa": "後ろに",
       "meaningEn": "backward",
@@ -185,37 +183,38 @@
         {
           "part": "Ure",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*ureの呼び名を、資料の表記Ureで使う。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Returcord",
+          "part": "record",
           "sourceWords": [
-            "return",
             "record"
           ],
-          "explanationJa": "returnとrecordを組み合わせた固有名。戻る動きと、記憶を心へ戻す古い意味を重ねる。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "後ろへ戻る一族の名として、行き来と記憶の両方を含ませる。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "re"
         }
-      ]
+      ],
+      "representativeWord": "record",
+      "representativeWordKana": "レコード"
     },
     {
       "rootId": "eghs",
-      "kana": "エグス・エグジプレッソ",
-      "name": "Eghs · Exipresso",
+      "kana": "エグス・エスプレッソ",
+      "name": "Eghs · espresso",
       "nameParts": [
         "Eghs",
-        "Exipresso"
+        "espresso"
       ],
       "kanaParts": [
         "エグス",
-        "エグジプレッソ"
+        "エスプレッソ"
       ],
       "meaningJa": "外へ",
       "meaningEn": "out",
@@ -224,37 +223,38 @@
         {
           "part": "Eghs",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*eghsの呼び名を、資料の表記Eghsで使う。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Exipresso",
+          "part": "espresso",
           "sourceWords": [
-            "exit",
             "espresso"
           ],
-          "explanationJa": "exitとespressoを組み合わせた固有名。外へ出ることと外へ押し出すことの響きを重ねる。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "外へ向かう動きを、出口にも表現にも広げられる軽快な名前にする。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "eghs"
         }
-      ]
+      ],
+      "representativeWord": "espresso",
+      "representativeWordKana": "エスプレッソ"
     },
     {
       "rootId": "ad",
-      "kana": "アド・アプラッチ",
-      "name": "Ad · Appratch",
+      "kana": "アド・アコーディオン",
+      "name": "Ad · accordion",
       "nameParts": [
         "Ad",
-        "Appratch"
+        "accordion"
       ],
       "kanaParts": [
         "アド",
-        "アプラッチ"
+        "アコーディオン"
       ],
       "meaningJa": "～へ",
       "meaningEn": "to",
@@ -263,37 +263,38 @@
         {
           "part": "Ad",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*ad-の呼び名を、資料の表記Adで使う。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Appratch",
+          "part": "accordion",
           "sourceWords": [
-            "app",
-            "approach"
+            "accordion"
           ],
-          "explanationJa": "appとapproachを組み合わせた固有名。何かへ向かい、近づく響きを短く重ねる。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "対象へ向かって働きかける一族に、親しみやすく活動的な響きを付ける。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "ad"
         }
-      ]
+      ],
+      "representativeWord": "accordion",
+      "representativeWordKana": "アコーディオン"
     },
     {
       "rootId": "dhe",
-      "kana": "デー・ファクティード",
-      "name": "Dhe · Facteed",
+      "kana": "デー・ファクトリー",
+      "name": "Dhe · factory",
       "nameParts": [
         "Dhe",
-        "Facteed"
+        "factory"
       ],
       "kanaParts": [
         "デー",
-        "ファクティード"
+        "ファクトリー"
       ],
       "meaningJa": "置く",
       "meaningEn": "to set",
@@ -302,37 +303,38 @@
         {
           "part": "Dhe",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*dhē-の呼び名を、資料の表記Dheで使う。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Facteed",
+          "part": "factory",
           "sourceWords": [
-            "fact",
-            "deed"
+            "factory"
           ],
-          "explanationJa": "factとdeedを組み合わせた固有名。なされたことと行為を重ね、置くことから作ることへの広がりを表す。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "置く・行う・作るという一族の働きを、特定の工場や道具に限定せずまとめる。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "dhe"
         }
-      ]
+      ],
+      "representativeWord": "factory",
+      "representativeWordKana": "ファクトリー"
     },
     {
       "rootId": "de",
-      "kana": "デ・トデザイン",
-      "name": "De · Todesign",
+      "kana": "デ・デニム",
+      "name": "De · denim",
       "nameParts": [
         "De",
-        "Todesign"
+        "denim"
       ],
       "kanaParts": [
         "デ",
-        "トデザイン"
+        "デニム"
       ],
       "meaningJa": "指し示す",
       "meaningEn": "to point",
@@ -341,37 +343,38 @@
         {
           "part": "De",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*de-の呼び名を、資料の表記Deで使う。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Todesign",
+          "part": "denim",
           "sourceWords": [
-            "today",
-            "design"
+            "denim"
           ],
-          "explanationJa": "todayとdesignを組み合わせた固有名。今を指す音と、しるしを付けて示す枝を重ねる。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "指し示す一族に、時点を指す言葉と形を示す言葉の意外なつながりを残す。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "de"
         }
-      ]
+      ],
+      "representativeWord": "denim",
+      "representativeWordKana": "デニム"
     },
     {
       "rootId": "sta",
-      "kana": "スター・ステイタ",
-      "name": "Sta · Staita",
+      "kana": "スター・スタチュー",
+      "name": "Sta · statue",
       "nameParts": [
         "Sta",
-        "Staita"
+        "statue"
       ],
       "kanaParts": [
         "スター",
-        "ステイタ"
+        "スタチュー"
       ],
       "meaningJa": "立つ",
       "meaningEn": "to stand",
@@ -380,37 +383,38 @@
         {
           "part": "Sta",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*stā-の呼び名を、資料の表記Staで使う。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Staita",
+          "part": "statue",
           "sourceWords": [
-            "stand",
-            "state"
+            "statue"
           ],
-          "explanationJa": "standとstateを組み合わせ、語尾を整えた固有名。立つことと、立って保たれる状態を重ねる。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "しっかり立つという芯を、物体にも場所にも状態にも通じる名前にする。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "sta"
         }
-      ]
+      ],
+      "representativeWord": "statue",
+      "representativeWordKana": "スタチュー"
     },
     {
       "rootId": "dwis",
-      "kana": "ドウィス・ディスタガイズ",
-      "name": "Dwis · Distaguise",
+      "kana": "ドウィス・デザート",
+      "name": "Dwis · dessert",
       "nameParts": [
         "Dwis",
-        "Distaguise"
+        "dessert"
       ],
       "kanaParts": [
         "ドウィス",
-        "ディスタガイズ"
+        "デザート"
       ],
       "meaningJa": "二つに・離れて",
       "meaningEn": "apart, in two",
@@ -419,37 +423,38 @@
         {
           "part": "Dwis",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*dwis-の呼び名を、資料の表記Dwisで使う。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Distaguise",
+          "part": "dessert",
           "sourceWords": [
-            "distance",
-            "disguise"
+            "dessert"
           ],
-          "explanationJa": "distanceとdisguiseを組み合わせた固有名。離れた距離と、元の姿から離れる変装の枝を重ねる。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "二つに分かれ、離れる一族の性格を、食べ物の姿に限定せず表す。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "dwis"
         }
-      ]
+      ],
+      "representativeWord": "dessert",
+      "representativeWordKana": "デザート"
     },
     {
       "rootId": "leg",
-      "kana": "レグ・コレジェンド",
-      "name": "Leg · Collegend",
+      "kana": "レグ・レジェンド",
+      "name": "Leg · legend",
       "nameParts": [
         "Leg",
-        "Collegend"
+        "legend"
       ],
       "kanaParts": [
         "レグ",
-        "コレジェンド"
+        "レジェンド"
       ],
       "meaningJa": "集める",
       "meaningEn": "to collect",
@@ -458,37 +463,38 @@
         {
           "part": "Leg",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*leg-の呼び名を、資料の表記Legで使う。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Collegend",
+          "part": "legend",
           "sourceWords": [
-            "collect",
             "legend"
           ],
-          "explanationJa": "collectとlegendを組み合わせた固有名。集めることと、読み集めて伝わる物語の響きを重ねる。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "集める・選ぶ・読むという一族の広がりを、覚えやすい一つの音にする。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "leg"
         }
-      ]
+      ],
+      "representativeWord": "legend",
+      "representativeWordKana": "レジェンド"
     },
     {
       "rootId": "apo",
-      "kana": "アポ・アフタオフ",
-      "name": "Apo · Afteroff",
+      "kana": "アポ・アポストロフィ",
+      "name": "Apo · apostrophe",
       "nameParts": [
         "Apo",
-        "Afteroff"
+        "apostrophe"
       ],
       "kanaParts": [
         "アポ",
-        "アフタオフ"
+        "アポストロフィ"
       ],
       "meaningJa": "離れて",
       "meaningEn": "off",
@@ -497,37 +503,38 @@
         {
           "part": "Apo",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*apo-の呼び名を、資料の表記Apoで使う。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Afteroff",
+          "part": "apostrophe",
           "sourceWords": [
-            "after",
-            "off"
+            "apostrophe"
           ],
-          "explanationJa": "afterとoffを組み合わせた固有名。離れたところから後ろへ広がった枝の音を重ねる。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "離れていく感覚を保ちながら、日常の英語でもつながりを思い出せる名前にする。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "apo"
         }
-      ]
+      ],
+      "representativeWord": "apostrophe",
+      "representativeWordKana": "アポストロフィ"
     },
     {
       "rootId": "upo",
-      "kana": "ウポ・アポーヴ",
-      "name": "Upo · Upove",
+      "kana": "ウポ・サブマリン",
+      "name": "Upo · submarine",
       "nameParts": [
         "Upo",
-        "Upove"
+        "submarine"
       ],
       "kanaParts": [
         "ウポ",
-        "アポーヴ"
+        "サブマリン"
       ],
       "meaningJa": "下から上へ",
       "meaningEn": "under",
@@ -536,37 +543,38 @@
         {
           "part": "Upo",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*upoの呼び名を、資料の表記Upoで使う。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Upove",
+          "part": "submarine",
           "sourceWords": [
-            "upon",
-            "above"
+            "submarine"
           ],
-          "explanationJa": "uponとaboveを組み合わせた固有名。下から上へ向かう位置の変化を、短い音にまとめる。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "上下の動きを連想できる、小さくても元気な響きにする。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "upo"
         }
-      ]
+      ],
+      "representativeWord": "submarine",
+      "representativeWordKana": "サブマリン"
     },
     {
       "rootId": "gene",
-      "kana": "ジェネ・ジェネイチャー",
-      "name": "Gene · Genature",
+      "kana": "ジェネ・ジーン",
+      "name": "Gene · gene",
       "nameParts": [
         "Gene",
-        "Genature"
+        "gene"
       ],
       "kanaParts": [
         "ジェネ",
-        "ジェネイチャー"
+        "ジーン"
       ],
       "meaningJa": "命を与える",
       "meaningEn": "to give birth",
@@ -575,37 +583,38 @@
         {
           "part": "Gene",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*genə-の呼び名を、資料の表記Geneで使う。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Genature",
+          "part": "gene",
           "sourceWords": [
-            "gene",
-            "nature"
+            "gene"
           ],
-          "explanationJa": "geneとnatureを組み合わせた固有名。生まれて受け継がれるものと、生まれつきの性質を重ねる。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "命を与える一族の名に、誕生と自然の両方を含ませる。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "gene"
         }
-      ]
+      ],
+      "representativeWord": "gene",
+      "representativeWordKana": "ジーン"
     },
     {
       "rootId": "weid",
-      "kana": "ウェイド・ヴィジウィズ",
-      "name": "Weid · Visiwiz",
+      "kana": "ウェイド・ウィザード",
+      "name": "Weid · wizard",
       "nameParts": [
         "Weid",
-        "Visiwiz"
+        "wizard"
       ],
       "kanaParts": [
         "ウェイド",
-        "ヴィジウィズ"
+        "ウィザード"
       ],
       "meaningJa": "見る・知る",
       "meaningEn": "to see, to know",
@@ -614,37 +623,38 @@
         {
           "part": "Weid",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*weid-の呼び名を、資料の表記Weidで使う。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Visiwiz",
+          "part": "wizard",
           "sourceWords": [
-            "vision",
             "wizard"
           ],
-          "explanationJa": "visionとwizardを組み合わせた固有名。見るラテン語の枝と、知恵を持つゲルマン語の枝を重ねる。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "見ることが知ることへつながる一族を、賢く遊び心のある響きで表す。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "weid"
         }
-      ]
+      ],
+      "representativeWord": "wizard",
+      "representativeWordKana": "ウィザード"
     },
     {
       "rootId": "ten",
-      "kana": "テン・テントーン",
-      "name": "Ten · Tentone",
+      "kana": "テン・テント",
+      "name": "Ten · tent",
       "nameParts": [
         "Ten",
-        "Tentone"
+        "tent"
       ],
       "kanaParts": [
         "テン",
-        "テントーン"
+        "テント"
       ],
       "meaningJa": "伸ばす",
       "meaningEn": "to stretch",
@@ -653,37 +663,38 @@
         {
           "part": "Ten",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*ten-の呼び名を、資料の表記Tenで使う。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Tentone",
+          "part": "tent",
           "sourceWords": [
-            "tent",
-            "tone"
+            "tent"
           ],
-          "explanationJa": "tentとtoneを組み合わせた固有名。張って立つテントと、張った弦の音につながる枝を重ねる。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "伸ばす・張るという働きを、音にも空間にも広げられる名前にする。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "ten"
         }
-      ]
+      ],
+      "representativeWord": "tent",
+      "representativeWordKana": "テント"
     },
     {
       "rootId": "dwo",
-      "kana": "ドウォ・トゥイブル",
-      "name": "Dwo · Twibble",
+      "kana": "ドウォ・バイシクル",
+      "name": "Dwo · bicycle",
       "nameParts": [
         "Dwo",
-        "Twibble"
+        "bicycle"
       ],
       "kanaParts": [
         "ドウォ",
-        "トゥイブル"
+        "バイシクル"
       ],
       "meaningJa": "二",
       "meaningEn": "two",
@@ -692,37 +703,38 @@
         {
           "part": "Dwo",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*dwo-の呼び名を、資料の表記Dwoで使う。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Twibble",
+          "part": "bicycle",
           "sourceWords": [
-            "twin",
-            "double"
+            "bicycle"
           ],
-          "explanationJa": "twinとdoubleを組み合わせた固有名。二人組と二倍の響きを、軽く跳ねる音に重ねる。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "二つが対になる一族に、数字の分かりやすさと親しみやすさを両立させる。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "dwo"
         }
-      ]
+      ],
+      "representativeWord": "bicycle",
+      "representativeWordKana": "バイシクル"
     },
     {
       "rootId": "epi",
-      "kana": "エピ・オポファー",
-      "name": "Epi · Oppofer",
+      "kana": "エピ・オポーネント",
+      "name": "Epi · opponent",
       "nameParts": [
         "Epi",
-        "Oppofer"
+        "opponent"
       ],
       "kanaParts": [
         "エピ",
-        "オポファー"
+        "オポーネント"
       ],
       "meaningJa": "近くに",
       "meaningEn": "near",
@@ -731,37 +743,38 @@
         {
           "part": "Epi",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*epiの呼び名を、資料の表記Epiで使う。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Oppofer",
+          "part": "opponent",
           "sourceWords": [
-            "opponent",
-            "offer"
+            "opponent"
           ],
-          "explanationJa": "opponentとofferを組み合わせた固有名。相手に向かうことと、相手のそばへ差し出すことを重ねる。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "近くへ向かう感覚を、向き合うことにも差し出すことにも使える名前にする。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "epi"
         }
-      ]
+      ],
+      "representativeWord": "opponent",
+      "representativeWordKana": "オポーネント"
     },
     {
       "rootId": "reg",
-      "kana": "レグ・ルロイヤル",
-      "name": "Reg · Ruloyal",
+      "kana": "レグ・ルーラー",
+      "name": "Reg · ruler",
       "nameParts": [
         "Reg",
-        "Ruloyal"
+        "ruler"
       ],
       "kanaParts": [
         "レグ",
-        "ルロイヤル"
+        "ルーラー"
       ],
       "meaningJa": "まっすぐ導く",
       "meaningEn": "to lead straight",
@@ -770,37 +783,38 @@
         {
           "part": "Reg",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*reg-の呼び名を、資料の表記Regで使う。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Ruloyal",
+          "part": "ruler",
           "sourceWords": [
-            "ruler",
-            "royal"
+            "ruler"
           ],
-          "explanationJa": "rulerとroyalを組み合わせた固有名。まっすぐ測り導く枝と、王に関わる枝を重ねる。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "まっすぐ導く一族に、整然とした印象と少し誇らしい響きを付ける。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "reg"
         }
-      ]
+      ],
+      "representativeWord": "ruler",
+      "representativeWordKana": "ルーラー"
     },
     {
       "rootId": "wer3",
-      "kana": "ウェル・ヴァーシヴァース",
-      "name": "Wer · Versiverse",
+      "kana": "ウェル・ユニバース",
+      "name": "Wer · universe",
       "nameParts": [
         "Wer",
-        "Versiverse"
+        "universe"
       ],
       "kanaParts": [
         "ウェル",
-        "ヴァーシヴァース"
+        "ユニバース"
       ],
       "meaningJa": "回す",
       "meaningEn": "to turn",
@@ -809,37 +823,38 @@
         {
           "part": "Wer",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*wer-3の呼び名を、資料の表記Werで使う。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Versiverse",
+          "part": "universe",
           "sourceWords": [
-            "version",
             "universe"
           ],
-          "explanationJa": "versionとuniverseを組み合わせた固有名。向きや姿を変えることと、全体を一つに回す古い組み合わせを重ねる。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "回すという芯を、身近な向きの変化から広い世界まで含む名前にする。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "wer3"
         }
-      ]
+      ],
+      "representativeWord": "universe",
+      "representativeWordKana": "ユニバース"
     },
     {
       "rootId": "pele1",
-      "kana": "ペレ・プルフル",
-      "name": "Pele · Plufull",
+      "kana": "ペレ・フル",
+      "name": "Pele · full",
       "nameParts": [
         "Pele",
-        "Plufull"
+        "full"
       ],
       "kanaParts": [
         "ペレ",
-        "プルフル"
+        "フル"
       ],
       "meaningJa": "満たす",
       "meaningEn": "to fill",
@@ -848,37 +863,38 @@
         {
           "part": "Pele",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*pelə-1の呼び名を、資料の表記Peleで使う。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Plufull",
+          "part": "full",
           "sourceWords": [
-            "plus",
             "full"
           ],
-          "explanationJa": "plusとfullを組み合わせた固有名。増すことと、いっぱいになることの響きを重ねる。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "満たされてふくらむ一族に、丸く弾む覚えやすい響きを付ける。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "pele1"
         }
-      ]
+      ],
+      "representativeWord": "full",
+      "representativeWordKana": "フル"
     },
     {
       "rootId": "ambhi",
-      "kana": "アンビ・アンファバウト",
-      "name": "Ambhi · Amphabout",
+      "kana": "アンビ・アンビュランス",
+      "name": "Ambhi · ambulance",
       "nameParts": [
         "Ambhi",
-        "Amphabout"
+        "ambulance"
       ],
       "kanaParts": [
         "アンビ",
-        "アンファバウト"
+        "アンビュランス"
       ],
       "meaningJa": "周囲に",
       "meaningEn": "around",
@@ -887,37 +903,38 @@
         {
           "part": "Ambhi",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*ambhiの呼び名を、資料の表記Ambhiで使う。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Amphabout",
+          "part": "ambulance",
           "sourceWords": [
-            "amphibian",
-            "about"
+            "ambulance"
           ],
-          "explanationJa": "amphibianとaboutを組み合わせた固有名。両側にまたがる枝と、周りにある枝を重ねる。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "周囲や両側へ広がる一族を、特定の動物の姿だけに限定しない名前にする。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "ambhi"
         }
-      ]
+      ],
+      "representativeWord": "ambulance",
+      "representativeWordKana": "アンビュランス"
     },
     {
       "rootId": "ag",
-      "kana": "アグ・アクタジェンダ",
-      "name": "Ag · Actagenda",
+      "kana": "アグ・アクター",
+      "name": "Ag · actor",
       "nameParts": [
         "Ag",
-        "Actagenda"
+        "actor"
       ],
       "kanaParts": [
         "アグ",
-        "アクタジェンダ"
+        "アクター"
       ],
       "meaningJa": "動かす",
       "meaningEn": "to drive",
@@ -926,37 +943,38 @@
         {
           "part": "Ag",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*ag-の呼び名を、資料の表記Agで使う。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Actagenda",
+          "part": "actor",
           "sourceWords": [
-            "action",
-            "agenda"
+            "actor"
           ],
-          "explanationJa": "actionとagendaを組み合わせた固有名。動いて行うことと、これから行うことを重ねる。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "動かす一族に、前へ仕事を進める活動的な響きを付ける。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "ag"
         }
-      ]
+      ],
+      "representativeWord": "actor",
+      "representativeWordKana": "アクター"
     },
     {
       "rootId": "ped",
-      "kana": "ペド・フットペダ",
-      "name": "Ped · Footpeda",
+      "kana": "ペド・フットボール",
+      "name": "Ped · football",
       "nameParts": [
         "Ped",
-        "Footpeda"
+        "football"
       ],
       "kanaParts": [
         "ペド",
-        "フットペダ"
+        "フットボール"
       ],
       "meaningJa": "足",
       "meaningEn": "foot",
@@ -965,37 +983,38 @@
         {
           "part": "Ped",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*ped-の呼び名を、資料の表記Pedで使う。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Footpeda",
+          "part": "football",
           "sourceWords": [
-            "foot",
-            "pedal"
+            "football"
           ],
-          "explanationJa": "footとpedalを組み合わせた固有名。ゲルマン語の足と、ラテン語の足からできた枝を重ねる。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "足という芯がすぐ分かり、走る・踏む・歩く姿のどれにも使える名前にする。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "ped"
         }
-      ]
+      ],
+      "representativeWord": "football",
+      "representativeWordKana": "フットボール"
     },
     {
       "rootId": "kap",
-      "kana": "カプ・キャプシーヴ",
-      "name": "Kap · Capceive",
+      "kana": "カプ・キャプチャー",
+      "name": "Kap · capture",
       "nameParts": [
         "Kap",
-        "Capceive"
+        "capture"
       ],
       "kanaParts": [
         "カプ",
-        "キャプシーヴ"
+        "キャプチャー"
       ],
       "meaningJa": "しっかり握る",
       "meaningEn": "to grasp",
@@ -1004,37 +1023,38 @@
         {
           "part": "Kap",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*kap-の呼び名を、資料の表記Kapで使う。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Capceive",
+          "part": "capture",
           "sourceWords": [
-            "capture",
-            "receive"
+            "capture"
           ],
-          "explanationJa": "captureとreceiveを組み合わせた固有名。つかまえることと、受け取ることの響きを重ねる。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "しっかり握る一族に、手に入れる働きまで含めた名前を付ける。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "kap"
         }
-      ]
+      ],
+      "representativeWord": "capture",
+      "representativeWordKana": "キャプチャー"
     },
     {
       "rootId": "bher1",
-      "kana": "ベール・ベアファー",
-      "name": "Bher · Bearfer",
+      "kana": "ベール・バース",
+      "name": "Bher · birth",
       "nameParts": [
         "Bher",
-        "Bearfer"
+        "birth"
       ],
       "kanaParts": [
         "ベール",
-        "ベアファー"
+        "バース"
       ],
       "meaningJa": "運ぶ",
       "meaningEn": "to carry",
@@ -1043,37 +1063,38 @@
         {
           "part": "Bher",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*bher-1の呼び名を、資料の表記Bherで使う。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Bearfer",
+          "part": "birth",
           "sourceWords": [
-            "bear",
-            "transfer"
+            "birth"
           ],
-          "explanationJa": "運ぶという動詞のbearとtransferを組み合わせた固有名。負って運ぶことと、別の場所へ運ぶことを重ねる。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "運ぶ一族の名として、荷物にも知らせにも命にも通じる響きを残す。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "bher1"
         }
-      ]
+      ],
+      "representativeWord": "birth",
+      "representativeWordKana": "バース"
     },
     {
       "rootId": "sem1",
-      "kana": "セム・セイムシム",
-      "name": "Sem · Samesim",
+      "kana": "セム・シングル",
+      "name": "Sem · single",
       "nameParts": [
         "Sem",
-        "Samesim"
+        "single"
       ],
       "kanaParts": [
         "セム",
-        "セイムシム"
+        "シングル"
       ],
       "meaningJa": "一つ・一緒に",
       "meaningEn": "one",
@@ -1082,37 +1103,38 @@
         {
           "part": "Sem",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*sem-1の呼び名を、資料の表記Semで使う。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Samesim",
+          "part": "single",
           "sourceWords": [
-            "same",
-            "similar"
+            "single"
           ],
-          "explanationJa": "sameとsimilarを組み合わせた固有名。同じものと似ているものの響きを重ねる。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "一つ・一緒にという芯から育った同一性を、素直で柔らかい名前にする。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "sem1"
         }
-      ]
+      ],
+      "representativeWord": "single",
+      "representativeWordKana": "シングル"
     },
     {
       "rootId": "swe",
-      "kana": "スウェ・セルフシュア",
-      "name": "Swe · Selfsure",
+      "kana": "スウェ・セキュリティ",
+      "name": "Swe · security",
       "nameParts": [
         "Swe",
-        "Selfsure"
+        "security"
       ],
       "kanaParts": [
         "スウェ",
-        "セルフシュア"
+        "セキュリティ"
       ],
       "meaningJa": "自身",
       "meaningEn": "self",
@@ -1121,37 +1143,38 @@
         {
           "part": "Swe",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*s(w)e-の呼び名を、資料の表記Sweで使う。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Selfsure",
+          "part": "security",
           "sourceWords": [
-            "self",
-            "sure"
+            "security"
           ],
-          "explanationJa": "selfとsureを組み合わせた固有名。自分自身と、安心して確かである枝の音を重ねる。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "自身という芯を中心に、守る・確かめる働きにも通じる名前にする。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "swe"
         }
-      ]
+      ],
+      "representativeWord": "security",
+      "representativeWordKana": "セキュリティ"
     },
     {
       "rootId": "sed",
-      "kana": "セド・シアドル",
-      "name": "Sed · Seaddle",
+      "kana": "セド・プレジデント",
+      "name": "Sed · president",
       "nameParts": [
         "Sed",
-        "Seaddle"
+        "president"
       ],
       "kanaParts": [
         "セド",
-        "シアドル"
+        "プレジデント"
       ],
       "meaningJa": "座る",
       "meaningEn": "to sit",
@@ -1160,37 +1183,38 @@
         {
           "part": "Sed",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*sed-の呼び名を、資料の表記Sedで使う。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Seaddle",
+          "part": "president",
           "sourceWords": [
-            "seat",
-            "saddle"
+            "president"
           ],
-          "explanationJa": "seatとsaddleを組み合わせた固有名。座る場所と、またがって座る道具を重ねる。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "座って落ち着く一族に、穏やかで少し丸い響きを付ける。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "sed"
         }
-      ]
+      ],
+      "representativeWord": "president",
+      "representativeWordKana": "プレジデント"
     },
     {
       "rootId": "gwei",
-      "kana": "グウェイ・ヴィタヴァイヴ",
-      "name": "Gwei · Vitavive",
+      "kana": "グウェイ・ビタミン",
+      "name": "Gwei · vitamin",
       "nameParts": [
         "Gwei",
-        "Vitavive"
+        "vitamin"
       ],
       "kanaParts": [
         "グウェイ",
-        "ヴィタヴァイヴ"
+        "ビタミン"
       ],
       "meaningJa": "生きる",
       "meaningEn": "to live",
@@ -1199,37 +1223,38 @@
         {
           "part": "Gwei",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*gwei-の呼び名を、資料の表記Gweiで使う。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Vitavive",
+          "part": "vitamin",
           "sourceWords": [
-            "vitamin",
-            "survive"
+            "vitamin"
           ],
-          "explanationJa": "vitaminとsurviveを組み合わせた固有名。命に関わる枝と、生き続ける枝の音を重ねる。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "生きる一族を、特定の動物や栄養剤に限定せず、生命力のある名前にする。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "gwei"
         }
-      ]
+      ],
+      "representativeWord": "vitamin",
+      "representativeWordKana": "ビタミン"
     },
     {
       "rootId": "trei",
-      "kana": "トレイ・トライスリー",
-      "name": "Trei · Trithree",
+      "kana": "トレイ・トライアングル",
+      "name": "Trei · triangle",
       "nameParts": [
         "Trei",
-        "Trithree"
+        "triangle"
       ],
       "kanaParts": [
         "トレイ",
-        "トライスリー"
+        "トライアングル"
       ],
       "meaningJa": "三",
       "meaningEn": "three",
@@ -1238,37 +1263,38 @@
         {
           "part": "Trei",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*trei-の呼び名を、資料の表記Treiで使う。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Trithree",
+          "part": "triangle",
           "sourceWords": [
-            "three",
             "triangle"
           ],
-          "explanationJa": "triangleに見えるtri-とthreeを組み合わせた固有名。どちらも三を表す枝の形を重ねる。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "ユーザー採用名。三という語義を、語根と英語の両方から思い出せる名前として固定する。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "trei"
         }
-      ]
+      ],
+      "representativeWord": "triangle",
+      "representativeWordKana": "トライアングル"
     },
     {
       "rootId": "uper",
-      "kana": "ウペル・スーパーオーヴァ",
-      "name": "Uper · Superover",
+      "kana": "ウペル・スーパーマーケット",
+      "name": "Uper · supermarket",
       "nameParts": [
         "Uper",
-        "Superover"
+        "supermarket"
       ],
       "kanaParts": [
         "ウペル",
-        "スーパーオーヴァ"
+        "スーパーマーケット"
       ],
       "meaningJa": "超えて",
       "meaningEn": "over",
@@ -1277,37 +1303,38 @@
         {
           "part": "Uper",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*uperの呼び名を、資料の表記Uperで使う。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Superover",
+          "part": "supermarket",
           "sourceWords": [
-            "supermarket",
-            "over"
+            "supermarket"
           ],
-          "explanationJa": "supermarketのsuperとoverを組み合わせた固有名。ラテン語とゲルマン語で分かれた、超える枝の音を重ねる。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "上や向こうへ超える一族を、力強く聞いて分かりやすい名前にする。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "uper"
         }
-      ]
+      ],
+      "representativeWord": "supermarket",
+      "representativeWordKana": "スーパーマーケット"
     },
     {
       "rootId": "spek",
-      "kana": "スペク・スペクスコ",
-      "name": "Spek · Specsco",
+      "kana": "スペク・スパイ",
+      "name": "Spek · spy",
       "nameParts": [
         "Spek",
-        "Specsco"
+        "spy"
       ],
       "kanaParts": [
         "スペク",
-        "スペクスコ"
+        "スパイ"
       ],
       "meaningJa": "観察する",
       "meaningEn": "to observe",
@@ -1316,37 +1343,38 @@
         {
           "part": "Spek",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*spek-の呼び名を、資料の表記Spekで使う。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Specsco",
+          "part": "spy",
           "sourceWords": [
-            "spectacles",
-            "scope"
+            "spy"
           ],
-          "explanationJa": "spectaclesとscopeを組み合わせた固有名。よく見るための二つの枝を、短く切れのある音に重ねる。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "観察する一族に、鋭い目と好奇心を感じる響きを付ける。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "spek"
         }
-      ]
+      ],
+      "representativeWord": "spy",
+      "representativeWordKana": "スパイ"
     },
     {
       "rootId": "deik",
-      "kana": "デイク・ディクティーチ",
-      "name": "Deik · Dicteach",
+      "kana": "デイク・ディクショナリー",
+      "name": "Deik · dictionary",
       "nameParts": [
         "Deik",
-        "Dicteach"
+        "dictionary"
       ],
       "kanaParts": [
         "デイク",
-        "ディクティーチ"
+        "ディクショナリー"
       ],
       "meaningJa": "示す",
       "meaningEn": "to show",
@@ -1355,37 +1383,38 @@
         {
           "part": "Deik",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*deik-の呼び名を、資料の表記Deikで使う。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Dicteach",
+          "part": "dictionary",
           "sourceWords": [
-            "dictionary",
-            "teach"
+            "dictionary"
           ],
-          "explanationJa": "dictionaryとteachを組み合わせた固有名。言葉で示す枝と、教えて示す枝を重ねる。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "示す一族の名として、言葉にも動作にも通じる分かりやすさを残す。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "deik"
         }
-      ]
+      ],
+      "representativeWord": "dictionary",
+      "representativeWordKana": "ディクショナリー"
     },
     {
       "rootId": "dekm",
-      "kana": "デクム・デクテン",
-      "name": "Dekm · Decten",
+      "kana": "デクム・ディセンバー",
+      "name": "Dekm · December",
       "nameParts": [
         "Dekm",
-        "Decten"
+        "December"
       ],
       "kanaParts": [
         "デクム",
-        "デクテン"
+        "ディセンバー"
       ],
       "meaningJa": "十",
       "meaningEn": "ten",
@@ -1394,37 +1423,38 @@
         {
           "part": "Dekm",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*dekm̥の呼び名を、資料の表記Dekmで使う。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Decten",
+          "part": "December",
           "sourceWords": [
-            "decade",
-            "ten"
+            "December"
           ],
-          "explanationJa": "decadeのdecとtenを組み合わせた固有名。十を表す二つの言語の枝を重ねる。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "十という意味を素直に聞き取れる、短く歯切れのよい名前にする。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "dekm"
         }
-      ]
+      ],
+      "representativeWord": "December",
+      "representativeWordKana": "ディセンバー"
     },
     {
       "rootId": "mei1",
-      "kana": "メイ・ミュタミュニティ",
-      "name": "Mei · Mutamunity",
+      "kana": "メイ・ミューテーション",
+      "name": "Mei · mutation",
       "nameParts": [
         "Mei",
-        "Mutamunity"
+        "mutation"
       ],
       "kanaParts": [
         "メイ",
-        "ミュタミュニティ"
+        "ミューテーション"
       ],
       "meaningJa": "変化する",
       "meaningEn": "to change",
@@ -1433,37 +1463,38 @@
         {
           "part": "Mei",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*mei-1の呼び名を、資料の表記Meiで使う。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Mutamunity",
+          "part": "mutation",
           "sourceWords": [
-            "mutation",
-            "community"
+            "mutation"
           ],
-          "explanationJa": "mutationとcommunityを組み合わせた固有名。変わることと、交換や共通の働きへ育った枝を重ねる。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "ユーザー採用名。変化する一族の広がりを含む代表名として、イラスト案にかかわらず固定する。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "mei1"
         }
-      ]
+      ],
+      "representativeWord": "mutation",
+      "representativeWordKana": "ミューテーション"
     },
     {
       "rootId": "ak",
-      "kana": "アク・キュートキシ",
-      "name": "Ak · Cutoxy",
+      "kana": "アク・キュート",
+      "name": "Ak · cute",
       "nameParts": [
         "Ak",
-        "Cutoxy"
+        "cute"
       ],
       "kanaParts": [
         "アク",
-        "キュートキシ"
+        "キュート"
       ],
       "meaningJa": "鋭い",
       "meaningEn": "sharp",
@@ -1472,37 +1503,38 @@
         {
           "part": "Ak",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*ak-の呼び名を、資料の表記Akで使う。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Cutoxy",
+          "part": "cute",
           "sourceWords": [
-            "cute",
-            "oxygen"
+            "cute"
           ],
-          "explanationJa": "cuteとoxygenを組み合わせた固有名。鋭さから育った二つの枝の意外な組み合わせを響きにする。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "鋭いという芯と、今の英語での可愛さの驚きを共存させる名前にする。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "ak"
         }
-      ]
+      ],
+      "representativeWord": "cute",
+      "representativeWordKana": "キュート"
     },
     {
       "rootId": "per2",
-      "kana": "ペル・ポーフェア",
-      "name": "Per · Porfare",
+      "kana": "ペル・スポーツ",
+      "name": "Per · sport",
       "nameParts": [
         "Per",
-        "Porfare"
+        "sport"
       ],
       "kanaParts": [
         "ペル",
-        "ポーフェア"
+        "スポーツ"
       ],
       "meaningJa": "導く",
       "meaningEn": "to lead",
@@ -1511,37 +1543,38 @@
         {
           "part": "Per",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*per-2の呼び名を、資料の表記Perで使う。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Porfare",
+          "part": "sport",
           "sourceWords": [
-            "port",
-            "fare"
+            "sport"
           ],
-          "explanationJa": "portとfareを組み合わせた固有名。運んで通す枝と、旅をして通る枝の音を重ねる。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "導き通す一族に、旅と運搬の両方が似合う軽い響きを付ける。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "per2"
         }
-      ]
+      ],
+      "representativeWord": "sport",
+      "representativeWordKana": "スポーツ"
     },
     {
       "rootId": "tere2",
-      "kana": "テレ・トランスルー",
-      "name": "Tere · Transthru",
+      "kana": "テレ・トランスジェンダー",
+      "name": "Tere · transgender",
       "nameParts": [
         "Tere",
-        "Transthru"
+        "transgender"
       ],
       "kanaParts": [
         "テレ",
-        "トランスルー"
+        "トランスジェンダー"
       ],
       "meaningJa": "横切る",
       "meaningEn": "to cross over",
@@ -1550,37 +1583,38 @@
         {
           "part": "Tere",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*terə-2の呼び名を、資料の表記Tereで使う。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Transthru",
+          "part": "transgender",
           "sourceWords": [
-            "transport",
-            "through"
+            "transgender"
           ],
-          "explanationJa": "transportのtransとthroughを組み合わせた固有名。横切るラテン語の枝と、通り抜けるゲルマン語の枝を重ねる。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "横切って向こうへ行く一族を、語形の違いも思い出せる名前にする。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "tere2"
         }
-      ]
+      ],
+      "representativeWord": "transgender",
+      "representativeWordKana": "トランスジェンダー"
     },
     {
       "rootId": "bha2",
-      "kana": "バァ・ファビフェイ",
-      "name": "Bha · Fabifay",
+      "kana": "バァ・フェアリー",
+      "name": "Bha · fairy",
       "nameParts": [
         "Bha",
-        "Fabifay"
+        "fairy"
       ],
       "kanaParts": [
         "バァ",
-        "ファビフェイ"
+        "フェアリー"
       ],
       "meaningJa": "話す",
       "meaningEn": "to speak",
@@ -1589,37 +1623,38 @@
         {
           "part": "Bha",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*bhā-2の呼び名を、資料の表記Bhaで使う。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Fabifay",
+          "part": "fairy",
           "sourceWords": [
-            "fable",
             "fairy"
           ],
-          "explanationJa": "fableとfairyを組み合わせた固有名。語られる物語と、語られた運命から育った妖精の枝を重ねる。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "話す一族に、物語や小さな魔法が似合う柔らかい響きを付ける。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "bha2"
         }
-      ]
+      ],
+      "representativeWord": "fairy",
+      "representativeWordKana": "フェアリー"
     },
     {
       "rootId": "leu",
-      "kana": "レウ・ルーソルヴ",
-      "name": "Leu · Loosolve",
+      "kana": "レウ・ソリューション",
+      "name": "Leu · solution",
       "nameParts": [
         "Leu",
-        "Loosolve"
+        "solution"
       ],
       "kanaParts": [
         "レウ",
-        "ルーソルヴ"
+        "ソリューション"
       ],
       "meaningJa": "解く",
       "meaningEn": "to loosen",
@@ -1628,37 +1663,38 @@
         {
           "part": "Leu",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*leu-の呼び名を、資料の表記Leuで使う。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Loosolve",
+          "part": "solution",
           "sourceWords": [
-            "loose",
-            "solve"
+            "solution"
           ],
-          "explanationJa": "looseとsolveを組み合わせた固有名。ほどけることと、問題を解くことを重ねる。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "解く一族に、結び目にも考えごとにも通じる滑らかな響きを付ける。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "leu"
         }
-      ]
+      ],
+      "representativeWord": "solution",
+      "representativeWordKana": "ソリューション"
     },
     {
       "rootId": "men1",
-      "kana": "メン・マインドミューズ",
-      "name": "Men · Mindmuse",
+      "kana": "メン・モンスター",
+      "name": "Men · monster",
       "nameParts": [
         "Men",
-        "Mindmuse"
+        "monster"
       ],
       "kanaParts": [
         "メン",
-        "マインドミューズ"
+        "モンスター"
       ],
       "meaningJa": "考える",
       "meaningEn": "to think",
@@ -1667,38 +1703,38 @@
         {
           "part": "Men",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*men-1の呼び名を、資料の表記Menで使う。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Mindmuse",
+          "part": "monster",
           "sourceWords": [
-            "mind",
-            "music",
-            "museum"
+            "monster"
           ],
-          "explanationJa": "mindとmusic・museumに通じる音を組み合わせた固有名。思考と、記憶や芸術へ育った枝を重ねる。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "考える一族を、脳や特定の楽器に限定せず、発想を生む名前にする。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "men1"
         }
-      ]
+      ],
+      "representativeWord": "monster",
+      "representativeWordKana": "モンスター"
     },
     {
       "rootId": "gno",
-      "kana": "グノー・ノーブル",
-      "name": "Gno · Knoble",
+      "kana": "グノー・ダイアグノーシス",
+      "name": "Gno · diagnosis",
       "nameParts": [
         "Gno",
-        "Knoble"
+        "diagnosis"
       ],
       "kanaParts": [
         "グノー",
-        "ノーブル"
+        "ダイアグノーシス"
       ],
       "meaningJa": "知る",
       "meaningEn": "to know",
@@ -1707,37 +1743,38 @@
         {
           "part": "Gno",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*gnō-の呼び名を、資料の表記Gnoで使う。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Knoble",
+          "part": "diagnosis",
           "sourceWords": [
-            "know",
-            "noble"
+            "diagnosis"
           ],
-          "explanationJa": "knowとnobleを組み合わせた固有名。知ることと、よく知られた者から育った高貴さを重ねる。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "知る一族に、落ち着いた知性と少し誇らしい響きを付ける。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "gno"
         }
-      ]
+      ],
+      "representativeWord": "diagnosis",
+      "representativeWordKana": "ダイアグノーシス"
     },
     {
       "rootId": "kwel1",
-      "kana": "クウェル・サイカルチャ",
-      "name": "Kwel · Cyculture",
+      "kana": "クウェル・カルチャー",
+      "name": "Kwel · culture",
       "nameParts": [
         "Kwel",
-        "Cyculture"
+        "culture"
       ],
       "kanaParts": [
         "クウェル",
-        "サイカルチャ"
+        "カルチャー"
       ],
       "meaningJa": "回転する",
       "meaningEn": "to revolve",
@@ -1746,37 +1783,38 @@
         {
           "part": "Kwel",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*kʷel-1の呼び名を、資料の表記Kwelで使う。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Cyculture",
+          "part": "culture",
           "sourceWords": [
-            "cycle",
             "culture"
           ],
-          "explanationJa": "cycleとcultureを組み合わせた固有名。回ることと、耕して世話をする枝の音を重ねる。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "回転する一族の名として、車輪だけでなく育てる働きまで含ませる。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "kwel1"
         }
-      ]
+      ],
+      "representativeWord": "culture",
+      "representativeWordKana": "カルチャー"
     },
     {
       "rootId": "gwa",
-      "kana": "グワ・カムベース",
-      "name": "Gwa · Comebase",
+      "kana": "グワ・ベースボール",
+      "name": "Gwa · baseball",
       "nameParts": [
         "Gwa",
-        "Comebase"
+        "baseball"
       ],
       "kanaParts": [
         "グワ",
-        "カムベース"
+        "ベースボール"
       ],
       "meaningJa": "行く",
       "meaningEn": "to go",
@@ -1785,37 +1823,38 @@
         {
           "part": "Gwa",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*gʷā-の呼び名を、資料の表記Gwaで使う。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Comebase",
+          "part": "baseball",
           "sourceWords": [
-            "come",
-            "base"
+            "baseball"
           ],
-          "explanationJa": "comeとbaseを組み合わせた固有名。来る動きと、足を踏み出し立つところから育った枝を重ねる。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "行く一族に、出会うことと踏み出すことの両方が似合う名前を付ける。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "gwa"
         }
-      ]
+      ],
+      "representativeWord": "baseball",
+      "representativeWordKana": "ベースボール"
     },
     {
       "rootId": "spen",
-      "kana": "スペン・スピンダント",
-      "name": "Spen · Spindant",
+      "kana": "スペン・スパイダー",
+      "name": "Spen · spider",
       "nameParts": [
         "Spen",
-        "Spindant"
+        "spider"
       ],
       "kanaParts": [
         "スペン",
-        "スピンダント"
+        "スパイダー"
       ],
       "meaningJa": "引く",
       "meaningEn": "to draw",
@@ -1824,37 +1863,38 @@
         {
           "part": "Spen",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*(s)pen-の呼び名を、資料の表記Spenで使う。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Spindant",
+          "part": "spider",
           "sourceWords": [
-            "spin",
-            "pendant"
+            "spider"
           ],
-          "explanationJa": "spinとpendantを組み合わせた固有名。引いて紡ぐことと、引かれて下がるものの響きを重ねる。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "引く一族に、回る糸にも揺れるものにも似合う軽快な名前を付ける。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "spen"
         }
-      ]
+      ],
+      "representativeWord": "spider",
+      "representativeWordKana": "スパイダー"
     },
     {
       "rootId": "gerbh",
-      "kana": "ゲルブ・グラフラモア",
-      "name": "Gerbh · Graphlamour",
+      "kana": "ゲルブ・フォトグラファー",
+      "name": "Gerbh · photographer",
       "nameParts": [
         "Gerbh",
-        "Graphlamour"
+        "photographer"
       ],
       "kanaParts": [
         "ゲルブ",
-        "グラフラモア"
+        "フォトグラファー"
       ],
       "meaningJa": "ひっかく",
       "meaningEn": "to scratch",
@@ -1863,37 +1903,38 @@
         {
           "part": "Gerbh",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*gerbh-の呼び名を、資料の表記Gerbhで使う。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Graphlamour",
+          "part": "photographer",
           "sourceWords": [
-            "graph",
-            "glamour"
+            "photographer"
           ],
-          "explanationJa": "graphとglamourを組み合わせた固有名。刻んで記す枝と、学問から魅惑へ育った枝を重ねる。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "ひっかいて記すという芯から、文字と不思議な魅力までを含む名前にする。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "gerbh"
         }
-      ]
+      ],
+      "representativeWord": "photographer",
+      "representativeWordKana": "フォトグラファー"
     },
     {
       "rootId": "al1",
-      "kana": "アル・アルテラリアン",
-      "name": "Al · Alteralien",
+      "kana": "アル・エイリアン",
+      "name": "Al · alien",
       "nameParts": [
         "Al",
-        "Alteralien"
+        "alien"
       ],
       "kanaParts": [
         "アル",
-        "アルテラリアン"
+        "エイリアン"
       ],
       "meaningJa": "越えて",
       "meaningEn": "beyond",
@@ -1902,37 +1943,38 @@
         {
           "part": "Al",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*al-1の呼び名を、資料の表記Alで使う。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Alteralien",
+          "part": "alien",
           "sourceWords": [
-            "alter",
             "alien"
           ],
-          "explanationJa": "alterとalienを組み合わせた固有名。別のものへ変えることと、よそのものの響きを重ねる。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "越えて別の側へ向かう一族に、少し不思議で異世界らしい名前を付ける。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "al1"
         }
-      ]
+      ],
+      "representativeWord": "alien",
+      "representativeWordKana": "エイリアン"
     },
     {
       "rootId": "pet",
-      "kana": "ペト・フェザピート",
-      "name": "Pet · Feathapeat",
+      "kana": "ペト・ヘリコプター",
+      "name": "Pet · helicopter",
       "nameParts": [
         "Pet",
-        "Feathapeat"
+        "helicopter"
       ],
       "kanaParts": [
         "ペト",
-        "フェザピート"
+        "ヘリコプター"
       ],
       "meaningJa": "急ぐ",
       "meaningEn": "to rush",
@@ -1941,37 +1983,38 @@
         {
           "part": "Pet",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*pet-の呼び名を、資料の表記Petで使う。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Feathapeat",
+          "part": "helicopter",
           "sourceWords": [
-            "feather",
-            "repeat"
+            "helicopter"
           ],
-          "explanationJa": "featherとrepeatを組み合わせた固有名。飛んで向かう枝と、再び求める枝の音を重ねる。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "急いで向かう一族の名に、飛ぶ動きと何度も向かう元気を含ませる。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "pet"
         }
-      ]
+      ],
+      "representativeWord": "helicopter",
+      "representativeWordKana": "ヘリコプター"
     },
     {
       "rootId": "bheue",
-      "kana": "ベウエ・ビーフューチャー",
-      "name": "Bheue · Befuture",
+      "kana": "ベウエ・ビルド",
+      "name": "Bheue · build",
       "nameParts": [
         "Bheue",
-        "Befuture"
+        "build"
       ],
       "kanaParts": [
         "ベウエ",
-        "ビーフューチャー"
+        "ビルド"
       ],
       "meaningJa": "存在する",
       "meaningEn": "to be",
@@ -1980,37 +2023,38 @@
         {
           "part": "Bheue",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*bheuə-の呼び名を、資料の表記Bheueで使う。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Befuture",
+          "part": "build",
           "sourceWords": [
-            "be",
-            "future"
+            "build"
           ],
-          "explanationJa": "beとfutureを組み合わせた固有名。今あることと、これからあることの音を重ねる。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "存在して育つ一族を、現在から未来へ続く響きで表す。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "bheue"
         }
-      ]
+      ],
+      "representativeWord": "build",
+      "representativeWordKana": "ビルド"
     },
     {
       "rootId": "okw",
-      "kana": "オクウ・オプテイジー",
-      "name": "Okw · Optaisy",
+      "kana": "オクウ・アイ",
+      "name": "Okw · eye",
       "nameParts": [
         "Okw",
-        "Optaisy"
+        "eye"
       ],
       "kanaParts": [
         "オクウ",
-        "オプテイジー"
+        "アイ"
       ],
       "meaningJa": "見る",
       "meaningEn": "to see",
@@ -2019,2053 +2063,2106 @@
         {
           "part": "Okw",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*okʷ-の呼び名を、資料の表記Okwで使う。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Optaisy",
+          "part": "eye",
           "sourceWords": [
-            "optic",
-            "daisy"
+            "eye"
           ],
-          "explanationJa": "opticとdaisyを組み合わせた固有名。見る働きと、日の目と呼ばれた花の枝を重ねる。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "見る器官を芯に、開いて世界を見る明るい響きを付ける。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "okw"
         }
-      ]
+      ],
+      "representativeWord": "eye",
+      "representativeWordKana": "アイ"
     },
     {
       "rootId": "a",
-      "kana": "アー・エンサイクロトピア",
-      "name": "A · Encyclotopia",
+      "kana": "アー・ユートピア",
+      "name": "A · utopia",
       "nameParts": [
         "A",
-        "Encyclotopia"
+        "utopia"
       ],
       "kanaParts": [
         "アー",
-        "エンサイクロトピア"
+        "ユートピア"
       ],
       "meaningJa": "",
       "meaningEn": "",
       "pie": "*-ā-",
       "nameElements": [
         {
-          "part": "*-ā-",
+          "part": "A",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*-ā-を、呼び名Aとして名前の先頭に残す。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Encyclotopia",
+          "part": "utopia",
           "sourceWords": [
-            "encyclopedia",
             "utopia"
           ],
-          "explanationJa": "encyclopediaとutopiaを組み合わせた固有名。知識の世界も理想の世界も、語尾で一つの名詞にまとまる面白さを残す。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "encyclopediaとutopiaを組み合わせた固有名。知識の世界も理想の世界も、語尾で一つの名詞にまとまる面白さを残す。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "a"
         }
-      ]
+      ],
+      "representativeWord": "utopia",
+      "representativeWordKana": "ユートピア"
     },
     {
       "rootId": "wegh",
-      "kana": "ウェグ・ワゴウェイ",
-      "name": "Wegh · Wagoway",
+      "kana": "ウェグ・ワゴン",
+      "name": "Wegh · wagon",
       "nameParts": [
         "Wegh",
-        "Wagoway"
+        "wagon"
       ],
       "kanaParts": [
         "ウェグ",
-        "ワゴウェイ"
+        "ワゴン"
       ],
       "meaningJa": "行く",
       "meaningEn": "to go",
       "pie": "*wegh-",
       "nameElements": [
         {
-          "part": "*wegh-",
+          "part": "Wegh",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*wegh-を、呼び名Weghとして名前の先頭に残す。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Wagoway",
+          "part": "wagon",
           "sourceWords": [
-            "wagon",
-            "way"
+            "wagon"
           ],
-          "explanationJa": "wagonのwago-とwayを組み合わせた固有名。乗り物と道を結び、物を運んで行く語根の一族らしい響きにする。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "wagonのwago-とwayを組み合わせた固有名。乗り物と道を結び、物を運んで行く語根の一族らしい響きにする。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "wegh"
         }
-      ]
+      ],
+      "representativeWord": "wagon",
+      "representativeWordKana": "ワゴン"
     },
     {
       "rootId": "sker1",
-      "kana": "スケル・シアシェア",
-      "name": "Sker · Shearshare",
+      "kana": "スケル・カーニバル",
+      "name": "Sker · carnival",
       "nameParts": [
         "Sker",
-        "Shearshare"
+        "carnival"
       ],
       "kanaParts": [
         "スケル",
-        "シアシェア"
+        "カーニバル"
       ],
       "meaningJa": "切る",
       "meaningEn": "to cut",
       "pie": "*(s)ker-1",
       "nameElements": [
         {
-          "part": "*(s)ker-1",
+          "part": "Sker",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*(s)ker-1を、呼び名Skerとして名前の先頭に残す。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Shearshare",
+          "part": "carnival",
           "sourceWords": [
-            "shear",
-            "share"
+            "carnival"
           ],
-          "explanationJa": "shearとshareを組み合わせた固有名。切ることと切り分けて分け合うことがつながる、短く弾む名前。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "shearとshareを組み合わせた固有名。切ることと切り分けて分け合うことがつながる、短く弾む名前。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "sker1"
         }
-      ]
+      ],
+      "representativeWord": "carnival",
+      "representativeWordKana": "カーニバル"
     },
     {
       "rootId": "sker3",
-      "kana": "スケル・サークラウン",
-      "name": "Sker · Circrown",
+      "kana": "スケル・サーカス",
+      "name": "Sker · circus",
       "nameParts": [
         "Sker",
-        "Circrown"
+        "circus"
       ],
       "kanaParts": [
         "スケル",
-        "サークラウン"
+        "サーカス"
       ],
       "meaningJa": "回す",
       "meaningEn": "to turn",
       "pie": "*(s)ker-3",
       "nameElements": [
         {
-          "part": "*(s)ker-3",
+          "part": "Sker",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*(s)ker-3を、呼び名Skerとして名前の先頭に残す。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Circrown",
+          "part": "circus",
           "sourceWords": [
-            "circle",
-            "crown"
+            "circus"
           ],
-          "explanationJa": "circleのcirc-とcrownを組み合わせた固有名。輪を描く動きと丸い冠の形で、回す語根を思い出せる。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "circleのcirc-とcrownを組み合わせた固有名。輪を描く動きと丸い冠の形で、回す語根を思い出せる。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "sker3"
         }
-      ]
+      ],
+      "representativeWord": "circus",
+      "representativeWordKana": "サーカス"
     },
     {
       "rootId": "bhel1",
-      "kana": "ベル・フラマブルー",
-      "name": "Bhel · Flamablue",
+      "kana": "ベル・ブルー",
+      "name": "Bhel · blue",
       "nameParts": [
         "Bhel",
-        "Flamablue"
+        "blue"
       ],
       "kanaParts": [
         "ベル",
-        "フラマブルー"
+        "ブルー"
       ],
       "meaningJa": "輝く",
       "meaningEn": "to shine",
       "pie": "*bhel-1",
       "nameElements": [
         {
-          "part": "*bhel-1",
+          "part": "Bhel",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*bhel-1を、呼び名Bhelとして名前の先頭に残す。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Flamablue",
+          "part": "blue",
           "sourceWords": [
-            "flame",
             "blue"
           ],
-          "explanationJa": "flameとblueを組み合わせた固有名。炎と色という離れた派生語を一つの響きにし、輝きから色へ広がる一族を表す。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "flameとblueを組み合わせた固有名。炎と色という離れた派生語を一つの響きにし、輝きから色へ広がる一族を表す。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "bhel1"
         }
-      ]
+      ],
+      "representativeWord": "blue",
+      "representativeWordKana": "ブルー"
     },
     {
       "rootId": "ant",
-      "kana": "アント・アンティクアンサー",
-      "name": "Ant · Antiquanswer",
+      "kana": "アント・アンティーク",
+      "name": "Ant · antique",
       "nameParts": [
         "Ant",
-        "Antiquanswer"
+        "antique"
       ],
       "kanaParts": [
         "アント",
-        "アンティクアンサー"
+        "アンティーク"
       ],
       "meaningJa": "前",
       "meaningEn": "front",
       "pie": "*ant-",
       "nameElements": [
         {
-          "part": "*ant-",
+          "part": "Ant",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*ant-を、呼び名Antとして名前の先頭に残す。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Antiquanswer",
+          "part": "antique",
           "sourceWords": [
-            "antique",
-            "answer"
+            "antique"
           ],
-          "explanationJa": "antiqueとanswerを組み合わせた固有名。昔のものと相手に向き合う返答を結び、前にあるものを意識する一族の名前にする。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "antiqueとanswerを組み合わせた固有名。昔のものと相手に向き合う返答を結び、前にあるものを意識する一族の名前にする。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "ant"
         }
-      ]
+      ],
+      "representativeWord": "antique",
+      "representativeWordKana": "アンティーク"
     },
     {
       "rootId": "deuk",
-      "kana": "デウク・チームダクター",
-      "name": "Deuk · Teamductor",
+      "kana": "デウク・コンダクター",
+      "name": "Deuk · conductor",
       "nameParts": [
         "Deuk",
-        "Teamductor"
+        "conductor"
       ],
       "kanaParts": [
         "デウク",
-        "チームダクター"
+        "コンダクター"
       ],
       "meaningJa": "導く",
       "meaningEn": "to lead",
       "pie": "*deuk-",
       "nameElements": [
         {
-          "part": "*deuk-",
+          "part": "Deuk",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*deuk-を、呼び名Deukとして名前の先頭に残す。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Teamductor",
+          "part": "conductor",
           "sourceWords": [
-            "team",
             "conductor"
           ],
-          "explanationJa": "teamとconductorの-ductorを組み合わせた固有名。一緒に引く集団と導く人を結び、引っ張って導く原義を響かせる。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "teamとconductorの-ductorを組み合わせた固有名。一緒に引く集団と導く人を結び、引っ張って導く原義を響かせる。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "deuk"
         }
-      ]
+      ],
+      "representativeWord": "conductor",
+      "representativeWordKana": "コンダクター"
     },
     {
       "rootId": "plek",
-      "kana": "プレク・プレイトプレックス",
-      "name": "Plek · Plaitplex",
+      "kana": "プレク・ディスプレイ",
+      "name": "Plek · display",
       "nameParts": [
         "Plek",
-        "Plaitplex"
+        "display"
       ],
       "kanaParts": [
         "プレク",
-        "プレイトプレックス"
+        "ディスプレイ"
       ],
       "meaningJa": "編む",
       "meaningEn": "to plait",
       "pie": "*plek-",
       "nameElements": [
         {
-          "part": "*plek-",
+          "part": "Plek",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*plek-を、呼び名Plekとして名前の先頭に残す。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Plaitplex",
+          "part": "display",
           "sourceWords": [
-            "plait",
-            "complex"
+            "display"
           ],
-          "explanationJa": "plaitとcomplexの-plexを組み合わせた固有名。編み込みと複雑な組み合わせをつなぐ、絡まり合う響きの名前。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "plaitとcomplexの-plexを組み合わせた固有名。編み込みと複雑な組み合わせをつなぐ、絡まり合う響きの名前。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "plek"
         }
-      ]
+      ],
+      "representativeWord": "display",
+      "representativeWordKana": "ディスプレイ"
     },
     {
       "rootId": "ker1",
-      "kana": "ケル・ユニキャロット",
-      "name": "Ker · Unicarrot",
+      "kana": "ケル・ユニコーン",
+      "name": "Ker · unicorn",
       "nameParts": [
         "Ker",
-        "Unicarrot"
+        "unicorn"
       ],
       "kanaParts": [
         "ケル",
-        "ユニキャロット"
+        "ユニコーン"
       ],
       "meaningJa": "角",
       "meaningEn": "horn",
       "pie": "*ker-1",
       "nameElements": [
         {
-          "part": "*ker-1",
+          "part": "Ker",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*ker-1を、呼び名Kerとして名前の先頭に残す。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Unicarrot",
+          "part": "unicorn",
           "sourceWords": [
-            "unicorn",
-            "carrot"
+            "unicorn"
           ],
-          "explanationJa": "unicornとcarrotを組み合わせた固有名。角を持つ獣と角のような野菜が同族という、意外で覚えやすい組み合わせ。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "unicornとcarrotを組み合わせた固有名。角を持つ獣と角のような野菜が同族という、意外で覚えやすい組み合わせ。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "ker1"
         }
-      ]
+      ],
+      "representativeWord": "unicorn",
+      "representativeWordKana": "ユニコーン"
     },
     {
       "rootId": "bha1",
-      "kana": "バァ・フォトファンタジー",
-      "name": "Bha · Photofantasy",
+      "kana": "バァ・ファントム",
+      "name": "Bha · phantom",
       "nameParts": [
         "Bha",
-        "Photofantasy"
+        "phantom"
       ],
       "kanaParts": [
         "バァ",
-        "フォトファンタジー"
+        "ファントム"
       ],
       "meaningJa": "輝く",
       "meaningEn": "to shine",
       "pie": "*bhā-1",
       "nameElements": [
         {
-          "part": "*bhā-1",
+          "part": "Bha",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*bhā-1を、呼び名Bhaとして名前の先頭に残す。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Photofantasy",
+          "part": "phantom",
           "sourceWords": [
-            "photo",
-            "fantasy"
+            "phantom"
           ],
-          "explanationJa": "photoとfantasyを組み合わせた固有名。光で現れる写真と心に現れる想像を結び、見えるものが現れる一族の響きにする。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "photoとfantasyを組み合わせた固有名。光で現れる写真と心に現れる想像を結び、見えるものが現れる一族の響きにする。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "bha1"
         }
-      ]
+      ],
+      "representativeWord": "phantom",
+      "representativeWordKana": "ファントム"
     },
     {
       "rootId": "me2",
-      "kana": "メー・ムーンメーター",
-      "name": "Me · Moonmeter",
+      "kana": "メー・ムーン",
+      "name": "Me · moon",
       "nameParts": [
         "Me",
-        "Moonmeter"
+        "moon"
       ],
       "kanaParts": [
         "メー",
-        "ムーンメーター"
+        "ムーン"
       ],
       "meaningJa": "測る",
       "meaningEn": "to measure",
       "pie": "*mē-2",
       "nameElements": [
         {
-          "part": "*mē-2",
+          "part": "Me",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*mē-2を、呼び名Meとして名前の先頭に残す。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Moonmeter",
+          "part": "moon",
           "sourceWords": [
-            "moon",
-            "meter"
+            "moon"
           ],
-          "explanationJa": "moonとmeterを組み合わせた固有名。月の周期と測る尺度を結び、測る語根の代表として覚えやすくする。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "moonとmeterを組み合わせた固有名。月の周期と測る尺度を結び、測る語根の代表として覚えやすくする。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "me2"
         }
-      ]
+      ],
+      "representativeWord": "moon",
+      "representativeWordKana": "ムーン"
     },
     {
       "rootId": "wel3",
-      "kana": "ウェル・ヘリヴォルヴ",
-      "name": "Wel · Helivolve",
+      "kana": "ウェル・レボリューション",
+      "name": "Wel · revolution",
       "nameParts": [
         "Wel",
-        "Helivolve"
+        "revolution"
       ],
       "kanaParts": [
         "ウェル",
-        "ヘリヴォルヴ"
+        "レボリューション"
       ],
       "meaningJa": "転がる",
       "meaningEn": "to turn",
       "pie": "*wel-3",
       "nameElements": [
         {
-          "part": "*wel-3",
+          "part": "Wel",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*wel-3を、呼び名Welとして名前の先頭に残す。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Helivolve",
+          "part": "revolution",
           "sourceWords": [
-            "helicopter",
-            "revolve"
+            "revolution"
           ],
-          "explanationJa": "helicopterのheli-とrevolveの-volveを組み合わせた固有名。らせんと回転を結び、ぐるぐる回る動きを音にも残す。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "helicopterのheli-とrevolveの-volveを組み合わせた固有名。らせんと回転を結び、ぐるぐる回る動きを音にも残す。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "wel3"
         }
-      ]
+      ],
+      "representativeWord": "revolution",
+      "representativeWordKana": "レボリューション"
     },
     {
       "rootId": "ei",
-      "kana": "エイ・トランシオン",
-      "name": "Ei · Transion",
+      "kana": "エイ・ジャニュアリー",
+      "name": "Ei · January",
       "nameParts": [
         "Ei",
-        "Transion"
+        "January"
       ],
       "kanaParts": [
         "エイ",
-        "トランシオン"
+        "ジャニュアリー"
       ],
       "meaningJa": "行く",
       "meaningEn": "to go",
       "pie": "*ei-",
       "nameElements": [
         {
-          "part": "*ei-",
+          "part": "Ei",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*ei-を、呼び名Eiとして名前の先頭に残す。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Transion",
+          "part": "January",
           "sourceWords": [
-            "transit",
-            "ion"
+            "January"
           ],
-          "explanationJa": "transitとionを組み合わせた固有名。場所を通って行くことと動く粒子を結び、行く語根の軽快な代表名にする。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "transitとionを組み合わせた固有名。場所を通って行くことと動く粒子を結び、行く語根の軽快な代表名にする。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "ei"
         }
-      ]
+      ],
+      "representativeWord": "January",
+      "representativeWordKana": "ジャニュアリー"
     },
     {
       "rootId": "kwo",
-      "kana": "クウォ・フーワット",
-      "name": "Kwo · Whowhat",
+      "kana": "クウォ・ワット",
+      "name": "Kwo · what",
       "nameParts": [
         "Kwo",
-        "Whowhat"
+        "what"
       ],
       "kanaParts": [
         "クウォ",
-        "フーワット"
+        "ワット"
       ],
       "meaningJa": "誰・何",
       "meaningEn": "who/what",
       "pie": "*kʷo-",
       "nameElements": [
         {
-          "part": "*kʷo-",
+          "part": "Kwo",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*kʷo-を、呼び名Kwoとして名前の先頭に残す。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Whowhat",
+          "part": "what",
           "sourceWords": [
-            "who",
             "what"
           ],
-          "explanationJa": "whoとwhatを組み合わせた固有名。誰と何を尋ねる身近な二語をそのまま生かし、問いかける一族をすぐ思い出せる名前。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "whoとwhatを組み合わせた固有名。誰と何を尋ねる身近な二語をそのまま生かし、問いかける一族をすぐ思い出せる名前。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "kwo"
         }
-      ]
+      ],
+      "representativeWord": "what",
+      "representativeWordKana": "ワット"
     },
     {
       "rootId": "ghel2",
-      "kana": "ゲル・グロウゴールド",
-      "name": "Ghel · Glowgold",
+      "kana": "ゲル・ゴールド",
+      "name": "Ghel · gold",
       "nameParts": [
         "Ghel",
-        "Glowgold"
+        "gold"
       ],
       "kanaParts": [
         "ゲル",
-        "グロウゴールド"
+        "ゴールド"
       ],
       "meaningJa": "輝く",
       "meaningEn": "to shine",
       "pie": "*ghel-2",
       "nameElements": [
         {
-          "part": "*ghel-2",
+          "part": "Ghel",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*ghel-2を、呼び名Ghelとして名前の先頭に残す。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Glowgold",
+          "part": "gold",
           "sourceWords": [
-            "glow",
             "gold"
           ],
-          "explanationJa": "glowとgoldを組み合わせた固有名。発する輝きと金色の輝きを重ね、きらきらした語根の一族らしくする。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "glowとgoldを組み合わせた固有名。発する輝きと金色の輝きを重ね、きらきらした語根の一族らしくする。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "ghel2"
         }
-      ]
+      ],
+      "representativeWord": "gold",
+      "representativeWordKana": "ゴールド"
     },
     {
       "rootId": "do",
-      "kana": "ドー・ドナデータ",
-      "name": "Do · Donadata",
+      "kana": "ドー・データ",
+      "name": "Do · data",
       "nameParts": [
         "Do",
-        "Donadata"
+        "data"
       ],
       "kanaParts": [
         "ドー",
-        "ドナデータ"
+        "データ"
       ],
       "meaningJa": "与える",
       "meaningEn": "to give",
       "pie": "*dō-",
       "nameElements": [
         {
-          "part": "*dō-",
+          "part": "Do",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*dō-を、呼び名Doとして名前の先頭に残す。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Donadata",
+          "part": "data",
           "sourceWords": [
-            "donation",
             "data"
           ],
-          "explanationJa": "donationのdona-とdataを組み合わせた固有名。寄付もデータも与えられたものにつながる意外さを、柔らかい響きにする。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "donationのdona-とdataを組み合わせた固有名。寄付もデータも与えられたものにつながる意外さを、柔らかい響きにする。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "do"
         }
-      ]
+      ],
+      "representativeWord": "data",
+      "representativeWordKana": "データ"
     },
     {
       "rootId": "kaput",
-      "kana": "カプト・キャビセプス",
-      "name": "Kaput · Cabbiceps",
+      "kana": "カプト・キャベッジ",
+      "name": "Kaput · cabbage",
       "nameParts": [
         "Kaput",
-        "Cabbiceps"
+        "cabbage"
       ],
       "kanaParts": [
         "カプト",
-        "キャビセプス"
+        "キャベッジ"
       ],
       "meaningJa": "頭",
       "meaningEn": "head",
       "pie": "*kaput-",
       "nameElements": [
         {
-          "part": "*kaput-",
+          "part": "Kaput",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*kaput-を、呼び名Kaputとして名前の先頭に残す。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Cabbiceps",
+          "part": "cabbage",
           "sourceWords": [
-            "cabbage",
-            "biceps"
+            "cabbage"
           ],
-          "explanationJa": "cabbageとbicepsを組み合わせた固有名。丸い頭に見立てた野菜と二つの頭を持つ筋肉をつなぎ、頭の一族の意外さを残す。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "cabbageとbicepsを組み合わせた固有名。丸い頭に見立てた野菜と二つの頭を持つ筋肉をつなぎ、頭の一族の意外さを残す。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "kaput"
         }
-      ]
+      ],
+      "representativeWord": "cabbage",
+      "representativeWordKana": "キャベッジ"
     },
     {
       "rootId": "kwetwer",
-      "kana": "クウェトウェル・クォーフォー",
-      "name": "Kwetwer · Quarfour",
+      "kana": "クウェトウェル・スクエア",
+      "name": "Kwetwer · square",
       "nameParts": [
         "Kwetwer",
-        "Quarfour"
+        "square"
       ],
       "kanaParts": [
         "クウェトウェル",
-        "クォーフォー"
+        "スクエア"
       ],
       "meaningJa": "四",
       "meaningEn": "four",
       "pie": "*kʷetwer-",
       "nameElements": [
         {
-          "part": "*kʷetwer-",
+          "part": "Kwetwer",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*kʷetwer-を、呼び名Kwetwerとして名前の先頭に残す。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Quarfour",
+          "part": "square",
           "sourceWords": [
-            "quarter",
-            "four"
+            "square"
           ],
-          "explanationJa": "quarterのquar-とfourを組み合わせた固有名。四分の一と四そのものを並べ、語根の数がすぐ分かる素直な響きにする。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "quarterのquar-とfourを組み合わせた固有名。四分の一と四そのものを並べ、語根の数がすぐ分かる素直な響きにする。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "kwetwer"
         }
-      ]
+      ],
+      "representativeWord": "square",
+      "representativeWordKana": "スクエア"
     },
     {
       "rootId": "kers2",
-      "kana": "ケルス・カリキャリー",
-      "name": "Kers · Curricarry",
+      "kana": "ケルス・カー",
+      "name": "Kers · car",
       "nameParts": [
         "Kers",
-        "Curricarry"
+        "car"
       ],
       "kanaParts": [
         "ケルス",
-        "カリキャリー"
+        "カー"
       ],
       "meaningJa": "走る",
       "meaningEn": "to run",
       "pie": "*kers-2",
       "nameElements": [
         {
-          "part": "*kers-2",
+          "part": "Kers",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*kers-2を、呼び名Kersとして名前の先頭に残す。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Curricarry",
+          "part": "car",
           "sourceWords": [
-            "current",
-            "carry"
+            "car"
           ],
-          "explanationJa": "currentとcarryを組み合わせた固有名。流れる動きと運ぶ動きを結び、走って移動する一族の軽快な響きにする。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "currentとcarryを組み合わせた固有名。流れる動きと運ぶ動きを結び、走って移動する一族の軽快な響きにする。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "kers2"
         }
-      ]
+      ],
+      "representativeWord": "car",
+      "representativeWordKana": "カー"
     },
     {
       "rootId": "oino",
-      "kana": "オイノ・ユニワン",
-      "name": "Oino · Unione",
+      "kana": "オイノ・オニオン",
+      "name": "Oino · onion",
       "nameParts": [
         "Oino",
-        "Unione"
+        "onion"
       ],
       "kanaParts": [
         "オイノ",
-        "ユニワン"
+        "オニオン"
       ],
       "meaningJa": "ひとつ",
       "meaningEn": "one",
       "pie": "*oi-no-",
       "nameElements": [
         {
-          "part": "*oi-no-",
+          "part": "Oino",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*oi-no-を、呼び名Oinoとして名前の先頭に残す。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Unione",
+          "part": "onion",
           "sourceWords": [
-            "unit",
-            "one"
+            "onion"
           ],
-          "explanationJa": "unitのuni-とoneを組み合わせた固有名。一つの単位と一つという数を重ね、ユニワンと読める小気味よい名前。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "unitのuni-とoneを組み合わせた固有名。一つの単位と一つという数を重ね、ユニワンと読める小気味よい名前。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "oino"
         }
-      ]
+      ],
+      "representativeWord": "onion",
+      "representativeWordKana": "オニオン"
     },
     {
       "rootId": "pere2",
-      "kana": "ペレ・ペアートナー",
-      "name": "Pere · Pairtner",
+      "kana": "ペレ・パーティー",
+      "name": "Pere · party",
       "nameParts": [
         "Pere",
-        "Pairtner"
+        "party"
       ],
       "kanaParts": [
         "ペレ",
-        "ペアートナー"
+        "パーティー"
       ],
       "meaningJa": "認める",
       "meaningEn": "to grant",
       "pie": "*perə-2",
       "nameElements": [
         {
-          "part": "*perə-2",
+          "part": "Pere",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*perə-2を、呼び名Pereとして名前の先頭に残す。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Pairtner",
+          "part": "party",
           "sourceWords": [
-            "pair",
-            "partner"
+            "party"
           ],
-          "explanationJa": "pairとpartnerを組み合わせた固有名。分けられた部分を人と分け合う一族を、親しみやすいペアの響きで表す。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "pairとpartnerを組み合わせた固有名。分けられた部分を人と分け合う一族を、親しみやすいペアの響きで表す。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "pere2"
         }
-      ]
+      ],
+      "representativeWord": "party",
+      "representativeWordKana": "パーティー"
     },
     {
       "rootId": "skei",
-      "kana": "スケイ・サイスキー",
-      "name": "Skei · Sciski",
+      "kana": "スケイ・サイエンス",
+      "name": "Skei · science",
       "nameParts": [
         "Skei",
-        "Sciski"
+        "science"
       ],
       "kanaParts": [
         "スケイ",
-        "サイスキー"
+        "サイエンス"
       ],
       "meaningJa": "切る",
       "meaningEn": "to cut",
       "pie": "*skei-",
       "nameElements": [
         {
-          "part": "*skei-",
+          "part": "Skei",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*skei-を、呼び名Skeiとして名前の先頭に残す。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Sciski",
+          "part": "science",
           "sourceWords": [
-            "science",
-            "ski"
+            "science"
           ],
-          "explanationJa": "scienceのsci-とskiを組み合わせた固有名。知識と切り分けた板という意外な同族を、短く滑るような音にする。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "scienceのsci-とskiを組み合わせた固有名。知識と切り分けた板という意外な同族を、短く滑るような音にする。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "skei"
         }
-      ]
+      ],
+      "representativeWord": "science",
+      "representativeWordKana": "サイエンス"
     },
     {
       "rootId": "leuk",
-      "kana": "レウク・ルニライト",
-      "name": "Leuk · Lunilight",
+      "kana": "レウク・ライト",
+      "name": "Leuk · light",
       "nameParts": [
         "Leuk",
-        "Lunilight"
+        "light"
       ],
       "kanaParts": [
         "レウク",
-        "ルニライト"
+        "ライト"
       ],
       "meaningJa": "光",
       "meaningEn": "light",
       "pie": "*leuk-",
       "nameElements": [
         {
-          "part": "*leuk-",
+          "part": "Leuk",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*leuk-を、呼び名Leukとして名前の先頭に残す。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Lunilight",
+          "part": "light",
           "sourceWords": [
-            "lunar",
             "light"
           ],
-          "explanationJa": "lunarとlightを組み合わせた固有名。月の光と身近な明かりをつなぎ、光の一族の澄んだ響きにする。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "lunarとlightを組み合わせた固有名。月の光と身近な明かりをつなぎ、光の一族の澄んだ響きにする。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "leuk"
         }
-      ]
+      ],
+      "representativeWord": "light",
+      "representativeWordKana": "ライト"
     },
     {
       "rootId": "an",
-      "kana": "アン・オントポン",
-      "name": "An · Ontopon",
+      "kana": "アン・アナトミー",
+      "name": "An · anatomy",
       "nameParts": [
         "An",
-        "Ontopon"
+        "anatomy"
       ],
       "kanaParts": [
         "アン",
-        "オントポン"
+        "アナトミー"
       ],
       "meaningJa": "上に",
       "meaningEn": "on",
       "pie": "*an-",
       "nameElements": [
         {
-          "part": "*an-",
+          "part": "An",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*an-を、呼び名Anとして名前の先頭に残す。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Ontopon",
+          "part": "anatomy",
           "sourceWords": [
-            "onto",
-            "upon"
+            "anatomy"
           ],
-          "explanationJa": "ontoとuponを組み合わせた固有名。何かの上へ移る感じを、ぽんと跳ねる短い音にする。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "ontoとuponを組み合わせた固有名。何かの上へ移る感じを、ぽんと跳ねる短い音にする。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "an"
         }
-      ]
+      ],
+      "representativeWord": "anatomy",
+      "representativeWordKana": "アナトミー"
     },
     {
       "rootId": "pere1",
-      "kana": "ペレ・プレペアレント",
-      "name": "Pere · Preparent",
+      "kana": "ペレ・エンペラー",
+      "name": "Pere · emperor",
       "nameParts": [
         "Pere",
-        "Preparent"
+        "emperor"
       ],
       "kanaParts": [
         "ペレ",
-        "プレペアレント"
+        "エンペラー"
       ],
       "meaningJa": "生産する",
       "meaningEn": "to produce",
       "pie": "*perə-1",
       "nameElements": [
         {
-          "part": "*perə-1",
+          "part": "Pere",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*perə-1を、呼び名Pereとして名前の先頭に残す。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Preparent",
+          "part": "emperor",
           "sourceWords": [
-            "prepare",
-            "parent"
+            "emperor"
           ],
-          "explanationJa": "prepareとparentを組み合わせた固有名。用意することと生み育てる人を結び、何かを生み出す一族の名前にする。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "prepareとparentを組み合わせた固有名。用意することと生み育てる人を結び、何かを生み出す一族の名前にする。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "pere1"
         }
-      ]
+      ],
+      "representativeWord": "emperor",
+      "representativeWordKana": "エンペラー"
     },
     {
       "rootId": "sekw1",
-      "kana": "セクウ・ソシクエンス",
-      "name": "Sekw · Sociquence",
+      "kana": "セクウ・セカンド",
+      "name": "Sekw · second",
       "nameParts": [
         "Sekw",
-        "Sociquence"
+        "second"
       ],
       "kanaParts": [
         "セクウ",
-        "ソシクエンス"
+        "セカンド"
       ],
       "meaningJa": "追う",
       "meaningEn": "to follow",
       "pie": "*sekʷ-1",
       "nameElements": [
         {
-          "part": "*sekʷ-1",
+          "part": "Sekw",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*sekʷ-1を、呼び名Sekwとして名前の先頭に残す。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Sociquence",
+          "part": "second",
           "sourceWords": [
-            "society",
-            "sequence"
+            "second"
           ],
-          "explanationJa": "societyとsequenceを組み合わせた固有名。仲間がつながることと順に続くことを結び、後を追って連なる語根を表す。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "societyとsequenceを組み合わせた固有名。仲間がつながることと順に続くことを結び、後を追って連なる語根を表す。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "sekw1"
         }
-      ]
+      ],
+      "representativeWord": "second",
+      "representativeWordKana": "セカンド"
     },
     {
       "rootId": "med",
-      "kana": "メド・リモデリー",
-      "name": "Med · Remodely",
+      "kana": "メド・メディシン",
+      "name": "Med · medicine",
       "nameParts": [
         "Med",
-        "Remodely"
+        "medicine"
       ],
       "kanaParts": [
         "メド",
-        "リモデリー"
+        "メディシン"
       ],
       "meaningJa": "処置する",
       "meaningEn": "to manage",
       "pie": "*med-",
       "nameElements": [
         {
-          "part": "*med-",
+          "part": "Med",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*med-を、呼び名Medとして名前の先頭に残す。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Remodely",
+          "part": "medicine",
           "sourceWords": [
-            "remedy",
-            "model"
+            "medicine"
           ],
-          "explanationJa": "remedyとmodelを組み合わせた固有名。調子を整える処置と手本をつなぎ、考えてちょうどよく整える一族の柔らかい響きにする。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "remedyとmodelを組み合わせた固有名。調子を整える処置と手本をつなぎ、考えてちょうどよく整える一族の柔らかい響きにする。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "med"
         }
-      ]
+      ],
+      "representativeWord": "medicine",
+      "representativeWordKana": "メディシン"
     },
     {
       "rootId": "kele2",
-      "kana": "ケレ・カレンクレイム",
-      "name": "Kele · Calenclaim",
+      "kana": "ケレ・カレンダー",
+      "name": "Kele · calendar",
       "nameParts": [
         "Kele",
-        "Calenclaim"
+        "calendar"
       ],
       "kanaParts": [
         "ケレ",
-        "カレンクレイム"
+        "カレンダー"
       ],
       "meaningJa": "叫ぶ",
       "meaningEn": "to shout",
       "pie": "*kelə-2",
       "nameElements": [
         {
-          "part": "*kelə-2",
+          "part": "Kele",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*kelə-2を、呼び名Keleとして名前の先頭に残す。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Calenclaim",
+          "part": "calendar",
           "sourceWords": [
-            "calendar",
-            "claim"
+            "calendar"
           ],
-          "explanationJa": "calendarのcalen-とclaimを組み合わせた固有名。日を告げることと声に出して主張することを結び、叫んで知らせる原義を残す。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "calendarのcalen-とclaimを組み合わせた固有名。日を告げることと声に出して主張することを結び、叫んで知らせる原義を残す。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "kele2"
         }
-      ]
+      ],
+      "representativeWord": "calendar",
+      "representativeWordKana": "カレンダー"
     },
     {
       "rootId": "man2",
-      "kana": "マン・マヌマネージ",
-      "name": "Man · Manumanage",
+      "kana": "マン・マニキュア",
+      "name": "Man · manicure",
       "nameParts": [
         "Man",
-        "Manumanage"
+        "manicure"
       ],
       "kanaParts": [
         "マン",
-        "マヌマネージ"
+        "マニキュア"
       ],
       "meaningJa": "手",
       "meaningEn": "hand",
       "pie": "*man-2",
       "nameElements": [
         {
-          "part": "*man-2",
+          "part": "Man",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*man-2を、呼び名Manとして名前の先頭に残す。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Manumanage",
+          "part": "manicure",
           "sourceWords": [
-            "manual",
-            "manage"
+            "manicure"
           ],
-          "explanationJa": "manualのmanu-とmanageを組み合わせた固有名。手で扱うことと手を尽くして管理することを結び、手の一族らしい名前にする。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "manualのmanu-とmanageを組み合わせた固有名。手で扱うことと手を尽くして管理することを結び、手の一族らしい名前にする。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "man2"
         }
-      ]
+      ],
+      "representativeWord": "manicure",
+      "representativeWordKana": "マニキュア"
     },
     {
       "rootId": "krei",
-      "kana": "クレイ・セクリティ",
-      "name": "Krei · Secriti",
+      "kana": "クレイ・セクレタリー",
+      "name": "Krei · secretary",
       "nameParts": [
         "Krei",
-        "Secriti"
+        "secretary"
       ],
       "kanaParts": [
         "クレイ",
-        "セクリティ"
+        "セクレタリー"
       ],
       "meaningJa": "ふるう",
       "meaningEn": "to sieve",
       "pie": "*krei-",
       "nameElements": [
         {
-          "part": "*krei-",
+          "part": "Krei",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*krei-を、呼び名Kreiとして名前の先頭に残す。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Secriti",
+          "part": "secretary",
           "sourceWords": [
-            "secret",
-            "critic"
+            "secretary"
           ],
-          "explanationJa": "secretとcriticを組み合わせた固有名。より分けて隠すこととより分けて判断することを結び、ふるい分ける一族を短い響きにする。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "secretとcriticを組み合わせた固有名。より分けて隠すこととより分けて判断することを結び、ふるい分ける一族を短い響きにする。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "krei"
         }
-      ]
+      ],
+      "representativeWord": "secretary",
+      "representativeWordKana": "セクレタリー"
     },
     {
       "rootId": "stere",
-      "kana": "ステレ・ストラクツリート",
-      "name": "Stere · Structreet",
+      "kana": "ステレ・ストリート",
+      "name": "Stere · street",
       "nameParts": [
         "Stere",
-        "Structreet"
+        "street"
       ],
       "kanaParts": [
         "ステレ",
-        "ストラクツリート"
+        "ストリート"
       ],
       "meaningJa": "広げる",
       "meaningEn": "spread",
       "pie": "*sterə-",
       "nameElements": [
         {
-          "part": "*sterə-",
+          "part": "Stere",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*sterə-を、呼び名Stereとして名前の先頭に残す。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Structreet",
+          "part": "street",
           "sourceWords": [
-            "structure",
             "street"
           ],
-          "explanationJa": "structureとstreetを組み合わせた固有名。積み広げた構造と敷き広げた道を結び、広がって形を作る一族を表す。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "structureとstreetを組み合わせた固有名。積み広げた構造と敷き広げた道を結び、広がって形を作る一族を表す。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "stere"
         }
-      ]
+      ],
+      "representativeWord": "street",
+      "representativeWordKana": "ストリート"
     },
     {
       "rootId": "es",
-      "kana": "エス・エッセンイエス",
-      "name": "Es · Essentyes",
+      "kana": "エス・イエス",
+      "name": "Es · yes",
       "nameParts": [
         "Es",
-        "Essentyes"
+        "yes"
       ],
       "kanaParts": [
         "エス",
-        "エッセンイエス"
+        "イエス"
       ],
       "meaningJa": "存在する",
       "meaningEn": "to be",
       "pie": "*es-",
       "nameElements": [
         {
-          "part": "*es-",
+          "part": "Es",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*es-を、呼び名Esとして名前の先頭に残す。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Essentyes",
+          "part": "yes",
           "sourceWords": [
-            "essential",
             "yes"
           ],
-          "explanationJa": "essentialとyesを組み合わせた固有名。存在の芯を表す言葉と肯定の返事を結び、あることを明るく言い切る響きにする。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "essentialとyesを組み合わせた固有名。存在の芯を表す言葉と肯定の返事を結び、あることを明るく言い切る響きにする。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "es"
         }
-      ]
+      ],
+      "representativeWord": "yes",
+      "representativeWordKana": "イエス"
     },
     {
       "rootId": "werg",
-      "kana": "ウェルグ・オーガナジー",
-      "name": "Werg · Organergy",
+      "kana": "ウェルグ・エナジー",
+      "name": "Werg · energy",
       "nameParts": [
         "Werg",
-        "Organergy"
+        "energy"
       ],
       "kanaParts": [
         "ウェルグ",
-        "オーガナジー"
+        "エナジー"
       ],
       "meaningJa": "行動する",
       "meaningEn": "to do",
       "pie": "*werg-",
       "nameElements": [
         {
-          "part": "*werg-",
+          "part": "Werg",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*werg-を、呼び名Wergとして名前の先頭に残す。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Organergy",
+          "part": "energy",
           "sourceWords": [
-            "organ",
             "energy"
           ],
-          "explanationJa": "organとenergyを組み合わせた固有名。働く器官と働く力を結び、活動する一族に似合う力強い響きにする。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "organとenergyを組み合わせた固有名。働く器官と働く力を結び、活動する一族に似合う力強い響きにする。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "werg"
         }
-      ]
+      ],
+      "representativeWord": "energy",
+      "representativeWordKana": "エナジー"
     },
     {
       "rootId": "klau",
-      "kana": "クラウ・クローズクローヴ",
-      "name": "Klau · Closclove",
+      "kana": "クラウ・クローゼット",
+      "name": "Klau · closet",
       "nameParts": [
         "Klau",
-        "Closclove"
+        "closet"
       ],
       "kanaParts": [
         "クラウ",
-        "クローズクローヴ"
+        "クローゼット"
       ],
       "meaningJa": "留め金",
       "meaningEn": "hook",
       "pie": "*klāu-",
       "nameElements": [
         {
-          "part": "*klāu-",
+          "part": "Klau",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*klāu-を、呼び名Klauとして名前の先頭に残す。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Closclove",
+          "part": "closet",
           "sourceWords": [
-            "close",
-            "clove"
+            "closet"
           ],
-          "explanationJa": "closeとcloveを組み合わせた固有名。閉じることと釘形の香辛料という意外な同族を重ね、留める原義を連想させる。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "closeとcloveを組み合わせた固有名。閉じることと釘形の香辛料という意外な同族を重ね、留める原義を連想させる。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "klau"
         }
-      ]
+      ],
+      "representativeWord": "closet",
+      "representativeWordKana": "クローゼット"
     },
     {
       "rootId": "ye",
-      "kana": "イェ・ジェットジェクト",
-      "name": "Ye · Jetject",
+      "kana": "イェ・ジェット",
+      "name": "Ye · jet",
       "nameParts": [
         "Ye",
-        "Jetject"
+        "jet"
       ],
       "kanaParts": [
         "イェ",
-        "ジェットジェクト"
+        "ジェット"
       ],
       "meaningJa": "投げる",
       "meaningEn": "to throw",
       "pie": "*yē-",
       "nameElements": [
         {
-          "part": "*yē-",
+          "part": "Ye",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*yē-を、呼び名Yeとして名前の先頭に残す。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Jetject",
+          "part": "jet",
           "sourceWords": [
-            "jet",
-            "eject"
+            "jet"
           ],
-          "explanationJa": "jetとejectを組み合わせた固有名。勢いよく噴き出すことと外へ放り出すことを結び、投げる動きが弾ける響きにする。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "jetとejectを組み合わせた固有名。勢いよく噴き出すことと外へ放り出すことを結び、投げる動きが弾ける響きにする。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "ye"
         }
-      ]
+      ],
+      "representativeWord": "jet",
+      "representativeWordKana": "ジェット"
     },
     {
       "rootId": "nomen",
-      "kana": "ノメン・ナウニム",
-      "name": "Nomen · Nounym",
+      "kana": "ノメン・ニックネーム",
+      "name": "Nomen · nickname",
       "nameParts": [
         "Nomen",
-        "Nounym"
+        "nickname"
       ],
       "kanaParts": [
         "ノメン",
-        "ナウニム"
+        "ニックネーム"
       ],
       "meaningJa": "名",
       "meaningEn": "name",
       "pie": "*no-men",
       "nameElements": [
         {
-          "part": "*no-men",
+          "part": "Nomen",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*no-menを、呼び名Nomenとして名前の先頭に残す。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Nounym",
+          "part": "nickname",
           "sourceWords": [
-            "noun",
-            "anonymous"
+            "nickname"
           ],
-          "explanationJa": "nounとanonymousの-nym-を組み合わせた固有名。ものを名付ける言葉と名前を伏せる言葉を重ね、名前の一族の不思議さを残す。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "nounとanonymousの-nym-を組み合わせた固有名。ものを名付ける言葉と名前を伏せる言葉を重ね、名前の一族の不思議さを残す。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "nomen"
         }
-      ]
+      ],
+      "representativeWord": "nickname",
+      "representativeWordKana": "ニックネーム"
     },
     {
       "rootId": "meg",
-      "kana": "メグ・メジャーマックス",
-      "name": "Meg · Majormax",
+      "kana": "メグ・マスター",
+      "name": "Meg · master",
       "nameParts": [
         "Meg",
-        "Majormax"
+        "master"
       ],
       "kanaParts": [
         "メグ",
-        "メジャーマックス"
+        "マスター"
       ],
       "meaningJa": "大きい",
       "meaningEn": "great",
       "pie": "*meg-",
       "nameElements": [
         {
-          "part": "*meg-",
+          "part": "Meg",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*meg-を、呼び名Megとして名前の先頭に残す。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Majormax",
+          "part": "master",
           "sourceWords": [
-            "major",
-            "maximum"
+            "master"
           ],
-          "explanationJa": "majorとmaximumを組み合わせた固有名。より大きいことと最大であることを重ね、大きさがすぐ伝わる堂々とした響きにする。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "majorとmaximumを組み合わせた固有名。より大きいことと最大であることを重ね、大きさがすぐ伝わる堂々とした響きにする。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "meg"
         }
-      ]
+      ],
+      "representativeWord": "master",
+      "representativeWordKana": "マスター"
     },
     {
       "rootId": "kaeid",
-      "kana": "カエイド・シサイヴ",
-      "name": "Kaeid · Scisive",
+      "kana": "カエイド・シザーズ",
+      "name": "Kaeid · scissors",
       "nameParts": [
         "Kaeid",
-        "Scisive"
+        "scissors"
       ],
       "kanaParts": [
         "カエイド",
-        "シサイヴ"
+        "シザーズ"
       ],
       "meaningJa": "殴る",
       "meaningEn": "to strike",
       "pie": "*kaə-id-",
       "nameElements": [
         {
-          "part": "*kaə-id-",
+          "part": "Kaeid",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*kaə-id-を、呼び名Kaeidとして名前の先頭に残す。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Scisive",
+          "part": "scissors",
           "sourceWords": [
-            "scissors",
-            "decisive"
+            "scissors"
           ],
-          "explanationJa": "scissorsとdecisiveを組み合わせた固有名。切る道具ときっぱり決めることを結び、切って決する一族の鋭い響きにする。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "scissorsとdecisiveを組み合わせた固有名。切る道具ときっぱり決めることを結び、切って決する一族の鋭い響きにする。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "kaeid"
         }
-      ]
+      ],
+      "representativeWord": "scissors",
+      "representativeWordKana": "シザーズ"
     },
     {
       "rootId": "ghabh",
-      "kana": "ガブ・ギヴィフト",
-      "name": "Ghabh · Givift",
+      "kana": "ガブ・ギフト",
+      "name": "Ghabh · gift",
       "nameParts": [
         "Ghabh",
-        "Givift"
+        "gift"
       ],
       "kanaParts": [
         "ガブ",
-        "ギヴィフト"
+        "ギフト"
       ],
       "meaningJa": "与える",
       "meaningEn": "to give or receive",
       "pie": "*ghabh-",
       "nameElements": [
         {
-          "part": "*ghabh-",
+          "part": "Ghabh",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*ghabh-を、呼び名Ghabhとして名前の先頭に残す。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Givift",
+          "part": "gift",
           "sourceWords": [
-            "give",
             "gift"
           ],
-          "explanationJa": "giveとgiftを組み合わせた固有名。与える動きと贈り物を結び、受け渡しの一族を短く親しみやすい音にする。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "giveとgiftを組み合わせた固有名。与える動きと贈り物を結び、受け渡しの一族を短く親しみやすい音にする。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "ghabh"
         }
-      ]
+      ],
+      "representativeWord": "gift",
+      "representativeWordKana": "ギフト"
     },
     {
       "rootId": "steu1",
-      "kana": "ステウ・スタディープ",
-      "name": "Steu · Studype",
+      "kana": "ステウ・スチューデント",
+      "name": "Steu · student",
       "nameParts": [
         "Steu",
-        "Studype"
+        "student"
       ],
       "kanaParts": [
         "ステウ",
-        "スタディープ"
+        "スチューデント"
       ],
       "meaningJa": "押す",
       "meaningEn": "push",
       "pie": "*(s)teu-1",
       "nameElements": [
         {
-          "part": "*(s)teu-1",
+          "part": "Steu",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*(s)teu-1を、呼び名Steuとして名前の先頭に残す。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Studype",
+          "part": "student",
           "sourceWords": [
-            "study",
-            "type"
+            "student"
           ],
-          "explanationJa": "studyとtypeを組み合わせた固有名。力を注ぐ学びと押して作る型を結び、押し進める一族のぎゅっとまとまった名前にする。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "studyとtypeを組み合わせた固有名。力を注ぐ学びと押して作る型を結び、押し進める一族のぎゅっとまとまった名前にする。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "steu1"
         }
-      ]
+      ],
+      "representativeWord": "student",
+      "representativeWordKana": "スチューデント"
     },
     {
       "rootId": "ksun",
-      "kana": "クスン・シムシル",
-      "name": "Ksun · Symsyll",
+      "kana": "クスン・シンボル",
+      "name": "Ksun · symbol",
       "nameParts": [
         "Ksun",
-        "Symsyll"
+        "symbol"
       ],
       "kanaParts": [
         "クスン",
-        "シムシル"
+        "シンボル"
       ],
       "meaningJa": "共に",
       "meaningEn": "with",
       "pie": "*ksun",
       "nameElements": [
         {
-          "part": "*ksun",
+          "part": "Ksun",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*ksunを、呼び名Ksunとして名前の先頭に残す。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Symsyll",
+          "part": "symbol",
           "sourceWords": [
-            "symbol",
-            "syllable"
+            "symbol"
           ],
-          "explanationJa": "symbolのsym-とsyllableのsyll-を組み合わせた固有名。意味を合わせるしるしと音を合わせるまとまりを結び、共にという語根を表す。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "symbolのsym-とsyllableのsyll-を組み合わせた固有名。意味を合わせるしるしと音を合わせるまとまりを結び、共にという語根を表す。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "ksun"
         }
-      ]
+      ],
+      "representativeWord": "symbol",
+      "representativeWordKana": "シンボル"
     },
     {
       "rootId": "tere1",
-      "kana": "テレ・スレドリル",
-      "name": "Tere · Threadrill",
+      "kana": "テレ・ドリル",
+      "name": "Tere · drill",
       "nameParts": [
         "Tere",
-        "Threadrill"
+        "drill"
       ],
       "kanaParts": [
         "テレ",
-        "スレドリル"
+        "ドリル"
       ],
       "meaningJa": "こする",
       "meaningEn": "to rub",
       "pie": "*terə-1",
       "nameElements": [
         {
-          "part": "*terə-1",
+          "part": "Tere",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*terə-1を、呼び名Tereとして名前の先頭に残す。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Threadrill",
+          "part": "drill",
           "sourceWords": [
-            "thread",
             "drill"
           ],
-          "explanationJa": "threadとdrillを組み合わせた固有名。より合わせた糸と回して穴をあける道具を結び、こすって回す一族のリズムを残す。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "threadとdrillを組み合わせた固有名。より合わせた糸と回して穴をあける道具を結び、こすって回す一族のリズムを残す。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "tere1"
         }
-      ]
+      ],
+      "representativeWord": "drill",
+      "representativeWordKana": "ドリル"
     },
     {
       "rootId": "dheu1",
-      "kana": "デウ・パフュミスト",
-      "name": "Dheu · Perfumist",
+      "kana": "デウ・パフューム",
+      "name": "Dheu · perfume",
       "nameParts": [
         "Dheu",
-        "Perfumist"
+        "perfume"
       ],
       "kanaParts": [
         "デウ",
-        "パフュミスト"
+        "パフューム"
       ],
       "meaningJa": "立ちのぼる",
       "meaningEn": "to rise in a cloud",
       "pie": "*dheu-1",
       "nameElements": [
         {
-          "part": "*dheu-1",
+          "part": "Dheu",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*dheu-1を、呼び名Dheuとして名前の先頭に残す。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Perfumist",
+          "part": "perfume",
           "sourceWords": [
-            "perfume",
-            "fume"
+            "perfume"
           ],
-          "explanationJa": "perfumeとfumeの共通するfumの響きを軸にした固有名。香りも煙も雲のように立ちのぼる一族として覚えられる。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "perfumeとfumeの共通するfumの響きを軸にした固有名。香りも煙も雲のように立ちのぼる一族として覚えられる。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "dheu1"
         }
-      ]
+      ],
+      "representativeWord": "perfume",
+      "representativeWordKana": "パフューム"
     },
     {
       "rootId": "dyeu",
-      "kana": "ディエウ・ジュピダイアル",
-      "name": "Dyeu · Jupidial",
+      "kana": "ディエウ・ダイアリー",
+      "name": "Dyeu · diary",
       "nameParts": [
         "Dyeu",
-        "Jupidial"
+        "diary"
       ],
       "kanaParts": [
         "ディエウ",
-        "ジュピダイアル"
+        "ダイアリー"
       ],
       "meaningJa": "輝く",
       "meaningEn": "to shine",
       "pie": "*dyeu-",
       "nameElements": [
         {
-          "part": "*dyeu-",
+          "part": "Dyeu",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*dyeu-を、呼び名Dyeuとして名前の先頭に残す。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Jupidial",
+          "part": "diary",
           "sourceWords": [
-            "Jupiter",
-            "dial"
+            "diary"
           ],
-          "explanationJa": "JupiterのJupi-とdialを組み合わせた固有名。明るい空の神と日を測る文字盤を結び、天の輝きと毎日のつながりを残す。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "JupiterのJupi-とdialを組み合わせた固有名。明るい空の神と日を測る文字盤を結び、天の輝きと毎日のつながりを残す。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "dyeu"
         }
-      ]
+      ],
+      "representativeWord": "diary",
+      "representativeWordKana": "ダイアリー"
     },
     {
       "rootId": "gheu",
-      "kana": "ゲウ・フォンデュージョン",
-      "name": "Gheu · Fondusion",
+      "kana": "ゲウ・フォンデュ",
+      "name": "Gheu · fondue",
       "nameParts": [
         "Gheu",
-        "Fondusion"
+        "fondue"
       ],
       "kanaParts": [
         "ゲウ",
-        "フォンデュージョン"
+        "フォンデュ"
       ],
       "meaningJa": "注ぐ",
       "meaningEn": "to pour",
       "pie": "*gheu-",
       "nameElements": [
         {
-          "part": "*gheu-",
+          "part": "Gheu",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*gheu-を、呼び名Gheuとして名前の先頭に残す。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Fondusion",
+          "part": "fondue",
           "sourceWords": [
-            "fondue",
-            "fusion"
+            "fondue"
           ],
-          "explanationJa": "fondueとfusionを組み合わせた固有名。とろける料理と溶け合うことを結び、注いで流す一族の滑らかな響きにする。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "fondueとfusionを組み合わせた固有名。とろける料理と溶け合うことを結び、注いで流す一族の滑らかな響きにする。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "gheu"
         }
-      ]
+      ],
+      "representativeWord": "fondue",
+      "representativeWordKana": "フォンデュ"
     },
     {
       "rootId": "ger2",
-      "kana": "ゲル・カールグレイプ",
-      "name": "Ger · Curlgrape",
+      "kana": "ゲル・グレープ",
+      "name": "Ger · grape",
       "nameParts": [
         "Ger",
-        "Curlgrape"
+        "grape"
       ],
       "kanaParts": [
         "ゲル",
-        "カールグレイプ"
+        "グレープ"
       ],
       "meaningJa": "曲がった",
       "meaningEn": "crooked",
       "pie": "*g(e)r-2",
       "nameElements": [
         {
-          "part": "*g(e)r-2",
+          "part": "Ger",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*g(e)r-2を、呼び名Gerとして名前の先頭に残す。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Curlgrape",
+          "part": "grape",
           "sourceWords": [
-            "curl",
             "grape"
           ],
-          "explanationJa": "curlとgrapeを組み合わせた固有名。くるりと曲がる形と房にまとまる実を結び、曲がって集まる一族を印象づける。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "curlとgrapeを組み合わせた固有名。くるりと曲がる形と房にまとまる実を結び、曲がって集まる一族を印象づける。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "ger2"
         }
-      ]
+      ],
+      "representativeWord": "grape",
+      "representativeWordKana": "グレープ"
     },
     {
       "rootId": "ked",
-      "kana": "ケド・プロセサクセス",
-      "name": "Ked · Processuccess",
+      "kana": "ケド・サクセス",
+      "name": "Ked · success",
       "nameParts": [
         "Ked",
-        "Processuccess"
+        "success"
       ],
       "kanaParts": [
         "ケド",
-        "プロセサクセス"
+        "サクセス"
       ],
       "meaningJa": "行く",
       "meaningEn": "to go",
       "pie": "*ked-",
       "nameElements": [
         {
-          "part": "*ked-",
+          "part": "Ked",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*ked-を、呼び名Kedとして名前の先頭に残す。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Processuccess",
+          "part": "success",
           "sourceWords": [
-            "process",
             "success"
           ],
-          "explanationJa": "processとsuccessを組み合わせた固有名。進む過程とたどり着く成果を結び、歩を進める一族の前向きな響きにする。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "processとsuccessを組み合わせた固有名。進む過程とたどり着く成果を結び、歩を進める一族の前向きな響きにする。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "ked"
         }
-      ]
+      ],
+      "representativeWord": "success",
+      "representativeWordKana": "サクセス"
     },
     {
       "rootId": "kerd",
-      "kana": "ケルド・コルドラージュ",
-      "name": "Kerd · Cordourage",
+      "kana": "ケルド・ハート",
+      "name": "Kerd · heart",
       "nameParts": [
         "Kerd",
-        "Cordourage"
+        "heart"
       ],
       "kanaParts": [
         "ケルド",
-        "コルドラージュ"
+        "ハート"
       ],
       "meaningJa": "心",
       "meaningEn": "heart",
       "pie": "*kerd-",
       "nameElements": [
         {
-          "part": "*kerd-",
+          "part": "Kerd",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*kerd-を、呼び名Kerdとして名前の先頭に残す。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Cordourage",
+          "part": "heart",
           "sourceWords": [
-            "record",
-            "courage"
+            "heart"
           ],
-          "explanationJa": "recordの-cordとcourageを組み合わせた固有名。心に戻して覚えることと心の強さを結び、記憶と勇気の宿る心を表す。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "recordの-cordとcourageを組み合わせた固有名。心に戻して覚えることと心の強さを結び、記憶と勇気の宿る心を表す。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "kerd"
         }
-      ]
+      ],
+      "representativeWord": "heart",
+      "representativeWordKana": "ハート"
     },
     {
       "rootId": "ane",
-      "kana": "アネ・アニマトロン",
-      "name": "Ane · Animatron",
+      "kana": "アネ・アニメーション",
+      "name": "Ane · animation",
       "nameParts": [
         "Ane",
-        "Animatron"
+        "animation"
       ],
       "kanaParts": [
         "アネ",
-        "アニマトロン"
+        "アニメーション"
       ],
       "meaningJa": "息をする",
       "meaningEn": "Breathe",
       "pie": "*anə-",
       "nameElements": [
         {
-          "part": "*anə-",
+          "part": "Ane",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*anə-を、呼び名Aneとして名前の先頭に残す。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Animatron",
+          "part": "animation",
           "sourceWords": [
-            "animation",
-            "animatronic"
+            "animation"
           ],
-          "explanationJa": "animationとanimatronicを組み合わせた固有名。動く映像と動く仕掛けを結び、息を吹き込んで生き生きさせる一族の名前にする。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "animationとanimatronicを組み合わせた固有名。動く映像と動く仕掛けを結び、息を吹き込んで生き生きさせる一族の名前にする。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "ane"
         }
-      ]
+      ],
+      "representativeWord": "animation",
+      "representativeWordKana": "アニメーション"
     },
     {
       "rootId": "bhel2",
-      "kana": "ベル・ボウルーン",
-      "name": "Bhel · Bowloon",
+      "kana": "ベル・バルーン",
+      "name": "Bhel · balloon",
       "nameParts": [
         "Bhel",
-        "Bowloon"
+        "balloon"
       ],
       "kanaParts": [
         "ベル",
-        "ボウルーン"
+        "バルーン"
       ],
       "meaningJa": "膨らむ",
       "meaningEn": "Blow / swell",
       "pie": "*bhel-(2)",
       "nameElements": [
         {
-          "part": "*bhel-(2)",
+          "part": "Bhel",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*bhel-(2)を、呼び名Bhelとして名前の先頭に残す。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Bowloon",
+          "part": "balloon",
           "sourceWords": [
-            "bowl",
             "balloon"
           ],
-          "explanationJa": "bowlとballoonを組み合わせた固有名。丸い器と膨らむ風船を結び、球やボールへ広がる膨らむ一族の丸い響きを残す。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "bowlとballoonを組み合わせた固有名。丸い器と膨らむ風船を結び、球やボールへ広がる膨らむ一族の丸い響きを残す。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "bhel2"
         }
-      ]
+      ],
+      "representativeWord": "balloon",
+      "representativeWordKana": "バルーン"
     },
     {
       "rootId": "genu1",
-      "kana": "ゲヌ・ニーゴン",
-      "name": "Genu · Kneegon",
+      "kana": "ゲヌ・ヘキサゴン",
+      "name": "Genu · hexagon",
       "nameParts": [
         "Genu",
-        "Kneegon"
+        "hexagon"
       ],
       "kanaParts": [
         "ゲヌ",
-        "ニーゴン"
+        "ヘキサゴン"
       ],
       "meaningJa": "ひざ・角",
       "meaningEn": "Knee · Angle",
       "pie": "*genu-1",
       "nameElements": [
         {
-          "part": "*genu-1",
+          "part": "Genu",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*genu-1を、呼び名Genuとして名前の先頭に残す。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Kneegon",
+          "part": "hexagon",
           "sourceWords": [
-            "knee",
-            "polygon"
+            "hexagon"
           ],
-          "explanationJa": "kneeとpolygonの-gonを組み合わせた固有名。曲がるひざと形の角を結び、体と図形の意外な同族を短い名前にする。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "kneeとpolygonの-gonを組み合わせた固有名。曲がるひざと形の角を結び、体と図形の意外な同族を短い名前にする。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "genu1"
         }
-      ]
+      ],
+      "representativeWord": "hexagon",
+      "representativeWordKana": "ヘキサゴン"
     },
     {
       "rootId": "mori",
-      "kana": "モリ・サブマーメイド",
-      "name": "Mori · Submermaid",
+      "kana": "モリ・マーメイド",
+      "name": "Mori · mermaid",
       "nameParts": [
         "Mori",
-        "Submermaid"
+        "mermaid"
       ],
       "kanaParts": [
         "モリ",
-        "サブマーメイド"
+        "マーメイド"
       ],
       "meaningJa": "海・水域",
       "meaningEn": "Sea · Water area",
       "pie": "*mori-",
       "nameElements": [
         {
-          "part": "*mori-",
+          "part": "Mori",
           "sourceWords": [],
-          "explanationJa": "印欧祖語*mori-を、呼び名Moriとして名前の先頭に残す。"
+          "explanationJa": "印欧祖語の読み。"
         },
         {
-          "part": "Submermaid",
+          "part": "mermaid",
           "sourceWords": [
-            "submarine",
             "mermaid"
           ],
-          "explanationJa": "submarineとmermaidを組み合わせた固有名。潜水する乗り物と海に暮らす人魚を結び、異なる言語の海の枝が出会う響きにする。"
+          "explanationJa": "語根解説に掲載された代表語を、そのまま名前に使用。"
         }
       ],
-      "reasonJa": "submarineとmermaidを組み合わせた固有名。潜水する乗り物と海に暮らす人魚を結び、異なる言語の海の枝が出会う響きにする。",
+      "reasonJa": "印欧祖語の読み＋印象に残る派生英単語のカナ読み。同じ語根の全候補で固定。",
       "sources": [
         {
           "title": "共有学習解説",
           "path": "production/root-lessons.json",
           "rootId": "mori"
         }
-      ]
+      ],
+      "representativeWord": "mermaid",
+      "representativeWordKana": "マーメイド"
     }
   ]
 }

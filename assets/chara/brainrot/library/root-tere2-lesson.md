@@ -12,6 +12,8 @@ transparent（透明な）のtrans-は、向こう側まで見えることにつ
 
 意外な双子はtradition（伝統）とtreason（反逆）。両方ともラテン語traditio「引き渡すこと」の枝で、traditionには古フランス語とラテン語からの経路があり、treasonはフランス語で短く変わった形を通った。この古語ではtrans-がtra-に短くなり、後ろに「与える」の成分がついている。習慣を次の人へ渡せば伝統、人や秘密を敵へ渡せば裏切りになる。traditionやtreasonの見た目にtrans-が丸ごとなくても、古い形をたどれば同じ橋を渡っていると分かるね。
 
+transgenderのtrans-は「越えて」の部分。ここでもラテン語の「横切る・向こうへ」が使われている。トランスジェンダーは、生まれたときに割り当てられた性別と自分の性別の認識が一致しない人を表す。見た目や服装だけで決まるものではないよ。
+
 ## 歌にするフック
 
 throughで通り抜け、thoroughで最後まで。transport・transferで向こうへ運ぶ。transparentは光を通し、translate・translationは意味を渡す。traditionを次へ、treasonは敵へ！
@@ -35,6 +37,7 @@ throughで通り抜け、thoroughで最後まで。transport・transferで向こ
 - **treason（反逆）**：反対側へ秘密の節を渡す腕を、語根の「横切る」が読める主構造へつながる立体の部位や動きとして融合する。
 - **throughout（すみずみまで）**：全体を貫く複数の連続通路を、語根の「横切る」が読める主構造へつながる立体の部位や動きとして融合する。
 - **thorough（徹底的な）**：端まで完全に通り抜けた胴の経路を、語根の「横切る」が読める主構造へつながる立体の部位や動きとして融合する。
+- **transgender（トランスジェンダー）**：トランスジェンダーを主要な身体部位として明瞭に見せる。
 
 ## 語源の根拠
 
@@ -126,6 +129,14 @@ throughで通り抜け、thoroughで最後まで。transport・transferで向こ
 
 [辞書の該当項目](https://www.ahdictionary.com/word/search.html?q=thorough)
 
+### transgender
+
+transgenderのtrans-は「越えて」の部分。ここでもラテン語の「横切る・向こうへ」が使われている。トランスジェンダーは、生まれたときに割り当てられた性別と自分の性別の認識が一致しない人を表す。見た目や服装だけで決まるものではないよ。
+
+transgenderのtrans-は「越えて」の部分。ここでもラテン語の「横切る・向こうへ」が使われている。トランスジェンダーは、生まれたときに割り当てられた性別と自分の性別の認識が一致しない人を表す。見た目や服装だけで決まるものではないよ。
+
+[辞書の該当項目](https://www.etymonline.com/word/transgender)
+
 
 ## 同じ語根につながる形と音
 
@@ -152,8 +163,8 @@ throughで通り抜け、thoroughで最後まで。transport・transferで向こ
 ## 制作時の対応記録
 
 - 解説ID：root-tere2-lesson
-- 版：3
-- 解説SHA256：0f30ed794a80343b5ac2a38deaf317dee14fed9070eb12ab8b8526a549c82c43
+- 版：4
+- 解説SHA256：386a9b8e25572a190258ab507bdf526018b4c45709c4322ce649c0357a93f25f
 - DBの原義と解説：production/lesson-source-index.json の tere2
 - 同じ語根の候補はこの解説を共有し、原義の見せ方・採用する派生語・身体の組み合わせ・表情を変える。
 - 候補ごとに、描いた要素の部位対応と、描かなかった派生語の省略理由を記録する。

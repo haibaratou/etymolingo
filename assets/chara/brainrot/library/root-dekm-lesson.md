@@ -157,8 +157,8 @@ tenで十、decadeで十年。twenty・thirty・fiftyは十の組！ hundred・c
 ## 制作時の対応記録
 
 - 解説ID：root-dekm-lesson
-- 版：3
-- 解説SHA256：51ca8feffb49b4a29b1711c27edfe7ac52a6eecbbcaca90c01775ba5bb0b8e87
+- 版：4
+- 解説SHA256：91a3893520e37d75e129bd9db93ae0d5df5ad6c6650b65562b727fe7bdb4c5f4
 - DBの原義と解説：production/lesson-source-index.json の dekm
 - 同じ語根の候補はこの解説を共有し、原義の見せ方・採用する派生語・身体の組み合わせ・表情を変える。
 - 候補ごとに、描いた要素の部位対応と、描かなかった派生語の省略理由を記録する。

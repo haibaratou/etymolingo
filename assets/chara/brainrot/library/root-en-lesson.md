@@ -175,8 +175,8 @@ informationは情報で、in-は中に、後ろは形を与える側。
 ## 制作時の対応記録
 
 - 解説ID：root-en-lesson
-- 版：3
-- 解説SHA256：5cbd9fd42ac1960b1075ad79e59b9240576488f2c1a39d1dcf47e1bff64cfb6b
+- 版：5
+- 解説SHA256：31ff5d9991319bd385a2a9c4c4a3b025791510905cc9751616a4b4f2ce175715
 - DBの原義と解説：production/lesson-source-index.json の en
 - 同じ語根の候補はこの解説を共有し、原義の見せ方・採用する派生語・身体の組み合わせ・表情を変える。
 - 候補ごとに、描いた要素の部位対応と、描かなかった派生語の省略理由を記録する。

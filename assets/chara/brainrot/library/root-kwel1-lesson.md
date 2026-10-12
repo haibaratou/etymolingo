@@ -142,8 +142,8 @@ wheel・cycleで回る、bicycleは二つの輪。collarは頭の軸、pole・po
 ## 制作時の対応記録
 
 - 解説ID：root-kwel1-lesson
-- 版：3
-- 解説SHA256：46435e92455a8784cb6c93ee4b37e49249f99167fc6f721052be07c002b5b1cc
+- 版：4
+- 解説SHA256：51d020257d3c783f46d1280a8e37a26b2ee9867f1c334a6f43e9103a3148b891
 - DBの原義と解説：production/lesson-source-index.json の kwel1
 - 同じ語根の候補はこの解説を共有し、原義の見せ方・採用する派生語・身体の組み合わせ・表情を変える。
 - 候補ごとに、描いた要素の部位対応と、描かなかった派生語の省略理由を記録する。

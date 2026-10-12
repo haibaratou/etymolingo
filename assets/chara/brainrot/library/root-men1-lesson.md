@@ -143,8 +143,8 @@ mind・mentalで考え、remindで思い出す。mention・commentで口に出�
 ## 制作時の対応記録
 
 - 解説ID：root-men1-lesson
-- 版：3
-- 解説SHA256：38251a7b3029c22c0c33f7183d0f4e909926d4876fd76dab3450c69e3c67576e
+- 版：4
+- 解説SHA256：26a00f8efcd68271a3fc01390308eb8aceee62cd4004c23b3e3e891976804573
 - DBの原義と解説：production/lesson-source-index.json の men1
 - 同じ語根の候補はこの解説を共有し、原義の見せ方・採用する派生語・身体の組み合わせ・表情を変える。
 - 候補ごとに、描いた要素の部位対応と、描かなかった派生語の省略理由を記録する。

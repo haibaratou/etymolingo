@@ -129,8 +129,8 @@ Weight object illustrates heavy; its tool name is not taught as same-root.
 ## 制作時の対応記録
 
 - 解説ID：root-kap-lesson
-- 版：4
-- 解説SHA256：2306965b2acb22f8995c0d3247818facd4cce3c580423be714756565265fd15f
+- 版：5
+- 解説SHA256：9e475493b79ef8bc4bead6b8ddf1586e9af3d7f51b426ea90e20754a11b5bdce
 - DBの原義と解説：production/lesson-source-index.json の kap
 - 同じ語根の候補はこの解説を共有し、原義の見せ方・採用する派生語・身体の組み合わせ・表情を変える。
 - 候補ごとに、描いた要素の部位対応と、描かなかった派生語の省略理由を記録する。

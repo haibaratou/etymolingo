@@ -134,8 +134,8 @@ dis-(離れて)+regere(まっすぐ導く)で、まっすぐ差し向けるこ�
 ## 制作時の対応記録
 
 - 解説ID：root-dwis-lesson
-- 版：3
-- 解説SHA256：bf065a0ddd438aaa5d28e68d357ac768bd2e4818b2ed0377eff916b88118933e
+- 版：5
+- 解説SHA256：f99aaf6b5222549a0bf3e9419ee7a69ebe67ad14cdfdf83e71728e5c653f2dce
 - DBの原義と解説：production/lesson-source-index.json の dwis
 - 同じ語根の候補はこの解説を共有し、原義の見せ方・採用する派生語・身体の組み合わせ・表情を変える。
 - 候補ごとに、描いた要素の部位対応と、描かなかった派生語の省略理由を記録する。

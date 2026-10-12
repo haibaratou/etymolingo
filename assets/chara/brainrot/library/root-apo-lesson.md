@@ -113,8 +113,8 @@ English anormal was refashioned under Latin abnormalis = ab- + norma; ab- ← PI
 ## 制作時の対応記録
 
 - 解説ID：root-apo-lesson
-- 版：3
-- 解説SHA256：2bc4fcbaa0b77c6200bb89c66780bdd1aa4255f05dc067861ef6b2f8f2a41177
+- 版：5
+- 解説SHA256：8861c346f2699c0b0921640c25cd5c80eefd5a13d3e275a5ca12e6ee582b6e4b
 - DBの原義と解説：production/lesson-source-index.json の apo
 - 同じ語根の候補はこの解説を共有し、原義の見せ方・採用する派生語・身体の組み合わせ・表情を変える。
 - 候補ごとに、描いた要素の部位対応と、描かなかった派生語の省略理由を記録する。

@@ -154,8 +154,8 @@ experience ← Old French ← Latin experientia ← experiri「試す」。exper
 ## 制作時の対応記録
 
 - 解説ID：root-eghs-lesson
-- 版：4
-- 解説SHA256：fb6c69e7661225a61e2fe1e66c500c8a14b4b640c58849aa0ce87bbe42cff98f
+- 版：6
+- 解説SHA256：d2481db0f4e0f0c980a3bf2f50136b1bf9ecc8e303f2e709a3aa57c91bfe9ebf
 - DBの原義と解説：production/lesson-source-index.json の eghs
 - 同じ語根の候補はこの解説を共有し、原義の見せ方・採用する派生語・身体の組み合わせ・表情を変える。
 - 候補ごとに、描いた要素の部位対応と、描かなかった派生語の省略理由を記録する。
