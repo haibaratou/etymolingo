@@ -267,6 +267,7 @@ td.cMemo input.filled{border-color:var(--accent2);background:#f2fbf8}
 <script src="shared/semantic-classifications.js?v=e8afae8d3104"></script>
 <script src="shared/illustration-scenes.js?v=first-sense-mismatch1"></script>
 <script src="shared/multilingual-answers.js?v=1"></script>
+<script src="shared/offline-dictionary.js?v=1"></script>
 </head>
 <body>
 <header>
@@ -313,9 +314,15 @@ const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&
 const PIE_V='70d5b2c483';   // build_pie_data.py がデータのハッシュに書き換える(キャッシュ破り)
 let ROOTS=[], WORDS=[], AFFIXES=[], BRIEF=null, WORD_PARTS={}, byRoot=new Map();
 // 単語詳細は頭文字ごとの分割ファイル。開いた語のぶんだけ読んで貯める。
+let offlineDictionaryPromise=null, offlineDictionaryError='';
+function offlineDictionary(){
+ if(!offlineDictionaryPromise)offlineDictionaryPromise=window.OfflineDictionary.load(WORDS).catch(error=>{offlineDictionaryError='ローカル辞書データを読み込めません。辞書データ一式を更新してください。';throw error;});
+ return offlineDictionaryPromise;
+}
 const DET_SHARD={};
 function detOf(word,i){
   const c=/^[a-z]/i.test(word)?word[0].toLowerCase():'_';
+  if(location.protocol==='file:')return offlineDictionary().then(data=>data.det[c]?.[i]||null);
   if(!DET_SHARD[c])DET_SHARD[c]=fetch(DATA_DIR+'det/'+c+'.json?v='+PIE_V)
     .then(r=>r.ok?r.json():{}).catch(()=>({}));
   return DET_SHARD[c].then(sh=>sh[i]||null);
@@ -325,12 +332,14 @@ let EO_SLUG=new Set();   // etymonline に実在する見出し(eo_slugs.json)
    混ざらないようにする。build_eo_pick.py が eo_pick.json を作る(母艦側)。 */
 let EO_PICK=null;
 function eoPick(){
+  if(location.protocol==='file:')return offlineDictionary().then(data=>data.eo_pick);
   if(!EO_PICK)EO_PICK=fetch(DATA_DIR+'eo_pick.json?v='+PIE_V).then(r=>r.ok?r.json():{}).catch(()=>({}));
   return EO_PICK;
 }
 const EO_SHARD={};       // 先頭文字 → {単語: 項目} (eo/*.json を必要なときだけ読む)
 function eoShard(w){
   const k=/^[a-z]/i.test(w)?w[0].toLowerCase():'_';
+  if(location.protocol==='file:')return offlineDictionary().then(data=>data.eo[k]||{});
   if(!EO_SHARD[k])EO_SHARD[k]=fetch(DATA_DIR+'eo/'+k+'.json?v='+PIE_V).then(r=>r.ok?r.json():{}).catch(()=>({}));
   return EO_SHARD[k];
 }
@@ -499,10 +508,10 @@ async function loadData(){
     byRoot.get(c).push(w);
   }
   // 単語詳細(約30MB)は別ファイルを非同期で読む。届いたら表を描き直す
-  fetch(DATA_DIR+'eo_slugs.json?v='+PIE_V).then(x=>x.ok?x.json():[]) 
+  (location.protocol==='file:'?offlineDictionary().then(d=>d.eo_slugs):fetch(DATA_DIR+'eo_slugs.json?v='+PIE_V).then(x=>x.ok?x.json():[])) 
     .then(list=>{EO_SLUG=new Set(list);}).catch(()=>{});
   // 一覧の「語源」列に要るのは d[0] だけ。9項目そろった本体は詳細を開いたときに取る。
-  fetch(DATA_DIR+'details_brief.json?v='+PIE_V).then(x=>{if(!x.ok)throw 0;return x.json();})
+  (location.protocol==='file:'?offlineDictionary().then(d=>d.details_brief):fetch(DATA_DIR+'details_brief.json?v='+PIE_V).then(x=>{if(!x.ok)throw 0;return x.json();}))
     .then(d=>{BRIEF=d;fillDefs();}).catch(e=>{});
   // 版番号も出す。HTML自体にはキャッシュ破りが効かないので、
   // 「更新したのに画面が変わらない」ときはここを見れば古い版を掴んでいると分かる。
@@ -1113,7 +1122,7 @@ function toggleDetail(cell){
   const word=cell.querySelector('.spk')?.dataset.say||cell.childNodes[0].textContent.trim();
   const w=WORDS[Number(tr.dataset.i)];
   if(!w)return;
-  detOf(w.w,w.i).then(d=>renderDetail(tr,w,d));
+  detOf(w.w,w.i).then(d=>{if(tr.isConnected)renderDetail(tr,w,d);}).catch(()=>{if(tr.isConnected)renderDetail(tr,w,null);});
 }
 function renderDetail(tr,w,d){
   const cols=tr.children.length;
@@ -1141,10 +1150,10 @@ function renderDetail(tr,w,d){
       <a href="${EO_SLUG.has(w.w)||EO_SLUG.has(w.w.toLowerCase())
         ? 'https://www.etymonline.com/word/'+encodeURIComponent(EO_SLUG.has(w.w)?w.w:w.w.toLowerCase())
         : 'https://www.etymonline.com/search?q='+encodeURIComponent(w.w)}" target="_blank" rel="noopener">etymonline で開く ↗</a></div>`
-    :'<div class="detSec"><span>詳細データを読み込み中です(file://直開きでは表示できません。http経由で開いてください)</span></div>'}</div></div></td>`;
+    :`<div class="detSec"><span>${esc(offlineDictionaryError||'この単語の詳細データはありません。')}</span></div>`}</div></div></td>`;
   tr.after(det);
   hydrateIllustrationScenes(det);
-  fillEO(w.w,det,w);
+  fillEO(w.w,det,w).catch(()=>{const box=det.querySelector('.eoLocal span');if(box)box.textContent=offlineDictionaryError||'語源辞書データを読み込めません。';});
 }
 /* ダウンロードしたCSVを読み戻す。書いた内容はこのブラウザにしか残らないので、
    端末を変えるとき・消えたときの復旧路。word / tag / note の3列だけ見る。 */
