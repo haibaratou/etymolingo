@@ -1,0 +1,14 @@
+ERROR: Failed to open log file for writing: user://logs/godot.log
+   at: rotate_file (core/io/logger.cpp:169)
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+ERROR: Can't create shader cache folder, no shader caching will happen: user://
+   at: RasterizerGLES3 (drivers/gles3/rasterizer_gles3.cpp:345)
+OpenGL API 3.3.0 NVIDIA 617.42 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 3060
+
+[perf fps=47] _draw_scenery=0.10 _draw_ground=0.57 _draw_hero_layer=0.23 _draw_fx=0.35 _draw_labels=0.96 _draw_screen_fx=0.12 _draw_dof_layer=0.00 _draw_ui=3.13 <anonymous lambda>=0.61 update=1.45 sync=0.45 P=10 STAIN=0 TX=0 GEMS=0
+[eat=0 brk=0] [t=5] state=play time=5.0 form=人 path=人 hp=10 kills=0 lv=1 E=103 allies= boss=false mv=27
+[kl] foes=["犬", "金", "森", "矢", "肉", "嵐", "相", "伐"]
+[kl] party=["朧"] sc=1 t=6.4 done=-1.0 eat=0 left=30 touch=0 fx=0 semfx=1 hits=0
+[done] kills=0 level=1 path=人 best=303.6
+[slain] {  }
+[owned] {  } kraft=["朧1"] souls=[]

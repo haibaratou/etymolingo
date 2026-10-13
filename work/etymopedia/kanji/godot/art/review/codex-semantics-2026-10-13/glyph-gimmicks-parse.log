@@ -1,0 +1,12 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+SCRIPT ERROR: Parse Error: Could not preload resource script "res://scripts/kraft.gd".
+   at: GDScript::reload (res://scripts/kd.gd:89)
+SCRIPT ERROR: Parse Error: Could not resolve script "res://scripts/kraft.gd".
+   at: GDScript::reload (res://scripts/kd.gd:89)
+SCRIPT ERROR: Parse Error: Could not resolve script "res://scripts/kraft.gd".
+   at: GDScript::reload (res://scripts/kd.gd:97)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+   at: GDScript::reload (res://scripts/glyph_gimmicks.gd:0)
+ERROR: Failed to load script "res://scripts/glyph_gimmicks.gd" with error "Compilation failed".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)

@@ -1,0 +1,350 @@
+--- 
+
++++ 
+
+@@ -379,5 +379,5 @@
+
+ 		await get_tree().create_timer(float(test_mode.get("klwait", "6"))).timeout
+ 		print("[kl] foes=", E.filter(func(e): return e.alive and not e.get("still", false)).map(func(e): return e.ch).slice(0, 8))
+-		print("[kl] party=", kl.party, " sc=", kl.sc, " t=%.1f done=%.1f eat=%d left=%d touch=%d" % [kl.t, kl.done, kl_eaten(), movers(), kl.touch], " fx=", KFX.size())
++		print("[kl] party=", kl.party, " sc=", kl.sc, " t=%.1f done=%.1f eat=%d left=%d touch=%d" % [kl.t, kl.done, kl_eaten(), movers(), kl.touch], " fx=", KFX.size(), " semfx=", semantic_combat.fx.size(), " hits=", semantic_combat.hits)
+ 	if test_mode.has("kcraft"):
+ 		# 作字台の試験: --kcraft=犬,草,隹,又（魂を置いて順に台へ）
+@@ -685,5 +685,6 @@
+
+ func art(n: String) -> Texture2D:
+ 	if not ART.has(n):
+-		ART[n] = load("res://assets/art/%s.png" % n)
++		var path: String = "res://assets/art/%s.png" % n
++		ART[n] = load(path) if ResourceLoader.exists(path) else null
+ 	return ART[n]
+ 
+@@ -945,4 +946,5 @@
+
+ 
+ func reset() -> void:
++	glyph_gimmicks.clear()
+ 	for e in E:
+ 		_free_sprite(e)
+@@ -1783,4 +1785,9 @@
+
+ 				job.target.locked = false
+ 			continue
++		if not glyph_gimmicks.can_reach(self, Vector2(hero.x, hero.y), strike_point(job.target)):
++			job.target.locked = false
++			job.target.typed = ""
++			set_hint("壁の向こうには届かない。門の字を打って道を開く", 3.0)
++			continue
+ 		hero.target = job.target
+ 		hero.from = Vector2(hero.x, hero.y)
+@@ -1814,4 +1821,14 @@
+
+ 	var prev = Vector2(hero.x, hero.y)
+ 	_tick_hero(dt)
++	var fixed: Vector2 = glyph_gimmicks.block(self, prev, Vector2(hero.x, hero.y), hero_r() * 0.8)
++	if fixed.distance_squared_to(Vector2(hero.x, hero.y)) > 0.01:
++		hero.x = fixed.x
++		hero.y = fixed.y
++		hero.step_t = 0.0
++		if hero.state == "dash":
++			if hero.target != null:
++				hero.target.locked = false
++			hero.target = null
++			hero.state = "idle"
+ 	if not RIVERS.is_empty():
+ 		river_block(prev)
+@@ -2988,4 +3005,6 @@
+
+ 
+ func use_obj(t: Dictionary) -> void:
++	if glyph_gimmicks.use(self, t):
++		return
+ 	t.rest = t.rest_max
+ 	t.typed = ""
+@@ -3186,4 +3205,6 @@
+
+ func hurt(e: Dictionary) -> void:
+ 	if hero.inv > 0 or hero.state == "dash":
++		return
++	if semantic_combat.protect(self, e):
+ 		return
+ 	if kl_on:
+@@ -4282,4 +4303,5 @@
+
+ 				var p2 = dd2 * ((m2 - l2) / l2)
+ 				a.x += p2.x; a.y += p2.y
++	glyph_gimmicks.tick(self, dt)
+ 	weapons(dt)
+ 	step_fx(dt)
+@@ -4931,8 +4953,18 @@
+
+ ## 仲間の字の説明: 部首が効果、意味が動き（例: 灯 — 部首 火・燃やす／照らす）
+ func k_desc(ch: String) -> String:
+-	var pr: Dictionary = Kraft.prof(ch)
++	var pr: Dictionary = Kraft.prof(ch, max(1, k_lv(ch)))
+ 	var mv: String = String(pr.get("motion", ""))
+ 	var how: String = Kraft.MOTION_JP[mv][0] if mv != "" else Kraft.BODY[pr.body][1]
+-	return "部首 %s・%s／%s" % [Kraft.rad_of(ch), Kraft.effect_jp(ch).split("（")[0], how]
++	var inherited: Array = []
++	for material in pr.get("traits", []):
++		inherited.append("%s:%s" % [material.source, Kraft.EFFECT_JP.get(material.effect, material.family).split("（")[0]])
++	var extra: String = " ＋ " + "・".join(inherited) if not inherited.is_empty() else ""
++	var rare: String = "【転義】" if pr.get("transform", false) else ""
++	return "%s%s／部首 %s・%s%s" % [rare, how, Kraft.rad_of(ch), Kraft.effect_jp(ch).split("（")[0], extra]
++
++func _craft_growth(ch: String) -> String:
++	var pr: Dictionary = Kraft.prof(ch, max(1, k_lv(ch)))
++	var basis: String = String(pr.get("transform_note", "")) if pr.get("transform", false) else String(pr.get("semantic_note", ""))
++	return basis + "　重ねる → " + String(pr.get("growth_next", "範囲・数・持続が育つ"))
+ 
+ ## 字典の一行: [字, 一つ目, 二つ目, 英語, 技の説明]
+@@ -4949,5 +4981,10 @@
+
+ 
+ ## いま作れる組み合わせ（箱の字を二つ選んで字になるもの）
++var _craft_cache_key := -1
++var _craft_cache_rows: Array = []
+ func craft_list() -> Array:
++	var cache_key: int = hash([souls, owned, KU.map(func(u): return [u.ch, u.lv]), hero_ch()])
++	if cache_key == _craft_cache_key:
++		return _craft_cache_rows.duplicate()
+ 	var out: Array = []
+ 	var seen = {}
+@@ -4969,4 +5006,6 @@
+
+ 		rw.append(ms)
+ 		out.append(rw)
++	_craft_cache_key = cache_key
++	_craft_cache_rows = out.duplicate()
+ 	return out
+ 
+@@ -5257,5 +5296,5 @@
+
+ 	var x0: float = 36 * S
+ 	txt(ci, UF, x0, 18 * S, "作字台", 30 * S, KD.SHU)
+-	txt(ci, UF, x0 + 108 * S, 22 * S, "魂を二つ重ねて、新しい字を作る。できた字は仲間になって戦う。", 15 * S, KD.SUMI)
++	txt(ci, UF, x0 + 108 * S, 22 * S, "部品の属性を継いで、新しい字を作る。同じ字を重ねて技を育てる。", 15 * S, KD.SUMI)
+ 	txt(ci, UF, x0 + 108 * S, 44 * S, "選び方: 字の下の英単語を打つ／クリック／矢印＋Space　　Tab で戦いに戻る（作っている間は時が止まる）", 11 * S, Color(KD.SUMI, 0.6))
+ 	# ---- 左上: 魂の箱 ----
+@@ -5345,5 +5384,5 @@
+
+ 			ey += 28 * S
+ 			ey += wrap_text(ci, UF, ex, ey, String(f.d), ew, 12 * S, Color(KD.SUMI, 0.85), 3) + 6 * S
+-			txt(ci, UF, ex, ey, ("→ 仲間になった（戦いに戻ると字魂転生でよみがえる）" if k_lv(f.res) == 1 else "→ 仲間の%sが Lv%d になった" % [f.res, k_lv(f.res)]), 12 * S, KD.SHU)
++			txt(ci, UF, ex, ey, ("→ 仲間になった。Tab で戦いに戻ると、受け継いだ技が動き出す" if k_lv(f.res) == 1 else "→ 仲間の%sが Lv%d になった" % [f.res, k_lv(f.res)]), 12 * S, KD.SHU)
+ 	else:
+ 		var focus: String = hov_ch if hov_ch != "" else craft.a
+@@ -5420,5 +5459,6 @@
+
+ 		ci.draw_rect(Rect2(rx - 8 * S, ddy - 6 * S, W - rx - 22 * S, H * 0.46 - ddy - 10 * S), Color(KD.WASHI, 1))
+ 		txt(ci, UF, rx, ddy, "%s　「%s」　%s　＝ %s ＋ %s" % [detail[0], jp_of(detail[0]), String(detail[3]).to_upper(), String(detail[1]).replace("|", "・"), detail[2]], 16 * S, KD.SUMI)
+-		wrap_text(ci, UF, rx, ddy + 28 * S, String(detail[4]), W - rx - 30 * S, 12 * S, Color(KD.SUMI, 0.85), 3)
++		var detail_h: float = wrap_text(ci, UF, rx, ddy + 28 * S, String(detail[4]), W - rx - 30 * S, 12 * S, Color(KD.SUMI, 0.85), 2)
++		wrap_text(ci, UF, rx, ddy + 34 * S + detail_h, _craft_growth(String(detail[0])), W - rx - 30 * S, 11 * S, KD.SHU, 3)
+ 
+ func _craft_row_click(r: Array) -> void:
+@@ -5457,4 +5497,10 @@
+
+ ## ======== 漢字クラフトの仲間（性能は scripts/kraft.gd の足し算で決まる） ========
+ const Kraft = preload("res://scripts/kraft.gd")
++const SemanticCombat = preload("res://scripts/semantic_combat.gd")
++const InkWorld = preload("res://scripts/ink_world.gd")
++const GlyphGimmicks = preload("res://scripts/glyph_gimmicks.gd")
++var semantic_combat = SemanticCombat.new()
++var ink_world = InkWorld.new()
++var glyph_gimmicks = GlyphGimmicks.new()
+ var KU: Array = []      # 作った字の仲間
+ var KFX: Array = []     # その技（波紋・炎・木・矢・岩…）
+@@ -5521,4 +5567,5 @@
+
+ 	KU.clear()
+ 	KFX.clear()
++	semantic_combat.clear()
+ 
+ func ku_tag(u: Dictionary) -> String:
+@@ -5647,4 +5694,5 @@
+
+ 			_k_run(sb, dt, hp0)
+ 	_k_fx(dt)
++	semantic_combat.tick(self, dt)
+ 	_k_status(dt)
+ 
+@@ -5665,4 +5713,6 @@
+
+ 	for i in KU.size():
+ 		var u: Dictionary = KU[i]
++		if semantic_combat.handles(String(u.pr.get("motion", ""))):
++			continue
+ 		if not k_is_body(u):
+ 			continue
+@@ -5703,4 +5753,6 @@
+
+ 
+ func _k_run(u: Dictionary, dt: float, hp0: Vector2) -> void:
++		if semantic_combat.run(self, u, dt, hp0):
++			return
+ 		var pr: Dictionary = u.pr
+ 		match String(pr.get("motion", "")):
+@@ -5791,4 +5843,13 @@
+
+ 	if a <= 0.01:
+ 		return
++	var ink_names = {"炎": "flame", "波": "wave", "樹": "root", "光": "sun", "刃": "slash", "矢": "feather", "獣": "claw", "claw": "claw", "bite": "claw", "horn": "rock", "trample": "rock", "peck": "feather", "岩": "rock", "霊": "cloud", "声": "wind", "sting": "slash", "bubble": "wave"}
++	if ink_names.has(fam):
++		var tex: Texture2D = art("fx_semantic_" + ink_names[fam])
++		if tex != null:
++			var wh = Vector2(r * 2, r * 2 * float(tex.get_height()) / tex.get_width())
++			ci.draw_set_transform(p, sin(time * 3 + seed) * 0.06, Vector2.ONE)
++			ci.draw_texture_rect(tex, Rect2(-wh * 0.5, wh), false, Color(1, 1, 1, a))
++			ci.draw_set_transform(Vector2.ZERO, 0, Vector2.ONE)
++			return
+ 	var col: Color = cc if cc.a > 0 else Kraft.FAM_COL.get(fam, KD.SUMI)
+ 	match fam:
+@@ -5881,26 +5942,8 @@
+
+ 
+ func _flame(ci: CanvasItem, base: Vector2, w: float, h: float, col: Color) -> void:
+-	var pts := PackedVector2Array()
+-	var n := 14
+-	for i in n + 1:
+-		var t: float = float(i) / n
+-		var an: float = PI * t
+-		# 下は丸く、上は細く尖る
+-		var x: float = cos(an) * w * (1.0 - 0.15 * t)
+-		var y: float = -sin(an) * w * 0.8
+-		pts.append(base + Vector2(x, y))
+-	pts.append(base + Vector2(-w * 0.15, -h * 0.75) + Vector2(sin(time * 9 + base.x) * w * 0.25, 0))
+-	pts.append(base + Vector2(0, -h) + Vector2(sin(time * 11 + base.y) * w * 0.4, 0))
+-	pts.append(base + Vector2(w * 0.2, -h * 0.7))
+-	var poly := PackedVector2Array()
+-	poly.append(base + Vector2(w, 0))
+-	for i in range(n, -1, -1):
+-		var an2: float = PI + PI * float(i) / n
+-		poly.append(base + Vector2(cos(an2) * -w, sin(an2) * -w * 0.0 + abs(sin(an2)) * w * 0.55))
+-	poly.append(base + Vector2(-w, 0))
+-	poly.append(base + Vector2(-w * 0.6, -h * 0.45))
+-	poly.append(base + Vector2(sin(time * 11 + base.y) * w * 0.4, -h))
+-	poly.append(base + Vector2(w * 0.6, -h * 0.45))
+-	ci.draw_colored_polygon(_dedupe(poly), col)
++	var tex: Texture2D = art("fx_semantic_flame")
++	if tex != null:
++		ci.draw_texture_rect(tex, Rect2(base.x - w, base.y - h, w * 2, h), false, Color(1, 1, 1, col.a))
++
+ 
+ func _dedupe(pts: PackedVector2Array) -> PackedVector2Array:
+@@ -6665,4 +6708,5 @@
+
+ 	if KU.is_empty() and KFX.is_empty():
+ 		return
++	semantic_combat.draw(self, ci)
+ 	var hp0 = Vector2(hero.x, hero.y)
+ 	# 技
+@@ -6838,5 +6882,5 @@
+
+ 		var pr: Dictionary = u.pr
+ 		var col2: Color = pr.get("col", Kraft.FAM_COL.get(pr.body, KD.SUMI))
+-		match String(pr.get("motion", "")):
++		match ("" if semantic_combat.handles(String(pr.get("motion", ""))) else String(pr.get("motion", ""))):
+ 			"lamp":
+ 				# 灯: 字そのものが灯りになって、主人公のまわりを照らす（火などの分身は出さない）
+@@ -6959,4 +7003,6 @@
+
+ 				e.born = 1.0
+ 		1:
++			hero.last_dir = Vector2.RIGHT
++			hero.face = 1
+ 			kl.stream = 30
+ 		2:
+@@ -7146,9 +7192,12 @@
+
+ 	var mv: String = String(pr.get("motion", ""))
+ 	var mj: Array = Kraft.MOTION_JP[mv] if mv != "" else [Kraft.BODY[pr.body][1], Kraft.BODY[pr.body][2]]
+-	ci.draw_rect(Rect2(x + 104 * S, y + 58 * S, w - 104 * S, 30 * S), Color(col, 0.12))
+-	txt(ci, UF, x + 112 * S, y + 63 * S, "部首 %s ─ 効果 %s" % [Kraft.rad_of(ch), Kraft.effect_jp(ch).split("（")[0]], 15 * S, col)
++	ci.draw_rect(Rect2(x + 104 * S, y + 58 * S, w - 104 * S, 37 * S), Color(col, 0.12))
++	wrap_text(ci, UF, x + 112 * S, y + 61 * S, "部首 %s ─ %s" % [Kraft.rad_of(ch), Kraft.effect_jp(ch).split("（")[0]], w - 118 * S, 12 * S, col, 2)
+ 	y += 100 * S
+ 	y += wrap_text(ci, UF, x, y, "効果（部首 %s から）: %s" % [Kraft.rad_of(ch), Kraft.effect_jp(ch)], w, 12 * S, KD.SUMI, 2) + 4 * S
+-	y += wrap_text(ci, UF, x, y, "動き（%s の意味 %s から）: %s ─ %s" % [ch, String(k.en), mj[0], mj[1]], w, 12 * S, KD.SUMI, 2) + 8 * S
++	var basis: String = "字の意味" if String(pr.get("semantic_source", "radical")) != "radical" else "部首の属性"
++	y += wrap_text(ci, UF, x, y, "%s → %s ─ %s" % [basis, mj[0], mj[1]], w, 12 * S, KD.SUMI, 3) + 6 * S
++	if pr.get("transform", false):
++		y += wrap_text(ci, UF, x, y, "【転義】" + String(pr.get("transform_note", "")), w, 12 * S, KD.SHU, 2) + 6 * S
+ 	# 組み立て
+ 	var ops: Array = k.op
+@@ -7171,6 +7220,9 @@
+
+ 		xx += 42 * S
+ 	y += 46 * S
+-	txt(ci, UF, x, y, "ほかの部品は能力値に足されるだけ（技は部首の一つだけ）", 12 * S, Color(KD.SUMI, 0.55))
+-	y += 20 * S
++	var inheritance: Array = []
++	for material in pr.get("traits", []):
++		inheritance.append("%s→%s" % [material.source, Kraft.EFFECT_JP.get(material.effect, material.family).split("（")[0]])
++	y += wrap_text(ci, UF, x, y, "部品の継承: " + ("・".join(inheritance) if not inheritance.is_empty() else "主属性を凝縮する"), w, 11 * S, Color(KD.SUMI, 0.75), 2) + 4 * S
++	y += wrap_text(ci, UF, x, y, "Lv%d: %s" % [kl.lv, pr.get("growth_note", "")], w, 11 * S, KD.SHU, 2) + 6 * S
+ 	txt(ci, UF, x, y, "格 %.1f（素の数。高いほど全体が強い）　Lv %d" % [pr.T, kl.lv], 12 * S, Color(KD.SUMI, 0.75))
+ 	y += 22 * S
+@@ -8191,4 +8243,5 @@
+
+ # ---------- 地面の層: 墨のにじみ・田の罠・燃える地面・犬の押さえ・陽光 ----------
+ func _draw_ground(ci: CanvasItem) -> void:
++	glyph_gimmicks.draw(self, ci)
+ 	var ink = ink_col()
+ 	if state != "title" and state != "over" and state != "intro":
+@@ -8540,4 +8593,6 @@
+
+ 			continue
+ 		if e.get("rest", 0.0) > 0:
++			if e.get("glyph_gate", false):
++				continue
+ 			# 使った名所: 名前と、また使えるまでの秒数を小さく
+ 			var aic0 = KD.AIN if night > 0.5 else KD.AI
+@@ -8689,4 +8744,5 @@
+
+ 
+ func _draw_scenery(ci: CanvasItem) -> void:
++	ink_world.draw(self, ci)
+ 	if boss != null and state != "title" and state != "over":
+ 		_draw_poem_scenery(ci)
+@@ -9032,5 +9088,5 @@
+
+ 		x -= 10
+ 	if auto_on:
+-		var at = "自動戦闘中 — 三択を読んでいます…" if state == "levelup" else "自動戦闘中 — F6 か「自」で手動に戻す"
++		var at = "自動戦闘中 — 作字台で仲間を育てます／F6 で手動に戻す"
+ 		var w = tw(UF, at, 12) + 24
+ 		# 右上のボタンの下に（移動の字や漢詩と重ならないように）
+@@ -9062,6 +9118,9 @@
+
+ 	# 手に入れた字
+ 	var ax = W - 16
+-	var ids = owned.keys()
+-	ids.reverse()
++	var ids: Array = KU.map(func(u): return u.ch)
++	for id in owned.keys():
++		if not ids.has(id):
++			ids.append(id)
++	ids = ids.slice(0, max(1, int(W * 0.48 / 48)))
+ 	for id in ids:
+ 		ax -= 42
+@@ -9071,7 +9130,8 @@
+
+ 		ci.draw_rect(r, KD.KIN if inh else fg, false, 2)
+ 		glyph(ci, id, r.get_center() + Vector2(0, -6), 22, KD.KIN if inh else fg)
+-		txt(ci, UF, r.get_center().x, r.position.y + 32, ("継%d" % L(id)) if inh else "●".repeat(L(id)), 8, KD.SHU, 1)
++		var crafted_lv: int = k_lv(id)
++		txt(ci, UF, r.get_center().x, r.position.y + 32, ("Lv%d" % crafted_lv) if crafted_lv > 0 else (("継%d" % L(id)) if inh else "●".repeat(L(id))), 8, KD.SHU, 1)
+ 		# この字が与えたダメージの合計（小さく）
+-		var dv: int = int(dmg_by.get(id, 0))
++		var dv: int = int(dmg_by.get("K:" + id, dmg_by.get(id, 0)))
+ 		if dv > 0:
+ 			var ds: String = ("%.1fk" % (dv / 1000.0)) if dv >= 1000 else str(dv)
+@@ -9125,5 +9185,5 @@
+
+ 	txt(ci, DF, x0 + ls * 2.45, y + ls * 0.02, "SURVIVOR", ls * 0.9, KD.SUMI)
+ 	y += ls * 1.1 + 18 * S
+-	var lede = "原稿用紙の上で、すべての漢字が生き物になった。犬は駆け、蛇はうねり、火は揺らめき、木は風にしなる。字の下の英単語を打ち切ると、主人公がその字へ突っ込んで斬る。一撃ごとに字の部品がはがれて別の字になり（森→林→木）、最後の部品を崩すと消える。倒した字の魂を「字魂転生」でよみがえらせて仲間にし、仲間どうしを合体させて強くする（木＋木＝林、火＋戌＝烕）。主人公はずっと象形文字のまま。ヒロインの「魚」は、やがて降りてくる巨大な漢詩に囚われている。"
++	var lede = "原稿用紙の上で、すべての漢字が生き物になった。犬は駆け、蛇はうねり、火は揺らめき、木は風にしなる。字の下の英単語を打ち切ると、主人公がその字へ突っ込んで斬る。一撃ごとに字の部品がはがれて別の字になり（森→林→木）、最後の部品を崩すと消える。倒した字の魂を作字台（Tab）で組み合わせて仲間を作る（木＋木＝林、火＋戌＝烕）。部首の属性を受け継ぎ、ときどき字の意味が戦い方を変える。同じ字を重ねると技の姿も育つ。主人公はずっと象形文字のまま。ヒロインの「魚」は、やがて降りてくる巨大な漢詩に囚われている。"
+ 	y += wrap_text(ci, UF, x0, y, lede, min(W - x0 * 2, 820 * S), 14 * S, KD.SUMI) + 14 * S
+ 	txt(ci, UF, x0, y, "主人公", 12 * S, KD.SUMI)

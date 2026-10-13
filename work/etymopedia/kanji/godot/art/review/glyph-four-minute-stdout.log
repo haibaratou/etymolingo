@@ -1,0 +1,119 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+ERROR: Parameter "t" is null.
+   at: texture_2d_get (./servers/rendering/dummy/storage/texture_storage.h:110)
+   GDScript backtrace (most recent call first):
+       [0] build (res://scripts/glyph_bank.gd:51)
+ERROR: Parameter "t" is null.
+   at: texture_2d_get (./servers/rendering/dummy/storage/texture_storage.h:110)
+   GDScript backtrace (most recent call first):
+       [0] build (res://scripts/glyph_bank.gd:51)
+ERROR: Parameter "t" is null.
+   at: texture_2d_get (./servers/rendering/dummy/storage/texture_storage.h:110)
+   GDScript backtrace (most recent call first):
+       [0] build (res://scripts/glyph_bank.gd:51)
+ERROR: Parameter "t" is null.
+   at: texture_2d_get (./servers/rendering/dummy/storage/texture_storage.h:110)
+   GDScript backtrace (most recent call first):
+       [0] build (res://scripts/glyph_bank.gd:51)
+[perf fps=70] _draw_scenery=0.17 _draw_ground=0.72 _draw_hero_layer=0.14 _draw_fx=0.25 _draw_labels=0.76 _draw_screen_fx=0.10 _draw_dof_layer=0.00 _draw_ui=0.53 <anonymous lambda>=0.47 update=1.47 sync=0.42 P=6 STAIN=1 TX=0 GEMS=0
+[eat=0 brk=0] [t=5] state=play time=5.0 form=人 path=人 hp=10 kills=1 lv=1 E=105 allies= boss=false mv=12
+[perf fps=70] _draw_scenery=0.01 _draw_ground=0.67 _draw_hero_layer=0.11 _draw_fx=0.25 _draw_labels=0.47 _draw_screen_fx=0.08 _draw_ui=0.40 update=1.37 sync=0.34 P=6 STAIN=2 TX=2 GEMS=2
+[eat=0 brk=0] [t=10] state=play time=9.9 form=人 path=人 hp=10 kills=2 lv=3 E=103 allies= boss=false mv=11
+[perf fps=56] _draw_scenery=0.02 _draw_ground=0.75 _draw_hero_layer=0.14 _draw_fx=0.84 _draw_labels=0.66 _draw_screen_fx=0.11 _draw_ui=6.12 update=1.73 sync=0.48 P=30 STAIN=8 TX=2 GEMS=18
+[eat=7 brk=1] [t=15] state=play time=12.9 form=人 path=人 hp=10 kills=3 lv=4 E=128 allies= boss=false mv=12
+[perf fps=145] _draw_scenery=0.01 _draw_ground=0.65 _draw_hero_layer=0.11 _draw_fx=0.80 _draw_labels=0.65 _draw_screen_fx=0.11 _draw_ui=0.77 update=2.23 sync=0.39 P=83 STAIN=14 TX=1 GEMS=12
+[eat=9 brk=3] [t=20] state=play time=17.7 form=人 path=人 hp=10 kills=8 lv=5 E=136 allies= boss=false mv=13
+[perf fps=72] _draw_scenery=0.02 _draw_ground=0.79 _draw_hero_layer=0.14 _draw_fx=1.05 _draw_labels=0.58 _draw_screen_fx=0.13 _draw_ui=6.58 update=1.87 sync=0.53 P=30 STAIN=18 TX=0 GEMS=4
+[eat=9 brk=3] [t=25] state=play time=21.0 form=人 path=人 hp=10 kills=11 lv=6 E=141 allies= boss=false mv=20
+[perf fps=100] _draw_scenery=0.02 _draw_ground=0.80 _draw_hero_layer=0.15 _draw_fx=1.35 _draw_labels=0.54 _draw_screen_fx=0.13 _draw_ui=2.02 update=3.20 sync=0.48 P=57 STAIN=29 TX=1 GEMS=7
+[eat=9 brk=3] [t=30] state=play time=24.6 form=人 path=人 hp=10 kills=20 lv=6 E=133 allies= boss=false mv=13
+[perf fps=115] _draw_scenery=0.02 _draw_ground=0.66 _draw_hero_layer=0.16 _draw_fx=0.97 _draw_labels=0.43 _draw_screen_fx=0.14 _draw_ui=1.54 update=4.13 sync=0.38 P=0 STAIN=32 TX=0 GEMS=0
+[eat=12 brk=4] [t=35] state=play time=29.5 form=人 path=人 hp=10 kills=22 lv=6 E=130 allies= boss=false mv=16
+[perf fps=77] _draw_scenery=0.02 _draw_ground=0.64 _draw_hero_layer=0.15 _draw_fx=1.20 _draw_labels=0.54 _draw_screen_fx=0.15 _draw_ui=7.49 update=3.18 sync=0.44 P=30 STAIN=36 TX=0 GEMS=18
+[eat=15 brk=5] [t=40] state=play time=32.3 form=人 path=人 hp=10 kills=26 lv=7 E=131 allies= boss=false mv=21
+[perf fps=112] _draw_scenery=0.02 _draw_ground=0.60 _draw_hero_layer=0.14 _draw_fx=1.21 _draw_labels=0.88 _draw_screen_fx=0.15 _draw_ui=3.90 update=4.64 sync=0.54 P=39 STAIN=45 TX=3 GEMS=4
+[eat=30 brk=10] [t=45] state=play time=37.2 form=人 path=人 hp=10 kills=31 lv=8 E=147 allies= boss=false mv=27
+[perf fps=97] _draw_scenery=0.02 _draw_ground=0.73 _draw_hero_layer=0.12 _draw_fx=1.27 _draw_labels=1.03 _draw_screen_fx=0.14 _draw_ui=3.63 update=4.93 sync=0.63 P=23 STAIN=50 TX=1 GEMS=9
+[eat=45 brk=13] [t=50] state=craft time=41.6 form=人 path=人 hp=7 kills=35 lv=8 E=144 allies= boss=false mv=24
+[perf fps=62] _draw_scenery=0.02 _draw_ground=0.65 _draw_hero_layer=0.15 _draw_fx=1.38 _draw_labels=1.15 _draw_screen_fx=0.15 _draw_ui=8.61 update=4.06 sync=0.62 P=19 STAIN=60 TX=1 GEMS=0
+[eat=62 brk=18] [t=55] state=play time=45.4 form=人 path=人 hp=8 kills=42 lv=9 E=136 allies= boss=false mv=20
+[perf fps=96] _draw_scenery=0.02 _draw_ground=0.67 _draw_hero_layer=0.13 _draw_fx=1.22 _draw_labels=0.79 _draw_screen_fx=0.12 _draw_ui=2.86 update=4.11 sync=0.48 P=19 STAIN=68 TX=0 GEMS=8
+[eat=74 brk=21] [t=60] state=play time=50.0 form=人 path=人 hp=7 kills=49 lv=9 E=125 allies= boss=false mv=14
+[perf fps=45] _draw_scenery=0.02 _draw_ground=0.72 _draw_hero_layer=0.38 _draw_fx=1.09 _draw_labels=0.61 _draw_screen_fx=0.13 _draw_ui=7.91 update=2.87 sync=0.44 P=16 STAIN=71 TX=1 GEMS=4
+[eat=77 brk=22] [t=66] state=play time=53.6 form=人 path=人 hp=7 kills=51 lv=9 E=123 allies= boss=false mv=12
+[perf fps=90] _draw_scenery=0.02 _draw_ground=0.66 _draw_hero_layer=0.25 _draw_fx=1.03 _draw_labels=0.39 _draw_screen_fx=0.12 _draw_ui=3.64 update=4.71 sync=0.35 P=0 STAIN=77 TX=0 GEMS=0
+[eat=84 brk=24] [t=71] state=play time=58.3 form=人 path=人 hp=7 kills=57 lv=9 E=134 allies= boss=false mv=27
+[perf fps=73] _draw_scenery=0.07 _draw_ground=0.73 _draw_hero_layer=0.14 _draw_fx=1.33 _draw_labels=0.14 _draw_screen_fx=0.22 _draw_ui=3.20 update=2.72 sync=0.37 P=10 STAIN=106 TX=1 GEMS=0
+[eat=84 brk=24] [t=76] state=play time=63.1 form=人 path=人 hp=8 kills=86 lv=10 E=108 allies= boss=true mv=2
+[perf fps=43] _draw_scenery=0.03 _draw_ground=0.81 _draw_hero_layer=0.15 _draw_fx=1.00 _draw_labels=0.33 _draw_screen_fx=0.47 _draw_ui=8.20 update=3.33 sync=0.44 P=0 STAIN=107 TX=0 GEMS=0
+[eat=84 brk=24] [t=81] state=play time=66.8 form=人 path=人 hp=8 kills=87 lv=10 E=117 allies= boss=true mv=12
+[perf fps=44] _draw_scenery=0.02 _draw_ground=0.76 _draw_hero_layer=0.13 _draw_fx=1.12 _draw_labels=0.68 _draw_screen_fx=0.39 _draw_ui=7.00 update=5.52 sync=0.59 P=16 STAIN=113 TX=3 GEMS=2
+[eat=141 brk=30] [t=86] state=play time=71.9 form=人 path=人 hp=8 kills=92 lv=11 E=130 allies= boss=true mv=25
+[perf fps=24] _draw_scenery=0.02 _draw_ground=0.80 _draw_hero_layer=0.14 _draw_fx=1.52 _draw_labels=1.27 _draw_screen_fx=0.44 _draw_ui=9.46 update=5.14 sync=0.68 P=231 STAIN=119 TX=4 GEMS=3
+[eat=214 brk=37] [t=91] state=craft time=76.0 form=人 path=人 hp=7 kills=96 lv=11 E=130 allies= boss=true mv=25
+[perf fps=80] _draw_scenery=0.02 _draw_ground=0.76 _draw_hero_layer=0.14 _draw_fx=1.41 _draw_labels=1.04 _draw_screen_fx=0.41 _draw_ui=3.43 update=5.11 sync=0.66 P=24 STAIN=125 TX=2 GEMS=1
+[eat=274 brk=44] [t=96] state=play time=80.5 form=人 path=人 hp=6 kills=100 lv=11 E=131 allies= boss=true mv=26
+[perf fps=88] _draw_scenery=0.02 _draw_ground=0.75 _draw_hero_layer=0.11 _draw_fx=1.14 _draw_labels=1.11 _draw_screen_fx=0.39 _draw_ui=5.16 update=5.94 sync=0.63 P=4 STAIN=132 TX=3 GEMS=0
+[eat=334 brk=51] [t=101] state=play time=85.5 form=人 path=人 hp=3 kills=106 lv=11 E=130 allies= boss=true mv=25
+[perf fps=41] _draw_scenery=0.02 _draw_ground=0.77 _draw_hero_layer=0.07 _draw_fx=1.18 _draw_labels=1.24 _draw_screen_fx=0.45 _draw_ui=6.54 update=3.80 sync=0.69 P=50 STAIN=134 TX=1 GEMS=0
+[eat=350 brk=53] [t=106] state=dying time=88.6 form=人 path=人 hp=0 kills=108 lv=11 E=131 allies= boss=true mv=26
+[perf fps=141] _draw_scenery=0.01 _draw_ground=0.46 _draw_hero_layer=0.04 _draw_fx=0.79 _draw_labels=0.45 _draw_screen_fx=0.11 _draw_ui=0.50 update=0.38 sync=0.46 P=0 STAIN=0 TX=0 GEMS=0
+[eat=350 brk=53] [t=111] state=play time=1.5 form=人 path=人 hp=10 kills=0 lv=1 E=91 allies= boss=false mv=13
+[perf fps=141] _draw_scenery=0.01 _draw_ground=0.63 _draw_hero_layer=0.10 _draw_fx=0.23 _draw_labels=0.65 _draw_screen_fx=0.10 _draw_ui=0.39 update=1.26 sync=0.37 P=11 STAIN=2 TX=0 GEMS=2
+[eat=350 brk=53] [t=116] state=play time=6.4 form=人 path=人 hp=10 kills=2 lv=1 E=90 allies= boss=false mv=11
+[perf fps=87] _draw_scenery=0.02 _draw_ground=0.66 _draw_hero_layer=0.12 _draw_fx=0.31 _draw_labels=0.50 _draw_screen_fx=0.09 _draw_ui=6.96 update=0.96 sync=0.39 P=0 STAIN=2 TX=2 GEMS=5
+[eat=350 brk=53] [t=121] state=play time=10.1 form=人 path=人 hp=10 kills=2 lv=3 E=89 allies= boss=false mv=11
+[perf fps=148] _draw_scenery=0.02 _draw_ground=0.67 _draw_hero_layer=0.12 _draw_fx=0.59 _draw_labels=0.47 _draw_screen_fx=0.09 _draw_ui=0.52 update=1.81 sync=0.39 P=0 STAIN=4 TX=0 GEMS=0
+[eat=353 brk=54] [t=126] state=play time=14.4 form=人 path=人 hp=10 kills=2 lv=3 E=91 allies= boss=false mv=13
+[perf fps=148] _draw_scenery=0.01 _draw_ground=0.63 _draw_hero_layer=0.11 _draw_fx=0.48 _draw_labels=0.48 _draw_screen_fx=0.08 _draw_ui=0.38 update=1.51 sync=0.39 P=6 STAIN=4 TX=0 GEMS=0
+[eat=353 brk=54] [t=131] state=play time=19.5 form=人 path=人 hp=10 kills=2 lv=3 E=93 allies= boss=false mv=15
+[perf fps=27] _draw_scenery=0.01 _draw_ground=0.60 _draw_hero_layer=0.11 _draw_fx=0.50 _draw_labels=0.56 _draw_screen_fx=0.07 _draw_ui=8.42 update=1.01 sync=0.40 P=0 STAIN=4 TX=0 GEMS=0
+[eat=353 brk=54] [t=136] state=play time=22.6 form=人 path=人 hp=10 kills=2 lv=3 E=94 allies= boss=false mv=16
+[perf fps=175] _draw_scenery=0.01 _draw_ground=0.63 _draw_hero_layer=0.11 _draw_fx=0.55 _draw_labels=0.63 _draw_screen_fx=0.08 _draw_ui=0.38 update=1.83 sync=0.42 P=0 STAIN=4 TX=0 GEMS=0
+[eat=353 brk=54] [t=141] state=play time=27.6 form=人 path=人 hp=10 kills=2 lv=3 E=96 allies= boss=false mv=18
+[perf fps=187] _draw_scenery=0.02 _draw_ground=0.66 _draw_hero_layer=0.12 _draw_fx=0.58 _draw_labels=0.72 _draw_screen_fx=0.10 _draw_ui=0.42 update=2.05 sync=0.50 P=6 STAIN=4 TX=0 GEMS=0
+[eat=353 brk=54] [t=146] state=play time=32.6 form=人 path=人 hp=10 kills=2 lv=3 E=106 allies= boss=false mv=28
+[perf fps=98] _draw_scenery=0.02 _draw_ground=0.65 _draw_hero_layer=0.12 _draw_fx=0.64 _draw_labels=0.94 _draw_screen_fx=0.11 _draw_ui=9.21 update=1.72 sync=0.62 P=6 STAIN=4 TX=0 GEMS=0
+[eat=353 brk=54] [t=151] state=play time=36.4 form=人 path=人 hp=10 kills=2 lv=3 E=112 allies= boss=false mv=34
+[perf fps=126] _draw_scenery=0.02 _draw_ground=0.69 _draw_hero_layer=0.13 _draw_fx=1.20 _draw_labels=1.15 _draw_screen_fx=0.10 _draw_ui=2.44 update=3.20 sync=0.62 P=94 STAIN=22 TX=4 GEMS=28
+[eat=370 brk=59] [t=156] state=play time=40.9 form=人 path=人 hp=10 kills=11 lv=4 E=112 allies= boss=false mv=30
+[perf fps=68] _draw_scenery=0.02 _draw_ground=0.80 _draw_hero_layer=0.14 _draw_fx=0.88 _draw_labels=0.73 _draw_screen_fx=0.12 _draw_ui=8.50 update=2.08 sync=0.60 P=6 STAIN=24 TX=0 GEMS=6
+[eat=370 brk=59] [t=161] state=play time=44.3 form=人 path=人 hp=10 kills=12 lv=5 E=111 allies= boss=false mv=29
+[perf fps=114] _draw_scenery=0.02 _draw_ground=0.71 _draw_hero_layer=0.13 _draw_fx=1.11 _draw_labels=0.92 _draw_screen_fx=0.11 _draw_ui=2.05 update=2.86 sync=0.49 P=0 STAIN=32 TX=0 GEMS=0
+[eat=370 brk=59] [t=166] state=play time=48.3 form=人 path=人 hp=10 kills=20 lv=6 E=115 allies= boss=false mv=23
+[perf fps=108] _draw_scenery=0.02 _draw_ground=0.74 _draw_hero_layer=0.24 _draw_fx=1.06 _draw_labels=0.93 _draw_screen_fx=0.12 _draw_ui=2.20 update=4.13 sync=0.49 P=15 STAIN=37 TX=0 GEMS=5
+[eat=383 brk=62] [t=171] state=play time=52.9 form=人 path=人 hp=10 kills=25 lv=7 E=118 allies= boss=false mv=22
+[perf fps=58] _draw_scenery=0.02 _draw_ground=0.77 _draw_hero_layer=0.41 _draw_fx=1.05 _draw_labels=0.62 _draw_screen_fx=0.11 _draw_ui=11.15 update=2.85 sync=0.43 P=0 STAIN=43 TX=1 GEMS=0
+[eat=394 brk=65] [t=176] state=play time=55.8 form=人 path=人 hp=10 kills=29 lv=7 E=114 allies= boss=false mv=18
+[perf fps=115] _draw_scenery=0.02 _draw_ground=0.74 _draw_hero_layer=0.12 _draw_fx=1.02 _draw_labels=0.43 _draw_screen_fx=0.12 _draw_ui=2.89 update=3.06 sync=0.36 P=91 STAIN=63 TX=0 GEMS=75
+[eat=395 brk=66] [t=181] state=play time=60.6 form=人 path=人 hp=10 kills=49 lv=8 E=97 allies= boss=true mv=0
+[perf fps=170] _draw_scenery=0.02 _draw_ground=0.79 _draw_hero_layer=0.12 _draw_fx=0.70 _draw_labels=0.22 _draw_screen_fx=0.30 _draw_ui=3.96 update=1.66 sync=0.31 P=0 STAIN=63 TX=1 GEMS=0
+[eat=395 brk=66] [t=186] state=craft time=65.2 form=人 path=人 hp=10 kills=49 lv=9 E=106 allies= boss=true mv=9
+[perf fps=113] _draw_scenery=0.03 _draw_ground=0.92 _draw_hero_layer=0.14 _draw_fx=0.92 _draw_labels=0.48 _draw_screen_fx=0.44 _draw_ui=7.97 update=3.37 sync=0.52 P=15 STAIN=63 TX=0 GEMS=0
+[eat=395 brk=66] [t=191] state=play time=68.7 form=人 path=人 hp=10 kills=49 lv=9 E=116 allies= boss=true mv=19
+[perf fps=107] _draw_scenery=0.03 _draw_ground=0.88 _draw_hero_layer=0.13 _draw_fx=1.14 _draw_labels=0.94 _draw_screen_fx=0.39 _draw_ui=0.46 update=4.47 sync=0.65 P=135 STAIN=63 TX=4 GEMS=0
+[eat=420 brk=66] [t=196] state=play time=73.6 form=人 path=人 hp=9 kills=49 lv=9 E=122 allies= boss=true mv=25
+[perf fps=35] _draw_scenery=0.02 _draw_ground=0.85 _draw_hero_layer=0.13 _draw_fx=1.05 _draw_labels=0.74 _draw_screen_fx=0.40 _draw_ui=10.38 update=3.13 sync=0.59 P=51 STAIN=65 TX=3 GEMS=1
+[eat=431 brk=67] [t=201] state=play time=77.3 form=人 path=人 hp=9 kills=49 lv=9 E=123 allies= boss=true mv=26
+[perf fps=81] _draw_scenery=0.02 _draw_ground=0.84 _draw_hero_layer=0.10 _draw_fx=1.20 _draw_labels=0.84 _draw_screen_fx=0.39 _draw_ui=2.71 update=5.21 sync=0.59 P=22 STAIN=73 TX=2 GEMS=1
+[eat=460 brk=73] [t=206] state=play time=82.3 form=人 path=人 hp=6 kills=52 lv=9 E=123 allies= boss=true mv=26
+[perf fps=89] _draw_scenery=0.03 _draw_ground=0.95 _draw_hero_layer=0.21 _draw_fx=1.32 _draw_labels=1.09 _draw_screen_fx=0.37 _draw_ui=1.46 update=4.68 sync=0.63 P=252 STAIN=75 TX=2 GEMS=10
+[eat=487 brk=75] [t=211] state=play time=86.6 form=人 path=人 hp=6 kills=55 lv=9 E=37 allies= boss=false mv=28
+[perf fps=57] _draw_scenery=0.02 _draw_ground=1.48 _draw_hero_layer=0.20 _draw_fx=1.29 _draw_labels=0.59 _draw_screen_fx=0.29 _draw_ui=17.30 update=3.35 sync=0.54 P=24 STAIN=77 TX=0 GEMS=0
+[eat=487 brk=75] [t=217] state=play time=89.4 form=人 path=人 hp=7 kills=57 lv=10 E=81 allies= boss=false mv=25
+[perf fps=102] _draw_scenery=0.01 _draw_ground=1.20 _draw_hero_layer=0.08 _draw_fx=0.77 _draw_labels=0.41 _draw_screen_fx=0.23 _draw_ui=0.44 update=3.73 sync=0.38 P=80 STAIN=77 TX=1 GEMS=18
+[eat=499 brk=75] [t=222] state=play time=94.4 form=人 path=人 hp=5 kills=57 lv=10 E=81 allies= boss=false mv=25
+[perf fps=80] _draw_scenery=0.02 _draw_ground=1.25 _draw_hero_layer=0.12 _draw_fx=0.81 _draw_labels=0.35 _draw_screen_fx=0.26 _draw_ui=8.99 update=3.15 sync=0.40 P=27 STAIN=79 TX=0 GEMS=0
+[eat=504 brk=77] [t=227] state=craft time=98.6 form=人 path=人 hp=5 kills=58 lv=10 E=80 allies= boss=false mv=24
+[perf fps=68] _draw_scenery=0.02 _draw_ground=1.25 _draw_hero_layer=0.10 _draw_fx=0.90 _draw_labels=0.46 _draw_screen_fx=0.26 _draw_ui=4.13 update=3.58 sync=0.41 P=6 STAIN=81 TX=1 GEMS=0
+[eat=514 brk=78] [t=232] state=play time=102.5 form=人 path=人 hp=2 kills=60 lv=10 E=77 allies= boss=false mv=21
+[perf fps=126] _draw_scenery=0.02 _draw_ground=1.25 _draw_hero_layer=0.11 _draw_fx=0.80 _draw_labels=0.59 _draw_screen_fx=0.26 _draw_ui=0.54 update=4.05 sync=0.41 P=17 STAIN=81 TX=1 GEMS=0
+[eat=514 brk=78] [t=237] state=play time=107.5 form=人 path=人 hp=1 kills=60 lv=10 E=77 allies= boss=false mv=21
+[done] kills=60 level=10 path=人 best=303.6
+[slain] { "犬": 2, "木": 17, "草": 1, "日": 1, "目": 2, "水": 2, "火": 1, "大": 1, "山": 4, "工": 2, "虫": 2, "馬": 1, "矢": 1, "鬼": 6, "桃": 1, "橋": 1, "戌": 1, "岩": 7, "狐": 1, "机": 1, "火力": 1, "示": 1, "黒": 1, "广": 1 }
+[owned] {  } kraft=["伏2", "來1", "萌1", "焚2", "駙1", "禁1", "湘1"] souls=["犬", "木", "寸", "草", "田", "月", "日", "目", "水", "火", "山", "工", "虫", "馬", "矢", "兆", "喬", "戌", "石", "力", "示", "广"]
+WARNING: 8 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 4 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)

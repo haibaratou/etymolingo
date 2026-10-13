@@ -1,0 +1,139 @@
+{
+  "repository": "haibaratou/etymolingo",
+  "branch": "codex/kanji-survivor-ink-inheritance-20261013",
+  "local_commit": "35d6e562120dc34ef2ed413f4159f55b215624b3",
+  "remote_commit": "b82fea673f5e1fb86d1aef3ea44ccafbb0ef05e5",
+  "previous_local_commit": "b1d80ff75b09ffc0dc21ffefd24e230d8dabb316",
+  "previous_remote_commit": "2b1c8a7978bda43e1e67bed276ea4b965be1d8aa",
+  "tree": "1e6d7570d29c5620466eaee16fe38d2f1c98227a",
+  "exact_local_remote_tree_match": true,
+  "individual_blob_sha_matches": 14,
+  "changed_file_count": 14,
+  "total_bytes": 634087,
+  "pr_total_changed_files": 65,
+  "pr_total_commits": 2,
+  "pr": {
+    "url": "https://github.com/haibaratou/etymolingo/pull/27",
+    "number": 27,
+    "title": "漢字サバイバー: 生きた文字の接触攻撃と、歩いて囲む木の道",
+    "draft": true,
+    "merged": false
+  },
+  "remote_followup_compare": {
+    "ahead_by": 1,
+    "behind_by": 0,
+    "total_commits": 1,
+    "changed_files": 14
+  },
+  "validation": {
+    "glyph": 100,
+    "core": 170,
+    "forest_budget": 12,
+    "total_passed": 282,
+    "total_failed": 0,
+    "fresh_archive_import_exit_code": 0,
+    "fresh_archive_tests_passed": 282,
+    "fresh_archive_bytes": 42432823,
+    "original_glyph_content_preserved": true
+  },
+  "files": [
+    {
+      "path": "work/etymopedia/kanji/godot/GLYPH_WORLD_HANDOFF.md",
+      "sha": "d99c60737ce70c3c17dbf93614fcfcc7b8d25653",
+      "bytes": 8331,
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "work/etymopedia/kanji/godot/HANDOFF_CODEX.md",
+      "sha": "69dbe551810d493297c7489ec38384c21ce4d444",
+      "bytes": 20368,
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "work/etymopedia/kanji/godot/HANDOFF_CODEX_IMPLEMENTED.md",
+      "sha": "9c56255a4169b230c0afa84d12db021e327c277a",
+      "bytes": 3458,
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "work/etymopedia/kanji/godot/README.md",
+      "sha": "e72c81d55e2323b738e7bcbaa6ad59029e2a5b8c",
+      "bytes": 32679,
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "work/etymopedia/kanji/godot/VALIDATION_CODEX.md",
+      "sha": "4edf2b8c645bd5db59b50870628aff63708ce941",
+      "bytes": 8576,
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "work/etymopedia/kanji/godot/scripts/glyph_fx.gd",
+      "sha": "5afe5989ef655b64c5f30cf0ea591c411b482152",
+      "bytes": 26539,
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "work/etymopedia/kanji/godot/scripts/kraft.gd",
+      "sha": "45af2a716102389272dc76cd112821f5d19eb3c1",
+      "bytes": 36312,
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "work/etymopedia/kanji/godot/scripts/main.gd",
+      "sha": "ea6ac8b5d5f3c980f38596e040b766c17c1d06eb",
+      "bytes": 410764,
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "work/etymopedia/kanji/godot/scripts/semantic_combat.gd",
+      "sha": "1a956e0420643f6f25c5d8b96cb3e19372abe37a",
+      "bytes": 31329,
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "work/etymopedia/kanji/godot/tools/capture_glyph_world.gd",
+      "sha": "f101c18cec5a46052c0e2f8495ad2683fc9ed2d8",
+      "bytes": 4781,
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "work/etymopedia/kanji/godot/tools/launch_godot.ps1",
+      "sha": "546a5410b36e71bf76c6b080388bfb50ee335cf7",
+      "bytes": 5630,
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "work/etymopedia/kanji/godot/tools/test_forest_budget.gd",
+      "sha": "34db06c3fc770afa249c15da0c93842c73603595",
+      "bytes": 5208,
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "work/etymopedia/kanji/godot/tools/test_glyph_attacks.gd",
+      "sha": "a3edf9a5613f153b51d6a0d6e8a7d34e19448976",
+      "bytes": 23229,
+      "mode": "100644",
+      "type": "blob"
+    },
+    {
+      "path": "work/etymopedia/kanji/godot/tools/test_semantics.gd",
+      "sha": "f1f5a2349ce8542078b1533799e4d5b8613b29be",
+      "bytes": 16883,
+      "mode": "100644",
+      "type": "blob"
+    }
+  ]
+}

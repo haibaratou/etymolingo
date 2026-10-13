@@ -1504,3 +1504,4 @@ playlist.png,playlist,日本語と構図はニュース等を含む放送予定�
 prehistory.png,prehistory,日本語と構図は先史時代の生活、第一英語義は先史人類の研究。正本の語義整合確認待ち,prompt_rows_027画像生成引継ぎ時,未解決
 misalignment.png,misalignment,日本語と構図は照準を外して矢が的に当たらないこと、第一英語義は位置や調整が正しく揃っていないこと。正本の語義整合確認待ち,prompt_rows_027画像生成引継ぎ時,未解決
 labia.png,labia,画像生成ツールの安全判定で入力拒否（moderation_blocked、request ID fd1063c7-0b7a-43d3-8554-418dbfb1c90b）,prompt_rows_027画像生成引継ぎ時,未解決
+intercourse.png,intercourse,生成サービスの安全ブロック。request_id=None。,prompt_rows_035,保留

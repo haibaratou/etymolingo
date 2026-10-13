@@ -1,0 +1,13 @@
+{
+  "batch": 37,
+  "file": "vanish.png",
+  "word": "vanish",
+  "roots": [
+    "eghs",
+    "euə-"
+  ],
+  "source": "C:\\Users\\haiba\\.codex\\generated_images\\01a1244f-8117-7993-a0d4-82c75a3be03b\\exec-f859cc55-0672-4ce3-bb9d-5ab8f87895d9.png",
+  "prompt": "Subject: A soap bubble vanishing.\n\nComposition: Show a child watching a large soap bubble burst, its remaining curved film breaking into a few tiny droplets above the bubble wand. The child's gaze follows the now-empty center, making disappearance visible in one moment without magic lettering or before-and-after panels.\n\nStyle: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded shapes, and restrained 2D cartoon shading. Do not copy the reference subject or composition.\n\nFraming: One compact composition, with the complete subject using about 80-90% of the square. Keep all limbs and object tips inside the frame.\n\nOutput: 512x512 PNG, RGBA, genuine transparent background and transparent gaps. No text, speech balloons, explanatory captions, numerals, labels, logos or watermark.",
+  "en": "disappear",
+  "ja": "消滅する"
+}

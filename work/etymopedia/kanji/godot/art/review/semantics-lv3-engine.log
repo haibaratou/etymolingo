@@ -1,0 +1,12 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+ERROR: Can't create shader cache folder, no shader caching will happen: user://
+   at: RasterizerGLES3 (drivers/gles3/rasterizer_gles3.cpp:345)
+OpenGL API 3.3.0 NVIDIA 617.42 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 3060
+
+[perf fps=75] _draw_scenery=0.38 _draw_ground=0.50 _draw_hero_layer=0.20 _draw_fx=0.75 _draw_labels=0.73 _draw_screen_fx=0.20 _draw_dof_layer=0.00 _draw_ui=3.13 <anonymous lambda>=0.47 update=1.67 sync=0.36 P=0 STAIN=4 TX=3 GEMS=0
+[eat=25 brk=4] [t=5] state=play time=5.0 form=人 path=人 hp=10 kills=4 lv=1 E=93 allies= boss=false mv=16
+[kl] foes=["女", "囚", "囚", "花", "嵐", "字", "嵐", "相"]
+[kl] party=["林", "炎", "海", "雷", "明"] sc=4 t=5.3 done=-1.0 eat=32 left=16 touch=0 fx=0
+[done] kills=9 level=1 path=人 best=303.6
+[slain] { "戈": 1, "門": 2, "子": 1, "耳": 1, "風": 1, "牛": 1, "示": 1, "艹": 1 }
+[owned] {  } kraft=["林3", "炎3", "海3", "雷3", "明3"] souls=["戈", "門", "耳", "風", "犬", "女", "人", "示", "木"]
