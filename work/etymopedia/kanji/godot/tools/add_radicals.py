@@ -133,5 +133,47 @@ for c, k in K.items():
     stat[got[0]] += 1
     k["ally"] = True
     k["src"], k["via"], k["b"] = got[1], got[2], got[3]
+# 字ごとの個性: 同じ部首でも、画数・学年・意味で能力値が変わる
+#   画数が多い → 威力↑（重い字）、少ない → 速さ↑（軽い字）。学年が上・人名用 → 威力↑（珍しい字）
+#   意味（英語）に含まれる語で、範囲・数・持続・貫通・押し・威力・速さが上がる。部品の数 → 数↑
+WORDS = {
+    "pow": "great big strong power mighty fierce violent destroy kill death war king emperor dragon giant heavy rage fury angry evil demon oppress cruel brave hero master supreme".split(),
+    "area": "wide vast broad spread large sea ocean sky heaven world all universal flood overflow field plain lake wave storm cloud fog mist far whole".split(),
+    "rate": "fast quick swift speed hurry rapid fly dash run gallop leap jump wind flash instant sudden lightning thunder".split(),
+    "count": "many multi crowd forest rain group numerous scatter every swarm flock grove crowd plural various myriad tree bamboo grass sand star".split(),
+    "dur": "long eternal ever forever last endure slow stay remain keep old ancient permanent continue lasting stable calm peace".split(),
+    "pierce": "pierce through penetrate sharp needle thrust stab arrow spear sword blade cut pin point thorn".split(),
+    "knock": "push strike hit blow beat bump ram crush break shock repel drive kick throw explode burst".split(),
+}
+import re as _re
+for c, k in K.items():
+    if "s0" not in k:
+        k["s0"] = dict(k.get("s", {}))
+    st = dict(k["s0"])
+    stk = int(k.get("stk", 0) or 0)
+    g = int(k.get("g", 0) or 0)
+    add = lambda key, v: st.__setitem__(key, st.get(key, 0) + v)
+    if stk >= 10:
+        add("pow", 1 + (stk - 10) // 4)
+    if stk <= 6:
+        add("rate", 2 if stk <= 4 else 1)
+    if g >= 7 or g == 0:
+        add("pow", 1)
+    en = (k.get("en") or "").lower()
+    toks = set(_re.findall(r"[a-z]+", en))
+    for key, ws in WORDS.items():
+        for w in ws:
+            if w in toks or (len(w) >= 4 and en.startswith(w)):
+                add(key, 2)
+                break
+    nl = len(k.get("lv", []))
+    if nl >= 3:
+        add("count", 1)
+    if nl >= 5:
+        add("area", 1)
+    for key in list(st):
+        st[key] = min(6, st[key])
+    k["s"] = st
+
 json.dump(d, open(P, "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
 print(stat)

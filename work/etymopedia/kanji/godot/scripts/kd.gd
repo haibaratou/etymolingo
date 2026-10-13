@@ -86,9 +86,18 @@ static func motion_of(ch: String) -> String:
 			return k
 	return "hop"
 
+const KR = preload("res://scripts/kraft.gd")
+## 字の動き: まず字ごとの決まり（BEH）、なければ部首の決まり（RAD_BEH: 人は逃げる・水は留まる…）
 static func beh_of(ch: String, stk: int) -> String:
 	for k in D.BEH:
 		if String(D.BEH[k]).contains(ch):
+			return k
+	KR.load_db()
+	var r: String = KR.rad_of(ch) if KR.has(ch) else ch
+	var rn: String = KR.NORM.get(r, r)
+	for k in D.get("RAD_BEH", {}):
+		var s: String = String(D.RAD_BEH[k])
+		if s.contains(r) or s.contains(rn) or s.contains(ch):
 			return k
 	return "tank" if stk >= 16 else "walk"
 
