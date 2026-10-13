@@ -29,7 +29,7 @@ void fragment() {
 	float grid = clamp(vline + hline, 0.0, 1.0);
 	grid *= 0.75 + 0.25 * texture(paper_tex, w / 90.0).r;
 	vec3 shu = vec3(0.82, 0.23, 0.14);
-	col = mix(col, shu, grid * 0.20);
+	col = mix(col, shu, grid * 0.075);
 	// 紙の縁の焼け
 	vec2 q = UV - 0.5;
 	float vig = smoothstep(0.35, 0.85, length(q * vec2(1.0, size.y / size.x) * 1.35));
@@ -37,7 +37,7 @@ void fragment() {
 	if (night > 0.001) {
 		// 夜: 墨の闇。金の升目と、ゆっくり漂う金の粉
 		vec3 yoru = vec3(0.055, 0.051, 0.07) + texture(paper_tex, w / 2400.0 + vec2(time * 0.002, 0.0)).r * 0.035;
-		vec3 ncol = mix(yoru, vec3(0.78, 0.63, 0.27), grid * 0.10);
+		vec3 ncol = mix(yoru, vec3(0.78, 0.63, 0.27), grid * 0.065);
 		vec2 g = floor(w / 23.0);
 		float star = step(0.985, hash(g));
 		float tw = 0.5 + 0.5 * sin(time * (1.0 + hash(g + 3.0) * 2.0) + hash(g) * 6.28);

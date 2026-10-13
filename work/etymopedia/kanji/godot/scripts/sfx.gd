@@ -9,7 +9,9 @@ var players: Array[AudioStreamPlayer] = []
 var idx = 0
 var bgm_day: AudioStreamPlayer
 var bgm_night: AudioStreamPlayer
+var bgm_boss: AudioStreamPlayer
 var night_mix = 0.0
+var boss_mix = 0.0
 const PENTA := [0, 2, 4, 7, 9]
 
 func _ready() -> void:
@@ -21,6 +23,7 @@ func _ready() -> void:
 		players.append(p)
 	bgm_day = _bgm("bgm_day")
 	bgm_night = _bgm("bgm_night")
+	bgm_boss = _bgm("bgm_boss")
 
 func _bgm(n: String) -> AudioStreamPlayer:
 	var p = AudioStreamPlayer.new()
@@ -35,12 +38,24 @@ func start_bgm() -> void:
 		bgm_day.play()
 	if not bgm_night.playing:
 		bgm_night.play()
+	if not bgm_boss.playing:
+		bgm_boss.play()
 
 func set_night(v: float) -> void:
 	night_mix = v
+	_mix()
+
+## 決戦の恐ろしい曲へ切り替える（0..1）
+func set_boss(v: float) -> void:
+	boss_mix = v
+	_mix()
+
+func _mix() -> void:
 	var on_v = 1.0 if (bgm_on and on) else 0.0
-	bgm_day.volume_db = linear_to_db(max(0.0001, (1.0 - v) * 0.55 * on_v))
-	bgm_night.volume_db = linear_to_db(max(0.0001, v * 0.6 * on_v))
+	var nb: float = 1.0 - boss_mix
+	bgm_day.volume_db = linear_to_db(max(0.0001, (1.0 - night_mix) * 0.55 * on_v * nb))
+	bgm_night.volume_db = linear_to_db(max(0.0001, night_mix * 0.6 * on_v * nb))
+	bgm_boss.volume_db = linear_to_db(max(0.0001, boss_mix * 0.8 * on_v))
 
 func play(n: String, vol := 0.0, pitch := 1.0) -> void:
 	if not on or not streams.has(n):

@@ -1,6 +1,6 @@
 ﻿[CmdletBinding()]
 param(
-    [ValidateSet("play", "demo", "test")]
+    [ValidateSet("play", "demo", "test", "showcase")]
     [string]$Mode = "play"
 )
 
@@ -107,6 +107,10 @@ try {
             Write-Host "`n== 自動戦闘で4分ぶん回す（画面なし・高速） =="
             $code = Invoke-GodotTool -Godot $godot -Arguments @("--headless", "--fixed-fps", "30", "--path", $ProjectRoot, "--", "--auto", "--quit=240", "--nosave")
             exit $code
+        }
+        "showcase" {
+            Import-Project -Godot $godot
+            Start-Process -FilePath $godot -WorkingDirectory $ProjectRoot -ArgumentList @("--path", "`"$ProjectRoot`"", "--", "--kl", "--klch=林,炎,海,雷", "--kllv=3", "--klsc=4", "--nosave") -WindowStyle Hidden | Out-Null
         }
     }
 }
