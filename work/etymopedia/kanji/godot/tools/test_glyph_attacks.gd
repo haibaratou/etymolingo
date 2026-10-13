@@ -130,7 +130,8 @@ func _cast(u: Dictionary, motion: String) -> void:
 			battle.run(game, u, 0.1, Vector2(game.hero.x, 0))
 
 func test_original_glyphs() -> void:
-	check(FileAccess.get_sha256("res://scripts/oracle.gd") == "07c2537c3a58d5634469356db95382c125810a30ab372d6fd544b7a0df4065cb", "approved oracle drawing script remains byte-identical")
+	var oracle_source: String = FileAccess.get_file_as_string("res://scripts/oracle.gd").replace("\r\n", "\n")
+	check(oracle_source.sha256_text() == "07c2537c3a58d5634469356db95382c125810a30ab372d6fd544b7a0df4065cb", "approved oracle drawing source remains identical across Git line endings")
 	check(FileAccess.get_sha256("res://data/jgw.json") == "42b02c5e96c149faf3a40c5c56d38fbba4e91b252e706f0ca00ba5016a9462c9", "original oracle-bone dataset remains byte-identical")
 
 func test_fire_contact_and_attachment() -> void:

@@ -1,6 +1,6 @@
 # Codex 検証記録 — 漢字 SURVIVOR
 
-> 生きている文字へ修正した後の最新検証は [GLYPH_WORLD_HANDOFF.md](GLYPH_WORLD_HANDOFF.md) を参照。文字攻撃100項目・基本170項目が成功し、矢印入力と実画面を記録した。以下は前回の記録。
+> 生きている文字へ修正した後の最新検証は [GLYPH_WORLD_HANDOFF.md](GLYPH_WORLD_HANDOFF.md) を参照。文字攻撃100項目・基本170項目・木の成長上限12項目が成功し、矢印入力と実画面を記録した。以下は前回の記録。
 
 検証日: 2026-10-13（JST） / Godot 4.7.2 / Windows
 

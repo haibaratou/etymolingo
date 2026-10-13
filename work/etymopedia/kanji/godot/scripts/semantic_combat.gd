@@ -6,6 +6,8 @@ const Kraft = preload("res://scripts/kraft.gd")
 const GlyphFX = preload("res://scripts/glyph_fx.gd")
 const MOTIONS = ["plant", "blaze", "tide", "thunder", "snowfall", "cleave", "weave", "shelter", "gust", "boulder", "rest", "mend", "radiance", "scatter_seed", "pounce", "flock", "rally", "heart_pulse", "inscribe", "rainfall", "annihilate", "detonate", "cage", "haze", "calamity", "shoot", "orbit", "burst", "aura", "dragon", "spread"]
 const MAX_FX := 72
+const TREE_FX_RESERVE := 12
+const MAX_UNIT_TREES := 40
 var fx: Array = []
 var next_id := 0
 var checks := 0
@@ -260,7 +262,7 @@ func _plant(m: Node, u: Dictionary, p: Vector2) -> void:
 	if not u.has("sem_trail_prev"):
 		u.sem_trail_prev = p
 		u.sem_trail_carry = 0.0
-		u.sem_trail_path = [{"p": p, "time": float(m.time)}]
+		u.sem_trail_path = []
 		return
 	var previous: Vector2 = u.sem_trail_prev
 	u.sem_trail_prev = p
@@ -270,37 +272,58 @@ func _plant(m: Node, u: Dictionary, p: Vector2) -> void:
 	# Restart a route after a teleport rather than grow across a skipped screen.
 	if distance > 500.0 * sf:
 		u.sem_trail_carry = 0.0
-		u.sem_trail_path = [{"p": p, "time": float(m.time)}]
+		u.sem_trail_path = []
 		return
 	var direction: Vector2 = (p - previous).normalized()
 	var carry: float = float(u.get("sem_trail_carry", 0.0))
 	var along: float = spacing - carry
+	var live_trees: Dictionary = {}
+	for f in fx:
+		if String(f.k) == "tree" and f.u == u and float(f.life) > 0.0:
+			live_trees[int(f.id)] = true
+	var path: Array = u.get("sem_trail_path", [])
+	path = path.filter(func(v): return live_trees.has(int(v.get("fxid", -1))))
 	while along <= distance:
 		var planted: Vector2 = previous + direction * along
-		if _count(u, "tree") < 36 + lv * 6 + wood * 2:
-			_emit("tree", u, planted, Vector2.UP, life, (32.0 + lv * 3.0 + wood * 2.0) * sf * _scale(u), {"trail": true, "wood": wood})
-		var path: Array = u.get("sem_trail_path", [])
-		path = path.filter(func(v): return float(m.time) - float(v.time) <= life)
-		if float(m.time) >= float(u.get("sem_loop_next", 0.0)):
-			for j in range(0, maxi(0, path.size() - 5)):
-				if planted.distance_to(Vector2(path[j].p)) > spacing * 1.15:
-					continue
-				var polygon: Array = []
-				for v in path.slice(j):
-					polygon.append(Vector2(v.p))
-				polygon.append(planted)
-				if absf(_path_area(polygon)) < 8000.0 * sf * sf:
-					continue
-				_close_wood_path(m, u, polygon, wood)
-				u.sem_loop_next = float(m.time) + 3.5
+		var tree: Dictionary = {}
+		if fx.size() < MAX_FX - TREE_FX_RESERVE and live_trees.size() < mini(MAX_UNIT_TREES, 30 + lv + wood):
+			tree = _emit("tree", u, planted, Vector2.UP, life, (32.0 + lv * 3.0 + wood * 2.0) * sf * _scale(u), {"trail": true, "wood": wood})
+		if not tree.is_empty():
+			live_trees[int(tree.id)] = true
+			# A gap after rejected growth starts a fresh visible route. Never
+			# treat the unplanted movement between two trees as a closing wall.
+			if not path.is_empty() and planted.distance_to(Vector2(path[-1].p)) > spacing * 1.15:
 				path = []
-				break
-		path.append({"p": planted, "time": float(m.time)})
-		if path.size() > 96:
-			path.pop_front()
-		u.sem_trail_path = path
+		if _try_wood_loop(m, u, path, planted, spacing, wood):
+			path = []
+		if not tree.is_empty():
+			path.append({"p": planted, "time": float(m.time), "fxid": int(tree.id)})
 		along += spacing
+	# Reaching a visible endpoint can close a route even when new trees were
+	# refused to leave the twelve reserved attack slots available.
+	if _try_wood_loop(m, u, path, p, spacing, wood):
+		path = []
+	u.sem_trail_path = path
 	u.sem_trail_carry = fmod(carry + distance, spacing)
+
+func _try_wood_loop(m: Node, u: Dictionary, path: Array, endpoint: Vector2, spacing: float, wood: int) -> bool:
+	if path.size() < 7 or float(m.time) < float(u.get("sem_loop_next", 0.0)):
+		return false
+	if endpoint.distance_to(Vector2(path[-1].p)) > spacing * 1.15:
+		return false
+	for j in range(0, path.size() - 5):
+		if endpoint.distance_to(Vector2(path[j].p)) > spacing * 1.15:
+			continue
+		var polygon: Array = []
+		for v in path.slice(j):
+			polygon.append(Vector2(v.p))
+		polygon.append(endpoint)
+		if absf(_path_area(polygon)) < 8000.0 * float(m.SF) * float(m.SF):
+			continue
+		if _close_wood_path(m, u, polygon, wood):
+			u.sem_loop_next = float(m.time) + 3.5
+			return true
+	return false
 
 func _path_area(path: Array) -> float:
 	var area: float = 0.0
@@ -312,13 +335,14 @@ func _path_area(path: Array) -> float:
 
 ## A completed route becomes an explicit 木 frame. Only visible 木 traveling
 ## inward from that frame can hurt the enclosed characters; selection is harmless.
-func _close_wood_path(m: Node, u: Dictionary, polygon: Array, wood: int) -> void:
+func _close_wood_path(m: Node, u: Dictionary, polygon: Array, wood: int) -> bool:
 	var sf: float = float(m.SF)
 	var center: Vector2 = Vector2.ZERO
 	for point in polygon:
 		center += Vector2(point)
 	center /= float(polygon.size())
-	_emit("wood_loop", u, center, Vector2.UP, 1.4, 25.0 * sf, {"path": polygon})
+	if _emit("wood_loop", u, center, Vector2.UP, 1.4, 25.0 * sf, {"path": polygon}).is_empty():
+		return false
 	var boundary: PackedVector2Array = PackedVector2Array(polygon)
 	var reach: float = 0.0
 	for point in polygon:
@@ -339,6 +363,7 @@ func _close_wood_path(m: Node, u: Dictionary, polygon: Array, wood: int) -> void
 		if enclosed >= 6:
 			break
 	m.ksfx("soft", -18.0, 0.85)
+	return true
 
 func _rest(m: Node, u: Dictionary, dt: float, hp0: Vector2) -> void:
 	var sf: float = float(m.SF)

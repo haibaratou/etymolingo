@@ -29,6 +29,7 @@
 ```powershell
 & 'D:\apl\Godot_v4.7.2-stable_win64.exe\Godot_v4.7.2-stable_win64_console.exe' --headless --path . --script res://tools/test_glyph_attacks.gd
 & 'D:\apl\Godot_v4.7.2-stable_win64.exe\Godot_v4.7.2-stable_win64_console.exe' --headless --path . --script res://tools/test_semantics.gd
+& 'D:\apl\Godot_v4.7.2-stable_win64.exe\Godot_v4.7.2-stable_win64_console.exe' --headless --path . --script res://tools/test_forest_budget.gd
 ```
 
 ゲームの入口は `ゲームを開始.cmd`、字の比較は `新しい技を観る.cmd`。試験場の矢印キーは移動、＋／− は敵を作り直さずに Lv を変更、1〜5 は場面を変える。旧資料の「←→で Lv」は、この操作変更より前の記述。
@@ -40,8 +41,9 @@
 - 防護の字がある縁では HP が減り、同じ形の中の文字がない空間では減らないことも、実際の更新経路で検査する。以前の大きい透明円なら当たってしまう場所を、接触なしとして確かめている。
 - 濡れた元の敵に当たった瞬間は、次の敵の HP が変わらない。その後に「水」が進み、次の字に触れたときに削る。近くても移動経路から外れた敵は削らない。連鎖から新たな連鎖を無制限に出さない。
 - 字庫にない「獣」はフォント補完の対象になる。既存の字を二重に描かず、隠れた敵や画面外の敵の表示ルールを守る。接触と状態表示は字の動きを含む見える中心に合わせる。
-- 元文字の 2 ファイルは修正前と同じ SHA-256。ハッシュ値は基準記録にある。
+- 元文字の描画ソースと字形データは修正前と同じ内容。描画ソースは CRLF を LF に揃えた SHA-256 で検査し、Git の書き出しによる改行だけの差を許す。字形データはバイト単位の SHA-256 が一致する。
 - 基本の作字・HP・属性・門の検査: `art/review/glyph-world-core-tests.log` と `art/review/glyph-world-core-tests-engine.log`。170 件成功、0 件失敗。旧「止まっても木が出る」前提の検査は、歩いた道の生成を調べる内容に更新済み。
+- 多数の木がある場面の検査: `art/review/forest-budget-final.log`。12 件成功、0 件失敗。Lv6 でも一つの仲間が無制限に木を増やさず、囲いの攻撃用に余地を残す。生えなかった位置は道に記録せず、実在している木の字だけで輪を判定する。60 個のエフェクトがある場面でも既存の木を突然消さずに囲いを完成でき、内側へ見える「木」が進んで HP を削る。
 - 前回の画像主体の攻撃を示す比較元: `art/review/final-炎-lv3/shot_02_play.png`。この画像は新しい実装の合格例として扱わない。
 
 実画面でも確認済み。`tools/capture_glyph_world.gd` は実際のゲームを動かし、矢印の入力イベントで歩いて記録する。移動で仲間の ID が変わらないことも記録中に確認する。検査件数を、文字の見た目が完成した根拠として扱わない。
@@ -58,9 +60,12 @@
 godot --path . --fixed-fps 30 --rendering-driver opengl3 --script res://tools/capture_glyph_world.gd -- --case=wood --out=res://art/review/living-wood --nosave
 ```
 
-保護対象の SHA-256:
+保護対象の SHA-256（ソースを変更する許可にはしない）:
 
 ```text
-scripts/oracle.gd  07c2537c3a58d5634469356db95382c125810a30ab372d6fd544b7a0df4065cb
-data/jgw.json     42b02c5e96c149faf3a40c5c56d38fbba4e91b252e706f0ca00ba5016a9462c9
+scripts/oracle.gd  LF canonical  07c2537c3a58d5634469356db95382c125810a30ab372d6fd544b7a0df4065cb
+scripts/oracle.gd  CRLF variant  1df1dc2d9d36d753602543be2e7622595d7f3d6723528cabb9d970d00b035642
+data/jgw.json     exact bytes   42b02c5e96c149faf3a40c5c56d38fbba4e91b252e706f0ca00ba5016a9462c9
 ```
+
+今回の作業フォルダは LF・3,594 バイト、Git archive の書き出しは CRLF・3,703 バイトだった。両方を LF に揃えると上の canonical 値になる。
