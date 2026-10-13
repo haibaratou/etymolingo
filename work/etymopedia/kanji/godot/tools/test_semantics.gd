@@ -179,7 +179,11 @@ func test_motion_dispatch() -> void:
 		game.hero.face = 1
 		var foes: Array = game.E
 		game.E = []
-		check(battle.run(game, u, 0.1, Vector2.ZERO) and not battle.fx.is_empty(), "motion dispatch emits %s" % motion)
+		var dispatched: bool = battle.run(game, u, 0.1, Vector2.ZERO)
+		if motion == "plant":
+			check(dispatched and battle.fx.is_empty(), "plant waits for an actual walked route")
+			battle.run(game, u, 0.1, Vector2(180, 0))
+		check(dispatched and not battle.fx.is_empty(), "motion dispatch emits %s" % motion)
 		var shape: Array = _emission_shape(battle)
 		battle.tick(game, 0.1)
 		check(not battle.fx.is_empty() and float(battle.fx[0].t) > 0.0, "motion update advances %s" % motion)
@@ -194,8 +198,13 @@ func test_motion_dispatch() -> void:
 		second.erase("rest_prev")
 		second.erase("rest_charge")
 		second.erase("rest_cool")
+		second.erase("sem_trail_prev")
+		second.erase("sem_trail_carry")
+		second.erase("sem_trail_path")
 		game.E = [{"x": -220.0, "y": 450.0, "alive": true, "is_boss": false, "still": false, "obj": "", "captive": false}]
 		battle.run(game, second, 0.1, Vector2.ZERO)
+		if motion == "plant":
+			battle.run(game, second, 0.1, Vector2(180, 0))
 		check(_emission_shape(battle) == shape, "Lv1 %s direction ignores enemy location" % motion)
 		battle.clear()
 		game.E = foes
@@ -218,12 +227,16 @@ func test_visual_growth_and_rest() -> void:
 		u.cd = 0.0
 		battle.clear()
 		battle.run(game, u, 0.1, Vector2.ZERO)
+		if ch == "森":
+			battle.run(game, u, 0.1, Vector2(400, 0))
 		var simple: int = battle.fx.size()
 		game.kraft_clear()
 		u = game.kraft_add(ch, 3)
 		u.cd = 0.0
 		battle.clear()
 		battle.run(game, u, 0.1, Vector2.ZERO)
+		if ch == "森":
+			battle.run(game, u, 0.1, Vector2(400, 0))
 		check(battle.fx.size() > simple, "%s Lv3 visibly adds attack forms beyond Lv1" % ch)
 	game.kraft_clear()
 	battle.clear()
