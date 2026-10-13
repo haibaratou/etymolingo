@@ -2094,7 +2094,7 @@ func eat_letter(e: Dictionary, n := 1, lv := 1, src := "") -> bool:
 			if (src == "日" or src == "月") and randf() < 0.5:
 				BOLT.append({"pts": [src_p, Vector2(e.x, e.y)], "life": 0.18, "max": 0.18, "ray": true, "w": 0.35, "c": KD.KIN if src == "日" else Color(0.82, 0.88, 1.0)})
 		# どの武器が当たったか: 当たった所に武器の字が小さく跳ねる
-		if true:
+		if not src.begins_with("K:"):
 			TX.append({"x": e.x + rnd(-e.rad, e.rad) * 0.6, "y": e.y - e.rad * 0.4, "t": src.trim_prefix("K:"), "s": 16.0 * max(0.85, SF) + 2, "c": KD.KIN if night > 0.5 else KD.AI, "life": 0.45, "max": 0.45, "vy": -70.0})
 	elif e.get("eat_cd", 0.0) > 0:
 		return false
@@ -5497,6 +5497,7 @@ func _craft_pick(a: String, b: String) -> void:
 ## ======== 漢字クラフトの仲間（性能は scripts/kraft.gd の足し算で決まる） ========
 const Kraft = preload("res://scripts/kraft.gd")
 const SemanticCombat = preload("res://scripts/semantic_combat.gd")
+const GlyphFX = preload("res://scripts/glyph_fx.gd")
 const InkWorld = preload("res://scripts/ink_world.gd")
 const GlyphGimmicks = preload("res://scripts/glyph_gimmicks.gd")
 var semantic_combat = SemanticCombat.new()
@@ -5571,11 +5572,11 @@ func kraft_clear() -> void:
 func ku_tag(u: Dictionary) -> String:
 	return "K:" + u.ch
 
-## 近くの字（植物や宝は除く）を近い順に
+## 近くの壊せる字を近い順に。草や木も文字として攻撃が当たる。
 func k_targets(p: Vector2, r: float, n := 99) -> Array:
 	var out: Array = []
 	for e in E:
-		if not e.alive or e.is_boss or e.get("still", false) or e.get("obj", "") != "" or e.captive:
+		if not e.alive or e.is_boss or e.get("obj", "") != "" or e.captive:
 			continue
 		var d: float = Vector2(e.x, e.y).distance_to(p)
 		if d < r:
@@ -5601,19 +5602,10 @@ func k_hit(u: Dictionary, e: Dictionary, from: Vector2, kn: float, cd := 0.0, ke
 	if time < float(e.get("kcurse", -1.0)):
 		nn += int(e.get("kcurse_n", 1))
 	var ok: bool = eat_letter(e, nn, 1, ku_tag(u))
-	# 濡れた字が削られたら、近くの濡れた字も一緒に削られる（水の連鎖）
-	if time < float(e.get("kwet", -1.0)) and not _k_chain:
+	# 濡れた字の間を「水」が渡る。次の字への命中までダメージは発生しない。
+	if ok and time < float(e.get("kwet", -1.0)) and not _k_chain:
 		_k_chain = true
-		var cnt = 0
-		for o in k_targets(Vector2(e.x, e.y), 230 * SF):
-			if o != e and time < float(o.get("kwet", -1.0)):
-				if o.has("cdt"):
-					o.cdt.erase(ku_tag(u))
-				eat_letter(o, 1, 1, ku_tag(u))
-				BOLT.append({"pts": [Vector2(e.x, e.y), Vector2(o.x, o.y)], "life": 0.18, "max": 0.18, "ray": true, "w": 0.3, "c": Kraft.FAM_COL["波"]})
-				cnt += 1
-				if cnt >= 8:
-					break
+		semantic_combat.water_chain(self, u, e)
 		_k_chain = false
 	var v: Vector2 = (Vector2(e.x, e.y) - from)
 	v = v.normalized() if v.length() > 0.1 else Vector2.from_angle(rnd(0, TAU))
@@ -5635,17 +5627,11 @@ func _k_status(dt: float) -> void:
 			continue
 		if float(e.get("kburn", 0.0)) > 0:
 			e.kburn -= dt
-			e.burn = max(float(e.get("burn", 0.0)), 0.3)
+			if not e.get("sem_burn", false):
+				e.burn = max(float(e.get("burn", 0.0)), 0.3)
 			if tick("kb%d" % e.id, dt, 0.5) and _k_live(e.kburn_u):
 				k_hit(e.kburn_u, e, Vector2(e.x, e.y), 0.0, 0.0, "", false, 1)
-				# 燃え移る
-				if randf() < 0.35:
-					for o in k_targets(Vector2(e.x, e.y), 90 * SF, 3):
-						if o != e and float(o.get("kburn", 0.0)) <= 0:
-							o.kburn = 1.6
-							o.kburn_u = e.kburn_u
-							BOLT.append({"pts": [Vector2(e.x, e.y), Vector2(o.x, o.y)], "life": 0.2, "max": 0.2, "ray": true, "w": 0.3, "c": KD.SHU})
-							break
+			# 燃え移りも飛んだ「火」の接触だけで起こす。周囲への抽選ダメージはない。
 		if int(e.get("kbleed", 0)) > 0 and time >= float(e.kbleed_t):
 			var bu = e.kbleed_u
 			var nb: int = int(e.kbleed)
@@ -5838,113 +5824,14 @@ func _k_eff_hit(u: Dictionary, e: Dictionary, from: Vector2, kn: float, cd := 0.
 func _k_mark(u: Dictionary, x: float, y: float, r := 0.0) -> void:
 	KFX.append({"k": "mark", "u": u, "x": x, "y": y, "t": 0.0, "r": (r if r > 0 else 30 * SF)})
 
-## 部首の見た目を p に描く（字は出さない。a は濃さ、r は大きさ）
-func _k_eff_draw(ci: CanvasItem, fam: String, p: Vector2, r: float, a: float, seed := 0.0, cc := Color.TRANSPARENT) -> void:
-	if a <= 0.01:
-		return
-	var ink_names = {"炎": "flame", "波": "wave", "樹": "root", "光": "sun", "刃": "slash", "矢": "feather", "獣": "claw", "claw": "claw", "bite": "claw", "horn": "rock", "trample": "rock", "peck": "feather", "岩": "rock", "霊": "cloud", "声": "wind", "sting": "slash", "bubble": "wave"}
-	if ink_names.has(fam):
-		var tex: Texture2D = art("fx_semantic_" + ink_names[fam])
-		if tex != null:
-			var wh = Vector2(r * 2, r * 2 * float(tex.get_height()) / tex.get_width())
-			ci.draw_set_transform(p, sin(time * 3 + seed) * 0.06, Vector2.ONE)
-			ci.draw_texture_rect(tex, Rect2(-wh * 0.5, wh), false, Color(1, 1, 1, a))
-			ci.draw_set_transform(Vector2.ZERO, 0, Vector2.ONE)
-			return
-	var col: Color = cc if cc.a > 0 else Kraft.FAM_COL.get(fam, KD.SUMI)
-	match fam:
-		"炎":
-			glow(ci, p, r * 1.7, Color(1.0, 0.45, 0.1, 0.32 * a))
-			for j in 3:
-				var off := Vector2((j - 1) * r * 0.42, 0)
-				var h: float = r * (1.25 - abs(j - 1) * 0.35) * (1.0 + 0.16 * sin(time * 17 + seed + j * 2.1))
-				_flame(ci, p + off + Vector2(0, r * 0.45), r * (0.55 - abs(j - 1) * 0.12), h, Color(0.92, 0.28 + 0.1 * j, 0.06, 0.85 * a))
-			_flame(ci, p + Vector2(0, r * 0.45), r * 0.26, r * 0.7, Color(1.0, 0.85, 0.35, 0.8 * a))
-		"波":
-			ci.draw_arc(p, r * 0.9, PI * 0.1, PI * 0.9, 18, Color(col, 0.8 * a), 3 * SF, true)
-			ci.draw_arc(p + Vector2(0, -r * 0.25), r * 0.55, PI * 0.15, PI * 0.85, 14, Color(col, 0.6 * a), 2 * SF, true)
-			for j in 3:
-				var dp := p + Vector2((j - 1) * r * 0.5, -r * 0.2 + fmod(time * 60 + j * 13 + seed, r * 0.8))
-				ci.draw_circle(dp, 2.6 * SF, Color(col, 0.85 * a))
-		"樹":
-			for j in 5:
-				var an: float = seed + j * TAU / 5 + sin(time * 2 + j) * 0.2
-				var lp := p + Vector2.from_angle(an) * r * 0.6
-				_leaf(ci, lp, r * 0.42, an, Color(col, 0.8 * a))
-		"光":
-			glow(ci, p, r * 1.9, Color(1.0, 0.85, 0.4, 0.4 * a))
-			for j in 6:
-				var an2: float = seed + time * 0.8 + j * TAU / 6
-				ci.draw_line(p + Vector2.from_angle(an2) * r * 0.35, p + Vector2.from_angle(an2) * r * 1.05, Color(1.0, 0.82, 0.3, 0.75 * a), 2.5 * SF, true)
-			ci.draw_circle(p, r * 0.28, Color(1.0, 0.95, 0.75, 0.95 * a))
-		"刃":
-			ci.draw_line(p + Vector2(-r, -r * 0.7), p + Vector2(r, r * 0.7), Color(col, 0.85 * a), 3.5 * SF, true)
-			ci.draw_line(p + Vector2(-r * 0.8, r * 0.75), p + Vector2(r * 0.8, -r * 0.75), Color(col, 0.6 * a), 2 * SF, true)
-		"矢":
-			var v := Vector2.from_angle(seed)
-			ci.draw_line(p - v * r, p + v * r * 0.6, Color(col, 0.9 * a), 3 * SF, true)
-			ci.draw_line(p + v * r * 0.6, p + v * r * 0.6 - v.rotated(0.5) * r * 0.4, Color(col, 0.9 * a), 3 * SF, true)
-			ci.draw_line(p + v * r * 0.6, p + v * r * 0.6 - v.rotated(-0.5) * r * 0.4, Color(col, 0.9 * a), 3 * SF, true)
-		"声":
-			for j in 3:
-				var rr: float = r * (0.4 + 0.3 * j + 0.2 * fmod(time * 2 + seed, 1.0))
-				ci.draw_arc(p, rr, -0.9, 0.9, 12, Color(col, (0.8 - 0.22 * j) * a), 2.5 * SF, true)
-				ci.draw_arc(p, rr, PI - 0.9, PI + 0.9, 12, Color(col, (0.8 - 0.22 * j) * a), 2.5 * SF, true)
-		"claw":
-			# 虎の爪: 長い三本の裂き傷
-			for j in 3:
-				var o2 := Vector2((j - 1) * r * 0.45, 0)
-				ci.draw_line(p + o2 + Vector2(-r * 0.6, -r * 0.9), p + o2 + Vector2(r * 0.5, r * 0.9), Color(col, 0.9 * a), 4 * SF, true)
-				ci.draw_line(p + o2 + Vector2(-r * 0.55, -r * 0.85), p + o2 + Vector2(r * 0.45, r * 0.85), Color(KD.SUMI, 0.5 * a), 1.5 * SF, true)
-		"peck":
-			for j in 3:
-				var pp := p + Vector2.from_angle(seed + j * 2.1) * r * 0.5
-				ci.draw_line(pp + Vector2(-r * 0.2, -r * 0.2), pp, Color(col, 0.85 * a), 2.5 * SF, true)
-				ci.draw_line(pp + Vector2(r * 0.2, -r * 0.2), pp, Color(col, 0.85 * a), 2.5 * SF, true)
-		"sting":
-			for j in 6:
-				var an4: float = seed + j * TAU / 6
-				ci.draw_line(p + Vector2.from_angle(an4) * r * 0.2, p + Vector2.from_angle(an4) * r * 0.8, Color(col, 0.8 * a), 2 * SF, true)
-		"bubble":
-			for j in 4:
-				var bp2 := p + Vector2(sin(seed + j * 1.9) * r * 0.5, -fmod(time * 40 + j * 9 + seed, r))
-				ci.draw_arc(bp2, r * (0.15 + 0.06 * j), 0, TAU, 14, Color(col, 0.8 * a), 1.8 * SF, true)
-		"trample", "horn":
-			for j in 5:
-				var an5: float = -PI + j * PI / 4 + seed * 0.1
-				ci.draw_arc(p, r * (0.5 + 0.15 * j), an5 - 0.3, an5 + 0.3, 6, Color(col, (0.8 - 0.12 * j) * a), 3 * SF, true)
-			ci.draw_circle(p, r * 0.25, Color(col, 0.5 * a))
-		"獣", "bite":
-			for j in 3:
-				var o := Vector2((j - 1) * r * 0.38, 0)
-				ci.draw_line(p + o + Vector2(-r * 0.3, -r * 0.6), p + o + Vector2(r * 0.2, r * 0.6), Color(0.62, 0.12, 0.05, 0.85 * a), 3 * SF, true)
-		"岩":
-			var pts := PackedVector2Array()
-			for j in 7:
-				var an3: float = j * TAU / 7 + seed
-				pts.append(p + Vector2.from_angle(an3) * r * (0.6 + 0.25 * sin(j * 2.7 + seed)))
-			ci.draw_colored_polygon(pts, Color(col, 0.75 * a))
-			pts.append(pts[0])
-			ci.draw_polyline(pts, Color(KD.SUMI, 0.6 * a), 2 * SF, true)
-		"霊":
-			glow(ci, p, r * 1.5, Color(col, 0.3 * a))
-			_dash_ellipse(ci, p, r * 0.9, r * 0.9, Color(col, 0.7 * a), 2 * SF)
-			for j in 3:
-				var wp := p + Vector2(sin(time * 3 + j * 2 + seed) * r * 0.5, -fmod(time * 30 + j * 11 + seed, r))
-				ci.draw_circle(wp, 3 * SF, Color(col, 0.7 * a))
-		"門":
-			var hr: float = r * 0.8
-			ci.draw_rect(Rect2(p - Vector2(hr, hr), Vector2(hr, hr) * 2), Color(col, 0.75 * a), false, 3 * SF)
-		_:
-			ci.draw_circle(p, r * 0.5, Color(KD.SUMI, 0.6 * a))
-			for j in 5:
-				ci.draw_circle(p + Vector2.from_angle(seed + j * 1.3) * r * 0.75, 2.5 * SF, Color(KD.SUMI, 0.5 * a))
+## 命中の余韻も属性の文字で示す。技の本体と同じ画像を重ねない。
+func _k_eff_draw(ci: CanvasItem, fam: String, p: Vector2, r: float, a: float, seed := 0.0, _cc := Color.TRANSPARENT) -> void:
+	GlyphFX.draw_impact(self, ci, fam, p, r, a, seed)
 
 func _flame(ci: CanvasItem, base: Vector2, w: float, h: float, col: Color) -> void:
-	var tex: Texture2D = art("fx_semantic_flame")
-	if tex != null:
-		ci.draw_texture_rect(tex, Rect2(base.x - w, base.y - h, w * 2, h), false, Color(1, 1, 1, col.a))
-
+	var size: float = clampf(minf(w * 2.0, h * 0.78), 9.0 * SF, 31.0 * SF)
+	var phase: float = time * 8.0 + base.x * 0.015
+	glyph(ci, "火", base - Vector2(0.0, size * 0.5), size, col, Color(KD.WASHI, col.a * 0.35), 0.5 * SF, sin(phase) * 0.08, Vector2(0.93, 1.05 + sin(phase * 1.2) * 0.12))
 
 func _dedupe(pts: PackedVector2Array) -> PackedVector2Array:
 	var out := PackedVector2Array()
@@ -6852,27 +6739,6 @@ func _draw_kraft(ci: CanvasItem) -> void:
 				ci.draw_arc(Vector2(f.x, f.y), 40 * SF + f.t * f.R, 0, TAU, 48, Color(col, 0.5 * a4), 3 * SF, true)
 				for p2 in f.pts:
 					ci.draw_line(Vector2(f.x, f.y), p2, Color(col, 0.6 * a4), 2.5 * SF, true)
-	# 脇の部品の効果が起きている字の印（根・呪い・噛み）
-	for e in E:
-		if not e.alive or not on_view(e.x, e.y, 40):
-			continue
-		if time < float(e.get("kroot", -1.0)):
-			var c0 = Vector2(e.x, e.y + e.rad * 0.7)
-			for j in 4:
-				var an: float = PI * 0.15 + j * PI * 0.23
-				ci.draw_line(c0, c0 + Vector2(cos(an), sin(an) * 0.4) * e.rad * 1.1, Color(Kraft.FAM_COL["樹"], 0.85), 3 * SF, true)
-		if time < float(e.get("kcurse", -1.0)):
-			_dash_ellipse(ci, Vector2(e.x, e.y), e.rad * 1.15, e.rad * 1.15, Color(Kraft.FAM_COL["霊"], 0.7), 2 * SF)
-		if time < float(e.get("kwet", -1.0)):
-			for j in 3:
-				var dp = Vector2(e.x - e.rad * 0.6 + j * e.rad * 0.6, e.y + e.rad * 0.8 + fmod(time * 40 + j * 7, 14.0) * SF)
-				ci.draw_circle(dp, 2.6 * SF, Color(Kraft.FAM_COL["波"], 0.85))
-		if int(e.get("kbleed", 0)) > 0:
-			for j2 in 3:
-				var bp = Vector2(e.x - e.rad * 0.5 + j2 * e.rad * 0.5, e.y - e.rad * 0.95)
-				ci.draw_line(bp, bp + Vector2(0, 9 * SF), Color(0.75, 0.1, 0.05, 0.9), 3 * SF, true)
-		if float(e.get("slow", 0.0)) > 0 and float(e.get("kburn", 0.0)) <= 0:
-			pass
 	# 常にある技（回る光・結界・囲い）
 	var all_u: Array = []
 	for u0 in KU:
@@ -7023,6 +6889,13 @@ func kl_def(lo: int, hi: int):
 	return pool.pick_random() if pool.size() else null
 
 func kl_tick(dt: float) -> void:
+	if kl.get("glyph_demo", false):
+		cam = Vector2(hero.x, hero.y)
+		hp = max_hp
+		pending_lv = 0
+		xp = 0
+		kl.t += dt
+		return
 	# 主人公を、左右の札のあいだの真ん中に見せる
 	var S: float = clamp(min(W / 1280.0, H / 800.0), 0.75, 1.2)
 	cam = Vector2(hero.x, hero.y) + Vector2((340 - 260) * S / 2, 50 * S)
@@ -7079,10 +6952,9 @@ func kl_key(ev: InputEventKey) -> bool:
 		kraft_clear()
 		to_title()
 		return true
-	if kc == KEY_UP or kc == KEY_DOWN:
-		kl.sel = clampi(kl.sel + (1 if kc == KEY_DOWN else -1), 0, max(0, kl.list.size() - 1))
-		if kl.list.size():
-			kl.cur = kl.list[kl.sel]
+	var movement = {KEY_UP: Vector2.UP, KEY_DOWN: Vector2.DOWN, KEY_LEFT: Vector2.LEFT, KEY_RIGHT: Vector2.RIGHT}
+	if movement.has(kc):
+		step_hero(movement[kc])
 		return true
 	if kc == KEY_PAGEUP or kc == KEY_PAGEDOWN:
 		kl.sel = clampi(kl.sel + (16 if kc == KEY_PAGEDOWN else -16), 0, max(0, kl.list.size() - 1))
@@ -7103,9 +6975,9 @@ func kl_key(ev: InputEventKey) -> bool:
 	if kc == KEY_F4:
 		kl_fuse_show(kl.cur)
 		return true
-	if kc == KEY_LEFT or kc == KEY_RIGHT:
-		kl.lv = clampi(kl.lv + (1 if kc == KEY_RIGHT else -1), 1, 9)
-		kl_restart()
+	if kc in [KEY_MINUS, KEY_KP_SUBTRACT, KEY_EQUAL, KEY_KP_ADD]:
+		if not ev.echo:
+			kl_lv(-1 if kc in [KEY_MINUS, KEY_KP_SUBTRACT] else 1)
 		return true
 	if kc == KEY_SPACE:
 		kl_restart()
@@ -7174,7 +7046,10 @@ func kl_set_sc(i: int) -> void:
 
 func kl_lv(d: int) -> void:
 	kl.lv = clampi(kl.lv + d, 1, 9)
-	kl_restart()
+	# 強化しても戦場・歩いた道・飛んでいる文字を消さない。
+	for u in KU:
+		u.lv = kl.lv
+		u.pr = Kraft.prof(u.ch, u.lv)
 
 func kl_remove(c: String) -> void:
 	kl.party.erase(c)
@@ -7314,7 +7189,7 @@ func _draw_kl(ci: CanvasItem) -> void:
 		px += 76 * S
 	y += 70 * S
 	button(ci, Rect2(rx + 14 * S, y, 40 * S, 30 * S), "−", kl_lv.bind(-1), "ghost")
-	txt(ci, UF, rx + 64 * S, y + 6 * S, "Lv %d（←→）" % kl.lv, 13 * S, KD.SUMI)
+	txt(ci, UF, rx + 64 * S, y + 6 * S, "Lv %d（−／＋）" % kl.lv, 13 * S, KD.SUMI)
 	button(ci, Rect2(rx + 160 * S, y, 40 * S, 30 * S), "＋", kl_lv.bind(1), "ghost")
 	# ---- 下: 場面と、結果 ----
 	var bx: float = lw + 12 * S
@@ -7340,7 +7215,7 @@ func _draw_kl(ci: CanvasItem) -> void:
 	else:
 		st = "%.1f秒　残り %d　与えた傷 %d　毎秒 %.1f　主人公に触れた %d" % [kl.t, movers() + int(kl.get("stream", 0)), eat, eat / max(0.5, kl.t), kl.touch]
 	txt(ci, UF, bx, by, st, 15 * S, KD.SHU if kl.done >= 0 else KD.SUMI)
-	txt(ci, UF, bx, by + 22 * S, KL_SC[kl.sc][1] + "　　Space もう一度　1〜5 場面　↑↓ 字を選ぶ　F4 合体の演出　Esc 戻る", 11 * S, Color(KD.SUMI, 0.6))
+	txt(ci, UF, bx, by + 22 * S, KL_SC[kl.sc][1] + "　　Space もう一度　1〜5 場面　矢印 移動　PgUp/Down 字を選ぶ　F4 合体の演出　Esc 戻る", 11 * S, Color(KD.SUMI, 0.6))
 	var hy: float = by + 42 * S
 	var hx: float = bx
 	for h in kl.hist.slice(0, 3):
@@ -8042,6 +7917,26 @@ func _motion_xf(mo: String, t: float, s: float, face: float, ph: float, st: floa
 			sx = 1 + land * 0.12 - g2 * 0.03
 	return [tx, ty, rot, sx, sy, alpha]
 
+## 描いている文字の中心。浮く・揺れる字も、その字に触れたときに当たる。
+func enemy_visual_point(e: Dictionary) -> Vector2:
+	var size: float = float(e.get("size", 40.0 * SF))
+	var xf: Array = _motion_xf(String(e.get("mo", "")), float(e.get("t", 0.0)), size, float(e.get("face", 1.0)), float(e.get("ph", 0.0)), float(e.get("step", 9.0)), float(e.get("tilt", 0.0)))
+	return Vector2(float(e.x) + float(xf[0]), float(e.y) + float(xf[1]) + size * 0.5 * float(e.get("sink", 0.0)))
+
+func glyph_fallback_needed(e: Dictionary) -> bool:
+	return bool(e.get("alive", false)) and not bool(e.get("is_boss", false)) and not bool(e.get("captive", false)) and not bool(e.get("hidden", false)) and e.get("obj", "") != "kana" and e.has("spr") and is_instance_valid(e.spr) and e.spr.visible and e.spr.texture == null
+
+## 字庫にまだない残り部品も、フォントで描いて透明な敵にしない。
+func _draw_missing_letters(ci: CanvasItem) -> void:
+	for e in E:
+		if not glyph_fallback_needed(e):
+			continue
+		var spr: Sprite2D = e.spr
+		var col: Color = KD.SHU if float(e.get("flash", 0.0)) > 0.0 else ink_col()
+		var size: float = float(e.size)
+		var stretch: Vector2 = spr.scale / maxf(0.01, size / 112.0)
+		glyph(ci, String(e.ch), spr.position, size, col, Color(paper_col(), 0.7), 0.8 * SF, spr.rotation, stretch)
+
 func _sync_visuals(dt: float) -> void:
 	var ink = ink_col()
 	var halo = paper_col()
@@ -8050,7 +7945,7 @@ func _sync_visuals(dt: float) -> void:
 		if not e.has("spr") or not is_instance_valid(e.spr):
 			continue
 		var spr: Sprite2D = e.spr
-		if not e.alive or e.is_boss or e.captive or not on_view(e.x, e.y, e.size):
+		if not e.alive or e.is_boss or e.captive or not on_view(e.x, e.y, -e.size * 1.5 * maxi(1, String(e.ch).length())):
 			# 画面の外の字は描かない（処理を軽くする）
 			spr.visible = false
 			continue
@@ -8295,7 +8190,7 @@ func _draw_ground(ci: CanvasItem) -> void:
 		ci.draw_set_transform(Vector2(s.x, s.y), s.rot, Vector2.ONE)
 		var tsz: Vector2 = s.tex.get_size()
 		var kk: float = R * 2 / max(tsz.x, tsz.y)
-		ci.draw_texture_rect(s.tex, Rect2(-tsz * kk / 2, tsz * kk), false, Color(1, 1, 1, a * 0.6))
+		ci.draw_texture_rect(s.tex, Rect2(-tsz * kk / 2, tsz * kk), false, Color(1, 1, 1, a * 0.16))
 	ci.draw_set_transform(Vector2.ZERO, 0, Vector2.ONE)
 	for tr in TRAP:
 		var a2: float = min(1.0, tr.life / tr.max * 3) * 0.6
@@ -8391,8 +8286,7 @@ func _draw_hero_layer(ci: CanvasItem) -> void:
 	if state == "dying" and dying_t < 1.5:
 		return
 	var sz = 62 * SF
-	if hero.inv > 0 and hero.state != "dash" and hero.state != "linger" and int(hero.inv * 14) % 2:
-		return
+	var hero_alpha: float = 0.62 if hero.inv > 0 and hero.state != "dash" and hero.state != "linger" and int(hero.inv * 14) % 2 else 1.0
 	# 突進の残像（墨の尾）
 	for t in TRAIL:
 		var k3: float = t.life / t.max
@@ -8417,7 +8311,7 @@ func _draw_hero_layer(ci: CanvasItem) -> void:
 		var mk = sin(hero.morph * PI)
 		sx *= 1 + mk * 0.5
 		sy *= 1 + mk * 0.5
-	hero_glyph(ci, Vector2(hero.x, hero.y + ty), sz, KD.SHU, {"rot": rot, "sx": sx, "sy": sy, "wob": 0.25, "t": ui_time * 2})
+	hero_glyph(ci, Vector2(hero.x, hero.y + ty), sz, Color(KD.SHU, hero_alpha), {"rot": rot, "sx": sx, "sy": sy, "wob": 0.25, "t": ui_time * 2})
 	var m = String(KD.OR_EN.get(form, "")) if path.size() == 1 else String(KD.EVO.get(form, {}).get("en", KD.EN.get(form, "")))
 	txt(ci, MF, hero.x, hero.y + sz * 0.56, m, 12 * max(0.85, SF), KD.SHU, 1, 4, paper_col())
 	if rest_charged:
@@ -8440,6 +8334,7 @@ func _draw_captive(ci: CanvasItem, x: float, y: float, s: float, t: float, a := 
 func _draw_fx(ci: CanvasItem) -> void:
 	var ink = ink_col()
 	var paper = paper_col()
+	_draw_missing_letters(ci)
 	_draw_fuse_fx(ci)
 	_draw_kraft(ci)
 	# 燃えている字に小さな火
@@ -8865,7 +8760,11 @@ func _draw_ui(ci: CanvasItem) -> void:
 		_draw_title(ci)
 		return
 	if kl_on and (state == "play" or state == "paused"):
-		_draw_kl(ci)
+		if kl.get("glyph_demo", false):
+			_draw_hud(ci)
+			txt(ci, UF, W / 2, H - 40, String(kl.get("demo_caption", "")), 17 * SF, KD.SUMI, 1)
+		else:
+			_draw_kl(ci)
 	elif state != "over":
 		_draw_hud(ci)
 		_draw_notes(ci)

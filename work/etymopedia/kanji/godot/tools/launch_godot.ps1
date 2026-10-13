@@ -110,7 +110,7 @@ try {
         }
         "showcase" {
             Import-Project -Godot $godot
-            Start-Process -FilePath $godot -WorkingDirectory $ProjectRoot -ArgumentList @("--path", "`"$ProjectRoot`"", "--", "--kl", "--klch=林,炎,海,雷", "--kllv=3", "--klsc=4", "--nosave") | Out-Null
+            Start-Process -FilePath $godot -WorkingDirectory $ProjectRoot -ArgumentList @("--path", "`"$ProjectRoot`"", "--", "--kl", "--klch=林", "--kllv=1", "--klsc=0", "--nosave") | Out-Null
         }
     }
 }
