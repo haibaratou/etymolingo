@@ -2368,6 +2368,170 @@
       ],
       "detail": "The image depicts a woman portrait without a book or reading action, not 読むこと / the act of reading.",
       "status": "held"
+    },
+    {
+      "w": "extreme",
+      "p": [
+        "eghs"
+      ],
+      "art": "extreme",
+      "imageSha256": "d8259979804f6ec2edc2c886d0de23c470a25a2777b968c51c1f411198974ea5",
+      "senseSha256": "7a6343c57395c405e87c8a5edb26e68e91a86db0b9792dcd9654305e1324ae81",
+      "codes": [
+        "image_first_sense_mismatch"
+      ],
+      "detail": "The flowerpot sits at the far end of a bench, illustrating spatial extremity. The current first sense is radical / 極端な, so this is the wrong sense.",
+      "status": "held",
+      "reviewed_at": "2026-10-14T03:03:53.433348+00:00",
+      "review_method": "Exact current main PNG independently visually reviewed; scoped mismatch hold"
+    },
+    {
+      "w": "contemporary",
+      "p": [
+        "kom",
+        "ten-"
+      ],
+      "art": "contemporary",
+      "imageSha256": "04980e1e4cd309b3e2d997b2648679317014d9a5ebf1a218dfab333a1127a8a3",
+      "senseSha256": "788b9db448737f750229cdedaf873fe2cf33cc523bc3b4123415c8993b11601d",
+      "codes": [
+        "image_first_sense_mismatch"
+      ],
+      "detail": "The image and captions describe same-era painters (同時代の), but the current English first-sense field says modern. Resolve this bilingual target conflict before treating the pair as aligned.",
+      "status": "held",
+      "reviewed_at": "2026-10-14T03:03:53.433348+00:00",
+      "review_method": "Exact current main PNG independently visually reviewed; scoped mismatch hold"
+    },
+    {
+      "w": "fellow",
+      "p": [
+        "peku-",
+        "legh-"
+      ],
+      "art": "fellow",
+      "imageSha256": "a2b1f23f4f37f5ba0e127fd71cee71c39d8a4f2020398d1db2a7c56de4d1597f",
+      "senseSha256": "4568c6918e6db31a5d177961827de517d9981942e3dc0424a1fa447990ce6b4f",
+      "codes": [
+        "image_first_sense_mismatch"
+      ],
+      "detail": "The lone man fits the Japanese first-sense field やつ (chap), but the current English first-sense field is companion. The image does not establish companionship; resolve the bilingual target conflict.",
+      "status": "held",
+      "reviewed_at": "2026-10-14T03:03:53.433348+00:00",
+      "review_method": "Exact current main PNG independently visually reviewed; scoped mismatch hold"
+    },
+    {
+      "w": "kappa",
+      "p": [],
+      "art": "kappa",
+      "imageSha256": "cdb719a7b5523b48a24f1df9d71be2f9b214dfd10ddacc99e94f7078adfcc832",
+      "senseSha256": "e24605be6ff24e9c725faa1552a3fae5257ab92ac8d349afba1567ca3d2521df",
+      "codes": [
+        "image_first_sense_mismatch"
+      ],
+      "detail": "The bound kappa identity has first sense the tenth Greek letter, but the current image shows rainwear. The Japanese homograph must not replace the bound Greek-letter meaning.",
+      "status": "held",
+      "reviewed_at": "2026-10-14T03:03:53.433348+00:00",
+      "review_method": "Exact current main PNG independently visually reviewed; scoped mismatch hold"
+    },
+    {
+      "w": "merlin",
+      "p": [
+        "mori-"
+      ],
+      "art": "merlin",
+      "imageSha256": "62bab96bb9d8684b774055f00538911db693dccfe4210303e3a718a337cd9901",
+      "senseSha256": "784bdbb8688e58843fee01f3050c8b556bd3911f4d4078325bfae7845865d4c1",
+      "codes": [
+        "image_first_sense_mismatch"
+      ],
+      "detail": "The bound merlin/[mori-] identity means small falcon / コチョウゲンボウ, but the current image depicts a wizard. Preserve the falcon identity rather than silently treating it as the proper name Merlin.",
+      "status": "held",
+      "reviewed_at": "2026-10-14T03:03:53.433348+00:00",
+      "review_method": "Exact current main PNG independently visually reviewed; scoped mismatch hold"
+    },
+    {
+      "w": "seventeen",
+      "p": [
+        "septm̥",
+        "dekm̥"
+      ],
+      "art": "seventeen",
+      "imageSha256": "50cead88f3bdf4def68685c8a9f2383b2e7085bf80c8d161c2e1f34482319c9c",
+      "senseSha256": "1cc015237fda06c4459628bf2e6b8ab3e6724e3c31e2dd04447390c7929ae91e",
+      "codes": [
+        "image_first_sense_mismatch"
+      ],
+      "detail": "The tray contains nineteen shells, arranged in rows of 5 + 5 + 5 + 4, rather than seventeen. This is a wrong-number image for the current first sense 17.",
+      "status": "held",
+      "reviewed_at": "2026-10-14T03:03:53.433348+00:00",
+      "review_method": "Exact current main PNG independently visually reviewed; scoped mismatch hold"
+    },
+    {
+      "w": "systolic",
+      "p": [
+        "ksun",
+        "stel-"
+      ],
+      "art": "systolic",
+      "imageSha256": "0ec096bd7c4f8c4ba8acccc59723af89aa2c2e29d8fe6602fff718b7deb4da34",
+      "senseSha256": "5b3ac4af303b608dde4faefa2a1cd58654455f6ad376ff183993322e3913f7b0",
+      "codes": [
+        "image_first_sense_mismatch"
+      ],
+      "detail": "The cardiac diagram combines open atrioventricular inflow/filling arrows with ventricular-ejection arrows. These incompatible phase cues do not coherently depict the systolic contracting phase.",
+      "status": "held",
+      "reviewed_at": "2026-10-14T03:03:53.433348+00:00",
+      "review_method": "Exact current main PNG independently visually reviewed; scoped mismatch hold"
+    },
+    {
+      "w": "imminent",
+      "p": [
+        "en",
+        "men-2"
+      ],
+      "art": "imminent",
+      "imageSha256": "f142d83da719e2eefec13d4f52ac82eb18ca6d5b3657956eae66093e9c801c3b",
+      "senseSha256": "02bc633bc3a47af2373ac3fd9be380bf0191f442a3d7088e69f618e1fb10111c",
+      "codes": [
+        "image_first_sense_mismatch"
+      ],
+      "detail": "The apple is already detached from the branch and falling. The prompt and both captions describe its fall as about to happen, which contradicts the intended imminent/差し迫った timing.",
+      "status": "held",
+      "reviewed_at": "2026-10-14T03:03:53.433348+00:00",
+      "review_method": "Exact current main PNG independently visually reviewed; scoped mismatch hold"
+    },
+    {
+      "w": "ninety",
+      "p": [
+        "newn̥",
+        "dekm̥"
+      ],
+      "art": "ninety",
+      "imageSha256": "b88e0ff530fab0b2f24c508dd16573a6c6eeff52f4747704adb8b11e427c5ed2",
+      "senseSha256": "e1dbf67e287c5c766f43093c212b291fb7cf6228cdfb6540d15f4434aa31e304",
+      "codes": [
+        "image_first_sense_mismatch"
+      ],
+      "detail": "The tray contains eighty beads, in eight rows of ten, rather than ninety. This is a wrong-number image for the current first sense 90.",
+      "status": "held",
+      "reviewed_at": "2026-10-14T03:03:53.433348+00:00",
+      "review_method": "Exact current main PNG independently visually reviewed; scoped mismatch hold"
+    },
+    {
+      "w": "decimal",
+      "p": [
+        "dekm̥"
+      ],
+      "art": "decimal",
+      "imageSha256": "b2b706d6bd8d57ce3ac80452e26979fbd4cc702cb924ac0f96768d39304aa561",
+      "senseSha256": "ca10e0894dfa3883d819afce00fb5b71fa3291309b754d34568b29155977183e",
+      "codes": [
+        "image_first_sense_mismatch"
+      ],
+      "detail": "The block divisions do not consistently show ten-unit rods and ten matching rods forming a base-ten square, despite the caption explicitly claiming ten-cube rods. The required decimal/base-ten relationship is incorrect.",
+      "status": "held",
+      "reviewed_at": "2026-10-14T03:03:53.433348+00:00",
+      "review_method": "Exact current main PNG independently visually reviewed; scoped mismatch hold"
     }
   ],
   "resolutions": [
@@ -2562,6 +2726,78 @@
       ],
       "reviewed_at": "2026-10-04T22:55:43.040594+00:00",
       "reason": "A fresh exact-image and first-sense review confirms the current caption and resolves the specified earlier hold."
+    },
+    {
+      "w": "capital",
+      "p": [
+        "kaput-"
+      ],
+      "art": "capital",
+      "imageSha256": "52215e132edfc983e9cf7106306395a3dc9274164b0f2460b9af53bc54bcad5c",
+      "senseSha256": "d7a5305913d411767872d6167dc2d88e6a59de7675a3a5baa3f77047cfe1ccce",
+      "resolvesIssueSha256": [
+        "88691a6e29794633132a5bfd34d7d340755513697245523f69d30a9529ed7592"
+      ],
+      "reviewed_at": "2026-10-14T01:19:08.246591+00:00",
+      "reason": "City skyline surrounds a domed government building and flagpole: current city context resolves old isolated-building issue."
+    },
+    {
+      "w": "remember",
+      "p": [
+        "re-",
+        "(s)mer-1"
+      ],
+      "art": "remember",
+      "imageSha256": "c0940622135f273adca2bd7003a21825182e068ad27d6775584e2c4954eb747e",
+      "senseSha256": "090528373b2dd1d877f9cac0e629557ba58ba434d8884b7385e5b57ee6c21661",
+      "resolvesIssueSha256": [
+        "2d226ab75762f734fc84921909e8be57cfe43059cb0ee3f44c813bcc5d24f686"
+      ],
+      "reviewed_at": "2026-10-14T01:19:08.248165+00:00",
+      "reason": "Open keepsake box, held toy car, warm smile and free hand against chest provide reflective remembering context rather than retrieval of keys."
+    },
+    {
+      "w": "rule",
+      "p": [
+        "reg-"
+      ],
+      "art": "rule",
+      "imageSha256": "59e6fc7885d2a021d976be3ad9e4420d386669a3fd039424169a55d60552312f",
+      "senseSha256": "a7db72d0cfd170254d26097fcfaff3d112c01648ff519516c5b1c51a38035662",
+      "resolvesIssueSha256": [
+        "89101ecbc4aec7dbbea03fd365fa45a9c56555ad90d07a515eed1d704ff466e1"
+      ],
+      "reviewed_at": "2026-10-14T01:19:08.252778+00:00",
+      "reason": "Lifeguard raises stop hand toward running child beside pool: directly demonstrates a behavioral rule."
+    },
+    {
+      "w": "subject",
+      "p": [
+        "upo",
+        "yē-"
+      ],
+      "art": "subject",
+      "imageSha256": "b79997d3f3c7c207438e8449bc699a9b3ceab9f5eeb649ba77ec922ea41a5691",
+      "senseSha256": "a740697c4325bc49648d22dbd872fc9bbe59804fe12482e16a81787f6a0b1d1e",
+      "resolvesIssueSha256": [
+        "4757990403796d1c84c9d8b73c44b2f72bf6b296292d501a6bb0278204a1a964"
+      ],
+      "reviewed_at": "2026-10-14T01:19:08.254315+00:00",
+      "reason": "Teacher points at leaf while two attentive pupils sit around table: shared discussion topic directly demonstrated."
+    },
+    {
+      "w": "secondary",
+      "p": [
+        "sekʷ-1"
+      ],
+      "art": "secondary",
+      "imageSha256": "954f291fe929b53f120de33ac82d7a0a12fec36cb837c2f1cd7611cb69e30935",
+      "senseSha256": "de8c547a66301b0f4064516de03c798aed3b2533b5697c1ad58af44456efbb81",
+      "resolvesIssueSha256": [
+        "bfa782adaa151eef74f9f89242abd4a94d9442d0fd9e0ab1b5ce81fc85489360"
+      ],
+      "reviewed_at": "2026-10-14T01:55:25.132732+00:00",
+      "reason": "Two broad main shelf brackets flank a smaller central supplemental brace. Carpenter visibly tightens the smaller brace. This supports subordinate/secondary role and exact Codex EN/JA; prior plant-growth issue is obsolete for these bytes."
     }
   ],
   "scope_reviews": [

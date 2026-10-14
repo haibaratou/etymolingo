@@ -84,7 +84,10 @@ const posLabel = w => (w.pos || '').split('/').map(p => POS[p.charAt(0)] || p).j
 const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.random() * (i + 1) | 0; [a[i], a[j]] = [a[j], a[i]]; } return a; };
 const titleOf = w => w.w || (w.bindingStatus==='alternate'?'別の画像・旧版':'画像の対応確認中');
 const hasCaption = w => w.description ? w.description.status==='reviewed'&&!!w.description.en&&!!w.description.ja : w.status==='reviewed'&&!!w.scene?.en&&!!w.scene?.ja;
-const tile = w => `<a class="tile" href="${href(w)}"><span class="pic"><img src="${esc(thumb(w))}" data-fallback="${esc(full(w))}" alt="${esc(w.w ? w.w+' のイラスト' : titleOf(w))}" loading="lazy" decoding="async" width="320" height="320"></span><span class="cap"><span class="w">${esc(titleOf(w))}</span>${w.ja?`<span class="j">${esc(firstJa(w))}</span>`:''}${w.w&&!hasCaption(w)?'<small class="caption-status">解説未作成</small>':''}</span></a>`;
+const needsRevision = w => w.description?.status==='mismatch';
+const needsReview = w => w.description?.reason==='illustration_needs_review';
+const missingCaptionHTML = w => (needsRevision(w)||needsReview(w))?`<p class="caption-status" lang="ja">${needsReview(w)?'イラスト要確認':'イラスト要修正'}</p>${w.description?.detail?`<small class="caption-revision-reason">${esc(w.description.detail)}</small>`:''}`:'<p class="caption-status">解説未作成</p>';
+const tile = w => `<a class="tile" href="${href(w)}"><span class="pic"><img src="${esc(thumb(w))}" data-fallback="${esc(full(w))}" alt="${esc(w.w ? w.w+' のイラスト' : titleOf(w))}" loading="lazy" decoding="async" width="320" height="320"></span><span class="cap"><span class="w">${esc(titleOf(w))}</span>${w.ja?`<span class="j">${esc(firstJa(w))}</span>`:''}${w.w&&!hasCaption(w)?`<small class="caption-status">${needsReview(w)?'イラスト要確認':needsRevision(w)?'イラスト要修正':'解説未作成'}</small>`:''}</span></a>`;
 const gridPages = new Map(); let gridSerial=0;
 const grid = list => {
   list=list.filter(w=>!w.unavailable);const token=String(++gridSerial),shown=Math.min(60,list.length);
@@ -267,7 +270,7 @@ function wordPage(id) {
           <button class="btn" id="copy" type="button"><svg><use href="#i-link"/></svg>リンク</button>
         </div>
         <div class="puzzle-actions" id="puzzleActions">${puzzleActions(w,false)}</div>
-        <div class="box" id="sceneBox" aria-live="polite">${hasCaption(w)?'<p>解説を確認しています…</p>':'<p class="caption-status">解説未作成</p>'}</div>
+        <div class="box" id="sceneBox" aria-live="polite">${hasCaption(w)?'<p>解説を確認しています…</p>':missingCaptionHTML(w)}</div>
         <div class="box"><h3>カテゴリー</h3><div class="tags">${w.c.map(x => SUB.get(x)).filter(Boolean).map(s => `<a href="#/c/${s.cat.id}/${s.id}">${esc(s.cat.ja)} › ${esc(s.ja)}</a>`).join('')}</div></div>
       </div>
     </article>
@@ -278,10 +281,10 @@ function wordPage(id) {
     if(!sceneBox.isConnected)return;
     if(ok){
       actions.innerHTML=puzzleActions(w,true);
-      sceneBox.innerHTML=hasCaption(w)?`<p class="en" lang="en">${esc(w.scene.en)}</p><p lang="ja">${esc(w.scene.ja)}</p>`:'<p class="caption-status">解説未作成</p>';
+      sceneBox.innerHTML=hasCaption(w)?`<p class="en" lang="en">${esc(w.scene.en)}</p><p lang="ja">${esc(w.scene.ja)}</p>`:missingCaptionHTML(w);
     }else{
       actions.innerHTML='<small class="play-status">画像を確認できないため、パズルを開けません</small><button class="btn" type="button" id="retryImage">再確認</button>';
-      sceneBox.innerHTML='<p class="caption-status">解説未作成</p><small>画像の更新を確認中</small>';
+      sceneBox.innerHTML=missingCaptionHTML(w)+'<small>画像の更新を確認中</small>';
       $('#retryImage').onclick=()=>wordPage(id);
     }
   });

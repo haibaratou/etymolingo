@@ -4956,6 +4956,34 @@
     {
       "art": "rack@wreg",
       "id": "asset:rack@wreg"
+    },
+    {
+      "art": "Excalibur",
+      "id": "asset:excalibur"
+    },
+    {
+      "art": "Pandora",
+      "id": "asset:pandora"
+    },
+    {
+      "art": "corn@ker1",
+      "id": "asset:corn"
+    },
+    {
+      "art": "don@dhe-an",
+      "id": "asset:don"
+    },
+    {
+      "art": "meet@med",
+      "id": "asset:meet"
+    },
+    {
+      "art": "sheer@sker1",
+      "id": "asset:sheer"
+    },
+    {
+      "art": "tow@deuk",
+      "id": "asset:tow"
     }
   ]
 }

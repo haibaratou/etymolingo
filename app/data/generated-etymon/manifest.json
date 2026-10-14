@@ -47,9 +47,9 @@
     },
     "illustration_scenes": {
       "file": "illustration-scenes.json",
-      "bytes": 10403358,
-      "count": 8527,
-      "sha256": "f2271a2795310468ff7c0a8f566748cf153eaabc4d28bd7187bb0504028d8a6b"
+      "bytes": 11971527,
+      "count": 9559,
+      "sha256": "81b18f75c1276999e7a79bcab0b10a6de8901b57139f8361f10628648229631b"
     },
     "word_suika_words": {
       "file": "word-suika-words.json",

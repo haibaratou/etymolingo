@@ -60,6 +60,7 @@
     } else {
       const labels = {unreviewed:'イラスト解説は未作成・未確認です',mismatch:'イラスト要修正',stale_image:'画像が更新されたため、解説を再確認中です',stale_sense:'語義が更新されたため、解説を再確認中です',missing_image:'対応する画像を確認できません',unavailable:'イラスト解説を確認できませんでした'};
       make('small', labels[result.status] || labels.unavailable).className = 'illustration-explanation-status';
+      if(['mismatch','unreviewed'].includes(result.status)&&result.entry?.review?.reason)make('small',result.entry.review.reason).className='illustration-explanation-reason';
     }
     if (result.verification === 'export_snapshot') {
       const note=make('small','保存時の画像で確認済み');
