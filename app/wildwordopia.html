@@ -6,6 +6,7 @@
   <meta name="theme-color" content="#f4f0e7">
   <meta name="description" content="Compare strange word creatures and earlier alternatives. Every creature combines English words from a shared Proto-Indo-European root.">
   <title>キャラクター比較 · Wild Wordopia</title>
+  <script src="../assets/chara/brainrot/selection-sync.js?v=20261014"></script>
   <style>
     :root { color-scheme: light; --ink:#242221; --muted:#6f6a63; --paper:#f4f0e7; --line:#dfdbd3; --orange:#ff704d; }
     * { box-sizing:border-box; }
@@ -315,6 +316,7 @@
   <script src="../assets/chara/brainrot/library/rarity-rules.js"></script>
   <script>
     'use strict';
+    if (!window.WILDWORDOPIA_SELECTION_SYNC?.isBridge) {
     const collection = window.WILDWORDOPIA_LIBRARY || window.WILDWORDOPIA_TOP100;
     const rootCatalog = collection?.rootCatalog || [];
     const gallery = document.getElementById('gallery');
@@ -953,6 +955,7 @@
         gallery.innerHTML = '<p class="status">The creatures could not arrive this time.<br>Please reopen the collection in a moment.</p>';
       }
     })();
+    }
   </script>
 </body>
 </html>
