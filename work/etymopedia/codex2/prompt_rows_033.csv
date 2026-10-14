@@ -7284,7 +7284,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,intrinsic,"[""en"",""sekʷ-1""]",inherent,21f439489c7f4d61df78389a60b6cbec847aa92d4451b3dc518795bc8d775904,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,intrinsic,"[""en"",""sekʷ-1""]",inherent,21f439489c7f4d61df78389a60b6cbec847aa92d4451b3dc518795bc8d775904,,"Copper wire bends around the spool, showing an intrinsic property.",銅線が巻き軸に沿って曲がり、素材に備わる本質的な性質を示している。,reviewed,1ddde354182c765755e11b33f848f0d537e0b00cd6a513c4afec4d8fb86c8afc,e489a8cabad2dd4bb500a5a6a83b112f14315bee,2026-10-14T03:47:02+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 prospect.png,見込み,見込み,"Subject: prospect, target meaning ""見込み"" (outlook).
 
 Composition: A gardener examines many healthy unopened buds on a fruit tree and smiles while setting an empty harvest basket nearby. The promising buds and prepared basket convey a reasonable prospect of a coming crop, without depicting the harvest as already achieved.
@@ -7293,7 +7293,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,prospect,"[""per1"",""spek-""]",outlook,91c625051c2269d1bf95976f5a49047c4e3d68ab0a5e1de8649a8e60c0017bf8,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,prospect,"[""per1"",""spek-""]",outlook,91c625051c2269d1bf95976f5a49047c4e3d68ab0a5e1de8649a8e60c0017bf8,,The gardener sees a good prospect for a healthy fruit harvest.,庭師は果樹のつぼみを見て、豊かな収穫を期待している。,reviewed,2227209960b7331fb7c359ff958247f719ef384bf7cc753512d8056a23044b4d,4dd9b6c004b2b6b1113b78a93c2cb7c16ac00a11,2026-10-14T03:47:02+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 specialized.png,専門の,専門の,"Subject: specialized, target meaning ""専門の"" (expert).
 
 Composition: A specialist watch repairer works through a loupe on a tiny balance wheel, using fine tools arranged in fitted slots. Keep the precise instrument and expert task central, avoiding a generic classroom or multipurpose workshop.
@@ -7302,7 +7302,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,specialized,"[""spek-""]",expert,90e491956e6f51e418e0e2a7d326d67908a5a9446f95e06a50a874b8ca276405,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,specialized,"[""spek-""]",expert,90e491956e6f51e418e0e2a7d326d67908a5a9446f95e06a50a874b8ca276405,,A specialized watch repairer examines a tiny balance wheel through a loupe.,時計の専門修理工がルーペを使い、小さな天輪を調べている。,reviewed,069c1f8be87ba592bb7e544b37813170d7bbf1fe59610149efc7950754729f1f,679a76c15b1a8ed2418fd789ece80b68dbbda8e3,2026-10-14T03:47:02+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 attribute.png,属性,属性,"Subject: attribute, target meaning ""属性"" (trait).
 
 Composition: A botanist gently holds a maple leaf so its pointed lobes and branching veins are clearly visible, studying these defining features beside the attached branch. The concrete physical traits carry the meaning without labels or a separated parts chart.
@@ -7311,7 +7311,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,attribute,"[""ad-"",""trei-""]",trait,54c3924c1ad8ca2572aafaef07606dad4a666dee38e0a43fdac44d49e683c3ee,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,attribute,"[""ad-"",""trei-""]",trait,54c3924c1ad8ca2572aafaef07606dad4a666dee38e0a43fdac44d49e683c3ee,,A botanist studies the maple leaf’s defining attribute: its veined shape.,植物学者が、葉脈の広がるカエデの葉の特徴を調べている。,reviewed,f28d4cdc4d109f10b200f4d54790db6036900e01be58cdbf3809c1cf188f2a2c,1f8c5eef949d6721fdb51b942b4b149bf8a89a01,2026-10-14T03:47:02+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 emperor.png,皇帝,皇帝,"Subject: emperor, target meaning ""皇帝"" (monarch).
 
 Composition: A fictional emperor receives several regional governors before a raised throne, wearing a ceremonial crown and plain robe. A single large relief map of multiple territories rests beside the throne, showing imperial rule without real nationalist emblems.
@@ -7320,7 +7320,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,emperor,"[""en"",""perə-1""]",monarch,86efba4341bee41e05ac6df52aa1b1a566fe8ef0c4b5f0ea84099238ba29ab9c,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,emperor,"[""en"",""perə-1""]",monarch,86efba4341bee41e05ac6df52aa1b1a566fe8ef0c4b5f0ea84099238ba29ab9c,,The emperor receives regional governors beside a map of his territories.,皇帝が領土の地図のそばで、各地の統治者たちを迎えている。,reviewed,ccf8c494c59101568ff9abf6a65953ae4f7e4551046a46035eccaff46ef5c47b,7e17ad4b2b73a88a1065fdb72e108ac529ebf066,2026-10-14T03:47:02+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 exploitation.png,搾取,搾取,"Subject: exploitation, target meaning ""搾取"" (unfair use).
 
 Composition: An employer takes a large pile of coins from sales while giving two tired workers tiny payments beside the goods they made. Equal completed work and the visibly unfair distribution convey exploitation without ethnic cues or caricatured body features.
@@ -7329,7 +7329,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,exploitation,"[""eghs"",""plek-""]",unfair use,afc92f049bc116b526fb52640b675f39a1274b0247f0b8eefe4c0f315cf202fa,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,exploitation,"[""eghs"",""plek-""]",unfair use,afc92f049bc116b526fb52640b675f39a1274b0247f0b8eefe4c0f315cf202fa,,Exploitation leaves two tired workers with little while the employer keeps the coins.,搾取によって、疲れた二人の労働者にはわずかな賃金しか渡らず、雇用主が大半の硬貨を手にしている。,reviewed,ea30f353b9b5885ea7717cce8b6fa512ba52590f83cc336b012800ba7ad96c14,96bd447379c963927a1219ad1a261b0d2901b16a,2026-10-14T03:47:02+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 neighbor.png,隣人,隣人,"Subject: neighbor, target meaning ""隣人"" (nearby resident).
 
 Composition: Two next-door neighbors greet each other over the low fence between their adjoining homes, one passing a basket of surplus vegetables. Keep both entrances and the shared boundary visible so proximity, rather than a distant friendship, is clear.
@@ -7338,7 +7338,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,neighbor,"[""kom"",""bheuə-""]",nearby resident,e8422e373728b2e7ad464739fe87e40698d4f802b979d592d6c7fe211cf164c0,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,neighbor,"[""kom"",""bheuə-""]",nearby resident,e8422e373728b2e7ad464739fe87e40698d4f802b979d592d6c7fe211cf164c0,,A neighbor shares garden vegetables across the fence between their homes.,隣人が家の間の柵越しに、庭で採れた野菜を分けている。,reviewed,7eebe90f0ee3f9353bfef003618346f7dfab96f6269049cb702567854150c19b,b2d148fb226549a5c2ccf53adbf646d2d3197c63,2026-10-14T03:47:02+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 overwhelming.png,圧倒的な,圧倒的な,"Subject: overwhelming, target meaning ""圧倒的な"" (irresistible).
 
 Composition: A volunteer faces an overwhelming heap of donated boxes that towers above their small sorting table, holding one box with a wide-eyed expression. The scale and crowded workspace make the task feel overpowering without suggesting personal inadequacy.
@@ -7347,7 +7347,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,overwhelming,"[""uper"",""kwelp-""]",irresistible,85d62e54cd2b3103ac8e9d8cc559d166e90004b7a69dcee13a35b43fd7a934b0,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,overwhelming,"[""uper"",""kwelp-""]",irresistible,85d62e54cd2b3103ac8e9d8cc559d166e90004b7a69dcee13a35b43fd7a934b0,,An overwhelming stack of donated boxes towers over a volunteer sorting them.,寄付された箱が圧倒的な山となって積み上がり、ボランティアが仕分けている。,reviewed,6a5a854934bd1d66e9dbfb9bb866ab6059b3adce765d264a2d6f218556619df3,296ed4bb4e539487338df5060f36b80cad16cc0a,2026-10-14T03:47:02+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 certainty.png,確実性,確実性,"Subject: certainty, target meaning ""確実性"" (assurance).
 
 Composition: A locksmith shows a customer the correct key turning smoothly in the lock while the bolt retracts completely. Their firm nod and the visible working result convey certainty grounded in direct evidence, without a written guarantee.
@@ -7356,7 +7356,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,certainty,"[""krei-""]",assurance,fc91128cf8c77eab758c0f6608fc161a5be095b86baaf5b7e24a8117573b4be7,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,certainty,"[""krei-""]",assurance,fc91128cf8c77eab758c0f6608fc161a5be095b86baaf5b7e24a8117573b4be7,,The locksmith demonstrates certainty as the key turns and the bolt slides back.,鍵屋が鍵を回すと、確実にかんぬきが引っ込み、客に動作を示している。,reviewed,5914eaddd282ffbe098338ddcefa88c0e39f8a9bc85069473b765be21ec6862a,abc0849ba9dfe2bc25e685b1e6099980c950f9d6,2026-10-14T03:47:02+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 consistency.png,一貫性,一貫性,"Subject: consistency, target meaning ""一貫性"" (coherence).
 
 Composition: A potter checks a line of matching bowls made with the same shape and even rim height, adding one more that fits the established pattern. The uniform results and repeated process show consistency in one continuous work area.
@@ -7365,7 +7365,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,consistency,"[""kom"",""stā-""]",coherence,f8816b22be3b0728c8c76f1a328ba7bc4e5b5121352ce30746253c7e069ce56a,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,consistency,"[""kom"",""stā-""]",coherence,f8816b22be3b0728c8c76f1a328ba7bc4e5b5121352ce30746253c7e069ce56a,,Consistency shows as the potter adds another bowl matching the row.,陶工が同じ形の鉢を列に加え、仕上がりの一貫性を示している。,reviewed,292b34ca7af0d4552517aa8704afcb01ebb420c5efcfd73cb90918ea8e5f2cc9,97ee29e7971f70b2d29c578cbdec24cac5319821,2026-10-14T03:47:02+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 despair.png,絶望する,絶望する,"Subject: despair, target meaning ""絶望する"" (lose hope).
 
 Composition: A gardener sits beside a greenhouse wrecked by a storm, head lowered and empty hands resting limply on their knees. Broken pots and flattened plants explain lost hope; keep the scene non-graphic and a supportive neighbor quietly nearby.
@@ -7374,7 +7374,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,despair,"[""de-"",""spē-""]",lose hope,ce586c842592ed113d3051dbdb879982ef3804bdf39781eb6c22c8f7a64d4e4c,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,despair,"[""de-"",""spē-""]",lose hope,ce586c842592ed113d3051dbdb879982ef3804bdf39781eb6c22c8f7a64d4e4c,,The gardener sits in despair beside storm-damaged plants and a broken greenhouse.,庭師が嵐で壊れた温室と傷んだ植物のそばで、絶望してうなだれている。,reviewed,968de1b43b9e2acd07551a24ac01f5d2e5d0e07eb248fb5a3556d0bfd578688f,e55f0a870b634d9dc8e788d61d9c42661fb0054d,2026-10-14T03:47:02+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 elaborate.png,入念な,入念な,"Subject: elaborate, target meaning ""入念な"" (detailed).
 
 Composition: A craftsperson finishes an elaborate carved wooden box with interlocking vine patterns, careful corner joints, and a fitted lid. Their small chisel touches one remaining detail, making painstaking complexity visible without overwhelming the simplified cartoon style.
@@ -7383,7 +7383,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,elaborate,"[""eghs"",""leb-2""]",detailed,6831b790e182d6a7434e160fcbd359a6ac06d81415b6c14a7e624c04748557e3,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,elaborate,"[""eghs"",""leb-2""]",detailed,6831b790e182d6a7434e160fcbd359a6ac06d81415b6c14a7e624c04748557e3,,The craftsperson adds an elaborate carved pattern to a wooden box.,職人が木箱に、手の込んだ彫刻模様の最後の仕上げを加えている。,reviewed,b3c1c2cd98cda27296cb92bf30b080f67bbae3c4884fb8d7c3dfea9098b03b15,788860b3f68fc2c1e5619c418635715107017db8,2026-10-14T03:47:02+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 fence.png,垣,垣,"Subject: fence, target meaning ""垣"" (barrier).
 
 Composition: A low wooden fence runs continuously between two garden plots, with evenly spaced upright pickets attached to horizontal rails. A gate is closed at one end, and flowers remain rooted on one side of the clear boundary.
@@ -7392,7 +7392,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,fence,"[""de-"",""gʷhen-""]",barrier,d202550a25c70ae425907bd03fc8cfc7693f274c458f55222da9b74661d2a703,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,fence,"[""de-"",""gʷhen-""]",barrier,d202550a25c70ae425907bd03fc8cfc7693f274c458f55222da9b74661d2a703,,A wooden fence separates two flower-filled garden plots.,木の垣が、花の咲く二つの菜園を隔てている。,reviewed,ef99cb3e9191f627be55a61c1be59fcd24d91248d8bacde3de18006d9590cbe3,cb937da0a6ca5c96b4173816cfffe9ea4148f152,2026-10-14T03:47:46+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 occasional.png,時折の,時折の,"Subject: occasional, target meaning ""時折の"" (sporadic).
 
 Composition: A household brings a rarely used picnic basket down from a high shelf for an outing, brushing light dust from its lid. Everyday bags hang below, providing context for an occasional rather than daily activity.
@@ -7401,7 +7401,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,occasional,"[""epi"",""kad-""]",sporadic,bdf548b80b16912c9698b37a5f52b61171121c7981059f53a6a67e6692a0db0d,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,occasional,"[""epi"",""kad-""]",sporadic,bdf548b80b16912c9698b37a5f52b61171121c7981059f53a6a67e6692a0db0d,,An occasional picnic calls for a basket from the high shelf.,時折のピクニックに備え、家族が高い棚からバスケットを下ろしている。,reviewed,e124a8e1140732e6ac97073de83c76627e70f39cbaa81b6becec885781ec6054,655b9f33b81f371877879f0bb4b55e3d884e0d57,2026-10-14T03:47:46+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 residual.png,残りの,残りの,"Subject: residual, target meaning ""残りの"" (leftover).
 
 Composition: A painter empties a paint cup over a tray, leaving only a thin residual coating clinging to its inside wall. The last small drip and mostly bare interior emphasize what remains after most material has been removed.
@@ -7410,7 +7410,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,residual,"[""re-"",""sed-""]",leftover,9e1afe7af7a5ae588ab93d807fae86dffc1446ed0885c5e2e107e9b0fd8f8f2a,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,residual,"[""re-"",""sed-""]",leftover,9e1afe7af7a5ae588ab93d807fae86dffc1446ed0885c5e2e107e9b0fd8f8f2a,,A residual film of paint clings inside the emptied cup.,空になったカップの内側に、残った塗料が薄く付着している。,reviewed,bfb8052efb9511848f016086e0925ae1df4706dd83817a1c1ac14335a14c0a9b,b33b67142f5c6849aabc293821c56ba8c5448389,2026-10-14T03:47:46+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 well.png,井戸,井戸,"Subject: well in the sense of spring.
 
 Composition: A person turns the crank of a small stone well, raising a wooden bucket on a rope from the circular opening. Show the stone rim, simple roof supports, and bucket just above the edge, with the person standing safely back.
@@ -7419,7 +7419,7 @@ Style: Match only the rounded 2D style of references/invidious.png: thick dark-b
 
 Framing: One coherent scene, centered, with the complete subject occupying about 80–90% of the square. Keep all essential body parts and object tips fully inside the frame without clipping.
 
-Output: One 512 x 512 PNG with true RGBA transparency in the background and gaps. No lettering, labels, logo, watermark, or checkerboard.",作成済み,,references/invidious.png,well,"[""wel-3""]",spring,7b8eab67f6e92243e3a25583520c970b57449f1166d029cdd223cd0db5b2125f,,,,prompt_ready,,,,
+Output: One 512 x 512 PNG with true RGBA transparency in the background and gaps. No lettering, labels, logo, watermark, or checkerboard.",作成済み,,references/invidious.png,well,"[""wel-3""]",spring,7b8eab67f6e92243e3a25583520c970b57449f1166d029cdd223cd0db5b2125f,,A child draws a bucket from the stone well.,子どもが石造りの井戸から、つるべを引き上げている。,reviewed,522c7edbbe3f62f0c5f70acab9faac8fcd86caa0b9a1e1ce8fe79dbb752d3e05,64e6173d112f8c6a54b504823ed3271b57427f74,2026-10-14T03:47:46+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 awkward.png,不格好な,不格好な,"Subject: awkward, target meaning ""不格好な"" (clumsy).
 
 Composition: A person carries an unwieldy stack of empty boxes that tilts at an awkward angle, elbows spread and one box slipping slightly. Keep them safely standing on level ground, showing clumsy handling without injury or disability caricature.
@@ -7428,7 +7428,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,awkward,"[""apo-"",""wer-3""]",clumsy,54399796fa28ba32c38342525ab228abb9ecae4e18270969b2866e8dbc822efe,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,awkward,"[""apo-"",""wer-3""]",clumsy,54399796fa28ba32c38342525ab228abb9ecae4e18270969b2866e8dbc822efe,,An awkward stack of boxes wobbles in the carrier’s arms.,箱を不格好に積み上げて抱えた人が、よろめきながら運んでいる。,reviewed,a07d62876c7e529345f081616b4a27517588ca14e53c161c3932c113ff154090,2d818ab09bb18693a5356c7e892cf1a8d0589134,2026-10-14T03:47:46+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 delicious.png,おいしい,おいしい,"Subject: delicious, target meaning ""おいしい"" (tasty).
 
 Composition: A diner tastes a spoonful of warm soup and smiles with relaxed delight, holding the spoon beside the bowl. Soft steam, fresh ingredients, and the pleased reaction make the food's deliciousness concrete without written praise.
@@ -7437,7 +7437,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,delicious,"[""de-""]",tasty,d84359863bafff3f5a8a76b352d3105a1b680d6e18a4b3ba9e89aea168269830,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,delicious,"[""de-""]",tasty,d84359863bafff3f5a8a76b352d3105a1b680d6e18a4b3ba9e89aea168269830,,The diner smiles after tasting a spoonful of delicious soup.,食事をする人が、おいしいスープをひとさじ味わって笑顔になる。,reviewed,2f8e48008068994f7d50d33e2bbe54acf565ad403a66b9b97cd21265fa05397e,aeda503ac08bd1824e2d0d93a3652b4878081272,2026-10-14T03:47:46+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 entertainment.png,娯楽,娯楽,"Subject: entertainment, target meaning ""娯楽"" (amusement).
 
 Composition: A small audience laughs and claps at a playful puppet performance on a low tabletop stage. The puppeteer's active hands and the viewers' enjoyment establish entertainment, with no dialogue, signs, or celebrity likenesses.
@@ -7446,7 +7446,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,entertainment,"[""en"",""ten-""]",amusement,d0f75d3289c92812d64079805fcd8cb9ffc480569cf6642f36ce98a1a83ccd16,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,entertainment,"[""en"",""ten-""]",amusement,d0f75d3289c92812d64079805fcd8cb9ffc480569cf6642f36ce98a1a83ccd16,,The puppet show provides entertainment as the audience laughs and claps.,人形劇を見た観客が笑って拍手し、楽しい時間を過ごしている。,reviewed,7cc4def2e470cd0f83b904225ac3faf60d6ec7506b8156104133e21a71c00c80,b689774d3b453d451dae83b55715f8b265a99f1a,2026-10-14T03:47:46+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 justification.png,正当化,正当化,"Subject: justification, target meaning ""正当化"" (rationale).
 
 Composition: A gardener explains a protective barrier by showing the newly planted seedlings behind it and a visitor's muddy footprint beside the bed. The visible risk of trampling supplies a reason for the precaution without a written defense.
@@ -7455,7 +7455,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,justification,"[""yewes-"",""dhē-""]",rationale,937446906106e1e7457a14bffa23b795d6a2778799ae3224a7b3ea0be79cb157,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,justification,"[""yewes-"",""dhē-""]",rationale,937446906106e1e7457a14bffa23b795d6a2778799ae3224a7b3ea0be79cb157,,The muddy footprint gives justification for protecting the seedlings.,泥の足跡が、苗を囲って守る理由を示している。,reviewed,2116eb081e272f4139fdc4866dd20c1dbf246bd69ac609a1b4c85b356e159f6a,b7b7b2be06734ff5a4ca856411b8cf4f356a292d,2026-10-14T03:47:46+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 selective.png,選択的な,選択的な,"Subject: selective, target meaning ""選択的な"" (choosy).
 
 Composition: A shopper carefully selects only firm ripe pears from a produce basket, leaving bruised fruit aside. Their examining fingertips and small chosen group show discriminating selection rather than indiscriminate grabbing or rejection of all fruit.
@@ -7464,7 +7464,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,selective,"[""s(w)e-"",""leg-""]",choosy,31a8172aef9716d100abe3b23ec9ff7a6d8f1246c9c9becb080cc7794427aa7f,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,selective,"[""s(w)e-"",""leg-""]",choosy,31a8172aef9716d100abe3b23ec9ff7a6d8f1246c9c9becb080cc7794427aa7f,,A selective shopper chooses firm pears and leaves bruised fruit.,選り好みする買い物客が、傷んだ梨を残して状態のよい実を選んでいる。,reviewed,7e6c9ad8b1ccef0cc1c3bcb0b69cccef4ed4583b2a21bca155e27138f0858b3e,8c20f61973ba855984fc755ad3433b0c6b9280d7,2026-10-14T03:47:46+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 submit.png,提出する,提出する,"Subject: submit, target meaning ""提出する"" (hand in).
 
 Composition: A student hands a completed plain project folder across a desk to an instructor, who reaches to accept it into a receiving tray. The purposeful transfer of finished work shows submission without readable names, grades, or instructions.
@@ -7473,7 +7473,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,submit,"[""upo"",""mittere""]",hand in,0042e6fa711e1d8766087bb79290cccdbc43c6937341043d140f1926a653f409,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,submit,"[""upo"",""mittere""]",hand in,0042e6fa711e1d8766087bb79290cccdbc43c6937341043d140f1926a653f409,,The student will submit a finished project folder to the instructor.,学生が完成した課題のファイルを、担当教員に提出しようとしている。,reviewed,75b515cac672b5046035d5d3add6f0e86aa581431670314e81e2a64267c36065,77fc028072974d078fe7f788170ed19e5944358a,2026-10-14T03:47:46+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 adjustment.png,調整,調整,"Subject: adjustment, target meaning ""調整"" (tuning).
 
 Composition: A musician turns a violin's tuning peg while listening closely, with the other hand holding the instrument safely by its neck. The small controlled change and concentrated expression make fine adjustment clear without music notation.
@@ -7482,7 +7482,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,adjustment,"[""ad-"",""yeug-""]",tuning,1ad0f075ef53118f42989f7d5cb96b3e538728014da74cd5451d0f871c8089fa,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,adjustment,"[""ad-"",""yeug-""]",tuning,1ad0f075ef53118f42989f7d5cb96b3e538728014da74cd5451d0f871c8089fa,,The musician makes an adjustment by turning the violin’s tuning peg.,演奏者がバイオリンのペグを回して、音程を調整している。,reviewed,0b6e07dbaa92a61bd1f9be6373594e9d4b74df5c454385fd81af1186603dfd2d,1ec5bdeaf54e01828f8b1a98303f35075d099253,2026-10-14T03:47:46+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 apple.png,リンゴ,リンゴ,"Subject: apple, target meaning ""リンゴ"" (orchard fruit).
 
 Composition: A ripe red apple with a short stem and one green leaf rests on a small wooden board, beside a freshly cut wedge from the same fruit. Keep its rounded form, pale flesh, and complete outline large and distinct.
@@ -7491,7 +7491,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,apple,"[""ab(e)l-""]",orchard fruit,96fe606e6e7ca0be540d47ee69fc1805c590a8d1295ffae541356f3f0ac6b6ee,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,apple,"[""ab(e)l-""]",orchard fruit,96fe606e6e7ca0be540d47ee69fc1805c590a8d1295ffae541356f3f0ac6b6ee,,A red apple and a fresh wedge rest on a wooden board.,木の板の上に、赤いリンゴと切り分けた一切れが置かれている。,reviewed,3dffba513c5726de20e37eff6b5707ed2ad82322e1f7597649e91ba304cb2bf4,afa2c91ec66c89b3e69b25c38f3837dbb1f2b850,2026-10-14T03:47:46+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 apple_alt1.png,リンゴ,リンゴ,"Subject: apple in the sense of orchard fruit.
 
 Composition: One ripe red apple rests upright, its curved stem and fresh green leaf fully visible. A small natural highlight follows the round skin, and the blossom end remains subtly recognizable; include no plate or unrelated fruit.
@@ -7500,7 +7500,7 @@ Style: Match only the rounded 2D style of references/invidious.png: thick dark-b
 
 Framing: One coherent scene, centered, with the complete subject occupying about 80–90% of the square. Keep all essential body parts and object tips fully inside the frame without clipping.
 
-Output: One 512 x 512 PNG with true RGBA transparency in the background and gaps. No lettering, labels, logo, watermark, or checkerboard.",作成済み,,references/invidious.png,apple,"[""ab(e)l-""]",orchard fruit,96fe606e6e7ca0be540d47ee69fc1805c590a8d1295ffae541356f3f0ac6b6ee,,,,prompt_ready,,,,
+Output: One 512 x 512 PNG with true RGBA transparency in the background and gaps. No lettering, labels, logo, watermark, or checkerboard.",作成済み,,references/invidious.png,apple,"[""ab(e)l-""]",orchard fruit,96fe606e6e7ca0be540d47ee69fc1805c590a8d1295ffae541356f3f0ac6b6ee,,"A ripe apple shows its curved stem, green leaf, and round shape.",熟したリンゴの丸い形と、曲がった軸、緑の葉が見える。,reviewed,db97ad5e84b81a716f38dcf2aafd16bc1543a4a698b227321949c6a65d001b43,74ed1f678cb9f4b939c38fc9bceacc34eac15c02,2026-10-14T03:49:01+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 apple_alt2.png,リンゴ,リンゴ,"Subject: apple in the sense of orchard fruit.
 
 Composition: One ripe red apple rests upright, its curved stem and fresh green leaf fully visible. A small natural highlight follows the round skin, and the blossom end remains subtly recognizable; include no plate or unrelated fruit.
@@ -7509,7 +7509,7 @@ Style: Match only the rounded 2D style of references/invidious.png: thick dark-b
 
 Framing: One coherent scene, centered, with the complete subject occupying about 80–90% of the square. Keep all essential body parts and object tips fully inside the frame without clipping.
 
-Output: One 512 x 512 PNG with true RGBA transparency in the background and gaps. No lettering, labels, logo, watermark, or checkerboard.",作成済み,,references/invidious.png,apple,"[""ab(e)l-""]",orchard fruit,96fe606e6e7ca0be540d47ee69fc1805c590a8d1295ffae541356f3f0ac6b6ee,,,,prompt_ready,,,,
+Output: One 512 x 512 PNG with true RGBA transparency in the background and gaps. No lettering, labels, logo, watermark, or checkerboard.",作成済み,,references/invidious.png,apple,"[""ab(e)l-""]",orchard fruit,96fe606e6e7ca0be540d47ee69fc1805c590a8d1295ffae541356f3f0ac6b6ee,,"A ripe apple shows its curved stem, green leaf, and round shape.",熟したリンゴの丸い形と、曲がった軸、緑の葉が見える。,reviewed,c16490443baee5c793072705a5d3778076ebe16238ae440715f0331abbc1af46,6c9203dc25d7759f61c728825770ed53891084c7,2026-10-14T03:49:01+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 colony.png,植民地,植民地,"Subject: colony, target meaning ""植民地"" (settlement).
 
 Composition: A fictional overseas colony has a small port settlement and an administrator receiving supplies from a ship belonging to a distant crown. A plain matching crest links office and ship, showing external rule without real flags, racialized inhabitants, or glorified conquest.
@@ -7518,7 +7518,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,colony,"[""kʷel-1""]",settlement,ec616ec071c29b5647274806615d89b203db658db20dece63fd4f2c1cde38638,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,colony,"[""kʷel-1""]",settlement,ec616ec071c29b5647274806615d89b203db658db20dece63fd4f2c1cde38638,,The colony receives supplies from a ship under distant rule.,植民地の港に船が着き、遠くの統治者から物資が届けられる。,reviewed,91364b61678370c6cc09df421e019d049f2cb17ee5e14ba6232579ce222983dc,7adad4615adc11f309c3a16fcc9badffcef72a1e,2026-10-14T03:49:01+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 curse.png,のろい,のろい,"Subject: curse, target meaning ""のろい"" (malediction).
 
 Composition: In a fictional fairy-tale scene, a sorcerer directs an ill-wishing gesture toward a prince as thorny vines suddenly coil around the prince's abandoned chair. Keep the spell non-graphic and clearly fantastical, without occult lettering, speech, or real religious symbols.
@@ -7527,7 +7527,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,curse,"[""kers-2""]",malediction,26a80e055edd22875e90da053addfc09bf32f55a871252e4bb40a4626229ea0d,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,curse,"[""kers-2""]",malediction,26a80e055edd22875e90da053addfc09bf32f55a871252e4bb40a4626229ea0d,,A sorcerer’s curse wraps thorny vines around the prince’s chair.,魔法使いののろいによって、王子の椅子にとげのあるつるが巻きつく。,reviewed,074c67e0337640aca79bff0636d46471e549f121e5acec791a1d7ee743615f28,e2b56a00cdfe61e83fc6b25641bd041d7a981e98,2026-10-14T03:49:01+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 harmful.png,有害な,有害な,"Subject: harmful, target meaning ""有害な"" (detrimental).
 
 Composition: A leaking discarded oil container contaminates a small patch of soil beside a wilting plant. A gardener keeps their distance and prepares to remove the container, making harmful effects visible without injured animals or dramatic disaster imagery.
@@ -7536,7 +7536,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,harmful,"[""kormo-"",""pelə-1""]",detrimental,5dcaff181c716b8175cc69cf61f8c2c1879b504a2887e29289fc786d15678f51,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,harmful,"[""kormo-"",""pelə-1""]",detrimental,5dcaff181c716b8175cc69cf61f8c2c1879b504a2887e29289fc786d15678f51,,Leaking oil is harmful to the soil and nearby plant.,漏れた油が土と近くの植物に有害な影響を与えている。,reviewed,5ca3a28de0ace3d7c2c0bf40e54a65c510e80abc9b20d378ded67e73749445af,05dd6f30949817a7561715fad33d2f555f0f4513,2026-10-14T03:49:01+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 meditation.png,瞑想,瞑想,"Subject: meditation, target meaning ""瞑想"" (contemplation).
 
 Composition: An adult sits comfortably on a cushion with a straight but relaxed back, eyes gently closed and hands resting on their knees. A simple potted plant and uncluttered surroundings support quiet meditation without mystical symbols or medical promises.
@@ -7545,7 +7545,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,meditation,"[""med-""]",contemplation,ba0e41be9d6c7510e0c45f9ab81d5b4d7dd43723596c949c98fd651501011be3,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,meditation,"[""med-""]",contemplation,ba0e41be9d6c7510e0c45f9ab81d5b4d7dd43723596c949c98fd651501011be3,,The adult practices meditation quietly on a cushion beside a plant.,大人が植物のそばのクッションに座り、静かに瞑想している。,reviewed,ef7c8021a69dee6709a408f85954bb270938938bb475882e63bc5ceb787e16e5,d1091633efa884c1d8cf5f0e946f9a39c613ee50,2026-10-14T03:49:01+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 metaphor.png,隠喩,隠喩,"Subject: metaphor, target meaning ""隠喩"" (analogy).
 
 Composition: A creative-writing teacher places a lion figurine beside a picture of a brave rescuer helping someone across a stream, inviting a student to connect the shared courage. Keep the two study objects on one desk, with no written metaphor or speech.
@@ -7554,7 +7554,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,metaphor,"[""me-2"",""bher-1""]",analogy,38acf769b8f695dfd69939743884cd6ef34d848ac5b08497bad054434f752790,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,metaphor,"[""me-2"",""bher-1""]",analogy,38acf769b8f695dfd69939743884cd6ef34d848ac5b08497bad054434f752790,,The teacher uses a lion as a metaphor for the rescuer’s courage.,先生がライオンを、救助者の勇気を表す隠喩として生徒に示している。,reviewed,f2111a4a45dba5de9e174df47ad79742fcdf397c72e712ecc495303d282c57bf,f32f358e319f7838376c6f9cdce892c30c4a8842,2026-10-14T03:49:01+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 well-known.png,有名な,有名な,"Subject: well-known, target meaning ""有名な"" (famous).
 
 Composition: A well-known local musician enters a community hall carrying a guitar, and several attendees recognize them with warm waves before any performance begins. Their spontaneous shared recognition conveys familiarity without a real celebrity likeness or name sign.
@@ -7563,7 +7563,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,well-known,"[""wel-2"",""gnō-""]",famous,782632706bf8bc805de19c4e53fec1bd589412fab421d3be9b0a19ac4002b960,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,well-known,"[""wel-2"",""gnō-""]",famous,782632706bf8bc805de19c4e53fec1bd589412fab421d3be9b0a19ac4002b960,,The well-known musician is recognized as people greet them at the hall.,有名な音楽家が会場に入ると、気づいた人々が温かく手を振る。,reviewed,eaa09f3e334b624b250e979c56782a8f6429a301fbea7f7179b8e82830bb4284,32deeb086941d4cc24d39ce8f74eaf8ea30acedd,2026-10-14T03:49:01+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 abnormal.png,異常な,異常な,"Subject: abnormal, target meaning ""異常な"" (unusual).
 
 Composition: A gardener inspects one unusually twisted carrot among normally straight carrots in the same harvest basket. The unexpected branching shape is harmless and clearly visible, illustrating an abnormal form without comparing human bodies or implying disease.
@@ -7572,7 +7572,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,abnormal,"[""apo-"",""gnō-""]",unusual,52cad0440324b72f7a937d7afbee46833187149972a1e46fd66ab11e7e0052a1,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,abnormal,"[""apo-"",""gnō-""]",unusual,52cad0440324b72f7a937d7afbee46833187149972a1e46fd66ab11e7e0052a1,,An abnormal carrot twists among the straight carrots in the basket.,かごの中で、異常な形にねじれたニンジンがまっすぐなものに混じっている。,reviewed,4ccdb31235c5912168826a6d22b17b2f88cdb4d28b699518971b2ea7ae10501c,7484fe3aa5d3baf9e9564b20f5ee4d1dce633b5b,2026-10-14T03:49:01+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 airport.png,空港,空港,"Subject: airport, target meaning ""空港"" (aerodrome).
 
 Composition: A compact airport scene shows a passenger plane parked beside a terminal jet bridge, with a small luggage cart crossing the apron. Keep the complete aircraft and boarding connection recognizable, with no airline logos or readable airport signs.
@@ -7581,7 +7581,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,airport,"[""wer-2"",""per-2""]",aerodrome,0b6226b535de51b42f94ffc8557bc9b3e3ededbe40ab79000080eede6fbec10c,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,airport,"[""wer-2"",""per-2""]",aerodrome,0b6226b535de51b42f94ffc8557bc9b3e3ededbe40ab79000080eede6fbec10c,,An airport terminal connects a parked plane to its boarding jet bridge.,空港の搭乗橋が、駐機した旅客機とターミナルをつないでいる。,reviewed,74d94102cea8c76aec736c12d81573c05468c004d4866c7241fab11c855f74ef,f988b3170f435726290a1b0e49607550d0680175,2026-10-14T03:49:01+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 consist.png,成る,成る,"Subject: consist, target meaning ""成る"" (comprise).
 
 Composition: A child assembles a stool from one seat and four legs, fitting the final leg while the other parts are visibly joined. The finished whole is made of these components, with no unrelated tools obscuring their relationship.
@@ -7590,7 +7590,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,consist,"[""kom"",""stā-""]",comprise,6bdb9b0d57f9fc3714e45fbc16124617ad6e2e72a4644be1ffaf383b0965f55a,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,consist,"[""kom"",""stā-""]",comprise,6bdb9b0d57f9fc3714e45fbc16124617ad6e2e72a4644be1ffaf383b0965f55a,,Its parts consist of a seat and four legs as the child assembles the stool.,子どもが最後の脚を取り付け、座面と四本の脚から成るスツールを組み立てている。,reviewed,22d0d3c65ee184991eafb506fc1954d7287d2930046db74d1bb2cfa5a825ce04,317c32d38259320d3aa7eeb8bfcc86526547c310,2026-10-14T03:50:01+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 criterion.png,基準,基準,"Subject: criterion, target meaning ""基準"" (benchmark).
 
 Composition: A baker checks each bread roll against one plain circular size template, setting aside a roll that cannot fit. The single consistent test serves as a concrete criterion, with neither grades nor written quality labels.
@@ -7599,7 +7599,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,criterion,"[""krei-""]",benchmark,3d2c1f780d316ba2d0e6f86f352c49931a3d9e6006fc076057b4c6800fef4f01,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,criterion,"[""krei-""]",benchmark,3d2c1f780d316ba2d0e6f86f352c49931a3d9e6006fc076057b4c6800fef4f01,,The baker uses one size template as a criterion for each bread roll.,パン職人が一つの型を基準にして、丸パンの大きさを確かめている。,reviewed,68c6d057878adc711d8d82ef60366e912c1d04b010bfb0298eab813368855599,b99436e857062c9fe167d4fc69b5f28131a27e35,2026-10-14T03:50:01+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 ignorance.png,無知,無知,"Subject: ignorance, target meaning ""無知"" (unawareness).
 
 Composition: A novice gardener looks puzzled at a plant's dry soil while holding an unopened watering can, and an experienced neighbor points out the need for water. The specific missing knowledge is evident without belittling appearance or intelligence.
@@ -7608,7 +7608,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,ignorance,"[""ne"",""gnō-""]",unawareness,13fcf2aa288390c024375a2243cf9287c0e55c98310948210aea20a3003921d0,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,ignorance,"[""ne"",""gnō-""]",unawareness,13fcf2aa288390c024375a2243cf9287c0e55c98310948210aea20a3003921d0,,The gardener’s ignorance about the dry soil is corrected by a neighbor.,庭師が土の乾燥に気づかず、隣人が水やりの必要を指し示している。,reviewed,226eca3b7eea1b99f95e5b2a2a535e522c6f148476b3490aa578774204326fa2,c151bbfeabc7b4c915637ac4b1d41dbb172cc62e,2026-10-14T03:51:02+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 monster_alt1.png,怪物,怪物,"Subject: monster in the sense of beast.
 
 Composition: A friendly imaginary monster with a round turquoise body, short horns, small clawed feet, and one broad toothy grin stands waving. Keep its anatomy whimsical and nonthreatening, with no reference to a real person or animal species.
@@ -7617,7 +7617,7 @@ Style: Match only the rounded 2D style of references/invidious.png: thick dark-b
 
 Framing: One coherent scene, centered, with the complete subject occupying about 80–90% of the square. Keep all essential body parts and object tips fully inside the frame without clipping.
 
-Output: One 512 x 512 PNG with true RGBA transparency in the background and gaps. No lettering, labels, logo, watermark, or checkerboard.",作成済み,,references/invidious.png,monster,"[""men-1""]",beast,e7feca0bd0d5b6f376ad66b11310af0402d7eb965c0327c5b9d231662e032023,,,,prompt_ready,,,,
+Output: One 512 x 512 PNG with true RGBA transparency in the background and gaps. No lettering, labels, logo, watermark, or checkerboard.",作成済み,,references/invidious.png,monster,"[""men-1""]",beast,e7feca0bd0d5b6f376ad66b11310af0402d7eb965c0327c5b9d231662e032023,,A friendly monster waves with short horns and a broad grin.,短い角と大きな笑顔を持つ、友好的な怪物が手を振っている。,reviewed,a33d75f5e22b14310c471e3ac8a7e84febab97f2f4cb271a751ee9a235f64148,1b6b6a09ab8af373ce412e3b68b94d85476faf24,2026-10-14T03:51:02+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 monster_alt2.png,怪物,怪物,"Subject: monster in the sense of beast.
 
 Composition: A friendly imaginary monster with a round turquoise body, short horns, small clawed feet, and one broad toothy grin stands waving. Keep its anatomy whimsical and nonthreatening, with no reference to a real person or animal species.
@@ -7626,7 +7626,7 @@ Style: Match only the rounded 2D style of references/invidious.png: thick dark-b
 
 Framing: One coherent scene, centered, with the complete subject occupying about 80–90% of the square. Keep all essential body parts and object tips fully inside the frame without clipping.
 
-Output: One 512 x 512 PNG with true RGBA transparency in the background and gaps. No lettering, labels, logo, watermark, or checkerboard.",作成済み,,references/invidious.png,monster,"[""men-1""]",beast,e7feca0bd0d5b6f376ad66b11310af0402d7eb965c0327c5b9d231662e032023,,,,prompt_ready,,,,
+Output: One 512 x 512 PNG with true RGBA transparency in the background and gaps. No lettering, labels, logo, watermark, or checkerboard.",作成済み,,references/invidious.png,monster,"[""men-1""]",beast,e7feca0bd0d5b6f376ad66b11310af0402d7eb965c0327c5b9d231662e032023,,A friendly monster waves with short horns and a broad grin.,短い角と大きな笑顔を持つ、友好的な怪物が手を振っている。,reviewed,29b7116fa3db476f46f84af78cb455489c2b22319e5b532741113255a3268a07,d6bf7b9d36d924bb65bdc350e5bec2d6f96f9317,2026-10-14T03:51:02+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 monster_alt3.png,怪物,怪物,"Subject: monster in the sense of beast.
 
 Composition: A friendly imaginary monster with a round turquoise body, short horns, small clawed feet, and one broad toothy grin stands waving. Keep its anatomy whimsical and nonthreatening, with no reference to a real person or animal species.
@@ -7635,7 +7635,7 @@ Style: Match only the rounded 2D style of references/invidious.png: thick dark-b
 
 Framing: One coherent scene, centered, with the complete subject occupying about 80–90% of the square. Keep all essential body parts and object tips fully inside the frame without clipping.
 
-Output: One 512 x 512 PNG with true RGBA transparency in the background and gaps. No lettering, labels, logo, watermark, or checkerboard.",作成済み,,references/invidious.png,monster,"[""men-1""]",beast,e7feca0bd0d5b6f376ad66b11310af0402d7eb965c0327c5b9d231662e032023,,,,prompt_ready,,,,
+Output: One 512 x 512 PNG with true RGBA transparency in the background and gaps. No lettering, labels, logo, watermark, or checkerboard.",作成済み,,references/invidious.png,monster,"[""men-1""]",beast,e7feca0bd0d5b6f376ad66b11310af0402d7eb965c0327c5b9d231662e032023,,A friendly monster waves with short horns and a broad grin.,短い角と大きな笑顔を持つ、友好的な怪物が手を振っている。,reviewed,ed727eb5e0f4f15f469dde238bf93580f4ca4a2478be8ce7811a483686ffde83,e172ca2ad60a17c098f3343fe3f5dfb866189d8f,2026-10-14T03:51:02+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 norm.png,規範,規範,"Subject: norm, target meaning ""規範"" (standard).
 
 Composition: Several visitors remove their shoes and place them neatly at a home's entrance, while a newcomer follows the same established practice. The repeated orderly behavior within the shared space conveys a social norm without written rules.
@@ -7644,7 +7644,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,norm,"[""gnō-""]",standard,bd2da348525b104714c0ef490e71f9a15e5cf0220f51b8ef2efd3aa6b81ab156,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,norm,"[""gnō-""]",standard,bd2da348525b104714c0ef490e71f9a15e5cf0220f51b8ef2efd3aa6b81ab156,,The newcomer follows the norm of removing shoes at the doorway.,新しく来た人も、玄関で靴を脱ぐという習慣に従っている。,reviewed,8194321f96faac74d71b2088a3f1f525fa0064ce3c226f459b094ccb11756cae,9ff8e347e8d65ccb3d8136720d5065767cb6a6e7,2026-10-14T03:51:02+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 restoration.png,回復,回復,"Subject: restoration, target meaning ""回復"" (recovery).
 
 Composition: A restorer carefully cleans soot from one continuous section of an old tiled fireplace, uncovering bright intact tiles beneath. The partly renewed surface and preserved structure show restoration of the existing object rather than replacement.
@@ -7653,7 +7653,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,restoration,"[""re-"",""stā-""]",recovery,854c4e73b175a32123eb2f99c10623d7b9616fe02939abc7a69649b88e041251,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,restoration,"[""re-"",""stā-""]",recovery,854c4e73b175a32123eb2f99c10623d7b9616fe02939abc7a69649b88e041251,,The restorer reveals bright tiles during the fireplace’s restoration.,修復士が古い暖炉のすすを落とし、明るいタイルをよみがえらせている。,reviewed,ee2cc376efe30c0d821ce5ab2dbf00b45ebc1a58832d8ef16a56165f526a78e0,04e2638ad13e1d85122a24445874f36e4bdc2ef1,2026-10-14T03:51:02+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 retirement.png,退役,退役,"Subject: retirement, target meaning ""退役"" (stepping down).
 
 Composition: A departing service member folds a uniform and hands over their duty keys during a small respectful farewell, while colleagues offer a keepsake. Keep the setting fictional and peaceful, conveying retirement from service without medals, national insignia, or combat.
@@ -7662,7 +7662,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,retirement,"[""re-""]",stepping down,f1acf08dfea4af7b9c40c2c86b146e978f4369bc1ae704bca252e8f12bff2d8e,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,retirement,"[""re-""]",stepping down,f1acf08dfea4af7b9c40c2c86b146e978f4369bc1ae704bca252e8f12bff2d8e,,A service member begins retirement by handing over duty keys.,退役する隊員が、同僚に任務の鍵を引き渡している。,reviewed,de30352409e1dfdda3816ea5fc87d3c176ad8abbf9518db024fb5bd2b774fac5,844f858fc7112cde67a853bb3bca66523c739409,2026-10-14T03:51:02+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 competent.png,有能な,有能な,"Subject: competent, target meaning ""有能な"" (capable).
 
 Composition: A competent electrician neatly secures a disconnected light fixture on a workbench, checking its fittings with organized tools and careful hands. The completed safe assembly and calm control demonstrate ability without an unrealistic hazardous live-wire scene.
@@ -7671,7 +7671,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,competent,"[""kom"",""pet-""]",capable,8ca9978568696508d75b732bdcc54c389ad2cd07ea68a95c919beaec3b7734aa,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,competent,"[""kom"",""pet-""]",capable,8ca9978568696508d75b732bdcc54c389ad2cd07ea68a95c919beaec3b7734aa,,A competent electrician secures a disconnected light fixture on a bench.,有能な電気技師が、電源から外した照明器具を作業台で固定している。,reviewed,eeca9398144028af8a5b4a249cffe06843455d0e57a2e99eeb1caae948b5eef2,afc80dea7b1d345b86bdf2f3355e5b1eeca933fe,2026-10-14T03:51:02+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 computational.png,計算に関する,計算に関する,"Subject: computational, target meaning ""計算に関する"" (numerical).
 
 Composition: A researcher uses a computer to calculate a bridge model's loads while a small physical bridge and measured weights sit beside the keyboard. The screen shows unlabelled structured numerical bars, keeping the calculation-related task contextual without invented formulas.
@@ -7680,7 +7680,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,computational,"[""kom"",""pau-2""]",numerical,855ed21a82ff77e21846fb70791a47e3b5c269a1e336b73b9ed0226d0d4fbf30,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,computational,"[""kom"",""pau-2""]",numerical,855ed21a82ff77e21846fb70791a47e3b5c269a1e336b73b9ed0226d0d4fbf30,,The researcher performs a computational load estimate for a bridge model.,研究者が橋の模型と重りを使い、コンピューターで荷重計算をしている。,reviewed,30570bb6fd93d5b7290ec480ef1f61a06c66ba13d35459469d7cf17932ca6b43,43e1f43ea79f63da1e439e80e87b8f42129cdccd,2026-10-14T03:51:02+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 continually.png,絶えず,絶えず,"Subject: continually, target meaning ""絶えず"" (incessantly).
 
 Composition: A gardener repeatedly returns to pull new weeds from the same vegetable bed, shown by a partly filled bucket, freshly loosened soil, and another weed in hand. Continuous attention to the recurring task is visible in one present scene.
@@ -7689,7 +7689,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,continually,"[""kom"",""ten-""]",incessantly,17a513b42c6f9f82f27effc91c932a18c21307937e6c3a1079186fb1bbf16b90,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,continually,"[""kom"",""ten-""]",incessantly,17a513b42c6f9f82f27effc91c932a18c21307937e6c3a1079186fb1bbf16b90,,The gardener continually pulls fresh weeds from the same vegetable bed.,庭師が同じ菜園に何度も戻り、新しく生えた雑草を抜き続けている。,reviewed,9c65cfdb55c07499a79ff3f9ec6488f941f7fe7847df537016c3255f7bc2a363,4d5f0b1c07f5fb9d1128c3c1397180e729d1567e,2026-10-14T03:51:02+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 human being.png,人間,人間,"Subject: human being in the sense of person.
 
 Composition: One friendly adult stands naturally with feet apart and arms relaxed, turning slightly toward the viewer. Show a complete ordinary human figure with clear face, hands, and everyday clothes, avoiding exaggerated traits or symbolic silhouettes.
@@ -7698,7 +7698,7 @@ Style: Match only the rounded 2D style of references/invidious.png: thick dark-b
 
 Framing: One coherent scene, centered, with the complete subject occupying about 80–90% of the square. Keep all essential body parts and object tips fully inside the frame without clipping.
 
-Output: One 512 x 512 PNG with true RGBA transparency in the background and gaps. No lettering, labels, logo, watermark, or checkerboard.",作成済み,,references/invidious.png,human being,"[""dhghem-"",""bheuə-""]",person,021eb2f8434ec7bd8a77e8380d9e4b69ef10ef932d19e969801de470edff8f82,,,,prompt_ready,,,,
+Output: One 512 x 512 PNG with true RGBA transparency in the background and gaps. No lettering, labels, logo, watermark, or checkerboard.",作成済み,,references/invidious.png,human being,"[""dhghem-"",""bheuə-""]",person,021eb2f8434ec7bd8a77e8380d9e4b69ef10ef932d19e969801de470edff8f82,,A human being stands naturally with relaxed arms and everyday clothes.,普段着の大人が、腕を自然に下ろしてまっすぐ立っている。,reviewed,02e89547a852ba930e355c96e4db021b65c2599bff9ea2aa398c2acacd5377f2,ced37e2aefa49b5f892c22cfbc27b0fa0fc01335,2026-10-14T03:51:02+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 human_being.png,人間,人間,"Subject: human being, target meaning ""人間"" (person).
 
 Composition: A single adult human stands naturally beside a simple chair, reaching for a cup with one hand. Show an ordinary fully clothed person with complete head, torso, arms, and legs, avoiding idealized anatomy, identity stereotypes, or abstract pictogram treatment.
@@ -7707,7 +7707,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,human being,"[""dhghem-"",""bheuə-""]",person,021eb2f8434ec7bd8a77e8380d9e4b69ef10ef932d19e969801de470edff8f82,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,human being,"[""dhghem-"",""bheuə-""]",person,021eb2f8434ec7bd8a77e8380d9e4b69ef10ef932d19e969801de470edff8f82,,A human being reaches for a cup beside a simple chair.,一人の人が椅子のそばで、カップに手を伸ばしている。,reviewed,4778bfec0583aa8bf082bdcd9e7751d4d6b4e0cb514296d8d2b5d9cb15ded00f,278348718353342a63d8329c9ae6db25f178f380,2026-10-14T03:51:02+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 induce.png,誘発する,誘発する,"Subject: induce, target meaning ""誘発する"" (trigger).
 
 Composition: A person gently taps a row's first domino, causing the next nearby dominoes to begin falling in sequence. Keep the initiating fingertip, first collision, and connected row visible, showing one action inducing a following response.
@@ -7716,7 +7716,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,induce,"[""en"",""deuk-""]",trigger,a8950a047e39c828cc15eb885f6b72929a9bb5df5593fdb9b297f8057737f0f8,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,induce,"[""en"",""deuk-""]",trigger,a8950a047e39c828cc15eb885f6b72929a9bb5df5593fdb9b297f8057737f0f8,,The first domino can induce a chain reaction as nearby tiles fall.,最初のドミノを押すと、後ろの牌が次々に倒れ始める。,reviewed,aa0ae0809a4a264808a896d0c4972ceae6d4032aa33d4a8bc23227230d6c7983,d0a5d75c91a60e97b4620b8eefafa605c0a07919,2026-10-14T03:52:20+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 monthly.png,月々の,月々の,"Subject: monthly, target meaning ""月々の"" (periodic).
 
 Composition: A household caretaker changes a plant-care card on a calendar with a single full month of blank date cells, placing one watering-supply refill beside it. The recurring monthly household task is contextual, with no written dates or day names.
@@ -7725,7 +7725,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,monthly,"[""mē-2""]",periodic,e4e381aff80dd41070fbe2a32f893f97595cf6643cad2343fe9dc9e5125b4d6c,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,monthly,"[""mē-2""]",periodic,e4e381aff80dd41070fbe2a32f893f97595cf6643cad2343fe9dc9e5125b4d6c,,The plant-care task recurs monthly on the household calendar.,家のカレンダーには、月々の植物の手入れ予定が示されている。,reviewed,b1f078aa0c7e544f3c1cfd45e116979436ea2d668ebab086321e993b2788d31e,26846ccde85a9637d1432357d321cd50782cd607,2026-10-14T03:52:20+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 preliminary.png,予備の,予備の,"Subject: preliminary, target meaning ""予備の"" (preparatory).
 
 Composition: A carpenter tests a small scrap-wood joint before beginning a larger chair whose prepared components wait nearby. The trial piece, cautious inspection, and untouched final materials clearly establish a preliminary step rather than the finished project.
@@ -7734,7 +7734,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,preliminary,"[""per1""]",preparatory,7eab5f435d78c20df14dcaea42a98a7852df79b7bbfa6fdb6c46c0ac8cb04a04,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,preliminary,"[""per1""]",preparatory,7eab5f435d78c20df14dcaea42a98a7852df79b7bbfa6fdb6c46c0ac8cb04a04,,The carpenter tests a preliminary wood joint before building the chair.,大工が椅子を作る前に、予備の木材で接合部を試している。,reviewed,fdb74d9213fc431170a1442dd38497be215919825bb6bc662eebf77df8804bd6,d34fff0d3f15626bdcc15e449b296996df454ed0,2026-10-14T03:52:20+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 proposition.png,提案,提案,"Subject: proposition, target meaning ""提案"" (suggestion).
 
 Composition: An architect offers a small model of a footbridge to two park managers, pointing toward the gap it could span in their terrain model. The others consider the proposed plan without beginning construction or casting a vote.
@@ -7743,7 +7743,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,proposition,"[""per1"",""apo-""]",suggestion,83940e25210149318df88a9f84c0e46c6298a7630c2f98345dc6dcb923f7332f,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,proposition,"[""per1"",""apo-""]",suggestion,83940e25210149318df88a9f84c0e46c6298a7630c2f98345dc6dcb923f7332f,,The architect presents a footbridge proposition to two park managers.,建築家が公園の管理者二人に、歩道橋の提案を模型で示している。,reviewed,3baa18751bae88500ec3f14f5641a46d79c3b3412ec9c5f25116453a23553a3c,715bc4bea6c6d4e955ee44396bc5eac5235507f5,2026-10-14T03:52:20+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 declaration.png,宣言,宣言,"Subject: declaration, target meaning ""宣言"" (announcement).
 
 Composition: A community organizer stands before a gathered group and openly announces a decision while unfurling a plain ceremonial banner. The attentive audience, formal stance, and raised open palm establish a declaration without written slogans or speech balloons.
@@ -7752,7 +7752,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,declaration,"[""de-"",""kelə-2""]",announcement,3b6c07a2561d64c975930233637395a448d24215e318c4efda77a20a19cbff31,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,declaration,"[""de-"",""kelə-2""]",announcement,3b6c07a2561d64c975930233637395a448d24215e318c4efda77a20a19cbff31,,The organizer makes a declaration to the gathered community.,主催者が集まった人々の前で、旗を掲げて決意を宣言している。,reviewed,182084dde36bca0d6ea95ac39c160250ecb77dc20cddacf5f46613a54fe25d67,76242028b35cbe3ffc1e04de69feb45985658c7b,2026-10-14T03:52:20+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 immense.png,巨大な,巨大な,"Subject: immense, target meaning ""巨大な"" (vast).
 
 Composition: A tiny hiker stands beside an immense ancient tree, looking upward at its broad trunk and spreading branches. Keep the whole trunk and most crown within the square, using the small person to convey vast scale.
@@ -7761,7 +7761,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,immense,"[""ne"",""mē-2""]",vast,508d1a4ef10118b6bde9da43aba87f0f8bf631be3edfa2c4e4d62597a56999fa,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,immense,"[""ne"",""mē-2""]",vast,508d1a4ef10118b6bde9da43aba87f0f8bf631be3edfa2c4e4d62597a56999fa,,An immense tree towers over a tiny hiker.,巨大な木のそばで、小さなハイカーが幹を見上げている。,reviewed,2970fda97fb36f3464599c2716325af6256810131ab32715be14b72b2c047008,17168082c28682ca9976d730adc77d3da0ae8cdf,2026-10-14T03:52:20+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 render_alt1.png,表現する,表現する,"Subject: render in the sense of depict.
 
 Composition: An artist paints a small red vase on a canvas while the real vase stands directly beside the easel. Show the artist's brush adding the vase's curved outline, clearly connecting the physical subject with its painted representation.
@@ -7770,7 +7770,7 @@ Style: Match only the rounded 2D style of references/invidious.png: thick dark-b
 
 Framing: One coherent scene, centered, with the complete subject occupying about 80–90% of the square. Keep all essential body parts and object tips fully inside the frame without clipping.
 
-Output: One 512 x 512 PNG with true RGBA transparency in the background and gaps. No lettering, labels, logo, watermark, or checkerboard.",作成済み,,references/invidious.png,render,"[""re-"",""dō-""]",depict,9b92f051bd0756281a28fc48e8c9602478be439a80d41dfb466f73ba1e35d5ee,,,,prompt_ready,,,,
+Output: One 512 x 512 PNG with true RGBA transparency in the background and gaps. No lettering, labels, logo, watermark, or checkerboard.",作成済み,,references/invidious.png,render,"[""re-"",""dō-""]",depict,9b92f051bd0756281a28fc48e8c9602478be439a80d41dfb466f73ba1e35d5ee,,The artist works to render a red vase on canvas beside the real vase.,画家が本物の赤い花瓶のそばで、同じ花瓶をキャンバスに表現している。,reviewed,e5680a31915c5a7d1792c8daf39e51dc284d76cd906221187d914f8b1da74a1d,b976865ebd510fe7f7a0b73bee9597d7d50d6ef8,2026-10-14T03:52:20+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 render_alt2.png,表現する,表現する,"Subject: render in the sense of depict.
 
 Composition: An artist paints a small red vase on a canvas while the real vase stands directly beside the easel. Show the artist's brush adding the vase's curved outline, clearly connecting the physical subject with its painted representation.
@@ -7779,7 +7779,7 @@ Style: Match only the rounded 2D style of references/invidious.png: thick dark-b
 
 Framing: One coherent scene, centered, with the complete subject occupying about 80–90% of the square. Keep all essential body parts and object tips fully inside the frame without clipping.
 
-Output: One 512 x 512 PNG with true RGBA transparency in the background and gaps. No lettering, labels, logo, watermark, or checkerboard.",作成済み,,references/invidious.png,render,"[""re-"",""dō-""]",depict,9b92f051bd0756281a28fc48e8c9602478be439a80d41dfb466f73ba1e35d5ee,,,,prompt_ready,,,,
+Output: One 512 x 512 PNG with true RGBA transparency in the background and gaps. No lettering, labels, logo, watermark, or checkerboard.",作成済み,,references/invidious.png,render,"[""re-"",""dō-""]",depict,9b92f051bd0756281a28fc48e8c9602478be439a80d41dfb466f73ba1e35d5ee,,The artist works to render a red vase on canvas beside the real vase.,画家が本物の赤い花瓶のそばで、同じ花瓶をキャンバスに表現している。,reviewed,96a9db25979279824da21c7f0551ec9f99fca46b35f27e6348bdeda9a5766ee4,8f5746dfe097bde7722d52b565afa4b8f6b96081,2026-10-14T03:52:20+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 retreat.png,退却,退却,"Subject: retreat, target meaning ""退却"" (withdrawal).
 
 Composition: A fictional troop retreats away from a guarded bridge, moving together toward a safe wooded path while looking back cautiously. Keep all weapons sheathed and bodies unharmed, showing organized withdrawal rather than triumphant advance.
@@ -7788,7 +7788,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,retreat,"[""re-"",""tragh-""]",withdrawal,efd06460d5fd03c54c359e8d6d6c2e7c0bf41726601bd4453ce9cfe63aaca3dd,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,retreat,"[""re-"",""tragh-""]",withdrawal,efd06460d5fd03c54c359e8d6d6c2e7c0bf41726601bd4453ce9cfe63aaca3dd,,The troop begins to retreat toward the wooded path.,部隊が守られた橋から離れ、森の小道へまとまって退却している。,reviewed,3e34e01cedbbdcb99cf6a705f16abcd337f57d97fd4bb58dbef35dc6a0d56434,4a9b6347549a8a58d4f671f31d2c67e022a5bfac,2026-10-14T03:52:20+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 abundant.png,豊富な,豊富な,"Subject: abundant, target meaning ""豊富な"" (plentiful).
 
 Composition: An orchard worker fills a basket beneath a tree loaded with ripe apples, while several full baskets rest nearby. The remaining heavy fruit crop and generous gathered harvest make abundance visible in one productive orchard scene.
@@ -7797,7 +7797,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,abundant,"[""apo-"",""wed-1""]",plentiful,fea1ff6f24b02c67901ff5ac73821b7fa0b80b12ac8106604e667fc7a4cf82d2,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,abundant,"[""apo-"",""wed-1""]",plentiful,fea1ff6f24b02c67901ff5ac73821b7fa0b80b12ac8106604e667fc7a4cf82d2,,An abundant apple crop fills baskets beneath the laden orchard tree.,実り豊かなリンゴが木にたわわになり、かごにもたくさん収穫されている。,reviewed,9f327254899504c59bca1a465daffca59d7ffe0caa9fbae6d0521a56449b85b1,596ab26c5c1733620ac7da89dd1e9759724f5051,2026-10-14T03:52:20+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 compression.png,圧縮,圧縮,"Subject: compression, target meaning ""圧縮"" (squeezing).
 
 Composition: Two hands compress a fluffy sponge into a much smaller flattened shape above a shallow basin, with water squeezed from its pores. Keep both hands and the deformed sponge clearly connected, showing pressure reducing volume.
@@ -7806,7 +7806,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,compression,"[""kom"",""per-4""]",squeezing,0935c0117b693264d54ee73e41fd0b110f84a00aad67f47004c62881d6ea6d6e,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,compression,"[""kom"",""per-4""]",squeezing,0935c0117b693264d54ee73e41fd0b110f84a00aad67f47004c62881d6ea6d6e,,Compression flattens the sponge as water squeezes into the basin.,手で圧縮されたスポンジが薄くなり、水がたらいに絞り出されている。,reviewed,c5b09c3847a02719914c26b226d6205c133775fcd626a229ec344f0472500625,19d339024f2a491bba13c8872240e7c76c4331db,2026-10-14T03:52:20+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 glow.png,輝き,輝き,"Subject: glow, target meaning ""輝き"" (radiance).
 
 Composition: A small camping lantern emits a warm glow through its translucent sides, softly illuminating the fingers of the person carrying it. Keep the actual background transparent; use only localized light on the lantern and nearby hand, not an opaque halo.
@@ -7815,7 +7815,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,glow,"[""ghel-2""]",radiance,46f92c4922915cf38a54423819d4179a797b33883d23901e2802bddfa3162224,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,glow,"[""ghel-2""]",radiance,46f92c4922915cf38a54423819d4179a797b33883d23901e2802bddfa3162224,,The camping lantern casts a warm glow on the carrier’s fingers.,キャンプ用ランタンの温かな輝きが、持つ人の指先を照らしている。,reviewed,f3187dc2a6868124fe64da556945af8d762f185b229c5a4fc6c0e13065fe0827,1886a7851269d21d959c656c79524f0662777f7d,2026-10-14T03:52:20+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 substantially.png,実質的には,実質的には,"Subject: substantially, target meaning ""実質的には"" (essentially).
 
 Composition: A restorer shows that an old chair remains essentially the same sturdy structure beneath newly replaced upholstery, lifting one fabric flap to reveal the original frame. The unchanged supporting parts dominate despite cosmetic changes on the surface.
@@ -7824,7 +7824,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,substantially,"[""upo"",""stā-""]",essentially,3d497e151fabaa215582480f6b4619b745f2066c4ba62f30f8f5c6d84e46e361,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,substantially,"[""upo"",""stā-""]",essentially,3d497e151fabaa215582480f6b4619b745f2066c4ba62f30f8f5c6d84e46e361,,The chair remains substantially the same beneath its new upholstery.,椅子は張り替えた布の下で、元の丈夫な骨組みを実質的に保っている。,reviewed,6e827d1374c025005203bbea2cdd52c2e7a6d1642f254a0f3cb2d4f0e391a837,7a07e3dc8a6b3574590fb00a4ea2c30044629c02,2026-10-14T03:53:46+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 attraction.png,魅力,魅力,"Subject: attraction, target meaning ""魅力"" (allure).
 
 Composition: A passerby slows beside a bakery window, drawn toward an appealing display of fresh bread and fruit tarts. Their admiring expression and forward-leaning posture connect the attractive goods to their attention without advertising text.
@@ -7833,7 +7833,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,attraction,"[""ad-"",""tragh-""]",allure,92ca2bd79cd4d1ad1848086aa4a3f1ce7b3a8bb0afd57c9efd00752ce2e4c895,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,attraction,"[""ad-"",""tragh-""]",allure,92ca2bd79cd4d1ad1848086aa4a3f1ce7b3a8bb0afd57c9efd00752ce2e4c895,,Fresh pastries exert an attraction that draws the passerby to the bakery window.,焼きたてのパンやタルトの魅力に引かれ、通行人が店先に足を止めている。,reviewed,29a7f0caf9f88bcee5543294848b15e7d083e2fc3f8c1e5846a4d2849bf1d2da,0c4dd7d31908c12519c997ae157aa5d92a7aceec,2026-10-14T03:53:46+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 continuity.png,連続性,連続性,"Subject: continuity, target meaning ""連続性"" (persistence).
 
 Composition: A weaver passes a single unbroken thread through an unfinished cloth on a small loom, keeping the strand visibly continuous from spool to fabric. The connected path makes continuity concrete without segmented diagrams or repeated panels.
@@ -7842,7 +7842,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,continuity,"[""kom"",""ten-""]",persistence,cada7eb11ff9c39f7365cad11824a0d3e9223a117c26a61f0f8cb8964b9574f5,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,continuity,"[""kom"",""ten-""]",persistence,cada7eb11ff9c39f7365cad11824a0d3e9223a117c26a61f0f8cb8964b9574f5,,A single thread shows continuity from the spool through the woven cloth.,一本の糸が糸巻きから織物まで途切れずに続き、連続性を示している。,reviewed,4dcee8e734e0128afd00488ee4f5ed21c74c13aa680de2ce8bc6b34bb22f3bc0,e5588b3d99b322f163f601b5a4b56526063eb159,2026-10-14T03:53:46+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 covenant.png,契約する,契約する,"Subject: covenant, target meaning ""契約する"" (pledge).
 
 Composition: Two fictional community leaders solemnly clasp hands over a plain agreement scroll, with both setting their seals beside it. Their deliberate mutual gesture conveys entering a covenant, without readable promises, real religious doctrine, or actual legal advice.
@@ -7851,7 +7851,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,covenant,"[""kom"",""gʷā-""]",pledge,38fcb21ec9222d9bf94c5fc8b24bd2a72e58681dc5d31b3e88490d9f9a3d7a4d,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,covenant,"[""kom"",""gʷā-""]",pledge,38fcb21ec9222d9bf94c5fc8b24bd2a72e58681dc5d31b3e88490d9f9a3d7a4d,,The leaders enter a covenant by clasping hands over their sealed agreement.,二人の指導者が合意書に印を添え、握手して契約を結んでいる。,reviewed,74baf6cb8aa4c5f740881e296239aa40ed974c21c4d5ded20cf34cd6ffc2e11a,e35013bd5db2302ea6b654492acd7a669952e10f,2026-10-14T03:53:46+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 declare.png,宣言する,宣言する,"Subject: declare, target meaning ""宣言する"" (proclaim).
 
 Composition: A festival organizer steps onto a small platform and formally raises an open hand to announce the event's opening, while waiting musicians lift their instruments. The public, decisive gesture makes the declaration clear without lettering or dialogue.
@@ -7860,7 +7860,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,declare,"[""de-"",""kelə-2""]",proclaim,ac10478ff245350cb7f2b8774fea5a67b5f7a03ec6e0899d52d8c3f37f192913,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,declare,"[""de-"",""kelə-2""]",proclaim,ac10478ff245350cb7f2b8774fea5a67b5f7a03ec6e0899d52d8c3f37f192913,,The organizer will declare the festival open with a raised hand.,主催者が手を掲げて祭りの開幕を宣言し、演奏者たちが楽器を持ち上げている。,reviewed,fdc789882b24a1aae20aed19d981bb5be0bee24f827ab56ea4b0a998f73c664c,a2519e1396111a2b28e2f8fe7849da3be546f9f8,2026-10-14T03:53:46+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 genius.png,天才,天才,"Subject: genius, target meaning ""天才"" (prodigy).
 
 Composition: A gifted young inventor solves a complex mechanical puzzle by fitting one clever linking piece, while an experienced mentor reacts with genuine surprise. Show the working connected mechanism and unusual insight, without claiming that appearance signals intelligence.
@@ -7869,7 +7869,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,genius,"[""genə-""]",prodigy,a48b583c085a88464f8ef8a56ed7e3fd7dc99c751d39d7e324f11736136acdd5,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,genius,"[""genə-""]",prodigy,a48b583c085a88464f8ef8a56ed7e3fd7dc99c751d39d7e324f11736136acdd5,,The young inventor’s genius becomes clear as one piece completes the mechanism.,若い発明家が巧みな部品で機構を完成させ、師匠を驚かせている。,reviewed,1cc7ae178ddb4df2e817b5300fa56dfbb6900005707fe3b72843436ef143eec0,4ac89bc8542c4dae3c35b65ace9859d89c52e52c,2026-10-14T03:53:46+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 pretend.png,装う,装う,"Subject: pretend, target meaning ""装う"" (feign).
 
 Composition: A child pretends to be asleep on a sofa, keeping one eye slightly open while a caregiver passes by with folded laundry. The controlled still pose and furtive glance reveal acting rather than genuine sleep or unconsciousness.
@@ -7878,7 +7878,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,pretend,"[""per1"",""ten-""]",feign,ba7048beff3f878672d2039e4f044f1db52f8e703b2d76e986ccbeced5103228,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,pretend,"[""per1"",""ten-""]",feign,ba7048beff3f878672d2039e4f044f1db52f8e703b2d76e986ccbeced5103228,,The child will pretend to sleep as the caregiver passes with laundry.,子どもが介護者の前で眠ったふりをし、片目を少し開けている。,reviewed,d6fb7a2335bec1edf65290e2deb33bdd1a9e82bc8d5669d9dbec70bd730e884b,d27cd8f9a1bc67d57a97d6bbe608ab46a789f409,2026-10-14T03:53:46+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 reject_alt1.png,拒絶する,拒絶する,"Subject: reject in the sense of refuse.
 
 Composition: An adult gently pushes an offered damaged chair away with an open palm while shaking their head. The seller still holds the chair, whose visibly broken leg makes the refusal concrete; keep both figures calm and readable.
@@ -7887,7 +7887,7 @@ Style: Match only the rounded 2D style of references/invidious.png: thick dark-b
 
 Framing: One coherent scene, centered, with the complete subject occupying about 80–90% of the square. Keep all essential body parts and object tips fully inside the frame without clipping.
 
-Output: One 512 x 512 PNG with true RGBA transparency in the background and gaps. No lettering, labels, logo, watermark, or checkerboard.",作成済み,,references/invidious.png,reject,"[""re-"",""yē-""]",refuse,2e5dab8b160951e1d75b403c0426b12133989c819a246adc4077949ba5e8f89d,,,,prompt_ready,,,,
+Output: One 512 x 512 PNG with true RGBA transparency in the background and gaps. No lettering, labels, logo, watermark, or checkerboard.",作成済み,,references/invidious.png,reject,"[""re-"",""yē-""]",refuse,2e5dab8b160951e1d75b403c0426b12133989c819a246adc4077949ba5e8f89d,,The customer will reject the damaged chair with a calm open palm.,客が手のひらを向けて首を振り、壊れた椅子を穏やかに拒んでいる。,reviewed,552eee4a1cff0418dba3ea0814627c8928e3442f5f11dfdccb1d1969af7fb087,1794deef03a0985863b1e4c864f84ca4e630a417,2026-10-14T03:53:46+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 reject_alt2.png,拒絶する,拒絶する,"Subject: reject in the sense of refuse.
 
 Composition: An adult gently pushes an offered damaged chair away with an open palm while shaking their head. The seller still holds the chair, whose visibly broken leg makes the refusal concrete; keep both figures calm and readable.
@@ -7896,7 +7896,7 @@ Style: Match only the rounded 2D style of references/invidious.png: thick dark-b
 
 Framing: One coherent scene, centered, with the complete subject occupying about 80–90% of the square. Keep all essential body parts and object tips fully inside the frame without clipping.
 
-Output: One 512 x 512 PNG with true RGBA transparency in the background and gaps. No lettering, labels, logo, watermark, or checkerboard.",作成済み,,references/invidious.png,reject,"[""re-"",""yē-""]",refuse,2e5dab8b160951e1d75b403c0426b12133989c819a246adc4077949ba5e8f89d,,,,prompt_ready,,,,
+Output: One 512 x 512 PNG with true RGBA transparency in the background and gaps. No lettering, labels, logo, watermark, or checkerboard.",作成済み,,references/invidious.png,reject,"[""re-"",""yē-""]",refuse,2e5dab8b160951e1d75b403c0426b12133989c819a246adc4077949ba5e8f89d,,The customer will reject the damaged chair with a calm open palm.,客が手のひらを向けて首を振り、壊れた椅子を穏やかに拒んでいる。,reviewed,9136540fce1cd10accb405567d0e23f44360afaa5827ee8caaed5def8c6eed61,1305dca8b25706fea1ee79e7e1a85a460886be8d,2026-10-14T03:53:46+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 tribe.png,部族,部族,"Subject: tribe, target meaning ""部族"" (clan).
 
 Composition: A fictional tribal community council gathers in a contemporary meeting hall, with elders and younger adults jointly examining a plan for a shared garden. Use ordinary clothing and respectful equal attention; do not invent ethnic costumes, rituals, or a primitive setting.
@@ -7905,7 +7905,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,tribe,"[""trei-""]",clan,492970c9da99a09be07ea4a25cde0ed853424a9afe86189ab63dfa04c0131edc,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,tribe,"[""trei-""]",clan,492970c9da99a09be07ea4a25cde0ed853424a9afe86189ab63dfa04c0131edc,,The tribe’s council plans a shared garden across generations.,部族の評議会で、年長者と若者が一緒に共有菜園の計画を見ている。,reviewed,30b6159a5460f3abbfe94fbd882e8d28fb73358414934a7091813333b4e47e6d,ee6fbb9e868248918d0d7f6cbecb575319375b4f,2026-10-14T03:53:46+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 unnecessary.png,不必要な,不必要な,"Subject: unnecessary, target meaning ""不必要な"" (needless).
 
 Composition: A person sets a second identical umbrella aside before leaving on a clear dry day with an already packed bag. Their dismissive hand gesture and the redundant spare make its lack of necessity contextual without waste or ridicule.
@@ -7914,7 +7914,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,unnecessary,"[""ne"",""ked-""]",needless,a4aef50cfaeaa7b608534e75114438005e2fa7d964b95aec754ff73b9746deae,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,unnecessary,"[""ne"",""ked-""]",needless,a4aef50cfaeaa7b608534e75114438005e2fa7d964b95aec754ff73b9746deae,,A second umbrella seems unnecessary on a clear day.,晴れた日に出かける人が、予備の傘は不必要だと脇へ置いている。,reviewed,32b990f376b00eb75207b9ac2e5ff5424b17431e6b4586ecf2583a1c54e33c6b,cc948d70927fbf49f37ec3452ff90294b70cefce,2026-10-14T03:53:46+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 accountability.png,説明責任,説明責任,"Subject: accountability, target meaning ""説明責任"" (responsibility).
 
 Composition: A project leader openly explains a delayed repair to residents, showing the unfinished bench, remaining materials, and an unreadable progress notebook. Their receptive posture and the residents' questions establish responsibility for explaining outcomes rather than shifting blame.
@@ -7923,7 +7923,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,accountability,"[""ad-"",""pau-2""]",responsibility,2202cc41a4a6e7c0688596307ea4c08ce5c0e6f58b0edd75794e87b13f22a9aa,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,accountability,"[""ad-"",""pau-2""]",responsibility,2202cc41a4a6e7c0688596307ea4c08ce5c0e6f58b0edd75794e87b13f22a9aa,,The project leader accepts accountability while explaining the delayed bench repair.,担当者が住民にベンチの修理の遅れを説明し、責任を引き受けている。,reviewed,912dd57ad9d6a34babba98b272cabdf9f655f84ef18fee3636cb7a6c9ce8cc4b,bf21a9019e46883e142261363385bc79ca4a3ec7,2026-10-14T03:53:46+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 dioxide.png,二酸化物,二酸化物,"Subject: dioxide, target meaning ""二酸化物"" (two-oxygen compound).
 
 Composition: A carbon-dioxide molecule model stands on a laboratory base: one dark central carbon sphere joins a red oxygen sphere at each end in a straight line. A student steadies the stand; the two oxygen atoms remain clearly separated and no formula is required.
@@ -7932,7 +7932,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,dioxide,"[""dwo-"",""ak-""]",two-oxygen compound,0a93f4bda89565db5e0899b6a802a8699904489f241dff91d0150aa7189e8f35,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,dioxide,"[""dwo-"",""ak-""]",two-oxygen compound,0a93f4bda89565db5e0899b6a802a8699904489f241dff91d0150aa7189e8f35,,A dioxide molecule model shows one carbon joined to two oxygen atoms.,模型では、一つの炭素の球が二つの酸素の球につながり、二酸化物の分子を表している。,reviewed,95a144fb487f12df5a9aca861cc964a67e2f5bfd708f7fb7eac9a8ebeef76218,20cc3c89ae9549e228f3c2de0b7d47dc3ac8633f,2026-10-14T03:54:30+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 inadequate.png,不適切な,不適切な,"Subject: inadequate, target meaning ""不適切な"" (unsuitable).
 
 Composition: A person tries to carry a heavy stack of books in a flimsy paper bag, whose handle begins tearing under the unsuitable load. Keep the books supported by their other arm, showing inadequacy for the task without injury.
@@ -7941,7 +7941,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,inadequate,"[""ne"",""ad-""]",unsuitable,ecadf403f06657f1dc2c472083f9383b19dbe1e901d982871a519e646bf05a2f,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,inadequate,"[""ne"",""ad-""]",unsuitable,ecadf403f06657f1dc2c472083f9383b19dbe1e901d982871a519e646bf05a2f,,The paper bag is inadequate for carrying this stack of books.,紙袋では本の山を運ぶには不十分で、持ち手が破れかけている。,reviewed,491f6a4d5a125ec600eecd5a4bacfcecf4f7c4800d82a7d8304be6d7b42c4b91,df4837430918bbd754fbd6788f1e32e63c0984fe,2026-10-14T03:54:30+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 insufficient.png,不十分な,不十分な,"Subject: insufficient, target meaning ""不十分な"" (deficient).
 
 Composition: A baker pours the last small amount of flour from a jar into a large mixing bowl, leaving the recipe visibly short of its main ingredient. Their concerned gaze at the empty jar and unfinished mixture shows insufficient supply.
@@ -7950,7 +7950,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,insufficient,"[""ne"",""upo"",""dhē-""]",deficient,f908a17dec80c193fa01ca98d92f3ec2d1b49c0b6b30e741cbb867f470eaf74f,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,insufficient,"[""ne"",""upo"",""dhē-""]",deficient,f908a17dec80c193fa01ca98d92f3ec2d1b49c0b6b30e741cbb867f470eaf74f,,The baker has insufficient flour for the unfinished mixture.,パン職人の小麦粉は不十分で、ボウルには作りかけの生地が残っている。,reviewed,e7ed001a870b601230988ca5532560232a4f4fd4f434d47864bc8ca01fabc476,620d4be34b8d483d0ec83031335c1caf43a060a8,2026-10-14T03:54:30+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 notably.png,顕著に,顕著に,"Subject: notably, target meaning ""顕著に"" (markedly).
 
 Composition: A gardener admires one strikingly tall sunflower rising above the other plants in the same bed, pointing at its unusually large bloom. The clear height difference makes the feature especially noteworthy without a separate comparison panel.
@@ -7959,7 +7959,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,notably,"[""gnō-""]",markedly,acafe67c80ab112182c16ea6b5a43bb7814621aa44b221b0001aac897b586c0c,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,notably,"[""gnō-""]",markedly,acafe67c80ab112182c16ea6b5a43bb7814621aa44b221b0001aac897b586c0c,,One sunflower rises notably above the others in the garden bed.,一輪のヒマワリが菜園のほかの花より顕著に高く伸びている。,reviewed,056c15bd0c129d592cbd13fed2641b6da54b9c6825481986fd951a646d109bf9,ce9c87039fb38bf1f8b9b3e641852a62101376ed,2026-10-14T03:54:30+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 stance.png,立場,立場,"Subject: stance, target meaning ""立場"" (viewpoint).
 
 Composition: At a planning table, a resident firmly places their hand beside the tree-preserving version of a garden model while another person indicates a paved option. The chosen position and steady expression convey a viewpoint without party symbols or written statements.
@@ -7968,7 +7968,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,stance,"[""stā-""]",viewpoint,c71b8ae99b72f725890e5b30c252125e9e5132c0109a2ac2d0db50672d2a2532,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,stance,"[""stā-""]",viewpoint,c71b8ae99b72f725890e5b30c252125e9e5132c0109a2ac2d0db50672d2a2532,,The resident’s stance favors preserving the tree in the garden plan.,住民は庭の計画で、舗装案より木を残す立場を示している。,reviewed,45c4bb49e6625af2e436c9a8247fdcafcaedcafe3191e102162ed069e184377e,e8ba1d119870b1d02ddb959deecc14c69d233110,2026-10-14T03:54:30+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 sustain.png,持続する,持続する,"Subject: sustain, target meaning ""持続する"" (maintain).
 
 Composition: A gardener steadily feeds a small campfire with another dry stick as existing coals continue glowing inside a safe stone ring. The controlled addition supports an already ongoing flame, showing maintenance rather than ignition or a wildfire.
@@ -7977,7 +7977,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,sustain,"[""upo"",""ten-""]",maintain,bfe77b28d513ffe52f776a783cd66d9ba57904720ceb087ed13b9c70f3608bcd,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,sustain,"[""upo"",""ten-""]",maintain,bfe77b28d513ffe52f776a783cd66d9ba57904720ceb087ed13b9c70f3608bcd,,The gardener adds a stick to sustain the glowing campfire.,庭師が燃え続けるたき火に薪を足し、火を保っている。,reviewed,fc2504eafda875296f33d03b4624b25a0d5d0f04dda1bbba0cc17ad4cb1d282b,a2563c7ae5497996f44ed8a33dc18002d54e2507,2026-10-14T03:54:30+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 atom.png,原子,原子,"Subject: atom, target meaning ""原子"" (particle).
 
 Composition: A classroom atom model has a compact nucleus of red and gray beads with small blue electron beads arranged around it on supported curved tracks. A learner holds the base, keeping the whole simplified atom connected and avoiding a realistic orbital claim.
@@ -7986,7 +7986,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,atom,"[""ne"",""temə-1""]",particle,1b23da1d2faa90a31aefda1f9cdfe5383e6266f5cd0bc3fc07e79138984e0991,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,atom,"[""ne"",""temə-1""]",particle,1b23da1d2faa90a31aefda1f9cdfe5383e6266f5cd0bc3fc07e79138984e0991,,An atom model shows a small nucleus surrounded by electron beads.,学習者が原子模型を持ち、原子核の周りに並ぶ電子を示している。,reviewed,afda0f7342ec5954c9ef34fbb6da26d624b70b740558dad9786158e3d51eba86,77d12b0790958c26ef9a5780cc57f895cebcc7e4,2026-10-14T03:54:30+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 corridor.png,廊下,廊下,"Subject: corridor, target meaning ""廊下"" (hallway).
 
 Composition: A long indoor corridor links several closed room doors, with a person walking toward an open doorway at the far end. Continuous floor, side walls, and overhead lights define the passage without room numbers or exit signs.
@@ -7995,7 +7995,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,corridor,"[""kers-2""]",hallway,3bb7f6ef269e83cef2ea786bfc44fedbb3a446beeb8fd57733141252d8c67158,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,corridor,"[""kers-2""]",hallway,3bb7f6ef269e83cef2ea786bfc44fedbb3a446beeb8fd57733141252d8c67158,,A person walks down a long corridor toward an open doorway.,人が長い廊下を歩き、奥の開いた出入口へ向かっている。,reviewed,150bba262943a5717b0ae3c77afcc0905714dee406abc53b558b320b3e1a0387,1a4ebb2e06b9da1e49121988ccdefb64b80dec76,2026-10-14T03:54:30+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 emphasize.png,強調する,強調する,"Subject: emphasize, target meaning ""強調する"" (highlight).
 
 Composition: A teacher emphasizes a crucial hinge on a working gate model by pointing directly to it while holding the gate still. The learner's gaze follows the exact joint, and the rest of the model remains secondary without arrows or highlighting text.
@@ -8004,7 +8004,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,emphasize,"[""en"",""bhā-1""]",highlight,fee00682ce04f601655e04166c10c7b49ef95300e227afec59972dca7bd3a053,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,emphasize,"[""en"",""bhā-1""]",highlight,fee00682ce04f601655e04166c10c7b49ef95300e227afec59972dca7bd3a053,,The teacher points to emphasize the important hinge on the gate.,教師が門の模型の重要な蝶番を指し、学習者もそこに注目している。,reviewed,49927b8a28041f4e269a109829fc16ee5cb7b41593884bd507f88eea92310707,2a5ffa4ff62f164ba15b5c61e10340d158c15aac,2026-10-14T03:54:30+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 evolutionary.png,進化的な,進化的な,"Subject: evolutionary, target meaning ""進化的な"" (developmental).
 
 Composition: A museum educator examines a physical model of a lineage of related shells whose shapes gradually vary along one branching support. The connected family arrangement conveys evolutionary change across generations, without depicting one living animal instantly transforming.
@@ -8013,7 +8013,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,evolutionary,"[""eghs"",""wel-3""]",developmental,23d583dff30c17b6e0e98c7490191578ee9d34e00c6b0f84efbe710e88a2c176,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,evolutionary,"[""eghs"",""wel-3""]",developmental,23d583dff30c17b6e0e98c7490191578ee9d34e00c6b0f84efbe710e88a2c176,,The shells show evolutionary changes along one connected lineage.,博物館の案内役が枝分かれした貝殻の模型を調べ、進化の変化を示している。,reviewed,a3eb75929b8db199a65dbf39a6a67299ee04a067f634a294d7efb0f35ca4557e,de30ccd9b91b7c8089225b2827a19e211b0f091d,2026-10-14T03:54:30+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 notable.png,注目すべき,注目すべき,"Subject: notable, target meaning ""注目すべき"" (remarkable).
 
 Composition: A museum visitor stops to study an unusually intricate shell among ordinary shells on the same display shelf, leaning closer with interest. Its distinctive spiral and size make it worthy of attention without a label declaring it special.
@@ -8022,7 +8022,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,notable,"[""gnō-""]",remarkable,6c9ceb0e3d6a0c4ba7195357ef418a6037bfd3bf0a694b7a870ee772ae525b7e,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,notable,"[""gnō-""]",remarkable,6c9ceb0e3d6a0c4ba7195357ef418a6037bfd3bf0a694b7a870ee772ae525b7e,,The visitor studies a notable shell among the ordinary specimens.,来館者が並んだ貝殻の中でも注目すべき一つを、身を乗り出して眺めている。,reviewed,32c4748a6fe16e167363385efaa9f6f33cb5fd0dd20d2e45c51bcdf369f4eeab,cc7eabcfad2c9ae9810f0fe895e4b1e3f96977ed,2026-10-14T03:54:30+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 residential.png,居住の,居住の,"Subject: residential, target meaning ""居住の"" (domiciliary).
 
 Composition: A quiet residential street contains several modest homes, front gardens, parked bicycles, and neighbors returning with groceries. Keep the connected living spaces dominant, with no factories, offices, storefront signs, or identifying addresses.
@@ -8031,7 +8031,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,residential,"[""re-"",""sed-""]",domiciliary,9be2668d11b62bef21d349e2418963878ab8804a97681d80e69723a5a4348d34,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,residential,"[""re-"",""sed-""]",domiciliary,9be2668d11b62bef21d349e2418963878ab8804a97681d80e69723a5a4348d34,,Neighbors return to a quiet residential street lined with homes.,近所の人々が、家々と前庭が並ぶ静かな住宅街に戻ってくる。,reviewed,28a3484b745c541fe9bcfc68bf0c400412176e1860b36d840ec8c887308e6ed5,da4a958140e8270f36e0728b18e33fd5dbad9a3b,2026-10-14T03:54:30+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 statute.png,法律,法律,"Subject: statute, target meaning ""法律"" (law).
 
 Composition: A lawmaker refers to an enacted statute in a thick legal volume while a clerk compares it with a plain official document. The formal legislative office and authoritative bound text establish written law, with every line unreadable.
@@ -8040,7 +8040,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,statute,"[""stā-""]",law,c8cb9ea04e8980898e002c010242d047360f7d6da72d6dad000014a1b0ff9d8c,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,statute,"[""stā-""]",law,c8cb9ea04e8980898e002c010242d047360f7d6da72d6dad000014a1b0ff9d8c,,The lawmaker cites a statute in the legal volume while the clerk checks a document.,議員が法令集の法律を示し、書記が公的な書類と照らし合わせている。,reviewed,886cff81ef4830c7d2029392e3e546f582dbb7e0e52c47fc0c776c50f61fdcc8,73218feb01eebd82e5a60c216d7b77a34c1beb24,2026-10-14T03:55:52+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 transparent.png,透明な,透明な,"Subject: transparent, target meaning ""透明な"" (see-through).
 
 Composition: A clear glass jug sits in front of a striped cloth, whose pattern remains visible through the empty vessel. A hand holds the jug by its handle, showing transparency through overlapping real objects rather than a checkerboard background.
@@ -8049,7 +8049,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,transparent,"[""terə-2""]",see-through,93fd6491de2961d44af0808d8edda27bf8c1b6c2f7b77020f3710c3bb85c5c23,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,transparent,"[""terə-2""]",see-through,93fd6491de2961d44af0808d8edda27bf8c1b6c2f7b77020f3710c3bb85c5c23,,The striped cloth remains visible through the transparent glass jug.,透明なガラスの水差し越しに、下の縞模様が見えている。,reviewed,9e6a76b3a4483bf95bf919cd24af267c3f20e37a800e3ee9ca44114ac8fef795,07922f8490a1b21ecd6a4787f8de7f0f92831f1f,2026-10-14T03:55:52+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 unemployment.png,失業,失業,"Subject: unemployment, target meaning ""失業"" (joblessness).
 
 Composition: An unemployed adult visits a job counselor with a plain application folder, sitting attentively beside an unused workbag. The supportive employment-service setting and search materials give context without suggesting laziness, poverty stereotypes, or personal failure.
@@ -8058,7 +8058,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,unemployment,"[""en"",""plek-"",""ne""]",joblessness,74a2231c3001b8bf4c43a571c8c55d46b98a3678e3e614b88f616318c6980fee,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,unemployment,"[""en"",""plek-"",""ne""]",joblessness,74a2231c3001b8bf4c43a571c8c55d46b98a3678e3e614b88f616318c6980fee,,The adult searches for work during a supportive unemployment counseling visit.,失業中の大人が相談員を訪ね、仕事探しの資料を手に話を聞いている。,reviewed,286b0041d6ddde11cce8671fb8391064d1af6626e0409539b22d0f2873c28250,42872625858cb9b9f78fde8d08b854795e483787,2026-10-14T03:55:52+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 useless.png,無用な,無用な,"Subject: useless, target meaning ""無用な"" (worthless).
 
 Composition: A person tries to open an empty tin with a can opener whose turning gear is missing, then sets the unusable tool aside. The visible absent mechanism and unchanged lid explain why the object cannot serve its purpose.
@@ -8067,7 +8067,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,useless,"[""oit-"",""leu-""]",worthless,4b543c5af914d4e1433c5686991142c20af4643f92279b4aac72d00cac81c18a,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,useless,"[""oit-"",""leu-""]",worthless,4b543c5af914d4e1433c5686991142c20af4643f92279b4aac72d00cac81c18a,,The missing gear makes the can opener useless for opening the tin.,回転歯車が欠けた缶切りは役に立たず、缶を開けられない。,reviewed,77bdf6d0e3eaa04fac5884e0445a70aabf7ef1e7b61fe87de14805e9124706e5,46e1c0edf1472a9287845e724d4cdf8f415c72e5,2026-10-14T03:55:52+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 bear.png,熊,熊,"Subject: bear in the sense of bruin.
 
 Composition: A brown bear stands naturally on four broad paws, turning its rounded ears and large muzzle toward the viewer. Use a sturdy furry body and short tail, with no human clothes, heart-shaped props, or carrying action.
@@ -8076,7 +8076,7 @@ Style: Match only the rounded 2D style of references/invidious.png: thick dark-b
 
 Framing: One coherent scene, centered, with the complete subject occupying about 80–90% of the square. Keep all essential body parts and object tips fully inside the frame without clipping.
 
-Output: One 512 x 512 PNG with true RGBA transparency in the background and gaps. No lettering, labels, logo, watermark, or checkerboard.",作成済み,,references/invidious.png,bear,"[""bher-3""]",bruin,b0202e7f1ea0187851cf9324df61282b65b1cafeb08dc6bb23c169b1498a9c42,,,,prompt_ready,,,,
+Output: One 512 x 512 PNG with true RGBA transparency in the background and gaps. No lettering, labels, logo, watermark, or checkerboard.",作成済み,,references/invidious.png,bear,"[""bher-3""]",bruin,b0202e7f1ea0187851cf9324df61282b65b1cafeb08dc6bb23c169b1498a9c42,,"A brown bear stands on four paws, facing the viewer.",茶色い熊が四本足で立ち、こちらを向いている。,reviewed,ac17ba456cbfc4c8cfd7e8f2a554637122dece7cca5c2dcfb3d9740d605bf4e9,bbfd301244b161071563d7ac72b006b9ac24b1c9,2026-10-14T03:55:52+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 defect.png,欠点,欠点,"Subject: defect, target meaning ""欠点"" (flaw).
 
 Composition: A potter examines a finished bowl with a small crack running through its wall, allowing a thin drip to escape onto a tray. The otherwise intact bowl and visible fault make a specific defect clear without destroying the whole object.
@@ -8085,7 +8085,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,defect,"[""de-"",""dhē-""]",flaw,1db7416742a67891bda71ceb8d3af4bb25a4ee95252fc5866188c44213201527,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,defect,"[""de-"",""dhē-""]",flaw,1db7416742a67891bda71ceb8d3af4bb25a4ee95252fc5866188c44213201527,,A small crack is a defect in the otherwise intact bowl.,陶工が器の壁に入ったひびを調べ、そこから水が漏れている。,reviewed,dfd21c527776ac6147462cef01844a94a539d506f04c0c3e71331ce839bdb759,2894a5a1bf33212fe661f57473c0598dc465597a,2026-10-14T03:55:52+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 implicit.png,暗黙の,暗黙の,"Subject: implicit, target meaning ""暗黙の"" (tacit).
 
 Composition: Two experienced bakers exchange a brief glance, and one immediately passes the needed rolling pin into the other's waiting hand. Their coordinated action conveys an unspoken understanding without dialogue, signs, or an explicit pointing instruction.
@@ -8094,7 +8094,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,implicit,"[""en"",""plek-""]",tacit,24791b4e0f5fd60f9accfb92cb08eb6fa47c4810d455982e034e07c62c710228,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,implicit,"[""en"",""plek-""]",tacit,24791b4e0f5fd60f9accfb92cb08eb6fa47c4810d455982e034e07c62c710228,,The bakers share an implicit understanding as one passes the needed rolling pin.,二人のパン職人は言葉を交わさずに意図を察し、必要な麺棒を手渡している。,reviewed,012a101dbff98ffcaa06d350ad4f8bb2e8fd26fd19363487cf55a59e1d67f327,0972b1682f97240375479d92e1c82423d3e302ec,2026-10-14T03:55:52+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 mankind.png,人類,人類,"Subject: mankind, target meaning ""人類"" (humanity).
 
 Composition: A varied group of human beings of different ages cooperates to plant a young tree around a small globe-shaped planter. Their ordinary clothing and shared care suggest humanity collectively, without equating any appearance with a national identity.
@@ -8103,7 +8103,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,mankind,"[""man-1"",""genə-""]",humanity,2b68195e37a436b6ba325e033f54ceaa28291ff774a98954902b02af37f537d9,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,mankind,"[""man-1"",""genə-""]",humanity,2b68195e37a436b6ba325e033f54ceaa28291ff774a98954902b02af37f537d9,,Mankind works together as people of different ages plant a tree.,さまざまな年齢の人々が力を合わせて木を植え、人類の協力を表している。,reviewed,33d811cb993dc7ef7ffe69b34b772ea051b755ac22de4dc8e35ffa5837851e96,c6d1e28a24088318c69aae40436a542217ff932c,2026-10-14T03:55:52+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 collar.png,えり,えり,"Subject: collar, target meaning ""えり"" (neckband).
 
 Composition: An adult folds down the collar of a plain shirt while looking in a small mirror, fingers adjusting the two points beside the neck. Keep the shirt's shoulders and neckline intact, with no tie, label, or detached garment part.
@@ -8112,7 +8112,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,collar,"[""kʷel-1""]",neckband,2d4e8089e8e2603b28064a6bfb07e658eaadea5612ec353f02c1a79ba1e25718,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,collar,"[""kʷel-1""]",neckband,2d4e8089e8e2603b28064a6bfb07e658eaadea5612ec353f02c1a79ba1e25718,,The adult adjusts the shirt collar while checking it in a mirror.,大人が小さな鏡を見ながら、シャツの襟を整えている。,reviewed,374abac0ff24d8d1b729b550058a54f49157603bd983bb9f231e20c879fbf0ca,017f0258e59fa99e3587ac8f4a8442edf5e079ff,2026-10-14T03:55:52+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 convey.png,運ぶ,運ぶ,"Subject: convey, target meaning ""運ぶ"" (transport).
 
 Composition: A porter conveys a suitcase from a station entrance to a waiting trolley, carrying it securely by its handle. Show the path between origin and destination within one compact scene, keeping the act of transport central.
@@ -8121,7 +8121,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,convey,"[""kom"",""wegh-""]",transport,e8c0b63a967a94e2269312d015732f208ab2edd9c7564fdd0bebb2be81ad66db,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,convey,"[""kom"",""wegh-""]",transport,e8c0b63a967a94e2269312d015732f208ab2edd9c7564fdd0bebb2be81ad66db,,The porter will convey a suitcase from station entrance to trolley.,ポーターが駅の入口から待機中の台車へ、スーツケースを運んでいる。,reviewed,43f7dab0fb8a3f223505d8ca3e098bbb251bbe3e0699792f2b79759a788d8a6f,1b064d164b8db2370bff04b2a8e765126a9c5438,2026-10-14T03:55:52+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 definite.png,明確な,明確な,"Subject: definite, target meaning ""明確な"" (clear-cut).
 
 Composition: A craft instructor points firmly to one clearly outlined cutting line on a wooden board while the learner positions a ruler exactly along it. Other parts remain unmarked, making the intended boundary definite without written instructions.
@@ -8130,7 +8130,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,definite,"[""de-""]",clear-cut,1686ce1f3a5ff39cf5020a1ae587f31ab0fa85bf5d4d7702ee9a1123c35d3ace,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,definite,"[""de-""]",clear-cut,1686ce1f3a5ff39cf5020a1ae587f31ab0fa85bf5d4d7702ee9a1123c35d3ace,,The instructor marks one definite cutting line for the learner.,指導者が板に一本の明確な切断線を示し、学習者が定規を合わせている。,reviewed,a973abf0027603b59c030117e9a1c2442508e7245c77a702e609b61c53bf8fde,00894e7bee0ced6cff9023c0e346ca00e3b03c26,2026-10-14T03:55:52+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 disposal.png,処分,処分,"Subject: disposal, target meaning ""処分"" (elimination).
 
 Composition: A household sorts a broken ceramic cup into a sturdy disposal container, keeping the sharp pieces wrapped safely in paper. The unusable object and deliberate discard action show disposal rather than repair, donation, or leaving litter outdoors.
@@ -8139,7 +8139,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,disposal,"[""dwis-"",""apo-""]",elimination,dd285884e157ecfc89c9c463632e53b272d8bea1d5bd9b1215d5e530f6942d85,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,disposal,"[""dwis-"",""apo-""]",elimination,dd285884e157ecfc89c9c463632e53b272d8bea1d5bd9b1215d5e530f6942d85,,The household wraps a broken cup before its careful disposal.,家族が割れたカップを紙で包み、安全に処分しようとしている。,reviewed,37a9c7461ef957d31d16e33642e7b715c5c2ae879616e0620fe9489e937f9c80,20ba0f748bc6cc975d74cf890a4cf90eab5493fb,2026-10-14T03:55:52+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 imply.png,暗に意味する,暗に意味する,"Subject: imply, target meaning ""暗に意味する"" (suggest).
 
 Composition: A dinner guest glances toward an empty water glass and gently slides it nearer the host, who reaches for the pitcher. The indirect gesture communicates a request without pointing overtly, speaking, or using a written message.
@@ -8148,7 +8148,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,imply,"[""en"",""plek-""]",suggest,1dd4c40d45cef38c50ffb0ba555e3f3468d4cc1ce70d9922e02cdad0605ee989,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,imply,"[""en"",""plek-""]",suggest,1dd4c40d45cef38c50ffb0ba555e3f3468d4cc1ce70d9922e02cdad0605ee989,,The empty glass can imply a request for water as the host reaches for the pitcher.,空のグラスを主人の前に寄せる仕草が、水を頼みたい気持ちを暗に伝えている。,reviewed,a0e71f8800247fabf4395d4c666bfdc6ba9f2f4cf2618af7ce65e1cde97e9e77,1729d53638e9b6c2049ae4e99c5e0f8a8c3f6d6c,2026-10-14T03:57:41+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 pound.png,ポンド,ポンド,"Subject: pound in the sense of weight unit.
 
 Composition: A grocer places a traditional metal weight on a balance scale opposite a bag of produce, checking that the pans settle level. Show the physical weighing context without a number, currency sign, or claim about a precise amount.
@@ -8157,7 +8157,7 @@ Style: Match only the rounded 2D style of references/invidious.png: thick dark-b
 
 Framing: One coherent scene, centered, with the complete subject occupying about 80–90% of the square. Keep all essential body parts and object tips fully inside the frame without clipping.
 
-Output: One 512 x 512 PNG with true RGBA transparency in the background and gaps. No lettering, labels, logo, watermark, or checkerboard.",作成済み,,references/invidious.png,pound,"[""(s)pen-""]",weight unit,eda99c844c4d844f96cf6db7b99d89871f6d45f48520a0318fa673e5a1974b60,,,,prompt_ready,,,,
+Output: One 512 x 512 PNG with true RGBA transparency in the background and gaps. No lettering, labels, logo, watermark, or checkerboard.",作成済み,,references/invidious.png,pound,"[""(s)pen-""]",weight unit,eda99c844c4d844f96cf6db7b99d89871f6d45f48520a0318fa673e5a1974b60,,A metal pound weight balances a bag of produce on the grocer’s scale.,食料品店の秤で、金属製のおもりと野菜の袋が釣り合っている。,reviewed,0c9fc6b466b1634ab6555c8a402821d5825de38676878fd3a166fcf1502be355,2ed93942a00b2e50a4e3c25d571040c3a15faa3a,2026-10-14T03:57:41+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 silly.png,愚かな,愚かな,"Subject: silly, target meaning ""愚かな"" (foolish).
 
 Composition: A person tries to wear a cooking colander as a sunhat, then laughs at their own impractical choice while sunlight passes through the holes. Keep the scene harmless and playful, without linking foolishness to disability or appearance.
@@ -8166,7 +8166,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,silly,"[""kom"",""sel-2""]",foolish,58698503ddc8931dd4eab34dcb05beb3b134ba806d07cee04b88f4f1c09c394f,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,silly,"[""kom"",""sel-2""]",foolish,58698503ddc8931dd4eab34dcb05beb3b134ba806d07cee04b88f4f1c09c394f,,A person wears a colander as a silly sunhat and laughs at the choice.,人がざるを愚かな日よけ帽子代わりにかぶり、その選択を笑っている。,reviewed,10157f71de506fcd285e223061d89055787e68fa100bd3d8d75e15868cea7e76,12b4e5a6ecd8b4f3581ab9e71416b4c3f0e89633,2026-10-14T03:57:41+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 twin.png,双子,双子,"Subject: twin, target meaning ""双子"" (paired sibling).
 
 Composition: Two young twins of the same age sit together building a shared block tower, with similar facial features but different plain clothing. An adult stands nearby supportively; do not imply that matching outfits alone establish twinship.
@@ -8175,7 +8175,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,twin,"[""dwo-""]",paired sibling,5da66386e1cab5b8ac75f812be81e319aa4e72de288d7020bcac9578a9b65fdf,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,twin,"[""dwo-""]",paired sibling,5da66386e1cab5b8ac75f812be81e319aa4e72de288d7020bcac9578a9b65fdf,,Each twin helps build their shared block tower while an adult watches.,双子が一緒に積み木の塔を作り、そばで大人が見守っている。,reviewed,9cd0dd2c38864ca61f4815d26ce630390e7014310779607a65cbeb1ad648d5ef,5ab4c20d3b67c492cf46e7b6abc8356a91b9a28a,2026-10-14T03:57:41+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 vitamin_alt1.png,ビタミン,ビタミン,"Subject: vitamin in the sense of nutrient.
 
 Composition: An adult holds a small plain vitamin bottle beside a breakfast plate containing sliced orange and vegetables. A single tablet rests on the open palm, connecting the nutrient supplement with food without dosage claims or readable packaging.
@@ -8184,7 +8184,7 @@ Style: Match only the rounded 2D style of references/invidious.png: thick dark-b
 
 Framing: One coherent scene, centered, with the complete subject occupying about 80–90% of the square. Keep all essential body parts and object tips fully inside the frame without clipping.
 
-Output: One 512 x 512 PNG with true RGBA transparency in the background and gaps. No lettering, labels, logo, watermark, or checkerboard.",作成済み,,references/invidious.png,vitamin,"[""gwei-""]",nutrient,c622c7af05db9cad24e4a2e51d4ad7a6134131f44bad23a84c89cd70e2a82a80,,,,prompt_ready,,,,
+Output: One 512 x 512 PNG with true RGBA transparency in the background and gaps. No lettering, labels, logo, watermark, or checkerboard.",作成済み,,references/invidious.png,vitamin,"[""gwei-""]",nutrient,c622c7af05db9cad24e4a2e51d4ad7a6134131f44bad23a84c89cd70e2a82a80,,The adult holds a vitamin bottle beside fruit and vegetables at breakfast.,大人が朝食の果物や野菜のそばで、ビタミンの小瓶を手にしている。,reviewed,db1e4884dc0a006d806d5fda58c9d72f227e995d3dd70638aabb6a1f7853635c,1e73cc957b95be2d8098c1a7981f4ebfe49e320c,2026-10-14T03:57:41+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 vitamin_alt2.png,ビタミン,ビタミン,"Subject: vitamin in the sense of nutrient.
 
 Composition: An adult holds a small plain vitamin bottle beside a breakfast plate containing sliced orange and vegetables. A single tablet rests on the open palm, connecting the nutrient supplement with food without dosage claims or readable packaging.
@@ -8193,7 +8193,7 @@ Style: Match only the rounded 2D style of references/invidious.png: thick dark-b
 
 Framing: One coherent scene, centered, with the complete subject occupying about 80–90% of the square. Keep all essential body parts and object tips fully inside the frame without clipping.
 
-Output: One 512 x 512 PNG with true RGBA transparency in the background and gaps. No lettering, labels, logo, watermark, or checkerboard.",作成済み,,references/invidious.png,vitamin,"[""gwei-""]",nutrient,c622c7af05db9cad24e4a2e51d4ad7a6134131f44bad23a84c89cd70e2a82a80,,,,prompt_ready,,,,
+Output: One 512 x 512 PNG with true RGBA transparency in the background and gaps. No lettering, labels, logo, watermark, or checkerboard.",作成済み,,references/invidious.png,vitamin,"[""gwei-""]",nutrient,c622c7af05db9cad24e4a2e51d4ad7a6134131f44bad23a84c89cd70e2a82a80,,The adult holds a vitamin bottle beside fruit and vegetables at breakfast.,大人が朝食の果物や野菜のそばで、ビタミンの小瓶を手にしている。,reviewed,32d5dfae07e83880729ff7249e7e38c5763d5dc15942235572c80f75cf1921dd,cbc62d889ccb78de757d2b9e456e98a4ecf07251,2026-10-14T03:57:41+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 alliance.png,同盟,同盟,"Subject: alliance, target meaning ""同盟"" (pact).
 
 Composition: Two fictional community leaders join hands over a shared bridge model while their respective groups bring tools to work together. Equal positions and pooled resources convey a cooperative alliance without military flags or real political organizations.
@@ -8202,7 +8202,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,alliance,"[""ad-"",""leig-"",""-nt-""]",pact,13061a75f351ee7ff9b64aade0e9a942b2b797ec61c57435fcd37299132a4237,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,alliance,"[""ad-"",""leig-"",""-nt-""]",pact,13061a75f351ee7ff9b64aade0e9a942b2b797ec61c57435fcd37299132a4237,,The two groups form an alliance while joining hands over a bridge model.,二つのグループが橋の模型を囲み、手を取り合って協力関係を結んでいる。,reviewed,01453700bd2f1be23cbbe100821853da2942ed68e16710e10e1877a81395c7cf,1de36301e588f81ca4b252b69817944acc374037,2026-10-14T03:57:41+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 associate.png,交際する,交際する,"Subject: associate, target meaning ""交際する"" (mingle).
 
 Composition: Several adults associate socially at a community gathering, exchanging friendly conversation around a refreshment table. One newcomer joins the open circle and receives a welcoming gesture, emphasizing interaction rather than employment or a business partnership.
@@ -8211,7 +8211,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,associate,"[""ad-"",""sekʷ-1""]",mingle,848279c25a9a924a7dcc507d65ae1800ee2e1e36ce3edb979a6a43f854b65b4e,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,associate,"[""ad-"",""sekʷ-1""]",mingle,848279c25a9a924a7dcc507d65ae1800ee2e1e36ce3edb979a6a43f854b65b4e,,The newcomer begins to associate with the group over refreshments.,新しく来た人が飲み物のテーブルで輪に加わり、参加者と親しく話している。,reviewed,ef37c815422292b3678f597c0636e6fafb3436bd28e660167661719bcecd0da2,ed1a214c01bd59322ec67dfb19a707d5192eb705,2026-10-14T03:57:41+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 comply.png,従う,従う,"Subject: comply, target meaning ""従う"" (obey).
 
 Composition: A workshop visitor follows a supervisor's safety instruction by fastening protective goggles before passing through the entrance. The supervisor checks the fit and opens the way, making willing compliance visible without written rules.
@@ -8220,7 +8220,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,comply,"[""kom"",""pelə-1""]",obey,a6bac1c243bc8af36606aca69424502628b49a7db2189e7bf478c688362de312,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,comply,"[""kom"",""pelə-1""]",obey,a6bac1c243bc8af36606aca69424502628b49a7db2189e7bf478c688362de312,,The workshop visitor will comply by fastening protective goggles at the entrance.,作業場を訪れた人が指示に従い、入口で保護ゴーグルを着けている。,reviewed,29e26fae7ee47e3f08d43d0cfb41161dea19174ae471813c94c473d59c810bd3,69c4b52f0cef81075104a58d357fde2db92cb6e0,2026-10-14T03:57:41+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 impulse.png,衝動,衝動,"Subject: impulse, target meaning ""衝動"" (urge).
 
 Composition: A shopper impulsively reaches toward a bright pastry at a counter while still holding the grocery list they had been studying. Their suddenly eager expression and interrupted original task show a spontaneous urge, without depicting reckless spending.
@@ -8229,7 +8229,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,impulse,"[""en"",""pel-6""]",urge,80507ab950d5603b20ac5bb1af6023b67cb0153813641edcef1bfb7ee56c1f43,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,impulse,"[""en"",""pel-6""]",urge,80507ab950d5603b20ac5bb1af6023b67cb0153813641edcef1bfb7ee56c1f43,,A sudden impulse draws the shopper toward a pastry at the counter.,買い物客が衝動に駆られ、カウンターの菓子へ思わず手を伸ばしている。,reviewed,612ea804c3a1603c55c73af228e78b46aca080c5abe7f2b6644048c43b94fe4d,42c0dbf1741a07dff9891e20169f3c716cfb1eb6,2026-10-14T03:57:41+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 invest.png,投資する,投資する,"Subject: invest, target meaning ""投資する"" (finance).
 
 Composition: A small-business partner contributes coins to purchase a new pottery wheel while the potter shows the expanded work area. The funds are directed into productive equipment, making investment concrete without securities, promised returns, or financial advice.
@@ -8238,7 +8238,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,invest,"[""en"",""wes-4""]",finance,3a3ed3137859115af154adcfc53f3b6a47457fff52698d9da2b9fda165b5d553,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,invest,"[""en"",""wes-4""]",finance,3a3ed3137859115af154adcfc53f3b6a47457fff52698d9da2b9fda165b5d553,,The partners invest in a new pottery wheel with their coins.,共同経営者たちが硬貨を出し合い、新しい陶芸用ろくろに投資している。,reviewed,13ca5cbfa4a4008027e7e8ee3c54e821e25adb9de046b0a3f8ad5d8d5f5bae03,085e8592913b3f5e696473a0ed777751073fc868,2026-10-14T03:57:41+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 modest.png,謙遜した,謙遜した,"Subject: modest, target meaning ""謙遜した"" (humble).
 
 Composition: A prize-winning gardener lowers their gaze modestly and gestures toward the helpers beside them as an organizer presents a ribbon. Their warm restrained smile and shared credit convey humility without embarrassment or low self-worth.
@@ -8247,7 +8247,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,modest,"[""med-""]",humble,0c69b6ad6eb076cc2e42775c2df13f30c94e1467d5b8d0157db637065ca8da00,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,modest,"[""med-""]",humble,0c69b6ad6eb076cc2e42775c2df13f30c94e1467d5b8d0157db637065ca8da00,,The modest gardener shares credit with helpers while receiving a ribbon.,謙虚な庭師がリボンを受け取りながら、手伝った仲間にも功績を譲っている。,reviewed,3ffeb884a20027db5bd154ab5120d4a73a9173c93130dc8d02db1088f55c4876,7a9d7aa9fd92c17a94b31b4f568a29a6eb972f3a,2026-10-14T03:57:41+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 surrender_alt1.png,降伏する,降伏する,"Subject: surrender in the sense of capitulate.
 
 Composition: A fictional soldier has laid a rifle flat on the ground and steps away from it with both empty hands raised. Another soldier watches calmly from a distance; show a resigned expression, no active violence, and no real military insignia.
@@ -8256,7 +8256,7 @@ Style: Match only the rounded 2D style of references/invidious.png: thick dark-b
 
 Framing: One coherent scene, centered, with the complete subject occupying about 80–90% of the square. Keep all essential body parts and object tips fully inside the frame without clipping.
 
-Output: One 512 x 512 PNG with true RGBA transparency in the background and gaps. No lettering, labels, logo, watermark, or checkerboard.",作成済み,,references/invidious.png,surrender,"[""uper"",""re-"",""dō-""]",capitulate,42ae68e9fce86a594eacd2a1ff456e739bfe13b6ce0b5fd2e43955b516aff55c,,,,prompt_ready,,,,
+Output: One 512 x 512 PNG with true RGBA transparency in the background and gaps. No lettering, labels, logo, watermark, or checkerboard.",作成済み,,references/invidious.png,surrender,"[""uper"",""re-"",""dō-""]",capitulate,42ae68e9fce86a594eacd2a1ff456e739bfe13b6ce0b5fd2e43955b516aff55c,,"The soldier chooses to surrender, leaving the rifle on the ground.",兵士が銃を地面に置き、両手を上げて降伏している。,reviewed,83e41737b9a9b9b5d8acc1063e14b105c433f3c957b40af540c67257a0070a73,009a596b4cec80497dbea215ec34783982e33a57,2026-10-14T03:59:09+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 surrender_alt2.png,降伏する,降伏する,"Subject: surrender in the sense of capitulate.
 
 Composition: A fictional soldier has laid a rifle flat on the ground and steps away from it with both empty hands raised. Another soldier watches calmly from a distance; show a resigned expression, no active violence, and no real military insignia.
@@ -8265,7 +8265,7 @@ Style: Match only the rounded 2D style of references/invidious.png: thick dark-b
 
 Framing: One coherent scene, centered, with the complete subject occupying about 80–90% of the square. Keep all essential body parts and object tips fully inside the frame without clipping.
 
-Output: One 512 x 512 PNG with true RGBA transparency in the background and gaps. No lettering, labels, logo, watermark, or checkerboard.",作成済み,,references/invidious.png,surrender,"[""uper"",""re-"",""dō-""]",capitulate,42ae68e9fce86a594eacd2a1ff456e739bfe13b6ce0b5fd2e43955b516aff55c,,,,prompt_ready,,,,
+Output: One 512 x 512 PNG with true RGBA transparency in the background and gaps. No lettering, labels, logo, watermark, or checkerboard.",作成済み,,references/invidious.png,surrender,"[""uper"",""re-"",""dō-""]",capitulate,42ae68e9fce86a594eacd2a1ff456e739bfe13b6ce0b5fd2e43955b516aff55c,,"The soldier chooses to surrender, leaving the rifle on the ground.",兵士が銃を地面に置き、両手を上げて降伏している。,reviewed,b8046aaaefbadf225399c13efbda6882fb7392a9787be2ce388c9d4c466958db,60cb5452ad6097106c2cfd99770f24bdf244ebb4,2026-10-14T03:59:09+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 Amazon.png,アマゾン,アマゾン,"Subject: Amazon, target meaning ""アマゾン"" (woman warrior).
 
 Composition: A fictional Amazon warrior from Greek myth stands alert beside a training target, wearing practical ancient-style armor and carrying a lowered bow. Keep her confident, fully clothed, and nonsexualized, with no modern retailer, rainforest, or historical claim of exact dress.
@@ -8274,7 +8274,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,Amazon,"[""sem-1"",""magh-2""]",woman warrior,ccd48dc43c635fcde8aaeca11c343ff7bb9a6247405e4761093df11eedb3bb7d,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,Amazon,"[""sem-1"",""magh-2""]",woman warrior,ccd48dc43c635fcde8aaeca11c343ff7bb9a6247405e4761093df11eedb3bb7d,,An Amazon warrior stands ready beside a Greek training target.,ギリシャ神話のアマゾンの戦士が、弓を下げて訓練用の的のそばに立っている。,reviewed,50569373ecd0de87a66c95c47136b9a2cb72da1152a46d70e4fa553659d5a4e9,ddc9c6ba81758328ade94b7c497699e401e5e93d,2026-10-14T03:59:09+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 behave.png,振る舞う,振る舞う,"Subject: behave, target meaning ""振る舞う"" (act).
 
 Composition: A child behaves considerately in a library, placing a book gently on the desk and waiting calmly while another reader passes. Natural posture and attention to others show conduct in a social setting without a written rule sign.
@@ -8283,7 +8283,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,behave,"[""ambhi"",""kap-""]",act,9c0fc7f213047779f04cbab9d72554bfdc2e6c376b87e43ed548244c3a13c6a0,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,behave,"[""ambhi"",""kap-""]",act,9c0fc7f213047779f04cbab9d72554bfdc2e6c376b87e43ed548244c3a13c6a0,,The child will behave considerately in the library while setting a book down.,子どもが図書室で本を静かに机へ置き、ほかの読者に配慮している。,reviewed,f4409acaa1e99b2059d32fa9430b9faa37ac843a8ae6321e48d186cba96d2720,ac2f0e97517a932ccb87dbb18b720ec77d60e9f2,2026-10-14T03:59:09+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 illustration.png,さし絵,さし絵,"Subject: illustration, target meaning ""さし絵"" (picture).
 
 Composition: An illustrator adds a small fox drawing beside unreadable story lines on a book page while the open volume rests on a desk. The picture clearly accompanies the text, distinguishing an illustration from a freestanding portrait or photographic print.
@@ -8292,7 +8292,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,illustration,"[""en"",""leuk-""]",picture,933f037763e36510bcf6301d9a285297f24aa3ed7ded7b325a0d04e2a8faaf4a,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,illustration,"[""en"",""leuk-""]",picture,933f037763e36510bcf6301d9a285297f24aa3ed7ded7b325a0d04e2a8faaf4a,,An illustration of a fox accompanies the unreadable story on the open book.,開いた本の読めない文章のそばに、物語を彩るキツネのさし絵が描かれている。,reviewed,0bdcb661783f694a1eb8e7a6ff0b8651fc518152fc6bd7910611e38c3a4196a4,6b205a432ac762bc62ce80ddb2c87854c12ed015,2026-10-14T03:59:09+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 inability.png,無能,無能,"Subject: inability, target meaning ""無能"" (incapacity).
 
 Composition: A person cannot reach a high cupboard shelf despite stretching safely from the floor, then asks a taller housemate to help. Their hands remain short of the handle, making a specific inability contextual rather than defining the person's overall worth.
@@ -8301,7 +8301,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,inability,"[""ne"",""ghabh-""]",incapacity,67c2d979bb4f423ccda69d3455a2e42b4f96dd06ffd4d478d3b8da4ecec63799,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,inability,"[""ne"",""ghabh-""]",incapacity,67c2d979bb4f423ccda69d3455a2e42b4f96dd06ffd4d478d3b8da4ecec63799,,The child’s inability to reach the high cupboard is clear.,子どもが背伸びをしても、高い戸棚の取っ手に届かない。,reviewed,114ee0a0f3ac44ba15eaa01ec9d5ad171990ff0ca199590ffb880f488218df1f,46f4c88ce7f1b98a1d4f3b16a83bc5813ecc657b,2026-10-14T03:59:09+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 metrics.png,韻律学,韻律学,"Subject: metrics, target meaning ""韻律学"" (prosody).
 
 Composition: A poetry scholar studies a manuscript with the exact metrical pattern — ∪ ∪ | — ∪ ∪ above one unreadable verse line, tracing its repeated rhythm with a pencil while tapping a fingertip. These minimal scansion marks are the study objects; add no explanatory labels.
@@ -8310,7 +8310,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. Allow only the essential scansion marks — ∪ ∪ | — ∪ ∪. All poem writing must be unreadable; no other text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,metrics,"[""mē-2""]",prosody,36286f6ebbfe0d8da94b7ebd38d1f0407067203c79fdaa15379ea6d52d0cdd05,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. Allow only the essential scansion marks — ∪ ∪ | — ∪ ∪. All poem writing must be unreadable; no other text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,metrics,"[""mē-2""]",prosody,36286f6ebbfe0d8da94b7ebd38d1f0407067203c79fdaa15379ea6d52d0cdd05,,The scholar scans poetic metrics with repeated marks above a verse.,詩の研究者が、韻律を表す記号を一行の詩の上に記して調べている。,reviewed,59330fbbe6cc0a989b70b2536dfa1841f0df9540855f569ea8e40991e3c82cf2,4af9a22613c7accf818e6a5049d968cab28e87cb,2026-10-14T03:59:09+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 portfolio.png,書類ばさみ,書類ばさみ,"Subject: portfolio, target meaning ""書類ばさみ"" (folder).
 
 Composition: A designer opens a large flat portfolio folder on a table, revealing protected drawings held beneath its inner straps. Show the stiff covers, handle, and broad paper sheets, keeping the document-carrying case central rather than a financial chart.
@@ -8319,7 +8319,7 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,portfolio,"[""per-2"",""bhel-3""]",folder,a5c9a4750a04fe38b241b7e0681b20602d3e36de8f9c5317f4ef5fc98237db9f,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,portfolio,"[""per-2"",""bhel-3""]",folder,a5c9a4750a04fe38b241b7e0681b20602d3e36de8f9c5317f4ef5fc98237db9f,,The designer opens a portfolio of protected drawings on the table.,デザイナーが書類ばさみを開き、中に保護された図面を見せている。,reviewed,530025d1f72f618ca8b086eba75e6c506c52c3ddf30078ddb16081ce0029efd5,b3333bd561ef3b3dbbc3a906356643fad388f46c,2026-10-14T03:59:09+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
 probable.png,起こりそうな,起こりそうな,"Subject: probable, target meaning ""起こりそうな"" (likely).
 
 Composition: A gardener sees heavy dark clouds gathering directly above the garden and brings a watering can back indoors, expecting rain soon. The dampening breeze and prepared shelter make the anticipated outcome likely without depicting it as certain.
@@ -8328,4 +8328,4 @@ Style: Use references/invidious.png only for its thick rounded dark-brown outlin
 
 Framing: One cohesive scene, complete subject occupying 80–90% of the square; keep all limbs and objects inside the frame.
 
-Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,probable,"[""per1"",""bheuə-""]",likely,8f05c7568f6a68fadc5883c4d454021cce7058fe862a6b3218802c1930909175,,,,prompt_ready,,,,
+Output: 512×512 PNG, RGBA with genuine alpha transparency in background and gaps. No text, letters, numerals, labels, speech balloons, logos, or watermark.",作成済み,,references/invidious.png,probable,"[""per1"",""bheuə-""]",likely,8f05c7568f6a68fadc5883c4d454021cce7058fe862a6b3218802c1930909175,,"Dark clouds make rain probable, so the gardener brings the watering can indoors.",黒い雲が広がり、雨が降りそうなので庭師がじょうろを屋内へ戻している。,reviewed,b6d67d5ab77f3fc87de8f61a055bac28fe0b3c5484c3f2cd5a23782cf61aac5e,3c0708c8ec4d0cd2b6ed1826282a8599a0870372,2026-10-14T03:59:09+09:00,既存画像への解説追加・実行プロンプト不明。実画像と第一語義・日英解説を照合。
