@@ -4,15 +4,15 @@
   "files": {
     "roots": {
       "file": "roots.json",
-      "bytes": 1033895,
+      "bytes": 1033224,
       "count": 1436,
-      "sha256": "765a7960a27c2399725f1d8b014d2fd0febf8dde40c17066a2c21a21570b3c06"
+      "sha256": "b9147f4644de8ca168675c71c7dda68179e995736411db8e236bf85589870e7b"
     },
     "words": {
       "file": "words.json",
-      "bytes": 21499592,
+      "bytes": 23023154,
       "count": 49168,
-      "sha256": "5375a6efb548b721ff6d884291527633a4e954e952ab63b2a597dd9f6116d5c1"
+      "sha256": "be95b22ca8c8e4ab41cee4ba9c5f18b18bf73140487e974845809897f85fe663"
     },
     "affixes": {
       "file": "affixes.json",
