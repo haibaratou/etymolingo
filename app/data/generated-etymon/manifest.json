@@ -10,9 +10,9 @@
     },
     "words": {
       "file": "words.json",
-      "bytes": 23023154,
+      "bytes": 23023403,
       "count": 49168,
-      "sha256": "be95b22ca8c8e4ab41cee4ba9c5f18b18bf73140487e974845809897f85fe663"
+      "sha256": "305562a11a2516f4265c86a652173386a85533e045302bc5c58aeb4de60b6040"
     },
     "affixes": {
       "file": "affixes.json",
@@ -47,15 +47,15 @@
     },
     "illustration_scenes": {
       "file": "illustration-scenes.json",
-      "bytes": 11971527,
-      "count": 9559,
-      "sha256": "81b18f75c1276999e7a79bcab0b10a6de8901b57139f8361f10628648229631b"
+      "bytes": 11974207,
+      "count": 9560,
+      "sha256": "5398199324da355f40b1ce9fff1cc4696dfcd0d0d48904d905e32832040246dc"
     },
     "word_suika_words": {
       "file": "word-suika-words.json",
-      "bytes": 3517358,
+      "bytes": 3517582,
       "count": 14688,
-      "sha256": "9877d3f7d29d13740c36708f074f56ef28970b550ca410949c48d92bf1a90dab"
+      "sha256": "cb85e70fe89f2ff9947db5de8e2b4560d708fb0c5b76aded25070e100fac47b7"
     },
     "det": {
       "file": "det/*.json",
@@ -130,11 +130,11 @@
         {
           "file": "offline-dictionary.js",
           "bytes": 1380,
-          "sha256": "33081fe19d189f2f78c3869baf48d783e3a3f88c2036d44c11bde8689a5fbe47"
+          "sha256": "85e42046b5f87c1b2be3af97f49f1aea6095319c052c8586ab1b319e854ff29b"
         }
       ],
       "source_commit": "2b063f04276e9a7f579bd4114dbcfa87b50f329b",
-      "words_sha256": "89106f709577fec276a6184f3873b084710283133518610683e42b90095c823b"
+      "words_sha256": "cac138d975055f1654e052944c0b5ce89e7ea9212f0c350567583b38224e7125"
     },
     "eo_pick": {
       "file": "eo_pick.json",

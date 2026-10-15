@@ -2,22 +2,22 @@
   "schema": 2,
   "meta": {
     "schema": 2,
-    "sourceWordsSha256": "be95b22ca8c8e4ab41cee4ba9c5f18b18bf73140487e974845809897f85fe663",
-    "scenesSha256": "81b18f75c1276999e7a79bcab0b10a6de8901b57139f8361f10628648229631b",
+    "sourceWordsSha256": "305562a11a2516f4265c86a652173386a85533e045302bc5c58aeb4de60b6040",
+    "scenesSha256": "5398199324da355f40b1ce9fff1cc4696dfcd0d0d48904d905e32832040246dc",
     "indexSha256": "cc2863c330e3af09ca7575c5304d19c04e15dbe3b5afa8217357239ad480c6e0",
     "imageDatesSha256": "e0f3e4ebb66a53165bd12e8afc4b9f50e19bdf04150214bd86010d6e6cdeeb9a",
     "count": 18137,
     "wordEntryCount": 17114,
     "ownershipPendingCount": 1002,
     "descriptionCounts": {
-      "reviewed": 6499,
-      "held": 898,
-      "missing": 10729,
-      "mismatch": 11
+      "reviewed": 6502,
+      "held": 895,
+      "missing": 10727,
+      "mismatch": 13
     },
     "playableCounts": {
-      "en": 16588,
-      "ja": 15870
+      "en": 16586,
+      "ja": 15868
     },
     "targetedRefresh": {
       "kind": "guarded_targeted_pair_refresh",
@@ -1893,6 +1893,25 @@
     "altConsolidation": {
       "receipt": "work/etymopedia/codex2/illustration-consolidation.json",
       "retired_count": 314
+    },
+    "localRepair20261015": {
+      "affected_ids": [
+        "amusing",
+        "between",
+        "blood",
+        "dated",
+        "energy",
+        "head",
+        "less",
+        "rank",
+        "real",
+        "rectangular",
+        "venue",
+        "via"
+      ],
+      "preserved_unaffected_rows": true,
+      "full_regeneration": false,
+      "inventory_verification": "Exact twelve PNG byte hashes verified; unrelated published inventory and rows retained unchanged."
     }
   },
   "ownership": {
@@ -1906,11 +1925,11 @@
     "conflictingFiles": 15,
     "preservedProtectedBindings": 17114
   },
-  "sceneEntries": 9559,
+  "sceneEntries": 9560,
   "existingIdsPreserved": 262,
   "legacyIdsPreserved": 80,
   "emittedRows": 18137,
-  "lazyAssets": 6499,
+  "lazyAssets": 6502,
   "inventoryNamesSha256": "7750d91c2604f5f00b6d1b56cc4f6d1a345c3f7c8b2c96d6ba9760bb26a88701",
   "inclusionPolicy": "all_observed_valid_generated_PNGs",
   "dateGateApplied": false,
@@ -1920,7 +1939,7 @@
     "invalid_png": 1
   },
   "inputHashes": {
-    "app/data/generated-image-issues.json": "d843ab82f61ee2066b676b310c3ac135b455bac8623b8665debdcf71c21ab956",
+    "app/data/generated-image-issues.json": "eba8125dd2f8706338ecbe79e200b01bef64f71a13da19f82d7af6ace8cf7ba1",
     "app/data/generated-image-legacy-ids.json": "d6fb88248946c9336acf1c11f1f81b620495c578faa6b71bb6c56b379f2eca8f",
     "app/data/generated_image_resolver.py": "e2254d42722c48d63b008bd843b830d67fcd1312d66bd31fc4dc64ee0f8f9cf8",
     "app/data/build_generated_image_catalog.py": "f8f16c19c34b687ef238e23183765628f76c5dafdc72321ef8d082ec5c16851e",
@@ -9563,43 +9582,6 @@
               "source": "Independent current-image and first-sense scope audit, 2026-10-04",
               "reviewer": "Independent editorial reviewer",
               "observation": "Three smiling people surround and welcome a fourth backpacked person, touching shoulders and gesturing openly.",
-              "imageInspected": true
-            }
-          }
-        }
-      ]
-    },
-    {
-      "id": "via",
-      "pic": "via",
-      "issues": [
-        {
-          "code": "visual_or_caption_ambiguity",
-          "detail": "A seated train passenger looks out at a station platform. Nothing establishes that this station is an intermediate point on a route to somewhere else. The canonical part-of-speech is also 副, although via in the relevant contemporary sense is a preposition.",
-          "imageSha256": "b759f011edeaa2fb84925e03a2c8c4f139127140dfa8d9b3086c73adf663d76d",
-          "senseSha256": "82c8f04286b9c047ed1bf7c4638e02fd71226c7d6cc5600a7cacd9ce527de023",
-          "issueSha256": "d3505acf3f5db6eb5850ff66d7f3dee5c6336f68fa5141a2c4909e5b485c76af",
-          "scope": "caption_only",
-          "blocksPlay": false,
-          "scopeReview": {
-            "schema": 1,
-            "status": "reviewed",
-            "scope": "caption_only",
-            "blocksPlay": false,
-            "w": "via",
-            "p": [
-              "wegh-"
-            ],
-            "art": "via",
-            "imageSha256": "b759f011edeaa2fb84925e03a2c8c4f139127140dfa8d9b3086c73adf663d76d",
-            "senseSha256": "82c8f04286b9c047ed1bf7c4638e02fd71226c7d6cc5600a7cacd9ce527de023",
-            "targetIssueSha256": "d3505acf3f5db6eb5850ff66d7f3dee5c6336f68fa5141a2c4909e5b485c76af",
-            "reviewed_at": "2026-10-04T17:01:43Z",
-            "reason": "Train travel through a station is compatible with via/through. Whether the station is intermediate and what destination follows cannot be stated in a caption. The stored POS question is a separate source editorial matter and does not establish a wrong image.",
-            "evidence": {
-              "source": "Independent current-image and first-sense scope audit, 2026-10-04",
-              "reviewer": "Independent editorial reviewer",
-              "observation": "A train passenger sits by a window looking toward a platform, tracks and a distant city.",
               "imageInspected": true
             }
           }
@@ -24444,6 +24426,73 @@
           "blocksPlay": true
         }
       ]
+    },
+    {
+      "id": "real",
+      "pic": "real",
+      "issues": [
+        {
+          "code": "image_first_sense_mismatch",
+          "detail": "イラスト要修正。The current crown-and-shield currency coin depicts a separate monetary homograph, not visual evidence for the first sense 本物の / actual. Hold descriptions, TTS and play only for this exact image and sense pair; retain other real homographs.",
+          "imageSha256": "0e4d2a47dd20979e37b3164685e771e69f57cd16356bc66c5a7268d46fd12cc7",
+          "senseSha256": "acd74bb3f54928ea79d82b7af11951322f493f27efb3de0da7870f3abc307b9e",
+          "issueSha256": "25506c65ded6989876c5cb87d0c8d23670891a86379167ddab5acd3394b6db3b",
+          "scope": "play_blocking",
+          "blocksPlay": true
+        }
+      ]
+    },
+    {
+      "id": "via",
+      "pic": "via",
+      "issues": [
+        {
+          "code": "visual_or_caption_ambiguity",
+          "detail": "A seated train passenger looks out at a station platform. Nothing establishes that this station is an intermediate point on a route to somewhere else. The canonical part-of-speech is also 副, although via in the relevant contemporary sense is a preposition.",
+          "imageSha256": "b759f011edeaa2fb84925e03a2c8c4f139127140dfa8d9b3086c73adf663d76d",
+          "senseSha256": "82c8f04286b9c047ed1bf7c4638e02fd71226c7d6cc5600a7cacd9ce527de023",
+          "issueSha256": "d3505acf3f5db6eb5850ff66d7f3dee5c6336f68fa5141a2c4909e5b485c76af",
+          "scope": "caption_only",
+          "blocksPlay": false,
+          "scopeReview": {
+            "schema": 1,
+            "status": "reviewed",
+            "scope": "caption_only",
+            "blocksPlay": false,
+            "w": "via",
+            "p": [
+              "wegh-"
+            ],
+            "art": "via",
+            "imageSha256": "b759f011edeaa2fb84925e03a2c8c4f139127140dfa8d9b3086c73adf663d76d",
+            "senseSha256": "82c8f04286b9c047ed1bf7c4638e02fd71226c7d6cc5600a7cacd9ce527de023",
+            "targetIssueSha256": "d3505acf3f5db6eb5850ff66d7f3dee5c6336f68fa5141a2c4909e5b485c76af",
+            "reviewed_at": "2026-10-04T17:01:43Z",
+            "reason": "Train travel through a station is compatible with via/through. Whether the station is intermediate and what destination follows cannot be stated in a caption. The stored POS question is a separate source editorial matter and does not establish a wrong image.",
+            "evidence": {
+              "source": "Independent current-image and first-sense scope audit, 2026-10-04",
+              "reviewer": "Independent editorial reviewer",
+              "observation": "A train passenger sits by a window looking toward a platform, tracks and a distant city.",
+              "imageInspected": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "rank",
+      "pic": "rank",
+      "issues": [
+        {
+          "code": "image_first_sense_mismatch",
+          "detail": "イラスト要修正。The current image depicts dense overgrown vegetation, a separate adjective sense, not the first sense 階級 / tier. Hold descriptions, TTS and play only for this exact image and sense pair; retain other rank homographs.",
+          "imageSha256": "7762637b4ea4a9d372c166fde6031225f0ff5e9377bd2ce5cac0454ed7221cc3",
+          "senseSha256": "71c1ee33aa7ac226e2e9975eb95106dfbcade1bdaddd574149a4a458d65733ab",
+          "issueSha256": "c7d42613c1aa8bdc29e9b538767ec9ba9679dde33430c34a28a69eb732c917b8",
+          "scope": "play_blocking",
+          "blocksPlay": true
+        }
+      ]
     }
   ],
   "observedPngPaths": 18138,
@@ -26335,5 +26384,24 @@
   "altConsolidation": {
     "receipt": "work/etymopedia/codex2/illustration-consolidation.json",
     "retired_count": 314
+  },
+  "localRepair20261015": {
+    "affected_ids": [
+      "amusing",
+      "between",
+      "blood",
+      "dated",
+      "energy",
+      "head",
+      "less",
+      "rank",
+      "real",
+      "rectangular",
+      "venue",
+      "via"
+    ],
+    "preserved_unaffected_rows": true,
+    "full_regeneration": false,
+    "inventory_verification": "Exact twelve PNG byte hashes verified; unrelated published inventory and rows retained unchanged."
   }
 }

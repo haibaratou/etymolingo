@@ -2,15 +2,15 @@
   "schema": 2,
   "build_version": 4,
   "sources": {
-    "words_sha256": "5375a6efb548b721ff6d884291527633a4e954e952ab63b2a597dd9f6116d5c1",
-    "scenes_sha256": "81b18f75c1276999e7a79bcab0b10a6de8901b57139f8361f10628648229631b",
+    "words_sha256": "305562a11a2516f4265c86a652173386a85533e045302bc5c58aeb4de60b6040",
+    "scenes_sha256": "5398199324da355f40b1ce9fff1cc4696dfcd0d0d48904d905e32832040246dc",
     "illustration_index_sha256": "cc2863c330e3af09ca7575c5304d19c04e15dbe3b5afa8217357239ad480c6e0",
     "image_dates_sha256": "e0f3e4ebb66a53165bd12e8afc4b9f50e19bdf04150214bd86010d6e6cdeeb9a",
     "semantic_classifications_sha256": "fd17a499919db2f99d5f411167f869fff31b84afda8044b370cf567b49814e5f"
   },
   "eligible": 18137,
   "word_entries": 17114,
-  "input_scenes": 9559,
+  "input_scenes": 9560,
   "excluded": [],
   "categories": 22,
   "unclassified": 16268,
@@ -21,7 +21,7 @@
     "pillow": "12.3.0",
     "unreviewed_fallback": "lazy exact original PNG"
   },
-  "data_sha256": "21d7300f651245f11412b685ac99cc34eb4ff0dced4ffdfa5f49bca6b12c6a27",
+  "data_sha256": "a9daade9a578194a3d22613f0d8e032a08a8a673c2defce7ecfb4db0431b92e0",
   "bindings": [
     {
       "id": "car",
@@ -684,10 +684,10 @@
       "id": "energy",
       "art": "energy",
       "image_path": "assets/word/energy.png",
-      "image_sha256": "f37c71a0640d47c0790919164613836af5945490013a5383e92ac1d982337c34",
-      "image_git_blob": "2d930199aa841f0c27212874535a15ec43ff1ac8",
-      "thumbnail_path": "../assets/word/energy.png",
-      "thumbnail_sha256": "f37c71a0640d47c0790919164613836af5945490013a5383e92ac1d982337c34"
+      "image_sha256": "261c807f56f8ab4285cc895a8a7e8c382c62e111f1b6fbb795023e948cbedbf6",
+      "image_git_blob": "6dcab07331e862715f42957ddb76b1ff6c92703e",
+      "thumbnail_path": "eigo-no-e/thumbs/energy.261c807f56f8.webp",
+      "thumbnail_sha256": "5cf3f49641cc934bd8b322a4e8055e31c40911ad704e71f4aa84e819bde2d438"
     },
     {
       "id": "government",
@@ -866,8 +866,8 @@
       "image_path": "assets/word/less.png",
       "image_sha256": "55c7ae8aa2d9f9f25baa34647074c80c03c4372aa4d9374eb14ab21a2a380a8a",
       "image_git_blob": "2b108bdd53c3058871b7db9c31c0a17bd9506553",
-      "thumbnail_path": "../assets/word/less.png",
-      "thumbnail_sha256": "55c7ae8aa2d9f9f25baa34647074c80c03c4372aa4d9374eb14ab21a2a380a8a"
+      "thumbnail_path": "eigo-no-e/thumbs/less.55c7ae8aa2d9.webp",
+      "thumbnail_sha256": "87abd021032a255e8ca5f2b3431137bd2571bc5a870c6e8170edb02e42092e2c"
     },
     {
       "id": "mean@medhyo",
@@ -4664,8 +4664,8 @@
       "image_path": "assets/word/real.png",
       "image_sha256": "0e4d2a47dd20979e37b3164685e771e69f57cd16356bc66c5a7268d46fd12cc7",
       "image_git_blob": "7ac9f4000a7fcc6a4e9ce89349cc506324292405",
-      "thumbnail_path": "eigo-no-e/thumbs/real.0e4d2a47dd20.webp",
-      "thumbnail_sha256": "6d00f0adb4c7b599400823ee786f4a9a8a37b84f355309ea1771d3a7fdd0d8ad"
+      "thumbnail_path": "../assets/word/real.png",
+      "thumbnail_sha256": "0e4d2a47dd20979e37b3164685e771e69f57cd16356bc66c5a7268d46fd12cc7"
     },
     {
       "id": "show",
@@ -5195,8 +5195,8 @@
       "image_path": "assets/word/blood.png",
       "image_sha256": "a91cdd82fb97695a64e27496d6ac3f21844626b043a436996e9d06b04f876a34",
       "image_git_blob": "58dd7b3b81d4d86132b331c516d760d4067c9ac9",
-      "thumbnail_path": "../assets/word/blood.png",
-      "thumbnail_sha256": "a91cdd82fb97695a64e27496d6ac3f21844626b043a436996e9d06b04f876a34"
+      "thumbnail_path": "eigo-no-e/thumbs/blood.a91cdd82fb97.webp",
+      "thumbnail_sha256": "8c0c2366027dc27e2236856bfe3251379b5688d8616030ea044e3f988147345f"
     },
     {
       "id": "education",
@@ -58754,8 +58754,8 @@
       "image_path": "assets/word/venue.png",
       "image_sha256": "20386fe3d5dee40f2862d60d400d31417f3289fe53af053795a3f2c2c9a62744",
       "image_git_blob": "006f6b342b85ebd66e55bbd68d5b8c35a4faa8e4",
-      "thumbnail_path": "../assets/word/venue.png",
-      "thumbnail_sha256": "20386fe3d5dee40f2862d60d400d31417f3289fe53af053795a3f2c2c9a62744"
+      "thumbnail_path": "eigo-no-e/thumbs/venue.20386fe3d5de.webp",
+      "thumbnail_sha256": "47fbd1f894ee74b2acc1a708b753973a99a2bb311f2c7ab0fa31746da32050db"
     },
     {
       "id": "weed",
@@ -163269,14 +163269,14 @@
     "preservedProtectedBindings": 17114
   },
   "description_counts": {
-    "reviewed": 6499,
-    "held": 898,
-    "missing": 10729,
-    "mismatch": 11
+    "reviewed": 6502,
+    "held": 895,
+    "missing": 10727,
+    "mismatch": 13
   },
   "playable_counts": {
-    "en": 16588,
-    "ja": 15870
+    "en": 16586,
+    "ja": 15868
   },
   "targetedRefresh": {
     "kind": "guarded_targeted_pair_refresh",
@@ -165152,5 +165152,24 @@
   "altConsolidation": {
     "receipt": "work/etymopedia/codex2/illustration-consolidation.json",
     "retired_count": 314
+  },
+  "localRepair20261015": {
+    "affected_ids": [
+      "amusing",
+      "between",
+      "blood",
+      "dated",
+      "energy",
+      "head",
+      "less",
+      "rank",
+      "real",
+      "rectangular",
+      "venue",
+      "via"
+    ],
+    "preserved_unaffected_rows": true,
+    "full_regeneration": false,
+    "inventory_verification": "Exact twelve PNG byte hashes verified; unrelated published inventory and rows retained unchanged."
   }
 }

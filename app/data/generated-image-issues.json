@@ -2532,6 +2532,38 @@
       "status": "held",
       "reviewed_at": "2026-10-14T03:03:53.433348+00:00",
       "review_method": "Exact current main PNG independently visually reviewed; scoped mismatch hold"
+    },
+    {
+      "w": "rank",
+      "p": [
+        "(s)ker-3"
+      ],
+      "art": "rank",
+      "imageSha256": "7762637b4ea4a9d372c166fde6031225f0ff5e9377bd2ce5cac0454ed7221cc3",
+      "senseSha256": "71c1ee33aa7ac226e2e9975eb95106dfbcade1bdaddd574149a4a458d65733ab",
+      "codes": [
+        "image_first_sense_mismatch"
+      ],
+      "status": "held",
+      "detail": "イラスト要修正。The current image depicts dense overgrown vegetation, a separate adjective sense, not the first sense 階級 / tier. Hold descriptions, TTS and play only for this exact image and sense pair; retain other rank homographs.",
+      "reviewed_at": "2026-10-15T02:31:10.589275+00:00",
+      "review_method": "Local exact PNG visual inspection using view_image, current-byte SHA256/Git blob verification, exact first-sense and bilingual-caption comparison."
+    },
+    {
+      "w": "real",
+      "p": [
+        "rē-"
+      ],
+      "art": "real",
+      "imageSha256": "0e4d2a47dd20979e37b3164685e771e69f57cd16356bc66c5a7268d46fd12cc7",
+      "senseSha256": "acd74bb3f54928ea79d82b7af11951322f493f27efb3de0da7870f3abc307b9e",
+      "codes": [
+        "image_first_sense_mismatch"
+      ],
+      "status": "held",
+      "detail": "イラスト要修正。The current crown-and-shield currency coin depicts a separate monetary homograph, not visual evidence for the first sense 本物の / actual. Hold descriptions, TTS and play only for this exact image and sense pair; retain other real homographs.",
+      "reviewed_at": "2026-10-15T02:31:10.589275+00:00",
+      "review_method": "Local exact PNG visual inspection using view_image, current-byte SHA256/Git blob verification, exact first-sense and bilingual-caption comparison."
     }
   ],
   "resolutions": [
