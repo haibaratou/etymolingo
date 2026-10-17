@@ -1,0 +1,839 @@
+{
+  "schema": 1,
+  "at": "2026-10-15T10:32:15.960530+00:00",
+  "input_sha256": "ec8b8bdc82a72a63551a0f700f10dc6715100df90958a6facc102f585923b3ea",
+  "formal_path": "D:\\Projects\\dot-image-review\\ready_union_scopes_20261015.csv",
+  "rows_before": 2093,
+  "rows_after": 2552,
+  "added": 459,
+  "generation_eligible": 2439,
+  "held": 113,
+  "old_production_protected": 16,
+  "date_unverified_not_added": 3037,
+  "first_sense_binding_matches": 2552,
+  "identity_duplicates": 0,
+  "filename_casefold_collisions": 0,
+  "original_row_order_preserved": true,
+  "original_unknown_fields_preserved": true,
+  "protected_files_sha256": {
+    "D:\\Projects\\etymon-source\\app\\data\\pie\\words.json": "305562a11a2516f4265c86a652173386a85533e045302bc5c58aeb4de60b6040",
+    "D:\\Projects\\etymon-source\\app\\data\\pie\\word_illustration_scenes.json": "9a869c53fd4d5795e9faf8f73b68b8f1c91300041713ca0e98238d83c8b45260",
+    "D:\\Projects\\etymolingo\\work\\etymopedia\\old\\codex\\prompt_rows_020.csv": "f52ff15b4dc69e9402b6537f8a8b2dcd5fd2b828f1ffd0ce772661655db0a26b",
+    "D:\\Projects\\etymolingo\\work\\etymopedia\\old\\codex\\prompt_rows_024.csv": "24e91e887c7e39f49010c16a9539309adba5ae554db465c0dd924af90fc6ce22",
+    "D:\\Projects\\etymolingo\\work\\etymopedia\\old\\codex\\prompt_rows_026.csv": "5bd11dc0e6ad21985df7b3626cac1c29b5eccc62f4e6a394b837a48daa0bf31d",
+    "D:\\Projects\\etymolingo\\work\\etymopedia\\old\\codex\\prompt_rows_025.csv": "84dd088c68b00fb6f664b73a2785fd9b23cb213bcef33b39017099e73fd52d8b",
+    "D:\\Projects\\etymolingo\\work\\etymopedia\\old\\codex\\prompt_rows_027.csv": "9c3ce7002fa73d29be1f3a2cad11b1b00d0491487c28cd5303d788e5795e8196",
+    "D:\\Projects\\etymolingo\\work\\etymopedia\\old\\codex2\\prompt_rows_037.csv": "ce0841ac9caf20c041de9d2e78209a95651d7d800133248708a94561cee18a48",
+    "D:\\Projects\\etymolingo\\work\\etymopedia\\old\\codex2\\prompt_rows_035.csv": "1f31db02f0cdd33e2052686283989890c51f836884e07c303cb0322f5b4d2cef"
+  },
+  "hold_rows": [
+    {
+      "identity": "3cfbf4cb336503db32bf",
+      "word": "walker",
+      "filename": "walker.png",
+      "reason": "既存制作記録を保護。実PNGと原記録の再照合前に再生成・解説を上書きしない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "94e25334bc2d8214bf89",
+      "word": "quid",
+      "filename": "quid@kwo.png",
+      "reason": "既存制作記録を保護。実PNGと原記録の再照合前に再生成・解説を上書きしない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "83dc23ab76e4fd54b358",
+      "word": "overhear",
+      "filename": "overhear.png",
+      "reason": "既存制作記録を保護。実PNGと原記録の再照合前に再生成・解説を上書きしない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "51668ed0ce83e1b81ddd",
+      "word": "eponymous",
+      "filename": "eponymous.png",
+      "reason": "既存制作記録を保護。実PNGと原記録の再照合前に再生成・解説を上書きしない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "afb140c4112becc0cca2",
+      "word": "vulva",
+      "filename": "vulva.png",
+      "reason": "既存制作記録を保護。実PNGと原記録の再照合前に再生成・解説を上書きしない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "0761ed8537bae603e70d",
+      "word": "exterminate",
+      "filename": "exterminate.png",
+      "reason": "単一場面案は保存したが、日本語の絶滅すると他動詞eradicateの対応確認が必要。正本を勝手に変更しない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "4a96f5061f2a3c826903",
+      "word": "biennial",
+      "filename": "biennial.png",
+      "reason": "単一イベント案は保存したが、2年周期を表す文脈が未確定。不可視の頻度を実画像確認済み解説として捏造しない。描画不能の断定ではない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "1f305f23efc553180622",
+      "word": "stained",
+      "filename": "stained.png",
+      "reason": "正本は空欄のまま保護。提案は独立列にのみ保存し、正式生成ゲートは解除しない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "16b6d8ee2b870f627af9",
+      "word": "jumping",
+      "filename": "jumping.png",
+      "reason": "正本は空欄のまま保護。提案は独立列にのみ保存し、正式生成ゲートは解除しない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "5634684b571d98bc70c3",
+      "word": "sticks",
+      "filename": "sticks.png",
+      "reason": "正本は空欄のまま保護。提案は独立列にのみ保存し、正式生成ゲートは解除しない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "a4b593e7418e338bbb71",
+      "word": "panting",
+      "filename": "panting.png",
+      "reason": "正本は空欄のまま保護。提案は独立列にのみ保存し、正式生成ゲートは解除しない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "674c7d2e0fda0cef034c",
+      "word": "smelling",
+      "filename": "smelling.png",
+      "reason": "正本は空欄のまま保護。提案は独立列にのみ保存し、正式生成ゲートは解除しない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "5beff30639fe4032eef1",
+      "word": "cleansing",
+      "filename": "cleansing.png",
+      "reason": "正本は空欄のまま保護。提案は独立列にのみ保存し、正式生成ゲートは解除しない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "78129e1787f92b5cfb76",
+      "word": "watering",
+      "filename": "watering.png",
+      "reason": "正本は空欄のまま保護。提案は独立列にのみ保存し、正式生成ゲートは解除しない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "1d43f9f97f3cace8d091",
+      "word": "retailer",
+      "filename": "retailer.png",
+      "reason": "正本は空欄のまま保護。提案は独立列にのみ保存し、正式生成ゲートは解除しない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "708b2c620a47c9ed6d5c",
+      "word": "beak",
+      "filename": "beak.png",
+      "reason": "正本は空欄のまま保護。提案は独立列にのみ保存し、正式生成ゲートは解除しない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "573bd20c9c77a9707200",
+      "word": "black-and-white",
+      "filename": "black-and-white.png",
+      "reason": "正本は空欄のまま保護。提案は独立列にのみ保存し、正式生成ゲートは解除しない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "36c68fbf1343847b3f6e",
+      "word": "whistling",
+      "filename": "whistling.png",
+      "reason": "正本は空欄のまま保護。提案は独立列にのみ保存し、正式生成ゲートは解除しない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "6ca327a2f4019334ba38",
+      "word": "blinds",
+      "filename": "blinds.png",
+      "reason": "正本は空欄のまま保護。提案は独立列にのみ保存し、正式生成ゲートは解除しない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "e445e3a4348286441144",
+      "word": "rung",
+      "filename": "rung.png",
+      "reason": "正本は空欄のまま保護。提案は独立列にのみ保存し、正式生成ゲートは解除しない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "6e5385584b9d1637e992",
+      "word": "crossroads",
+      "filename": "crossroads.png",
+      "reason": "正本は空欄のまま保護。提案は独立列にのみ保存し、正式生成ゲートは解除しない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "d70ade4142b6db60ca45",
+      "word": "tel",
+      "filename": "tel.png",
+      "reason": "正本は空欄のまま保護。提案は独立列にのみ保存し、正式生成ゲートは解除しない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "d7ea2d6d70fe4f638453",
+      "word": "DVD",
+      "filename": "DVD.png",
+      "reason": "正本は空欄のまま保護。提案は独立列にのみ保存し、正式生成ゲートは解除しない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "80dfc3e6a21b82af9893",
+      "word": "nesting",
+      "filename": "nesting.png",
+      "reason": "正本は空欄のまま保護。提案は独立列にのみ保存し、正式生成ゲートは解除しない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "d3968d2ab56a07a07998",
+      "word": "binoculars",
+      "filename": "binoculars.png",
+      "reason": "正本は空欄のまま保護。提案は独立列にのみ保存し、正式生成ゲートは解除しない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "3551ba4f4e296adf656c",
+      "word": "USB",
+      "filename": "USB.png",
+      "reason": "正本は空欄のまま保護。提案は独立列にのみ保存し、正式生成ゲートは解除しない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "8621529581ad309bb3b5",
+      "word": "bowling",
+      "filename": "bowling.png",
+      "reason": "正本は空欄のまま保護。提案は独立列にのみ保存し、正式生成ゲートは解除しない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "8a3830bf81f02931a4d0",
+      "word": "batting",
+      "filename": "batting.png",
+      "reason": "正本は空欄のまま保護。提案は独立列にのみ保存し、正式生成ゲートは解除しない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "a99bfc90c177c6c862ea",
+      "word": "chopping",
+      "filename": "chopping.png",
+      "reason": "正本は空欄のまま保護。提案は独立列にのみ保存し、正式生成ゲートは解除しない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "fe9ed6986ef2a4fcd55a",
+      "word": "toolkit",
+      "filename": "toolkit.png",
+      "reason": "正本は空欄のまま保護。提案は独立列にのみ保存し、正式生成ゲートは解除しない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "0b321ed315dbde65a825",
+      "word": "boxer",
+      "filename": "boxer.png",
+      "reason": "正本は空欄のまま保護。提案は独立列にのみ保存し、正式生成ゲートは解除しない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "cbfb0955e32d13e1ee64",
+      "word": "build-up",
+      "filename": "build-up.png",
+      "reason": "正本は空欄のまま保護。提案は独立列にのみ保存し、正式生成ゲートは解除しない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "ec92105fda99544b781d",
+      "word": "marbles",
+      "filename": "marbles.png",
+      "reason": "正本は空欄のまま保護。提案は独立列にのみ保存し、正式生成ゲートは解除しない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "c71ab322eea97f43b42e",
+      "word": "stitching",
+      "filename": "stitching.png",
+      "reason": "正本は空欄のまま保護。提案は独立列にのみ保存し、正式生成ゲートは解除しない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "6c93d21a0aaa770f37d9",
+      "word": "scrubbing",
+      "filename": "scrubbing.png",
+      "reason": "正本は空欄のまま保護。提案は独立列にのみ保存し、正式生成ゲートは解除しない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "8e323a0bc5a13577b262",
+      "word": "testicular",
+      "filename": "testicular.png",
+      "reason": "既存制作記録を保護。実PNGと原記録の再照合前に再生成・解説を上書きしない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "85ae9cedb8799a55b3a8",
+      "word": "braids",
+      "filename": "braids.png",
+      "reason": "正本は空欄のまま保護。提案は独立列にのみ保存し、正式生成ゲートは解除しない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "e8631be34a5863617df9",
+      "word": "brimming",
+      "filename": "brimming.png",
+      "reason": "正本は空欄のまま保護。提案は独立列にのみ保存し、正式生成ゲートは解除しない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "bf15a78f23a90bbfc0b5",
+      "word": "buns",
+      "filename": "buns.png",
+      "reason": "正本は空欄のまま保護。提案は独立列にのみ保存し、正式生成ゲートは解除しない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "ad43c3c85ad00b996782",
+      "word": "frayed",
+      "filename": "frayed.png",
+      "reason": "正本は空欄のまま保護。提案は独立列にのみ保存し、正式生成ゲートは解除しない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "c2ecfc2167e6f7988eb0",
+      "word": "lounging",
+      "filename": "lounging.png",
+      "reason": "正本は空欄のまま保護。提案は独立列にのみ保存し、正式生成ゲートは解除しない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "eaccb97fdec6506ac74d",
+      "word": "stunted",
+      "filename": "stunted.png",
+      "reason": "正本は空欄のまま保護。提案は独立列にのみ保存し、正式生成ゲートは解除しない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "a26041e49312742ba367",
+      "word": "PDA",
+      "filename": "PDA.png",
+      "reason": "正本は空欄のまま保護。提案は独立列にのみ保存し、正式生成ゲートは解除しない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "8f316db8422ac847f957",
+      "word": "overalls",
+      "filename": "overalls.png",
+      "reason": "正本は空欄のまま保護。提案は独立列にのみ保存し、正式生成ゲートは解除しない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "0bac7502cb90af599d5a",
+      "word": "bedchamber",
+      "filename": "bedchamber.png",
+      "reason": "正本は空欄のまま保護。提案は独立列にのみ保存し、正式生成ゲートは解除しない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "796dd531d235e52028e8",
+      "word": "fulness",
+      "filename": "fulness.png",
+      "reason": "正本は空欄のまま保護。提案は独立列にのみ保存し、正式生成ゲートは解除しない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "9a017e948a5151bef93a",
+      "word": "well-worn",
+      "filename": "well-worn.png",
+      "reason": "既存制作記録を保護。実PNGと原記録の再照合前に再生成・解説を上書きしない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "eb41b7968dd433f43b1f",
+      "word": "tyre",
+      "filename": "tyre.png",
+      "reason": "既存制作記録を保護。実PNGと原記録の再照合前に再生成・解説を上書きしない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "afa3284fe374f72fff52",
+      "word": "rapids",
+      "filename": "rapids.png",
+      "reason": "正本は空欄のまま保護。提案は独立列にのみ保存し、正式生成ゲートは解除しない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "bc82410f00a5285c8af2",
+      "word": "far-fetched",
+      "filename": "far-fetched.png",
+      "reason": "既存制作記録を保護。実PNGと原記録の再照合前に再生成・解説を上書きしない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "4f8155cf0f8739935067",
+      "word": "potted",
+      "filename": "potted.png",
+      "reason": "既存制作記録を保護。実PNGと原記録の再照合前に再生成・解説を上書きしない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "fae21531d912e556a34a",
+      "word": "sunscreen",
+      "filename": "sunscreen.png",
+      "reason": "既存制作記録を保護。実PNGと原記録の再照合前に再生成・解説を上書きしない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "b2789ea94cdcef2374da",
+      "word": "pecking",
+      "filename": "pecking.png",
+      "reason": "正本は空欄のまま保護。提案は独立列にのみ保存し、正式生成ゲートは解除しない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "2047e7a345c758503b17",
+      "word": "landscaping",
+      "filename": "landscaping.png",
+      "reason": "正本は空欄のまま保護。提案は独立列にのみ保存し、正式生成ゲートは解除しない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "4c857e1c7a3b15792d9f",
+      "word": "pyjamas",
+      "filename": "pyjamas.png",
+      "reason": "正本は空欄のまま保護。提案は独立列にのみ保存し、正式生成ゲートは解除しない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "fb794cd526ea0bc770dd",
+      "word": "retailing",
+      "filename": "retailing.png",
+      "reason": "正本は空欄のまま保護。提案は独立列にのみ保存し、正式生成ゲートは解除しない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "70355cc01d4c37c5c227",
+      "word": "scrotum",
+      "filename": "scrotum.png",
+      "reason": "既存制作記録を保護。実PNGと原記録の再照合前に再生成・解説を上書きしない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "f6dc4905d2fd6df8a739",
+      "word": "weeding",
+      "filename": "weeding.png",
+      "reason": "正本は空欄のまま保護。提案は独立列にのみ保存し、正式生成ゲートは解除しない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "d20cbdea1b1d8c5631e7",
+      "word": "basking",
+      "filename": "basking.png",
+      "reason": "正本は空欄のまま保護。提案は独立列にのみ保存し、正式生成ゲートは解除しない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "df5a5086e710a21ebb3c",
+      "word": "napping",
+      "filename": "napping.png",
+      "reason": "正本は空欄のまま保護。提案は独立列にのみ保存し、正式生成ゲートは解除しない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "b94ea028953fe3244d9b",
+      "word": "caked",
+      "filename": "caked.png",
+      "reason": "正本は空欄のまま保護。提案は独立列にのみ保存し、正式生成ゲートは解除しない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "9656ca59a882a99420ad",
+      "word": "bicep",
+      "filename": "bicep.png",
+      "reason": "正本は空欄のまま保護。提案は独立列にのみ保存し、正式生成ゲートは解除しない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "c7b5177267f9b1776c88",
+      "word": "ramble",
+      "filename": "ramble.png",
+      "reason": "日本語第一義は四方八方に広がる、英語第一義は目的なく歩き回る。現行散歩案を日英一致として確定しない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "a07457b6a1eda5d44ee1",
+      "word": "moorings",
+      "filename": "moorings.png",
+      "reason": "正本は空欄のまま保護。提案は独立列にのみ保存し、正式生成ゲートは解除しない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "385d744c54a3ec5acae5",
+      "word": "toiletries",
+      "filename": "toiletries.png",
+      "reason": "正本は空欄のまま保護。提案は独立列にのみ保存し、正式生成ゲートは解除しない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "52be7ccd52a8565a433c",
+      "word": "pinky",
+      "filename": "pinky.png",
+      "reason": "正本は空欄のまま保護。提案は独立列にのみ保存し、正式生成ゲートは解除しない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "da7c4df42b743fdfcb07",
+      "word": "celibate",
+      "filename": "celibate.png",
+      "reason": "結婚指輪を閉じるだけでは禁欲の選択を説明できず、未婚との混同や見えない性的履歴を解説で断定する危険が残る。構図と外部解説の役割を再設計する。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "2ffd90dbfd417f3707d2",
+      "word": "VHS",
+      "filename": "VHS.png",
+      "reason": "正本は空欄のまま保護。提案は独立列にのみ保存し、正式生成ゲートは解除しない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "af2d34ed8a9e4e34fbb3",
+      "word": "ferret",
+      "filename": "ferret@bher1.png",
+      "reason": "既存制作記録を保護。実PNGと原記録の再照合前に再生成・解説を上書きしない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "ece03d708e3038eff94c",
+      "word": "genital",
+      "filename": "genital.png",
+      "reason": "既存制作記録を保護。実PNGと原記録の再照合前に再生成・解説を上書きしない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "7aeb291ec41645be9ec1",
+      "word": "insect",
+      "filename": "insect.png",
+      "reason": "既存制作記録を保護。実PNGと原記録の再照合前に再生成・解説を上書きしない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "a7de8a263dd29ec7e598",
+      "word": "transcend",
+      "filename": "transcend.png",
+      "reason": "既存制作記録を保護。実PNGと原記録の再照合前に再生成・解説を上書きしない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "2836a7171892fa4a30fb",
+      "word": "moot",
+      "filename": "moot@kom-mod.png",
+      "reason": "日本語第一義の人民集会と英語debatableが品詞・意味で異なる。集会案を保持し正本対応を確認する。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "17da69637991790635f6",
+      "word": "effeminate",
+      "filename": "effeminate.png",
+      "reason": "現在案は花・服装への評価に依存し、性表現のステレオタイプを意味の根拠にしてしまう。個別文脈と解説を再設計する。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "a3c8e48e2045dee115bb",
+      "word": "retroactive",
+      "filename": "retroactive.png",
+      "reason": "日付なしの文書場面だけでは遡及適用の関係が未確定。外部文脈を含む解説設計が必要。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "b0668d9d120eff6dcfaf",
+      "word": "imbecile",
+      "filename": "imbecile.png",
+      "reason": "日本語痴愚の歴史的診断語とidiotの侮蔑用法を区別する必要がある。失敗動作を知的障害の証拠にしない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "efc5b1f675cfdb7b9a9e",
+      "word": "anoxic",
+      "filename": "anoxic.png",
+      "reason": "密閉されているだけでは無酸素の証拠にならない。雰囲気条件の根拠を外部記録で確認する。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "a32cafeeca0cafd27ffc",
+      "word": "Akron",
+      "filename": "Akron.png",
+      "reason": "特定都市の根拠となる現地ランドマークが未確認。一般的工業都市を実景として認定しない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "877c8ab92b36483faae8",
+      "word": "Pliocene",
+      "filename": "Pliocene.png",
+      "reason": "時代内での生物種・地域・共存関係の資料確認が未完了。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "5f865120947d7faae77e",
+      "word": "advertiser",
+      "filename": "advertiser.png",
+      "reason": "日本語広告主に対して第一英語義voidsが対応しない。正本は変更せず保留。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "026d5591e9a145b0443e",
+      "word": "empiric",
+      "filename": "empiric.png",
+      "reason": "経験主義者とquackで意味・文脈が食い違う。医学実践者案を正本対応の確定としない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "79b74648bc0ddbd24cb0",
+      "word": "crepe",
+      "filename": "crepe.png",
+      "reason": "第一日本語義ちりめんと第一英語義pancakeが別物。布の案のみ保存し語義対応を保留。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "ee60b82ff80e962f58a4",
+      "word": "swastika",
+      "filename": "swastika.png",
+      "reason": "対象記号を描くには現行の3件以外の明示的な文字・記号例外が必要。現時点では未承認。",
+      "user_choice_required": true
+    },
+    {
+      "identity": "d7d3ee0c49cbe1632507",
+      "word": "lacrosse",
+      "filename": "lacrosse.png",
+      "reason": "第一英語義field hockeyはラクロスと別競技。ラクロスの網付きスティック案を保存し正本対応を保留。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "95e2826fe5b15613556a",
+      "word": "oxymoron",
+      "filename": "oxymoron.png",
+      "reason": "単一場面と外部のliving dead例の関係を解説段階で確認する。文法・修辞語を画像内文字で説明しない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "3e6b31d904cf08135fcd",
+      "word": "miscegenation",
+      "filename": "miscegenation.png",
+      "reason": "祖先・人種を外見から断定しない個別文脈と、歴史的用語としての解説設計が必要。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "6a8921594155ca88cad8",
+      "word": "Sigismund",
+      "filename": "Sigismund.png",
+      "reason": "複数の同名君主から対象を確定する必要がある。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "31af9ce76e411ae3d523",
+      "word": "expletive",
+      "filename": "expletive.png",
+      "reason": "補足的なという一般的な物理的埋め草と、英語expletiveの自然な用例の対応を確認する。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "e007a49c53b907c8e371",
+      "word": "internecine",
+      "filename": "internecine.png",
+      "reason": "第一日本語義共食いと英語deadlyが一致せず、現案の内輪争いも共食いを直接表さない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "bd6df6aa5c59f6b5094b",
+      "word": "reprise",
+      "filename": "reprise.png",
+      "reason": "年間必要経費とrepeatの対応・用例が未確認。音楽等の別義へ自動変更しない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "a3dcb9db009459223fcb",
+      "word": "pathognomonic",
+      "filename": "pathognomonic.png",
+      "reason": "特徴的な徴候の具体的対象が未確定。任意の異常所見を特異的な診断証拠としない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "c3fcf69d2d25d46db92d",
+      "word": "transsexual",
+      "filename": "transsexual.png",
+      "reason": "正本の日英で異なる範囲の呼称を扱っており、外見で属性を断定しない場面・用例の確認が必要。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "2240d4400b6baa7e9b14",
+      "word": "petrous",
+      "filename": "petrous.png",
+      "reason": "側頭骨錐体部の形と位置について、解剖図との専門照合が必要。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "b5008c80e8ab09771316",
+      "word": "imbecility",
+      "filename": "imbecility.png",
+      "reason": "知的障害とstupidityの用法が食い違う。成人の単純な作業ミスを診断に結び付けない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "2110df0a4a2b0b372417",
+      "word": "Dnieper",
+      "filename": "Dnieper.png",
+      "reason": "一般的な川の風景案から、対象河川と対応する実景の参照を確認する必要がある。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "61f92546e19a5d671352",
+      "word": "propolis",
+      "filename": "propolis.png",
+      "reason": "第一日本語義蜂蝋と英語bee resinは異なる物質。樹脂案を保存し語義対応を保留。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "962034b62d4671655d33",
+      "word": "introgression",
+      "filename": "introgression.png",
+      "reason": "遺伝子侵入を単なる接ぎ木・単一遺伝子変化と混同しない図示関係の検証が必要。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "f0927d19e41b5300bb00",
+      "word": "Metis",
+      "filename": "Metis.png",
+      "reason": "一般的な混血者の旧表現と特定のMetisの人々を区別する必要がある。外見で分類しない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "1cd1315bb7fb10a7817c",
+      "word": "Baluchistan",
+      "filename": "Baluchistan.png",
+      "reason": "地域を特定する地形・建物の参照が未確認。民族の外見で地域を代用しない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "641766027199a8edd070",
+      "word": "ephedrine",
+      "filename": "ephedrine.png",
+      "reason": "剤形・物性を確認し、一般的な吸入器をこの薬固有の剤形として誤認させない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "d11d7e6da187b2f6f12d",
+      "word": "parochialism",
+      "filename": "parochialism.png",
+      "reason": "第一日本語義教区制と英語provincialismを混同しない。教区場面案を保存し正本対応を保留。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "c554c938c76275e6db31",
+      "word": "tay",
+      "filename": "tay.png",
+      "reason": "正本の箱・硬膜という識別が未解決。語形から意味や物体を推測で確定しない。",
+      "user_choice_required": true
+    },
+    {
+      "identity": "03db8a2f420334a1e1ca",
+      "word": "Zend",
+      "filename": "Zend.png",
+      "reason": "注釈と語名・言語名の用法を確認する必要がある。架空の文字を描かない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "dc90d6e404db4cfd2052",
+      "word": "Harijan",
+      "filename": "Harijan.png",
+      "reason": "歴史的呼称の対象・用例を資料で確認する必要がある。一般人物の外見や服装をカーストの証拠にしない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "f2b0515d1c43e8940868",
+      "word": "abducens",
+      "filename": "abducens.png",
+      "reason": "外転神経から外側直筋への経路を正確な解剖資料で照合する必要がある。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "5fad8aafabf2f4bda2b5",
+      "word": "anneal",
+      "filename": "anneal.png",
+      "reason": "日本語焼き戻すとannealの熱処理条件の対応を技術資料で確認する。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "04d858251dd9bc1c9bbc",
+      "word": "despoil",
+      "filename": "despoil.png",
+      "reason": "第一日本語義汚染すると英語plunderが異なる。略奪案を確定生成へ渡さない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "2cf4ab773d307874e2f8",
+      "word": "chloral",
+      "filename": "chloral.png",
+      "reason": "クロラールと抱水クロラールの物性・剤形を区別してから外観を確定する。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "8a4663a8ef4024e81dcf",
+      "word": "Prakrit",
+      "filename": "Prakrit.png",
+      "reason": "対象言語・文字体系を確認する必要がある。未許可の文字は画像に入れない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "f2799941975cf570cae5",
+      "word": "glossolalia",
+      "filename": "glossolalia.png",
+      "reason": "難解な言葉と宗教的な異言の用例の関係を確認する必要がある。聞こえない発話内容を画像から断定しない。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "0def5d2ea395e7fff762",
+      "word": "bremsstrahlung",
+      "filename": "bremsstrahlung.png",
+      "reason": "制動と放射の科学的表現・許可されていない図記号への依存を確認する必要がある。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "1251cdcf96243ff077dc",
+      "word": "pleiotropy",
+      "filename": "pleiotropy.png",
+      "reason": "1遺伝子から複数形質への関係を同一図内で正しく表す方法の資料照合が必要。",
+      "user_choice_required": false
+    },
+    {
+      "identity": "4c39fcd51aec002898ac",
+      "word": "taut",
+      "filename": "taut.png",
+      "reason": "第一日本語義あざけると英語pulled tightが衝突。正本を変更せず両案のうち片方を確定扱いにしない。",
+      "user_choice_required": false
+    }
+  ],
+  "published_at": "2026-10-15T10:33:56.066994+00:00",
+  "new_csv_sha256": "64284ccad3da9650c1ffdd84b0bcdde363d9c838871329f2beb4f3c92c81788d",
+  "csv_readback_matches_plan": true,
+  "publisher_token_sha256": "e29daa271c79da84ef6117dc158949b71eb8647b7df37426d149f935de7e784f",
+  "publisher_started_at": "2026-10-15T10:33:47.965173+00:00",
+  "owner": "works",
+  "actual_generation_performed": false,
+  "asset_copy_performed": false,
+  "canonical_scene_import_performed": false,
+  "git_commit_push_performed": false,
+  "handoff_completed_at": "2026-10-15T10:35:08.115435+00:00",
+  "dot_writes_frozen": true,
+  "entry_documents_verified": true,
+  "real_cli_candidate_preview_verified": true,
+  "rows": 2552,
+  "test_workflow_io_passed": 20,
+  "newly_generated_reviewed_applied_rows": 0
+}

@@ -8,6 +8,7 @@ from collections import Counter, defaultdict
 from datetime import datetime, timezone
 import base64, copy, csv, hashlib, importlib.util, json, re, sys, unicodedata
 from generated_image_resolver import resolve_bindings, identity_key
+from image_content_evidence import load_evidence, apply_evidence
 
 ROOT=Path(__file__).resolve().parents[2]
 GEN=Path('app/data/generated-etymon')
@@ -147,16 +148,8 @@ def build_catalog_rows(root=ROOT,include_packs=True):
    key=(r['w'],tuple(r['p']),r['gloss'])
    if key in answers and answers[key]!=r['answer']:raise ValueError('Conflicting Japanese puzzle answer')
    answers[key]=r['answer']
- date_path=root/'work/etymopedia/png_creation_dates.csv';date_rows={}
- if date_path.is_file():
-  for item in csv.DictReader(date_path.open(encoding='utf-8-sig',newline='')):
-   name=item.get('FileName','');stamp=item.get('LatestUpdatedAtJST','')
-   try:
-    parsed=datetime.fromisoformat(stamp)
-    if parsed.tzinfo and name.endswith('.png') and Path(name).name==name:date_rows[name[:-4]]=item
-   except (ValueError,TypeError):pass
- for asset in resolved['assets']:
-  if asset['art'] in date_rows:asset['recordedUpdatedAt']=[date_rows[asset['art']]['LatestUpdatedAtJST']]
+ date_evidence,date_evidence_raw=load_evidence(root,inv)
+ apply_evidence(resolved['assets'],date_evidence)
  seed_data=read(root/'app/data/generated-image-legacy-ids.json');seeds=seed_data['rows'];prior={};safe_ids={}
  # Published IDs follow their physical image path even when ownership changes.
  published_ids={}
@@ -213,7 +206,7 @@ def build_catalog_rows(root=ROOT,include_packs=True):
   en_reason=blockers[0]['code'] if blockers else '' if en_ok else 'unsupported_english_answer_format'
   ja_reason=blockers[0]['code'] if blockers else '' if ja_ok else evidence if not answer else 'unsupported_japanese_answer_length'
   description={'status':status,'en':reviewed['scene']['en'] if reviewed else '', 'ja':reviewed['scene']['ja'] if reviewed else '', 'reason':reason,'ttsAllowed':bool(reviewed)}
-  dates=meta['recordedUpdatedAt'];row={'id':candidate,'pic':art,'en':word['w'],'w':answer if ja_ok else '', 'ja':sense['ja'],'roots':word.get('p',[]),'dictionaryIndex':binding['dictionaryIndex'],'rank':word.get('r') or 99999,'generatedImage':True,'updatedArt':after_cutoff(dates),'bindingStatus':'bound','image':image,'sense':sense,'sceneBinding':{k:word.get(k,[] if k=='p' else '') for k in ['w','p','ja','en']},'description':description,'availability':{'en':{'playable':en_ok and not blockers,'answer':word['w'],'reason':en_reason},'ja':{'playable':ja_ok and not blockers,'answer':answer if ja_ok else '', 'reason':ja_reason}},'issues':active,'recordedUpdatedAt':max(dates) if dates else None,'readingEvidence':evidence,'imageDateProvenance':{'source':'published_image_date_ledger','commit':date_rows[art].get('LatestUpdatedCommit'),'createdAt':date_rows[art].get('CreatedAtJST')} if art in date_rows else {'source':'recorded_exact_tuple' if dates else 'unknown'},'pos':word.get('pos','')}
+  dates=meta['recordedUpdatedAt'];row={'id':candidate,'pic':art,'en':word['w'],'w':answer if ja_ok else '', 'ja':sense['ja'],'roots':word.get('p',[]),'dictionaryIndex':binding['dictionaryIndex'],'rank':word.get('r') or 99999,'generatedImage':True,'updatedArt':after_cutoff(dates),'bindingStatus':'bound','image':image,'sense':sense,'sceneBinding':{k:word.get(k,[] if k=='p' else '') for k in ['w','p','ja','en']},'description':description,'availability':{'en':{'playable':en_ok and not blockers,'answer':word['w'],'reason':en_reason},'ja':{'playable':ja_ok and not blockers,'answer':answer if ja_ok else '', 'reason':ja_reason}},'issues':active,'recordedUpdatedAt':max(dates) if dates else None,'readingEvidence':evidence,'imageDateProvenance':meta['imageDateProvenance'],'pos':word.get('pos','')}
   if word.get('tags') is not None:row['tags']=word['tags']
   if old and old.get('challengeBand'):row['challengeBand']=old['challengeBand']
   if reviewed:
@@ -229,14 +222,14 @@ def build_catalog_rows(root=ROOT,include_packs=True):
   candidate=published_ids.get(art,art if art in legacy_ids and art not in used_ids else 'asset:'+art)
   if candidate in used_ids:raise ValueError('Duplicate asset ID')
   used_ids.add(candidate);role=meta['assetRole'];status='alternate' if meta['canonicalOwner'] else 'ownership_pending';reason=meta['reason'] or role;dates=meta['recordedUpdatedAt'];image={k:inv[art][k] for k in ['path','sha256','git_blob_sha']}
-  rows.append({'id':candidate,'pic':art,'en':'','w':'','ja':'','roots':[],'dictionaryIndex':None,'rank':99999,'generatedImage':True,'updatedArt':after_cutoff(dates),'bindingStatus':status,'assetRole':role,'primaryArt':meta['primaryArt'],'image':image,'description':{'status':'missing','en':'','ja':'','reason':'ownership_pending' if status=='ownership_pending' else 'alternate_image','ttsAllowed':False},'availability':{l:{'playable':False,'answer':'','reason':reason} for l in ['en','ja']},'issues':[{'code':reason,'detail':'画像の対応確認中' if status=='ownership_pending' else '別の画像・旧版','imageSha256':image['sha256'],'scope':'play_blocking','blocksPlay':True}],'recordedUpdatedAt':max(dates) if dates else None,'imageDateProvenance':{'source':'published_image_date_ledger','commit':date_rows[art].get('LatestUpdatedCommit'),'createdAt':date_rows[art].get('CreatedAtJST')} if art in date_rows else {'source':'recorded_exact_tuple' if dates else 'unknown'},'pos':''})
+  rows.append({'id':candidate,'pic':art,'en':'','w':'','ja':'','roots':[],'dictionaryIndex':None,'rank':99999,'generatedImage':True,'updatedArt':after_cutoff(dates),'bindingStatus':status,'assetRole':role,'primaryArt':meta['primaryArt'],'image':image,'description':{'status':'missing','en':'','ja':'','reason':'ownership_pending' if status=='ownership_pending' else 'alternate_image','ttsAllowed':False},'availability':{l:{'playable':False,'answer':'','reason':reason} for l in ['en','ja']},'issues':[{'code':reason,'detail':'画像の対応確認中' if status=='ownership_pending' else '別の画像・旧版','imageSha256':image['sha256'],'scope':'play_blocking','blocksPlay':True}],'recordedUpdatedAt':max(dates) if dates else None,'imageDateProvenance':meta['imageDateProvenance'],'pos':''})
  # Freeze existing sequence before adding new entries. No spelling-based deduplication.
  order={r['id']:n for n,r in enumerate(seeds)};rows.sort(key=lambda r:(0,order[r['id']]) if r['id'] in order else (1,r['rank'],r['en'],r['pic']))
  if len(rows)!=len(inv) or len(used_ids)!=len(inv):raise ValueError('Every physical PNG must appear exactly once')
  if not seed_ids.issubset(used_ids):raise ValueError('Existing catalog IDs disappeared')
  if not legacy_ids.issubset(used_ids):raise ValueError('Legacy IDs disappeared')
  if not set(published_ids.values()).issubset(used_ids):raise ValueError('Published image IDs disappeared')
- meta={'schema':2,'sourceWordsSha256':digest(words_raw),'scenesSha256':digest(scenes_raw),'indexSha256':digest(index_raw),'imageDatesSha256':digest(date_path.read_bytes()) if date_path.is_file() else None,'count':len(rows),'wordEntryCount':len(owned),'ownershipPendingCount':sum(r['bindingStatus']=='ownership_pending' for r in rows),'descriptionCounts':dict(Counter(r['description']['status'] for r in rows)),'playableCounts':{l:sum(bool(r['availability'][l]['playable']) for r in rows) for l in ['en','ja']}}
+ meta={'schema':2,'sourceWordsSha256':digest(words_raw),'scenesSha256':digest(scenes_raw),'indexSha256':digest(index_raw),'imageDateEvidenceSha256':digest(date_evidence_raw) if date_evidence_raw is not None else None,'count':len(rows),'wordEntryCount':len(owned),'ownershipPendingCount':sum(r['bindingStatus']=='ownership_pending' for r in rows),'descriptionCounts':dict(Counter(r['description']['status'] for r in rows)),'playableCounts':{l:sum(bool(r['availability'][l]['playable']) for r in rows) for l in ['en','ja']}}
  report={'schema':2,'meta':meta,'ownership':resolved['summary'],'sceneEntries':len(payload['entries']),'existingIdsPreserved':len(seed_ids),'legacyIdsPreserved':len(legacy_ids),'imageBytes':sum(r['bytes'] for r in inv.values()),'emittedRows':len(rows),'lazyAssets':len(packs),'lazyAssetBytes':sum(len(b) for b in packs.values()),'inventoryNamesSha256':digest(compact(sorted(inv)).encode()),'inclusionPolicy':'all_observed_generated_PNGs','dateGateApplied':False,'captionGateApplied':False,'posGateApplied':False,'exclusionCounts':{},'inputHashes':{p:digest((root/p).read_bytes()) for p in ['app/data/generated-image-issues.json','app/data/generated-image-legacy-ids.json','app/data/generated_image_resolver.py','app/data/build_generated_image_catalog.py','app/data/puzzle-ja-answers.json','app/games/picture-words/updated-art.json','app/games/picture-words/build_catalog.py']},'ownershipPending':[{k:r.get(k) for k in ['art','path','reason','candidateIdentities']} for r in resolved['assets'] if r['bindingStatus']=='ownership_pending'],'issues':[{k:r[k] for k in ['id','pic','issues']} for r in rows if r['issues']]}
  if invalid_files:
   report.update({'observedPngPaths':len(inv)+len(invalid_files),'usablePngPaths':len(inv),'invalidPngFiles':invalid_files,'inclusionPolicy':'all_observed_valid_generated_PNGs','exclusionCounts':{'invalid_png':len(invalid_files)}})

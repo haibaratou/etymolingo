@@ -1,0 +1,1 @@
+Remove only the floating red arrow between the two fruit-basket views. Preserve both basket views, fruit, revealed raised false bottom and all outlines and colors exactly. Genuine transparent background and gaps, no new symbols or text.

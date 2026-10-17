@@ -1,0 +1,1 @@
+Shorten only the lower rope by 15 percent, keeping its left endpoint exactly aligned with the upper rope's left endpoint and its thickness unchanged. The upper rope remains unchanged; it should be three times as long as the lower. Preserve both full ropes, texture, dark brown rounded outlines, transparent background and safe margins. No ruler, arrows, labels or extra objects.

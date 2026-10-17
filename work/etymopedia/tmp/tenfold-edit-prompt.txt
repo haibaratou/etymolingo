@@ -1,0 +1,1 @@
+Remove ONLY the three floating yellow emphasis marks to the right of the balance. Replace them with full transparency. Keep the complete balance and every red marble unchanged: exactly one red marble on the left and ten red marbles on the right arranged in rows of 1,2,3,4. No symbols, text or other additions. Preserve style and transparent background.

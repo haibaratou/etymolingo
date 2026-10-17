@@ -1,0 +1,1 @@
+Clean the water beneath the bridge: remove all blue/cyan speckled fringe along its bottom edge and any stray colored pixels outside it, and give the water a smooth continuous dark-brown rounded outline. Genuine transparent surroundings and bridge gaps. Preserve two village models, bridge, handshake, people, natural arms and style.

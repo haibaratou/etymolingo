@@ -1,31 +1,20 @@
-# エティモペディアのイラスト制作
+# Worksへの最終引渡し（2026-10-15）
 
-語源辞書の単語イラストを、正式な日本語語義と画像名に合わせて制作する。
+**生成リストと英日解説の記入先は同じ1本です。**
 
-## 制作の3段階
+`D:\Projects\dot-image-review\ready_union_scopes_20261015.csv`
 
-1. 担当1：代表的な第一語義を確認し、画像生成プロンプトをCSVへ保存
-2. 担当2：画像生成・実物検品・短い英日解説追加を行い、実行プロンプトと結果をCSVへ保存
-3. 反映バッチ：検品合格した画像・解説だけを辞書原本へ反映し、公開データを書き出す
+2552行。開始時の生成対象2439件、保留113件。**`generation_eligible=True` かつ `制作状態=prompt_ready` の行だけ**生成します。`False` の行、generated/reviewed/applied/needs_revision/errorの行は生成しません。保留理由は同じ行の `generation_hold_reason`。別のscope・batch・staging・oldのCSVを生成入力に併用しません。別結果CSVは作りません。
 
-[改訂ワークフロー](WORKFLOW.md)と[稼働中Codexへの継続指示](codex/CONTINUE.md)を参照。既存7列を先頭に保持し、追加列へ記録する。専用CSV取り込み処理は未実装で、既存の公開書き出しとは別。
+1. `python workflow_io.py inspect` で正式CSVと所有権を確認します。`candidates --limit 25` は未処理の生成対象を読み取り表示します。
+2. 正式CSVに隣接する `ready_union_scopes_20261015.csv.owner.json` はWorksへ割当済みです。**同時に動かすWorksは1つだけ**。同ファイルのWorks tokenを `record --token ...` に使い、別ownerを取得・強制解除しません。dotは引渡し後この正式CSVを編集しません。
+3. 出力は **`D:\Projects\etymolingo\work\etymopedia\_illust\<filename>`**。CSVのfilenameをそのまま使い、既存PNGは上書き・再生成の前に対応を確認します。1語1構図、512×512 RGBA・実透過、画風参照は `etymopedia_sample/references/invidious.png` の1枚です。
+4. **Worksは完成PNGを実際に開いて**短い `解説英語`・`解説日本語` を同じCSV行へ記入します。英語は正確な見出し語を含み18語以内。実行プロンプト、画像保存先、実PNGのSHA256/Git blob SHA、検品日時・方法も同じ行へ保存します。未生成の行に解説・画像hash・検品済みを捏造しません。
+5. ユーザーが `_illust` で検品し、**ユーザー自身が `copy_newer_pngs.cmd` を手動実行**して正式assetsへコピーします。CMDは現在の `D:\Projects\etymolingo` を参照します。**AIはCMDを実行せず、別の手段でも正式PNGへ自動反映しません。**
+6. コピー前に新解説を現行正式画像の解説へ上書きしません。コピー後、正式PNGと検品PNGの実hashが一致する解説だけが取り込み候補です。本番取り込みと公開は今回未実施です。
 
-## プロンプトCSVの担当別フォルダ
+入力の英語列は維持し、制作情報は日本語の追加列へ保存します。一括で19列へ変換しません。現行正本wordsの `(w, 順序付きp)` と第一義を照合し、古いtodo表や旧日付表を根拠に修正しません。未知列・他行・既存制作記録を保護します。
 
-- [codex2（旧dotフォルダ）](codex2/README.md)：009・011・028〜030。画像生成・検品用のCSVを保持
-- [codex](codex/README.md)：007・008・010・012〜027。Codexが画像生成を担当
-- 000〜006は担当未確認の履歴として、`old/` に保持
+既存制作記録16件は保留として参照先を保持。第一日本語義空欄52件の補足案はstagingの `final_pending126_resolution_20261015.json` にのみ保存し、正本は未変更です。日付未確認3037件は追加していません。
 
-担当は画像生成の担当を表す。プロンプト作成済み・画像生成済み・検品合格・公開反映済みは、それぞれ別の状態として確認する。
-
-9月10日末以前の未更新画像は、レア度順にdotがプロンプトと画像の両方を担当する。既にプロンプトがあることだけを理由に、再生成が完了したとは扱わない。
-
-## 共通ルールと参照
-
-- [制作ワークフロー](WORKFLOW.md)
-- [プロンプトのサンプル](etymopedia_sample/prompt_rows_template.csv)
-- [唯一の画風参照画像](etymopedia_sample/references/invidious.png)
-- [保留語の記録](prompt_review_pending.csv)
-- [画像日付表](png_creation_dates.csv)
-
-CSV内の `references/invidious.png` は上記サンプル一式内の共通パス。CSVを担当フォルダへ移した後も、この同じ画像を参照する。画像ステージング先と本番の `assets/word/` は変更しない。
+生成・検品の詳細は [WORKFLOW.md](WORKFLOW.md)。今回の検証記録は `.workflow/final_handoff_manifest_20261015.json`、変更前の控えは `.workflow/final_handoff_backup_path.txt` が示す場所です。

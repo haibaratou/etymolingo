@@ -1,0 +1,1 @@
+Clean only the lower and side edges of the short path and its grass: remove colored and white pixel fringe, finish with a continuous smooth thick dark brown outline consistent with the house and person, genuine transparency outside. Preserve walking person facing doorway, distance to house, full house, path, colors, all normal hands and composition. No symbols.

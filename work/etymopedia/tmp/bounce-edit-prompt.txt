@@ -1,0 +1,1 @@
+Remove all three detached yellow effect strokes between the ball and the ground patch, leaving genuine transparency in the gap. Keep only ONE red rubber ball rebounding just above the ground patch, slightly compressed underside, and the small shadow ON the ground patch. Preserve thick dark brown outlines. No arrows, motion lines, extra balls, text or new objects.

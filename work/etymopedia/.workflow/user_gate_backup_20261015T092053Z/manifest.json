@@ -1,0 +1,18 @@
+[
+  {
+    "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\README.md",
+    "sha256": "926832467ceab8e18eafb40b90bf08cc9b738d3a62a47df077607cfca39453b8"
+  },
+  {
+    "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\WORKFLOW.md",
+    "sha256": "e9f654882b3e4a29b1ad54f731e2f61cf2761cf737e2e40e688f5ac7dea03097"
+  },
+  {
+    "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\workflow_io.py",
+    "sha256": "28e99f7ab15e34d86eafe8cb4a9eb8970f9394e0410561c0e41ad4a46ab2e258"
+  },
+  {
+    "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\test_workflow_io.py",
+    "sha256": "62c27d2486e3aee130f0bfbba2f2064d6763d00ad3380b6a7a75e0f0d823fdfb"
+  }
+]

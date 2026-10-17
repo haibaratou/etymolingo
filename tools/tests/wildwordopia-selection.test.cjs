@@ -47,7 +47,7 @@ function environment({saved = {}, search = '', bridge = false} = {}) {
     URLSearchParams,
     Event,
     crypto: {randomUUID: () => '12345678-1234-1234-1234-123456789abc'},
-    location: new URL((bridge ? 'file:///D:/etymolingo/app/wildwordopia.html' :
+    location: new URL((bridge ? 'file:///D:/Projects/etymolingo/app/wildwordopia.html' :
       'http://localhost:8781/app/wild-wordopia.html') + search),
     localStorage: {
       getItem: key => values.get(key) ?? null,

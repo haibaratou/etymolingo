@@ -1,0 +1,1 @@
+Clean the stream's outer alpha edge: remove all cyan/blue speckled fringe and isolated colored pixels outside the water shape, and give the water a smooth continuous dark-brown rounded contour. Surroundings must be genuinely transparent. Preserve the cautious stepping pose, stones, water highlights, grass, anatomy and composition.

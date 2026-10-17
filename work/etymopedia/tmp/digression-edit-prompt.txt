@@ -1,0 +1,1 @@
+Preserve all four hikers and branching paths. Remove all yellow ragged fringe and pale stray pixels beneath the lower path edge. Redraw the full outer edge of grass and path as clean continuous dark brown outlines, with genuine transparent space outside. No extra floating marks or symbols. Maintain full safe margins.

@@ -1,0 +1,47 @@
+[
+  {
+    "original": "D:\\Projects\\dot-image-review\\ready_union_scopes_20261015.csv",
+    "backup": "D:\\Projects\\etymolingo\\work\\etymopedia\\.workflow\\final_handoff_backup_20261015T102640Z\\00_ready_union_scopes_20261015.csv",
+    "sha256": "ec8b8bdc82a72a63551a0f700f10dc6715100df90958a6facc102f585923b3ea"
+  },
+  {
+    "original": "D:\\Projects\\etymolingo\\work\\etymopedia\\README.md",
+    "backup": "D:\\Projects\\etymolingo\\work\\etymopedia\\.workflow\\final_handoff_backup_20261015T102640Z\\01_README.md",
+    "sha256": "2f113fec4590449c445ba1b1a8e95100c4e7907277e1a4f1f05d85f5d7b4bd70"
+  },
+  {
+    "original": "D:\\Projects\\etymolingo\\work\\etymopedia\\WORKFLOW.md",
+    "backup": "D:\\Projects\\etymolingo\\work\\etymopedia\\.workflow\\final_handoff_backup_20261015T102640Z\\02_WORKFLOW.md",
+    "sha256": "fcd4f6a17b3959b76384595c3152d2303c350ff081c6fcbbb80a021bc25aaa58"
+  },
+  {
+    "original": "D:\\Projects\\etymolingo\\work\\etymopedia\\_illust\\README.md",
+    "backup": "D:\\Projects\\etymolingo\\work\\etymopedia\\.workflow\\final_handoff_backup_20261015T102640Z\\03_README.md",
+    "sha256": "f3f3e2d2be614a1841911ef1b27d9d9d30992edb90f1a1691806ed2ae69f9501"
+  },
+  {
+    "original": "D:\\Projects\\etymolingo\\work\\etymopedia\\workflow_io.py",
+    "backup": "D:\\Projects\\etymolingo\\work\\etymopedia\\.workflow\\final_handoff_backup_20261015T102640Z\\04_workflow_io.py",
+    "sha256": "b59ea7126f9308284deac2612ff441a41cfe3928c90e3e6cce671ce2c2f83406"
+  },
+  {
+    "original": "D:\\Projects\\etymolingo\\work\\etymopedia\\test_workflow_io.py",
+    "backup": "D:\\Projects\\etymolingo\\work\\etymopedia\\.workflow\\final_handoff_backup_20261015T102640Z\\05_test_workflow_io.py",
+    "sha256": "c59eddee8b10aa72d8d1e8d56ae6209c3fdb3ad2bebbe409b8e2aea5ee6cfcd9"
+  },
+  {
+    "original": "D:\\Projects\\etymolingo\\tools\\etymopedia_batch\\addons\\batch_import\\plugin.gd",
+    "backup": "D:\\Projects\\etymolingo\\work\\etymopedia\\.workflow\\final_handoff_backup_20261015T102640Z\\06_plugin.gd",
+    "sha256": "9787ab84b74c6aa8653f7167a831d89eb5c74fb267eb64bbd7c150a152311a9c"
+  },
+  {
+    "original": "D:\\Projects\\dot-image-review\\WORKS_HANDOFF.md",
+    "backup": "D:\\Projects\\etymolingo\\work\\etymopedia\\.workflow\\final_handoff_backup_20261015T102640Z\\07_WORKS_HANDOFF.md",
+    "sha256": "8ebac1e2655f414891762b5330e97d9117f7043671166b260897f91b986684f0"
+  },
+  {
+    "original": "D:\\Projects\\dot-image-review\\README_20261015.md",
+    "backup": "D:\\Projects\\etymolingo\\work\\etymopedia\\.workflow\\final_handoff_backup_20261015T102640Z\\08_README_20261015.md",
+    "sha256": "2facadcc0164f4963236df964d7202171f51d2ae50473ccb3a9fc2d54ca42646"
+  }
+]

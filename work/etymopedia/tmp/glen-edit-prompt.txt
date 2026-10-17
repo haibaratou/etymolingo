@@ -1,0 +1,1 @@
+Clean up only the bottom edge of the stream: contain all blue water within a smooth closed thick dark-brown contour, removing the ragged cyan fringe outside it. Preserve the valley and stream, style and genuine transparent background.

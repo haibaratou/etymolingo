@@ -1,0 +1,1 @@
+Keep both competitors and the plain game board, with the man secretly moving the red pawn while the woman is distracted. Remove the red arrow, two red-white motion marks beside the pawn and all three yellow marks beside the woman's head. Restore underlying plain board and transparent space. No added symbols. Preserve anatomy and all margins.

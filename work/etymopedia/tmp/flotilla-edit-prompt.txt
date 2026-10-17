@@ -1,0 +1,1 @@
+Keep exactly four complete boats, but separate every boat with a clearly visible transparent gap. The bottom foreground boat must not touch or overlap either middle boat. Arrange compactly in four staggered positions with safe margins and same scale. No water, flags, words or other elements. Preserve thick brown outlines, simple flat shading and genuine transparency.

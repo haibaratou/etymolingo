@@ -1,0 +1,337 @@
+{
+  "schema": 1,
+  "at": "2026-10-15T09:37:02.712501+00:00",
+  "mode": "read_only_first_sense_validation_no_images_no_import",
+  "formal_csv": "D:\\Projects\\dot-image-review\\ready_union_scopes_20261015.csv",
+  "rows": 2093,
+  "matched": 2041,
+  "errors": [
+    {
+      "record": 617,
+      "identity": "1f305f23efc553180622",
+      "word": "stained",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "record": 619,
+      "identity": "16b6d8ee2b870f627af9",
+      "word": "jumping",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "record": 620,
+      "identity": "5634684b571d98bc70c3",
+      "word": "sticks",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "record": 635,
+      "identity": "a4b593e7418e338bbb71",
+      "word": "panting",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "record": 636,
+      "identity": "674c7d2e0fda0cef034c",
+      "word": "smelling",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "record": 637,
+      "identity": "5beff30639fe4032eef1",
+      "word": "cleansing",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "record": 650,
+      "identity": "78129e1787f92b5cfb76",
+      "word": "watering",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "record": 663,
+      "identity": "1d43f9f97f3cace8d091",
+      "word": "retailer",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "record": 664,
+      "identity": "708b2c620a47c9ed6d5c",
+      "word": "beak",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "record": 665,
+      "identity": "573bd20c9c77a9707200",
+      "word": "black-and-white",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "record": 666,
+      "identity": "36c68fbf1343847b3f6e",
+      "word": "whistling",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "record": 667,
+      "identity": "6ca327a2f4019334ba38",
+      "word": "blinds",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "record": 668,
+      "identity": "e445e3a4348286441144",
+      "word": "rung",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "record": 671,
+      "identity": "6e5385584b9d1637e992",
+      "word": "crossroads",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "record": 672,
+      "identity": "d70ade4142b6db60ca45",
+      "word": "tel",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "record": 674,
+      "identity": "d7ea2d6d70fe4f638453",
+      "word": "DVD",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "record": 675,
+      "identity": "80dfc3e6a21b82af9893",
+      "word": "nesting",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "record": 676,
+      "identity": "d3968d2ab56a07a07998",
+      "word": "binoculars",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "record": 677,
+      "identity": "3551ba4f4e296adf656c",
+      "word": "USB",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "record": 678,
+      "identity": "8621529581ad309bb3b5",
+      "word": "bowling",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "record": 679,
+      "identity": "8a3830bf81f02931a4d0",
+      "word": "batting",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "record": 680,
+      "identity": "a99bfc90c177c6c862ea",
+      "word": "chopping",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "record": 681,
+      "identity": "fe9ed6986ef2a4fcd55a",
+      "word": "toolkit",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "record": 682,
+      "identity": "0b321ed315dbde65a825",
+      "word": "boxer",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "record": 683,
+      "identity": "cbfb0955e32d13e1ee64",
+      "word": "build-up",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "record": 684,
+      "identity": "ec92105fda99544b781d",
+      "word": "marbles",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "record": 685,
+      "identity": "c71ab322eea97f43b42e",
+      "word": "stitching",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "record": 686,
+      "identity": "6c93d21a0aaa770f37d9",
+      "word": "scrubbing",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "record": 689,
+      "identity": "85ae9cedb8799a55b3a8",
+      "word": "braids",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "record": 690,
+      "identity": "e8631be34a5863617df9",
+      "word": "brimming",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "record": 691,
+      "identity": "bf15a78f23a90bbfc0b5",
+      "word": "buns",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "record": 692,
+      "identity": "ad43c3c85ad00b996782",
+      "word": "frayed",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "record": 693,
+      "identity": "c2ecfc2167e6f7988eb0",
+      "word": "lounging",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "record": 694,
+      "identity": "eaccb97fdec6506ac74d",
+      "word": "stunted",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "record": 695,
+      "identity": "a26041e49312742ba367",
+      "word": "PDA",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "record": 696,
+      "identity": "8f316db8422ac847f957",
+      "word": "overalls",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "record": 697,
+      "identity": "0bac7502cb90af599d5a",
+      "word": "bedchamber",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "record": 698,
+      "identity": "796dd531d235e52028e8",
+      "word": "fulness",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "record": 701,
+      "identity": "afa3284fe374f72fff52",
+      "word": "rapids",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "record": 705,
+      "identity": "b2789ea94cdcef2374da",
+      "word": "pecking",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "record": 706,
+      "identity": "2047e7a345c758503b17",
+      "word": "landscaping",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "record": 707,
+      "identity": "4c857e1c7a3b15792d9f",
+      "word": "pyjamas",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "record": 708,
+      "identity": "fb794cd526ea0bc770dd",
+      "word": "retailing",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "record": 710,
+      "identity": "f6dc4905d2fd6df8a739",
+      "word": "weeding",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "record": 711,
+      "identity": "d20cbdea1b1d8c5631e7",
+      "word": "basking",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "record": 779,
+      "identity": "df5a5086e710a21ebb3c",
+      "word": "napping",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "record": 794,
+      "identity": "b94ea028953fe3244d9b",
+      "word": "caked",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "record": 806,
+      "identity": "9656ca59a882a99420ad",
+      "word": "bicep",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "record": 930,
+      "identity": "a07457b6a1eda5d44ee1",
+      "word": "moorings",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "record": 935,
+      "identity": "385d744c54a3ec5acae5",
+      "word": "toiletries",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "record": 966,
+      "identity": "52be7ccd52a8565a433c",
+      "word": "pinky",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "record": 1011,
+      "identity": "2ffd90dbfd417f3707d2",
+      "word": "VHS",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    }
+  ],
+  "stable_sense_key": "exact word plus ordered root ID array; never source_row position",
+  "private_public_words_same_sha256": true,
+  "protected_sha256_before": {
+    "D:\\Projects\\dot-image-review\\ready_union_scopes_20261015.csv": "ec8b8bdc82a72a63551a0f700f10dc6715100df90958a6facc102f585923b3ea",
+    "D:\\Projects\\etymon-source\\app\\data\\pie\\words.json": "305562a11a2516f4265c86a652173386a85533e045302bc5c58aeb4de60b6040",
+    "D:\\Projects\\etymolingo\\app\\data\\generated-etymon\\words.json": "305562a11a2516f4265c86a652173386a85533e045302bc5c58aeb4de60b6040",
+    "D:\\Projects\\etymon-source\\app\\data\\pie\\word_illustration_scenes.json": "9a869c53fd4d5795e9faf8f73b68b8f1c91300041713ca0e98238d83c8b45260"
+  },
+  "protected_sha256_after": {
+    "D:\\Projects\\dot-image-review\\ready_union_scopes_20261015.csv": "ec8b8bdc82a72a63551a0f700f10dc6715100df90958a6facc102f585923b3ea",
+    "D:\\Projects\\etymon-source\\app\\data\\pie\\words.json": "305562a11a2516f4265c86a652173386a85533e045302bc5c58aeb4de60b6040",
+    "D:\\Projects\\etymolingo\\app\\data\\generated-etymon\\words.json": "305562a11a2516f4265c86a652173386a85533e045302bc5c58aeb4de60b6040",
+    "D:\\Projects\\etymon-source\\app\\data\\pie\\word_illustration_scenes.json": "9a869c53fd4d5795e9faf8f73b68b8f1c91300041713ca0e98238d83c8b45260"
+  },
+  "all_protected_unchanged": true
+}

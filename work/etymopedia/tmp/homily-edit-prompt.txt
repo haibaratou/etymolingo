@@ -1,0 +1,1 @@
+Clean the bottom silhouettes of the foreground congregation and chairs: remove red, yellow and green fringe/speckles below their edges, and draw continuous smooth dark-brown rounded contour closures. Genuine transparent background and gaps. Preserve minister, lectern, blank book, four attentive listeners and composition. No new marks or lettering.
