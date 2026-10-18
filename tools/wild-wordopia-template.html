@@ -14,6 +14,7 @@
 <script src="../assets/chara/brainrot/selection-sync.js?v=20261014"></script>
 <script src="../assets/chara/brainrot/library/library.js?v=20261014"></script>
 <script src="../assets/chara/brainrot/site-characters.js?v=20261014"></script>
+<script src="data/wild-wordopia-dictionary.js"></script>
 <style>
 :root{
   --forest:#143a37; --forest2:#0e2c2a; --moss:#2c5f4c; --leaf:#8fd16b;
@@ -244,6 +245,9 @@ footer .mini{font-family:var(--f-logo);font-size:22px;color:var(--ink)}
 .lbl b,.front .lbl b{font-size:20px!important;letter-spacing:-.04em}.lbl small{font-size:14px!important}
 .copy{position:absolute;top:clamp(68px,8vw,120px);left:4.5%;right:auto;max-width:38%;padding:0}
 @media(max-width:760px){.hero{min-height:0}.world{height:auto;aspect-ratio:1672/941}.w .lbl{padding:6px 8px;border-width:3px;box-shadow:3px 3px 0 var(--forest)}.copy{position:absolute;top:68px;left:4.5%;right:auto;max-width:38%;padding:0}}
+
+.familySection{margin-top:22px;border-top:1px solid #d5cdb7}.familySection details{padding:14px 0;border-bottom:1px solid #d5cdb7}.familySection summary{cursor:pointer;font-weight:900;line-height:1.6}.familySection summary span{font-size:12px;color:#64736a}.rootNote{font-size:14px;line-height:1.9;white-space:pre-line}.familyFilter{display:block;margin:16px 0;font-size:12px}.familyFilter input{display:block;box-sizing:border-box;width:100%;padding:12px;border:1px solid #c2cabc;border-radius:10px;background:white;font:inherit;font-size:16px}.familyWord{padding:12px 0;border-top:1px dashed #d5cdb7;overflow-wrap:anywhere}.familyWord strong{color:#bd4129;margin-right:10px}.familyWord span{font-size:14px}.familyWord small{display:block;color:#57665d}.familyWord p{margin:6px 0 0;font-size:13px;line-height:1.8}.motifTitle{font-size:14px;margin:18px 0 10px}.dArt{align-self:start;min-height:0;position:sticky;top:0}.dBody{padding-top:70px}#familyMore{margin-top:12px;font-size:14px}
+@media(max-width:700px){.dArt{position:relative;padding:18px}.dArt img{max-height:280px;object-fit:contain}.dBody{padding:22px 20px}.familyWord span{display:block}}
 </style>
 </head>
 <body>
@@ -275,8 +279,8 @@ footer .mini{font-family:var(--f-logo);font-size:22px;color:var(--ink)}
   <div class="wrap anatomy">
     <div class="specimen" id="specimen"></div>
     <div>
-      <h2 class="h2" id="ah">この体、ぜんぶ<br><em>「頭」</em>でできている。</h2>
-      <p class="sub">キャベツ、船長、力こぶ、牛。同じ「頭」の仲間が集まると、この姿に。</p>
+      <h2 class="h2" id="ah">ちがう英単語。<br>祖先は、同じ<em>「頭」</em>。</h2>
+      <p class="sub">昔の「頭」を表すことばから、いろいろな英単語が生まれました。その仲間を体のモチーフにしたのが、カプトです。</p>
       <ul class="parts" id="kparts"></ul>
     </div>
   </div>
@@ -320,11 +324,14 @@ const ART="../assets/chara/brainrot/";
 const ALL=((window.ETYMOPEDIA_BRAINROT&&window.ETYMOPEDIA_BRAINROT.characters)||[]).map((c,i)=>({...c,no:i+1}));
 const BY={};ALL.forEach(c=>BY[c.id]=c);
 const img=c=>ART+c.file;
-const rep=c=>{const n=c.rootCharacterName||{};const w=n.representativeWord||(uniq(c)[0]||{}).word||"";const m=uniq(c).find(m=>m.word===w);
-  const ja=(m&&m.ja?m.ja.split(/[、,・（(／/]/)[0].replace(/(の|な|する)$/,""):"");return {w,ja:ja||n.representativeWordKana||w};};
+const DICT=window.WILDWORDOPIA_DICTIONARY||{roots:{},aliases:{},words:[]};
+const family=c=>DICT.roots[DICT.aliases[c.id]||c.rootKey||String(c.root||'').replace(/^\*/, '')];
+const familyWords=c=>{const key=family(c)?.key;return key?DICT.words.filter(w=>(w.p||[]).includes(key)):[];};
+const motifWord=(c,m)=>{const hits=familyWords(c).filter(w=>w.w===m.word);return hits.length===1?hits[0]:null;};
+const rep=c=>({w:family(c)?.en||c.rootCharacterName?.meaningEn||'',ja:family(c)?.ja||c.meaning||''});
 const lbl=c=>{const r=rep(c);return `<span class="lbl"><b><span>${esc(r.ja)}</span><span>の祖先</span></b><small>${esc(r.w)}</small></span>`;};
 const no=c=>"No."+String(c.no).padStart(3,"0");
-const rootKey=c=>String(c.root||"").replace(/^\*/,"");
+const rootKey=c=>family(c)?.key||c.rootKey||String(c.root||"").replace(/^\*/,"");
 const ETYMO=new Set(["kaput","ane","bha","gwei","oino","reg","weid","ye","mori","men","do","genu"]);
 const uniq=c=>{const s=new Set();return (c.motifs||[]).filter(m=>!s.has(m.word)&&s.add(m.word));};
 /* 語源メモ: 生成用の注記を除き、元の単語メモだけを使う */
@@ -367,10 +374,10 @@ $("#swap").addEventListener("click",()=>{
 /* ---------- 解剖図(カプト・キャベッジ) ---------- */
 function buildAnatomy(){
   const k=BY.kaput;if(!k){$("#anatomy").remove();return;}
-  const PINS={captain:[44,17,"","船長の帽子"],cabbage:[76,30,"r","キャベツの頭"],biceps:[24,54,"","二頭筋の腕"],cattle:[70,80,"r","牛の体とひづめ"]};
+  const PINS={captain:[44,17,"","船長の帽子"],cabbage:[76,57,"r","キャベツ"],cattle:[70,80,"r","牛の角と尾"]};
   $("#specimen").innerHTML=`<img src="${img(k)}" alt="カプト・キャベッジ">`+uniq(k).filter(m=>PINS[m.word]).map(m=>{const p=PINS[m.word];
     return `<span class="pin ${p[2]}" style="left:${p[0]}%;top:${p[1]}%"><i></i><b>${esc(m.word)}</b></span>`;}).join("");
-  $("#kparts").innerHTML=uniq(k).map(m=>`<li><img src="../assets/word/${encodeURIComponent(m.word)}.png" alt="" loading="lazy" onerror="this.style.visibility='hidden'"><div><b>${esc(m.word)}</b> <span style="display:inline;font-size:14px;color:var(--ink)">${esc(m.ja)}${m.partial?"(一部)":""}</span><span>${esc(trivia(m)||partTxt(m))}</span></div></li>`).join("");
+  $("#kparts").innerHTML=uniq(k).map(m=>`<li><img src="../assets/word/${encodeURIComponent(m.word)}.png" alt="" loading="lazy" onerror="this.style.visibility='hidden'"><div><b>${esc(m.word)}</b> <span style="display:inline;font-size:14px;color:var(--ink)">${esc(motifWord(k,m)?.ja||m.ja)}${m.partial?"(一部)":""}</span><span>${esc(motifWord(k,m)?.b||trivia(m)||partTxt(m))}</span></div></li>`).join("");
   $("#specimen").onclick=()=>{find("kaput");open(BY.kaput);};
 }
 
@@ -396,25 +403,39 @@ $("#q").addEventListener("input",()=>{LIMIT=24;renderGrid();});
 $("#more").addEventListener("click",()=>{LIMIT+=24;renderGrid();});
 
 /* ---------- 詳細 ---------- */
-let ROOTS=null,cur=null;
-function loadRoots(){
-  if(ROOTS||location.protocol==="file:")return;ROOTS={};
-  fetch("data/generated-etymon/roots.json").then(r=>r.ok?r.json():[]).then(a=>{a.forEach(r=>ROOTS[r.key]=r);if(cur&&$("#dlg").open)open(cur);}).catch(()=>{});
+let cur=null;
+const rootLabel=c=>{const r=family(c);return r?'*'+String(r.pie||r.key).replace(/^\*/, ''):'';};
+function dictionaryHTML(c){
+ const r=family(c);if(!r)return '';
+ const words=familyWords(c);
+ return `<section class="familySection"><details><summary>「${esc(r.ja)}」から、どう広がった？</summary><p class="rootNote">${esc(r.d||'')}</p></details>
+ <details id="familyDetails"><summary>同じ祖先をもつ英単語 <span>${words.length}語</span></summary>
+ <label class="familyFilter">単語・意味で絞る<input id="familyQuery" type="search" placeholder="例：head / 船長" autocomplete="off"></label><div id="familyWords"></div><button type="button" id="familyMore" class="btn">もっと見る</button></details></section>`;
+}
+function setupFamily(c){
+ const target=$('#familyWords');if(!target)return;
+ let limit=30;const all=familyWords(c).slice().sort((a,b)=>(a.r??Infinity)-(b.r??Infinity)||a.w.localeCompare(b.w));
+ const names=['ふだん語','ときどき語','めずらし語','激レア語','幻レア語','神レア語','究極絶滅語'];
+ function render(){const q=$('#familyQuery').value.trim().toLowerCase();const rows=all.filter(w=>!q||[w.w,w.ja,w.en,w.b].join(' ').toLowerCase().includes(q));let tier=-1;
+ target.innerHTML=rows.slice(0,limit).map(w=>{const t=w.r==null?6:Math.min(6,Math.max(0,Math.floor(w.r/200)));const head=t!==tier?`<h4>${names[t]}</h4>`:'';tier=t;return head+`<article class="familyWord"><strong>${esc(w.w)}</strong><span>${esc(w.ja)}</span>${w.en?`<small>${esc(w.en)}</small>`:''}${w.b?`<p>${esc(w.b)}</p>`:''}</article>`;}).join('')||'<p>一致する単語はありません。</p>';
+ $('#familyMore').hidden=rows.length<=limit;}
+ $('#familyQuery').oninput=()=>{limit=30;render();};$('#familyMore').onclick=()=>{limit+=30;render();};render();
 }
 function open(c){
-  if(!c)return;cur=c;loadRoots();
-  const n=c.rootCharacterName||{};const r=ROOTS&&ROOTS[rootKey(c)];
+  if(!c)return;cur=c;
+  const n=c.rootCharacterName||{};const r=family(c);
   const kp=n.kanaParts||[],np=n.nameParts||[];
   $("#dBox").innerHTML=`<div class="dg" style="--c:${esc(c.color||"#e8875a")}">
     <div class="dArt"><span class="no">${no(c)}</span><img src="${img(c)}" alt="${esc(c.kana)}"></div>
     <div class="dBody">
       <span class="mean">${esc(rep(c).ja)}の祖先 · ${esc(rep(c).w)}</span>
       <h3 id="dTitle">${esc(c.kana)}</h3>
-      <div class="facts"><span>約6000年前</span>${r&&r.all?`<span>子孫 ${r.all.toLocaleString()}語</span>`:""}</div>
-      <ul class="mlist">${uniq(c).map(m=>{const t=trivia(m),p=partTxt(m);return `<li>
+      <div class="facts"><span>${esc(rootLabel(c))}</span><span>「${esc(rep(c).ja)}」を表すことば</span></div><h4 class="motifTitle">この姿になった英単語</h4>
+      <ul class="mlist">${uniq(c).map(m=>{const entry=motifWord(c,m),t=entry?.b||trivia(m),p=partTxt(m);return `<li>
         <img src="../assets/word/${encodeURIComponent(m.word)}.png" alt="" loading="lazy" onerror="this.style.visibility='hidden'">
-        <div><span class="wd">${esc(m.word)}</span><span class="ja">${esc(m.ja)}</span>${m.partial?'<span class="part1">一部だけ</span>':""}
+        <div><span class="wd">${esc(m.word)}</span><span class="ja">${esc(entry?.ja||m.ja)}</span>${m.partial?'<span class="part1">一部だけ</span>':""}
         ${p?`<div class="pt">体のここ：${esc(p)}</div>`:""}${t?`<div class="why">${esc(t)}</div>`:""}</div></li>`;}).join("")}</ul>
+      ${dictionaryHTML(c)}
       <div class="dLinks">
         ${ETYMO.has(c.id)?`<a href="etymopedia.html#/root/${encodeURIComponent(c.id)}">家系図を見る</a>`:""}
         <a href="etymon-explorer.html#root:${encodeURIComponent(rootKey(c))}">子孫の英単語をぜんぶ見る</a>
@@ -422,6 +443,7 @@ function open(c){
     </div></div>
     <div class="dNav"><button type="button" data-d="-1" aria-label="前のワイルド">◀</button><button type="button" data-d="1" aria-label="次のワイルド">▶</button><button type="button" data-d="0" aria-label="閉じる">✕</button></div>`;
   $("#dBox").querySelectorAll(".dNav button").forEach(b=>b.onclick=()=>step(+b.dataset.d));
+  setupFamily(c);
   if(!$("#dlg").open)$("#dlg").showModal();
 }
 function step(d){if(!d){$("#dlg").close();return;}const c=ALL[(ALL.indexOf(cur)+d+ALL.length)%ALL.length];find(c.id);open(c);}
@@ -440,3 +462,4 @@ buildWorld();buildAnatomy();renderGrid();
 </script>
 </body>
 </html>
+
