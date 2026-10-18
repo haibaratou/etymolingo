@@ -1,0 +1,342 @@
+{
+  "format": "individual transparent PNG reaction poses",
+  "animation_frames": false,
+  "images": [
+    {
+      "file": "boy_blue/boy_01_idle.png",
+      "label_ja": "通常・にこにこ",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "content_bbox": [
+        344,
+        74,
+        926,
+        1188
+      ],
+      "anchor": [
+        0.5,
+        0.95
+      ]
+    },
+    {
+      "file": "boy_blue/boy_02_correct.png",
+      "label_ja": "正解・やったね",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "content_bbox": [
+        66,
+        70,
+        893,
+        1439
+      ],
+      "anchor": [
+        0.5,
+        0.95
+      ]
+    },
+    {
+      "file": "boy_blue/boy_03_combo_surprised.png",
+      "label_ja": "連続正解・びっくり",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "content_bbox": [
+        195,
+        72,
+        898,
+        1444
+      ],
+      "anchor": [
+        0.5,
+        0.95
+      ]
+    },
+    {
+      "file": "boy_blue/boy_04_celebrate.png",
+      "label_ja": "大喜び・ばんざい",
+      "width": 1211,
+      "height": 1299,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "content_bbox": [
+        182,
+        77,
+        1010,
+        1196
+      ],
+      "anchor": [
+        0.5,
+        0.95
+      ]
+    },
+    {
+      "file": "boy_blue/boy_05_miss_sad.png",
+      "label_ja": "失敗・しょんぼり",
+      "width": 1145,
+      "height": 1374,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "content_bbox": [
+        243,
+        88,
+        903,
+        1287
+      ],
+      "anchor": [
+        0.5,
+        0.95
+      ]
+    },
+    {
+      "file": "boy_blue/boy_06_encourage.png",
+      "label_ja": "応援・がんばれ",
+      "width": 1213,
+      "height": 1297,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "content_bbox": [
+        230,
+        73,
+        942,
+        1209
+      ],
+      "anchor": [
+        0.5,
+        0.95
+      ]
+    },
+    {
+      "file": "boy_blue/boy_07_thinking.png",
+      "label_ja": "考え中・うーん",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "content_bbox": [
+        201,
+        99,
+        862,
+        1412
+      ],
+      "anchor": [
+        0.5,
+        0.95
+      ]
+    },
+    {
+      "file": "boy_blue/boy_08_hint.png",
+      "label_ja": "ヒント・ひらめいた",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "content_bbox": [
+        88,
+        100,
+        931,
+        1407
+      ],
+      "anchor": [
+        0.5,
+        0.95
+      ]
+    },
+    {
+      "file": "girl_yellow/girl_01_idle.png",
+      "label_ja": "通常・にこにこ",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "content_bbox": [
+        207,
+        219,
+        922,
+        1336
+      ],
+      "anchor": [
+        0.5,
+        0.95
+      ]
+    },
+    {
+      "file": "girl_yellow/girl_02_correct.png",
+      "label_ja": "正解・やったね",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "content_bbox": [
+        221,
+        72,
+        1056,
+        1171
+      ],
+      "anchor": [
+        0.5,
+        0.95
+      ]
+    },
+    {
+      "file": "girl_yellow/girl_03_combo_surprised.png",
+      "label_ja": "連続正解・びっくり",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "content_bbox": [
+        309,
+        80,
+        1024,
+        1175
+      ],
+      "anchor": [
+        0.5,
+        0.95
+      ]
+    },
+    {
+      "file": "girl_yellow/girl_04_celebrate.png",
+      "label_ja": "大喜び・ばんざい",
+      "width": 1230,
+      "height": 1279,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "content_bbox": [
+        133,
+        79,
+        1128,
+        1199
+      ],
+      "anchor": [
+        0.5,
+        0.95
+      ]
+    },
+    {
+      "file": "girl_yellow/girl_05_miss_sad.png",
+      "label_ja": "失敗・しょんぼり",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "content_bbox": [
+        286,
+        93,
+        1006,
+        1163
+      ],
+      "anchor": [
+        0.5,
+        0.95
+      ]
+    },
+    {
+      "file": "girl_yellow/girl_06_encourage.png",
+      "label_ja": "応援・がんばれ",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "content_bbox": [
+        260,
+        82,
+        1064,
+        1174
+      ],
+      "anchor": [
+        0.5,
+        0.95
+      ]
+    },
+    {
+      "file": "girl_yellow/girl_07_thinking.png",
+      "label_ja": "考え中・うーん",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "content_bbox": [
+        179,
+        149,
+        964,
+        1400
+      ],
+      "anchor": [
+        0.5,
+        0.95
+      ]
+    },
+    {
+      "file": "girl_yellow/girl_08_hint.png",
+      "label_ja": "ヒント・ひらめいた",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "content_bbox": [
+        48,
+        156,
+        981,
+        1380
+      ],
+      "anchor": [
+        0.5,
+        0.95
+      ]
+    }
+  ]
+}

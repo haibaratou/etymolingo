@@ -1,0 +1,282 @@
+[
+  {
+    "file": "boy_blue/boy_09_dance.png",
+    "label_ja": "ダンス・軽快なステップ",
+    "reference": "D:\\Projects\\etymolingo\\assets\\word\\dance.png",
+    "size": [
+      1024,
+      1536
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      254
+    ],
+    "visible_bbox": [
+      113,
+      153,
+      916,
+      1416
+    ]
+  },
+  {
+    "file": "boy_blue/boy_10_sigh.png",
+    "label_ja": "ため息・やれやれ",
+    "reference": "D:\\Projects\\etymolingo\\assets\\word\\sigh.png",
+    "size": [
+      1245,
+      1263
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "visible_bbox": [
+      255,
+      110,
+      914,
+      1157
+    ]
+  },
+  {
+    "file": "boy_blue/boy_11_stylish_wink.png",
+    "label_ja": "ウインク・おしゃれな決めポーズ",
+    "reference": "D:\\Projects\\etymolingo\\assets\\word\\sexy.png",
+    "size": [
+      1024,
+      1536
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      254
+    ],
+    "visible_bbox": [
+      199,
+      97,
+      900,
+      1428
+    ]
+  },
+  {
+    "file": "boy_blue/boy_12_cool.png",
+    "label_ja": "クール・サングラス",
+    "reference": "D:\\Projects\\etymolingo\\assets\\word\\cool.png",
+    "size": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "visible_bbox": [
+      233,
+      47,
+      992,
+      1196
+    ]
+  },
+  {
+    "file": "boy_blue/boy_13_rich.png",
+    "label_ja": "お宝獲得・余裕のポーズ",
+    "reference": "D:\\Projects\\etymolingo\\assets\\word\\rich.png",
+    "size": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "visible_bbox": [
+      189,
+      60,
+      1053,
+      1186
+    ]
+  },
+  {
+    "file": "boy_blue/boy_14_assured.png",
+    "label_ja": "自信満々・まかせて",
+    "reference": "D:\\Projects\\etymolingo\\assets\\word\\assured.png",
+    "size": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "visible_bbox": [
+      217,
+      45,
+      1003,
+      1202
+    ]
+  },
+  {
+    "file": "reference_moves/boy_blue/boy_15_sadness.png",
+    "label_ja": "悲しみ・膝を抱えて涙",
+    "reference": "D:\\Projects\\etymolingo\\assets\\word\\sadness.png",
+    "size": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "visible_bbox": [
+      230,
+      51,
+      971,
+      1195
+    ]
+  },
+  {
+    "file": "girl_yellow/girl_09_dance.png",
+    "label_ja": "ダンス・軽快なステップ",
+    "reference": "D:\\Projects\\etymolingo\\assets\\word\\dance.png",
+    "size": [
+      1176,
+      1338
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "visible_bbox": [
+      206,
+      135,
+      1084,
+      1234
+    ]
+  },
+  {
+    "file": "girl_yellow/girl_10_sigh.png",
+    "label_ja": "ため息・やれやれ",
+    "reference": "D:\\Projects\\etymolingo\\assets\\word\\sigh.png",
+    "size": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "visible_bbox": [
+      277,
+      106,
+      1018,
+      1156
+    ]
+  },
+  {
+    "file": "girl_yellow/girl_11_stylish_wink.png",
+    "label_ja": "ウインク・おしゃれな決めポーズ",
+    "reference": "D:\\Projects\\etymolingo\\assets\\word\\sexy.png",
+    "size": [
+      1024,
+      1536
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      254
+    ],
+    "visible_bbox": [
+      129,
+      73,
+      960,
+      1464
+    ]
+  },
+  {
+    "file": "girl_yellow/girl_12_cool.png",
+    "label_ja": "クール・サングラス",
+    "reference": "D:\\Projects\\etymolingo\\assets\\word\\cool.png",
+    "size": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "visible_bbox": [
+      193,
+      75,
+      1069,
+      1183
+    ]
+  },
+  {
+    "file": "girl_yellow/girl_13_rich.png",
+    "label_ja": "お宝獲得・余裕のポーズ",
+    "reference": "D:\\Projects\\etymolingo\\assets\\word\\rich.png",
+    "size": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "visible_bbox": [
+      207,
+      139,
+      1105,
+      1122
+    ]
+  },
+  {
+    "file": "girl_yellow/girl_14_assured.png",
+    "label_ja": "自信満々・まかせて",
+    "reference": "D:\\Projects\\etymolingo\\assets\\word\\assured.png",
+    "size": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "visible_bbox": [
+      213,
+      81,
+      1032,
+      1180
+    ]
+  },
+  {
+    "file": "reference_moves/girl_yellow/girl_15_sadness.png",
+    "label_ja": "悲しみ・膝を抱えて涙",
+    "reference": "D:\\Projects\\etymolingo\\assets\\word\\sadness.png",
+    "size": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "visible_bbox": [
+      222,
+      108,
+      1069,
+      1169
+    ]
+  }
+]

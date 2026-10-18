@@ -1,0 +1,10 @@
+{
+  "file": "grown_up/boy_blue/boy_01_idle.png",
+  "label": "成長版・通常・にこにこ",
+  "prompt": "Use case: illustration-story. Single standalone full-body game character reaction sprite, genuinely transparent alpha background. Thick rounded dark brown linework, flat warm colors, sparse gentle shading, clean edges without glow or haze, simple dot eyes and peach blush. ONE character only, no second person, no lettering or watermark, no floor or cast shadow. Whole figure including hair, hands and shoes fully inside frame with generous transparent margins. Image 1 shows the childhood identity to age up. An older version of the same BOY, now about 15 years old, visibly adolescent rather than a toddler: about FOUR heads tall, smaller head relative to body, longer slim arms and legs, slightly more angular but friendly face, no facial hair. Preserve recognizable tousled brown hairstyle, dark brown dot eyes, rounded graphic style and blue/brown palette. Consistent outfit for entire set: plain blue long-sleeve crewneck shirt, brown straight full-length trousers, blue low-top sneakers with white soles. Pose: relaxed welcoming smile, eyes open, arms down beside torso, standing upright with both feet on the ground. Neutral model-sheet pose to establish the identity for the whole set. No props.",
+  "refs": [
+    "D:\\Projects\\etymolingo\\work\\etymopedia\\etymopedia_sample\\references\\invidious.png"
+  ],
+  "record": "grown_up/prompts/boy_01_idle.json",
+  "method": "built-in image_gen"
+}

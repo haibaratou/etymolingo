@@ -1,0 +1,12 @@
+{
+  "file": "adult_chibi/girl_yellow/girl_03_combo_surprised.png",
+  "label": "大人デフォルメ・連続正解・びっくり",
+  "prompt": "Use case: illustration-story. Create ONE standalone full-body transparent PNG game reaction sprite. PROPORTION AND RENDERING reference is image 3 (sexy.png): adult cartoon CHIBI, about 3.2 HEADS TALL, oversized rounded head occupying roughly one THIRD of total standing height, compact torso, short stylized limbs, tiny hands and shoes. Match that reference's dark brown thick rounded linework, flat warm fills, sparse soft shading, simple dot eyes and peach blush. Absolutely do NOT use tall 5-to-7-head teenage or realistic anatomy. Image 1 is the AUTHORITATIVE adult character model. Copy image 1's identity, compact proportions and clothes exactly. Image 2 is ONLY the pose reference from childhood: do not copy its clothes or child proportions.  Whole body including hands and shoes inside canvas with generous padding. TRUE transparent alpha background with clean cutout edges. No glow, halo, bloom, ambient haze, background, floor or cast shadow. No words, logos, watermark or other people. The same female character now a young ADULT WOMAN: recognizable brown side ponytail on viewer's right with coral hair tie and brown bangs, friendly mature face with simple dot eyes, large rounded head like the proportion reference. Yellow open cardigan over a plain ivory blouse, coral knee-length skirt, simple reddish-brown low-heeled closed shoes. Compact mature cartoon silhouette with modest natural adult proportions, not a tall adolescent or toddler. Keep this outfit unchanged across all poses. Requested action: amazed joyful surprise, large round eyes and small O-shaped open mouth, both open hands raised near cheeks, leaning slightly backward Preserve the adult model's outfit from image 1, its large head and short compact body. Never stretch the legs or make a lanky teenager.",
+  "refs": [
+    "D:\\Projects\\etymolingo\\work\\etymopedia\\ch_pose\\adult_chibi\\girl_yellow\\girl_01_idle.png",
+    "D:\\Projects\\etymolingo\\work\\etymopedia\\ch_pose\\girl_yellow\\girl_03_combo_surprised.png",
+    "D:\\Projects\\etymolingo\\assets\\word\\sexy.png"
+  ],
+  "record": "adult_chibi/prompts/girl_03_combo_surprised.json",
+  "method": "built-in image_gen"
+}

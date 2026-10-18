@@ -1,0 +1,512 @@
+[
+  {
+    "file": "adult_chibi/boy_blue/boy_01_idle.png",
+    "label_ja": "大人デフォルメ・通常・にこにこ",
+    "width": 1234,
+    "height": 1274,
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "visible_bbox": [
+      328,
+      36,
+      902,
+      1239
+    ]
+  },
+  {
+    "file": "adult_chibi/boy_blue/boy_02_correct.png",
+    "label_ja": "大人デフォルメ・正解・やったね",
+    "width": 1230,
+    "height": 1278,
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "visible_bbox": [
+      297,
+      32,
+      921,
+      1246
+    ]
+  },
+  {
+    "file": "adult_chibi/boy_blue/boy_03_combo_surprised.png",
+    "label_ja": "大人デフォルメ・連続正解・びっくり",
+    "width": 1024,
+    "height": 1536,
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      254
+    ],
+    "visible_bbox": [
+      188,
+      54,
+      932,
+      1480
+    ]
+  },
+  {
+    "file": "adult_chibi/boy_blue/boy_04_celebrate.png",
+    "label_ja": "大人デフォルメ・大喜び・ばんざい",
+    "width": 1222,
+    "height": 1287,
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "visible_bbox": [
+      191,
+      31,
+      1033,
+      1216
+    ]
+  },
+  {
+    "file": "adult_chibi/boy_blue/boy_05_miss_sad.png",
+    "label_ja": "大人デフォルメ・失敗・しょんぼり",
+    "width": 1145,
+    "height": 1374,
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "visible_bbox": [
+      239,
+      92,
+      900,
+      1319
+    ]
+  },
+  {
+    "file": "adult_chibi/boy_blue/boy_06_encourage.png",
+    "label_ja": "大人デフォルメ・応援・がんばれ",
+    "width": 1213,
+    "height": 1296,
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "visible_bbox": [
+      245,
+      32,
+      968,
+      1266
+    ]
+  },
+  {
+    "file": "adult_chibi/boy_blue/boy_07_thinking.png",
+    "label_ja": "大人デフォルメ・考え中・うーん",
+    "width": 1024,
+    "height": 1536,
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      254
+    ],
+    "visible_bbox": [
+      219,
+      38,
+      904,
+      1495
+    ]
+  },
+  {
+    "file": "adult_chibi/boy_blue/boy_08_hint.png",
+    "label_ja": "大人デフォルメ・ヒント・ひらめいた",
+    "width": 1145,
+    "height": 1374,
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "visible_bbox": [
+      178,
+      46,
+      989,
+      1329
+    ]
+  },
+  {
+    "file": "adult_chibi/boy_blue/boy_09_dance.png",
+    "label_ja": "大人デフォルメ・ダンス・軽快なステップ",
+    "width": 1024,
+    "height": 1536,
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      254
+    ],
+    "visible_bbox": [
+      121,
+      66,
+      920,
+      1465
+    ]
+  },
+  {
+    "file": "adult_chibi/boy_blue/boy_10_sigh.png",
+    "label_ja": "大人デフォルメ・ため息・やれやれ",
+    "width": 1242,
+    "height": 1266,
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "visible_bbox": [
+      238,
+      49,
+      952,
+      1211
+    ]
+  },
+  {
+    "file": "adult_chibi/boy_blue/boy_11_stylish_wink.png",
+    "label_ja": "大人デフォルメ・ウインク・おしゃれな決めポーズ",
+    "width": 1024,
+    "height": 1536,
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      254
+    ],
+    "visible_bbox": [
+      177,
+      73,
+      903,
+      1480
+    ]
+  },
+  {
+    "file": "adult_chibi/boy_blue/boy_12_cool.png",
+    "label_ja": "大人デフォルメ・クール・サングラス",
+    "width": 1214,
+    "height": 1296,
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "visible_bbox": [
+      229,
+      44,
+      941,
+      1266
+    ]
+  },
+  {
+    "file": "adult_chibi/boy_blue/boy_13_rich.png",
+    "label_ja": "大人デフォルメ・お宝獲得・余裕のポーズ",
+    "width": 1254,
+    "height": 1254,
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "visible_bbox": [
+      221,
+      43,
+      1062,
+      1221
+    ]
+  },
+  {
+    "file": "adult_chibi/boy_blue/boy_14_assured.png",
+    "label_ja": "大人デフォルメ・自信満々・まかせて",
+    "width": 1215,
+    "height": 1295,
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "visible_bbox": [
+      275,
+      53,
+      928,
+      1248
+    ]
+  },
+  {
+    "file": "adult_chibi/boy_blue/boy_15_sadness.png",
+    "label_ja": "大人デフォルメ・悲しみ・膝を抱えて涙",
+    "width": 1254,
+    "height": 1254,
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "visible_bbox": [
+      249,
+      66,
+      1027,
+      1196
+    ]
+  },
+  {
+    "file": "adult_chibi/girl_yellow/girl_01_idle.png",
+    "label_ja": "大人デフォルメ・通常・にこにこ",
+    "width": 1254,
+    "height": 1254,
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "visible_bbox": [
+      342,
+      48,
+      984,
+      1222
+    ]
+  },
+  {
+    "file": "adult_chibi/girl_yellow/girl_02_correct.png",
+    "label_ja": "大人デフォルメ・正解・やったね",
+    "width": 1243,
+    "height": 1265,
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "visible_bbox": [
+      268,
+      24,
+      1031,
+      1243
+    ]
+  },
+  {
+    "file": "adult_chibi/girl_yellow/girl_03_combo_surprised.png",
+    "label_ja": "大人デフォルメ・連続正解・びっくり",
+    "width": 1145,
+    "height": 1374,
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "visible_bbox": [
+      228,
+      32,
+      970,
+      1323
+    ]
+  },
+  {
+    "file": "adult_chibi/girl_yellow/girl_04_celebrate.png",
+    "label_ja": "大人デフォルメ・大喜び・ばんざい",
+    "width": 1230,
+    "height": 1278,
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "visible_bbox": [
+      204,
+      41,
+      1126,
+      1210
+    ]
+  },
+  {
+    "file": "adult_chibi/girl_yellow/girl_05_miss_sad.png",
+    "label_ja": "大人デフォルメ・失敗・しょんぼり",
+    "width": 1246,
+    "height": 1262,
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "visible_bbox": [
+      272,
+      56,
+      997,
+      1238
+    ]
+  },
+  {
+    "file": "adult_chibi/girl_yellow/girl_06_encourage.png",
+    "label_ja": "大人デフォルメ・応援・がんばれ",
+    "width": 1254,
+    "height": 1254,
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "visible_bbox": [
+      300,
+      46,
+      1034,
+      1226
+    ]
+  },
+  {
+    "file": "adult_chibi/girl_yellow/girl_07_thinking.png",
+    "label_ja": "大人デフォルメ・考え中・うーん",
+    "width": 1024,
+    "height": 1536,
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      254
+    ],
+    "visible_bbox": [
+      147,
+      76,
+      951,
+      1490
+    ]
+  },
+  {
+    "file": "adult_chibi/girl_yellow/girl_08_hint.png",
+    "label_ja": "大人デフォルメ・ヒント・ひらめいた",
+    "width": 1024,
+    "height": 1536,
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      254
+    ],
+    "visible_bbox": [
+      58,
+      53,
+      971,
+      1491
+    ]
+  },
+  {
+    "file": "adult_chibi/girl_yellow/girl_09_dance.png",
+    "label_ja": "大人デフォルメ・ダンス・軽快なステップ",
+    "width": 1176,
+    "height": 1337,
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "visible_bbox": [
+      205,
+      85,
+      1063,
+      1280
+    ]
+  },
+  {
+    "file": "adult_chibi/girl_yellow/girl_10_sigh.png",
+    "label_ja": "大人デフォルメ・ため息・やれやれ",
+    "width": 1223,
+    "height": 1286,
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "visible_bbox": [
+      210,
+      31,
+      1022,
+      1256
+    ]
+  },
+  {
+    "file": "adult_chibi/girl_yellow/girl_11_stylish_wink.png",
+    "label_ja": "大人デフォルメ・ウインク・おしゃれな決めポーズ",
+    "width": 1024,
+    "height": 1536,
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      254
+    ],
+    "visible_bbox": [
+      141,
+      33,
+      945,
+      1501
+    ]
+  },
+  {
+    "file": "adult_chibi/girl_yellow/girl_12_cool.png",
+    "label_ja": "大人デフォルメ・クール・サングラス",
+    "width": 1254,
+    "height": 1254,
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "visible_bbox": [
+      238,
+      54,
+      1044,
+      1222
+    ]
+  },
+  {
+    "file": "adult_chibi/girl_yellow/girl_13_rich.png",
+    "label_ja": "大人デフォルメ・お宝獲得・余裕のポーズ",
+    "width": 1230,
+    "height": 1278,
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "visible_bbox": [
+      175,
+      78,
+      1076,
+      1221
+    ]
+  },
+  {
+    "file": "adult_chibi/girl_yellow/girl_14_assured.png",
+    "label_ja": "大人デフォルメ・自信満々・まかせて",
+    "width": 1199,
+    "height": 1312,
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "visible_bbox": [
+      188,
+      43,
+      1013,
+      1287
+    ]
+  },
+  {
+    "file": "adult_chibi/girl_yellow/girl_15_sadness.png",
+    "label_ja": "大人デフォルメ・悲しみ・膝を抱えて涙",
+    "width": 1254,
+    "height": 1254,
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "visible_bbox": [
+      205,
+      66,
+      1117,
+      1198
+    ]
+  }
+]

@@ -1,0 +1,10 @@
+{
+  "file": "grown_up/girl_yellow/girl_01_idle.png",
+  "label": "成長版・通常・にこにこ",
+  "prompt": "Use case: illustration-story. Single standalone full-body game character reaction sprite, genuinely transparent alpha background. Thick rounded dark brown linework, flat warm colors, sparse gentle shading, clean edges without glow or haze, simple dot eyes and peach blush. ONE character only, no second person, no lettering or watermark, no floor or cast shadow. Whole figure including hair, hands and shoes fully inside frame with generous transparent margins. Image 1 shows the childhood identity to age up. An older version of the same GIRL, now about 15 years old, visibly adolescent rather than a toddler: about FOUR heads tall, smaller head relative to body, longer slim arms and legs, slightly more defined but friendly face. Preserve brown bangs, brown side ponytail on viewer's right with coral hair tie, dark brown dot eyes, rounded graphic style and yellow/coral palette. Consistent fully covering casual outfit for entire set: plain yellow long-sleeve crewneck top, coral knee-length skirt, cream socks, red-brown low-top sneakers. Natural age-appropriate adolescent silhouette. Pose: relaxed welcoming smile, eyes open, arms down beside torso, standing upright with both feet on the ground. Neutral model-sheet pose to establish the identity for the whole set. No props.",
+  "refs": [
+    "D:\\Projects\\etymolingo\\work\\etymopedia\\etymopedia_sample\\references\\invidious.png"
+  ],
+  "record": "grown_up/prompts/girl_01_idle.json",
+  "method": "built-in image_gen"
+}

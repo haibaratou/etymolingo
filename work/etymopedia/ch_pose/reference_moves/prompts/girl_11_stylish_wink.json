@@ -1,0 +1,7 @@
+{
+  "file": "girl_yellow/girl_11_stylish_wink.png",
+  "label": "ウインク・おしゃれな決めポーズ",
+  "reference": "D:\\Projects\\etymolingo\\assets\\word\\sexy.png",
+  "prompt": "Use case: illustration-story. Asset type: individual full-body transparent PNG reaction sprite for a vocabulary puzzle. Image 1 is the authoritative character identity/style reference. Image 2 is a motion/composition reference only. Make ONE character only, never two. Match image 1 closely: cute chibi child, thick rounded dark brown outlines, flat warm colors, dot eyes unless winking or closed, minimal shading. Preserve exact face, hairstyle, child proportions and usual clothes. Do not copy adult identity or clothes from image 2. Full body and all shoes and hands inside the canvas with generous transparent margins. Centered readable silhouette, consistent scale. True transparent alpha backdrop; no floor, cast shadow, lettering, labels or watermark. Character: the girl, brown bangs and brown side ponytail tied with coral hair tie on viewer's right, yellow long-sleeve shirt, coral skirt, cream socks, red-brown shoes. Requested pose: A wholesome playful stylish wink: one hand touching the hair beside the head, other hand on hip, one foot lightly crossed in front of the other, cheerful open smile and friendly wink. Keep the child's exact normal fully covering outfit and childlike silhouette. No adult styling or adult body proportions.",
+  "method": "built-in image_gen"
+}

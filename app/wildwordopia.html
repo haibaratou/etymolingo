@@ -249,7 +249,11 @@
     
 .design-view{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:14px 16px;margin:0 0 16px;background:#fff;border:1px solid var(--line);border-radius:14px}.design-view strong{font-size:15px}.design-switch{display:flex;flex-wrap:wrap;gap:5px}.design-switch button,.family-design button{border:1px solid #c9c3b9;border-radius:8px;background:#fff;padding:9px 14px;font:700 13px/1.3 inherit;cursor:pointer}.design-switch button[aria-pressed=true],.family-design button[aria-pressed=true]{background:#242221;color:white;border-color:#242221}.family-design{display:flex;gap:5px;flex-wrap:wrap;margin:8px 0}.family-design button{padding:6px 9px;font-size:12px}.design-view-status{font-size:12px;color:var(--muted)}.candidate-head .style-chip{white-space:normal}
 
-</style>
+
+.reference-designs{margin:24px auto;max-width:1400px;padding:16px;border:1px solid #ddd4c6;border-radius:12px}.reference-designs summary{cursor:pointer;font-weight:700}.reference-designs p{font-size:13px;color:#746e62}#reference-thumbnails{display:grid;grid-template-columns:repeat(auto-fill,minmax(106px,1fr));gap:10px}.reference-item{display:block;color:inherit;font-size:11px;text-decoration:none}.reference-item img{display:block;width:100%;height:110px;object-fit:contain;background:#f4f1eb;border-radius:6px}.thumb-reactions:empty,.rarity-row:empty{display:none}
+
+.inline-references{margin:12px 0 6px;border-top:1px solid #e5dfd4;padding-top:10px}.inline-references h3{font-size:12px;margin:0 0 6px;color:#786e60}.inline-reference-strip{display:flex;gap:8px;overflow-x:auto;padding:3px 2px 8px}.inline-reference{flex:0 0 82px;text-align:center;font-size:10px;color:#786e60;text-decoration:none}.inline-reference img{display:block;width:82px;height:82px;object-fit:contain;background:#f4f1eb;border:1px solid #e3ddd1;border-radius:6px}.unused-words{margin:4px 0 12px;font-size:12px;line-height:1.9;color:#716c65}.unused-words strong{font-weight:600;margin-right:8px}.unused-word{display:inline-block;margin-right:12px}.reference-only .root-meaning-title{font-size:23px}.reference-only .inline-references{border-top:0}.reference-only{padding-bottom:6px}
+.image-delete{font:600 12px/1.4 system-ui;padding:7px 11px;border:1px solid #c3a4a0;border-radius:6px;background:#fff6f4;color:#873c32;cursor:pointer}.art-stage{position:relative}.art-stage>.image-delete{position:absolute;right:12px;bottom:12px;z-index:3}.reference-entry[hidden]{display:none!important}.reference-entry{flex:0 0 82px;display:flex;flex-direction:column;gap:4px}.reference-entry .image-delete{font-size:10px;padding:4px}.candidate-thumb-item>.image-delete{align-self:center}.latest-official{font-size:11px;color:#39713d;font-weight:700}</style>
 </head>
 <body>
   <div class="shell">
@@ -263,15 +267,13 @@
           <p class="eyebrow">Wild Wordopia · Character review</p>
           <h1 id="page-title" lang="ja">キャラクター<br><span class="accent">比較</span></h1>
         </div>
-        <p class="hero-copy" lang="ja"><strong id="hero-root-count">0</strong>語根 · 新案 <strong id="hero-candidate-count">0</strong>点<br>同じ語根の新旧の候補を、ここで比較できます。<strong>原義がどんな体になり、派生英単語がどの部品になったか</strong>を確かめてください。</p>
+        <p class="hero-copy" lang="ja"><strong id="hero-root-count">0</strong>語根 · 新案 <strong id="hero-candidate-count">0</strong>点<br>同じ語根の正式画像を比較できます。旧案は下部の参考デザインにあります。<strong>原義がどんな体になり、派生英単語がどの部品になったか</strong>を確かめてください。</p>
       </section>
       <div class="controls">
-        <div class="mode-switch" role="group" aria-label="Character artwork">
-          <button type="button" data-mode="new" aria-pressed="true">New creatures</button>
-          <button type="button" data-mode="original" aria-pressed="false">Original characters</button>
-        </div>
-        <div class="family-count" lang="ja"><strong id="family-count">0</strong>語根 · 新案 <strong id="candidate-count">0</strong> / <strong id="target-candidate-count">0</strong> · 履歴 <strong id="history-candidate-count">0</strong> · 全候補 <strong id="retained-candidate-count">0</strong></div>
+        
+        <div hidden class="family-count" lang="ja"><strong id="family-count">0</strong>語根 · 新案 <strong id="candidate-count">0</strong> / <strong id="target-candidate-count">0</strong> · 履歴 <strong id="history-candidate-count">0</strong> · 全候補 <strong id="retained-candidate-count">0</strong></div>
       </div>
+      <p id="official-count" class="official-count"></p>
       <div class="review-toolbar" lang="ja">
         <button type="button" class="toolbar-button primary" id="send-production-notes">記入済みメモを一括で取り出す</button>
         <button type="button" class="toolbar-button" id="import-notes">メモを読み込む（txt）</button>
@@ -280,19 +282,19 @@
         <input type="file" id="notes-file" accept=".txt,text/plain" hidden>
         <button type="button" class="toolbar-button primary" id="save-review">バックアップを書き出す（任意）</button>
         <button type="button" class="toolbar-button" id="import-review">チェック結果を読み込む</button>
-        <button type="button" class="toolbar-button" id="clear-all-notes">メモを全部消す</button>
+        <button type="button" class="toolbar-button" id="restore-deleted-images">削除した画像を戻す</button><button type="button" class="toolbar-button" id="clear-all-notes">メモを全部消す</button>
         <button type="button" class="toolbar-button" id="show-figure-candidates" hidden>ちびフィギュア案を見る</button>
         <input type="file" id="review-file" accept="application/json,.json" hidden>
         <span class="review-progress" id="review-progress" aria-live="polite">チェック済み 0 / 0</span>
       </div>
       <p class="review-feedback" id="review-feedback" aria-live="polite" lang="ja"></p>
-      <p class="review-instruction" lang="ja">同じ語根の案を切り替えて比較できます。最後に選んで表示した案が、その語根の採用案になります。採用は緑の枠で表示します。いいね・チェック・メモは入力するとすぐ自動保存されます。このブラウザーで開き直しても残ります。保存ボタンの操作は不要です。</p>
+      <p class="review-instruction" lang="ja">同じ語根の案を切り替えて比較できます。最後に選んで表示した案が、その語根の採用案になります。採用は緑の枠で表示します。選択・メモは入力するとすぐ自動保存されます。このブラウザーで開き直しても残ります。保存ボタンの操作は不要です。</p>
       <div class="search-bar"><label for="root-search" lang="ja">語根・単語・名前・番号で探す</label><input type="search" id="root-search" placeholder="例：ped / foot / 025" autocomplete="off"><span id="search-result" aria-live="polite"></span></div>
-      <section class="design-view" lang="ja" aria-label="表示するデザイン"><strong>表示するデザイン</strong><div class="design-switch" role="group" aria-label="デザインの切り替え"><button type="button" data-design-view="creature" aria-pressed="false">クリーチャー</button><button type="button" data-design-view="humanoid" aria-pressed="false">美男美女</button><button type="button" data-design-view="all" aria-pressed="true">両方</button></div><span class="design-view-status" id="design-view-status" aria-live="polite"></span></section>
+      
 <div class="filter-bar" lang="ja">
-        <label for="style-filter">造形<select id="style-filter"><option value="">すべての造形</option><option>美男美女</option><option>精密メカ</option><option>動物</option><option>架空の小動物マスコット</option><option>可愛い頭＋怪物</option><option>立体ちび</option><option>立体クリーチャー</option></select></label>
-        <label for="production-filter">制作状況<select id="production-filter"><option value="">すべての語根</option><option value="saved">画像あり</option><option value="pending">制作待ち</option><option value="partial">制作途中</option><option value="complete">３案保存済み</option></select></label>
-        <label for="campaign-filter">新旧の候補<select id="campaign-filter"><option value="all">新旧すべて</option><option value="current">今回の新案</option><option value="history">履歴の案</option><option value="beauty">美男美女案</option><option value="freshcast">キャスト再設計10案（10/17）</option><option value="uncanny">SCP風ホラーの試作3案</option><option value="rpgproportion">原神寄りプロポーション3案</option><option value="vtuber3d">VTuber風3Dの試作3案</option><option value="animegame">アニメ調の試作3案</option><option value="focused30">今回の量産41案</option><option value="compact30">低頭身の追加11案</option></select></label>
+        <label for="root-sort">並び順<select id="root-sort"><option value="updated">更新が新しい語根順</option><option value="rank">語根の番号順</option></select></label>
+        
+        <label for="campaign-filter">候補<select id="campaign-filter"><option value="all">正式画像すべて</option><option value="meaning30">追加30体</option><option value="more20">追加20体（続き）</option><option value="notes13">メモ修正13体</option><option value="notes14">メモ修正14体</option><option value="meaning20">新規20体</option><option value="cutefigure">これまでのフィギュア案</option></select></label>
       </div>
       <p class="ranking-note" id="ranking-note" lang="ja">保存済みの候補を読み込んでいます。</p>
     <p class="rarity-note" lang="ja">レアリティ：1〜20位 ★1 · 21〜40位 ★2 · 41〜60位 ★3 · 61〜80位 ★4 · 81〜100位 ★5。接頭辞を中心に広がった語根は★2以下。星数はゲーム用の設定です。</p>
@@ -307,6 +309,7 @@
       <a href="https://haibaratou.github.io/etymolingo/app/etymopedia.html">Continue exploring →</a>
     </footer>
   </div>
+
   <dialog class="compare-dialog" id="compare-dialog" aria-labelledby="compare-title">
     <div class="dialog-head">
       <div><h2 id="compare-title">同じ語根の候補</h2><p lang="ja">体の構成と表情を比べて、人の判断でチェックしてください。</p></div>
@@ -487,39 +490,11 @@
     function candidateFor(rootId,candidateId) { return familyFor(rootId)?.candidates.find(candidate => candidate.candidateId === candidateId); }
 
 
-    const designViewKey = 'wildwordopia.design-view.v1';
-    let designView = (()=>{try{return JSON.parse(localStorage.getItem(designViewKey)||'{}')||{}}catch{return {}}})();
-    if (!['all','creature','humanoid'].includes(designView.type)) designView.type='all';
-    if (!designView.roots || typeof designView.roots!=='object') designView.roots={};
-    function saveDesignView(){try{localStorage.setItem(designViewKey,JSON.stringify(designView))}catch{}}
-    function isHumanoid(candidate){return candidate.designFamily==='humanoid'||candidate.styleVariant==='humanoid-gacha'||(candidate.styleTags||[]).includes('美男美女');}
-    function appearanceFor(family){return designView.roots[family.id]||designView.type;}
-    function candidateMatchesAppearance(candidate,family){const type=appearanceFor(family);return type==='all'||(type==='humanoid'?isHumanoid(candidate):!isHumanoid(candidate));}
-    function familyDesignButtons(family){return '<div class="family-design" role="group" aria-label="この語根の表示デザイン">'+[['creature','クリーチャー'],['humanoid','美男美女'],['all','両方']].map(([value,label])=>'<button type="button" data-action="root-design" data-root="'+escapeHtml(family.id)+'" data-design="'+value+'" aria-pressed="'+String(appearanceFor(family)===value)+'">'+label+'</button>').join('')+'</div>';}
-    function syncDesignButtons(){
-      document.querySelectorAll('[data-design-view]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.designView===designView.type)));
-      const n=families.flatMap(f=>f.candidates).filter(isHumanoid).length;
-      const r=families.filter(f=>f.candidates.some(isHumanoid)).length;
-      const label=document.getElementById('design-view-status');
-      const ready=families.filter(f=>Number(f.rank)>=1&&Number(f.rank)<=30&&f.candidates.filter(isHumanoid).length>=2).length;
-      if(label)label.textContent='上位30語根 '+ready+'/30・各2案以上 / 美男美女 計'+n+'案';
-    }
-    function setDesignView(type,rootId){
-      if(rootId)designView.roots[rootId]=type;
-      else{designView.type=type;designView.roots={};}
-      saveDesignView();
-      document.getElementById('campaign-filter').value='all';
-      document.getElementById('style-filter').value='';
-      mode='new';gallery.classList.remove('is-original');
-      document.querySelectorAll('[data-mode]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.mode==='new')));
-      renderGallery();syncDesignButtons();
-      if(dialog.open&&compareRootId)renderComparison(compareRootId);
-    }
-
-    function candidateMatchesStyle(candidate) {
-      const style = document.getElementById('style-filter').value;
-      return !style || (candidate.styleTags || []).includes(style);
-    }
+    function isOfficial(candidate){return /^(cutefigure|meaning20|meaning30|more20)-/.test(candidate.campaignEntryId||'');}
+    function familyDesignButtons(){return '';}
+    function syncDesignButtons(){}
+    function candidateMatchesStyle(){return true;}
+    function candidateMatchesAppearance(candidate){return isOfficial(candidate);}
     function candidateMatchesCampaign(candidate) {
       const campaign = document.getElementById('campaign-filter').value;
       if(campaign==='focused30')return /^(focused30|compact30)-/.test(candidate.campaignEntryId||'');
@@ -528,18 +503,51 @@
       if(campaign==='rpgproportion')return /^rpgproportion-/.test(candidate.campaignEntryId||'');
       if(campaign==='uncanny')return /^uncanny-/.test(candidate.campaignEntryId||'');
       if(campaign==='freshcast')return /^freshcast-/.test(candidate.campaignEntryId||'');
+      if(campaign==='meaning30')return /^meaning30-/.test(candidate.campaignEntryId||'');
+      if(campaign==='more20')return /^more20-/.test(candidate.campaignEntryId||'');
+      if(campaign==='notes13')return /^cutefigure-note13-/.test(candidate.campaignEntryId||'');
+      if(campaign==='notes14')return /^cutefigure-note14-/.test(candidate.campaignEntryId||'');
+      if(campaign==='meaning20')return /^meaning20-/.test(candidate.campaignEntryId||'');
+      if(campaign==='cutefigure')return /^cutefigure-/.test(candidate.campaignEntryId||'');
+      if(campaign==='wildbeast')return /^wildbeast-/.test(candidate.campaignEntryId||'');
+      if(campaign==='simplefamily')return /^simplefamily-/.test(candidate.campaignEntryId||'');
       if(campaign==='compact30')return /^compact30-/.test(candidate.campaignEntryId||'');
       return campaign === 'all' || candidate.campaign === campaign;
     }
     let showingTrash = false;
     const trashAtLoad = new Set();
+    const deletedImagesKey='wildwordopia.deleted-images.v1';
+    let deletedImages=(()=>{try{return new Set(JSON.parse(localStorage.getItem(deletedImagesKey)||'[]'))}catch{return new Set()}})();
+    function imageIsDeleted(rootId,candidateId){return deletedImages.has(reviewKey(rootId,candidateId));}
+    function saveDeletedImages(){localStorage.setItem(deletedImagesKey,JSON.stringify([...deletedImages]));}
+    function imageDeleteButton(rootId,candidateId){return '<button type="button" class="image-delete" data-action="delete-image" data-root="'+escapeHtml(rootId)+'" data-candidate="'+escapeHtml(candidateId)+'" aria-label="'+escapeHtml(rootId+' '+candidateId)+'の画像を削除">画像を削除</button>';}
+    function newestOfficial(family){return family.candidates.filter(c=>isOfficial(c)&&!imageIsDeleted(family.id,c.candidateId)).sort((a,b)=>(Date.parse(b.createdAt||b.updatedAt||'')||0)-(Date.parse(a.createdAt||a.updatedAt||'')||0)||Number(b.candidateId.slice(1))-Number(a.candidateId.slice(1)))[0];}
+    function syncLatestOfficial(){
+      for(const family of families){
+        const latest=newestOfficial(family);
+        if(latest)adoptDisplayedCandidate(family.id,latest.candidateId);
+        else{
+          delete previewIds[family.id];
+          for(const c of family.candidates){const key=reviewKey(family.id,c.candidateId);if(reviewRecords[key]?.decision==='adopt')reviewRecords[key]={...reviewRecords[key],decision:'unselected',updatedAt:new Date().toISOString()};}
+        }
+      }
+      persistReview();
+    }
+    function deleteImage(rootId,candidateId){
+      deletedImages.add(reviewKey(rootId,candidateId));saveDeletedImages();
+      const family=familyFor(rootId);
+      if(family){const latest=newestOfficial(family);if(latest)adoptDisplayedCandidate(rootId,latest.candidateId);else{delete previewIds[rootId];for(const c of family.candidates){const key=reviewKey(rootId,c.candidateId);if(reviewRecords[key]?.decision==='adopt')reviewRecords[key]={...reviewRecords[key],decision:'unselected',updatedAt:new Date().toISOString()};}persistReview();}}
+      renderGallery();if(dialog.open&&compareRootId)renderComparison(compareRootId);
+      feedback('画像を一覧から削除しました。「削除した画像を戻す」で復元できます。');
+    }
+    document.getElementById('restore-deleted-images').addEventListener('click',()=>{deletedImages.clear();saveDeletedImages();syncLatestOfficial();renderGallery();if(dialog.open&&compareRootId)renderComparison(compareRootId);feedback('削除した画像を戻しました。最新画像を正式版として表示しています。');});
     function visibleCandidates(family) {
-      return family.candidates.filter(candidate => candidateMatchesAppearance(candidate,family) && candidateMatchesStyle(candidate) && candidateMatchesCampaign(candidate) && (showingTrash === trashAtLoad.has(reviewKey(family.id,candidate.candidateId))));
+      return family.candidates.filter(candidate => !imageIsDeleted(family.id,candidate.candidateId) && candidateMatchesAppearance(candidate,family) && candidateMatchesStyle(candidate) && candidateMatchesCampaign(candidate));
     }
     function previewFor(family) {
       const chosen = family.candidates.find(candidate => candidate.candidateId === previewIds[family.id]);
       const matching = visibleCandidates(family);
-      const preferred = matching.find(candidate => candidate.candidateId === family.defaultPreviewCandidateId);
+      const preferred = [...matching].sort((a,b)=>(Date.parse(b.createdAt||b.updatedAt||'')||0)-(Date.parse(a.createdAt||a.updatedAt||'')||0))[0];
       return chosen && matching.includes(chosen) ? chosen : preferred || matching[0];
     }
 
@@ -567,39 +575,63 @@
       return '<div class="decision-buttons" role="group" aria-label="この候補のチェック" data-review-key="' + escapeHtml(key) + '">' + decisionOrder.map(value => '<button type="button" class="decision-button" data-action="decision" data-root="' + escapeHtml(rootId) + '" data-candidate="' + escapeHtml(candidateId) + '" data-decision="' + value + '" aria-pressed="' + String(value === decision) + '">' + decisionLabels[value] + '</button>').join('') + '</div>';
     }
     function candidateMeta(family,candidate) {
-      const history = candidate.campaign === 'history';
-      return '<div class="candidate-head"><span class="candidate-id">' + escapeHtml(rootStems[family.id] + '-' + candidate.candidateId) + '</span><span class="campaign-label' + (history ? ' history' : '') + '" lang="ja">' + (history ? '履歴の案' : '今回の新案') + '</span>' + styleChips(candidate) + decisionBadge(family.id,candidate.candidateId) + '</div>';
+      return '<div class="candidate-head"><span class="candidate-id">'+escapeHtml(rootStems[family.id]+'-'+candidate.candidateId)+'</span>'+decisionBadge(family.id,candidate.candidateId)+'</div>';
     }
     function warningFor(family) {
       return family.candidates.filter(candidate => recordFor(family.id,candidate.candidateId).decision === 'adopt').length > 1 ? '同じ語根で複数の案が「採用」になっています。最終案を確認してください。' : '';
     }
-    function dislikeButton(rootId,candidateId) {
-      const rejected = recordFor(rootId,candidateId).decision === 'reject';
-      return '<button type="button" class="dislike-button" aria-label="良くないね" title="良くないね（もう一度押すと取消）" data-action="dislike" data-root="' + escapeHtml(rootId) + '" data-candidate="' + escapeHtml(candidateId) + '" aria-pressed="' + rejected + '">' + '👎' + '</button>';
+    function dislikeButton(){return '';}
+
+    function likeButton(){return '';}
+
+    function toggleLike(){}
+
+    function reviewPanel(){return '';}
+
+    function designWordsFor(candidate) {
+      const lesson=(window.WILDWORDOPIA_LESSONS?.roots||[]).find(item=>item.rootId===candidate.rootId);
+      const motifs=candidate.motifs||[];
+      const declared=[...(candidate.learningWords||[]),...(candidate.designWordSet||[]),...motifs];
+      const fallback=lesson?.designWordSet||[];
+      const rows=declared.length?declared:fallback;
+      const allowed=new Set((lesson?.learningElements||[]).filter(x=>x.word).map(x=>x.word.toLowerCase()));
+      const seen=new Set();
+      return rows.map(item=>{
+        const word=typeof item==='string'?item:(item.word||'');
+        const key=word.trim().toLowerCase();
+        if(!key||!allowed.has(key)||seen.has(key))return null;
+        seen.add(key);
+        const own=typeof item==='object'?item:{};
+        const motif=motifs.find(x=>(x.word||'').toLowerCase()===key)||{};
+        const shared=(lesson?.learningElements||[]).find(x=>(x.word||'').toLowerCase()===key)||{};
+        const common=fallback.find(x=>(x.word||'').toLowerCase()===key)||{};
+        return {word,meaningJa:shared.labelJa||common.meaningJa||own.meaningJa||own.ja||own.labelJa||motif.ja||''};
+      }).filter(Boolean);
     }
-    function likeButton(rootId,candidateId) {
-      const liked = recordFor(rootId,candidateId).liked === true;
-      return '<button type="button" class="like-button" aria-label="いいね" title="いいね（もう一度押すと取消）" data-action="like" data-root="' + escapeHtml(rootId) + '" data-candidate="' + escapeHtml(candidateId) + '" aria-pressed="' + liked + '">' + (liked ? '♥' : '♡') + '</button>';
+
+    function unusedRepresentativeWords(candidate) {
+      const lesson=(window.WILDWORDOPIA_LESSONS?.roots||[]).find(x=>x.rootId===candidate.rootId);
+      const used=new Set(designWordsFor(candidate).map(x=>x.word.toLowerCase()));
+      const registered=new Set((lesson?.learningElements||[]).filter(x=>x.word).map(x=>x.word.toLowerCase()));
+      const seen=new Set();
+      return [...(lesson?.designWordSet||[]),...(lesson?.learningElements||[])]
+        .filter(x=>x.word&&registered.has(x.word.toLowerCase())&&!used.has(x.word.toLowerCase())&&!seen.has(x.word.toLowerCase())&&(seen.add(x.word.toLowerCase()),true))
+        .slice(0,6).map(x=>({word:x.word,meaningJa:x.meaningJa||x.labelJa||''}));
     }
-    function toggleLike(rootId,candidateId) {
-      if (!candidateFor(rootId,candidateId)) return;
-      const record = recordFor(rootId,candidateId), liked = !record.liked;
-      const now = new Date().toISOString();
-      reviewRecords[reviewKey(rootId,candidateId)] = {...record,liked,updatedAt:now,history:[...record.history,{event:'like',liked,at:now,source:'human'}]};
-      persistReview();
-      document.querySelectorAll('button[data-action="like"]').forEach(button => {
-        if (button.dataset.root === rootId && button.dataset.candidate === candidateId) {
-          button.setAttribute('aria-pressed',String(liked)); button.textContent = liked ? '♥' : '♡';
-        }
-      });
+    function unusedWordsHtml(candidate) {
+      const words=unusedRepresentativeWords(candidate);
+      return words.length?'<div class="unused-words" aria-label="この画像では使っていない代表的な英単語"><strong>ほかの代表語</strong>'+words.map(x=>'<span class="unused-word">'+escapeHtml(x.word)+' · '+escapeHtml(x.meaningJa)+'</span>').join('')+'</div>':'';
     }
-    function reviewPanel(family,candidate) {
-      return '<div class="thumb-reactions" aria-label="候補への評価">' + likeButton(family.id,candidate.candidateId) + dislikeButton(family.id,candidate.candidateId) + '</div>';
+    function rootReferencesHtml(family){
+      const refs=family.candidates.filter(c=>!isOfficial(c)&&!imageIsDeleted(family.id,c.candidateId));
+      const item=(url,cid,label)=>'<div class="reference-entry"><a class="inline-reference" href="'+escapeHtml(url)+'" target="_blank" rel="noopener"><img loading="lazy" src="'+escapeHtml(url)+'" alt=""><span>'+escapeHtml(label)+'</span></a>'+imageDeleteButton(family.id,cid)+'</div>';
+      const original=family.art&&!imageIsDeleted(family.id,'original')?item(originalArtFolder+family.art,'original','初期デザイン'):'';
+      if(!original&&!refs.length)return '';
+      return '<section class="inline-references" data-reference-root="'+escapeHtml(family.id)+'"><h3>参考デザイン</h3><div class="inline-reference-strip">'+original+refs.map(c=>item(artFolder+c.file,c.candidateId,c.candidateId)).join('')+'</div></section>';
     }
+
     function tagsFor(candidate) {
-      const lesson = (window.WILDWORDOPIA_LESSONS?.roots || []).find(item => item.rootId === candidate.rootId);
-      const words = lesson?.designWordSet || [];
-      return '<div class="word-tags" aria-label="語根共通のデザイン単語と日本語訳">' + words.map(item => '<span class="word-tag"><strong>' + escapeHtml(item.word) + '</strong> · ' + escapeHtml(item.meaningJa) + '</span>').join('') + '</div>';
+      return '<div class="word-tags" aria-label="この画像のデザインに使用した英単語と日本語訳">'+designWordsFor(candidate).map(item=>'<span class="word-tag" title="この案のデザインに使用"><strong>'+escapeHtml(item.word)+'</strong> · '+escapeHtml(item.meaningJa)+'</span>').join('')+'</div>'+unusedWordsHtml(candidate);
     }
 
     function rootCoreDetails(candidate) {
@@ -655,35 +687,30 @@
       const choices = visibleCandidates(family);
       const index = choices.indexOf(candidate);
       const columns = Math.max(1,Math.ceil(choices.length / Math.ceil(Math.max(1,choices.length) / 6)));
-      const thumbnails = family.candidates.length > 0 ? '<div class="candidate-thumbs" style="--thumb-columns:' + columns + ';--thumb-columns-small:' + Math.min(3,columns) + '">' + visibleCandidates(family).map((item,position) => '<div class="candidate-thumb-item"><button type="button" class="candidate-thumb" data-action="preview" data-root="' + escapeHtml(family.id) + '" data-candidate="' + escapeHtml(item.candidateId) + '" aria-label="案' + (position + 1) + 'をプレビュー：' + escapeHtml(displayName(item)) + '" aria-pressed="' + String(item === candidate) + '"><img src="' + escapeHtml(artFolder + item.file) + '" alt="" width="40" height="40" loading="lazy"><span class="thumb-label">' + escapeHtml(item.candidateId) + '</span><span class="thumb-decision" data-status="' + recordFor(family.id,item.candidateId).decision + '" data-decision-label data-review-key="' + escapeHtml(reviewKey(family.id,item.candidateId)) + '">' + decisionLabels[recordFor(family.id,item.candidateId).decision] + '</span></button>' + '<span class="thumb-reactions">' + likeButton(family.id,item.candidateId) + dislikeButton(family.id,item.candidateId) + '</span></div>').join('') + '</div>' : '';
-      const counts = '今回 ' + (family.currentCandidateCount || 0) + ' / ' + family.requiredCandidateIds.length + '案 · 履歴 ' + (family.historyCandidateCount || 0) + '案';
+      const thumbnails = family.candidates.length > 0 ? '<div class="candidate-thumbs" style="--thumb-columns:' + columns + ';--thumb-columns-small:' + Math.min(3,columns) + '">' + visibleCandidates(family).map((item,position) => '<div class="candidate-thumb-item"><button type="button" class="candidate-thumb" data-action="preview" data-root="' + escapeHtml(family.id) + '" data-candidate="' + escapeHtml(item.candidateId) + '" aria-label="案' + (position + 1) + 'をプレビュー：' + escapeHtml(displayName(item)) + '" aria-pressed="' + String(item === candidate) + '"><img src="' + escapeHtml(artFolder + item.file) + '" alt="" width="40" height="40" loading="lazy"><span class="thumb-label">' + escapeHtml(item.candidateId) + '</span><span class="thumb-decision" data-status="' + recordFor(family.id,item.candidateId).decision + '" data-decision-label data-review-key="' + escapeHtml(reviewKey(family.id,item.candidateId)) + '">' + decisionLabels[recordFor(family.id,item.candidateId).decision] + '</span></button>' + '<span class="thumb-reactions">' + likeButton(family.id,item.candidateId) + dislikeButton(family.id,item.candidateId) + '</span>' + imageDeleteButton(family.id,item.candidateId) + '</div>').join('') + '</div>' : '';
+      const latest=newestOfficial(family);
+      const counts = '正式版 ' + (latest?.candidateId||'なし') + ' / 候補 ' + choices.length + '案';
       return familyDesignButtons(family) + '<div class="candidate-nav" lang="ja"><div class="nav-top"><span>プレビュー ' + (index + 1) + ' / ' + choices.length + '<span class="candidate-counts">' + counts + '</span></span><span class="nav-step"><button type="button" class="arrow-button" data-action="step" data-root="' + escapeHtml(family.id) + '" data-step="-1" aria-label="前の案"' + (index === 0 ? ' disabled' : '') + '>←</button><button type="button" class="arrow-button" data-action="step" data-root="' + escapeHtml(family.id) + '" data-step="1" aria-label="次の案"' + (index === choices.length - 1 ? ' disabled' : '') + '>→</button><button type="button" class="compare-button" data-action="compare" data-root="' + escapeHtml(family.id) + '" aria-label="同じ語根の案を並べて比較（' + family.candidates.length + '）">並べて比較</button></span></div>' + thumbnails + '</div>';
     }
 
-    function styleChips(candidate) {
-      return '<div class="style-chips">' + (candidate.styleTags || []).map(tag => '<span class="style-chip">' + escapeHtml(tag) + '</span>').join('') + '</div>';
-    }
+    function styleChips(){return '';}
+
     function originalImage(family) {
-      return family.art ? '<img class="creature-art original-art" src="' + escapeHtml(originalArtFolder + family.art) + '" alt="Original ' + escapeHtml(family.meaning || family.root) + ' character" width="512" height="512" loading="lazy" decoding="async">' : '';
+      return family.art && !imageIsDeleted(family.id,'original') ? '<img class="creature-art original-art" src="' + escapeHtml(originalArtFolder + family.art) + '" alt="Original ' + escapeHtml(family.meaning || family.root) + ' character" width="512" height="512" loading="lazy" decoding="async">' : '';
     }
     function cardHtml(family,index) {
       const candidate = previewFor(family);
       const className = 'card' + (family.art ? '' : ' no-original');
       if (!candidate) {
-        const name = rootCharacterName(family)?.kana || family.root;
-        return '<article class="' + className + ' pending-card" id="root-' + escapeHtml(family.id) + '" style="--tint:' + escapeHtml(family.color || '#b4a996') + '">' + rootMeaningHtml(family) + '<div class="art-stage">' +
-          '<div class="pending-stage new-art"><div><span class="pending-mark" aria-hidden="true">?</span><span class="pending-label" lang="ja">今回の新案は制作待ち</span><p class="pending-note" lang="ja">今回 ' + (family.currentCandidateCount || 0) + ' / ' + family.requiredCandidateIds.length + '案 · 履歴 ' + (family.historyCandidateCount || 0) + '案</p></div></div>' + originalImage(family) +
-          '</div>' + rarityHtml(family) + '<div class="card-copy"><p class="meaning">' + escapeHtml(family.meaningEn || (family.meaning ? family.meaning : 'Meaning not supplied')) + '</p><h2>' + escapeHtml(name) + '</h2><p class="pending-note">' + escapeHtml(family.meaning || '') + '</p>' +
-          lessonDetails(family) + '<details class="card-details" data-details-root="' + escapeHtml(family.id) + '"' + (detailsOpened.has(family.id) ? ' open' : '') + '><summary><span lang="ja">語根の説明</span>' + chevron + '</summary><p class="pending-definition">' + escapeHtml(family.definition || 'A creature for this root is being prepared.') + '</p>' +
-          (family.note ? '<p class="pending-definition">' + escapeHtml(family.note) + '</p>' : '') + '</details>' + (family.candidates.length ? '<button type="button" class="compare-button" data-action="compare" data-root="' + escapeHtml(family.id) + '">保存済みの新旧候補を比較（' + family.candidates.length + '）</button>' : '') + '</div></article>';
+        return '<article class="card reference-only" id="root-'+escapeHtml(family.id)+'">'+rootMeaningHtml(family)+rootReferencesHtml(family)+'</article>';
       }
       const name = displayName(candidate);
       const art = candidate.file ? artFolder + candidate.file : '';
       const image = art ? '<img class="creature-art new-art" src="' + escapeHtml(art) + '" alt="' + escapeHtml(name + ': ' + candidate.motifs.map(motif => motif.word).join(', ')) + '" width="512" height="512" loading="' + (index < 3 ? 'eager' : 'lazy') + '" decoding="async">' : '<div class="missing-art" lang="ja">画像を読み込めません。</div>';
-      return '<article class="' + className + '" id="root-' + escapeHtml(family.id) + '" style="--tint:' + escapeHtml(family.color || '#e8875a') + '">' + rootMeaningHtml(family) + '<div class="art-stage">' + image + originalImage(family) +
+      return '<article class="' + className + '" id="root-' + escapeHtml(family.id) + '" style="--tint:' + escapeHtml(family.color || '#e8875a') + '">' + rootMeaningHtml(family) + '<div class="art-stage">' + image + originalImage(family) + imageDeleteButton(family.id,candidate.candidateId) +
         (family.art ? '' : '<div class="missing-art original-name" lang="ja">この語根には元キャラの画像がありません。</div>') + '</div>' + '<div class="rarity-row">' + rarityHtml(family) + likeButton(family.id,candidate.candidateId) + dislikeButton(family.id,candidate.candidateId) + '</div>' +
         '<div class="card-copy">' + candidateMeta(family,candidate) + '<h2 class="new-name" lang="ja" tabindex="-1">' + escapeHtml(name) + '</h2>' + englishNameHtml(candidate) + '<h2 class="original-name">' + escapeHtml(family.meaning || family.root) + ' character</h2>' + tagsFor(candidate) +
-        candidateNavigation(family,candidate) + rootNotePanel(family) + '<p class="original-review-note" lang="ja">原作を表示しています。新作の候補チェックは「New creatures」で行えます。</p>' + lessonDetails(family) + wordDetails(family,candidate,detailsOpened.has(family.id)) + assetLinks(candidate) + '</div></article>';
+        candidateNavigation(family,candidate) + rootReferencesHtml(family) + rootNotePanel(family) + '<p class="original-review-note" lang="ja">原作を表示しています。新作の候補チェックは「New creatures」で行えます。</p>' + lessonDetails(family) + wordDetails(family,candidate,detailsOpened.has(family.id)) + assetLinks(candidate) + '</div></article>';
     }
 
     function bindCardDetails(element) {
@@ -786,10 +813,11 @@
     function setPreview(rootId,candidateId) {
       const chosenCandidate = candidateFor(rootId,candidateId);
       if (!chosenCandidate) return;
-      if (!candidateMatchesStyle(chosenCandidate)) document.getElementById('style-filter').value = '';
+      
       if (!candidateMatchesCampaign(chosenCandidate)) document.getElementById('campaign-filter').value = 'all';
       renderGallery();
-      adoptDisplayedCandidate(rootId,candidateId);
+      previewIds[rootId]=candidateId;
+      persistReview();
       renderFamily(rootId);
       if (dialog.open && compareRootId === rootId) renderComparison(rootId);
       const card = document.getElementById('root-' + rootId);
@@ -811,14 +839,18 @@
     }
 
 
+    function rootLatestUpdate(family){return Math.max(0,...family.candidates.map(c=>Date.parse(c.updatedAt||c.createdAt||'')||0));}
+    const rootSortControl=document.getElementById('root-sort');
+    try{rootSortControl.value=localStorage.getItem('wildwordopia.root-sort.v1')||'updated';}catch{}
+    rootSortControl.addEventListener('change',()=>{try{localStorage.setItem('wildwordopia.root-sort.v1',rootSortControl.value)}catch{}renderGallery();});
     function renderGallery() {
       const term = document.getElementById('root-search').value.trim().toLocaleLowerCase();
       const rankTerm = term.replace(/^no\.?\s*/, '');
       const numericRank = /^\d{1,3}$/.test(rankTerm) ? Number(rankTerm) : null;
-      const style = document.getElementById('style-filter').value;
-      const production = document.getElementById('production-filter').value;
+      const style = '';
+      const production = '';
       const shown = families.filter(family => {
-        if (!visibleCandidates(family).length && (family.candidates.length || showingTrash)) return false;
+        if (!visibleCandidates(family).length) return false;
         if (style && !visibleCandidates(family).length) return false;
         if (document.getElementById('campaign-filter').value === 'history' && !visibleCandidates(family).length) return false;
         if (production === 'saved' && !family.currentCandidateCount) return false;
@@ -827,23 +859,30 @@
         if (numericRank !== null) return family.rank === numericRank;
         return [rootMeaningText(family),family.root,family.rootKey,family.meaning,family.meaningEn,rootCharacterName(family)?.kana,rootCharacterName(family)?.name,...family.candidates.flatMap(candidate => [displayName(candidate),candidate.name,candidate.kana,candidate.romanizedName,...(candidate.aliases || []),englishNameParts(candidate).join(' '),...(candidate.styleTags || []),candidate.file,...candidate.motifs.map(motif => motif.word)])].join(' ').toLocaleLowerCase().includes(term);
       });
+      if(document.getElementById('root-sort').value==='updated')shown.sort((a,b)=>rootLatestUpdate(b)-rootLatestUpdate(a)||a.rank-b.rank);
       gallery.innerHTML = shown.length ? shown.map(family => cardHtml(family,families.indexOf(family))).join('') : '<p class="status" lang="ja">一致する語根がありません。</p>';
       bindCardDetails(gallery);
       syncDesignButtons();
+      const officialFamilies=families.filter(f=>!!newestOfficial(f));
+      const officialCount=officialFamilies.reduce((sum,f)=>sum+f.candidates.filter(c=>isOfficial(c)&&!imageIsDeleted(f.id,c.candidateId)).length,0);
+      const referenceCount=families.reduce((sum,f)=>sum+f.candidates.filter(c=>!isOfficial(c)).length,0);
+      document.getElementById('official-count').textContent='正式版 '+officialFamilies.length+'体 / 候補 '+officialCount+'案 / 参考デザイン '+referenceCount+'案';
+      document.getElementById('hero-root-count').textContent=officialFamilies.length;
+      document.getElementById('hero-candidate-count').textContent=officialCount;
       document.getElementById('search-result').textContent = shown.length + ' / ' + families.length + ' roots';
     }
-    document.querySelectorAll('[data-design-view]').forEach(b=>b.addEventListener('click',()=>setDesignView(b.dataset.designView)));
-    document.getElementById('style-filter').addEventListener('change',renderGallery);
-    document.getElementById('production-filter').addEventListener('change',renderGallery);
+    
+    
+    
     document.getElementById('campaign-filter').addEventListener('change',renderGallery);
     document.getElementById('root-search').addEventListener('input', renderGallery);
     document.getElementById('show-figure-candidates').addEventListener('click', () => {
       for (const family of families) {
-        const figure = family.candidates.find(candidate => candidate.styleVariant === 'chibi-figure');
+        const figure = newestOfficial(family);
         if (figure) adoptDisplayedCandidate(family.id,figure.candidateId);
       }
       document.querySelector('[data-mode="new"]').click();
-      document.getElementById('root-search').value = 'ちびフィギュア';
+      document.getElementById('root-search').value = '';
       persistReview();
       renderGallery();
     });
@@ -869,16 +908,9 @@
       if (!families.length) throw new Error('No root families found');
       rootStems = Object.fromEntries(families.map(family => [family.id,family.stem || rootStems[family.id] || 'root-' + family.id]));
       restoreLocalReview();
-      // Saved previews are the user's last displayed choice; untouched defaults are not votes.
-      for (const [rootId,candidateId] of Object.entries(previewIds)) {
-        if (candidateFor(rootId,candidateId)) adoptDisplayedCandidate(rootId,candidateId);
-      }
+      // The newest non-deleted generated figure is the official edition.
+      syncLatestOfficial();
       Object.entries(reviewRecords).forEach(([key,record]) => { if(record.decision === 'reject') trashAtLoad.add(key); });
-      const trashButton = document.createElement('button');
-      trashButton.id='show-trash';trashButton.type='button';trashButton.className='toolbar-button';
-      trashButton.textContent='ゴミ箱 ('+trashAtLoad.size+')';trashButton.setAttribute('aria-pressed','false');
-      document.getElementById('save-review').after(trashButton);
-      trashButton.addEventListener('click',()=>{showingTrash=!showingTrash;trashButton.setAttribute('aria-pressed',String(showingTrash));trashButton.textContent=showingTrash?'通常一覧へ戻る':'ゴミ箱 ('+trashAtLoad.size+')';renderGallery();});
       persistReview();
       renderGallery();
       gallery.classList.toggle('is-original',mode === 'original');
@@ -892,11 +924,12 @@
       const rootId = button.dataset.root;
       const candidateId = button.dataset.candidate;
       switch (button.dataset.action) {
-        case 'root-design': setDesignView(button.dataset.design,rootId); break;
-        case 'like': toggleLike(rootId,candidateId); break;
-        case 'dislike': setDecision(rootId,candidateId,recordFor(rootId,candidateId).decision === 'reject' ? 'unselected' : 'reject'); break;
+        
+        
+        
         case 'decision': setDecision(rootId,candidateId,button.dataset.decision); break;
         case 'preview': setPreview(rootId,candidateId); break;
+        case 'delete-image': deleteImage(rootId,candidateId); break;
         case 'step': {
           const family = familyFor(rootId);
           const choices = visibleCandidates(family);
@@ -990,8 +1023,7 @@
       if (event.target === dialog && (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom)) dialog.close();
     });
 
-    document.getElementById('clear-all-notes').addEventListener('click',() => {
-      if (!confirm('全PIE語根の共通メモと全候補の個別メモを消します。いいね・採用などのチェックは残ります。消しますか？')) return;
+    function clearAllProductionNotes() {
       const previous = mergedLocalState();
       const roots = {};
       for (let i = 0; i < localStorage.length; i++) {
@@ -1007,21 +1039,25 @@
       persistReview();
       document.querySelectorAll('textarea.review-comment').forEach(input => { input.value = ''; });
       document.querySelectorAll('.root-note-status').forEach(label => { label.textContent = 'メモを消去しました'; });
-      feedback('共通・個別のメモをすべて消しました。いいねとチェックは残っています。');
+    }
+    document.getElementById('clear-all-notes').addEventListener('click',() => {
+      if (!confirm('すべてのメモを消します。採用画像の選択は残ります。消しますか？')) return;
+      clearAllProductionNotes();
+      feedback('メモをすべて消しました。採用画像の選択は残っています。');
     });
     document.getElementById('send-production-notes').addEventListener('click',() => {
       const lines = ['Wild Wordopia 制作用メモ', ''];
       const merged = mergedLocalState();
       for (const family of families) {
         const shared = rootNoteValue(family.id);
-        const records = Object.entries({...merged.reviews,...reviewRecords}).filter(([key,record]) => key.startsWith(family.id + ':') && (record.comment?.trim() || record.liked));
+        const records = Object.entries({...merged.reviews,...reviewRecords}).filter(([key,record]) => key.startsWith(family.id + ':') && record.comment?.trim());
         if (!shared.trim() && !records.length) continue;
         lines.push('## ' + family.id + ' / ' + (family.meaning || family.root));
         const selected = previewFor(family);
         if (selected) lines.push('【修正元・選択中 ' + selected.candidateId + '】');
         if (shared.trim()) lines.push('【語根全体】',shared);
         for (const [key,record] of records) {
-          lines.push('【個別候補 ' + key.split(':')[1] + (record.liked ? ' / いいね' : '') + '】');
+          lines.push('【個別候補 ' + key.split(':')[1] + '' + '】');
           if (record.comment?.trim()) lines.push(record.comment);
         }
         lines.push('');
@@ -1031,7 +1067,8 @@
       link.href = url; link.download = 'wildwordopia-production-notes.txt';
       document.body.append(link); link.click(); link.remove();
       setTimeout(() => URL.revokeObjectURL(url),1000);
-      feedback('記入済みの全メモを一つのテキストにまとめました。元のメモは残っています。');
+      clearAllProductionNotes();
+      feedback('全メモを書き出し、記入済みメモをすべて消しました。');
     });
     document.getElementById('save-review').addEventListener('click',() => {
       if (!families.length) return;
@@ -1124,6 +1161,7 @@
       document.getElementById('mode-status').textContent = mode === 'original' ? 'Showing original characters.' : 'Showing new creatures.';
     }));
 
+
     (async function loadCollection() {
       try {
         const localData = window.WILDWORDOPIA_LIBRARY || window.WILDWORDOPIA_TOP100;
@@ -1139,4 +1177,5 @@
   </script>
 </body>
 </html>
+
 

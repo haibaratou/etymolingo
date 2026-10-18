@@ -1,0 +1,7 @@
+{
+  "file": "boy_blue/boy_10_sigh.png",
+  "label": "ため息・やれやれ",
+  "reference": "D:\\Projects\\etymolingo\\assets\\word\\sigh.png",
+  "prompt": "Use case: illustration-story. Asset type: individual full-body transparent PNG reaction sprite for a vocabulary puzzle. Image 1 is the authoritative character identity/style reference. Image 2 is a motion/composition reference only. Make ONE character only, never two. Match image 1 closely: cute chibi child, thick rounded dark brown outlines, flat warm colors, dot eyes unless winking or closed, minimal shading. Preserve exact face, hairstyle, child proportions and usual clothes. Do not copy adult identity or clothes from image 2. Full body and all shoes and hands inside the canvas with generous transparent margins. Centered readable silhouette, consistent scale. True transparent alpha backdrop; no floor, cast shadow, lettering, labels or watermark. Character: the boy, tousled short brown hair, blue long-sleeve shirt, brown shorts, cream socks, blue shoes. Requested pose: Sigh: shoulders distinctly drooped, torso and head leaning forward, both hands dangling near knees, closed eyes with worried arched brows, small O mouth exhaling a single small pale blue-white puff. Gentle relatable disappointment.",
+  "method": "built-in image_gen"
+}

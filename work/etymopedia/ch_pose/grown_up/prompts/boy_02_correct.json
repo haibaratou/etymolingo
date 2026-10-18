@@ -1,0 +1,11 @@
+{
+  "file": "grown_up/boy_blue/boy_02_correct.png",
+  "label": "成長版・正解・やったね",
+  "prompt": "Use case: illustration-story. Single standalone full-body game character reaction sprite, genuinely transparent alpha background. Thick rounded dark brown linework, flat warm colors, sparse gentle shading, clean edges without glow or haze, simple dot eyes and peach blush. ONE character only, no second person, no lettering or watermark, no floor or cast shadow. Whole figure including hair, hands and shoes fully inside frame with generous transparent margins. Image 1 is the AUTHORITATIVE older character model: keep EXACTLY that face, teenage proportions, hairstyle and outfit. Image 2 shows ONLY the desired gesture and expression from the childhood version. Do not copy image 2's small-child proportions or clothing. An older version of the same BOY, now about 15 years old, visibly adolescent rather than a toddler: about FOUR heads tall, smaller head relative to body, longer slim arms and legs, slightly more angular but friendly face, no facial hair. Preserve recognizable tousled brown hairstyle, dark brown dot eyes, rounded graphic style and blue/brown palette. Consistent outfit for entire set: plain blue long-sleeve crewneck shirt, brown straight full-length trousers, blue low-top sneakers with white soles. Pose: a delighted open-mouth smile and one clear thumbs-up beside the face, other hand at waist Keep the older character's outfit from image 1 throughout. Clean cutout edges; no atmospheric glow.",
+  "refs": [
+    "D:\\Projects\\etymolingo\\work\\etymopedia\\ch_pose\\grown_up\\boy_blue\\boy_01_idle.png",
+    "D:\\Projects\\etymolingo\\work\\etymopedia\\ch_pose\\boy_blue\\boy_02_correct.png"
+  ],
+  "record": "grown_up/prompts/boy_02_correct.json",
+  "method": "built-in image_gen"
+}

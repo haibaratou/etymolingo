@@ -1,0 +1,11 @@
+{
+  "file": "reference_moves/boy_blue/boy_15_sadness.png",
+  "label": "悲しみ・膝を抱えて涙",
+  "prompt": "Use case: illustration-story. Single standalone full-body game character reaction sprite, genuinely transparent alpha background. Thick rounded dark brown linework, flat warm colors, sparse gentle shading, clean edges without glow or haze, simple dot eyes and peach blush. ONE character only, no second person, no lettering or watermark, no floor or cast shadow. Whole figure including hair, hands and shoes fully inside frame with generous transparent margins. Image 1 supplies character identity and illustration style. Image 2 supplies the seated pose and expression. The original child BOY from image 1: tousled short brown hair, blue long-sleeve shirt, brown shorts, cream socks, blue shoes. Preserve his exact identity and child proportions. Sitting down with both knees drawn close to chest, both arms hugging the shins, shoulders curled inward, head slightly lowered, worried upward inner eyebrows, downturned mouth, a clearly visible blue tear on each cheek. Both feet and all hands fully visible. Tender sadness, not merely a standing disappointed pose.",
+  "refs": [
+    "D:\\Projects\\etymolingo\\work\\etymopedia\\etymopedia_sample\\references\\invidious.png",
+    "D:\\Projects\\etymolingo\\assets\\word\\sadness.png"
+  ],
+  "record": "reference_moves/prompts/boy_15_sadness.json",
+  "method": "built-in image_gen"
+}
