@@ -140,7 +140,7 @@ section.band{padding:72px 0 88px}
 .grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:34px 20px;padding-top:24px}
 .card{--c:#e8875a;position:relative;border:0;box-shadow:0 6px 0 color-mix(in srgb,var(--c) 60%,#1d2b28),0 14px 24px rgba(60,80,50,.14);padding:0;text-align:left;border-radius:22px;background:linear-gradient(160deg,color-mix(in srgb,var(--c) 70%,#fff4dc),color-mix(in srgb,var(--c) 85%,#143a37));color:var(--ink);transition:transform .2s;transform-style:preserve-3d}
 .card .win{position:relative;margin:10px 10px 0;aspect-ratio:1/.86;border-radius:16px;background:radial-gradient(circle at 50% 75%,#fffbea 0,color-mix(in srgb,var(--c) 30%,#fff4dc) 70%)}
-.card .win img{position:absolute;left:50%;bottom:2%;width:100%;max-width:none;transform:translateX(-50%);filter:drop-shadow(0 8px 6px rgba(20,40,30,.28));transition:transform .25s}
+.card .win img{position:absolute;left:50%;bottom:2%;width:95%;max-width:none;transform:translateX(-50%);filter:drop-shadow(0 8px 6px rgba(20,40,30,.28));transition:transform .25s}
 .card:hover{transform:translateY(-6px) rotate(-1deg)}
 .card:hover .win img{transform:translateX(-50%) translateY(-6%) scale(1.06)}
 .card .no{position:absolute;left:12px;top:10px;font-family:var(--f-head);font-size:12px;background:rgba(255,255,255,.85);border-radius:999px;padding:1px 10px;z-index:2}
@@ -248,6 +248,7 @@ footer .mini{font-family:var(--f-logo);font-size:22px;color:var(--ink)}
 
 .familySection{margin-top:22px;border-top:1px solid #d5cdb7}.familySection details{padding:14px 0;border-bottom:1px solid #d5cdb7}.familySection summary{cursor:pointer;font-weight:900;line-height:1.6}.familySection summary span{font-size:12px;color:#64736a}.rootNote{font-size:14px;line-height:1.9;white-space:pre-line}.familyFilter{display:block;margin:16px 0;font-size:12px}.familyFilter input{display:block;box-sizing:border-box;width:100%;padding:12px;border:1px solid #c2cabc;border-radius:10px;background:white;font:inherit;font-size:16px}.familyWord{padding:12px 0;border-top:1px dashed #d5cdb7;overflow-wrap:anywhere}.familyWord strong{color:#bd4129;margin-right:10px}.familyWord span{font-size:14px}.familyWord small{display:block;color:#57665d}.familyWord p{margin:6px 0 0;font-size:13px;line-height:1.8}.motifTitle{font-size:14px;margin:18px 0 10px}.dArt{align-self:start;min-height:0;position:sticky;top:0}.dBody{padding-top:70px}#familyMore{margin-top:12px;font-size:14px}
 @media(max-width:700px){.dArt{position:relative;padding:18px}.dArt img{max-height:280px;object-fit:contain}.dBody{padding:22px 20px}.familyWord span{display:block}}
+.wildStars{position:absolute;right:10px;bottom:8px;z-index:3;color:#ad6500;background:rgba(255,250,228,.94);border:1px solid rgba(160,100,10,.22);border-radius:999px;padding:2px 7px;font-family:Arial,sans-serif;font-size:14px;line-height:1.4;letter-spacing:1px;pointer-events:none;text-shadow:0 1px white}
 </style>
 </head>
 <body>
@@ -329,7 +330,10 @@ const family=c=>DICT.roots[DICT.aliases[c.id]||c.rootKey||String(c.root||'').rep
 const familyWords=c=>{const key=family(c)?.key;return key?DICT.words.filter(w=>(w.p||[]).includes(key)):[];};
 const motifWord=(c,m)=>{const hits=familyWords(c).filter(w=>w.w===m.word);return hits.length===1?hits[0]:null;};
 const rep=c=>({w:family(c)?.en||c.rootCharacterName?.meaningEn||'',ja:family(c)?.ja||c.meaning||''});
-const lbl=c=>{const r=rep(c);return `<span class="lbl"><b><span>${esc(r.ja)}</span><span>の祖先</span></b><small>${esc(r.w)}</small></span>`;};
+const lbl=c=>{const r=rep(c);return `<span class="lbl"><b><span>${esc(r.ja)}</span><span>一族</span></b><small>${esc(r.w)}</small></span>`;};
+// Character rarity is separate from word rarity: fewer descendants => more stars.
+const wildRarity=c=>{const count=Number(family(c)?.all)||familyWords(c).length;return count>=150?1:count>=100?2:count>=75?3:count>=60?4:5;};
+const stars=c=>`<span class="wildStars" role="img" aria-label="ワイルドのレア度 ${wildRarity(c)} / 5" title="派生語が少ない一族ほどレア">${'★'.repeat(wildRarity(c))}</span>`;
 const no=c=>"No."+String(c.no).padStart(3,"0");
 const rootKey=c=>family(c)?.key||c.rootKey||String(c.root||"").replace(/^\*/,"");
 const ETYMO=new Set(["kaput","ane","bha","gwei","oino","reg","weid","ye","mori","men","do","genu"]);
@@ -358,7 +362,7 @@ function buildWorld(){
 
 }
 function fill(b,c){
-  b.dataset.id=c.id;b.setAttribute("aria-label",c.kana+"("+rep(c).ja+"の祖先)");
+  b.dataset.id=c.id;b.setAttribute("aria-label",c.kana+"("+rep(c).ja+"一族)");
   b.innerHTML=`${lbl(c)}<img src="${img(c)}" alt="" ${b.dataset.slot==="1"?'fetchpriority="high"':""}>`;
 }
 function cast(list){document.querySelectorAll("#world .w").forEach((b,i)=>list[i]&&fill(b,list[i]));}
@@ -386,8 +390,8 @@ let LIMIT=24;
 function cardHTML(c){
   const ws=uniq(c).slice(0,3).map(m=>`<span>${esc(m.word)}</span>`).join("");
   return `<button type="button" class="card" data-id="${esc(c.id)}" style="--c:${esc(c.color||"#e8875a")}">
-    <span class="mean">${esc(rep(c).ja)}の祖先</span>
-    <div class="win"><span class="no">${no(c)}</span><img src="${img(c)}" alt="" loading="lazy" decoding="async"></div>
+    <span class="mean">${esc(rep(c).ja)}一族</span>
+    <div class="win"><span class="no">${no(c)}</span><img src="${img(c)}" alt="" loading="lazy" decoding="async">${stars(c)}</div>
     <div class="body"><div class="nm">${esc(c.kana)}</div><div class="rt">${esc(rep(c).w)}</div><div class="ws">${ws}</div></div>
 </button>`;
 }
@@ -428,7 +432,7 @@ function open(c){
   $("#dBox").innerHTML=`<div class="dg" style="--c:${esc(c.color||"#e8875a")}">
     <div class="dArt"><span class="no">${no(c)}</span><img src="${img(c)}" alt="${esc(c.kana)}"></div>
     <div class="dBody">
-      <span class="mean">${esc(rep(c).ja)}の祖先 · ${esc(rep(c).w)}</span>
+      <span class="mean">${esc(rep(c).ja)}一族 · ${esc(rep(c).w)}</span>
       <h3 id="dTitle">${esc(c.kana)}</h3>
       <div class="facts"><span>${esc(rootLabel(c))}</span><span>「${esc(rep(c).ja)}」を表すことば</span></div><h4 class="motifTitle">この姿になった英単語</h4>
       <ul class="mlist">${uniq(c).map(m=>{const entry=motifWord(c,m),t=entry?.b||trivia(m),p=partTxt(m);return `<li>
