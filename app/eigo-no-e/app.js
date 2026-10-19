@@ -95,12 +95,13 @@ function difficultyHTML(w){const d=L.difficulty(levelIndex.get(String(w.w||'').t
 function imagePOS(w){const p=wordProfile(w);const name=p?.senses.find(s=>s.id===p.illustratedSense)?.pos;const fallback=L.splitPOS(w.pos);return name|| (fallback.length===1?fallback[0]:'');}
 function pronunciationHTML(w){const p=wordProfile(w),old=basicRecord(w);const items=p?.pronunciations;
  if(items?.length)return `<div class="phonetics">${items.map(x=>`<span><small>${esc(x.label)}</small> <span lang="en">/${esc(x.ipa)}/</span></span>`).join('')}</div>`;
- if(old?.phonetic)return `<div class="phonetics"><span lang="en">${esc(old.phonetic)}</span><small class="source-pending">原典未確認の収録値</small></div>`;
+ if(old?.phonetic)return `<div class="phonetics"><span lang="en">${esc(old.phonetic)}</span></div>`;
  return '<p class="phonetics missing">発音記号は未収録</p>';
 }
 function meaningsHTML(w){const p=wordProfile(w),record=basicRecord(w),rows=L.meanings(record?{...w,ja:record.ja,pos:record.pos}:w,p);if(!rows.length)return '';
  const forms=(p?.forms||[]).map(f=>`<span>${esc(f.label)}：${tokenHTML(f.value)}</span>`).join('');
- return `<section class="box dictionary-meanings"><h3>単語の意味</h3>${forms?`<p class="word-forms">${forms}</p>`:''}<ol>${rows.map(s=>`<li>${s.pos?`<span class="pos">${esc(s.pos)}</span>`:''}<span>${esc(s.glossJa)}${s.usage?`<small class="sense-usage" lang="en">${tokenHTML(s.usage)}</small>`:''}</span></li>`).join('')}</ol></section>`;
+ const groups=new Map();for(const row of rows){const key=row.pos||'';if(!groups.has(key))groups.set(key,[]);groups.get(key).push(row);}
+ return `<section class="dictionary-meanings">${forms?`<p class="word-forms">${forms}</p>`:''}${[...groups].map(([pos,senses])=>`<p class="meaning-group">${pos?`<span class="pos">${esc(pos)}</span> `:''}<span class="meaning-text">${senses.map(x=>esc(x.glossJa)+(x.usage?` <span class="sense-usage" lang="en">（${tokenHTML(x.usage)}）</span>`:'')).join('、')}</span></p>`).join('')}</section>`;
 }
 function sourcesHTML(w){const p=wordProfile(w),old=basicRecord(w);let items='';
  if(p){items=p.sources.map(s=>`<li><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title)}</a><small>${esc(s.fields.map(f=>({pronunciations:'発音記号',senses:'品詞・語義',forms:'語形'}[f]||f)).join('・'))}</small></li>`).join('');items+='<li>日本語の語義説明は、確認した辞書の意味を基に編集しています。</li>';}
@@ -281,7 +282,7 @@ function catPage(cid, sid) {
 function dictionaryPage(id){
  if(!/^dictionary:\d+$/.test(String(id)))return notFound();
  const index=Number(String(id).slice('dictionary:'.length)),record=basicById.get(index);if(!record)return notFound();const w={...record,id};side();
- view.innerHTML=`<div class="page fade"><nav class="crumbs"><a href="#/">トップ</a>${chev}<span>${esc(w.w)}</span></nav><article class="dictionary-only"><h1 class="word-title" lang="en">${esc(w.w)}</h1>${pronunciationHTML(w)}<div class="acts"><button class="btn primary" id="speak" type="button"><svg><use href="#i-sound"/></svg>単語の発音</button></div>${meaningsHTML(w)}${sourcesHTML(w)}</article></div>`;
+ view.innerHTML=`<div class="page fade"><nav class="crumbs"><a href="#/">トップ</a>${chev}<span>${esc(w.w)}</span></nav><article class="dictionary-only"><div class="word-heading"><h1 class="word-title" lang="en">${esc(w.w)}</h1><button class="word-speak" id="speak" type="button" aria-label="単語の発音"><svg><use href="#i-sound"/></svg></button></div>${pronunciationHTML(w)}${meaningsHTML(w)}${sourcesHTML(w)}</article></div>`;
  $('#speak').onclick=()=>speak(w.w,'en-US',$('#speak'));document.title=w.w+' — Pictpedia';
 }
 function dictionaryChoices(word){const rows=lexicalRows.filter(e=>e.w.toLowerCase()===String(word).toLowerCase());if(!rows.length)return notFound();side();view.innerHTML=`<div class="page fade"><h1 class="h1">${esc(word)}</h1><ul class="dictionary-choices">${rows.map(w=>`<li><a href="#/w/${encodeURIComponent(w.id)}"><b lang="en">${esc(w.w)}</b> ${esc(w.ja)}</a></li>`).join('')}</ul></div>`;}
@@ -295,44 +296,27 @@ function wordPage(id) {
   view.innerHTML = `<div class="page fade">
     <nav class="crumbs"><a href="#/">トップ</a>${sub ? `${chev}<a href="#/c/${sub.cat.id}">${esc(sub.cat.ja)}</a>${chev}<a href="#/c/${k}">${esc(sub.ja)}</a>` : ''}${chev}<span>${esc(titleOf(w))}</span></nav>
     <article class="word">
-      <div class="plate"><img src="${esc(full(w))}" alt="${esc(titleOf(w))}" width="1024" height="1024">${difficultyHTML(w)}</div>
-      <div>
-        ${imagePOS(w) ? `<div class="pos-tags"><span class="pos">${esc(imagePOS(w))}</span></div>` : ''}
-        <h1 class="word-title${w.w?'':' pending-title'}"${w.w?' lang="en"':''}>${esc(titleOf(w))}</h1>
+      <div class="word-art">
+        <div class="plate"><img src="${esc(full(w))}" alt="${esc(titleOf(w))}" width="1024" height="1024">${difficultyHTML(w)}</div>
+        <div class="scene-description" id="sceneBox" aria-live="polite">${hasCaption(w)?'':((needsRevision(w)||needsReview(w))?missingCaptionHTML(w):'')}</div>
+      </div>
+      <div class="word-info">
+        <div class="word-heading"><h1 class="word-title${w.w?'':' pending-title'}"${w.w?' lang="en"':''}>${esc(titleOf(w))}</h1>${w.w?'<button class="word-speak" id="speak" type="button" aria-label="単語の発音" title="発音を聞く"><svg><use href="#i-sound"/></svg></button>':''}</div>
         ${pronunciationHTML(w)}
-        ${w.ja?`<p class="illustrated-sense-label">このイラストの意味</p><p class="word-ja">${esc(firstJa(w))}</p>`:`<p class="asset-name">画像ファイル：${esc(w.art)}.png</p>`}
-        ${w.semanticUnavailable?'<p class="word-semantic">意味の分類を確認できません</p>':w.semanticDistinction?`<p class="word-semantic">${esc(w.semanticDistinction.ja)}</p>`:''}
-        ${w.semanticTags?`<p class="semantic-tags">${w.semanticTags.map(esc).join(' · ')}</p>`:''}
-        <div class="acts">
-          ${w.w?'<button class="btn primary" id="speak" type="button"><svg><use href="#i-sound"/></svg>単語の発音</button>':''}
-          <button class="btn" id="copy" type="button"><svg><use href="#i-link"/></svg>リンク</button>
-        </div>
-        <div class="puzzle-actions" id="puzzleActions">${puzzleActions(w,false)}</div>
-        <div class="box" id="sceneBox" aria-live="polite">${hasCaption(w)?'<p>解説を確認しています…</p>':missingCaptionHTML(w)}</div>
+        ${w.ja?`<p class="word-ja">${esc(firstJa(w))}</p>`:`<p class="asset-name">画像ファイル：${esc(w.art)}.png</p>`}
         ${meaningsHTML(w)}
         ${sourcesHTML(w)}
-        <div class="box"><h3>カテゴリー</h3><div class="tags">${w.c.map(x => SUB.get(x)).filter(Boolean).map(s => `<a href="#/c/${s.cat.id}/${s.id}">${esc(s.cat.ja)} › ${esc(s.ja)}</a>`).join('')}</div></div>
+        <div class="word-categories"><div class="tags">${w.c.map(x => SUB.get(x)).filter(Boolean).map(s => `<a href="#/c/${s.cat.id}/${s.id}">${esc(s.cat.ja)} › ${esc(s.ja)}</a>`).join('')}</div></div>
       </div>
     </article>
     ${related.length ? `<h2 class="h2">関連するイラスト${sub ? `<a href="#/c/${k}">${esc(sub.ja)}をすべて見る</a>` : ''}</h2>${grid(related.slice(0, 18))}` : ''}
   </div>`;
-  const sceneBox=$('#sceneBox'),actions=$('#puzzleActions');
+  const sceneBox=$('#sceneBox');
   verifyImage(w).then(ok=>{
     if(!sceneBox.isConnected)return;
-    if(ok){
-      actions.innerHTML=puzzleActions(w,true);
-      sceneBox.innerHTML=captionHTML(w);
-    }else{
-      actions.innerHTML='<small class="play-status">画像を確認できないため、パズルを開けません</small><button class="btn" type="button" id="retryImage">再確認</button>';
-      sceneBox.innerHTML=missingCaptionHTML(w)+'<small>画像の更新を確認中</small>';
-      $('#retryImage').onclick=()=>wordPage(id);
-    }
+    sceneBox.innerHTML=ok&&hasCaption(w)?captionHTML(w):((needsRevision(w)||needsReview(w))?missingCaptionHTML(w):'');
   });
   if($('#speak'))$('#speak').onclick = () => speak(w.w,'en-US',$('#speak'));
-  $('#copy').onclick = () => {
-    if(!navigator.clipboard?.writeText)return toast(location.href);
-    navigator.clipboard.writeText(location.href).then(()=>toast('リンクをコピーしました'),()=>toast(location.href));
-  };
   document.title = `${titleOf(w)}${w.ja?'('+firstJa(w)+')':''} — Pictpedia`;
 }
 
