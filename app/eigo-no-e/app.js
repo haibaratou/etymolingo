@@ -91,7 +91,7 @@ const illustratedSpellings=new Set(W.filter(w=>w.w).map(w=>w.w.toLowerCase()));
 const termIndex=L.indexWords([...W,...lexicalRows.filter(e=>!illustratedSpellings.has(e.w.toLowerCase()))]);
 const wordProfile=w=>L.profile(w,lexicalProfiles);
 const tokenHTML=text=>L.linkedTokens(String(text||''),termIndex).map(t=>t.href?`<a class="sentence-word" href="${esc(t.href)}">${esc(t.text)}</a>`:esc(t.text)).join('');
-function difficultyHTML(w){const d=L.difficulty(levelIndex.get(String(w.w||'').toLowerCase()));if(!d)return '';return `<span class="difficulty-stars${d.value>10?' compact':''}" role="img" aria-label="難易度 星${d.value}、Weblioレベル${d.level}" title="Weblio レベル${d.level}（星${d.value}）">${'<span class="star full" aria-hidden="true">★</span>'.repeat(d.full)}${d.half?'<span class="star half" aria-hidden="true">★</span>':''}</span>`;}
+function difficultyHTML(w){const d=L.difficulty(levelIndex.get(String(w.w||'').toLowerCase()));if(!d)return '';return `<span class="difficulty-stars${d.value>10?' compact':''}" role="img" aria-label="難易度 星${d.value}、Weblioレベル${d.level}" title="Weblio レベル${d.level}（星${d.value}）">${'<span class="star full" aria-hidden="true">★</span>'.repeat(d.full)}</span>`;}
 function imagePOS(w){const p=wordProfile(w);const name=p?.senses.find(s=>s.id===p.illustratedSense)?.pos;const fallback=L.splitPOS(w.pos);return name|| (fallback.length===1?fallback[0]:'');}
 function pronunciationHTML(w){const p=wordProfile(w),old=basicRecord(w);const items=p?.pronunciations;
  if(items?.length)return `<div class="phonetics">${items.map(x=>`<span><small>${esc(x.label)}</small> <span lang="en">/${esc(x.ipa)}/</span></span>`).join('')}</div>`;
