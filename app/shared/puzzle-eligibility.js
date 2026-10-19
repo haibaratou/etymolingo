@@ -29,7 +29,7 @@ function update(){scheduled=false;for(const table of document.querySelectorAll('
  for(const td of table.querySelectorAll('.detRow>td[colspan]'))if(td.colSpan!==head.children.length)td.colSpan=head.children.length;
 }}
 function schedule(){if(!scheduled){scheduled=true;requestAnimationFrame(update);}}
-function load(name){return new Promise((resolve,reject)=>{const s=document.createElement('script');s.src=new URL('../data/generated-etymon/'+name+'?v=visual-cefr-1',scriptBase).href;s.onload=resolve;s.onerror=reject;document.head.append(s);});}
+function load(name){return new Promise((resolve,reject)=>{const s=document.createElement('script');s.src=new URL('../data/generated-etymon/'+name+'?v=visual-cefr-2',scriptBase).href;s.onload=resolve;s.onerror=reject;document.head.append(s);});}
 async function start(){
  const style=document.createElement('style');style.textContent='.cPuzzle,.cLearning{min-width:90px;font-size:12px}.cPuzzle summary,.cLearning summary{cursor:pointer;font-weight:bold;white-space:nowrap}.cPuzzle details p,.cLearning details p{min-width:210px;max-width:290px;white-space:normal;font-size:11px;line-height:1.7}.cPuzzle[data-rating="high"] summary,.cPuzzle[data-rating="good"] summary{color:#257344}.cPuzzle[data-rating="low"] summary{color:#a54d47}.cPuzzle[data-rating="mid"] summary{color:#857449}.cPuzzle[data-rating="unknown"] summary{color:#888}.learning-credit{font-size:11px;line-height:1.7;color:#777;padding:8px 16px}';document.head.append(style);
  new MutationObserver(schedule).observe(document.body,{childList:true,subtree:true});schedule();
