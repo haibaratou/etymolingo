@@ -82,6 +82,8 @@ const num = n => Number(n||0).toLocaleString('ja-JP');
 const L=window.PictpediaLexical;
 const lexicalProfiles=window.ETYMON_LEXICAL_PROFILES||{entries:[]};
 let dictionaryBasics={entries:[]};try{dictionaryBasics=await L.decodeBasics(window.ETYMON_DICTIONARY_BASICS_GZIP);}catch(e){console.warn('Dictionary basics unavailable',e);}
+let usPronunciations={entries:[]};try{usPronunciations=await L.decodeBasics(window.ETYMON_US_PRONUNCIATIONS_GZIP);}catch(e){console.warn('US pronunciation data unavailable',e);}
+const usPronunciationByWord=new Map(usPronunciations.entries.map(e=>[e.w,e]));
 const basicById=new Map(dictionaryBasics.entries.map(e=>[e.dictionaryIndex,e]));
 const basicByKey=new Map();for(const e of dictionaryBasics.entries){const key=L.key(e.w,e.p);if(!basicByKey.has(key))basicByKey.set(key,[]);basicByKey.get(key).push(e);}
 function basicRecord(w){const match=e=>e&&L.key(e.w,e.p)===L.key(w.w,w.p)&&String(e.ja||'').split('、')[0]===String(w.ja||'').split('、')[0];const direct=basicById.get(w.dictionaryIndex);if(match(direct))return direct;const hits=(basicByKey.get(L.key(w.w,w.p))||[]).filter(match);return hits.length===1?hits[0]:null;}
@@ -93,11 +95,11 @@ const wordProfile=w=>L.profile(w,lexicalProfiles);
 const tokenHTML=text=>L.linkedTokens(String(text||''),termIndex).map(t=>t.href?`<a class="sentence-word" href="${esc(t.href)}">${esc(t.text)}</a>`:esc(t.text)).join('');
 function difficultyHTML(w){const d=L.difficulty(levelIndex.get(String(w.w||'').toLowerCase()));if(!d)return '';return `<span class="difficulty-stars${d.value>10?' compact':''}" role="img" aria-label="難易度 星${d.value}、Weblioレベル${d.level}" title="Weblio レベル${d.level}（星${d.value}）">${'<span class="star full" aria-hidden="true">★</span>'.repeat(d.full)}</span>`;}
 function imagePOS(w){const p=wordProfile(w);const name=p?.senses.find(s=>s.id===p.illustratedSense)?.pos;const fallback=L.splitPOS(w.pos);return name|| (fallback.length===1?fallback[0]:'');}
-function pronunciationHTML(w){const p=wordProfile(w),old=basicRecord(w);
- const items=(p?.pronunciations||[]).filter(x=>/米|US|American/i.test(x.label||''));
+function pronunciationHTML(w){const imported=usPronunciationByWord.get(w.w);
+ if(imported?.status==='imported'&&imported.ipa.length===1)return `<div class="phonetics"><span lang="en">/${esc(imported.ipa[0])}/</span></div>`;
+ const p=wordProfile(w),items=(p?.pronunciations||[]).filter(x=>/米|US|American/i.test(x.label||''));
  if(items.length)return `<div class="phonetics"><span lang="en">${[...new Set(items.map(x=>'/'+x.ipa+'/'))].map(esc).join('、')}</span></div>`;
- const value=L.usPronunciation(old?.phonetic);
- return value?`<div class="phonetics"><span lang="en">${esc(value)}</span></div>`:'';
+ return '';
 }
 function meaningsHTML(w){const p=wordProfile(w),record=basicRecord(w),rows=L.meanings(record?{...w,ja:record.ja,pos:record.pos}:w,p);if(!rows.length)return '';
  const forms=(p?.forms||[]).map(f=>`<span>${esc(f.label)}：${tokenHTML(f.value)}</span>`).join('');

@@ -160,6 +160,171 @@ window.ETYMON_LEXICAL_PROFILES = {
         }
       ],
       "glossMethod": "original Japanese summaries of checked dictionary senses; plural morphology checked separately"
+    },
+    {
+      "w": "respect",
+      "p": [
+        "re-",
+        "spek-"
+      ],
+      "firstSenseJa": "尊敬",
+      "status": "reviewed",
+      "illustratedSense": "respect-0",
+      "senses": [
+        {
+          "id": "respect-0",
+          "pos": "名詞",
+          "glossJa": "尊敬",
+          "source": 0
+        },
+        {
+          "id": "respect-1",
+          "pos": "名詞",
+          "glossJa": "配慮",
+          "source": 0
+        },
+        {
+          "id": "respect-2",
+          "pos": "名詞",
+          "glossJa": "点・観点",
+          "source": 0
+        },
+        {
+          "id": "respect-3",
+          "pos": "動詞",
+          "glossJa": "尊敬する",
+          "source": 0
+        },
+        {
+          "id": "respect-4",
+          "pos": "動詞",
+          "glossJa": "尊重する",
+          "source": 0
+        }
+      ],
+      "sources": [
+        {
+          "title": "Collins English Dictionary",
+          "url": "https://www.collinsdictionary.com/dictionary/english/respect",
+          "fields": [
+            "senses",
+            "pronunciations"
+          ]
+        }
+      ],
+      "reviewedAt": "2026-10-19",
+      "editorialPolicy": "Preserve mother dictionary illustrated meaning first. Short Japanese glosses edited by dot after sense/POS verification; not copied definitions.",
+      "pronunciations": [
+        {
+          "label": "米",
+          "ipa": "rɪˈspɛkt",
+          "source": 0
+        }
+      ]
+    },
+    {
+      "w": "work",
+      "p": [
+        "werg-"
+      ],
+      "firstSenseJa": "仕事",
+      "status": "reviewed",
+      "illustratedSense": "work-0",
+      "senses": [
+        {
+          "id": "work-0",
+          "pos": "名詞",
+          "glossJa": "仕事",
+          "source": 0
+        },
+        {
+          "id": "work-1",
+          "pos": "名詞",
+          "glossJa": "作品",
+          "source": 0
+        },
+        {
+          "id": "work-2",
+          "pos": "動詞",
+          "glossJa": "働く",
+          "source": 0
+        },
+        {
+          "id": "work-3",
+          "pos": "動詞",
+          "glossJa": "作動する",
+          "source": 0
+        },
+        {
+          "id": "work-4",
+          "pos": "動詞",
+          "glossJa": "うまくいく",
+          "source": 0
+        }
+      ],
+      "sources": [
+        {
+          "title": "Collins English Dictionary",
+          "url": "https://www.collinsdictionary.com/dictionary/english/work",
+          "fields": [
+            "senses"
+          ]
+        }
+      ],
+      "reviewedAt": "2026-10-19",
+      "editorialPolicy": "Preserve mother dictionary illustrated meaning first. Short Japanese glosses edited by dot after sense/POS verification; not copied definitions."
+    },
+    {
+      "w": "light",
+      "p": [
+        "leuk-"
+      ],
+      "firstSenseJa": "光",
+      "status": "reviewed",
+      "illustratedSense": "light-0",
+      "senses": [
+        {
+          "id": "light-0",
+          "pos": "名詞",
+          "glossJa": "光",
+          "source": 0
+        },
+        {
+          "id": "light-1",
+          "pos": "名詞",
+          "glossJa": "明かり",
+          "source": 0
+        },
+        {
+          "id": "light-2",
+          "pos": "動詞",
+          "glossJa": "火をつける",
+          "source": 0
+        },
+        {
+          "id": "light-3",
+          "pos": "動詞",
+          "glossJa": "照らす",
+          "source": 0
+        },
+        {
+          "id": "light-4",
+          "pos": "形容詞",
+          "glossJa": "明るい",
+          "source": 0
+        }
+      ],
+      "sources": [
+        {
+          "title": "Collins English Dictionary",
+          "url": "https://www.collinsdictionary.com/dictionary/english/light",
+          "fields": [
+            "senses"
+          ]
+        }
+      ],
+      "reviewedAt": "2026-10-19",
+      "editorialPolicy": "Preserve mother dictionary illustrated meaning first. Short Japanese glosses edited by dot after sense/POS verification; not copied definitions."
     }
   ]
 };
