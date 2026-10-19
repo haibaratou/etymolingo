@@ -93,10 +93,11 @@ const wordProfile=w=>L.profile(w,lexicalProfiles);
 const tokenHTML=text=>L.linkedTokens(String(text||''),termIndex).map(t=>t.href?`<a class="sentence-word" href="${esc(t.href)}">${esc(t.text)}</a>`:esc(t.text)).join('');
 function difficultyHTML(w){const d=L.difficulty(levelIndex.get(String(w.w||'').toLowerCase()));if(!d)return '';return `<span class="difficulty-stars${d.value>10?' compact':''}" role="img" aria-label="難易度 星${d.value}、Weblioレベル${d.level}" title="Weblio レベル${d.level}（星${d.value}）">${'<span class="star full" aria-hidden="true">★</span>'.repeat(d.full)}</span>`;}
 function imagePOS(w){const p=wordProfile(w);const name=p?.senses.find(s=>s.id===p.illustratedSense)?.pos;const fallback=L.splitPOS(w.pos);return name|| (fallback.length===1?fallback[0]:'');}
-function pronunciationHTML(w){const p=wordProfile(w),old=basicRecord(w);const items=p?.pronunciations;
- if(items?.length)return `<div class="phonetics">${items.map(x=>`<span><small>${esc(x.label)}</small> <span lang="en">/${esc(x.ipa)}/</span></span>`).join('')}</div>`;
- if(old?.phonetic)return `<div class="phonetics"><span lang="en">${esc(old.phonetic)}</span></div>`;
- return '<p class="phonetics missing">発音記号は未収録</p>';
+function pronunciationHTML(w){const p=wordProfile(w),old=basicRecord(w);
+ const items=(p?.pronunciations||[]).filter(x=>/米|US|American/i.test(x.label||''));
+ if(items.length)return `<div class="phonetics"><span lang="en">${[...new Set(items.map(x=>'/'+x.ipa+'/'))].map(esc).join('、')}</span></div>`;
+ const value=L.usPronunciation(old?.phonetic);
+ return value?`<div class="phonetics"><span lang="en">${esc(value)}</span></div>`:'';
 }
 function meaningsHTML(w){const p=wordProfile(w),record=basicRecord(w),rows=L.meanings(record?{...w,ja:record.ja,pos:record.pos}:w,p);if(!rows.length)return '';
  const forms=(p?.forms||[]).map(f=>`<span>${esc(f.label)}：${tokenHTML(f.value)}</span>`).join('');
@@ -282,7 +283,7 @@ function catPage(cid, sid) {
 function dictionaryPage(id){
  if(!/^dictionary:\d+$/.test(String(id)))return notFound();
  const index=Number(String(id).slice('dictionary:'.length)),record=basicById.get(index);if(!record)return notFound();const w={...record,id};side();
- view.innerHTML=`<div class="page fade"><nav class="crumbs"><a href="#/">トップ</a>${chev}<span>${esc(w.w)}</span></nav><article class="dictionary-only"><div class="word-heading"><h1 class="word-title" lang="en">${esc(w.w)}</h1><button class="word-speak" id="speak" type="button" aria-label="単語の発音"><svg><use href="#i-sound"/></svg></button></div>${pronunciationHTML(w)}${meaningsHTML(w)}${sourcesHTML(w)}</article></div>`;
+ view.innerHTML=`<div class="page fade"><nav class="crumbs"><a href="#/">トップ</a>${chev}<span>${esc(w.w)}</span></nav><article class="dictionary-only"><div class="word-heading"><h1 class="word-title" lang="en">${esc(w.w)}</h1><button class="word-speak" id="speak" type="button" aria-label="単語の発音"><svg><use href="#i-sound"/></svg></button></div>${pronunciationHTML(w)}${meaningsHTML(w)}</article></div>`;
  $('#speak').onclick=()=>speak(w.w,'en-US',$('#speak'));document.title=w.w+' — Pictpedia';
 }
 function dictionaryChoices(word){const rows=lexicalRows.filter(e=>e.w.toLowerCase()===String(word).toLowerCase());if(!rows.length)return notFound();side();view.innerHTML=`<div class="page fade"><h1 class="h1">${esc(word)}</h1><ul class="dictionary-choices">${rows.map(w=>`<li><a href="#/w/${encodeURIComponent(w.id)}"><b lang="en">${esc(w.w)}</b> ${esc(w.ja)}</a></li>`).join('')}</ul></div>`;}
@@ -298,14 +299,12 @@ function wordPage(id) {
     <article class="word">
       <div class="word-art">
         <div class="plate"><img src="${esc(full(w))}" alt="${esc(titleOf(w))}" width="1024" height="1024">${difficultyHTML(w)}</div>
-        <div class="scene-description" id="sceneBox" aria-live="polite">${hasCaption(w)?'':((needsRevision(w)||needsReview(w))?missingCaptionHTML(w):'')}</div>
       </div>
       <div class="word-info">
         <div class="word-heading"><h1 class="word-title${w.w?'':' pending-title'}"${w.w?' lang="en"':''}>${esc(titleOf(w))}</h1>${w.w?'<button class="word-speak" id="speak" type="button" aria-label="単語の発音" title="発音を聞く"><svg><use href="#i-sound"/></svg></button>':''}</div>
         ${pronunciationHTML(w)}
-        ${w.ja?`<p class="word-ja">${esc(firstJa(w))}</p>`:`<p class="asset-name">画像ファイル：${esc(w.art)}.png</p>`}
         ${meaningsHTML(w)}
-        ${sourcesHTML(w)}
+        <div class="box scene-description" id="sceneBox" aria-live="polite">${hasCaption(w)?'':((needsRevision(w)||needsReview(w))?missingCaptionHTML(w):'')}</div>
         <div class="word-categories"><div class="tags">${w.c.map(x => SUB.get(x)).filter(Boolean).map(s => `<a href="#/c/${s.cat.id}/${s.id}">${esc(s.cat.ja)} › ${esc(s.ja)}</a>`).join('')}</div></div>
       </div>
     </article>
@@ -352,7 +351,7 @@ function speak(text,lang='en-US',button=null){
  if(activeSpeechButton===button&&activeSpeech&&button){stopSpeech();return;}
  stopSpeech();const u=new SpeechSynthesisUtterance(text);activeSpeech=u;activeSpeechButton=button;
  u.lang=lang;u.rate=lang.startsWith('ja')?1:.9;
- const voices=speechSynthesis.getVoices(),voice=voices.find(v=>v.lang.toLowerCase()===lang.toLowerCase())||voices.find(v=>v.lang.toLowerCase().startsWith(lang.slice(0,2).toLowerCase()));
+ const voices=speechSynthesis.getVoices(),voice=voices.find(v=>v.lang.toLowerCase()===lang.toLowerCase())||(lang.startsWith('ja')?voices.find(v=>v.lang.toLowerCase().startsWith('ja')):null);
  if(voice)u.voice=voice;
  if(button){button.setAttribute('aria-busy','true');button.setAttribute('aria-pressed','true');}
  u.onend=()=>{if(activeSpeech===u){activeSpeech=null;resetSpeechButton();}};
