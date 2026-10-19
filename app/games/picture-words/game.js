@@ -582,15 +582,9 @@
     advanceTimers.forEach(id => { clearTimeout(id); pending.delete(id); }); advanceTimers = [];
     $('game').classList.remove('stage-out');
   }
-  function queueAdvance(delay = REWARD_DURATION) {
+  function queueAdvance() {
+    // Keep the result open until the player chooses replay or next.
     pauseAdvance();
-    if (phase !== 'solved' || sceneReadingHold || $('modal').open || $('launchScreen').open || document.hidden) return;
-    advanceTimers.push(later(() => $('game').classList.add('stage-out'), delay - 180));
-    advanceTimers.push(later(() => {
-      // Keep the pace: a solved word always leads to a different picture.
-      // The paired language remains available through the central switch.
-      loadLevel(nextUncollected(mode, index), true, true);
-    }, delay));
   }
   function loadLevel(nextIndex, focusNext = false, keepPronunciation = false, keepHints = false, keepPicture = false) {
     // Language changes belong to the displayed entry, never to the next-word
@@ -1000,6 +994,7 @@
   }));
   $('retryImage').addEventListener('click', () => loadLevel(index));
   $('skipImage').addEventListener('click', () => loadLevel(nextUncollected(mode, index)));
+  $('replayPuzzle').addEventListener('click', () => { if (phase === 'solved') loadLevel(index, true); });
   $('advanceLabel').addEventListener('click', () => { if (phase === 'solved') loadLevel(nextUncollected(mode, index), true, true); });
 
   function openModal(title, body) {

@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=M+PLUS+Rounded+1c:wght@500;700;800&display=swap">
   <link rel="manifest" href="picture-words/manifest.webmanifest">
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <link rel="stylesheet" href="picture-words/style.css?v=ba280d994eda">
+  <link rel="stylesheet" href="picture-words/style.css?v=735eb7d25cff">
   <script src="picture-words/desktop.js?v=pictlingo8" defer></script>
   <script src="picture-words/catalog.js?v=7294524c2ae8" defer></script>
   <script src="picture-words/difficulty.js?v=608642e9ac23" defer></script>
@@ -24,7 +24,7 @@
   <link rel="stylesheet" href="../shared/illustration-scenes.css?v=footer2">
   <script src="../shared/illustration-scenes.js?v=1ea9593d99d5" defer></script>
   <script src="pictlingo-quest/quest-data.js?v=2" defer></script>
-  <script src="picture-words/game.js?v=25b61078a391" defer></script>
+  <script src="picture-words/game.js?v=b298d59de493" defer></script>
 </head>
 <body>
   <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -140,7 +140,10 @@
               <div id="rewardExplanation" class="reward-explanation" hidden></div>
               <div id="winPronunciation" class="win-pronunciation" hidden></div>
     </div>
-              <button id="advanceLabel" class="advance-label" type="button">次の問題へ <span aria-hidden="true">→</span></button>
+              <div class="reward-actions">
+                <button id="replayPuzzle" class="advance-label replay-puzzle" type="button">もう一度やる</button>
+                <button id="advanceLabel" class="advance-label" type="button">次の問題へ <span aria-hidden="true">→</span></button>
+              </div>
             </div>
   <canvas id="particles" aria-hidden="true"></canvas>
   <dialog id="launchScreen" aria-labelledby="launchTitle">
