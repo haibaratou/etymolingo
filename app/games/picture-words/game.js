@@ -228,6 +228,7 @@
       sound.duck(event.state === 'queued' || event.state === 'speaking');
       const headwordSpeaking = event.kind !== 'scene' && event.state === 'speaking';
       $('pictureCard').classList.toggle('word-speaking', headwordSpeaking && event.wordId === entry?.id);
+      $('wordReward').classList.toggle('word-speaking', headwordSpeaking && event.wordId === entry?.id);
       document.querySelectorAll('.dictionary-entry-art').forEach(art => {
         art.classList.toggle('word-speaking', headwordSpeaking && art.dataset.wordId === event.wordId);
       });
@@ -781,7 +782,7 @@
       page.setAttribute('aria-hidden', 'true');
       return page;
     }));
-    $('wordReward').setAttribute('aria-label', `${bookName(mode)} ${mode === 'ja' ? 'を開く' : '— open'}`);
+    $('wordReward').setAttribute('aria-label', mode === 'ja' ? '単語の発音を聞く' : 'Listen to the word');
     $('rewardStars').replaceChildren();
     $('hint').disabled = true; $('shuffle').disabled = true;
     const wheelRect = $('wheel').getBoundingClientRect();
@@ -1043,7 +1044,11 @@
   function openDictionary() { dictionaryFilter = 'all'; dictionaryPage = 0; dictionaryQuery = ''; renderDictionary(); }
   $('collection').addEventListener('click', openDictionary);
   $('dailyCollection').addEventListener('click', () => { dictionaryFilter = 'owned'; dictionaryPage = 0; dictionaryQuery = ''; renderDictionary(); });
-  $('wordReward').addEventListener('click', openDictionary);
+  $('wordReward').addEventListener('click', () => {
+    if (!entry || phase !== 'solved') return;
+    const image = $('rewardArt'); image.classList.remove('word-tap'); void image.offsetWidth; image.classList.add('word-tap');
+    sound.unlock(); speech.speak(entry, mode, false, true);
+  });
 
   function beginDictionaryPuzzle(lang, targetIndex) {
     if (!catalog[targetIndex] || !supports(catalog[targetIndex], lang)) return;

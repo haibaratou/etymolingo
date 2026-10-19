@@ -1151,3 +1151,12 @@ html.phone-host body> :not(.desktop-phone-host){display:none!important}
 .dictionary-entry-art.word-speaking{outline:3px solid #6aa88a;outline-offset:4px;animation:voice-glow 1s ease-in-out infinite}
 @keyframes voice-glow{0%,100%{box-shadow:0 0 0 0 #6aa88a55}50%{box-shadow:0 0 0 7px #6aa88a22}}
 @media(prefers-reduced-motion:reduce){#clueImage.word-tap,.dictionary-entry-art.word-tap,#pictureCard.word-speaking #listenClue,.dictionary-entry-art.word-speaking{animation:none!important}}
+
+/* The result illustration is a pronunciation button, with a clean rounded edge. */
+#rewardScene .word-reward{border:0;border-radius:22px;overflow:hidden;box-shadow:0 8px 26px #0002}
+#rewardScene .word-reward .book-right{border:0;border-radius:inherit;align-self:stretch}
+#rewardScene .reward-art-wrap::after{display:none}
+#rewardScene .reward-art-wrap img{clip-path:none}
+#rewardArt.word-tap{animation:word-tap .38s ease-out!important}
+#wordReward.word-speaking .book-word{color:#2c7959}
+@media(prefers-reduced-motion:reduce){#rewardArt.word-tap{animation:none!important}}
