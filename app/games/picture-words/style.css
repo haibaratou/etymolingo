@@ -1143,3 +1143,11 @@ html.phone-host body> :not(.desktop-phone-host){display:none!important}
 #pictureCard #listenClueLabel{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 #gameActions.play-toolbar{grid-template-columns:repeat(4,minmax(0,1fr))}
 #gameActions #collection{grid-column:3!important}#gameActions #hint{grid-column:4!important}
+
+/* A small tap bounce, followed by an indicator tied to actual voice playback. */
+#clueImage.word-tap,.dictionary-entry-art.word-tap{animation:word-tap .38s ease-out!important}
+@keyframes word-tap{0%,100%{transform:translateY(0) scale(1)}35%{transform:translateY(-5px) scale(1.035)}65%{transform:translateY(1px) scale(.99)}}
+#pictureCard.word-speaking #listenClue{background:#2c5146;color:#fff;animation:voice-glow 1s ease-in-out infinite}
+.dictionary-entry-art.word-speaking{outline:3px solid #6aa88a;outline-offset:4px;animation:voice-glow 1s ease-in-out infinite}
+@keyframes voice-glow{0%,100%{box-shadow:0 0 0 0 #6aa88a55}50%{box-shadow:0 0 0 7px #6aa88a22}}
+@media(prefers-reduced-motion:reduce){#clueImage.word-tap,.dictionary-entry-art.word-tap,#pictureCard.word-speaking #listenClue,.dictionary-entry-art.word-speaking{animation:none!important}}

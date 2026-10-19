@@ -226,6 +226,11 @@
   const speech = new window.WordBloomSpeech.Pronunciation({
     onState: event => {
       sound.duck(event.state === 'queued' || event.state === 'speaking');
+      const headwordSpeaking = event.kind !== 'scene' && event.state === 'speaking';
+      $('pictureCard').classList.toggle('word-speaking', headwordSpeaking && event.wordId === entry?.id);
+      document.querySelectorAll('.dictionary-entry-art').forEach(art => {
+        art.classList.toggle('word-speaking', headwordSpeaking && art.dataset.wordId === event.wordId);
+      });
       if (event.kind === 'scene' && ['queued','speaking'].includes(event.state)) {
         $('winPronunciation').dataset.utteranceText = event.text;
         $('winPronunciation').dataset.utteranceLanguage = event.language;
@@ -905,7 +910,10 @@
   $('clueImage').setAttribute('role', 'button');
   $('clueImage').tabIndex = 0;
   $('clueImage').setAttribute('aria-label', 'イラストをタップして単語の発音を聞く');
-  $('clueImage').addEventListener('click', () => $('listenClue').click());
+  $('clueImage').addEventListener('click', () => {
+    const image = $('clueImage'); image.classList.remove('word-tap'); void image.offsetWidth; image.classList.add('word-tap');
+    $('listenClue').click();
+  });
   $('clueImage').addEventListener('keydown', event => {
     if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); $('listenClue').click(); }
   });
@@ -1106,8 +1114,8 @@
     const back = document.createElement('button'); back.type = 'button'; back.className = 'dictionary-back'; back.textContent = mode === 'ja' ? '← 辞書にもどる' : '← Back to dictionary';
     back.addEventListener('click', () => { renderDictionary(); $('modalBody').querySelector(`[data-word-id="${word.id}"]`)?.focus(); });
     const art = document.createElement('button'); art.type = 'button'; art.className = 'dictionary-entry-art';
-    art.setAttribute('aria-label', '単語の発音を聞く');
-    art.addEventListener('click', () => { sound.unlock(); speech.speak(word, lang, false, true); });
+    art.setAttribute('aria-label', '単語の発音を聞く'); art.dataset.wordId = word.id;
+    art.addEventListener('click', () => { art.classList.remove('word-tap'); void art.offsetWidth; art.classList.add('word-tap'); sound.unlock(); speech.speak(word, lang, false, true); });
     const image = document.createElement('img'); image.src = imgURL(word); image.alt = word.ja || word.en || ''; art.append(image);
     const heading = document.createElement('h3'); heading.textContent = word.en || word.ja || word.pic;
     const profile = difficulty.challenge(word, lang), rarity = document.createElement('p'); rarity.className = 'entry-rarity'; rarity.style.setProperty('--rarity', profile.color);
