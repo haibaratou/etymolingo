@@ -12,6 +12,31 @@
   const key = entry => identity(entry.w, entry.p, entry.art);
   const firstSenseMatches = (entry, word) => word && entry.w === word.w && JSON.stringify(entry.p) === JSON.stringify(word.p || []) && firstJa(word.ja) === normalized(entry.sense.ja) && firstEn(word.en) === normalized(entry.sense.en);
   const loads = new Map();
+  let importedScenes = [];
+  const scriptBase = typeof document !== 'undefined' ? document.currentScript?.src : null;
+  // Local HTML may contain an older embedded scene snapshot. Load the same
+  // canonical CSV imports as a script; preserve all existing identities.
+  if (scriptBase && globalThis.location?.protocol === 'file:') {
+    const script = document.createElement('script');
+    script.src = new URL('../data/generated-etymon/csv-illustration-scenes.js?v=csv-import-1', scriptBase).href;
+    script.onload = async () => {
+      try {
+        const envelope = globalThis.ETYMON_CSV_SCENES;
+        if (envelope?.encoding !== 'gzip-base64') return;
+        const bytes = Uint8Array.from(atob(envelope.data), c => c.charCodeAt(0));
+        const data = JSON.parse(await new Response(new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'))).text());
+        if (data.schema !== 1 || !Array.isArray(data.entries)) return;
+        importedScenes = data.entries;
+        const repaint = () => {
+          if (typeof globalThis.fillIllustrationScene === 'function')
+            document.querySelectorAll('[data-scene-word]').forEach(cell => globalThis.fillIllustrationScene(cell));
+        };
+        if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', repaint, {once:true});
+        else repaint();
+      } catch { /* Keep unreviewed state if the supplement cannot be read. */ }
+    };
+    document.head.append(script);
+  }
   async function load(url) {
     if (!loads.has(url)) loads.set(url, fetch(url, {cache:'no-cache'}).then(response => {
       if (!response.ok) throw new Error('Explanation data unavailable');
@@ -23,7 +48,7 @@
     return loads.get(url);
   }
   function find(data, word, art) {
-    return data.entries.find(entry => key(entry) === identity(word.w, word.p, art)) || null;
+    return data.entries.find(entry => key(entry) === identity(word.w, word.p, art)) || importedScenes.find(entry => key(entry) === identity(word.w, word.p, art)) || null;
   }
   async function verify(entry, options = {}) {
     if (!entry) return {status:'unreviewed',entry:null};
