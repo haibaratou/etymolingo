@@ -1162,3 +1162,9 @@ html.phone-host body> :not(.desktop-phone-host){display:none!important}
 #rewardArt.word-tap{animation:word-tap .38s ease-out!important}
 #wordReward.word-speaking .book-word{color:#2c7959}
 @media(prefers-reduced-motion:reduce){#rewardArt.word-tap{animation:none!important}}
+
+/* Keep the bottom toolbar reachable while the answer is displayed. */
+#rewardScene.reward-scene{max-height:calc(100dvh - 120px);top:calc(50% - 38px);pointer-events:none}
+#rewardScene::backdrop,#rewardScene::before{pointer-events:none}
+#rewardScene #rewardScroll,#rewardScene .reward-actions{pointer-events:auto}
+#gameActions.play-toolbar{z-index:2147483646}
