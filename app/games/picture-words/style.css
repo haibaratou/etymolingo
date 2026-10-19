@@ -1168,3 +1168,17 @@ html.phone-host body> :not(.desktop-phone-host){display:none!important}
 #rewardScene::backdrop,#rewardScene::before{pointer-events:none}
 #rewardScene #rewardScroll,#rewardScene .reward-actions{pointer-events:auto}
 #gameActions.play-toolbar{z-index:2147483646}
+
+/* Puzzle helpers belong above the board; persistent navigation stays below. */
+#puzzleTools{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;margin:0 0 6px}
+#puzzleTools #shuffle,#puzzleTools #hint{position:static;display:flex;flex-direction:row;align-items:center;justify-content:center;gap:6px;width:auto;min-width:100px;height:40px;min-height:40px;padding:0 14px;margin:0;border-radius:12px;font-size:12px;grid-column:auto;grid-row:auto;transform:none;box-shadow:none}
+#puzzleTools button svg{width:22px;height:22px}#puzzleTools #freeTag{display:none}
+#puzzleTools button:disabled{opacity:.4;cursor:default}
+#gameActions.play-toolbar{grid-template-columns:repeat(2,minmax(0,1fr))}
+#gameActions #collection{grid-column:2!important}
+@media(orientation:portrait){
+ html[data-layout=mobile]{--board-space:calc(var(--play-height) - var(--card) - 232px)}
+ html[data-layout=mobile] .play-layout{grid-template-rows:var(--card) 40px 40px var(--board-space)}
+ html[data-layout=mobile] #puzzleTools{grid-column:1/-1;grid-row:3;align-self:center;margin:0}
+ html[data-layout=mobile] #wheel{grid-column:1/-1;grid-row:4}
+}

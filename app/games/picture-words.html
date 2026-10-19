@@ -35,7 +35,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=M+PLUS+Rounded+1c:wght@500;700;800&display=swap">
   <link rel="manifest" href="picture-words/manifest.webmanifest">
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <link rel="stylesheet" href="picture-words/style.css?v=41b9952edbc0">
+  <link rel="stylesheet" href="picture-words/style.css?v=e8e10dde472c">
   <script src="picture-words/desktop.js?v=pictlingo8" defer></script>
   <script src="picture-words/catalog.js?v=7294524c2ae8" defer></script>
   <script src="picture-words/difficulty.js?v=608642e9ac23" defer></script>
@@ -125,6 +125,10 @@
 
         <section class="interaction-section" aria-label="文字をつなぐ">
           <div class="wheel-intro" hidden><span class="eyebrow" id="connectLabel"></span><p id="instruction"></p></div>
+          <div id="puzzleTools" class="puzzle-tools" role="group" aria-label="パズル操作">
+          <button id="shuffle" class="action-button shuffle-button" type="button" aria-label="まぜる"><svg><use href="#i-shuffle"/></svg><span id="shuffleLabel">まぜる</span><span id="centerLabel" hidden></span></button>
+          <button id="hint" class="action-button hint-button" type="button"><svg><use href="#i-bulb"/></svg><span id="hintLabel">答え</span><span class="free-tag" id="freeTag">FREE</span></button>
+          </div>
           <div class="wheel" id="wheel" role="group" aria-label="なぞって答える文字盤">
             <div class="constellation-sky" aria-hidden="true"></div>
             <div class="combo-meter" id="combo" data-level="0" aria-live="polite"><span class="combo-count" id="comboCount">0</span><span class="combo-word">COMBO</span><span class="combo-pips" id="comboPips" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span><small id="comboBest">BEST 0</small></div>
@@ -141,9 +145,7 @@
         </section>
         <div class="play-toolbar" id="gameActions" role="group" aria-label="ゲーム操作">
           <button id="modeToggle" type="button" data-mode="en" aria-label="英語に切り替える"><span id="modeLabel"><span class="mode-ja">日本語</span><span aria-hidden="true">⇄</span><span class="mode-en">英語</span></span></button>
-          <button id="shuffle" class="action-button shuffle-button" type="button" aria-label="まぜる"><svg><use href="#i-shuffle"/></svg><span id="shuffleLabel">まぜる</span><span id="centerLabel" hidden></span></button>
           <button id="collection" class="action-button collection-button" type="button"><svg><use href="#i-book"/></svg><span id="collectionLabel">辞書</span><span id="collectionCount">0</span></button>
-          <button id="hint" class="action-button hint-button" type="button"><svg><use href="#i-bulb"/></svg><span id="hintLabel">答え</span><span class="free-tag" id="freeTag">FREE</span></button>
         </div>
       </div>
 
