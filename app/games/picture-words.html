@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=M+PLUS+Rounded+1c:wght@500;700;800&display=swap">
   <link rel="manifest" href="picture-words/manifest.webmanifest">
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <link rel="stylesheet" href="picture-words/style.css?v=66c40700ba5d">
+  <link rel="stylesheet" href="picture-words/style.css?v=1c581ef3a658">
   <script src="picture-words/desktop.js?v=pictlingo8" defer></script>
   <script src="picture-words/catalog.js?v=7294524c2ae8" defer></script>
   <script src="picture-words/difficulty.js?v=608642e9ac23" defer></script>
@@ -86,6 +86,7 @@
               <div class="picture-halo" aria-hidden="true"></div>
               <span class="picture-spark spark-one" aria-hidden="true">✧</span><span class="picture-spark spark-two" aria-hidden="true">✦</span>
               <img id="clueImage" alt="答えを考えるためのイラスト" draggable="false" width="512" height="512">
+          <button id="listenClue" class="picture-listen" type="button" aria-label="単語の発音を聞く"><svg><use href="#i-sound"/></svg><span id="listenClueLabel" aria-live="polite">聞く</span></button>
               <div class="image-error" id="imageError" hidden><p id="imageErrorText">イラストを読み込めませんでした</p><button id="retryImage" type="button">もう一度読み込む</button><button id="skipImage" type="button">次の絵へ</button></div>
             </div>
             <span id="rarityBadge" class="rarity-badge"></span>
@@ -117,7 +118,6 @@
         </section>
         <div class="play-toolbar" id="gameActions" role="group" aria-label="ゲーム操作">
           <button id="modeToggle" type="button" data-mode="en" aria-label="英語に切り替える"><span id="modeLabel"><span class="mode-ja">日本語</span><span aria-hidden="true">⇄</span><span class="mode-en">英語</span></span></button>
-          <button id="listenClue" class="action-button" type="button" aria-label="単語の発音を聞く"><svg><use href="#i-sound"/></svg><span id="listenClueLabel" aria-live="polite">聞く</span></button>
           <button id="shuffle" class="action-button shuffle-button" type="button" aria-label="まぜる"><svg><use href="#i-shuffle"/></svg><span id="shuffleLabel">まぜる</span><span id="centerLabel" hidden></span></button>
           <button id="collection" class="action-button collection-button" type="button"><svg><use href="#i-book"/></svg><span id="collectionLabel">辞書</span><span id="collectionCount">0</span></button>
           <button id="hint" class="action-button hint-button" type="button"><svg><use href="#i-bulb"/></svg><span id="hintLabel">答え</span><span class="free-tag" id="freeTag">FREE</span></button>

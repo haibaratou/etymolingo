@@ -1136,3 +1136,10 @@ html.phone-host body> :not(.desktop-phone-host){display:none!important}
 .reward-actions #advanceLabel{background:#2c5146;color:#fff;box-shadow:0 3px 0 #183c32}
 
 #rewardSeal,#rewardStars,#pictureStamp{display:none!important}
+
+/* Pronunciation sits on the illustration; the bottom toolbar has four actions. */
+#pictureCard #listenClue{position:absolute;z-index:4;left:10px;bottom:10px;top:auto;right:auto;display:grid;place-items:center;width:44px;height:44px;min-width:44px;min-height:44px;padding:0;border:1px solid #d9e0dd;border-radius:50%;background:#ffffffed;color:#2c5146;box-shadow:0 2px 6px #0002;transform:none;grid-column:auto;grid-row:auto}
+#pictureCard #listenClue svg{width:24px;height:24px;color:inherit;stroke:currentColor}
+#pictureCard #listenClueLabel{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+#gameActions.play-toolbar{grid-template-columns:repeat(4,minmax(0,1fr))}
+#gameActions #collection{grid-column:3!important}#gameActions #hint{grid-column:4!important}
