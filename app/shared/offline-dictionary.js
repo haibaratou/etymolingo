@@ -52,7 +52,7 @@
 /* Explorer optional feature: shared, mother-owned picture-puzzle decisions. */
 if(typeof document!=='undefined' && /\/etymon-explorer\.html$/.test(location.pathname)){
  const puzzleScript=document.createElement('script');
- puzzleScript.src=new URL('puzzle-eligibility.js',document.currentScript.src).href;
+ puzzleScript.src=new URL('puzzle-eligibility.js?v=git-dates-2',document.currentScript.src).href;
  document.head.append(puzzleScript);
 }
 
