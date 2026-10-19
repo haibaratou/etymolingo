@@ -1,4 +1,4 @@
-window.ETYMON_LEXICAL_PROFILES={
+window.ETYMON_LEXICAL_PROFILES = {
   "schema": 1,
   "entries": [
     {
@@ -24,48 +24,55 @@ window.ETYMON_LEXICAL_PROFILES={
       "senses": [
         {
           "pos": "名詞",
-          "glossJa": "領主・地主。土地を所有し、その土地の人々を支配する人。",
+          "glossJa": "領主・地主",
           "source": 0,
-          "id": "lord-n-land"
+          "id": "lord-n-land",
+          "detailJa": "領主・地主。土地を所有し、その土地の人々を支配する人。"
         },
         {
           "pos": "名詞",
-          "glossJa": "貴族。また、その称号である「卿」。",
+          "glossJa": "貴族・卿",
           "source": 0,
-          "id": "lord-n-noble"
+          "id": "lord-n-noble",
+          "detailJa": "貴族。また、その称号である「卿」。"
         },
         {
           "pos": "名詞",
-          "glossJa": "主人・支配者。ほかの人に対して権力を持つ人。",
+          "glossJa": "主人・支配者",
           "source": 0,
-          "id": "lord-n-master"
+          "id": "lord-n-master",
+          "detailJa": "主人・支配者。ほかの人に対して権力を持つ人。"
         },
         {
           "pos": "名詞",
-          "glossJa": "神・主。キリスト教で神やキリストを指す呼び名。",
+          "glossJa": "神・主",
           "source": 0,
           "id": "lord-n-god",
-          "usage": "the Lord"
+          "usage": "the Lord",
+          "detailJa": "神・主。キリスト教で神やキリストを指す呼び名。"
         },
         {
           "pos": "名詞",
-          "glossJa": "特定の分野で大きな力を持つ有力者。",
+          "glossJa": "有力者",
           "source": 0,
-          "id": "lord-n-influential"
+          "id": "lord-n-influential",
+          "detailJa": "特定の分野で大きな力を持つ有力者。"
         },
         {
           "pos": "動詞",
-          "glossJa": "人に対して威張る、支配者のように振る舞う。",
+          "glossJa": "威張る、支配者として振る舞う",
           "source": 0,
           "id": "lord-v",
-          "usage": "lord it over someone"
+          "usage": "lord it over someone",
+          "detailJa": "人に対して威張る、支配者のように振る舞う。"
         },
         {
           "pos": "間投詞",
-          "glossJa": "驚きや困惑などを表す呼びかけ。",
+          "glossJa": "おや、まあ",
           "source": 0,
           "id": "lord-int",
-          "usage": "Lord! / Good Lord!"
+          "usage": "Lord! / Good Lord!",
+          "detailJa": "驚きや困惑などを表す呼びかけ。"
         }
       ],
       "forms": [
@@ -105,21 +112,24 @@ window.ETYMON_LEXICAL_PROFILES={
       "senses": [
         {
           "pos": "名詞",
-          "glossJa": "子どもたち。まだ大人になっていない人たち。",
+          "glossJa": "子どもたち",
           "source": 1,
-          "id": "children-young"
+          "id": "children-young",
+          "detailJa": "子どもたち。まだ大人になっていない人たち。"
         },
         {
           "pos": "名詞",
-          "glossJa": "息子や娘たち。親との関係を表し、成人した子も含む。",
+          "glossJa": "息子・娘",
           "source": 1,
-          "id": "children-offspring"
+          "id": "children-offspring",
+          "detailJa": "息子や娘たち。親との関係を表し、成人した子も含む。"
         },
         {
           "pos": "名詞",
-          "glossJa": "子孫、ある一族に属する人々。",
+          "glossJa": "子孫",
           "source": 1,
-          "id": "children-descendants"
+          "id": "children-descendants",
+          "detailJa": "子孫、ある一族に属する人々。"
         }
       ],
       "forms": [
