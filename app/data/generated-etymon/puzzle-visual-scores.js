@@ -63633,6 +63633,13702 @@ window.ETYMON_PUZZLE_VISUAL_SCORES={
       "rubricVersion": "visual-answer-v1",
       "currentPublicImageVerification": "git_blob_match",
       "verifiedPublicCommit": "55104732a1970ee8172c2352f6d810ecbd0b6da8"
+    },
+    {
+      "id": "blocks",
+      "w": "blocks",
+      "p": [],
+      "rarity": 481,
+      "imagePath": "assets/word/blocks.png",
+      "sourceOrdinal": 47418,
+      "reviewOrder": 1,
+      "localImageExists": true,
+      "imageGitBlobSha": "257337ae18af95d76d96fa0078d9f3e84d74e060",
+      "score": 95,
+      "components": {
+        "meaningVisible": 39,
+        "conceptDistinct": 24,
+        "answerSpecific": 22,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "色付きの積み木が明瞭だが玩具の呼び名も競合する。",
+      "alternativeAnswersEn": [
+        "bricks",
+        "toys"
+      ],
+      "assessedAt": "2026-10-19T09:11:18.209649+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "artist",
+      "w": "artist",
+      "p": [
+        "ar-"
+      ],
+      "rarity": 482,
+      "imagePath": "assets/word/artist.png",
+      "sourceOrdinal": 1097,
+      "reviewOrder": 2,
+      "localImageExists": true,
+      "imageGitBlobSha": "f26468ad07c2fc8673c20686f21911ac65ecfb1d",
+      "score": 94,
+      "components": {
+        "meaningVisible": 39,
+        "conceptDistinct": 24,
+        "answerSpecific": 21,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "パレットを持ち絵を描く人物で芸術家が読めるが画家にも絞られる。",
+      "alternativeAnswersEn": [
+        "painter",
+        "painting"
+      ],
+      "assessedAt": "2026-10-19T09:11:18.209649+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "axis",
+      "w": "axis",
+      "p": [
+        "aks-"
+      ],
+      "rarity": 482,
+      "imagePath": "assets/word/axis.png",
+      "sourceOrdinal": 1375,
+      "reviewOrder": 3,
+      "localImageExists": true,
+      "imageGitBlobSha": "f251a3a90cc3ecd0cac067862cd3bccea2aefaad",
+      "score": 88,
+      "components": {
+        "meaningVisible": 36,
+        "conceptDistinct": 23,
+        "answerSpecific": 19,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "地球を貫く棒と回転矢印で軸を示すが回転も目立つ。",
+      "alternativeAnswersEn": [
+        "rotation",
+        "globe"
+      ],
+      "assessedAt": "2026-10-19T09:11:18.209649+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "extension",
+      "w": "extension",
+      "p": [
+        "eghs",
+        "ten-"
+      ],
+      "rarity": 482,
+      "imagePath": "assets/word/extension.png",
+      "sourceOrdinal": 5764,
+      "reviewOrder": 4,
+      "localImageExists": true,
+      "imageGitBlobSha": "24b9d649e8e38de5a8997b798f5c453ddf28c1a4",
+      "score": 70,
+      "components": {
+        "meaningVisible": 30,
+        "conceptDistinct": 19,
+        "answerSpecific": 12,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "机の板を継ぎ足す作業は延長を示すが修理も自然。",
+      "alternativeAnswersEn": [
+        "expand",
+        "repair"
+      ],
+      "assessedAt": "2026-10-19T09:11:18.209649+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "gray",
+      "w": "gray",
+      "p": [
+        "gh(e)r-3"
+      ],
+      "rarity": 482,
+      "imagePath": "assets/word/gray.png",
+      "sourceOrdinal": 6969,
+      "reviewOrder": 5,
+      "localImageExists": true,
+      "imageGitBlobSha": "aae80a9eb08c3963e977f39917369e33149f05a3",
+      "score": 97,
+      "components": {
+        "meaningVisible": 40,
+        "conceptDistinct": 25,
+        "answerSpecific": 22,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "灰色の色面と石で色が明瞭だが綴りの異形は区別できない。",
+      "alternativeAnswersEn": [
+        "grey",
+        "stone"
+      ],
+      "assessedAt": "2026-10-19T09:11:18.209649+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "incident",
+      "w": "incident",
+      "p": [
+        "en",
+        "kad-"
+      ],
+      "rarity": 482,
+      "imagePath": "assets/word/incident.png",
+      "sourceOrdinal": 7924,
+      "reviewOrder": 6,
+      "localImageExists": true,
+      "imageGitBlobSha": "213f12b197c7ff9357f7549000f6b7cd6f3c2b8b",
+      "score": 56,
+      "components": {
+        "meaningVisible": 24,
+        "conceptDistinct": 15,
+        "answerSpecific": 8,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "果物を落として驚く場面は出来事だが事故や散乱の具体語が強い。",
+      "alternativeAnswersEn": [
+        "accident",
+        "spill"
+      ],
+      "assessedAt": "2026-10-19T09:11:18.209649+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "liver",
+      "w": "liver",
+      "p": [
+        "leip-"
+      ],
+      "rarity": 482,
+      "imagePath": "assets/word/liver.png",
+      "sourceOrdinal": 9093,
+      "reviewOrder": 7,
+      "localImageExists": true,
+      "imageGitBlobSha": "712d9c273debec58f0fcb47b18d3897b29dfd6bb",
+      "score": 96,
+      "components": {
+        "meaningVisible": 39,
+        "conceptDistinct": 24,
+        "answerSpecific": 23,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "二葉の赤褐色の臓器の形が肝臓を直接示す。",
+      "alternativeAnswersEn": [
+        "organ",
+        "kidney"
+      ],
+      "assessedAt": "2026-10-19T09:11:18.209649+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "presentation",
+      "w": "presentation",
+      "p": [
+        "per1",
+        "es-"
+      ],
+      "rarity": 482,
+      "imagePath": "assets/word/presentation.png",
+      "sourceOrdinal": 12345,
+      "reviewOrder": 8,
+      "localImageExists": true,
+      "imageGitBlobSha": "bd37261f182705dc2c5e38e27d65c7fd19864014",
+      "score": 87,
+      "components": {
+        "meaningVisible": 36,
+        "conceptDistinct": 23,
+        "answerSpecific": 19,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "人前で風車を説明する場面は発表を示すが授業も強い。",
+      "alternativeAnswersEn": [
+        "demonstration",
+        "lesson"
+      ],
+      "assessedAt": "2026-10-19T09:11:18.209649+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "radical",
+      "w": "radical",
+      "p": [
+        "wrād-"
+      ],
+      "rarity": 482,
+      "imagePath": "assets/word/radical.png",
+      "sourceOrdinal": 12931,
+      "reviewOrder": 9,
+      "localImageExists": true,
+      "imageGitBlobSha": "b93a12662cf3b9216330fc418a873fc044cb4138",
+      "score": 32,
+      "components": {
+        "meaningVisible": 12,
+        "conceptDistinct": 8,
+        "answerSpecific": 3,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "建物の基礎の石は根本を連想させるが急進性を特定できない。",
+      "alternativeAnswersEn": [
+        "foundation",
+        "base"
+      ],
+      "assessedAt": "2026-10-19T09:11:18.209649+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "session",
+      "w": "session",
+      "p": [
+        "sed-"
+      ],
+      "rarity": 482,
+      "imagePath": "assets/word/session.png",
+      "sourceOrdinal": 14348,
+      "reviewOrder": 10,
+      "localImageExists": true,
+      "imageGitBlobSha": "3c5cbb14f2c0201f336ef19b9d92924f078c0615",
+      "score": 57,
+      "components": {
+        "meaningVisible": 24,
+        "conceptDistinct": 16,
+        "answerSpecific": 8,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "机を囲む話し合いは会期より会議という答えが自然。",
+      "alternativeAnswersEn": [
+        "meeting",
+        "council"
+      ],
+      "assessedAt": "2026-10-19T09:11:18.209649+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "uniform",
+      "w": "uniform",
+      "p": [
+        "oi-no-",
+        "merph-"
+      ],
+      "rarity": 482,
+      "imagePath": "assets/word/uniform.png",
+      "sourceOrdinal": 16536,
+      "reviewOrder": 11,
+      "localImageExists": true,
+      "imageGitBlobSha": "e4e201fd9ea17b5e73310be191e66fdfbf9d604b",
+      "score": 92,
+      "components": {
+        "meaningVisible": 38,
+        "conceptDistinct": 24,
+        "answerSpecific": 20,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "二人が同じ作業服で制服を示すが作業員も目立つ。",
+      "alternativeAnswersEn": [
+        "workwear",
+        "workers"
+      ],
+      "assessedAt": "2026-10-19T09:11:18.209649+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "violent",
+      "w": "violent",
+      "p": [
+        "weiə-"
+      ],
+      "rarity": 482,
+      "imagePath": "assets/word/violent.png",
+      "sourceOrdinal": 16909,
+      "reviewOrder": 12,
+      "localImageExists": true,
+      "imageGitBlobSha": "dc526ed4f4c581d20e1d8cb1f1fdb57be4896112",
+      "score": 95,
+      "components": {
+        "meaningVisible": 39,
+        "conceptDistinct": 24,
+        "answerSpecific": 22,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "棒を振り上げ相手が怯える場面で暴力性が明瞭。",
+      "alternativeAnswersEn": [
+        "aggressive",
+        "attack"
+      ],
+      "assessedAt": "2026-10-19T09:11:18.209649+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "warning",
+      "w": "warning",
+      "p": [
+        "wer-5"
+      ],
+      "rarity": 482,
+      "imagePath": "assets/word/warning.png",
+      "sourceOrdinal": 17080,
+      "reviewOrder": 13,
+      "localImageExists": true,
+      "imageGitBlobSha": "b172121a894078c09bab2ed08e9e7ffa8da39c26",
+      "score": 90,
+      "components": {
+        "meaningVisible": 37,
+        "conceptDistinct": 23,
+        "answerSpecific": 20,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "壊れた段差を指し手で止める姿が警告に直結する。",
+      "alternativeAnswersEn": [
+        "caution",
+        "danger"
+      ],
+      "assessedAt": "2026-10-19T09:11:18.209649+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "welfare",
+      "w": "welfare",
+      "p": [
+        "wel-2",
+        "per-2"
+      ],
+      "rarity": 482,
+      "imagePath": "assets/word/welfare.png",
+      "sourceOrdinal": 17156,
+      "reviewOrder": 14,
+      "localImageExists": true,
+      "imageGitBlobSha": "ee1c2bbfd652209f5f8a75b16484a8f0b5eb2e1f",
+      "score": 67,
+      "components": {
+        "meaningVisible": 29,
+        "conceptDistinct": 18,
+        "answerSpecific": 11,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "高齢者へ食事と毛布を渡す場面で福祉を推測できるが介護も強い。",
+      "alternativeAnswersEn": [
+        "care",
+        "charity"
+      ],
+      "assessedAt": "2026-10-19T09:11:18.209649+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "Boston",
+      "w": "Boston",
+      "p": [],
+      "rarity": 482,
+      "imagePath": "assets/word/Boston.png",
+      "sourceOrdinal": 19131,
+      "reviewOrder": 15,
+      "localImageExists": true,
+      "imageGitBlobSha": "a3cbcd8a689566e1854402d2ffd5d8c06b683de1",
+      "score": 52,
+      "components": {
+        "meaningVisible": 21,
+        "conceptDistinct": 16,
+        "answerSpecific": 7,
+        "smallImageReadable": 8
+      },
+      "reasonJa": "都市の建物と港は描かれるが都市名を一意に示す目印が弱い。",
+      "alternativeAnswersEn": [
+        "city",
+        "harbor"
+      ],
+      "assessedAt": "2026-10-19T09:11:18.209649+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "Scott",
+      "w": "Scott",
+      "p": [],
+      "rarity": 482,
+      "imagePath": "assets/word/Scott.png",
+      "sourceOrdinal": 19132,
+      "reviewOrder": 16,
+      "localImageExists": true,
+      "imageGitBlobSha": "2d2afaad0ea8cf5ff2f1401e9f39ff59f574356a",
+      "score": 12,
+      "components": {
+        "meaningVisible": 1,
+        "conceptDistinct": 1,
+        "answerSpecific": 0,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "一般的な男性の肖像で特定の名前を識別できない。",
+      "alternativeAnswersEn": [
+        "man",
+        "person"
+      ],
+      "assessedAt": "2026-10-19T09:11:18.209649+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "modified",
+      "w": "modified",
+      "p": [],
+      "rarity": 482,
+      "imagePath": "assets/word/modified.png",
+      "sourceOrdinal": 20918,
+      "reviewOrder": 17,
+      "localImageExists": true,
+      "imageGitBlobSha": "599b84d71783d108b9020ef590933ba4a412af5c",
+      "score": 62,
+      "components": {
+        "meaningVisible": 27,
+        "conceptDistinct": 17,
+        "answerSpecific": 9,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "自転車の部品交換は修正を示すが修理や整備も自然。",
+      "alternativeAnswersEn": [
+        "repaired",
+        "adjusted"
+      ],
+      "assessedAt": "2026-10-19T09:11:18.209649+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "laughing",
+      "w": "laughing",
+      "p": [],
+      "rarity": 482,
+      "imagePath": "assets/word/laughing.png",
+      "sourceOrdinal": 46750,
+      "reviewOrder": 18,
+      "localImageExists": true,
+      "imageGitBlobSha": "d5e239d2acfd956b689a717dd0d6bfd3dfc8de8f",
+      "score": 98,
+      "components": {
+        "meaningVisible": 40,
+        "conceptDistinct": 25,
+        "answerSpecific": 23,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "目を閉じ口を開いて笑う表情が明瞭。",
+      "alternativeAnswersEn": [
+        "laughter",
+        "happy"
+      ],
+      "assessedAt": "2026-10-19T09:11:18.209649+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "armed",
+      "w": "armed",
+      "p": [],
+      "rarity": 482,
+      "imagePath": "assets/word/armed.png",
+      "sourceOrdinal": 47351,
+      "reviewOrder": 19,
+      "localImageExists": true,
+      "imageGitBlobSha": "b2a74dffcbfb21522eed6940be6fb61da5b57e08",
+      "score": 95,
+      "components": {
+        "meaningVisible": 39,
+        "conceptDistinct": 24,
+        "answerSpecific": 22,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "槍と盾を携帯する姿で武装状態が明瞭だが兵士も強い。",
+      "alternativeAnswersEn": [
+        "warrior",
+        "soldier"
+      ],
+      "assessedAt": "2026-10-19T09:11:18.209649+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "belong",
+      "w": "belong",
+      "p": [
+        "ambhi",
+        "del-1"
+      ],
+      "rarity": 483,
+      "imagePath": "assets/word/belong.png",
+      "sourceOrdinal": 1612,
+      "reviewOrder": 20,
+      "localImageExists": true,
+      "imageGitBlobSha": "02fd76d725c1e5036308808907631ba7ba6aa901",
+      "score": 52,
+      "components": {
+        "meaningVisible": 22,
+        "conceptDistinct": 14,
+        "answerSpecific": 7,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "同じ衣装で歌う集団は所属を暗示するが合唱団にも見える。",
+      "alternativeAnswersEn": [
+        "choir",
+        "group"
+      ],
+      "assessedAt": "2026-10-19T09:11:18.209649+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "complicated",
+      "w": "complicated",
+      "p": [
+        "kom",
+        "plek-"
+      ],
+      "rarity": 483,
+      "imagePath": "assets/word/complicated.png",
+      "sourceOrdinal": 3080,
+      "reviewOrder": 21,
+      "localImageExists": true,
+      "imageGitBlobSha": "58acbd1a78119335b4d8085a78d1dfcd1c569563",
+      "score": 65,
+      "components": {
+        "meaningVisible": 28,
+        "conceptDistinct": 18,
+        "answerSpecific": 10,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "自転車の細かな機構は複雑さを示すが修理場面の解釈も強い。",
+      "alternativeAnswersEn": [
+        "complex",
+        "repair"
+      ],
+      "assessedAt": "2026-10-19T09:11:18.209649+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "cutting",
+      "w": "cutting",
+      "p": [
+        "(s)kel-1"
+      ],
+      "rarity": 483,
+      "imagePath": "assets/word/cutting.png",
+      "sourceOrdinal": 3796,
+      "reviewOrder": 22,
+      "localImageExists": true,
+      "imageGitBlobSha": "52667c4553bd9c0368dbfcc6cf17b1784e20e95b",
+      "score": 96,
+      "components": {
+        "meaningVisible": 40,
+        "conceptDistinct": 24,
+        "answerSpecific": 22,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "はさみで布を切る動作が直接見える。",
+      "alternativeAnswersEn": [
+        "scissors",
+        "trim"
+      ],
+      "assessedAt": "2026-10-19T09:11:18.209649+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "exception",
+      "w": "exception",
+      "p": [
+        "eghs",
+        "kap-"
+      ],
+      "rarity": 483,
+      "imagePath": "assets/word/exception.png",
+      "sourceOrdinal": 5623,
+      "reviewOrder": 23,
+      "localImageExists": true,
+      "imageGitBlobSha": "174d5ded2d2408c99726f4535e5489306480b6fe",
+      "score": 93,
+      "components": {
+        "meaningVisible": 38,
+        "conceptDistinct": 24,
+        "answerSpecific": 21,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "緑のりんごの中の赤い一個で例外が分かりやすい。",
+      "alternativeAnswersEn": [
+        "different",
+        "odd"
+      ],
+      "assessedAt": "2026-10-19T09:11:18.209649+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "hold@kel2",
+      "w": "hold",
+      "p": [
+        "kel-2"
+      ],
+      "rarity": 483,
+      "imagePath": "assets/word/hold@kel2.png",
+      "sourceOrdinal": 7455,
+      "reviewOrder": 24,
+      "localImageExists": true,
+      "imageGitBlobSha": "74d308def9150168833da47a10407afc19aaf6f8",
+      "score": 88,
+      "components": {
+        "meaningVisible": 37,
+        "conceptDistinct": 23,
+        "answerSpecific": 19,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "船体断面の荷物用空間で船倉を示すが貨物も目立つ。",
+      "alternativeAnswersEn": [
+        "cargo",
+        "storage"
+      ],
+      "assessedAt": "2026-10-19T09:11:18.209649+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "kid",
+      "w": "kid",
+      "p": [
+        "geiə-"
+      ],
+      "rarity": 483,
+      "imagePath": "assets/word/kid.png",
+      "sourceOrdinal": 8614,
+      "reviewOrder": 25,
+      "localImageExists": true,
+      "imageGitBlobSha": "8125f5cc54b42c9450047b3e429a21ae61934109",
+      "score": 90,
+      "components": {
+        "meaningVisible": 38,
+        "conceptDistinct": 23,
+        "answerSpecific": 19,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "リュック姿の幼い人物だが子供の同義語が競合する。",
+      "alternativeAnswersEn": [
+        "child",
+        "boy"
+      ],
+      "assessedAt": "2026-10-19T09:11:18.209649+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "mix",
+      "w": "mix",
+      "p": [
+        "meik-"
+      ],
+      "rarity": 483,
+      "imagePath": "assets/word/mix.png",
+      "sourceOrdinal": 9925,
+      "reviewOrder": 26,
+      "localImageExists": true,
+      "imageGitBlobSha": "fa5a9d82c3470e5616fb0f15b9494aaa05d7b1b3",
+      "score": 98,
+      "components": {
+        "meaningVisible": 40,
+        "conceptDistinct": 25,
+        "answerSpecific": 23,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "二色の液体を棒で混ぜる動作が明瞭。",
+      "alternativeAnswersEn": [
+        "stir",
+        "blend"
+      ],
+      "assessedAt": "2026-10-19T09:11:18.209649+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "moon",
+      "w": "moon",
+      "p": [
+        "mē-2"
+      ],
+      "rarity": 483,
+      "imagePath": "assets/word/moon.png",
+      "sourceOrdinal": 10052,
+      "reviewOrder": 27,
+      "localImageExists": true,
+      "imageGitBlobSha": "8ac943ca0aef9b28b1bebfa6687ed8ddc115931e",
+      "score": 99,
+      "components": {
+        "meaningVisible": 40,
+        "conceptDistinct": 25,
+        "answerSpecific": 24,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "クレーターのある月と遠い地球で月を識別しやすい。",
+      "alternativeAnswersEn": [
+        "satellite",
+        "planet"
+      ],
+      "assessedAt": "2026-10-19T09:11:18.209649+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "pale@pel2",
+      "w": "pale",
+      "p": [
+        "pel-2"
+      ],
+      "rarity": 483,
+      "imagePath": "assets/word/pale@pel2.png",
+      "sourceOrdinal": 11147,
+      "reviewOrder": 28,
+      "localImageExists": true,
+      "imageGitBlobSha": "3c4af9901f7ed7ad78576b8da561196aad2c418b",
+      "score": 87,
+      "components": {
+        "meaningVisible": 36,
+        "conceptDistinct": 23,
+        "answerSpecific": 18,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "青白い顔で額を押さえる姿は顔色を示すが病気も強い。",
+      "alternativeAnswersEn": [
+        "sick",
+        "ill"
+      ],
+      "assessedAt": "2026-10-19T09:11:18.209649+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "passion",
+      "w": "passion",
+      "p": [
+        "pē(i)-"
+      ],
+      "rarity": 483,
+      "imagePath": "assets/word/passion.png",
+      "sourceOrdinal": 11345,
+      "reviewOrder": 29,
+      "localImageExists": true,
+      "imageGitBlobSha": "6858a687bb944ae544aa394c182840f01c18e7d1",
+      "score": 65,
+      "components": {
+        "meaningVisible": 28,
+        "conceptDistinct": 18,
+        "answerSpecific": 10,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "勢いよく絵を描く様子は情熱を示唆するが熱心や描画も自然。",
+      "alternativeAnswersEn": [
+        "enthusiasm",
+        "painting"
+      ],
+      "assessedAt": "2026-10-19T09:11:18.209649+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "possession",
+      "w": "possession",
+      "p": [
+        "poti-",
+        "sed-"
+      ],
+      "rarity": 483,
+      "imagePath": "assets/word/possession.png",
+      "sourceOrdinal": 12181,
+      "reviewOrder": 30,
+      "localImageExists": true,
+      "imageGitBlobSha": "c5aa6d214883acba6028a843ced2b2ff65dd775f",
+      "score": 62,
+      "components": {
+        "meaningVisible": 27,
+        "conceptDistinct": 17,
+        "answerSpecific": 9,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "鍵と自転車と物置は所有を暗示するが持ち主との関係が曖昧。",
+      "alternativeAnswersEn": [
+        "ownership",
+        "property"
+      ],
+      "assessedAt": "2026-10-19T09:11:18.209649+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "representative",
+      "w": "representative",
+      "p": [
+        "re-",
+        "per1",
+        "es-"
+      ],
+      "rarity": 483,
+      "imagePath": "assets/word/representative.png",
+      "sourceOrdinal": 13393,
+      "reviewOrder": 31,
+      "localImageExists": true,
+      "imageGitBlobSha": "3016703b7b50c2711b5e020b9c2497f73a4d0e93",
+      "score": 60,
+      "components": {
+        "meaningVisible": 25,
+        "conceptDistinct": 17,
+        "answerSpecific": 9,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "人々から模型を受け取る人物は代表を示唆するが贈呈にも読める。",
+      "alternativeAnswersEn": [
+        "delegate",
+        "leader"
+      ],
+      "assessedAt": "2026-10-19T09:11:18.209649+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "seed",
+      "w": "seed",
+      "p": [
+        "sē-"
+      ],
+      "rarity": 483,
+      "imagePath": "assets/word/seed.png",
+      "sourceOrdinal": 14202,
+      "reviewOrder": 32,
+      "localImageExists": true,
+      "imageGitBlobSha": "0d432ccfce92f13097505e621dc251a64818586e",
+      "score": 97,
+      "components": {
+        "meaningVisible": 39,
+        "conceptDistinct": 25,
+        "answerSpecific": 23,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "割れた種から芽が出る構造で種が明瞭。",
+      "alternativeAnswersEn": [
+        "sprout",
+        "nut"
+      ],
+      "assessedAt": "2026-10-19T09:11:18.209649+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "shit",
+      "w": "shit",
+      "p": [
+        "skei-"
+      ],
+      "rarity": 483,
+      "imagePath": "assets/word/shit.png",
+      "sourceOrdinal": 14438,
+      "reviewOrder": 33,
+      "localImageExists": true,
+      "imageGitBlobSha": "433746bb7b5ee7bca2d17740214bf13d478054e4",
+      "score": 81,
+      "components": {
+        "meaningVisible": 35,
+        "conceptDistinct": 22,
+        "answerSpecific": 15,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "犬の横の糞は見えるが犬の方が大きく他の呼び方も強い。",
+      "alternativeAnswersEn": [
+        "poop",
+        "dung"
+      ],
+      "assessedAt": "2026-10-19T09:11:18.209649+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "systematic",
+      "w": "systematic",
+      "p": [
+        "ksun",
+        "stā-"
+      ],
+      "rarity": 483,
+      "imagePath": "assets/word/systematic.png",
+      "sourceOrdinal": 15632,
+      "reviewOrder": 34,
+      "localImageExists": true,
+      "imageGitBlobSha": "8e50b89889425712c619a062cf2d786d502d5809",
+      "score": 69,
+      "components": {
+        "meaningVisible": 30,
+        "conceptDistinct": 19,
+        "answerSpecific": 11,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "工具を大きさ順に並べる姿が几帳面さを示すが整理も自然。",
+      "alternativeAnswersEn": [
+        "organized",
+        "orderly"
+      ],
+      "assessedAt": "2026-10-19T09:11:18.209649+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "wooden",
+      "w": "wooden",
+      "p": [
+        "widhu-"
+      ],
+      "rarity": 483,
+      "imagePath": "assets/word/wooden.png",
+      "sourceOrdinal": 17322,
+      "reviewOrder": 35,
+      "localImageExists": true,
+      "imageGitBlobSha": "6eefad713db4cd03e788970fe63917d6c5e49ff3",
+      "score": 83,
+      "components": {
+        "meaningVisible": 35,
+        "conceptDistinct": 22,
+        "answerSpecific": 16,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "木目の椅子は木製を示すが椅子という物体名が強い。",
+      "alternativeAnswersEn": [
+        "wood",
+        "chair"
+      ],
+      "assessedAt": "2026-10-19T09:11:18.209649+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "worship",
+      "w": "worship",
+      "p": [
+        "wer-3",
+        "(s)kep-"
+      ],
+      "rarity": 483,
+      "imagePath": "assets/word/worship.png",
+      "sourceOrdinal": 17338,
+      "reviewOrder": 36,
+      "localImageExists": true,
+      "imageGitBlobSha": "27d6a36cc2b6103c3f2def00309bcb007bfff5ab",
+      "score": 94,
+      "components": {
+        "meaningVisible": 39,
+        "conceptDistinct": 24,
+        "answerSpecific": 21,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "仏像の前で手を合わせる姿は崇拝を示すが祈りも自然。",
+      "alternativeAnswersEn": [
+        "pray",
+        "devotion"
+      ],
+      "assessedAt": "2026-10-19T09:11:18.209649+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "glory",
+      "w": "glory",
+      "p": [],
+      "rarity": 483,
+      "imagePath": "assets/word/glory.png",
+      "sourceOrdinal": 19133,
+      "reviewOrder": 37,
+      "localImageExists": true,
+      "imageGitBlobSha": "061b12946463d8dd0aab4ff045cbc0f676f20bf5",
+      "score": 77,
+      "components": {
+        "meaningVisible": 33,
+        "conceptDistinct": 21,
+        "answerSpecific": 14,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "表彰台で月桂冠を受ける場面は栄光を示すが勝利も強い。",
+      "alternativeAnswersEn": [
+        "victory",
+        "honor"
+      ],
+      "assessedAt": "2026-10-19T09:11:18.209649+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "ocean",
+      "w": "ocean",
+      "p": [],
+      "rarity": 483,
+      "imagePath": "assets/word/ocean.png",
+      "sourceOrdinal": 19134,
+      "reviewOrder": 38,
+      "localImageExists": true,
+      "imageGitBlobSha": "e3b069295973ce9e90c1706536374a5a6af28946",
+      "score": 94,
+      "components": {
+        "meaningVisible": 39,
+        "conceptDistinct": 24,
+        "answerSpecific": 21,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "広い波立つ水面で海が明瞭だが大洋と海を限定しにくい。",
+      "alternativeAnswersEn": [
+        "sea",
+        "waves"
+      ],
+      "assessedAt": "2026-10-19T09:11:18.209649+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "organizational",
+      "w": "organizational",
+      "p": [],
+      "rarity": 483,
+      "imagePath": "assets/word/organizational.png",
+      "sourceOrdinal": 19135,
+      "reviewOrder": 39,
+      "localImageExists": true,
+      "imageGitBlobSha": "df24f19e51910c2787b1339e9b6d2475d188fece",
+      "score": 58,
+      "components": {
+        "meaningVisible": 25,
+        "conceptDistinct": 16,
+        "answerSpecific": 8,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "種類別に物を箱へ整理しているが組織の形容詞へは絞りにくい。",
+      "alternativeAnswersEn": [
+        "organized",
+        "sorting"
+      ],
+      "assessedAt": "2026-10-19T09:11:18.209649+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "approved",
+      "w": "approved",
+      "p": [],
+      "rarity": 483,
+      "imagePath": "assets/word/approved.png",
+      "sourceOrdinal": 46766,
+      "reviewOrder": 40,
+      "localImageExists": true,
+      "imageGitBlobSha": "3aeabe1c914fa61629a0fb65a66b19b12cb18cf7",
+      "score": 68,
+      "components": {
+        "meaningVisible": 29,
+        "conceptDistinct": 19,
+        "answerSpecific": 11,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "椅子に親指を立てる人で承認を示すが満足や良いも自然。",
+      "alternativeAnswersEn": [
+        "accepted",
+        "satisfied"
+      ],
+      "assessedAt": "2026-10-19T09:11:18.209649+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "wanting",
+      "w": "wanting",
+      "p": [],
+      "rarity": 483,
+      "imagePath": "assets/word/wanting.png",
+      "sourceOrdinal": 47168,
+      "reviewOrder": 41,
+      "localImageExists": true,
+      "imageGitBlobSha": "05ca50a02a75080e491101c12aea520bd02a7b4d",
+      "score": 70,
+      "components": {
+        "meaningVisible": 30,
+        "conceptDistinct": 19,
+        "answerSpecific": 12,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "ほぼ空の棚を見て困る人物で不足を示すが空も強い。",
+      "alternativeAnswersEn": [
+        "lacking",
+        "empty"
+      ],
+      "assessedAt": "2026-10-19T09:11:18.209649+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "yours",
+      "w": "yours",
+      "p": [],
+      "rarity": 483,
+      "imagePath": "assets/word/yours.png",
+      "sourceOrdinal": 47243,
+      "reviewOrder": 42,
+      "localImageExists": true,
+      "imageGitBlobSha": "580ca24d277dac074b112e6d3311965e1cba1511",
+      "score": 57,
+      "components": {
+        "meaningVisible": 24,
+        "conceptDistinct": 16,
+        "answerSpecific": 8,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "品物を指し渡す関係は見えるが誰の所有かを確定しにくい。",
+      "alternativeAnswersEn": [
+        "mine",
+        "gift"
+      ],
+      "assessedAt": "2026-10-19T09:11:18.209649+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "sleeping",
+      "w": "sleeping",
+      "p": [],
+      "rarity": 483,
+      "imagePath": "assets/word/sleeping.png",
+      "sourceOrdinal": 48536,
+      "reviewOrder": 43,
+      "localImageExists": true,
+      "imageGitBlobSha": "c814fc9ef7e88b317357a72c643230afd5125638",
+      "score": 98,
+      "components": {
+        "meaningVisible": 40,
+        "conceptDistinct": 25,
+        "answerSpecific": 23,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "寝床で閉眼し眠る人物が明瞭。",
+      "alternativeAnswersEn": [
+        "asleep",
+        "sleep"
+      ],
+      "assessedAt": "2026-10-19T09:11:18.209649+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "Alexander",
+      "w": "Alexander",
+      "p": [
+        "lek-",
+        "ner-2"
+      ],
+      "rarity": 484,
+      "imagePath": "assets/word/Alexander.png",
+      "sourceOrdinal": 460,
+      "reviewOrder": 44,
+      "localImageExists": true,
+      "imageGitBlobSha": "0fe182aa66f0a5a1bd99ae6c4e2c9f028c1ce12f",
+      "score": 12,
+      "components": {
+        "meaningVisible": 1,
+        "conceptDistinct": 1,
+        "answerSpecific": 0,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "金髪の男性の肖像だけで固有名を識別する根拠がない。",
+      "alternativeAnswersEn": [
+        "man",
+        "boy"
+      ],
+      "assessedAt": "2026-10-19T09:11:18.209649+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "burden",
+      "w": "burden",
+      "p": [
+        "bher-1"
+      ],
+      "rarity": 484,
+      "imagePath": "assets/word/burden.png",
+      "sourceOrdinal": 2102,
+      "reviewOrder": 45,
+      "localImageExists": true,
+      "imageGitBlobSha": "f71ffeaf9acddc6363a9ee01aaee8b361f998ca5",
+      "score": 94,
+      "components": {
+        "meaningVisible": 39,
+        "conceptDistinct": 24,
+        "answerSpecific": 21,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "重い薪の籠を背負い苦しむ姿が重荷を明確に示す。",
+      "alternativeAnswersEn": [
+        "load",
+        "weight"
+      ],
+      "assessedAt": "2026-10-19T09:11:18.209649+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "decline",
+      "w": "decline",
+      "p": [
+        "de-",
+        "klei-"
+      ],
+      "rarity": 484,
+      "imagePath": "assets/word/decline.png",
+      "sourceOrdinal": 3935,
+      "reviewOrder": 46,
+      "localImageExists": true,
+      "imageGitBlobSha": "ffaf7ec23d4b89436862b7c74bbdda94d94a3b69",
+      "score": 92,
+      "components": {
+        "meaningVisible": 38,
+        "conceptDistinct": 24,
+        "answerSpecific": 20,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "差し出されたケーキを手で辞退する場面で断る意味が読める。",
+      "alternativeAnswersEn": [
+        "refuse",
+        "reject"
+      ],
+      "assessedAt": "2026-10-19T09:11:18.209649+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "entity",
+      "w": "entity",
+      "p": [
+        "es-"
+      ],
+      "rarity": 484,
+      "imagePath": "assets/word/entity.png",
+      "sourceOrdinal": 5307,
+      "reviewOrder": 47,
+      "localImageExists": true,
+      "imageGitBlobSha": "90e1871e26a16bb6fe397d90da34030f4b49661a",
+      "score": 24,
+      "components": {
+        "meaningVisible": 8,
+        "conceptDistinct": 5,
+        "answerSpecific": 1,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "茶器と人物は具体物だが実体という抽象語の手掛かりが弱い。",
+      "alternativeAnswersEn": [
+        "teapot",
+        "object"
+      ],
+      "assessedAt": "2026-10-19T09:11:18.209649+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "ethnic",
+      "w": "ethnic",
+      "p": [
+        "s(w)e-"
+      ],
+      "rarity": 484,
+      "imagePath": "assets/word/ethnic.png",
+      "sourceOrdinal": 5526,
+      "reviewOrder": 48,
+      "localImageExists": true,
+      "imageGitBlobSha": "97a73504a318e3515c0a811a7a63b06cc0c1e8c6",
+      "score": 68,
+      "components": {
+        "meaningVisible": 29,
+        "conceptDistinct": 19,
+        "answerSpecific": 11,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "伝統衣装と織物で民族性を示すが文化や伝統も自然。",
+      "alternativeAnswersEn": [
+        "traditional",
+        "cultural"
+      ],
+      "assessedAt": "2026-10-19T09:11:18.209649+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "expert",
+      "w": "expert",
+      "p": [
+        "eghs",
+        "per-3"
+      ],
+      "rarity": 484,
+      "imagePath": "assets/word/expert.png",
+      "sourceOrdinal": 5718,
+      "reviewOrder": 49,
+      "localImageExists": true,
+      "imageGitBlobSha": "60cc7e6809185e104e0d6b7a2602e895adbd1d29",
+      "score": 86,
+      "components": {
+        "meaningVisible": 36,
+        "conceptDistinct": 23,
+        "answerSpecific": 18,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "拡大鏡で時計を修理する熟練者は専門家を示すが職業名も強い。",
+      "alternativeAnswersEn": [
+        "specialist",
+        "watchmaker"
+      ],
+      "assessedAt": "2026-10-19T09:11:18.209649+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "heavily",
+      "w": "heavily",
+      "p": [
+        "kap-"
+      ],
+      "rarity": 484,
+      "imagePath": "assets/word/heavily.png",
+      "sourceOrdinal": 7263,
+      "reviewOrder": 50,
+      "localImageExists": true,
+      "imageGitBlobSha": "9f31e1c28e29caa121bb5adad5ce21f576acdfe3",
+      "score": 73,
+      "components": {
+        "meaningVisible": 31,
+        "conceptDistinct": 20,
+        "answerSpecific": 13,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "激しい雨と傘に耐える姿で程度は読めるが大雨の語も強い。",
+      "alternativeAnswersEn": [
+        "hard",
+        "rainy"
+      ],
+      "assessedAt": "2026-10-19T09:11:18.209649+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "phrase",
+      "w": "phrase",
+      "p": [
+        "gʷhren-"
+      ],
+      "rarity": 484,
+      "imagePath": "assets/word/phrase.png",
+      "sourceOrdinal": 11745,
+      "reviewOrder": 51,
+      "localImageExists": true,
+      "imageGitBlobSha": "56bb7b910a625743945e70a96a1917e5299cd88b",
+      "score": 40,
+      "components": {
+        "meaningVisible": 16,
+        "conceptDistinct": 11,
+        "answerSpecific": 4,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "吹き出しと記号の連なりは表現を示すが句という単位は確定しない。",
+      "alternativeAnswersEn": [
+        "expression",
+        "message"
+      ],
+      "assessedAt": "2026-10-19T09:12:44.187488+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "poetry",
+      "w": "poetry",
+      "p": [
+        "kʷei-2"
+      ],
+      "rarity": 484,
+      "imagePath": "assets/word/poetry.png",
+      "sourceOrdinal": 12047,
+      "reviewOrder": 52,
+      "localImageExists": true,
+      "imageGitBlobSha": "6226dcd0bc9aac80c305d7c633178780c6bd12e0",
+      "score": 73,
+      "components": {
+        "meaningVisible": 30,
+        "conceptDistinct": 20,
+        "answerSpecific": 14,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "羽根ペンと短い行の本は詩を連想させるが文章や文学も自然。",
+      "alternativeAnswersEn": [
+        "poem",
+        "literature"
+      ],
+      "assessedAt": "2026-10-19T09:12:44.187488+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "solar",
+      "w": "solar",
+      "p": [
+        "saəwel-"
+      ],
+      "rarity": 484,
+      "imagePath": "assets/word/solar.png",
+      "sourceOrdinal": 14725,
+      "reviewOrder": 53,
+      "localImageExists": true,
+      "imageGitBlobSha": "98501cd0ad1f0100b9f5dd63691476e2e69a99f6",
+      "score": 89,
+      "components": {
+        "meaningVisible": 37,
+        "conceptDistinct": 23,
+        "answerSpecific": 19,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "太陽光がパネルを照らし電球が光るので太陽由来が伝わる。",
+      "alternativeAnswersEn": [
+        "sunlight",
+        "solar power"
+      ],
+      "assessedAt": "2026-10-19T09:12:44.187488+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "split",
+      "w": "split",
+      "p": [
+        "(s)plei-"
+      ],
+      "rarity": 484,
+      "imagePath": "assets/word/split.png",
+      "sourceOrdinal": 14923,
+      "reviewOrder": 54,
+      "localImageExists": true,
+      "imageGitBlobSha": "b26a6e1fab710e8158d8defff98ab9fb13be336b",
+      "score": 96,
+      "components": {
+        "meaningVisible": 40,
+        "conceptDistinct": 24,
+        "answerSpecific": 22,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "りんごが二つに割れた状態で分割が明瞭。",
+      "alternativeAnswersEn": [
+        "divide",
+        "halve"
+      ],
+      "assessedAt": "2026-10-19T09:12:44.187488+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "television",
+      "w": "television",
+      "p": [
+        "kʷel-2",
+        "weid-"
+      ],
+      "rarity": 484,
+      "imagePath": "assets/word/television.png",
+      "sourceOrdinal": 15759,
+      "reviewOrder": 55,
+      "localImageExists": true,
+      "imageGitBlobSha": "d2af9f04b0ccef3d88f125db4b0819c56ff86fa0",
+      "score": 99,
+      "components": {
+        "meaningVisible": 40,
+        "conceptDistinct": 25,
+        "answerSpecific": 24,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "画面と筐体と台座でテレビを直接識別できる。",
+      "alternativeAnswersEn": [
+        "TV",
+        "screen"
+      ],
+      "assessedAt": "2026-10-19T09:12:44.187488+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "isolated",
+      "w": "isolated",
+      "p": [],
+      "rarity": 484,
+      "imagePath": "assets/word/isolated.png",
+      "sourceOrdinal": 48005,
+      "reviewOrder": 56,
+      "localImageExists": true,
+      "imageGitBlobSha": "9ff85a631f644ca786c6696bab82b81f37b9571a",
+      "score": 89,
+      "components": {
+        "meaningVisible": 37,
+        "conceptDistinct": 23,
+        "answerSpecific": 19,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "水に囲まれた一軒家で孤立を示すが島という名詞も強い。",
+      "alternativeAnswersEn": [
+        "remote",
+        "island"
+      ],
+      "assessedAt": "2026-10-19T09:12:44.187488+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "ass@asinus",
+      "w": "ass",
+      "p": [
+        "asinus"
+      ],
+      "rarity": 485,
+      "imagePath": "assets/word/ass@asinus.png",
+      "sourceOrdinal": 1134,
+      "reviewOrder": 57,
+      "localImageExists": true,
+      "imageGitBlobSha": "7cbadff140c118e977cfb4fde8681ffcacaad586",
+      "score": 97,
+      "components": {
+        "meaningVisible": 40,
+        "conceptDistinct": 25,
+        "answerSpecific": 22,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "長い耳と蹄のあるロバが明瞭だが別の英名も自然。",
+      "alternativeAnswersEn": [
+        "donkey",
+        "mule"
+      ],
+      "assessedAt": "2026-10-19T09:12:44.187488+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "ass@ors",
+      "w": "ass",
+      "p": [
+        "ors-"
+      ],
+      "rarity": 485,
+      "imagePath": "assets/word/ass@ors.png",
+      "sourceOrdinal": 1135,
+      "reviewOrder": 58,
+      "localImageExists": true,
+      "imageGitBlobSha": "85b18971ae229afd73e747fe3edabff38eaea5bc",
+      "score": 75,
+      "components": {
+        "meaningVisible": 32,
+        "conceptDistinct": 20,
+        "answerSpecific": 13,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "後ろ姿で尻は見えるが強調が弱く背中や別の呼び名も強い。",
+      "alternativeAnswersEn": [
+        "butt",
+        "back"
+      ],
+      "assessedAt": "2026-10-19T09:12:44.187488+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "decade",
+      "w": "decade",
+      "p": [
+        "dekm̥"
+      ],
+      "rarity": 485,
+      "imagePath": "assets/word/decade.png",
+      "sourceOrdinal": 3900,
+      "reviewOrder": 59,
+      "localImageExists": true,
+      "imageGitBlobSha": "81cf7e1ca5731a16f365abd244263757cef63954",
+      "score": 62,
+      "components": {
+        "meaningVisible": 25,
+        "conceptDistinct": 18,
+        "answerSpecific": 10,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "年号が十年の幅を示すが数字を読まなければ期間を限定できない。",
+      "alternativeAnswersEn": [
+        "ten years",
+        "period"
+      ],
+      "assessedAt": "2026-10-19T09:12:44.187488+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "depend",
+      "w": "depend",
+      "p": [
+        "de-",
+        "(s)pen-"
+      ],
+      "rarity": 485,
+      "imagePath": "assets/word/depend.png",
+      "sourceOrdinal": 4135,
+      "reviewOrder": 60,
+      "localImageExists": true,
+      "imageGitBlobSha": "a52dacd8ff4628bde04e6f5653e8f36304927528",
+      "score": 79,
+      "components": {
+        "meaningVisible": 34,
+        "conceptDistinct": 21,
+        "answerSpecific": 15,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "川を渡る子が大人の手に頼る状況は見えるが助けるも強い。",
+      "alternativeAnswersEn": [
+        "rely",
+        "help"
+      ],
+      "assessedAt": "2026-10-19T09:12:44.187488+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "ease",
+      "w": "ease",
+      "p": [
+        "ad-",
+        "yē-"
+      ],
+      "rarity": 485,
+      "imagePath": "assets/word/ease.png",
+      "sourceOrdinal": 4895,
+      "reviewOrder": 61,
+      "localImageExists": true,
+      "imageGitBlobSha": "4e8e8806dedc3620bfcd3b5746602e16aa4632ae",
+      "score": 80,
+      "components": {
+        "meaningVisible": 34,
+        "conceptDistinct": 21,
+        "answerSpecific": 15,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "椅子で息をつきくつろぐ姿は安楽を示すが休息も自然。",
+      "alternativeAnswersEn": [
+        "comfort",
+        "relax"
+      ],
+      "assessedAt": "2026-10-19T09:12:44.187488+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "empirical",
+      "w": "empirical",
+      "p": [
+        "en",
+        "per-3"
+      ],
+      "rarity": 485,
+      "imagePath": "assets/word/empirical.png",
+      "sourceOrdinal": 5159,
+      "reviewOrder": 62,
+      "localImageExists": true,
+      "imageGitBlobSha": "c6432196be26c0f9deb1f8b504f4a3f6cc5e0c25",
+      "score": 38,
+      "components": {
+        "meaningVisible": 16,
+        "conceptDistinct": 10,
+        "answerSpecific": 3,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "しおれた植物と水やりの観察は経験的という性質を限定しない。",
+      "alternativeAnswersEn": [
+        "experiment",
+        "gardening"
+      ],
+      "assessedAt": "2026-10-19T09:12:44.187488+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "minor",
+      "w": "minor",
+      "p": [
+        "mei-2"
+      ],
+      "rarity": 485,
+      "imagePath": "assets/word/minor.png",
+      "sourceOrdinal": 9855,
+      "reviewOrder": 63,
+      "localImageExists": true,
+      "imageGitBlobSha": "89d78bbd172a36706a5a750c4817b1a4f706d9fd",
+      "score": 19,
+      "components": {
+        "meaningVisible": 5,
+        "conceptDistinct": 3,
+        "answerSpecific": 1,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "荷物を持って出る若者だけでは未成年か重要度が低いかを判断できない。",
+      "alternativeAnswersEn": [
+        "leave",
+        "traveler"
+      ],
+      "assessedAt": "2026-10-19T09:12:44.187488+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "observe",
+      "w": "observe",
+      "p": [
+        "epi",
+        "ser-1"
+      ],
+      "rarity": 485,
+      "imagePath": "assets/word/observe.png",
+      "sourceOrdinal": 10679,
+      "reviewOrder": 64,
+      "localImageExists": true,
+      "imageGitBlobSha": "815151fc860464776a3ce58e0d91fe13bb70e5c7",
+      "score": 94,
+      "components": {
+        "meaningVisible": 39,
+        "conceptDistinct": 24,
+        "answerSpecific": 21,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "虫眼鏡でカタツムリを詳しく見る動作は観察に直結する。",
+      "alternativeAnswersEn": [
+        "examine",
+        "watch"
+      ],
+      "assessedAt": "2026-10-19T09:12:44.187488+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "row@rei1",
+      "w": "row",
+      "p": [
+        "rei-1"
+      ],
+      "rarity": 485,
+      "imagePath": "assets/word/row@rei1.png",
+      "sourceOrdinal": 13756,
+      "reviewOrder": 65,
+      "localImageExists": true,
+      "imageGitBlobSha": "94f2b4cede43aa130fd6a58406dc1825a2fe09c0",
+      "score": 98,
+      "components": {
+        "meaningVisible": 40,
+        "conceptDistinct": 25,
+        "answerSpecific": 23,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "同じ椅子の横並びが列を明確に示す。",
+      "alternativeAnswersEn": [
+        "line",
+        "chairs"
+      ],
+      "assessedAt": "2026-10-19T09:12:44.187488+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "bus",
+      "w": "bus",
+      "p": [],
+      "rarity": 485,
+      "imagePath": "assets/word/bus.png",
+      "sourceOrdinal": 19136,
+      "reviewOrder": 66,
+      "localImageExists": true,
+      "imageGitBlobSha": "cacfe743a9c58f26bae3363833d2fa675f9317f7",
+      "score": 99,
+      "components": {
+        "meaningVisible": 40,
+        "conceptDistinct": 25,
+        "answerSpecific": 24,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "大きな車体と多数の窓と乗降扉でバスが明瞭。",
+      "alternativeAnswersEn": [
+        "coach",
+        "vehicle"
+      ],
+      "assessedAt": "2026-10-19T09:12:44.187488+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "radiation",
+      "w": "radiation",
+      "p": [],
+      "rarity": 485,
+      "imagePath": "assets/word/radiation.png",
+      "sourceOrdinal": 19137,
+      "reviewOrder": 67,
+      "localImageExists": true,
+      "imageGitBlobSha": "82119a75f45b58d0fccc97c135cdf3fd6e89bac8",
+      "score": 84,
+      "components": {
+        "meaningVisible": 35,
+        "conceptDistinct": 22,
+        "answerSpecific": 17,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "火から周囲へ伝わる熱の波が放射を示すが熱も強い。",
+      "alternativeAnswersEn": [
+        "heat",
+        "warmth"
+      ],
+      "assessedAt": "2026-10-19T09:12:44.187488+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "tied",
+      "w": "tied",
+      "p": [],
+      "rarity": 485,
+      "imagePath": "assets/word/tied.png",
+      "sourceOrdinal": 21197,
+      "reviewOrder": 68,
+      "localImageExists": true,
+      "imageGitBlobSha": "386db901085f2d217b246116c8a9af13320cac83",
+      "score": 61,
+      "components": {
+        "meaningVisible": 26,
+        "conceptDistinct": 17,
+        "answerSpecific": 9,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "盤面の両側に同数の駒があるが得点の一致を一意に読み取りにくい。",
+      "alternativeAnswersEn": [
+        "draw",
+        "equal"
+      ],
+      "assessedAt": "2026-10-19T09:12:44.187488+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "flying",
+      "w": "flying",
+      "p": [],
+      "rarity": 485,
+      "imagePath": "assets/word/flying.png",
+      "sourceOrdinal": 47470,
+      "reviewOrder": 69,
+      "localImageExists": true,
+      "imageGitBlobSha": "76966a49a53cdf3443dbc90d0fc53a096091edd3",
+      "score": 94,
+      "components": {
+        "meaningVisible": 39,
+        "conceptDistinct": 24,
+        "answerSpecific": 21,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "羽を広げ空中を進む鳥で飛行状態が明瞭。",
+      "alternativeAnswersEn": [
+        "flight",
+        "bird"
+      ],
+      "assessedAt": "2026-10-19T09:12:44.187488+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "contents",
+      "w": "contents",
+      "p": [],
+      "rarity": 485,
+      "imagePath": "assets/word/contents.png",
+      "sourceOrdinal": 47807,
+      "reviewOrder": 70,
+      "localImageExists": true,
+      "imageGitBlobSha": "54b246578edcbe2f3ce3feec3fd514529aa4a3e1",
+      "score": 89,
+      "components": {
+        "meaningVisible": 37,
+        "conceptDistinct": 23,
+        "answerSpecific": 19,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "開いた箱の中の品物を示し中身が読めるが荷物も自然。",
+      "alternativeAnswersEn": [
+        "items",
+        "belongings"
+      ],
+      "assessedAt": "2026-10-19T09:12:44.187488+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "confused",
+      "w": "confused",
+      "p": [],
+      "rarity": 485,
+      "imagePath": "assets/word/confused.png",
+      "sourceOrdinal": 48329,
+      "reviewOrder": 71,
+      "localImageExists": true,
+      "imageGitBlobSha": "f213204936ea6618f06b6e6a8f1d89066366fcf4",
+      "score": 73,
+      "components": {
+        "meaningVisible": 32,
+        "conceptDistinct": 20,
+        "answerSpecific": 13,
+        "smallImageReadable": 8
+      },
+      "reasonJa": "散乱する物と慌てた人々で混乱が読めるが混沌も強い。",
+      "alternativeAnswersEn": [
+        "chaotic",
+        "panic"
+      ],
+      "assessedAt": "2026-10-19T09:12:44.187488+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "inspired",
+      "w": "inspired",
+      "p": [],
+      "rarity": 485,
+      "imagePath": "assets/word/inspired.png",
+      "sourceOrdinal": 48530,
+      "reviewOrder": 72,
+      "localImageExists": true,
+      "imageGitBlobSha": "a1ea8b1b93e3ae92050c6748146ef8bce52b63f1",
+      "score": 65,
+      "components": {
+        "meaningVisible": 28,
+        "conceptDistinct": 18,
+        "answerSpecific": 10,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "蝶を見て絵を描く姿は触発を示唆するが創造や描画も自然。",
+      "alternativeAnswersEn": [
+        "creative",
+        "painting"
+      ],
+      "assessedAt": "2026-10-19T09:12:44.187488+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "arrival",
+      "w": "arrival",
+      "p": [
+        "ad-",
+        "rei-1"
+      ],
+      "rarity": 486,
+      "imagePath": "assets/word/arrival.png",
+      "sourceOrdinal": 1067,
+      "reviewOrder": 73,
+      "localImageExists": true,
+      "imageGitBlobSha": "198a3497e26b75c4f15627afb6e7183e30e14cd5",
+      "score": 90,
+      "components": {
+        "meaningVisible": 37,
+        "conceptDistinct": 23,
+        "answerSpecific": 20,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "荷物を持つ人を玄関で迎える場面で到着が分かる。",
+      "alternativeAnswersEn": [
+        "arrive",
+        "welcome"
+      ],
+      "assessedAt": "2026-10-19T09:12:44.187488+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "bowl@bhel2",
+      "w": "bowl",
+      "p": [
+        "bhel-2"
+      ],
+      "rarity": 486,
+      "imagePath": "assets/word/bowl@bhel2.png",
+      "sourceOrdinal": 1931,
+      "reviewOrder": 74,
+      "localImageExists": true,
+      "imageGitBlobSha": "ae94cf57d93e458bcca841a736b9c74fb945dc61",
+      "score": 98,
+      "components": {
+        "meaningVisible": 40,
+        "conceptDistinct": 25,
+        "answerSpecific": 23,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "丸い深さのある器が単独で明瞭。",
+      "alternativeAnswersEn": [
+        "dish",
+        "cup"
+      ],
+      "assessedAt": "2026-10-19T09:12:44.187488+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "deliver",
+      "w": "deliver",
+      "p": [
+        "de-",
+        "leudh-2"
+      ],
+      "rarity": 486,
+      "imagePath": "assets/word/deliver.png",
+      "sourceOrdinal": 4058,
+      "reviewOrder": 75,
+      "localImageExists": true,
+      "imageGitBlobSha": "a8c38486c21716bccaa2dea6bb2f6de69a205095",
+      "score": 98,
+      "components": {
+        "meaningVisible": 40,
+        "conceptDistinct": 25,
+        "answerSpecific": 23,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "配達員が玄関で箱を渡す動作で配達が直接分かる。",
+      "alternativeAnswersEn": [
+        "delivery",
+        "parcel"
+      ],
+      "assessedAt": "2026-10-19T09:12:44.187488+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "ongoing",
+      "w": "ongoing",
+      "p": [
+        "an-",
+        "ghē-"
+      ],
+      "rarity": 486,
+      "imagePath": "assets/word/ongoing.png",
+      "sourceOrdinal": 10823,
+      "reviewOrder": 76,
+      "localImageExists": true,
+      "imageGitBlobSha": "d010c13c4b5eb198b74dcf6588ca1c0a510e1a6d",
+      "score": 66,
+      "components": {
+        "meaningVisible": 29,
+        "conceptDistinct": 18,
+        "answerSpecific": 10,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "半分塗られた壁で作業継続中を示すが塗装や未完成も強い。",
+      "alternativeAnswersEn": [
+        "painting",
+        "unfinished"
+      ],
+      "assessedAt": "2026-10-19T09:12:44.187488+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "prominent",
+      "w": "prominent",
+      "p": [
+        "per1",
+        "men-2"
+      ],
+      "rarity": 486,
+      "imagePath": "assets/word/prominent.png",
+      "sourceOrdinal": 12526,
+      "reviewOrder": 77,
+      "localImageExists": true,
+      "imageGitBlobSha": "6f9602608a83ebd47b17c0ebef45835ad8fd9d20",
+      "score": 62,
+      "components": {
+        "meaningVisible": 27,
+        "conceptDistinct": 17,
+        "answerSpecific": 9,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "周囲の家より高い灯台は目立つが具体物の灯台が先に浮かぶ。",
+      "alternativeAnswersEn": [
+        "tall",
+        "lighthouse"
+      ],
+      "assessedAt": "2026-10-19T09:12:44.187488+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "shadow",
+      "w": "shadow",
+      "p": [
+        "skot-"
+      ],
+      "rarity": 486,
+      "imagePath": "assets/word/shadow.png",
+      "sourceOrdinal": 14387,
+      "reviewOrder": 78,
+      "localImageExists": true,
+      "imageGitBlobSha": "0dd2406207d00e4f8c50a9f41acf32d5e442f3f9",
+      "score": 98,
+      "components": {
+        "meaningVisible": 40,
+        "conceptDistinct": 25,
+        "answerSpecific": 23,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "照明でできた人型の黒い影が明瞭。",
+      "alternativeAnswersEn": [
+        "silhouette",
+        "shade"
+      ],
+      "assessedAt": "2026-10-19T09:12:44.187488+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "Jane",
+      "w": "Jane",
+      "p": [],
+      "rarity": 486,
+      "imagePath": "assets/word/Jane.png",
+      "sourceOrdinal": 19138,
+      "reviewOrder": 79,
+      "localImageExists": true,
+      "imageGitBlobSha": "3fde2b1d5e4b2c9bd2efab3999ef55aebbee7403",
+      "score": 12,
+      "components": {
+        "meaningVisible": 1,
+        "conceptDistinct": 1,
+        "answerSpecific": 0,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "女性の肖像だけでは特定の名前を識別できない。",
+      "alternativeAnswersEn": [
+        "woman",
+        "person"
+      ],
+      "assessedAt": "2026-10-19T09:12:44.187488+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "Max",
+      "w": "Max",
+      "p": [],
+      "rarity": 486,
+      "imagePath": "assets/word/Max.png",
+      "sourceOrdinal": 19139,
+      "reviewOrder": 80,
+      "localImageExists": true,
+      "imageGitBlobSha": "28906823a02b10b4f030ccaa79c76d6add1e2159",
+      "score": 12,
+      "components": {
+        "meaningVisible": 1,
+        "conceptDistinct": 1,
+        "answerSpecific": 0,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "男性の肖像だけでは特定の名前を識別できない。",
+      "alternativeAnswersEn": [
+        "man",
+        "boy"
+      ],
+      "assessedAt": "2026-10-19T09:12:44.187488+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "cat",
+      "w": "cat",
+      "p": [],
+      "rarity": 486,
+      "imagePath": "assets/word/cat.png",
+      "sourceOrdinal": 19140,
+      "reviewOrder": 81,
+      "localImageExists": true,
+      "imageGitBlobSha": "217008555dd189d513f1576788bde34cb64841f0",
+      "score": 99,
+      "components": {
+        "meaningVisible": 40,
+        "conceptDistinct": 25,
+        "answerSpecific": 24,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "耳とひげと縞柄のある猫を直接識別できる。",
+      "alternativeAnswersEn": [
+        "kitten",
+        "feline"
+      ],
+      "assessedAt": "2026-10-19T09:12:44.187488+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "administrative",
+      "w": "administrative",
+      "p": [
+        "ad-",
+        "mei-2"
+      ],
+      "rarity": 487,
+      "imagePath": "assets/word/administrative.png",
+      "sourceOrdinal": 251,
+      "reviewOrder": 83,
+      "localImageExists": true,
+      "imageGitBlobSha": "1a1c9b666d9e0bf61196ec25bbcc110711f1b647",
+      "score": 65,
+      "components": {
+        "meaningVisible": 28,
+        "conceptDistinct": 18,
+        "answerSpecific": 10,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "書類を分類する事務場面は管理業務を示すが事務の語も強い。",
+      "alternativeAnswersEn": [
+        "clerical",
+        "office"
+      ],
+      "assessedAt": "2026-10-19T09:12:44.187488+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "classical",
+      "w": "classical",
+      "p": [
+        "kelə-2"
+      ],
+      "rarity": 487,
+      "imagePath": "assets/word/classical.png",
+      "sourceOrdinal": 2785,
+      "reviewOrder": 84,
+      "localImageExists": true,
+      "imageGitBlobSha": "5ef62f99b51732ecaa528e9e69ac64ee0ac0b2e1",
+      "score": 84,
+      "components": {
+        "meaningVisible": 35,
+        "conceptDistinct": 23,
+        "answerSpecific": 17,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "古代風胸像と竪琴は古典性を示すがギリシャ風も自然。",
+      "alternativeAnswersEn": [
+        "ancient",
+        "Greek"
+      ],
+      "assessedAt": "2026-10-19T09:12:44.187488+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "coast",
+      "w": "coast",
+      "p": [
+        "kost-"
+      ],
+      "rarity": 487,
+      "imagePath": "assets/word/coast.png",
+      "sourceOrdinal": 2877,
+      "reviewOrder": 85,
+      "localImageExists": true,
+      "imageGitBlobSha": "565e771385abc92c35d1980a2a1ce4c210848af2",
+      "score": 95,
+      "components": {
+        "meaningVisible": 39,
+        "conceptDistinct": 24,
+        "answerSpecific": 22,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "海と陸が接する岩場と砂浜で海岸が明瞭。",
+      "alternativeAnswersEn": [
+        "shore",
+        "beach"
+      ],
+      "assessedAt": "2026-10-19T09:12:44.187488+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "duration",
+      "w": "duration",
+      "p": [
+        "deuə-"
+      ],
+      "rarity": 487,
+      "imagePath": "assets/word/duration.png",
+      "sourceOrdinal": 4843,
+      "reviewOrder": 86,
+      "localImageExists": true,
+      "imageGitBlobSha": "e6881bdd1e5ffc7950734b56884c93a10c505699",
+      "score": 71,
+      "components": {
+        "meaningVisible": 30,
+        "conceptDistinct": 19,
+        "answerSpecific": 12,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "砂時計で時間の長さを示唆するが時間や砂時計が強い。",
+      "alternativeAnswersEn": [
+        "time",
+        "hourglass"
+      ],
+      "assessedAt": "2026-10-19T09:12:44.187488+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "dust",
+      "w": "dust",
+      "p": [
+        "dheu-1"
+      ],
+      "rarity": 487,
+      "imagePath": "assets/word/dust.png",
+      "sourceOrdinal": 4852,
+      "reviewOrder": 87,
+      "localImageExists": true,
+      "imageGitBlobSha": "b4cf00aab08cf185a2c6c2120524c68c6b7fdb01",
+      "score": 95,
+      "components": {
+        "meaningVisible": 39,
+        "conceptDistinct": 24,
+        "answerSpecific": 22,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "机の細かなほこりを指で拭った跡が明瞭。",
+      "alternativeAnswersEn": [
+        "dirt",
+        "powder"
+      ],
+      "assessedAt": "2026-10-19T09:12:44.187488+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "elsewhere",
+      "w": "elsewhere",
+      "p": [
+        "al-1",
+        "kʷo-"
+      ],
+      "rarity": 487,
+      "imagePath": "assets/word/elsewhere.png",
+      "sourceOrdinal": 5084,
+      "reviewOrder": 88,
+      "localImageExists": true,
+      "imageGitBlobSha": "96eeebd601bf21bd12f4b00275bb02c29e10a69a",
+      "score": 35,
+      "components": {
+        "meaningVisible": 14,
+        "conceptDistinct": 9,
+        "answerSpecific": 3,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "家具の下を探す姿では別の場所という関係が確定しない。",
+      "alternativeAnswersEn": [
+        "search",
+        "under"
+      ],
+      "assessedAt": "2026-10-19T09:12:44.187488+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "expensive",
+      "w": "expensive",
+      "p": [
+        "eghs",
+        "(s)pen-"
+      ],
+      "rarity": 487,
+      "imagePath": "assets/word/expensive.png",
+      "sourceOrdinal": 5713,
+      "reviewOrder": 89,
+      "localImageExists": true,
+      "imageGitBlobSha": "30b4c900f90029434dd1087ed5bd2f6789423531",
+      "score": 84,
+      "components": {
+        "meaningVisible": 35,
+        "conceptDistinct": 22,
+        "answerSpecific": 17,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "鞄の横の大量の硬貨と困る人で高価さが読める。",
+      "alternativeAnswersEn": [
+        "costly",
+        "price"
+      ],
+      "assessedAt": "2026-10-19T09:12:44.187488+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "item",
+      "w": "item",
+      "p": [
+        "i-"
+      ],
+      "rarity": 487,
+      "imagePath": "assets/word/item.png",
+      "sourceOrdinal": 8467,
+      "reviewOrder": 90,
+      "localImageExists": true,
+      "imageGitBlobSha": "f6fab5582c1871fb1fef6f63e2634ebb57a09a49",
+      "score": 61,
+      "components": {
+        "meaningVisible": 25,
+        "conceptDistinct": 17,
+        "answerSpecific": 9,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "一覧の一行を強調しているが項目と選択肢が競合する。",
+      "alternativeAnswersEn": [
+        "option",
+        "entry"
+      ],
+      "assessedAt": "2026-10-19T09:12:44.187488+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "northern",
+      "w": "northern",
+      "p": [
+        "ner-1"
+      ],
+      "rarity": 487,
+      "imagePath": "assets/word/northern.png",
+      "sourceOrdinal": 10528,
+      "reviewOrder": 91,
+      "localImageExists": true,
+      "imageGitBlobSha": "60b7c80ff463a809d767e8c7681fb8bb8a989479",
+      "score": 82,
+      "components": {
+        "meaningVisible": 34,
+        "conceptDistinct": 22,
+        "answerSpecific": 16,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "地球の上半分を強調し北側を示すが北半球も自然。",
+      "alternativeAnswersEn": [
+        "north",
+        "hemisphere"
+      ],
+      "assessedAt": "2026-10-19T09:12:44.187488+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "participate",
+      "w": "participate",
+      "p": [
+        "perə-2",
+        "kap-"
+      ],
+      "rarity": 487,
+      "imagePath": "assets/word/participate.png",
+      "sourceOrdinal": 11313,
+      "reviewOrder": 92,
+      "localImageExists": true,
+      "imageGitBlobSha": "6c467299a43f05f81022887a5a9843a24c5c4739",
+      "score": 73,
+      "components": {
+        "meaningVisible": 31,
+        "conceptDistinct": 20,
+        "answerSpecific": 13,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "集団でボール遊びをしているが参加と単なる遊びの区別が弱い。",
+      "alternativeAnswersEn": [
+        "join",
+        "play"
+      ],
+      "assessedAt": "2026-10-19T09:12:44.187488+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "pregnancy",
+      "w": "pregnancy",
+      "p": [
+        "per1",
+        "genə-"
+      ],
+      "rarity": 487,
+      "imagePath": "assets/word/pregnancy.png",
+      "sourceOrdinal": 12295,
+      "reviewOrder": 93,
+      "localImageExists": true,
+      "imageGitBlobSha": "6a56dbe6a541c74afa3b004f21af8d327ff7a11d",
+      "score": 94,
+      "components": {
+        "meaningVisible": 39,
+        "conceptDistinct": 24,
+        "answerSpecific": 21,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "大きい腹と乳児用の靴で妊娠が明瞭だが形容詞も自然。",
+      "alternativeAnswersEn": [
+        "pregnant",
+        "expecting"
+      ],
+      "assessedAt": "2026-10-19T09:12:44.187488+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "steady",
+      "w": "steady",
+      "p": [
+        "stā-"
+      ],
+      "rarity": 487,
+      "imagePath": "assets/word/steady.png",
+      "sourceOrdinal": 15071,
+      "reviewOrder": 94,
+      "localImageExists": true,
+      "imageGitBlobSha": "eb165f73f26c4d7547b904580a9e7826d8f1a88f",
+      "score": 65,
+      "components": {
+        "meaningVisible": 28,
+        "conceptDistinct": 18,
+        "answerSpecific": 10,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "飲み物の盆を安定して運ぶ姿は読めるが運ぶや給仕も強い。",
+      "alternativeAnswersEn": [
+        "stable",
+        "careful"
+      ],
+      "assessedAt": "2026-10-19T09:12:44.187488+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "storm",
+      "w": "storm",
+      "p": [
+        "(s)twer-1"
+      ],
+      "rarity": 487,
+      "imagePath": "assets/word/storm.png",
+      "sourceOrdinal": 15186,
+      "reviewOrder": 95,
+      "localImageExists": true,
+      "imageGitBlobSha": "c0d00aa1250d2bfa0d845904264fccfcde763736",
+      "score": 98,
+      "components": {
+        "meaningVisible": 40,
+        "conceptDistinct": 25,
+        "answerSpecific": 23,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "強風と豪雨と暗い渦雲で嵐が明瞭。",
+      "alternativeAnswersEn": [
+        "tempest",
+        "hurricane"
+      ],
+      "assessedAt": "2026-10-19T09:12:44.187488+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "uncertainty",
+      "w": "uncertainty",
+      "p": [
+        "ne",
+        "krei-"
+      ],
+      "rarity": 487,
+      "imagePath": "assets/word/uncertainty.png",
+      "sourceOrdinal": 16476,
+      "reviewOrder": 96,
+      "localImageExists": true,
+      "imageGitBlobSha": "f6d781c64afa49158c92a6b05788974b085e7a6b",
+      "score": 87,
+      "components": {
+        "meaningVisible": 36,
+        "conceptDistinct": 23,
+        "answerSpecific": 18,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "分岐路で地図を見て迷う表情が不確実さを示す。",
+      "alternativeAnswersEn": [
+        "doubt",
+        "confusion"
+      ],
+      "assessedAt": "2026-10-19T09:12:44.187488+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "Muslim",
+      "w": "Muslim",
+      "p": [],
+      "rarity": 487,
+      "imagePath": "assets/word/Muslim.png",
+      "sourceOrdinal": 19141,
+      "reviewOrder": 97,
+      "localImageExists": true,
+      "imageGitBlobSha": "731e4559e5618be127510a29b1950af1e2dd93a8",
+      "score": 77,
+      "components": {
+        "meaningVisible": 32,
+        "conceptDistinct": 22,
+        "answerSpecific": 14,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "モスクと礼拝道具はイスラムを示すが教徒という人物はない。",
+      "alternativeAnswersEn": [
+        "Islam",
+        "mosque"
+      ],
+      "assessedAt": "2026-10-19T09:12:44.187488+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "bones",
+      "w": "bones",
+      "p": [],
+      "rarity": 487,
+      "imagePath": "assets/word/bones.png",
+      "sourceOrdinal": 46719,
+      "reviewOrder": 98,
+      "localImageExists": true,
+      "imageGitBlobSha": "b810f3c735e673e185b55208d8a398ab4a27d6cc",
+      "score": 96,
+      "components": {
+        "meaningVisible": 40,
+        "conceptDistinct": 25,
+        "answerSpecific": 22,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "全身の骨が明瞭だが骨格という単数名も強い。",
+      "alternativeAnswersEn": [
+        "skeleton",
+        "bone"
+      ],
+      "assessedAt": "2026-10-19T09:12:44.187488+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "accordance",
+      "w": "accordance",
+      "p": [
+        "kerd-",
+        "ad-"
+      ],
+      "rarity": 488,
+      "imagePath": "assets/word/accordance.png",
+      "sourceOrdinal": 114,
+      "reviewOrder": 99,
+      "localImageExists": true,
+      "imageGitBlobSha": "ba86fb4f0e1899b1455b6d8fdf60fd19d9380384",
+      "score": 54,
+      "components": {
+        "meaningVisible": 23,
+        "conceptDistinct": 15,
+        "answerSpecific": 7,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "二人が同じ布を選ぶ様子は一致を暗示するが選択も自然。",
+      "alternativeAnswersEn": [
+        "agreement",
+        "matching"
+      ],
+      "assessedAt": "2026-10-19T09:12:44.187488+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "bearing",
+      "w": "bearing",
+      "p": [
+        "bher-1"
+      ],
+      "rarity": 488,
+      "imagePath": "assets/word/bearing.png",
+      "sourceOrdinal": 1538,
+      "reviewOrder": 100,
+      "localImageExists": true,
+      "imageGitBlobSha": "5fcff1d90c94cacb03cb1381bfbf97227880ddfd",
+      "score": 44,
+      "components": {
+        "meaningVisible": 18,
+        "conceptDistinct": 12,
+        "answerSpecific": 5,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "聴衆の前に落ち着いて立つ人だけでは態度の抽象語を限定できない。",
+      "alternativeAnswersEn": [
+        "posture",
+        "presentation"
+      ],
+      "assessedAt": "2026-10-19T09:12:44.187488+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "formula",
+      "w": "formula",
+      "p": [
+        "merph-"
+      ],
+      "rarity": 488,
+      "imagePath": "assets/word/formula.png",
+      "sourceOrdinal": 6329,
+      "reviewOrder": 101,
+      "localImageExists": true,
+      "imageGitBlobSha": "ad59924c55c62be5b88f4c1fba7ca756aab1a53b",
+      "score": 83,
+      "components": {
+        "meaningVisible": 35,
+        "conceptDistinct": 22,
+        "answerSpecific": 17,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "黒板の円の面積式は公式を示すが式の文字読解に依存する。",
+      "alternativeAnswersEn": [
+        "equation",
+        "mathematics"
+      ],
+      "assessedAt": "2026-10-19T09:14:04.317176+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "god",
+      "w": "god",
+      "p": [
+        "gheu(ə)-"
+      ],
+      "rarity": 488,
+      "imagePath": "assets/word/god.png",
+      "sourceOrdinal": 6871,
+      "reviewOrder": 102,
+      "localImageExists": true,
+      "imageGitBlobSha": "399baef9915da0f4c8011d440366bb17fccfa067",
+      "score": 89,
+      "components": {
+        "meaningVisible": 37,
+        "conceptDistinct": 23,
+        "answerSpecific": 19,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "雲と光輪のある老神の姿で神を連想できるが宗教固有の像にも読める。",
+      "alternativeAnswersEn": [
+        "deity",
+        "Zeus"
+      ],
+      "assessedAt": "2026-10-19T09:14:04.317176+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "Louis",
+      "w": "Louis",
+      "p": [
+        "kleu-"
+      ],
+      "rarity": 488,
+      "imagePath": "assets/word/Louis.png",
+      "sourceOrdinal": 9163,
+      "reviewOrder": 103,
+      "localImageExists": true,
+      "imageGitBlobSha": "9e0b08bb7b85c9fe3c350ac1d7aa576f6759d939",
+      "score": 12,
+      "components": {
+        "meaningVisible": 1,
+        "conceptDistinct": 1,
+        "answerSpecific": 0,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "男性の肖像に名前固有の識別手掛かりがない。",
+      "alternativeAnswersEn": [
+        "man",
+        "person"
+      ],
+      "assessedAt": "2026-10-19T09:14:04.317176+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "pride",
+      "w": "pride",
+      "p": [
+        "per1"
+      ],
+      "rarity": 488,
+      "imagePath": "assets/word/pride.png",
+      "sourceOrdinal": 12392,
+      "reviewOrder": 104,
+      "localImageExists": true,
+      "imageGitBlobSha": "156577b41a553a246b63169852148294f6dd6cce",
+      "score": 61,
+      "components": {
+        "meaningVisible": 26,
+        "conceptDistinct": 17,
+        "answerSpecific": 9,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "収穫した人参を誇らしげに掲げるが喜びや収穫も自然。",
+      "alternativeAnswersEn": [
+        "proud",
+        "harvest"
+      ],
+      "assessedAt": "2026-10-19T09:14:04.317176+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "roof",
+      "w": "roof",
+      "p": [
+        "krō̆po-"
+      ],
+      "rarity": 488,
+      "imagePath": "assets/word/roof.png",
+      "sourceOrdinal": 13707,
+      "reviewOrder": 105,
+      "localImageExists": true,
+      "imageGitBlobSha": "49fc2e03386dcc786d5f199ac92159e223c4ffe7",
+      "score": 93,
+      "components": {
+        "meaningVisible": 38,
+        "conceptDistinct": 24,
+        "answerSpecific": 21,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "赤い瓦屋根が大きく描かれるが家全体も答えになる。",
+      "alternativeAnswersEn": [
+        "house",
+        "tiles"
+      ],
+      "assessedAt": "2026-10-19T09:14:04.317176+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "settlement",
+      "w": "settlement",
+      "p": [
+        "sed-"
+      ],
+      "rarity": 488,
+      "imagePath": "assets/word/settlement.png",
+      "sourceOrdinal": 14358,
+      "reviewOrder": 106,
+      "localImageExists": true,
+      "imageGitBlobSha": "cc89fd25e9f82d81597fb3da236f3751962e7875",
+      "score": 70,
+      "components": {
+        "meaningVisible": 30,
+        "conceptDistinct": 19,
+        "answerSpecific": 12,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "柵を挟む握手は問題解決を示唆するが合意や和解も強い。",
+      "alternativeAnswersEn": [
+        "agreement",
+        "reconciliation"
+      ],
+      "assessedAt": "2026-10-19T09:14:04.317176+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "spectrum",
+      "w": "spectrum",
+      "p": [
+        "spek-"
+      ],
+      "rarity": 488,
+      "imagePath": "assets/word/spectrum.png",
+      "sourceOrdinal": 14872,
+      "reviewOrder": 107,
+      "localImageExists": true,
+      "imageGitBlobSha": "534c9cbb08977f1de6682bba965fedb14862f074",
+      "score": 98,
+      "components": {
+        "meaningVisible": 40,
+        "conceptDistinct": 25,
+        "answerSpecific": 23,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "プリズムで光が分かれる連続色でスペクトルが明瞭。",
+      "alternativeAnswersEn": [
+        "rainbow",
+        "dispersion"
+      ],
+      "assessedAt": "2026-10-19T09:14:04.317176+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "whenever",
+      "w": "whenever",
+      "p": [
+        "kʷo-",
+        "aiw-"
+      ],
+      "rarity": 488,
+      "imagePath": "assets/word/whenever.png",
+      "sourceOrdinal": 17196,
+      "reviewOrder": 108,
+      "localImageExists": true,
+      "imageGitBlobSha": "463e1c5b5ec08a1de762b40acb81053e2f1ccc9e",
+      "score": 26,
+      "components": {
+        "meaningVisible": 9,
+        "conceptDistinct": 6,
+        "answerSpecific": 2,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "夜に水を飲む一場面だけではいつでもという条件を表せない。",
+      "alternativeAnswersEn": [
+        "thirst",
+        "night"
+      ],
+      "assessedAt": "2026-10-19T09:14:04.317176+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "Jerusalem",
+      "w": "Jerusalem",
+      "p": [],
+      "rarity": 488,
+      "imagePath": "assets/word/Jerusalem.png",
+      "sourceOrdinal": 19142,
+      "reviewOrder": 109,
+      "localImageExists": true,
+      "imageGitBlobSha": "e36ec43aa96e2ad7fd950934e7dcfad2f95e7c28",
+      "score": 73,
+      "components": {
+        "meaningVisible": 31,
+        "conceptDistinct": 21,
+        "answerSpecific": 13,
+        "smallImageReadable": 8
+      },
+      "reasonJa": "城壁と金色のドームは都市の目印だが都市名には知識が必要。",
+      "alternativeAnswersEn": [
+        "city",
+        "Old City"
+      ],
+      "assessedAt": "2026-10-19T09:14:04.317176+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "database",
+      "w": "database",
+      "p": [],
+      "rarity": 488,
+      "imagePath": "assets/word/database.png",
+      "sourceOrdinal": 19143,
+      "reviewOrder": 110,
+      "localImageExists": true,
+      "imageGitBlobSha": "05dc8f4d89981fdcebda9e280945e4359d67daf2",
+      "score": 88,
+      "components": {
+        "meaningVisible": 37,
+        "conceptDistinct": 23,
+        "answerSpecific": 19,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "データの円筒記号と表とファイルの接続でデータベースが読める。",
+      "alternativeAnswersEn": [
+        "data",
+        "storage"
+      ],
+      "assessedAt": "2026-10-19T09:14:04.317176+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "peak",
+      "w": "peak",
+      "p": [],
+      "rarity": 488,
+      "imagePath": "assets/word/peak.png",
+      "sourceOrdinal": 19144,
+      "reviewOrder": 111,
+      "localImageExists": true,
+      "imageGitBlobSha": "2dbc19a0c4554bf01ff054327fa736e6a899b6c9",
+      "score": 96,
+      "components": {
+        "meaningVisible": 39,
+        "conceptDistinct": 25,
+        "answerSpecific": 22,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "山頂に強調線があり頂点へ注目を導く。",
+      "alternativeAnswersEn": [
+        "summit",
+        "mountain"
+      ],
+      "assessedAt": "2026-10-19T09:14:04.317176+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "satisfied",
+      "w": "satisfied",
+      "p": [],
+      "rarity": 488,
+      "imagePath": "assets/word/satisfied.png",
+      "sourceOrdinal": 21054,
+      "reviewOrder": 112,
+      "localImageExists": true,
+      "imageGitBlobSha": "fe731ecb25791755503d4585edfd310ab5d6f773",
+      "score": 94,
+      "components": {
+        "meaningVisible": 39,
+        "conceptDistinct": 24,
+        "answerSpecific": 21,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "食後に腹をさすり満ち足りた表情で満足が読める。",
+      "alternativeAnswersEn": [
+        "full",
+        "content"
+      ],
+      "assessedAt": "2026-10-19T09:14:04.317176+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "sports",
+      "w": "sports",
+      "p": [],
+      "rarity": 488,
+      "imagePath": "assets/word/sports.png",
+      "sourceOrdinal": 46584,
+      "reviewOrder": 113,
+      "localImageExists": true,
+      "imageGitBlobSha": "a5b9251d090573de602ae3d4c12eae95c71456e0",
+      "score": 92,
+      "components": {
+        "meaningVisible": 38,
+        "conceptDistinct": 24,
+        "answerSpecific": 20,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "複数競技の球とラケットでスポーツ全般が明瞭。",
+      "alternativeAnswersEn": [
+        "athletics",
+        "equipment"
+      ],
+      "assessedAt": "2026-10-19T09:14:04.317176+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "shaking",
+      "w": "shaking",
+      "p": [],
+      "rarity": 488,
+      "imagePath": "assets/word/shaking.png",
+      "sourceOrdinal": 48351,
+      "reviewOrder": 114,
+      "localImageExists": true,
+      "imageGitBlobSha": "5ff7225af33abd6140b207ae27372a4a12a44586",
+      "score": 96,
+      "components": {
+        "meaningVisible": 40,
+        "conceptDistinct": 24,
+        "answerSpecific": 22,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "水滴が飛び散る犬の振動姿勢で振る動作が明瞭。",
+      "alternativeAnswersEn": [
+        "shake",
+        "wet"
+      ],
+      "assessedAt": "2026-10-19T09:14:04.317176+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "Australian",
+      "w": "Australian",
+      "p": [
+        "aus-"
+      ],
+      "rarity": 489,
+      "imagePath": "assets/word/Australian.png",
+      "sourceOrdinal": 1297,
+      "reviewOrder": 115,
+      "localImageExists": true,
+      "imageGitBlobSha": "8ea80a1a3ea26f4f75fe3453c7647adca8998da3",
+      "score": 92,
+      "components": {
+        "meaningVisible": 38,
+        "conceptDistinct": 24,
+        "answerSpecific": 20,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "国の輪郭とカンガルーと岩山でオーストラリアが特定しやすい。",
+      "alternativeAnswersEn": [
+        "Australia",
+        "kangaroo"
+      ],
+      "assessedAt": "2026-10-19T09:14:04.317176+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "confusion",
+      "w": "confusion",
+      "p": [
+        "kom",
+        "gheu-"
+      ],
+      "rarity": 489,
+      "imagePath": "assets/word/confusion.png",
+      "sourceOrdinal": 3211,
+      "reviewOrder": 116,
+      "localImageExists": true,
+      "imageGitBlobSha": "316da1105f3da4d1497ae9b2be42265243b59818",
+      "score": 70,
+      "components": {
+        "meaningVisible": 30,
+        "conceptDistinct": 19,
+        "answerSpecific": 12,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "複数の鞄の前で困る表情は混乱を示すが迷いも自然。",
+      "alternativeAnswersEn": [
+        "uncertainty",
+        "puzzlement"
+      ],
+      "assessedAt": "2026-10-19T09:14:04.317176+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "correlation",
+      "w": "correlation",
+      "p": [
+        "kom",
+        "re-",
+        "telə-"
+      ],
+      "rarity": 489,
+      "imagePath": "assets/word/correlation.png",
+      "sourceOrdinal": 3484,
+      "reviewOrder": 117,
+      "localImageExists": true,
+      "imageGitBlobSha": "5bd2088b8cfe31c447bf5e3c7a153532108062f1",
+      "score": 89,
+      "components": {
+        "meaningVisible": 37,
+        "conceptDistinct": 24,
+        "answerSpecific": 19,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "右上がりの散布図が相関を示すが傾向やグラフも強い。",
+      "alternativeAnswersEn": [
+        "trend",
+        "relationship"
+      ],
+      "assessedAt": "2026-10-19T09:14:04.317176+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "crew",
+      "w": "crew",
+      "p": [
+        "ker-3"
+      ],
+      "rarity": 489,
+      "imagePath": "assets/word/crew.png",
+      "sourceOrdinal": 3627,
+      "reviewOrder": 118,
+      "localImageExists": true,
+      "imageGitBlobSha": "fbf472c4f04a6d7aee1737bd96ca68a22d05c02a",
+      "score": 91,
+      "components": {
+        "meaningVisible": 38,
+        "conceptDistinct": 24,
+        "answerSpecific": 20,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "船で協力する船員たちは乗組員を示すが船乗りも自然。",
+      "alternativeAnswersEn": [
+        "sailors",
+        "team"
+      ],
+      "assessedAt": "2026-10-19T09:14:04.317176+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "discipline",
+      "w": "discipline",
+      "p": [
+        "dek-"
+      ],
+      "rarity": 489,
+      "imagePath": "assets/word/discipline.png",
+      "sourceOrdinal": 4480,
+      "reviewOrder": 119,
+      "localImageExists": true,
+      "imageGitBlobSha": "cf4326a3221bcf63552d6c185f7d029b3162b6b8",
+      "score": 65,
+      "components": {
+        "meaningVisible": 28,
+        "conceptDistinct": 18,
+        "answerSpecific": 10,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "整列し道具を片付ける子供と指導者は規律を暗示する。",
+      "alternativeAnswersEn": [
+        "order",
+        "training"
+      ],
+      "assessedAt": "2026-10-19T09:14:04.317176+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "doctrine",
+      "w": "doctrine",
+      "p": [
+        "dek-"
+      ],
+      "rarity": 489,
+      "imagePath": "assets/word/doctrine.png",
+      "sourceOrdinal": 4646,
+      "reviewOrder": 120,
+      "localImageExists": true,
+      "imageGitBlobSha": "59ee28f785e35c96502dfac225cc52091195776a",
+      "score": 32,
+      "components": {
+        "meaningVisible": 12,
+        "conceptDistinct": 8,
+        "answerSpecific": 3,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "標識と羅針盤に従い進む人物から教義という概念は特定できない。",
+      "alternativeAnswersEn": [
+        "direction",
+        "guidance"
+      ],
+      "assessedAt": "2026-10-19T09:14:04.317176+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "estimate",
+      "w": "estimate",
+      "p": [
+        "ayes-",
+        "temə-1"
+      ],
+      "rarity": 489,
+      "imagePath": "assets/word/estimate.png",
+      "sourceOrdinal": 5501,
+      "reviewOrder": 121,
+      "localImageExists": true,
+      "imageGitBlobSha": "89d82e318a84b585f6b14fa30dcd55af0f6d44cb",
+      "score": 70,
+      "components": {
+        "meaningVisible": 30,
+        "conceptDistinct": 19,
+        "answerSpecific": 12,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "粉を量りながら考える姿は概算を示唆するが計量も自然。",
+      "alternativeAnswersEn": [
+        "measure",
+        "guess"
+      ],
+      "assessedAt": "2026-10-19T09:14:04.317176+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "frequent",
+      "w": "frequent",
+      "p": [
+        "bhrekʷ-"
+      ],
+      "rarity": 489,
+      "imagePath": "assets/word/frequent.png",
+      "sourceOrdinal": 6432,
+      "reviewOrder": 122,
+      "localImageExists": true,
+      "imageGitBlobSha": "cbd97d8e6ef478abea72c9a49821c7ccb9ca85b1",
+      "score": 35,
+      "components": {
+        "meaningVisible": 13,
+        "conceptDistinct": 9,
+        "answerSpecific": 3,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "連続する水滴は繰り返しを示すが頻度の高さは明確でない。",
+      "alternativeAnswersEn": [
+        "dripping",
+        "regular"
+      ],
+      "assessedAt": "2026-10-19T09:14:04.317176+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "grateful",
+      "w": "grateful",
+      "p": [
+        "gʷerə-3"
+      ],
+      "rarity": 489,
+      "imagePath": "assets/word/grateful.png",
+      "sourceOrdinal": 6951,
+      "reviewOrder": 123,
+      "localImageExists": true,
+      "imageGitBlobSha": "d0ea46d126edb82b3f7ca2adcf32744b8ac06459",
+      "score": 79,
+      "components": {
+        "meaningVisible": 33,
+        "conceptDistinct": 21,
+        "answerSpecific": 15,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "助けた相手へ手を合わせ喜ぶ姿は感謝を示すが愛情も自然。",
+      "alternativeAnswersEn": [
+        "thankful",
+        "thanks"
+      ],
+      "assessedAt": "2026-10-19T09:14:04.317176+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "knife",
+      "w": "knife",
+      "p": [
+        "g(e)n-"
+      ],
+      "rarity": 489,
+      "imagePath": "assets/word/knife.png",
+      "sourceOrdinal": 8660,
+      "reviewOrder": 124,
+      "localImageExists": true,
+      "imageGitBlobSha": "4d4977c3b46fa709b81f7ec727242af31bd6822f",
+      "score": 99,
+      "components": {
+        "meaningVisible": 40,
+        "conceptDistinct": 25,
+        "answerSpecific": 24,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "刃と柄のある包丁が大きく明瞭。",
+      "alternativeAnswersEn": [
+        "blade",
+        "cutlery"
+      ],
+      "assessedAt": "2026-10-19T09:14:04.317176+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "plenty",
+      "w": "plenty",
+      "p": [
+        "pelə-1"
+      ],
+      "rarity": 489,
+      "imagePath": "assets/word/plenty.png",
+      "sourceOrdinal": 11977,
+      "reviewOrder": 125,
+      "localImageExists": true,
+      "imageGitBlobSha": "8e72d405079f2752ee1f43b1f29596427d6e03d4",
+      "score": 79,
+      "components": {
+        "meaningVisible": 34,
+        "conceptDistinct": 21,
+        "answerSpecific": 15,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "大量の食物のあるピクニックで豊富さが見えるが食事も強い。",
+      "alternativeAnswersEn": [
+        "abundance",
+        "food"
+      ],
+      "assessedAt": "2026-10-19T09:14:04.317176+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "pray",
+      "w": "pray",
+      "p": [
+        "prek-"
+      ],
+      "rarity": 489,
+      "imagePath": "assets/word/pray.png",
+      "sourceOrdinal": 12243,
+      "reviewOrder": 126,
+      "localImageExists": true,
+      "imageGitBlobSha": "b66d0517841bd435e77482d3bf515cadd1f2dbc8",
+      "score": 98,
+      "components": {
+        "meaningVisible": 40,
+        "conceptDistinct": 25,
+        "answerSpecific": 23,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "ひざまずき目を閉じ手を合わせる動作が祈りに直結する。",
+      "alternativeAnswersEn": [
+        "prayer",
+        "worship"
+      ],
+      "assessedAt": "2026-10-19T09:14:04.317176+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "senior",
+      "w": "senior",
+      "p": [
+        "sen-"
+      ],
+      "rarity": 489,
+      "imagePath": "assets/word/senior.png",
+      "sourceOrdinal": 14273,
+      "reviewOrder": 127,
+      "localImageExists": true,
+      "imageGitBlobSha": "b35d79bb577afed6c8b66faa9cfb218994e096e1",
+      "score": 82,
+      "components": {
+        "meaningVisible": 34,
+        "conceptDistinct": 22,
+        "answerSpecific": 16,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "白髪の高齢者と子供の対比で年上を示すが祖父も自然。",
+      "alternativeAnswersEn": [
+        "elder",
+        "grandfather"
+      ],
+      "assessedAt": "2026-10-19T09:14:04.317176+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "survive",
+      "w": "survive",
+      "p": [
+        "uper",
+        "gwei-"
+      ],
+      "rarity": 489,
+      "imagePath": "assets/word/survive.png",
+      "sourceOrdinal": 15516,
+      "reviewOrder": 128,
+      "localImageExists": true,
+      "imageGitBlobSha": "9f782da91109310d52f95943518798ba656f7421",
+      "score": 81,
+      "components": {
+        "meaningVisible": 34,
+        "conceptDistinct": 22,
+        "answerSpecific": 16,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "救命ボートで保護された人は生存を示唆するが救助も強い。",
+      "alternativeAnswersEn": [
+        "rescue",
+        "saved"
+      ],
+      "assessedAt": "2026-10-19T09:14:04.317176+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "totally",
+      "w": "totally",
+      "p": [
+        "teutā-"
+      ],
+      "rarity": 489,
+      "imagePath": "assets/word/totally.png",
+      "sourceOrdinal": 16098,
+      "reviewOrder": 129,
+      "localImageExists": true,
+      "imageGitBlobSha": "bcd6356a9233908075e5733d930f71b47f77fb22",
+      "score": 33,
+      "components": {
+        "meaningVisible": 12,
+        "conceptDistinct": 8,
+        "answerSpecific": 3,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "チョコレートの液が全面を覆う様子だけでは全くという副詞に絞れない。",
+      "alternativeAnswersEn": [
+        "chocolate",
+        "completely"
+      ],
+      "assessedAt": "2026-10-19T09:14:04.317176+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "web",
+      "w": "web",
+      "p": [
+        "webh-"
+      ],
+      "rarity": 489,
+      "imagePath": "assets/word/web.png",
+      "sourceOrdinal": 17127,
+      "reviewOrder": 130,
+      "localImageExists": true,
+      "imageGitBlobSha": "22a48ccee34d7b8d6122ee6c0cb6e01826d642c9",
+      "score": 77,
+      "components": {
+        "meaningVisible": 32,
+        "conceptDistinct": 21,
+        "answerSpecific": 14,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "地球を網状の線でつなぎウェブを示すがネットワークも強い。",
+      "alternativeAnswersEn": [
+        "network",
+        "internet"
+      ],
+      "assessedAt": "2026-10-19T09:14:04.317176+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "western",
+      "w": "western",
+      "p": [
+        "wes-pero-"
+      ],
+      "rarity": 489,
+      "imagePath": "assets/word/western.png",
+      "sourceOrdinal": 17182,
+      "reviewOrder": 131,
+      "localImageExists": true,
+      "imageGitBlobSha": "92e7a67e27db59de73a0139de22698f70e4830ca",
+      "score": 78,
+      "components": {
+        "meaningVisible": 33,
+        "conceptDistinct": 21,
+        "answerSpecific": 15,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "夕日と羅針盤で西を示唆するが夕焼けの方が直接的。",
+      "alternativeAnswersEn": [
+        "west",
+        "sunset"
+      ],
+      "assessedAt": "2026-10-19T09:14:04.317176+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "Islamic",
+      "w": "Islamic",
+      "p": [],
+      "rarity": 489,
+      "imagePath": "assets/word/Islamic.png",
+      "sourceOrdinal": 19145,
+      "reviewOrder": 132,
+      "localImageExists": true,
+      "imageGitBlobSha": "e52335d7013b005264a896d76b3bc3efb47f2514",
+      "score": 84,
+      "components": {
+        "meaningVisible": 35,
+        "conceptDistinct": 23,
+        "answerSpecific": 17,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "モスクと三日月と礼拝敷物でイスラムの様式が読める。",
+      "alternativeAnswersEn": [
+        "Islam",
+        "mosque"
+      ],
+      "assessedAt": "2026-10-19T09:14:04.317176+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "bird",
+      "w": "bird",
+      "p": [],
+      "rarity": 489,
+      "imagePath": "assets/word/bird.png",
+      "sourceOrdinal": 19146,
+      "reviewOrder": 133,
+      "localImageExists": true,
+      "imageGitBlobSha": "972e55f9b2acd695465a02afd002a2a7768c926b",
+      "score": 99,
+      "components": {
+        "meaningVisible": 40,
+        "conceptDistinct": 25,
+        "answerSpecific": 24,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "くちばしと羽と脚のある鳥が単独で明瞭。",
+      "alternativeAnswersEn": [
+        "sparrow",
+        "bluebird"
+      ],
+      "assessedAt": "2026-10-19T09:14:04.317176+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "pH",
+      "w": "pH",
+      "p": [],
+      "rarity": 489,
+      "imagePath": "assets/word/pH.png",
+      "sourceOrdinal": 20997,
+      "reviewOrder": 134,
+      "localImageExists": true,
+      "imageGitBlobSha": "623e1277b1cf02c978802b5959dac3dbfa927908",
+      "score": 84,
+      "components": {
+        "meaningVisible": 35,
+        "conceptDistinct": 23,
+        "answerSpecific": 17,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "色が変わる試験紙と溶液の列で酸性度を連想しやすい。",
+      "alternativeAnswersEn": [
+        "acidity",
+        "indicator"
+      ],
+      "assessedAt": "2026-10-19T09:14:04.317176+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "killing",
+      "w": "killing",
+      "p": [],
+      "rarity": 489,
+      "imagePath": "assets/word/killing.png",
+      "sourceOrdinal": 48810,
+      "reviewOrder": 135,
+      "localImageExists": true,
+      "imageGitBlobSha": "50dd9e3630c7700780a9987286d886f218244a59",
+      "score": 94,
+      "components": {
+        "meaningVisible": 39,
+        "conceptDistinct": 24,
+        "answerSpecific": 21,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "ハエたたきと死んだ虫で殺す行為が明瞭。",
+      "alternativeAnswersEn": [
+        "swatting",
+        "kill"
+      ],
+      "assessedAt": "2026-10-19T09:14:04.317176+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "agriculture",
+      "w": "agriculture",
+      "p": [
+        "agro-",
+        "kʷel-1"
+      ],
+      "rarity": 490,
+      "imagePath": "assets/word/agriculture.png",
+      "sourceOrdinal": 403,
+      "reviewOrder": 136,
+      "localImageExists": true,
+      "imageGitBlobSha": "92edd09e5fcab5c7b68b9e1567903abdb8a43530",
+      "score": 92,
+      "components": {
+        "meaningVisible": 38,
+        "conceptDistinct": 24,
+        "answerSpecific": 21,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "畑の畝へ苗を植える姿で農業を示すが園芸も自然。",
+      "alternativeAnswersEn": [
+        "farming",
+        "planting"
+      ],
+      "assessedAt": "2026-10-19T09:14:04.317176+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "artificial",
+      "w": "artificial",
+      "p": [
+        "ar-",
+        "dhē-"
+      ],
+      "rarity": 490,
+      "imagePath": "assets/word/artificial.png",
+      "sourceOrdinal": 1093,
+      "reviewOrder": 137,
+      "localImageExists": true,
+      "imageGitBlobSha": "1c413dc857ed5f62284069549814dbf020d151fa",
+      "score": 71,
+      "components": {
+        "meaningVisible": 30,
+        "conceptDistinct": 20,
+        "answerSpecific": 12,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "糸と道具で花を作る場面だが本物との対比がなく人工性を限定しにくい。",
+      "alternativeAnswersEn": [
+        "fake",
+        "craft"
+      ],
+      "assessedAt": "2026-10-19T09:14:04.317176+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "asleep",
+      "w": "asleep",
+      "p": [
+        "slēb-"
+      ],
+      "rarity": 490,
+      "imagePath": "assets/word/asleep.png",
+      "sourceOrdinal": 1120,
+      "reviewOrder": 138,
+      "localImageExists": true,
+      "imageGitBlobSha": "f6924d00f07758817d1b6a0b6f84ea6e829064ad",
+      "score": 98,
+      "components": {
+        "meaningVisible": 40,
+        "conceptDistinct": 25,
+        "answerSpecific": 23,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "寝床で閉眼する人が眠っている状態を直接示す。",
+      "alternativeAnswersEn": [
+        "sleeping",
+        "sleep"
+      ],
+      "assessedAt": "2026-10-19T09:14:04.317176+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "Christianity",
+      "w": "Christianity",
+      "p": [
+        "ghrēi-"
+      ],
+      "rarity": 490,
+      "imagePath": "assets/word/Christianity.png",
+      "sourceOrdinal": 2683,
+      "reviewOrder": 139,
+      "localImageExists": true,
+      "imageGitBlobSha": "f93b8fbe37555674b7bfcca72679ad2d4421a682",
+      "score": 87,
+      "components": {
+        "meaningVisible": 36,
+        "conceptDistinct": 24,
+        "answerSpecific": 18,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "十字架と礼拝する人々でキリスト教を示すが教会も強い。",
+      "alternativeAnswersEn": [
+        "church",
+        "Christian"
+      ],
+      "assessedAt": "2026-10-19T09:14:04.317176+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "committee",
+      "w": "committee",
+      "p": [
+        "kom",
+        "mittere"
+      ],
+      "rarity": 490,
+      "imagePath": "assets/word/committee.png",
+      "sourceOrdinal": 3014,
+      "reviewOrder": 140,
+      "localImageExists": true,
+      "imageGitBlobSha": "3adc36f553e010ce953f5539bd0da919c5e216d8",
+      "score": 76,
+      "components": {
+        "meaningVisible": 32,
+        "conceptDistinct": 21,
+        "answerSpecific": 14,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "模型を囲んで相談する少人数は委員会を示唆するが会議も自然。",
+      "alternativeAnswersEn": [
+        "meeting",
+        "council"
+      ],
+      "assessedAt": "2026-10-19T09:14:04.317176+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "encounter",
+      "w": "encounter",
+      "p": [
+        "en",
+        "kom"
+      ],
+      "rarity": 490,
+      "imagePath": "assets/word/encounter.png",
+      "sourceOrdinal": 5198,
+      "reviewOrder": 141,
+      "localImageExists": true,
+      "imageGitBlobSha": "850c9943484f1bfe6b8ec53845a0265013b6d455",
+      "score": 83,
+      "components": {
+        "meaningVisible": 35,
+        "conceptDistinct": 22,
+        "answerSpecific": 16,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "買い物途中に挨拶する二人で出会いを示すが偶然性は弱い。",
+      "alternativeAnswersEn": [
+        "meet",
+        "greet"
+      ],
+      "assessedAt": "2026-10-19T09:14:04.317176+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "fifteen",
+      "w": "fifteen",
+      "p": [
+        "penkʷe",
+        "dekm̥"
+      ],
+      "rarity": 490,
+      "imagePath": "assets/word/fifteen.png",
+      "sourceOrdinal": 6048,
+      "reviewOrder": 142,
+      "localImageExists": true,
+      "imageGitBlobSha": "062928d8548898ec0deb52198a05502ef5f9294d",
+      "score": 72,
+      "components": {
+        "meaningVisible": 30,
+        "conceptDistinct": 20,
+        "answerSpecific": 13,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "十五個の駒は数えれば分かるが数字の札に頼りやすい。",
+      "alternativeAnswersEn": [
+        "number",
+        "fifteen pieces"
+      ],
+      "assessedAt": "2026-10-19T09:14:04.317176+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "marry",
+      "w": "marry",
+      "p": [
+        "mari-"
+      ],
+      "rarity": 490,
+      "imagePath": "assets/word/marry.png",
+      "sourceOrdinal": 9479,
+      "reviewOrder": 143,
+      "localImageExists": true,
+      "imageGitBlobSha": "1042ece49bdd7642af23bd0906802a06b061588f",
+      "score": 98,
+      "components": {
+        "meaningVisible": 40,
+        "conceptDistinct": 25,
+        "answerSpecific": 23,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "婚礼衣装の二人の指輪交換で結婚する動作が明瞭。",
+      "alternativeAnswersEn": [
+        "wedding",
+        "wed"
+      ],
+      "assessedAt": "2026-10-19T09:14:04.317176+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "painting",
+      "w": "painting",
+      "p": [
+        "peig-"
+      ],
+      "rarity": 490,
+      "imagePath": "assets/word/painting.png",
+      "sourceOrdinal": 11138,
+      "reviewOrder": 144,
+      "localImageExists": true,
+      "imageGitBlobSha": "2d4b971e1071dac826e89d04a4f2c7c4076bdc60",
+      "score": 98,
+      "components": {
+        "meaningVisible": 40,
+        "conceptDistinct": 25,
+        "answerSpecific": 23,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "イーゼル上の完成した風景画が明瞭。",
+      "alternativeAnswersEn": [
+        "picture",
+        "art"
+      ],
+      "assessedAt": "2026-10-19T09:14:04.317176+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "print",
+      "w": "print",
+      "p": [
+        "per-4"
+      ],
+      "rarity": 490,
+      "imagePath": "assets/word/print.png",
+      "sourceOrdinal": 12417,
+      "reviewOrder": 145,
+      "localImageExists": true,
+      "imageGitBlobSha": "a75f9d9b9c83ebb069fdab5d27f89875c1ad6414",
+      "score": 98,
+      "components": {
+        "meaningVisible": 40,
+        "conceptDistinct": 25,
+        "answerSpecific": 23,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "プリンターから絵の紙が出ており印刷が直接読める。",
+      "alternativeAnswersEn": [
+        "printer",
+        "printing"
+      ],
+      "assessedAt": "2026-10-19T09:14:04.317176+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "suffer",
+      "w": "suffer",
+      "p": [
+        "upo",
+        "bher-1"
+      ],
+      "rarity": 490,
+      "imagePath": "assets/word/suffer.png",
+      "sourceOrdinal": 15390,
+      "reviewOrder": 146,
+      "localImageExists": true,
+      "imageGitBlobSha": "cadfcd76a8e0b9937742bc87d6a555f96c4560da",
+      "score": 87,
+      "components": {
+        "meaningVisible": 36,
+        "conceptDistinct": 23,
+        "answerSpecific": 18,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "腫れた足を前に顔をしかめ苦しむ様子が見える。",
+      "alternativeAnswersEn": [
+        "pain",
+        "hurt"
+      ],
+      "assessedAt": "2026-10-19T09:14:04.317176+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "technological",
+      "w": "technological",
+      "p": [
+        "teks-",
+        "leg-"
+      ],
+      "rarity": 490,
+      "imagePath": "assets/word/technological.png",
+      "sourceOrdinal": 15732,
+      "reviewOrder": 147,
+      "localImageExists": true,
+      "imageGitBlobSha": "67e90e49bfd19c3e620ea2d853a3267b05277ff6",
+      "score": 65,
+      "components": {
+        "meaningVisible": 28,
+        "conceptDistinct": 18,
+        "answerSpecific": 10,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "電子基板とロボット腕は技術を示すが形容詞への限定が弱い。",
+      "alternativeAnswersEn": [
+        "technical",
+        "technology"
+      ],
+      "assessedAt": "2026-10-19T09:14:04.317176+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "slave",
+      "w": "slave",
+      "p": [
+        "kleu-"
+      ],
+      "rarity": 490,
+      "imagePath": "assets/word/slave.png",
+      "sourceOrdinal": 18548,
+      "reviewOrder": 148,
+      "localImageExists": true,
+      "imageGitBlobSha": "4fd6c1efd7ca57077e7b4f0f4810a419dabf9c1a",
+      "score": 98,
+      "components": {
+        "meaningVisible": 40,
+        "conceptDistinct": 25,
+        "answerSpecific": 23,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "鎖で拘束され重荷を運ばされる人物と監視者で奴隷が明瞭。",
+      "alternativeAnswersEn": [
+        "captive",
+        "prisoner"
+      ],
+      "assessedAt": "2026-10-19T09:14:04.317176+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "Anna",
+      "w": "Anna",
+      "p": [],
+      "rarity": 490,
+      "imagePath": "assets/word/Anna.png",
+      "sourceOrdinal": 19147,
+      "reviewOrder": 149,
+      "localImageExists": true,
+      "imageGitBlobSha": "70f119e2ea73415d9269eab87a45f469ad0df467",
+      "score": 12,
+      "components": {
+        "meaningVisible": 1,
+        "conceptDistinct": 1,
+        "answerSpecific": 0,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "女性の肖像だけで特定の名前は識別できない。",
+      "alternativeAnswersEn": [
+        "woman",
+        "person"
+      ],
+      "assessedAt": "2026-10-19T09:14:04.317176+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "rocks",
+      "w": "rocks",
+      "p": [],
+      "rarity": 490,
+      "imagePath": "assets/word/rocks.png",
+      "sourceOrdinal": 47527,
+      "reviewOrder": 150,
+      "localImageExists": true,
+      "imageGitBlobSha": "990a6b6a3e52e69f3b24c8aa184e98710c417713",
+      "score": 98,
+      "components": {
+        "meaningVisible": 40,
+        "conceptDistinct": 25,
+        "answerSpecific": 23,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "複数のごつごつした岩の塊が明瞭。",
+      "alternativeAnswersEn": [
+        "stones",
+        "boulders"
+      ],
+      "assessedAt": "2026-10-19T09:14:04.317176+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "Andrew",
+      "w": "Andrew",
+      "p": [
+        "ner-2"
+      ],
+      "rarity": 491,
+      "imagePath": "assets/word/Andrew.png",
+      "sourceOrdinal": 722,
+      "reviewOrder": 151,
+      "localImageExists": true,
+      "imageGitBlobSha": "8b45d6c1bf2c2bb15fdec2bcfc5b93f9905a98cb",
+      "score": 12,
+      "components": {
+        "meaningVisible": 1,
+        "conceptDistinct": 1,
+        "answerSpecific": 0,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "男性の肖像だけでアンドリューと識別できる要素がない。",
+      "alternativeAnswersEn": [
+        "man",
+        "person"
+      ],
+      "assessedAt": "2026-10-19T09:15:34.659017+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "diet",
+      "w": "diet",
+      "p": [
+        "ai-1"
+      ],
+      "rarity": 491,
+      "imagePath": "assets/word/diet.png",
+      "sourceOrdinal": 4370,
+      "reviewOrder": 152,
+      "localImageExists": true,
+      "imageGitBlobSha": "45a1479f5113b5a93f4588f515e95f1fd1aecfe9",
+      "score": 80,
+      "components": {
+        "meaningVisible": 34,
+        "conceptDistinct": 21,
+        "answerSpecific": 15,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "主食と野菜と肉の皿は食事を示すが一食の呼び名も強い。",
+      "alternativeAnswersEn": [
+        "meal",
+        "food"
+      ],
+      "assessedAt": "2026-10-19T09:15:34.659017+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "fate",
+      "w": "fate",
+      "p": [
+        "bhā-2"
+      ],
+      "rarity": 491,
+      "imagePath": "assets/word/fate.png",
+      "sourceOrdinal": 5906,
+      "reviewOrder": 153,
+      "localImageExists": true,
+      "imageGitBlobSha": "044f1b046621b6f2ec1693078d8052631ef6afcb",
+      "score": 40,
+      "components": {
+        "meaningVisible": 16,
+        "conceptDistinct": 11,
+        "answerSpecific": 4,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "分岐する道と赤い糸は運命の比喩だが選択や進路も自然。",
+      "alternativeAnswersEn": [
+        "choice",
+        "path"
+      ],
+      "assessedAt": "2026-10-19T09:15:34.659017+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "glance@ghel2",
+      "w": "glance",
+      "p": [
+        "ghel-2"
+      ],
+      "rarity": 491,
+      "imagePath": "assets/word/glance@ghel2.png",
+      "sourceOrdinal": 6797,
+      "reviewOrder": 154,
+      "localImageExists": true,
+      "imageGitBlobSha": "f0e50b33672f9fa51c0ec8f761000c1a56e61a2f",
+      "score": 66,
+      "components": {
+        "meaningVisible": 28,
+        "conceptDistinct": 18,
+        "answerSpecific": 10,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "輝く鉱石は見えるが特定の輝鉱か金鉱石かを区別できない。",
+      "alternativeAnswersEn": [
+        "gold",
+        "ore"
+      ],
+      "assessedAt": "2026-10-19T09:15:34.659017+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "operate",
+      "w": "operate",
+      "p": [
+        "op-"
+      ],
+      "rarity": 491,
+      "imagePath": "assets/word/operate.png",
+      "sourceOrdinal": 10840,
+      "reviewOrder": 155,
+      "localImageExists": true,
+      "imageGitBlobSha": "559a39f5ec53422a7c3d5321b05feebbda9b4bb2",
+      "score": 89,
+      "components": {
+        "meaningVisible": 37,
+        "conceptDistinct": 23,
+        "answerSpecific": 19,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "レバーで掘削機を動かす姿が操作を示すが運転も自然。",
+      "alternativeAnswersEn": [
+        "drive",
+        "control"
+      ],
+      "assessedAt": "2026-10-19T09:15:34.659017+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "rough",
+      "w": "rough",
+      "p": [
+        "reuə-2"
+      ],
+      "rarity": 491,
+      "imagePath": "assets/word/rough.png",
+      "sourceOrdinal": 13738,
+      "reviewOrder": 156,
+      "localImageExists": true,
+      "imageGitBlobSha": "e28e7a796175246aa2253d8f8322b42992ac17aa",
+      "score": 89,
+      "components": {
+        "meaningVisible": 37,
+        "conceptDistinct": 23,
+        "answerSpecific": 19,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "凹凸や亀裂の多い岩の表面で粗さが明瞭。",
+      "alternativeAnswersEn": [
+        "rock",
+        "uneven"
+      ],
+      "assessedAt": "2026-10-19T09:15:34.659017+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "surely",
+      "w": "surely",
+      "p": [
+        "s(w)e-",
+        "kʷei-3"
+      ],
+      "rarity": 491,
+      "imagePath": "assets/word/surely.png",
+      "sourceOrdinal": 15489,
+      "reviewOrder": 157,
+      "localImageExists": true,
+      "imageGitBlobSha": "124c943b782e9004cad8e2523705881717464272",
+      "score": 28,
+      "components": {
+        "meaningVisible": 10,
+        "conceptDistinct": 7,
+        "answerSpecific": 2,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "命綱のある登山は安全を示すが確かにという副詞へ絞れない。",
+      "alternativeAnswersEn": [
+        "safely",
+        "secure"
+      ],
+      "assessedAt": "2026-10-19T09:15:34.659017+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "vary",
+      "w": "vary",
+      "p": [
+        "wer-1"
+      ],
+      "rarity": 491,
+      "imagePath": "assets/word/vary.png",
+      "sourceOrdinal": 16722,
+      "reviewOrder": 158,
+      "localImageExists": true,
+      "imageGitBlobSha": "72a0083c5c98bda209702a05831c4e27df794281",
+      "score": 77,
+      "components": {
+        "meaningVisible": 32,
+        "conceptDistinct": 21,
+        "answerSpecific": 14,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "同じ枝の葉が緑から赤へ変化し変わる意味を示す。",
+      "alternativeAnswersEn": [
+        "change",
+        "autumn"
+      ],
+      "assessedAt": "2026-10-19T09:15:34.659017+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "velocity",
+      "w": "velocity",
+      "p": [
+        "weg-2"
+      ],
+      "rarity": 491,
+      "imagePath": "assets/word/velocity.png",
+      "sourceOrdinal": 16753,
+      "reviewOrder": 159,
+      "localImageExists": true,
+      "imageGitBlobSha": "e4fda7b15c08941ff273232682f70beacc53257d",
+      "score": 82,
+      "components": {
+        "meaningVisible": 35,
+        "conceptDistinct": 22,
+        "answerSpecific": 16,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "同時間で異なる距離を走る車の比較で速度を示すが速さの同義語が強い。",
+      "alternativeAnswersEn": [
+        "speed",
+        "motion"
+      ],
+      "assessedAt": "2026-10-19T09:15:34.659017+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "virtue",
+      "w": "virtue",
+      "p": [
+        "wī̆-ro-"
+      ],
+      "rarity": 491,
+      "imagePath": "assets/word/virtue.png",
+      "sourceOrdinal": 16916,
+      "reviewOrder": 160,
+      "localImageExists": true,
+      "imageGitBlobSha": "7dc5ee469d00bbe3a9f71b9e9d523bfcbd1714f2",
+      "score": 61,
+      "components": {
+        "meaningVisible": 26,
+        "conceptDistinct": 17,
+        "answerSpecific": 9,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "落とし物の財布を返す姿は美徳の例だが正直さも自然。",
+      "alternativeAnswersEn": [
+        "honesty",
+        "kindness"
+      ],
+      "assessedAt": "2026-10-19T09:15:34.659017+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "Texas",
+      "w": "Texas",
+      "p": [],
+      "rarity": 491,
+      "imagePath": "assets/word/Texas.png",
+      "sourceOrdinal": 19148,
+      "reviewOrder": 161,
+      "localImageExists": true,
+      "imageGitBlobSha": "1c33354d0340db19b1513179623b559998b032aa",
+      "score": 79,
+      "components": {
+        "meaningVisible": 33,
+        "conceptDistinct": 22,
+        "answerSpecific": 15,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "州の輪郭と牛と議事堂がテキサスを示すが地理の識別知識が要る。",
+      "alternativeAnswersEn": [
+        "state",
+        "Austin"
+      ],
+      "assessedAt": "2026-10-19T09:15:34.659017+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "beach",
+      "w": "beach",
+      "p": [],
+      "rarity": 491,
+      "imagePath": "assets/word/beach.png",
+      "sourceOrdinal": 19149,
+      "reviewOrder": 162,
+      "localImageExists": true,
+      "imageGitBlobSha": "1368c43869a22e46e6754971774f41ca0fe774ac",
+      "score": 98,
+      "components": {
+        "meaningVisible": 40,
+        "conceptDistinct": 25,
+        "answerSpecific": 23,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "貝殻のある砂浜と波打ち際で浜が明瞭。",
+      "alternativeAnswersEn": [
+        "shore",
+        "coast"
+      ],
+      "assessedAt": "2026-10-19T09:15:34.659017+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "defendant",
+      "w": "defendant",
+      "p": [],
+      "rarity": 491,
+      "imagePath": "assets/word/defendant.png",
+      "sourceOrdinal": 19150,
+      "reviewOrder": 163,
+      "localImageExists": true,
+      "imageGitBlobSha": "ee0e0ce70a5d853f75e932e64784e416fee99e93",
+      "score": 76,
+      "components": {
+        "meaningVisible": 32,
+        "conceptDistinct": 21,
+        "answerSpecific": 14,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "法廷で裁判官と向き合う人は被告を示すが証人もあり得る。",
+      "alternativeAnswersEn": [
+        "witness",
+        "accused"
+      ],
+      "assessedAt": "2026-10-19T09:15:34.659017+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "honor",
+      "w": "honor",
+      "p": [],
+      "rarity": 491,
+      "imagePath": "assets/word/honor.png",
+      "sourceOrdinal": 19151,
+      "reviewOrder": 164,
+      "localImageExists": true,
+      "imageGitBlobSha": "d07f682403b234cd0b818f9970d611cdc6168842",
+      "score": 81,
+      "components": {
+        "meaningVisible": 34,
+        "conceptDistinct": 22,
+        "answerSpecific": 15,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "高齢者に勲章を贈る礼で名誉を示すが表彰や尊敬も強い。",
+      "alternativeAnswersEn": [
+        "award",
+        "respect"
+      ],
+      "assessedAt": "2026-10-19T09:15:34.659017+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "voltage",
+      "w": "voltage",
+      "p": [],
+      "rarity": 491,
+      "imagePath": "assets/word/voltage.png",
+      "sourceOrdinal": 19152,
+      "reviewOrder": 165,
+      "localImageExists": true,
+      "imageGitBlobSha": "01980542fa7497c2fd7ef306f2f985f28de9fd72",
+      "score": 90,
+      "components": {
+        "meaningVisible": 37,
+        "conceptDistinct": 24,
+        "answerSpecific": 19,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "電池につないだ計器で電圧を示すが電流との区別は記号に依存する。",
+      "alternativeAnswersEn": [
+        "electricity",
+        "current"
+      ],
+      "assessedAt": "2026-10-19T09:15:34.659017+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "funding",
+      "w": "funding",
+      "p": [],
+      "rarity": 491,
+      "imagePath": "assets/word/funding.png",
+      "sourceOrdinal": 46800,
+      "reviewOrder": 166,
+      "localImageExists": true,
+      "imageGitBlobSha": "053a68176fd29e606abce8feef4d2af1a40a0af3",
+      "score": 74,
+      "components": {
+        "meaningVisible": 32,
+        "conceptDistinct": 20,
+        "answerSpecific": 13,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "織物作業へ硬貨を提供する様子で資金提供を示すが寄付も強い。",
+      "alternativeAnswersEn": [
+        "donation",
+        "investment"
+      ],
+      "assessedAt": "2026-10-19T09:15:34.659017+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "discrimination",
+      "w": "discrimination",
+      "p": [
+        "krei-"
+      ],
+      "rarity": 492,
+      "imagePath": "assets/word/discrimination.png",
+      "sourceOrdinal": 4507,
+      "reviewOrder": 167,
+      "localImageExists": true,
+      "imageGitBlobSha": "9fb8af35f8f430e53743e507cd2dae85a9aec698",
+      "score": 90,
+      "components": {
+        "meaningVisible": 37,
+        "conceptDistinct": 24,
+        "answerSpecific": 20,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "同じ券を持つ人の一方だけを入場拒否し差別が読める。",
+      "alternativeAnswersEn": [
+        "prejudice",
+        "exclusion"
+      ],
+      "assessedAt": "2026-10-19T09:15:34.659017+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "instruction",
+      "w": "instruction",
+      "p": [
+        "en",
+        "sterə-"
+      ],
+      "rarity": 492,
+      "imagePath": "assets/word/instruction.png",
+      "sourceOrdinal": 8233,
+      "reviewOrder": 168,
+      "localImageExists": true,
+      "imageGitBlobSha": "7a83a24acc8a6a2f9b9fd62d96d12a4f0ee6a39f",
+      "score": 87,
+      "components": {
+        "meaningVisible": 36,
+        "conceptDistinct": 23,
+        "answerSpecific": 18,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "陶芸を手添えで教える場面は教育を示すが指導も自然。",
+      "alternativeAnswersEn": [
+        "teaching",
+        "guidance"
+      ],
+      "assessedAt": "2026-10-19T09:15:34.659017+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "optimal",
+      "w": "optimal",
+      "p": [
+        "op-"
+      ],
+      "rarity": 492,
+      "imagePath": "assets/word/optimal.png",
+      "sourceOrdinal": 10879,
+      "reviewOrder": 169,
+      "localImageExists": true,
+      "imageGitBlobSha": "8149070b10b66d6ba5136ea2a4666f5a84e97359",
+      "score": 58,
+      "components": {
+        "meaningVisible": 24,
+        "conceptDistinct": 16,
+        "answerSpecific": 8,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "形の合う穴へ駒を入れるが最適という程度を特定しにくい。",
+      "alternativeAnswersEn": [
+        "fit",
+        "matching"
+      ],
+      "assessedAt": "2026-10-19T09:15:34.659017+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "pleased",
+      "w": "pleased",
+      "p": [
+        "plāk-1"
+      ],
+      "rarity": 492,
+      "imagePath": "assets/word/pleased.png",
+      "sourceOrdinal": 11958,
+      "reviewOrder": 170,
+      "localImageExists": true,
+      "imageGitBlobSha": "ed707583c0d94e610ae294c3a610dd2c1fc17207",
+      "score": 89,
+      "components": {
+        "meaningVisible": 37,
+        "conceptDistinct": 23,
+        "answerSpecific": 19,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "花を受け取り喜ぶ表情は明瞭だが嬉しいの同義語も強い。",
+      "alternativeAnswersEn": [
+        "happy",
+        "delighted"
+      ],
+      "assessedAt": "2026-10-19T09:15:34.659017+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "regulatory",
+      "w": "regulatory",
+      "p": [
+        "reg-"
+      ],
+      "rarity": 492,
+      "imagePath": "assets/word/regulatory.png",
+      "sourceOrdinal": 13252,
+      "reviewOrder": 171,
+      "localImageExists": true,
+      "imageGitBlobSha": "764ee08c68b7636b1f3ad779e254bf8610d6fb7e",
+      "score": 52,
+      "components": {
+        "meaningVisible": 22,
+        "conceptDistinct": 14,
+        "answerSpecific": 7,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "バルブと圧力計の調整は制御を示すが規制の形容詞は限定しにくい。",
+      "alternativeAnswersEn": [
+        "control",
+        "adjustment"
+      ],
+      "assessedAt": "2026-10-19T09:15:34.659017+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "revolution",
+      "w": "revolution",
+      "p": [
+        "re-",
+        "wel-3"
+      ],
+      "rarity": 492,
+      "imagePath": "assets/word/revolution.png",
+      "sourceOrdinal": 13578,
+      "reviewOrder": 172,
+      "localImageExists": true,
+      "imageGitBlobSha": "b88c2107a7853c53b17ef2153ab230a583cba0ad",
+      "score": 84,
+      "components": {
+        "meaningVisible": 35,
+        "conceptDistinct": 23,
+        "answerSpecific": 17,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "人々が王座を倒す姿は革命を示すが反乱も自然。",
+      "alternativeAnswersEn": [
+        "revolt",
+        "rebellion"
+      ],
+      "assessedAt": "2026-10-19T09:15:34.659017+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "roll",
+      "w": "roll",
+      "p": [
+        "ret-"
+      ],
+      "rarity": 492,
+      "imagePath": "assets/word/roll.png",
+      "sourceOrdinal": 13701,
+      "reviewOrder": 173,
+      "localImageExists": true,
+      "imageGitBlobSha": "84f76f82c1ac6c1241402b1c83ad500012cf40a2",
+      "score": 98,
+      "components": {
+        "meaningVisible": 40,
+        "conceptDistinct": 25,
+        "answerSpecific": 23,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "球が坂を回転して下る連続位置で転がる動作が明瞭。",
+      "alternativeAnswersEn": [
+        "rolling",
+        "ball"
+      ],
+      "assessedAt": "2026-10-19T09:15:34.659017+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "vector",
+      "w": "vector",
+      "p": [
+        "wegh-"
+      ],
+      "rarity": 492,
+      "imagePath": "assets/word/vector.png",
+      "sourceOrdinal": 16732,
+      "reviewOrder": 174,
+      "localImageExists": true,
+      "imageGitBlobSha": "d3b649fec37fee6ecb2f2d0c1c3758dede3acc75",
+      "score": 87,
+      "components": {
+        "meaningVisible": 36,
+        "conceptDistinct": 24,
+        "answerSpecific": 18,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "座標平面の向き付き矢印がベクトルを示すが矢印も答えになる。",
+      "alternativeAnswersEn": [
+        "arrow",
+        "direction"
+      ],
+      "assessedAt": "2026-10-19T09:15:34.659017+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "vertical",
+      "w": "vertical",
+      "p": [
+        "wer-2"
+      ],
+      "rarity": 492,
+      "imagePath": "assets/word/vertical.png",
+      "sourceOrdinal": 16823,
+      "reviewOrder": 175,
+      "localImageExists": true,
+      "imageGitBlobSha": "8b80e9855dd580f25d01264539906bdc9376ca2f",
+      "score": 85,
+      "components": {
+        "meaningVisible": 35,
+        "conceptDistinct": 23,
+        "answerSpecific": 17,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "柱に沿う下げ振りで垂直方向を示すが鉛直も自然。",
+      "alternativeAnswersEn": [
+        "upright",
+        "plumb"
+      ],
+      "assessedAt": "2026-10-19T09:15:34.659017+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "vulnerable",
+      "w": "vulnerable",
+      "p": [
+        "welə-2"
+      ],
+      "rarity": 492,
+      "imagePath": "assets/word/vulnerable.png",
+      "sourceOrdinal": 17020,
+      "reviewOrder": 176,
+      "localImageExists": true,
+      "imageGitBlobSha": "1ffb3b7e46e0e5587ef9b1ccdb99138826aef211",
+      "score": 70,
+      "components": {
+        "meaningVisible": 30,
+        "conceptDistinct": 19,
+        "answerSpecific": 12,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "風にさらされる細い芽と折れた木で傷つきやすさを示す。",
+      "alternativeAnswersEn": [
+        "fragile",
+        "weak"
+      ],
+      "assessedAt": "2026-10-19T09:15:34.659017+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "Wilson",
+      "w": "Wilson",
+      "p": [
+        "seuə-1"
+      ],
+      "rarity": 492,
+      "imagePath": "assets/word/Wilson.png",
+      "sourceOrdinal": 17253,
+      "reviewOrder": 177,
+      "localImageExists": true,
+      "imageGitBlobSha": "d3ec89b4b2735e994ec74270b01f3d9482f5c17b",
+      "score": 12,
+      "components": {
+        "meaningVisible": 1,
+        "conceptDistinct": 1,
+        "answerSpecific": 0,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "男性の肖像だけでは特定の名前を識別できない。",
+      "alternativeAnswersEn": [
+        "man",
+        "person"
+      ],
+      "assessedAt": "2026-10-19T09:15:34.659017+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "bacteria",
+      "w": "bacteria",
+      "p": [],
+      "rarity": 492,
+      "imagePath": "assets/word/bacteria.png",
+      "sourceOrdinal": 19153,
+      "reviewOrder": 178,
+      "localImageExists": true,
+      "imageGitBlobSha": "e3a5e2ab64295823de010de28cd4a0dd468e824d",
+      "score": 96,
+      "components": {
+        "meaningVisible": 39,
+        "conceptDistinct": 25,
+        "answerSpecific": 22,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "顕微鏡視野の桿菌や球菌の形が細菌を示す。",
+      "alternativeAnswersEn": [
+        "germs",
+        "microbes"
+      ],
+      "assessedAt": "2026-10-19T09:15:34.659017+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "rice",
+      "w": "rice",
+      "p": [],
+      "rarity": 492,
+      "imagePath": "assets/word/rice.png",
+      "sourceOrdinal": 19154,
+      "reviewOrder": 179,
+      "localImageExists": true,
+      "imageGitBlobSha": "b0d0e91f289a21b6d49672e05f31a9cab834283d",
+      "score": 99,
+      "components": {
+        "meaningVisible": 40,
+        "conceptDistinct": 25,
+        "answerSpecific": 24,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "稲穂と米粒とご飯で米の語義が明瞭。",
+      "alternativeAnswersEn": [
+        "grain",
+        "paddy"
+      ],
+      "assessedAt": "2026-10-19T09:15:34.659017+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "tip",
+      "w": "tip",
+      "p": [],
+      "rarity": 492,
+      "imagePath": "assets/word/tip.png",
+      "sourceOrdinal": 19155,
+      "reviewOrder": 180,
+      "localImageExists": true,
+      "imageGitBlobSha": "04c7b13b39c467b92fb79993b6f8842559df3cc1",
+      "score": 92,
+      "components": {
+        "meaningVisible": 38,
+        "conceptDistinct": 24,
+        "answerSpecific": 20,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "拡大された鉛筆の先端が明瞭だが鉛筆そのものも自然。",
+      "alternativeAnswersEn": [
+        "point",
+        "nib"
+      ],
+      "assessedAt": "2026-10-19T09:15:34.659017+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "occupied",
+      "w": "occupied",
+      "p": [],
+      "rarity": 492,
+      "imagePath": "assets/word/occupied.png",
+      "sourceOrdinal": 21222,
+      "reviewOrder": 181,
+      "localImageExists": true,
+      "imageGitBlobSha": "3c81ced00553918ef70d6e73bc5111e367cd10d5",
+      "score": 78,
+      "components": {
+        "meaningVisible": 33,
+        "conceptDistinct": 21,
+        "answerSpecific": 14,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "喫茶席を人が使っている状態は分かるが使用中の同義語も強い。",
+      "alternativeAnswersEn": [
+        "taken",
+        "busy"
+      ],
+      "assessedAt": "2026-10-19T09:15:34.659017+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "nineteenth",
+      "w": "nineteenth",
+      "p": [],
+      "rarity": 492,
+      "imagePath": "assets/word/nineteenth.png",
+      "sourceOrdinal": 40055,
+      "reviewOrder": 182,
+      "localImageExists": true,
+      "imageGitBlobSha": "d5043121a7bd180cb1035e6479eeb172df99d91c",
+      "score": 20,
+      "components": {
+        "meaningVisible": 6,
+        "conceptDistinct": 4,
+        "answerSpecific": 1,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "星は十八個に見え最後の星の丸だけでは十九番目を支えない。",
+      "alternativeAnswersEn": [
+        "last",
+        "eighteenth"
+      ],
+      "assessedAt": "2026-10-19T09:15:34.659017+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "reporting",
+      "w": "reporting",
+      "p": [],
+      "rarity": 492,
+      "imagePath": "assets/word/reporting.png",
+      "sourceOrdinal": 46901,
+      "reviewOrder": 183,
+      "localImageExists": true,
+      "imageGitBlobSha": "ad0239381ecd3b195f94c7211810d11447bf4ec2",
+      "score": 73,
+      "components": {
+        "meaningVisible": 31,
+        "conceptDistinct": 20,
+        "answerSpecific": 13,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "作業員が部品を上司へ説明する姿は報告を示すが相談も自然。",
+      "alternativeAnswersEn": [
+        "explaining",
+        "report"
+      ],
+      "assessedAt": "2026-10-19T09:15:34.659017+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "amazing",
+      "w": "amazing",
+      "p": [],
+      "rarity": 492,
+      "imagePath": "assets/word/amazing.png",
+      "sourceOrdinal": 47556,
+      "reviewOrder": 184,
+      "localImageExists": true,
+      "imageGitBlobSha": "966f93c2e214a313d129a2715af92e3b1affc153",
+      "score": 67,
+      "components": {
+        "meaningVisible": 29,
+        "conceptDistinct": 18,
+        "answerSpecific": 10,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "目を見開いて驚く人で驚嘆は読めるが驚くべき対象がない。",
+      "alternativeAnswersEn": [
+        "surprised",
+        "wonderful"
+      ],
+      "assessedAt": "2026-10-19T09:15:34.659017+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "tables",
+      "w": "tables",
+      "p": [],
+      "rarity": 492,
+      "imagePath": "assets/word/tables.png",
+      "sourceOrdinal": 49006,
+      "reviewOrder": 185,
+      "localImageExists": true,
+      "imageGitBlobSha": "3ee6e85ee08e7a243d7c8b77f57e26ebe1cfe515",
+      "score": 95,
+      "components": {
+        "meaningVisible": 39,
+        "conceptDistinct": 24,
+        "answerSpecific": 22,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "複数の机が見えるが椅子やカフェも競合する。",
+      "alternativeAnswersEn": [
+        "desks",
+        "cafe"
+      ],
+      "assessedAt": "2026-10-19T09:15:34.659017+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "assumption",
+      "w": "assumption",
+      "p": [
+        "ad-",
+        "em-"
+      ],
+      "rarity": 493,
+      "imagePath": "assets/word/assumption.png",
+      "sourceOrdinal": 1165,
+      "reviewOrder": 186,
+      "localImageExists": true,
+      "imageGitBlobSha": "1ce3a9803b8a41ac88189920675ca6583c9eb77b",
+      "score": 32,
+      "components": {
+        "meaningVisible": 12,
+        "conceptDistinct": 8,
+        "answerSpecific": 3,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "座る前提の椅子を強調しても仮定という思考は直接見えない。",
+      "alternativeAnswersEn": [
+        "sit",
+        "chair"
+      ],
+      "assessedAt": "2026-10-19T09:15:34.659017+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "compare",
+      "w": "compare",
+      "p": [
+        "kom",
+        "perə-2"
+      ],
+      "rarity": 493,
+      "imagePath": "assets/word/compare.png",
+      "sourceOrdinal": 3039,
+      "reviewOrder": 187,
+      "localImageExists": true,
+      "imageGitBlobSha": "88e51202628faa6d19879156ed844af958f3db3f",
+      "score": 94,
+      "components": {
+        "meaningVisible": 39,
+        "conceptDistinct": 24,
+        "answerSpecific": 21,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "左右のりんごを見比べる姿が比較を明確に示す。",
+      "alternativeAnswersEn": [
+        "contrast",
+        "choose"
+      ],
+      "assessedAt": "2026-10-19T09:15:34.659017+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "curious",
+      "w": "curious",
+      "p": [
+        "kʷei-3"
+      ],
+      "rarity": 493,
+      "imagePath": "assets/word/curious.png",
+      "sourceOrdinal": 3754,
+      "reviewOrder": 188,
+      "localImageExists": true,
+      "imageGitBlobSha": "4f681bee3af5ac69f85d1883f5569fd90859076c",
+      "score": 89,
+      "components": {
+        "meaningVisible": 37,
+        "conceptDistinct": 23,
+        "answerSpecific": 19,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "光る箱を熱心にのぞく姿は好奇心を示すが驚きも強い。",
+      "alternativeAnswersEn": [
+        "inquisitive",
+        "interested"
+      ],
+      "assessedAt": "2026-10-19T09:15:34.659017+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "delay",
+      "w": "delay",
+      "p": [
+        "de-",
+        "leip-"
+      ],
+      "rarity": 493,
+      "imagePath": "assets/word/delay.png",
+      "sourceOrdinal": 4037,
+      "reviewOrder": 189,
+      "localImageExists": true,
+      "imageGitBlobSha": "b1a1c8b3ea3d0e954b583f4833cc0192964a0334",
+      "score": 88,
+      "components": {
+        "meaningVisible": 37,
+        "conceptDistinct": 23,
+        "answerSpecific": 19,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "踏切で時計を見て待つ配達員で遅延が分かる。",
+      "alternativeAnswersEn": [
+        "wait",
+        "late"
+      ],
+      "assessedAt": "2026-10-19T09:15:34.659017+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "discover",
+      "w": "discover",
+      "p": [
+        "dwis-",
+        "wer-4"
+      ],
+      "rarity": 493,
+      "imagePath": "assets/word/discover.png",
+      "sourceOrdinal": 4499,
+      "reviewOrder": 190,
+      "localImageExists": true,
+      "imageGitBlobSha": "445b3faa9bed74e84d5ade169a2209cd68dbb1b3",
+      "score": 94,
+      "components": {
+        "meaningVisible": 39,
+        "conceptDistinct": 24,
+        "answerSpecific": 21,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "石を持ち上げ隠れた鍵を見つける姿で発見が明瞭。",
+      "alternativeAnswersEn": [
+        "find",
+        "uncover"
+      ],
+      "assessedAt": "2026-10-19T09:15:34.659017+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "exclusive",
+      "w": "exclusive",
+      "p": [
+        "eghs",
+        "klāu-"
+      ],
+      "rarity": 493,
+      "imagePath": "assets/word/exclusive.png",
+      "sourceOrdinal": 5637,
+      "reviewOrder": 191,
+      "localImageExists": true,
+      "imageGitBlobSha": "8c60f733e630a7a553205185a8cb980eb170f96c",
+      "score": 68,
+      "components": {
+        "meaningVisible": 29,
+        "conceptDistinct": 19,
+        "answerSpecific": 11,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "柵と係員で入場を制限するが独占的か限定的かは曖昧。",
+      "alternativeAnswersEn": [
+        "restricted",
+        "private"
+      ],
+      "assessedAt": "2026-10-19T09:15:34.659017+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "hypothesis",
+      "w": "hypothesis",
+      "p": [
+        "upo",
+        "dhē-"
+      ],
+      "rarity": 493,
+      "imagePath": "assets/word/hypothesis.png",
+      "sourceOrdinal": 7669,
+      "reviewOrder": 192,
+      "localImageExists": true,
+      "imageGitBlobSha": "10ee3fa479105b954cc8fabc6b926110f2c787a6",
+      "score": 65,
+      "components": {
+        "meaningVisible": 28,
+        "conceptDistinct": 18,
+        "answerSpecific": 10,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "遮光した苗との比較実験は仮説を暗示するが実験そのものも強い。",
+      "alternativeAnswersEn": [
+        "experiment",
+        "theory"
+      ],
+      "assessedAt": "2026-10-19T09:15:34.659017+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "Jackson",
+      "w": "Jackson",
+      "p": [
+        "seuə-1"
+      ],
+      "rarity": 493,
+      "imagePath": "assets/word/Jackson.png",
+      "sourceOrdinal": 8475,
+      "reviewOrder": 193,
+      "localImageExists": true,
+      "imageGitBlobSha": "29edb7ee877c50a8a05e1c6d24a397c595bf777b",
+      "score": 12,
+      "components": {
+        "meaningVisible": 1,
+        "conceptDistinct": 1,
+        "answerSpecific": 0,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "男性の肖像だけで固有名を判別できない。",
+      "alternativeAnswersEn": [
+        "man",
+        "person"
+      ],
+      "assessedAt": "2026-10-19T09:15:34.659017+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "loose",
+      "w": "loose",
+      "p": [
+        "leu-"
+      ],
+      "rarity": 493,
+      "imagePath": "assets/word/loose.png",
+      "sourceOrdinal": 9148,
+      "reviewOrder": 194,
+      "localImageExists": true,
+      "imageGitBlobSha": "536ed125c906ff71ba1fd67200b3cb21f94927e8",
+      "score": 94,
+      "components": {
+        "meaningVisible": 39,
+        "conceptDistinct": 24,
+        "answerSpecific": 21,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "腰回りが余るズボンを引く姿でゆるさが明瞭。",
+      "alternativeAnswersEn": [
+        "baggy",
+        "slack"
+      ],
+      "assessedAt": "2026-10-19T09:15:34.659017+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "prediction",
+      "w": "prediction",
+      "p": [
+        "per1",
+        "deik-"
+      ],
+      "rarity": 493,
+      "imagePath": "assets/word/prediction.png",
+      "sourceOrdinal": 12276,
+      "reviewOrder": 195,
+      "localImageExists": true,
+      "imageGitBlobSha": "a84294dbd5481f6200307fb1f5744547e360a8aa",
+      "score": 61,
+      "components": {
+        "meaningVisible": 26,
+        "conceptDistinct": 17,
+        "answerSpecific": 9,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "雨雲を見て苗を覆う姿は予測を示すが対策や雨も自然。",
+      "alternativeAnswersEn": [
+        "forecast",
+        "preparation"
+      ],
+      "assessedAt": "2026-10-19T09:15:34.659017+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "recall",
+      "w": "recall",
+      "p": [
+        "re-",
+        "gal-2"
+      ],
+      "rarity": 493,
+      "imagePath": "assets/word/recall.png",
+      "sourceOrdinal": 13088,
+      "reviewOrder": 196,
+      "localImageExists": true,
+      "imageGitBlobSha": "b7036eaf8aa4a13a0d1459c286ad9f714c07fc8d",
+      "score": 78,
+      "components": {
+        "meaningVisible": 33,
+        "conceptDistinct": 21,
+        "answerSpecific": 15,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "古い写真と玩具を懐かしむ姿は思い出す意味を示す。",
+      "alternativeAnswersEn": [
+        "remember",
+        "memory"
+      ],
+      "assessedAt": "2026-10-19T09:15:34.659017+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "royal",
+      "w": "royal",
+      "p": [
+        "reg-"
+      ],
+      "rarity": 493,
+      "imagePath": "assets/word/royal.png",
+      "sourceOrdinal": 13762,
+      "reviewOrder": 197,
+      "localImageExists": true,
+      "imageGitBlobSha": "7b0764dd110cd4e063c9a25738b03d258a63d625",
+      "score": 87,
+      "components": {
+        "meaningVisible": 36,
+        "conceptDistinct": 23,
+        "answerSpecific": 18,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "王冠と王座と豪華な衣装で王の属性が読めるが王自身も強い。",
+      "alternativeAnswersEn": [
+        "king",
+        "regal"
+      ],
+      "assessedAt": "2026-10-19T09:15:34.659017+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "strike",
+      "w": "strike",
+      "p": [
+        "streig-"
+      ],
+      "rarity": 493,
+      "imagePath": "assets/word/strike.png",
+      "sourceOrdinal": 15242,
+      "reviewOrder": 198,
+      "localImageExists": true,
+      "imageGitBlobSha": "41f4a08ab5989809d12096d31dd36962c82bc0be",
+      "score": 96,
+      "components": {
+        "meaningVisible": 40,
+        "conceptDistinct": 24,
+        "answerSpecific": 22,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "木槌を振って杭を打つ動作が明瞭。",
+      "alternativeAnswersEn": [
+        "hit",
+        "hammer"
+      ],
+      "assessedAt": "2026-10-19T09:15:34.659017+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "theme",
+      "w": "theme",
+      "p": [
+        "dhē-"
+      ],
+      "rarity": 493,
+      "imagePath": "assets/word/theme.png",
+      "sourceOrdinal": 15895,
+      "reviewOrder": 199,
+      "localImageExists": true,
+      "imageGitBlobSha": "593f0549bc0dc9419e01882b9b45ae21399c78fb",
+      "score": 57,
+      "components": {
+        "meaningVisible": 24,
+        "conceptDistinct": 16,
+        "answerSpecific": 8,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "海に関連する絵と貝と魚を揃えるが主題という抽象語には絞れない。",
+      "alternativeAnswersEn": [
+        "marine",
+        "collection"
+      ],
+      "assessedAt": "2026-10-19T09:15:34.659017+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "crazy",
+      "w": "crazy",
+      "p": [],
+      "rarity": 493,
+      "imagePath": "assets/word/crazy.png",
+      "sourceOrdinal": 19156,
+      "reviewOrder": 200,
+      "localImageExists": true,
+      "imageGitBlobSha": "4f48c80751bf95ebc0c9c0867bce1c20de55f7e9",
+      "score": 58,
+      "components": {
+        "meaningVisible": 25,
+        "conceptDistinct": 16,
+        "answerSpecific": 8,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "模型飛行機に夢中の姿は熱中を示すが趣味や興奮も自然。",
+      "alternativeAnswersEn": [
+        "enthusiastic",
+        "obsessed"
+      ],
+      "assessedAt": "2026-10-19T09:15:34.659017+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "specified",
+      "w": "specified",
+      "p": [],
+      "rarity": 493,
+      "imagePath": "assets/word/specified.png",
+      "sourceOrdinal": 20922,
+      "reviewOrder": 202,
+      "localImageExists": true,
+      "imageGitBlobSha": "1bca50755f161a07a0023b05fad074166ba71301",
+      "score": 65,
+      "components": {
+        "meaningVisible": 28,
+        "conceptDistinct": 18,
+        "answerSpecific": 10,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "籠の中の赤いりんごを指すが指定された物か選択中かが曖昧。",
+      "alternativeAnswersEn": [
+        "selected",
+        "particular"
+      ],
+      "assessedAt": "2026-10-19T09:17:03.881703+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "activation",
+      "w": "activation",
+      "p": [
+        "ag-"
+      ],
+      "rarity": 494,
+      "imagePath": "assets/word/activation.png",
+      "sourceOrdinal": 187,
+      "reviewOrder": 204,
+      "localImageExists": true,
+      "imageGitBlobSha": "1816590a3dcab914c586f040fb85c354338d43f4",
+      "score": 89,
+      "components": {
+        "meaningVisible": 37,
+        "conceptDistinct": 23,
+        "answerSpecific": 19,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "ボタンを押して機械の表示が点灯し起動を示す。",
+      "alternativeAnswersEn": [
+        "start",
+        "switch on"
+      ],
+      "assessedAt": "2026-10-19T09:17:03.881703+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "applicable",
+      "w": "applicable",
+      "p": [
+        "ad-",
+        "plek-",
+        "-tro-"
+      ],
+      "rarity": 494,
+      "imagePath": "assets/word/applicable.png",
+      "sourceOrdinal": 943,
+      "reviewOrder": 205,
+      "localImageExists": true,
+      "imageGitBlobSha": "7ff1ca79cd508f7d409e804a97a69a69dbeb8fb3",
+      "score": 61,
+      "components": {
+        "meaningVisible": 26,
+        "conceptDistinct": 17,
+        "answerSpecific": 9,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "工具を自転車の部品へ合わせるが適用可能という抽象性は限定しにくい。",
+      "alternativeAnswersEn": [
+        "suitable",
+        "fit"
+      ],
+      "assessedAt": "2026-10-19T09:17:03.881703+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "attend",
+      "w": "attend",
+      "p": [
+        "ad-",
+        "ten-"
+      ],
+      "rarity": 494,
+      "imagePath": "assets/word/attend.png",
+      "sourceOrdinal": 1232,
+      "reviewOrder": 206,
+      "localImageExists": true,
+      "imageGitBlobSha": "5f6b7d000e88bef77d550b217dc1ac42189ff5fe",
+      "score": 83,
+      "components": {
+        "meaningVisible": 35,
+        "conceptDistinct": 22,
+        "answerSpecific": 17,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "教室で説明を聞く人々は出席を示すが学ぶや授業も自然。",
+      "alternativeAnswersEn": [
+        "listen",
+        "learn"
+      ],
+      "assessedAt": "2026-10-19T09:17:03.881703+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "electron",
+      "w": "electron",
+      "p": [
+        "ei-"
+      ],
+      "rarity": 494,
+      "imagePath": "assets/word/electron.png",
+      "sourceOrdinal": 5055,
+      "reviewOrder": 207,
+      "localImageExists": true,
+      "imageGitBlobSha": "3fe417d04793abf3011a42f94f16dd7ed8839623",
+      "score": 77,
+      "components": {
+        "meaningVisible": 32,
+        "conceptDistinct": 22,
+        "answerSpecific": 14,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "原子核の周りの小粒を示すが電子の識別は負記号への依存もある。",
+      "alternativeAnswersEn": [
+        "atom",
+        "particle"
+      ],
+      "assessedAt": "2026-10-19T09:17:03.881703+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "ex",
+      "w": "ex",
+      "p": [
+        "eghs"
+      ],
+      "rarity": 494,
+      "imagePath": "assets/word/ex.png",
+      "sourceOrdinal": 5600,
+      "reviewOrder": 208,
+      "localImageExists": true,
+      "imageGitBlobSha": "2e69c9fb40db9eb46fd4777fdeb9de57d559fda1",
+      "score": 50,
+      "components": {
+        "meaningVisible": 21,
+        "conceptDistinct": 14,
+        "answerSpecific": 6,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "写真と荷物を返す男女は別れを示唆するが元恋人とは確定しない。",
+      "alternativeAnswersEn": [
+        "breakup",
+        "former partner"
+      ],
+      "assessedAt": "2026-10-19T09:17:03.881703+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "gentle",
+      "w": "gentle",
+      "p": [
+        "genə-"
+      ],
+      "rarity": 494,
+      "imagePath": "assets/word/gentle.png",
+      "sourceOrdinal": 6709,
+      "reviewOrder": 209,
+      "localImageExists": true,
+      "imageGitBlobSha": "1e6ab32c9030e6999e8e5fc49fb9614eb61d53c9",
+      "score": 92,
+      "components": {
+        "meaningVisible": 38,
+        "conceptDistinct": 24,
+        "answerSpecific": 20,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "子猫をやわらかく抱いてなでる様子で優しさが読める。",
+      "alternativeAnswersEn": [
+        "kind",
+        "tender"
+      ],
+      "assessedAt": "2026-10-19T09:17:03.881703+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "mutual",
+      "w": "mutual",
+      "p": [
+        "mei-1"
+      ],
+      "rarity": 494,
+      "imagePath": "assets/word/mutual.png",
+      "sourceOrdinal": 10215,
+      "reviewOrder": 210,
+      "localImageExists": true,
+      "imageGitBlobSha": "50c799d99e583773bd7f476965a606bb1430f59b",
+      "score": 74,
+      "components": {
+        "meaningVisible": 31,
+        "conceptDistinct": 20,
+        "answerSpecific": 13,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "二人が互いに傘を差しかける関係は相互性を示す。",
+      "alternativeAnswersEn": [
+        "reciprocal",
+        "sharing"
+      ],
+      "assessedAt": "2026-10-19T09:17:03.881703+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "necessity",
+      "w": "necessity",
+      "p": [
+        "ne",
+        "ked-"
+      ],
+      "rarity": 494,
+      "imagePath": "assets/word/necessity.png",
+      "sourceOrdinal": 10322,
+      "reviewOrder": 211,
+      "localImageExists": true,
+      "imageGitBlobSha": "5bd91d8da81d4603d8965470512d8d9afd2a2bee",
+      "score": 57,
+      "components": {
+        "meaningVisible": 24,
+        "conceptDistinct": 16,
+        "answerSpecific": 8,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "炊飯に水が必要な状況を示唆するが水や料理も強い。",
+      "alternativeAnswersEn": [
+        "need",
+        "water"
+      ],
+      "assessedAt": "2026-10-19T09:17:03.881703+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "planet",
+      "w": "planet",
+      "p": [
+        "pelə-2"
+      ],
+      "rarity": 494,
+      "imagePath": "assets/word/planet.png",
+      "sourceOrdinal": 11911,
+      "reviewOrder": 212,
+      "localImageExists": true,
+      "imageGitBlobSha": "d4cc058367c41dd77180495f4eccbd54044c72fc",
+      "score": 92,
+      "components": {
+        "meaningVisible": 38,
+        "conceptDistinct": 24,
+        "answerSpecific": 20,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "宇宙に浮かぶ地球型の球で惑星を示すが地球も強い。",
+      "alternativeAnswersEn": [
+        "earth",
+        "world"
+      ],
+      "assessedAt": "2026-10-19T09:17:03.881703+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "punishment",
+      "w": "punishment",
+      "p": [
+        "kʷei-1"
+      ],
+      "rarity": 494,
+      "imagePath": "assets/word/punishment.png",
+      "sourceOrdinal": 12745,
+      "reviewOrder": 213,
+      "localImageExists": true,
+      "imageGitBlobSha": "9b6f415fdbae918dce819695f961d9f9069ed57a",
+      "score": 91,
+      "components": {
+        "meaningVisible": 38,
+        "conceptDistinct": 24,
+        "answerSpecific": 20,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "審判が反則者へ退場カードを示し罰を表すが退場も自然。",
+      "alternativeAnswersEn": [
+        "penalty",
+        "discipline"
+      ],
+      "assessedAt": "2026-10-19T09:17:03.881703+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "simulation",
+      "w": "simulation",
+      "p": [
+        "sem-1"
+      ],
+      "rarity": 494,
+      "imagePath": "assets/word/simulation.png",
+      "sourceOrdinal": 14524,
+      "reviewOrder": 214,
+      "localImageExists": true,
+      "imageGitBlobSha": "8a2810ad7837e11b565a089b90178de7df4435b7",
+      "score": 93,
+      "components": {
+        "meaningVisible": 39,
+        "conceptDistinct": 24,
+        "answerSpecific": 21,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "実機でなく画面と操縦席を使うので模擬飛行が読める。",
+      "alternativeAnswersEn": [
+        "simulator",
+        "training"
+      ],
+      "assessedAt": "2026-10-19T09:17:03.881703+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "simultaneously",
+      "w": "simultaneously",
+      "p": [
+        "sem-1"
+      ],
+      "rarity": 494,
+      "imagePath": "assets/word/simultaneously.png",
+      "sourceOrdinal": 14527,
+      "reviewOrder": 215,
+      "localImageExists": true,
+      "imageGitBlobSha": "92339a739dd6346b760861a4632328cc867a7a70",
+      "score": 84,
+      "components": {
+        "meaningVisible": 35,
+        "conceptDistinct": 23,
+        "answerSpecific": 17,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "同じ時計の下で二人が同時に卵を割り時間の一致を示す。",
+      "alternativeAnswersEn": [
+        "together",
+        "same time"
+      ],
+      "assessedAt": "2026-10-19T09:17:03.881703+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "tourism",
+      "w": "tourism",
+      "p": [
+        "terə-1",
+        "-mo-"
+      ],
+      "rarity": 494,
+      "imagePath": "assets/word/tourism.png",
+      "sourceOrdinal": 16103,
+      "reviewOrder": 216,
+      "localImageExists": true,
+      "imageGitBlobSha": "22d3e46061b8b596a44221818188f6a72dabcc0a",
+      "score": 86,
+      "components": {
+        "meaningVisible": 36,
+        "conceptDistinct": 23,
+        "answerSpecific": 18,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "城を訪れる旅行者と案内人で観光を示すが旅行も自然。",
+      "alternativeAnswersEn": [
+        "sightseeing",
+        "travel"
+      ],
+      "assessedAt": "2026-10-19T09:17:03.881703+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "Francis",
+      "w": "Francis",
+      "p": [],
+      "rarity": 494,
+      "imagePath": "assets/word/Francis.png",
+      "sourceOrdinal": 19158,
+      "reviewOrder": 217,
+      "localImageExists": true,
+      "imageGitBlobSha": "d52cf2c22b1f2c2c87567762231f12ca0322ed1a",
+      "score": 12,
+      "components": {
+        "meaningVisible": 1,
+        "conceptDistinct": 1,
+        "answerSpecific": 0,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "人物の肖像だけでフランシスという名前は識別できない。",
+      "alternativeAnswersEn": [
+        "woman",
+        "person"
+      ],
+      "assessedAt": "2026-10-19T09:17:03.881703+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "boundary",
+      "w": "boundary",
+      "p": [],
+      "rarity": 494,
+      "imagePath": "assets/word/boundary.png",
+      "sourceOrdinal": 19159,
+      "reviewOrder": 218,
+      "localImageExists": true,
+      "imageGitBlobSha": "b4daf89a858a71800d07fb244b54b168a408bf6a",
+      "score": 94,
+      "components": {
+        "meaningVisible": 39,
+        "conceptDistinct": 24,
+        "answerSpecific": 21,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "土地を二分する柵で境界が明瞭だが柵そのものも自然。",
+      "alternativeAnswersEn": [
+        "border",
+        "fence"
+      ],
+      "assessedAt": "2026-10-19T09:17:03.881703+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "plot",
+      "w": "plot",
+      "p": [],
+      "rarity": 494,
+      "imagePath": "assets/word/plot.png",
+      "sourceOrdinal": 19160,
+      "reviewOrder": 219,
+      "localImageExists": true,
+      "imageGitBlobSha": "2ba70771d2fca95721e08f2b988265e6f5b7c84d",
+      "score": 76,
+      "components": {
+        "meaningVisible": 32,
+        "conceptDistinct": 21,
+        "answerSpecific": 14,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "地図と鍵を前にひそひそ相談する姿が陰謀を示唆する。",
+      "alternativeAnswersEn": [
+        "scheme",
+        "plan"
+      ],
+      "assessedAt": "2026-10-19T09:17:03.881703+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "scenario",
+      "w": "scenario",
+      "p": [],
+      "rarity": 494,
+      "imagePath": "assets/word/scenario.png",
+      "sourceOrdinal": 19161,
+      "reviewOrder": 220,
+      "localImageExists": true,
+      "imageGitBlobSha": "d25bf805e624b9fa834bb8c8d117f8cdc612c72a",
+      "score": 57,
+      "components": {
+        "meaningVisible": 24,
+        "conceptDistinct": 16,
+        "answerSpecific": 8,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "脚本の紙と撮影道具はシナリオを示すが脚本の同義語も強い。",
+      "alternativeAnswersEn": [
+        "script",
+        "screenplay"
+      ],
+      "assessedAt": "2026-10-19T09:17:03.881703+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "dying",
+      "w": "dying",
+      "p": [],
+      "rarity": 494,
+      "imagePath": "assets/word/dying.png",
+      "sourceOrdinal": 21225,
+      "reviewOrder": 221,
+      "localImageExists": true,
+      "imageGitBlobSha": "6ba67962a6816760d686b53a785d3277ae3fa466",
+      "score": 92,
+      "components": {
+        "meaningVisible": 38,
+        "conceptDistinct": 24,
+        "answerSpecific": 20,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "しおれ枯れかけた花で死にかけの状態が明瞭。",
+      "alternativeAnswersEn": [
+        "wilting",
+        "withering"
+      ],
+      "assessedAt": "2026-10-19T09:17:03.881703+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "blind",
+      "w": "blind",
+      "p": [
+        "bhel-1"
+      ],
+      "rarity": 495,
+      "imagePath": "assets/word/blind.png",
+      "sourceOrdinal": 1810,
+      "reviewOrder": 222,
+      "localImageExists": true,
+      "imageGitBlobSha": "c1bf544b91757c4c5bbcf6eab4278f3edea3ca8a",
+      "score": 96,
+      "components": {
+        "meaningVisible": 39,
+        "conceptDistinct": 25,
+        "answerSpecific": 22,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "白杖とサングラスを使う歩行者で視覚障害が明瞭。",
+      "alternativeAnswersEn": [
+        "sightless",
+        "visually impaired"
+      ],
+      "assessedAt": "2026-10-19T09:17:03.881703+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "button",
+      "w": "button",
+      "p": [
+        "bhau-"
+      ],
+      "rarity": 495,
+      "imagePath": "assets/word/button.png",
+      "sourceOrdinal": 2137,
+      "reviewOrder": 223,
+      "localImageExists": true,
+      "imageGitBlobSha": "8b1134420c2d0a3a6baf9d4659ae7743742ac2f8",
+      "score": 99,
+      "components": {
+        "meaningVisible": 40,
+        "conceptDistinct": 25,
+        "answerSpecific": 24,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "穴のある衣服用ボタンを針糸とともに大きく描く。",
+      "alternativeAnswersEn": [
+        "fastener",
+        "sewing"
+      ],
+      "assessedAt": "2026-10-19T09:17:03.881703+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "cream",
+      "w": "cream",
+      "p": [
+        "ghrēi-"
+      ],
+      "rarity": 495,
+      "imagePath": "assets/word/cream.png",
+      "sourceOrdinal": 3595,
+      "reviewOrder": 224,
+      "localImageExists": true,
+      "imageGitBlobSha": "b7d71dc5a244f2f318189930d2747c78a2e7dbf8",
+      "score": 93,
+      "components": {
+        "meaningVisible": 38,
+        "conceptDistinct": 24,
+        "answerSpecific": 21,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "白い柔らかな盛りとスプーンでクリームを示すがヨーグルトもあり得る。",
+      "alternativeAnswersEn": [
+        "whipped cream",
+        "yogurt"
+      ],
+      "assessedAt": "2026-10-19T09:17:03.881703+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "fairly",
+      "w": "fairly",
+      "p": [
+        "pek-1"
+      ],
+      "rarity": 495,
+      "imagePath": "assets/word/fairly.png",
+      "sourceOrdinal": 5842,
+      "reviewOrder": 225,
+      "localImageExists": true,
+      "imageGitBlobSha": "2c007a02a1acbf00babd91e2874eddc3ca73ef05",
+      "score": 65,
+      "components": {
+        "meaningVisible": 27,
+        "conceptDistinct": 18,
+        "answerSpecific": 10,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "等しい重りの天秤は公平を示すが公平にという副詞の限定は弱い。",
+      "alternativeAnswersEn": [
+        "equally",
+        "balance"
+      ],
+      "assessedAt": "2026-10-19T09:17:03.881703+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "hat",
+      "w": "hat",
+      "p": [
+        "kādh-"
+      ],
+      "rarity": 495,
+      "imagePath": "assets/word/hat.png",
+      "sourceOrdinal": 7207,
+      "reviewOrder": 226,
+      "localImageExists": true,
+      "imageGitBlobSha": "5f5901edbb6f012b3cb8e204edf3843036fee65d",
+      "score": 99,
+      "components": {
+        "meaningVisible": 40,
+        "conceptDistinct": 25,
+        "answerSpecific": 24,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "つばとクラウンのある帽子が単独で明瞭。",
+      "alternativeAnswersEn": [
+        "fedora",
+        "headwear"
+      ],
+      "assessedAt": "2026-10-19T09:17:03.881703+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "impression",
+      "w": "impression",
+      "p": [
+        "en",
+        "per-4"
+      ],
+      "rarity": 495,
+      "imagePath": "assets/word/impression.png",
+      "sourceOrdinal": 7864,
+      "reviewOrder": 227,
+      "localImageExists": true,
+      "imageGitBlobSha": "2cfafa071628debcbcf4640d6d2dae26c19e7235",
+      "score": 54,
+      "components": {
+        "meaningVisible": 23,
+        "conceptDistinct": 15,
+        "answerSpecific": 7,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "工房を見て感心する人は印象を暗示するが感嘆も自然。",
+      "alternativeAnswersEn": [
+        "admiration",
+        "impressed"
+      ],
+      "assessedAt": "2026-10-19T09:17:03.881703+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "inch",
+      "w": "inch",
+      "p": [
+        "oi-no-"
+      ],
+      "rarity": 495,
+      "imagePath": "assets/word/inch.png",
+      "sourceOrdinal": 7921,
+      "reviewOrder": 228,
+      "localImageExists": true,
+      "imageGitBlobSha": "46e0fb15fade8cb66c8c79f3e518b1de6666a398",
+      "score": 37,
+      "components": {
+        "meaningVisible": 14,
+        "conceptDistinct": 10,
+        "answerSpecific": 3,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "短い定規と長さの矢印だけではインチという単位を定められない。",
+      "alternativeAnswersEn": [
+        "length",
+        "measure"
+      ],
+      "assessedAt": "2026-10-19T09:17:03.881703+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "partly",
+      "w": "partly",
+      "p": [
+        "perə-2"
+      ],
+      "rarity": 495,
+      "imagePath": "assets/word/partly.png",
+      "sourceOrdinal": 11321,
+      "reviewOrder": 229,
+      "localImageExists": true,
+      "imageGitBlobSha": "9666c19c5ceaf869d956910d175a057a8890cb5c",
+      "score": 88,
+      "components": {
+        "meaningVisible": 37,
+        "conceptDistinct": 23,
+        "answerSpecific": 18,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "柵の半分だけ塗られた状態で部分的が読める。",
+      "alternativeAnswersEn": [
+        "partially",
+        "half"
+      ],
+      "assessedAt": "2026-10-19T09:17:03.881703+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "privacy",
+      "w": "privacy",
+      "p": [
+        "per1"
+      ],
+      "rarity": 495,
+      "imagePath": "assets/word/privacy.png",
+      "sourceOrdinal": 12426,
+      "reviewOrder": 230,
+      "localImageExists": true,
+      "imageGitBlobSha": "6a7c4f9d47048f517bb1afc7523e564eb170341d",
+      "score": 81,
+      "components": {
+        "meaningVisible": 34,
+        "conceptDistinct": 22,
+        "answerSpecific": 16,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "部屋のカーテンを閉じる行為は私生活の保護を示唆する。",
+      "alternativeAnswersEn": [
+        "private",
+        "curtain"
+      ],
+      "assessedAt": "2026-10-19T09:17:03.881703+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "reputation",
+      "w": "reputation",
+      "p": [
+        "re-",
+        "pau-2"
+      ],
+      "rarity": 495,
+      "imagePath": "assets/word/reputation.png",
+      "sourceOrdinal": 13415,
+      "reviewOrder": 231,
+      "localImageExists": true,
+      "imageGitBlobSha": "e312fa90d4817982059441d71cd840f15cdef002",
+      "score": 54,
+      "components": {
+        "meaningVisible": 23,
+        "conceptDistinct": 15,
+        "answerSpecific": 7,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "自転車の人々が作業員を評価する姿は評判を暗示するが会話も自然。",
+      "alternativeAnswersEn": [
+        "respect",
+        "praise"
+      ],
+      "assessedAt": "2026-10-19T09:17:03.881703+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "restaurant",
+      "w": "restaurant",
+      "p": [
+        "re-",
+        "stā-",
+        "-nt-"
+      ],
+      "rarity": 495,
+      "imagePath": "assets/word/restaurant.png",
+      "sourceOrdinal": 13485,
+      "reviewOrder": 232,
+      "localImageExists": true,
+      "imageGitBlobSha": "6338f2d97572dba70bccc1cbbe322e2b97b4d305",
+      "score": 98,
+      "components": {
+        "meaningVisible": 40,
+        "conceptDistinct": 25,
+        "answerSpecific": 23,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "飲食用の席と料理を運ぶ給仕でレストランが明瞭。",
+      "alternativeAnswersEn": [
+        "cafe",
+        "dining"
+      ],
+      "assessedAt": "2026-10-19T09:17:03.881703+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "player",
+      "w": "player",
+      "p": [],
+      "rarity": 495,
+      "imagePath": "assets/word/player.png",
+      "sourceOrdinal": 19116,
+      "reviewOrder": 233,
+      "localImageExists": true,
+      "imageGitBlobSha": "343cbded60cda37c00296c130a78a0f240da12bd",
+      "score": 94,
+      "components": {
+        "meaningVisible": 39,
+        "conceptDistinct": 24,
+        "answerSpecific": 21,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "コートでドリブルする競技者で選手が読めるがバスケも強い。",
+      "alternativeAnswersEn": [
+        "athlete",
+        "basketball"
+      ],
+      "assessedAt": "2026-10-19T09:17:03.881703+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "guilty",
+      "w": "guilty",
+      "p": [],
+      "rarity": 495,
+      "imagePath": "assets/word/guilty.png",
+      "sourceOrdinal": 19162,
+      "reviewOrder": 234,
+      "localImageExists": true,
+      "imageGitBlobSha": "007d5fa83b6d93c835bb0dc0c903c4e159363fd7",
+      "score": 89,
+      "components": {
+        "meaningVisible": 37,
+        "conceptDistinct": 23,
+        "answerSpecific": 19,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "割れた植木鉢の前で申し訳なさそうな子が罪悪感を示す。",
+      "alternativeAnswersEn": [
+        "ashamed",
+        "sorry"
+      ],
+      "assessedAt": "2026-10-19T09:17:03.881703+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "movie",
+      "w": "movie",
+      "p": [],
+      "rarity": 495,
+      "imagePath": "assets/word/movie.png",
+      "sourceOrdinal": 19163,
+      "reviewOrder": 235,
+      "localImageExists": true,
+      "imageGitBlobSha": "c4bef11f9274cf4e82da1b16b4a8e367f2012b8c",
+      "score": 90,
+      "components": {
+        "meaningVisible": 37,
+        "conceptDistinct": 24,
+        "answerSpecific": 19,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "フィルムと映写画面とカチンコで映画が読めるが映像も自然。",
+      "alternativeAnswersEn": [
+        "film",
+        "cinema"
+      ],
+      "assessedAt": "2026-10-19T09:17:03.881703+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "tube",
+      "w": "tube",
+      "p": [],
+      "rarity": 495,
+      "imagePath": "assets/word/tube.png",
+      "sourceOrdinal": 19164,
+      "reviewOrder": 236,
+      "localImageExists": true,
+      "imageGitBlobSha": "b78e22f4bdc3270d4f92b1bf116553dd5767b7dd",
+      "score": 98,
+      "components": {
+        "meaningVisible": 40,
+        "conceptDistinct": 25,
+        "answerSpecific": 23,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "両端が開いた中空円筒で管が明瞭。",
+      "alternativeAnswersEn": [
+        "pipe",
+        "cylinder"
+      ],
+      "assessedAt": "2026-10-19T09:17:03.881703+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "essentially",
+      "w": "essentially",
+      "p": [],
+      "rarity": 495,
+      "imagePath": "assets/word/essentially.png",
+      "sourceOrdinal": 21205,
+      "reviewOrder": 237,
+      "localImageExists": true,
+      "imageGitBlobSha": "4d1421cdc339235130674fb29f3318442dc0a838",
+      "score": 29,
+      "components": {
+        "meaningVisible": 10,
+        "conceptDistinct": 7,
+        "answerSpecific": 2,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "家の基礎を強調しても本質的にという副詞は直接分からない。",
+      "alternativeAnswersEn": [
+        "foundation",
+        "base"
+      ],
+      "assessedAt": "2026-10-19T09:17:03.881703+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "clothing",
+      "w": "clothing",
+      "p": [],
+      "rarity": 495,
+      "imagePath": "assets/word/clothing.png",
+      "sourceOrdinal": 47864,
+      "reviewOrder": 238,
+      "localImageExists": true,
+      "imageGitBlobSha": "d8956c753ca71a6492093d8ce267e08b92cb15de",
+      "score": 94,
+      "components": {
+        "meaningVisible": 39,
+        "conceptDistinct": 24,
+        "answerSpecific": 21,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "上着とスカートと靴をまとめた展示で衣類が明瞭。",
+      "alternativeAnswersEn": [
+        "clothes",
+        "outfit"
+      ],
+      "assessedAt": "2026-10-19T09:17:03.881703+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "scared",
+      "w": "scared",
+      "p": [],
+      "rarity": 495,
+      "imagePath": "assets/word/scared.png",
+      "sourceOrdinal": 49117,
+      "reviewOrder": 239,
+      "localImageExists": true,
+      "imageGitBlobSha": "31172751156dcca3aaf9752e834fc790e890f05a",
+      "score": 97,
+      "components": {
+        "meaningVisible": 40,
+        "conceptDistinct": 25,
+        "answerSpecific": 22,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "身を縮め目を見開く表情で恐怖が明瞭。",
+      "alternativeAnswersEn": [
+        "afraid",
+        "frightened"
+      ],
+      "assessedAt": "2026-10-19T09:17:03.881703+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "arise",
+      "w": "arise",
+      "p": [
+        "er-1"
+      ],
+      "rarity": 496,
+      "imagePath": "assets/word/arise.png",
+      "sourceOrdinal": 1038,
+      "reviewOrder": 240,
+      "localImageExists": true,
+      "imageGitBlobSha": "6921bd50e43f6162ec74c2c04ad8bb56e8ef1223",
+      "score": 23,
+      "components": {
+        "meaningVisible": 8,
+        "conceptDistinct": 5,
+        "answerSpecific": 1,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "壁を押し亀裂が入る場面は起こるという語へは絞れない。",
+      "alternativeAnswersEn": [
+        "push",
+        "break"
+      ],
+      "assessedAt": "2026-10-19T09:17:03.881703+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "fuck",
+      "w": "fuck",
+      "p": [
+        "peuk-"
+      ],
+      "rarity": 496,
+      "imagePath": "assets/word/fuck.png",
+      "sourceOrdinal": 6489,
+      "reviewOrder": 241,
+      "localImageExists": true,
+      "imageGitBlobSha": "5bb31f5127e82b5374c1e562b04d82d7fb435150",
+      "score": 41,
+      "components": {
+        "meaningVisible": 17,
+        "conceptDistinct": 11,
+        "answerSpecific": 4,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "パソコンへ飲み物をこぼして怒る姿は罵声を暗示するが語の特定がない。",
+      "alternativeAnswersEn": [
+        "damn",
+        "angry"
+      ],
+      "assessedAt": "2026-10-19T09:17:03.881703+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "liability",
+      "w": "liability",
+      "p": [
+        "leig-"
+      ],
+      "rarity": 496,
+      "imagePath": "assets/word/liability.png",
+      "sourceOrdinal": 8965,
+      "reviewOrder": 242,
+      "localImageExists": true,
+      "imageGitBlobSha": "f4daead6f61ea9b8b1dc49a43094bdf089ded084",
+      "score": 62,
+      "components": {
+        "meaningVisible": 27,
+        "conceptDistinct": 17,
+        "answerSpecific": 9,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "割った鉢の前で困る子は責任を示唆するが損害や失敗も自然。",
+      "alternativeAnswersEn": [
+        "responsibility",
+        "damage"
+      ],
+      "assessedAt": "2026-10-19T09:17:03.881703+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "minister",
+      "w": "minister",
+      "p": [
+        "mei-2"
+      ],
+      "rarity": 496,
+      "imagePath": "assets/word/minister.png",
+      "sourceOrdinal": 9849,
+      "reviewOrder": 243,
+      "localImageExists": true,
+      "imageGitBlobSha": "41640584074ab07244ad9a58730bf2160deb160e",
+      "score": 81,
+      "components": {
+        "meaningVisible": 34,
+        "conceptDistinct": 22,
+        "answerSpecific": 16,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "公的建物を背に演説する人物は大臣を示すが政治家も自然。",
+      "alternativeAnswersEn": [
+        "politician",
+        "official"
+      ],
+      "assessedAt": "2026-10-19T09:17:03.881703+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "reserved",
+      "w": "reserved",
+      "p": [
+        "re-",
+        "ser-1"
+      ],
+      "rarity": 496,
+      "imagePath": "assets/word/reserved.png",
+      "sourceOrdinal": 13440,
+      "reviewOrder": 244,
+      "localImageExists": true,
+      "imageGitBlobSha": "8c4f1d42082aa4af85cff7c286294ae26d50d23b",
+      "score": 70,
+      "components": {
+        "meaningVisible": 30,
+        "conceptDistinct": 19,
+        "answerSpecific": 12,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "話す二人の間で静かな女性は控え目さを示すが内気も強い。",
+      "alternativeAnswersEn": [
+        "shy",
+        "quiet"
+      ],
+      "assessedAt": "2026-10-19T09:17:03.881703+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "slight",
+      "w": "slight",
+      "p": [
+        "(s)lei-"
+      ],
+      "rarity": 496,
+      "imagePath": "assets/word/slight.png",
+      "sourceOrdinal": 14624,
+      "reviewOrder": 245,
+      "localImageExists": true,
+      "imageGitBlobSha": "79f951a3b5b52b528244b8ec9274d45c86546f5a",
+      "score": 69,
+      "components": {
+        "meaningVisible": 29,
+        "conceptDistinct": 19,
+        "answerSpecific": 11,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "底に少量の水があるがわずかという形容詞と少量の名詞が競合する。",
+      "alternativeAnswersEn": [
+        "little",
+        "small amount"
+      ],
+      "assessedAt": "2026-10-19T09:17:03.881703+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "electrical",
+      "w": "electrical",
+      "p": [],
+      "rarity": 496,
+      "imagePath": "assets/word/electrical.png",
+      "sourceOrdinal": 19165,
+      "reviewOrder": 246,
+      "localImageExists": true,
+      "imageGitBlobSha": "7d06cf10eac222e8a058714fb96699131a0fa99c",
+      "score": 87,
+      "components": {
+        "meaningVisible": 36,
+        "conceptDistinct": 23,
+        "answerSpecific": 18,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "電池と配線と点灯した電球は電気の属性を示す。",
+      "alternativeAnswersEn": [
+        "electric",
+        "circuit"
+      ],
+      "assessedAt": "2026-10-19T09:17:03.881703+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "originally",
+      "w": "originally",
+      "p": [],
+      "rarity": 496,
+      "imagePath": "assets/word/originally.png",
+      "sourceOrdinal": 20969,
+      "reviewOrder": 247,
+      "localImageExists": true,
+      "imageGitBlobSha": "359e5be7d7b1f449c7b809f01159ed9f5dc5bed5",
+      "score": 55,
+      "components": {
+        "meaningVisible": 23,
+        "conceptDistinct": 15,
+        "answerSpecific": 7,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "旧式電話からスマホへの矢印は変化を示すが元来の副詞は限定しにくい。",
+      "alternativeAnswersEn": [
+        "formerly",
+        "old"
+      ],
+      "assessedAt": "2026-10-19T09:17:03.881703+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "loving",
+      "w": "loving",
+      "p": [],
+      "rarity": 496,
+      "imagePath": "assets/word/loving.png",
+      "sourceOrdinal": 47590,
+      "reviewOrder": 248,
+      "localImageExists": true,
+      "imageGitBlobSha": "ccce7b0a8130a6d7f75eb7c20e6b3c489612139f",
+      "score": 92,
+      "components": {
+        "meaningVisible": 38,
+        "conceptDistinct": 24,
+        "answerSpecific": 20,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "老夫婦が寄り添いマフラーを巻く姿で愛情が伝わる。",
+      "alternativeAnswersEn": [
+        "affectionate",
+        "caring"
+      ],
+      "assessedAt": "2026-10-19T09:17:03.881703+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "selling",
+      "w": "selling",
+      "p": [],
+      "rarity": 496,
+      "imagePath": "assets/word/selling.png",
+      "sourceOrdinal": 48727,
+      "reviewOrder": 249,
+      "localImageExists": true,
+      "imageGitBlobSha": "a75ec3171597da09dd0eda0022dd0fec62f958d0",
+      "score": 94,
+      "components": {
+        "meaningVisible": 39,
+        "conceptDistinct": 24,
+        "answerSpecific": 21,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "売り手が品物を渡し客が硬貨を差し出すので販売が読める。",
+      "alternativeAnswersEn": [
+        "sale",
+        "buying"
+      ],
+      "assessedAt": "2026-10-19T09:17:03.881703+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "acceptance",
+      "w": "acceptance",
+      "p": [
+        "ad-",
+        "kap-"
+      ],
+      "rarity": 497,
+      "imagePath": "assets/word/acceptance.png",
+      "sourceOrdinal": 95,
+      "reviewOrder": 250,
+      "localImageExists": true,
+      "imageGitBlobSha": "5519d9acb3f873a60b00afbd381238c4b6eb50dd",
+      "score": 80,
+      "components": {
+        "meaningVisible": 34,
+        "conceptDistinct": 21,
+        "answerSpecific": 15,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "差し出された道具入り前掛けを受ける姿は受諾を示すが贈り物も自然。",
+      "alternativeAnswersEn": [
+        "receiving",
+        "accept"
+      ],
+      "assessedAt": "2026-10-19T09:17:03.881703+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "arrangement",
+      "w": "arrangement",
+      "p": [
+        "ad-",
+        "(s)ker-3"
+      ],
+      "rarity": 497,
+      "imagePath": "assets/word/arrangement.png",
+      "sourceOrdinal": 1061,
+      "reviewOrder": 251,
+      "localImageExists": true,
+      "imageGitBlobSha": "c3aae577d9cd3604ad4355c2ee1fb176799fe38e",
+      "score": 83,
+      "components": {
+        "meaningVisible": 35,
+        "conceptDistinct": 22,
+        "answerSpecific": 16,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "花を花瓶に配置する作業が見えるが生け花も自然。",
+      "alternativeAnswersEn": [
+        "flower arranging",
+        "placement"
+      ],
+      "assessedAt": "2026-10-19T09:18:31.861905+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "blow@bhle2",
+      "w": "blow",
+      "p": [
+        "bhlē-2"
+      ],
+      "rarity": 497,
+      "imagePath": "assets/word/blow@bhle2.png",
+      "sourceOrdinal": 1826,
+      "reviewOrder": 252,
+      "localImageExists": true,
+      "imageGitBlobSha": "58cad6fe1726c791a69a5f7331bc931bdd1c8fbb",
+      "score": 98,
+      "components": {
+        "meaningVisible": 40,
+        "conceptDistinct": 25,
+        "answerSpecific": 23,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "口からの息で風車を回す動作が明瞭。",
+      "alternativeAnswersEn": [
+        "puff",
+        "breathe"
+      ],
+      "assessedAt": "2026-10-19T09:18:31.861905+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "executive",
+      "w": "executive",
+      "p": [
+        "eghs",
+        "sekʷ-1"
+      ],
+      "rarity": 497,
+      "imagePath": "assets/word/executive.png",
+      "sourceOrdinal": 5653,
+      "reviewOrder": 253,
+      "localImageExists": true,
+      "imageGitBlobSha": "ecc4e25f8aa439a3da78e51d083045df00590e79",
+      "score": 71,
+      "components": {
+        "meaningVisible": 30,
+        "conceptDistinct": 20,
+        "answerSpecific": 12,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "会議で指示する中央の人物は幹部を示すが経営者や上司も自然。",
+      "alternativeAnswersEn": [
+        "manager",
+        "boss"
+      ],
+      "assessedAt": "2026-10-19T09:18:31.861905+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "hill",
+      "w": "hill",
+      "p": [
+        "kel-4"
+      ],
+      "rarity": 497,
+      "imagePath": "assets/word/hill.png",
+      "sourceOrdinal": 7406,
+      "reviewOrder": 254,
+      "localImageExists": true,
+      "imageGitBlobSha": "40999abc348ad917fac2505e099cbe8b974e271e",
+      "score": 98,
+      "components": {
+        "meaningVisible": 40,
+        "conceptDistinct": 25,
+        "answerSpecific": 23,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "なだらかな低い盛り上がりで丘が明瞭。",
+      "alternativeAnswersEn": [
+        "mound",
+        "slope"
+      ],
+      "assessedAt": "2026-10-19T09:18:31.861905+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "internet",
+      "w": "internet",
+      "p": [
+        "en",
+        "ned-"
+      ],
+      "rarity": 497,
+      "imagePath": "assets/word/internet.png",
+      "sourceOrdinal": 8307,
+      "reviewOrder": 255,
+      "localImageExists": true,
+      "imageGitBlobSha": "674ae848ef613bce942626b263542e402ffdbbd0",
+      "score": 91,
+      "components": {
+        "meaningVisible": 38,
+        "conceptDistinct": 24,
+        "answerSpecific": 20,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "世界につながる複数のパソコンでインターネットが読める。",
+      "alternativeAnswersEn": [
+        "web",
+        "network"
+      ],
+      "assessedAt": "2026-10-19T09:18:31.861905+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "newly",
+      "w": "newly",
+      "p": [
+        "newo-"
+      ],
+      "rarity": 497,
+      "imagePath": "assets/word/newly.png",
+      "sourceOrdinal": 10391,
+      "reviewOrder": 256,
+      "localImageExists": true,
+      "imageGitBlobSha": "056cc7c29e94834606dfa067f0692e0eccc557a8",
+      "score": 62,
+      "components": {
+        "meaningVisible": 26,
+        "conceptDistinct": 17,
+        "answerSpecific": 9,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "孵化直後のひよこは新たにを示唆するが誕生の具体語も強い。",
+      "alternativeAnswersEn": [
+        "newborn",
+        "hatch"
+      ],
+      "assessedAt": "2026-10-19T09:18:31.861905+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "regularly",
+      "w": "regularly",
+      "p": [
+        "reg-",
+        "-lo-"
+      ],
+      "rarity": 497,
+      "imagePath": "assets/word/regularly.png",
+      "sourceOrdinal": 13248,
+      "reviewOrder": 257,
+      "localImageExists": true,
+      "imageGitBlobSha": "593c15f133b6a8919d7a6e9481d65ac6e3d91599",
+      "score": 76,
+      "components": {
+        "meaningVisible": 32,
+        "conceptDistinct": 21,
+        "answerSpecific": 14,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "カレンダーを循環する運動の図で定期性は読めるが日常も自然。",
+      "alternativeAnswersEn": [
+        "routinely",
+        "daily"
+      ],
+      "assessedAt": "2026-10-19T09:18:31.861905+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "Berlin",
+      "w": "Berlin",
+      "p": [],
+      "rarity": 497,
+      "imagePath": "assets/word/Berlin.png",
+      "sourceOrdinal": 19166,
+      "reviewOrder": 258,
+      "localImageExists": true,
+      "imageGitBlobSha": "be7f33ce744f2a8dcae637f00ba09968a7f8ea29",
+      "score": 12,
+      "components": {
+        "meaningVisible": 1,
+        "conceptDistinct": 1,
+        "answerSpecific": 0,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "男性の顔だけで都市ベルリンを特定する根拠がない。",
+      "alternativeAnswersEn": [
+        "man",
+        "person"
+      ],
+      "assessedAt": "2026-10-19T09:18:31.861905+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "vessel",
+      "w": "vessel",
+      "p": [],
+      "rarity": 497,
+      "imagePath": "assets/word/vessel.png",
+      "sourceOrdinal": 19167,
+      "reviewOrder": 259,
+      "localImageExists": true,
+      "imageGitBlobSha": "79f19a20a7e50cb8e8f0b0362b7de4a2aac1a5e3",
+      "score": 93,
+      "components": {
+        "meaningVisible": 39,
+        "conceptDistinct": 24,
+        "answerSpecific": 20,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "貨物船が明瞭だが一般的な船の別名も強い。",
+      "alternativeAnswersEn": [
+        "ship",
+        "boat"
+      ],
+      "assessedAt": "2026-10-19T09:18:31.861905+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "bill@beu",
+      "w": "bill",
+      "p": [
+        "beu-"
+      ],
+      "rarity": 498,
+      "imagePath": "assets/word/bill@beu.png",
+      "sourceOrdinal": 1713,
+      "reviewOrder": 260,
+      "localImageExists": true,
+      "imageGitBlobSha": "d0bfa06f93cad87eb77c69c2fcb419d6890a65bf",
+      "score": 89,
+      "components": {
+        "meaningVisible": 37,
+        "conceptDistinct": 23,
+        "answerSpecific": 19,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "会計の皿の伝票と財布で請求書が読めるがレシートも自然。",
+      "alternativeAnswersEn": [
+        "check",
+        "receipt"
+      ],
+      "assessedAt": "2026-10-19T09:18:31.861905+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "conversion",
+      "w": "conversion",
+      "p": [
+        "kom",
+        "wer-3"
+      ],
+      "rarity": 498,
+      "imagePath": "assets/word/conversion.png",
+      "sourceOrdinal": 3394,
+      "reviewOrder": 261,
+      "localImageExists": true,
+      "imageGitBlobSha": "b7f67620b14e5f1c013718012a528817326c8ec9",
+      "score": 70,
+      "components": {
+        "meaningVisible": 30,
+        "conceptDistinct": 19,
+        "answerSpecific": 12,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "木箱を書棚に作り変える姿は転換を示すが組み立てや修理も自然。",
+      "alternativeAnswersEn": [
+        "transformation",
+        "repurpose"
+      ],
+      "assessedAt": "2026-10-19T09:18:31.861905+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "criticism",
+      "w": "criticism",
+      "p": [
+        "krei-",
+        "-mo-"
+      ],
+      "rarity": 498,
+      "imagePath": "assets/word/criticism.png",
+      "sourceOrdinal": 3653,
+      "reviewOrder": 262,
+      "localImageExists": true,
+      "imageGitBlobSha": "f139efb5e4943b9d270781eac867f1d2cb3cc37a",
+      "score": 74,
+      "components": {
+        "meaningVisible": 32,
+        "conceptDistinct": 20,
+        "answerSpecific": 13,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "椅子の問題を指摘し相手が困る様子は批判を示すが検査も自然。",
+      "alternativeAnswersEn": [
+        "disapproval",
+        "inspection"
+      ],
+      "assessedAt": "2026-10-19T09:18:31.861905+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "ownership",
+      "w": "ownership",
+      "p": [
+        "aik-1",
+        "(s)kep-"
+      ],
+      "rarity": 498,
+      "imagePath": "assets/word/ownership.png",
+      "sourceOrdinal": 11092,
+      "reviewOrder": 263,
+      "localImageExists": true,
+      "imageGitBlobSha": "7ae37b7008115ca993a54e8b67ee8a5ae0341f7b",
+      "score": 72,
+      "components": {
+        "meaningVisible": 30,
+        "conceptDistinct": 20,
+        "answerSpecific": 12,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "新居の鍵を掲げる姿は所有を示すが入居や持ち主も自然。",
+      "alternativeAnswersEn": [
+        "possession",
+        "property"
+      ],
+      "assessedAt": "2026-10-19T09:18:31.861905+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "partial",
+      "w": "partial",
+      "p": [
+        "perə-2"
+      ],
+      "rarity": 498,
+      "imagePath": "assets/word/partial.png",
+      "sourceOrdinal": 11310,
+      "reviewOrder": 264,
+      "localImageExists": true,
+      "imageGitBlobSha": "d87bb1b0112c15cc371b40639ba1846f23721cda",
+      "score": 82,
+      "components": {
+        "meaningVisible": 34,
+        "conceptDistinct": 22,
+        "answerSpecific": 16,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "一部だけ補修された壁で部分性は読めるが未完成も自然。",
+      "alternativeAnswersEn": [
+        "incomplete",
+        "partly"
+      ],
+      "assessedAt": "2026-10-19T09:18:31.861905+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "rely",
+      "w": "rely",
+      "p": [
+        "re-",
+        "leig-"
+      ],
+      "rarity": 498,
+      "imagePath": "assets/word/rely.png",
+      "sourceOrdinal": 13304,
+      "reviewOrder": 265,
+      "localImageExists": true,
+      "imageGitBlobSha": "84f4ac9f9a6cf7f115ffaad6a22891e15c875802",
+      "score": 82,
+      "components": {
+        "meaningVisible": 35,
+        "conceptDistinct": 22,
+        "answerSpecific": 16,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "橋を渡る際に相手の手に頼る様子が見えるが助けるも強い。",
+      "alternativeAnswersEn": [
+        "depend",
+        "trust"
+      ],
+      "assessedAt": "2026-10-19T09:18:31.861905+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "sacred",
+      "w": "sacred",
+      "p": [
+        "sak-"
+      ],
+      "rarity": 498,
+      "imagePath": "assets/word/sacred.png",
+      "sourceOrdinal": 13838,
+      "reviewOrder": 266,
+      "localImageExists": true,
+      "imageGitBlobSha": "fbc9d0e734c2d77a9203d3a6ef36b3195fbbdc8e",
+      "score": 86,
+      "components": {
+        "meaningVisible": 36,
+        "conceptDistinct": 23,
+        "answerSpecific": 18,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "神社で拝む姿は神聖さを示すが礼拝や宗教も強い。",
+      "alternativeAnswersEn": [
+        "holy",
+        "shrine"
+      ],
+      "assessedAt": "2026-10-19T09:18:31.861905+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "statistical",
+      "w": "statistical",
+      "p": [
+        "stā-"
+      ],
+      "rarity": 498,
+      "imagePath": "assets/word/statistical.png",
+      "sourceOrdinal": 15056,
+      "reviewOrder": 267,
+      "localImageExists": true,
+      "imageGitBlobSha": "702120a441277e9e6288603c98bc242360d6d5df",
+      "score": 79,
+      "components": {
+        "meaningVisible": 33,
+        "conceptDistinct": 22,
+        "answerSpecific": 15,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "球の個数と棒グラフの対応で統計を示すが数えるも自然。",
+      "alternativeAnswersEn": [
+        "statistics",
+        "data"
+      ],
+      "assessedAt": "2026-10-19T09:18:31.861905+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "temporal",
+      "w": "temporal",
+      "p": [
+        "temp-"
+      ],
+      "rarity": 498,
+      "imagePath": "assets/word/temporal.png",
+      "sourceOrdinal": 15781,
+      "reviewOrder": 268,
+      "localImageExists": true,
+      "imageGitBlobSha": "6349964e6bc1d4f2dce009ce71128425c8ff9d87",
+      "score": 65,
+      "components": {
+        "meaningVisible": 27,
+        "conceptDistinct": 18,
+        "answerSpecific": 10,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "時計と砂時計で時間は明瞭だが時間の形容詞には絞れない。",
+      "alternativeAnswersEn": [
+        "time",
+        "duration"
+      ],
+      "assessedAt": "2026-10-19T09:18:31.861905+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "victory",
+      "w": "victory",
+      "p": [
+        "weik-5"
+      ],
+      "rarity": 498,
+      "imagePath": "assets/word/victory.png",
+      "sourceOrdinal": 16867,
+      "reviewOrder": 269,
+      "localImageExists": true,
+      "imageGitBlobSha": "4e283c7315a7cfc10e8fc9821047fd99e82e36e4",
+      "score": 98,
+      "components": {
+        "meaningVisible": 40,
+        "conceptDistinct": 25,
+        "answerSpecific": 23,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "表彰台で杯を掲げ喜ぶ姿は勝利が明瞭。",
+      "alternativeAnswersEn": [
+        "win",
+        "triumph"
+      ],
+      "assessedAt": "2026-10-19T09:18:31.861905+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "pack",
+      "w": "pack",
+      "p": [],
+      "rarity": 498,
+      "imagePath": "assets/word/pack.png",
+      "sourceOrdinal": 19168,
+      "reviewOrder": 270,
+      "localImageExists": true,
+      "imageGitBlobSha": "756153df093509545160f713cd9f47c4cd0ff66a",
+      "score": 79,
+      "components": {
+        "meaningVisible": 34,
+        "conceptDistinct": 21,
+        "answerSpecific": 14,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "背負う袋が明瞭だがリュックの名称も強い。",
+      "alternativeAnswersEn": [
+        "backpack",
+        "bag"
+      ],
+      "assessedAt": "2026-10-19T09:18:31.861905+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "crying",
+      "w": "crying",
+      "p": [],
+      "rarity": 498,
+      "imagePath": "assets/word/crying.png",
+      "sourceOrdinal": 47679,
+      "reviewOrder": 271,
+      "localImageExists": true,
+      "imageGitBlobSha": "ea9cbe1577946e24802dbf07793354871199f1c5",
+      "score": 87,
+      "components": {
+        "meaningVisible": 36,
+        "conceptDistinct": 23,
+        "answerSpecific": 18,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "手を口に添え大声を出す姿で叫びが読めるが呼ぶも自然。",
+      "alternativeAnswersEn": [
+        "shouting",
+        "calling"
+      ],
+      "assessedAt": "2026-10-19T09:18:31.861905+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "appreciate",
+      "w": "appreciate",
+      "p": [
+        "ad-",
+        "per-5"
+      ],
+      "rarity": 499,
+      "imagePath": "assets/word/appreciate.png",
+      "sourceOrdinal": 955,
+      "reviewOrder": 272,
+      "localImageExists": true,
+      "imageGitBlobSha": "ac2d37997421cb374d69616b17e4016684095746",
+      "score": 68,
+      "components": {
+        "meaningVisible": 29,
+        "conceptDistinct": 19,
+        "answerSpecific": 11,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "作った椅子を喜んで見てもらう場面で価値の認識は推測できる。",
+      "alternativeAnswersEn": [
+        "admire",
+        "value"
+      ],
+      "assessedAt": "2026-10-19T09:18:31.861905+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "bare",
+      "w": "bare",
+      "p": [
+        "bhoso-"
+      ],
+      "rarity": 499,
+      "imagePath": "assets/word/bare.png",
+      "sourceOrdinal": 1467,
+      "reviewOrder": 273,
+      "localImageExists": true,
+      "imageGitBlobSha": "42cf1a74bbf0868da51477d2fdbd371af0179e13",
+      "score": 94,
+      "components": {
+        "meaningVisible": 39,
+        "conceptDistinct": 24,
+        "answerSpecific": 21,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "葉の落ちた裸の木で覆いのない状態が明瞭。",
+      "alternativeAnswersEn": [
+        "leafless",
+        "naked"
+      ],
+      "assessedAt": "2026-10-19T09:18:31.861905+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "blame",
+      "w": "blame",
+      "p": [
+        "bhā-2",
+        "mel-5"
+      ],
+      "rarity": 499,
+      "imagePath": "assets/word/blame.png",
+      "sourceOrdinal": 1780,
+      "reviewOrder": 274,
+      "localImageExists": true,
+      "imageGitBlobSha": "57aee6a74c39ad4dc6af5152c8c4e338aeb9c349",
+      "score": 94,
+      "components": {
+        "meaningVisible": 39,
+        "conceptDistinct": 24,
+        "answerSpecific": 21,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "割れた鉢を前に相手を指差し叱る姿が非難を示す。",
+      "alternativeAnswersEn": [
+        "accuse",
+        "scold"
+      ],
+      "assessedAt": "2026-10-19T09:18:31.861905+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "cook",
+      "w": "cook",
+      "p": [
+        "pekʷ-"
+      ],
+      "rarity": 499,
+      "imagePath": "assets/word/cook.png",
+      "sourceOrdinal": 3411,
+      "reviewOrder": 275,
+      "localImageExists": true,
+      "imageGitBlobSha": "c9f79ea939c51c44257a22e307e74b41fdfdf507",
+      "score": 98,
+      "components": {
+        "meaningVisible": 40,
+        "conceptDistinct": 25,
+        "answerSpecific": 23,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "火にかけた鍋で食材を炒める動作が料理に直結する。",
+      "alternativeAnswersEn": [
+        "fry",
+        "cooking"
+      ],
+      "assessedAt": "2026-10-19T09:18:31.861905+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "forehead",
+      "w": "forehead",
+      "p": [
+        "per1",
+        "kaput-"
+      ],
+      "rarity": 499,
+      "imagePath": "assets/word/forehead.png",
+      "sourceOrdinal": 6295,
+      "reviewOrder": 276,
+      "localImageExists": true,
+      "imageGitBlobSha": "823b4efc8df8ba4f0b6ba3b198068c2cef8e66d2",
+      "score": 98,
+      "components": {
+        "meaningVisible": 40,
+        "conceptDistinct": 25,
+        "answerSpecific": 23,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "両手で額の部分を指し示している。",
+      "alternativeAnswersEn": [
+        "brow",
+        "head"
+      ],
+      "assessedAt": "2026-10-19T09:18:31.861905+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "introduce",
+      "w": "introduce",
+      "p": [
+        "en",
+        "deuk-"
+      ],
+      "rarity": 499,
+      "imagePath": "assets/word/introduce.png",
+      "sourceOrdinal": 8348,
+      "reviewOrder": 277,
+      "localImageExists": true,
+      "imageGitBlobSha": "6ba3be28add5b08c0d5be0e7c9c2c9a4a7f454d6",
+      "score": 87,
+      "components": {
+        "meaningVisible": 36,
+        "conceptDistinct": 23,
+        "answerSpecific": 18,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "中央の人物が二人の握手を仲介しており紹介が読める。",
+      "alternativeAnswersEn": [
+        "introduction",
+        "meet"
+      ],
+      "assessedAt": "2026-10-19T09:18:31.861905+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "jurisdiction",
+      "w": "jurisdiction",
+      "p": [
+        "yewes-",
+        "deik-"
+      ],
+      "rarity": 499,
+      "imagePath": "assets/word/jurisdiction.png",
+      "sourceOrdinal": 8558,
+      "reviewOrder": 278,
+      "localImageExists": true,
+      "imageGitBlobSha": "0334d845c520ce13f5497546fb0d01ead51b4808",
+      "score": 57,
+      "components": {
+        "meaningVisible": 24,
+        "conceptDistinct": 16,
+        "answerSpecific": 8,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "法廷の裁判官は見えるが司法権という範囲の概念は限定できない。",
+      "alternativeAnswersEn": [
+        "justice",
+        "court"
+      ],
+      "assessedAt": "2026-10-19T09:18:31.861905+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "node",
+      "w": "node",
+      "p": [
+        "ned-"
+      ],
+      "rarity": 499,
+      "imagePath": "assets/word/node.png",
+      "sourceOrdinal": 10459,
+      "reviewOrder": 279,
+      "localImageExists": true,
+      "imageGitBlobSha": "63b0eefe2409beb5a81e7c532a8e32e028cc41fa",
+      "score": 78,
+      "components": {
+        "meaningVisible": 33,
+        "conceptDistinct": 21,
+        "answerSpecific": 14,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "縄の結び目が明瞭だが一般的な結び目の名称が強い。",
+      "alternativeAnswersEn": [
+        "knot",
+        "tie"
+      ],
+      "assessedAt": "2026-10-19T09:18:31.861905+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "orientation",
+      "w": "orientation",
+      "p": [
+        "er-1"
+      ],
+      "rarity": 499,
+      "imagePath": "assets/word/orientation.png",
+      "sourceOrdinal": 10939,
+      "reviewOrder": 280,
+      "localImageExists": true,
+      "imageGitBlobSha": "54d6b9fe4e493dd39034540e84ab01760ec6ed02",
+      "score": 74,
+      "components": {
+        "meaningVisible": 32,
+        "conceptDistinct": 20,
+        "answerSpecific": 13,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "案内人が新参加者へ場所を説明し適応指導を示すが案内も自然。",
+      "alternativeAnswersEn": [
+        "briefing",
+        "introduction"
+      ],
+      "assessedAt": "2026-10-19T09:18:31.861905+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "rational",
+      "w": "rational",
+      "p": [
+        "rē(i)-"
+      ],
+      "rarity": 499,
+      "imagePath": "assets/word/rational.png",
+      "sourceOrdinal": 13023,
+      "reviewOrder": 281,
+      "localImageExists": true,
+      "imageGitBlobSha": "b2623bc15156de9db9dfae812dc194f2a217f442",
+      "score": 48,
+      "components": {
+        "meaningVisible": 20,
+        "conceptDistinct": 13,
+        "answerSpecific": 6,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "水漏れを道具で直す姿は合理性の一例だが修理が先に浮かぶ。",
+      "alternativeAnswersEn": [
+        "practical",
+        "repair"
+      ],
+      "assessedAt": "2026-10-19T09:18:31.861905+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "temple@teme1",
+      "w": "temple",
+      "p": [
+        "temə-1"
+      ],
+      "rarity": 499,
+      "imagePath": "assets/word/temple@teme1.png",
+      "sourceOrdinal": 15778,
+      "reviewOrder": 282,
+      "localImageExists": true,
+      "imageGitBlobSha": "2612e438db051d9abbf282e751599e8274053bb7",
+      "score": 92,
+      "components": {
+        "meaningVisible": 38,
+        "conceptDistinct": 24,
+        "answerSpecific": 20,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "列柱と階段のある古典様式の寺院が明瞭だが他施設もあり得る。",
+      "alternativeAnswersEn": [
+        "shrine",
+        "building"
+      ],
+      "assessedAt": "2026-10-19T09:18:31.861905+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "unusual",
+      "w": "unusual",
+      "p": [
+        "ne",
+        "oit-"
+      ],
+      "rarity": 499,
+      "imagePath": "assets/word/unusual.png",
+      "sourceOrdinal": 16587,
+      "reviewOrder": 283,
+      "localImageExists": true,
+      "imageGitBlobSha": "84cde7aaa5c14cc5e08b643d2f1dc6a76c8c4bc5",
+      "score": 83,
+      "components": {
+        "meaningVisible": 35,
+        "conceptDistinct": 22,
+        "answerSpecific": 16,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "大きさが極端に異なる車輪の自転車と驚く人で珍しさが伝わる。",
+      "alternativeAnswersEn": [
+        "strange",
+        "odd"
+      ],
+      "assessedAt": "2026-10-19T09:18:31.861905+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "electricity",
+      "w": "electricity",
+      "p": [],
+      "rarity": 499,
+      "imagePath": "assets/word/electricity.png",
+      "sourceOrdinal": 19169,
+      "reviewOrder": 284,
+      "localImageExists": true,
+      "imageGitBlobSha": "a099f40c75120a51e1caf5b48efebabeb82f5d7c",
+      "score": 94,
+      "components": {
+        "meaningVisible": 39,
+        "conceptDistinct": 24,
+        "answerSpecific": 21,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "電池の回路で電球が点灯し電気を示すが回路名も自然。",
+      "alternativeAnswersEn": [
+        "power",
+        "circuit"
+      ],
+      "assessedAt": "2026-10-19T09:18:31.861905+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "photo",
+      "w": "photo",
+      "p": [],
+      "rarity": 499,
+      "imagePath": "assets/word/photo.png",
+      "sourceOrdinal": 19170,
+      "reviewOrder": 285,
+      "localImageExists": true,
+      "imageGitBlobSha": "d50bad9b8e0cadc99d1bf486807209b5299a46e7",
+      "score": 98,
+      "components": {
+        "meaningVisible": 40,
+        "conceptDistinct": 25,
+        "answerSpecific": 23,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "手に持った家族写真の紙が明瞭。",
+      "alternativeAnswersEn": [
+        "photograph",
+        "picture"
+      ],
+      "assessedAt": "2026-10-19T09:18:31.861905+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "shame",
+      "w": "shame",
+      "p": [],
+      "rarity": 499,
+      "imagePath": "assets/word/shame.png",
+      "sourceOrdinal": 19171,
+      "reviewOrder": 286,
+      "localImageExists": true,
+      "imageGitBlobSha": "366add77f2740bc78fb193a1a76d2bd271282564",
+      "score": 86,
+      "components": {
+        "meaningVisible": 36,
+        "conceptDistinct": 23,
+        "answerSpecific": 18,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "周囲に見られ顔を赤らめて伏せる姿が羞恥を示す。",
+      "alternativeAnswersEn": [
+        "embarrassment",
+        "guilt"
+      ],
+      "assessedAt": "2026-10-19T09:18:31.861905+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "trend",
+      "w": "trend",
+      "p": [],
+      "rarity": 499,
+      "imagePath": "assets/word/trend.png",
+      "sourceOrdinal": 19172,
+      "reviewOrder": 287,
+      "localImageExists": true,
+      "imageGitBlobSha": "110b12bd8d352cfef6e3c9bf3fd8c1d76433658e",
+      "score": 90,
+      "components": {
+        "meaningVisible": 37,
+        "conceptDistinct": 24,
+        "answerSpecific": 19,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "点をつないだ上昇曲線で動向が読めるが増加も強い。",
+      "alternativeAnswersEn": [
+        "increase",
+        "growth"
+      ],
+      "assessedAt": "2026-10-19T09:18:31.861905+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "budget",
+      "w": "budget",
+      "p": [
+        "bhelgh-"
+      ],
+      "rarity": 500,
+      "imagePath": "assets/word/budget.png",
+      "sourceOrdinal": 2067,
+      "reviewOrder": 288,
+      "localImageExists": true,
+      "imageGitBlobSha": "47bc8f9717d8dbd05079d4392ba337a6623bc7ea",
+      "score": 83,
+      "components": {
+        "meaningVisible": 35,
+        "conceptDistinct": 22,
+        "answerSpecific": 16,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "計算機と硬貨と用途別の封筒で予算管理を示す。",
+      "alternativeAnswersEn": [
+        "finance",
+        "allocation"
+      ],
+      "assessedAt": "2026-10-19T09:18:31.861905+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "connect",
+      "w": "connect",
+      "p": [
+        "kom",
+        "ned-"
+      ],
+      "rarity": 500,
+      "imagePath": "assets/word/connect.png",
+      "sourceOrdinal": 3243,
+      "reviewOrder": 289,
+      "localImageExists": true,
+      "imageGitBlobSha": "82111544f741c6589a7ba377e3c12ed61cf09680",
+      "score": 98,
+      "components": {
+        "meaningVisible": 40,
+        "conceptDistinct": 25,
+        "answerSpecific": 23,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "ケーブルの端子同士をつなぐ動作が明瞭。",
+      "alternativeAnswersEn": [
+        "join",
+        "plug"
+      ],
+      "assessedAt": "2026-10-19T09:18:31.861905+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "constitutional",
+      "w": "constitutional",
+      "p": [
+        "kom",
+        "stā-",
+        "-lo-"
+      ],
+      "rarity": 500,
+      "imagePath": "assets/word/constitutional.png",
+      "sourceOrdinal": 3308,
+      "reviewOrder": 290,
+      "localImageExists": true,
+      "imageGitBlobSha": "018836b73357583c82b479df5c2128b853eaaa13",
+      "score": 49,
+      "components": {
+        "meaningVisible": 20,
+        "conceptDistinct": 14,
+        "answerSpecific": 6,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "公的な人物が本を確認するが憲法と分かる識別要素が弱い。",
+      "alternativeAnswersEn": [
+        "legal",
+        "law"
+      ],
+      "assessedAt": "2026-10-19T09:18:31.861905+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "facilitate",
+      "w": "facilitate",
+      "p": [
+        "dhē-"
+      ],
+      "rarity": 500,
+      "imagePath": "assets/word/facilitate.png",
+      "sourceOrdinal": 5823,
+      "reviewOrder": 291,
+      "localImageExists": true,
+      "imageGitBlobSha": "08b4a0d287b37dc0433dc65534087fc7bdda7ad1",
+      "score": 83,
+      "components": {
+        "meaningVisible": 35,
+        "conceptDistinct": 22,
+        "answerSpecific": 16,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "段差へ板を渡して荷物運びを容易にする関係が読める。",
+      "alternativeAnswersEn": [
+        "help",
+        "assist"
+      ],
+      "assessedAt": "2026-10-19T09:18:31.861905+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "lake@laku",
+      "w": "lake",
+      "p": [
+        "laku-"
+      ],
+      "rarity": 500,
+      "imagePath": "assets/word/lake@laku.png",
+      "sourceOrdinal": 8744,
+      "reviewOrder": 292,
+      "localImageExists": true,
+      "imageGitBlobSha": "14e380179b3b90d81a86435b5fde3c3a1a6e79b8",
+      "score": 98,
+      "components": {
+        "meaningVisible": 40,
+        "conceptDistinct": 25,
+        "answerSpecific": 23,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "陸地に囲まれた大きな水面で湖が明瞭。",
+      "alternativeAnswersEn": [
+        "pond",
+        "reservoir"
+      ],
+      "assessedAt": "2026-10-19T09:18:31.861905+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "outer",
+      "w": "outer",
+      "p": [
+        "ud-"
+      ],
+      "rarity": 500,
+      "imagePath": "assets/word/outer.png",
+      "sourceOrdinal": 11039,
+      "reviewOrder": 293,
+      "localImageExists": true,
+      "imageGitBlobSha": "0092c5b201b3d557660b6577e1c824972e59170c",
+      "score": 62,
+      "components": {
+        "meaningVisible": 26,
+        "conceptDistinct": 17,
+        "answerSpecific": 9,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "果実の外皮は見えるが外側だけを強調しておらずオレンジも強い。",
+      "alternativeAnswersEn": [
+        "peel",
+        "outside"
+      ],
+      "assessedAt": "2026-10-19T09:18:31.861905+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "quarter",
+      "w": "quarter",
+      "p": [
+        "kʷetwer-"
+      ],
+      "rarity": 500,
+      "imagePath": "assets/word/quarter.png",
+      "sourceOrdinal": 12848,
+      "reviewOrder": 294,
+      "localImageExists": true,
+      "imageGitBlobSha": "2ffc207660fc5b8c43bf79fdc7b5675bfa0ab955",
+      "score": 98,
+      "components": {
+        "meaningVisible": 40,
+        "conceptDistinct": 25,
+        "answerSpecific": 23,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "四等分したパイの一切れを分離し四分の一が明瞭。",
+      "alternativeAnswersEn": [
+        "fourth",
+        "slice"
+      ],
+      "assessedAt": "2026-10-19T09:18:31.861905+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "sensitivity",
+      "w": "sensitivity",
+      "p": [
+        "sent-"
+      ],
+      "rarity": 500,
+      "imagePath": "assets/word/sensitivity.png",
+      "sourceOrdinal": 14282,
+      "reviewOrder": 295,
+      "localImageExists": true,
+      "imageGitBlobSha": "56c21d6339a868b1b0c2f7fd875ef40b60fc3eec",
+      "score": 70,
+      "components": {
+        "meaningVisible": 30,
+        "conceptDistinct": 19,
+        "answerSpecific": 12,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "音楽に感動し涙ぐむ人は感受性を示すが感動も自然。",
+      "alternativeAnswersEn": [
+        "emotion",
+        "moved"
+      ],
+      "assessedAt": "2026-10-19T09:18:31.861905+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "stupid",
+      "w": "stupid",
+      "p": [
+        "(s)teu-1"
+      ],
+      "rarity": 500,
+      "imagePath": "assets/word/stupid.png",
+      "sourceOrdinal": 15284,
+      "reviewOrder": 296,
+      "localImageExists": true,
+      "imageGitBlobSha": "56471f00b55726babe6dd82ea5ff3329c68ac917",
+      "score": 66,
+      "components": {
+        "meaningVisible": 28,
+        "conceptDistinct": 18,
+        "answerSpecific": 10,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "底から漏れる桶を持ち慌てる行動は愚かさを暗示する。",
+      "alternativeAnswersEn": [
+        "foolish",
+        "careless"
+      ],
+      "assessedAt": "2026-10-19T09:18:31.861905+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "temporary",
+      "w": "temporary",
+      "p": [
+        "temp-"
+      ],
+      "rarity": 500,
+      "imagePath": "assets/word/temporary.png",
+      "sourceOrdinal": 15782,
+      "reviewOrder": 297,
+      "localImageExists": true,
+      "imageGitBlobSha": "18deecae89f6030969109c987970eb4b07b36474",
+      "score": 48,
+      "components": {
+        "meaningVisible": 20,
+        "conceptDistinct": 13,
+        "answerSpecific": 6,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "椅子を接着してクランプ固定するが一時的という期限は見えない。",
+      "alternativeAnswersEn": [
+        "repair",
+        "clamp"
+      ],
+      "assessedAt": "2026-10-19T09:18:31.861905+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "threshold",
+      "w": "threshold",
+      "p": [
+        "terə-1"
+      ],
+      "rarity": 500,
+      "imagePath": "assets/word/threshold.png",
+      "sourceOrdinal": 15964,
+      "reviewOrder": 298,
+      "localImageExists": true,
+      "imageGitBlobSha": "3cf7623987a93f0e26e3023606e7e09e6782ee1a",
+      "score": 94,
+      "components": {
+        "meaningVisible": 39,
+        "conceptDistinct": 24,
+        "answerSpecific": 21,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "戸口をまたぐ足元の敷居を強調している。",
+      "alternativeAnswersEn": [
+        "doorstep",
+        "sill"
+      ],
+      "assessedAt": "2026-10-19T09:18:31.861905+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "equity",
+      "w": "equity",
+      "p": [],
+      "rarity": 500,
+      "imagePath": "assets/word/equity.png",
+      "sourceOrdinal": 19173,
+      "reviewOrder": 299,
+      "localImageExists": true,
+      "imageGitBlobSha": "6b8f511d1b182dbe27591b1c3c0417335d590f90",
+      "score": 69,
+      "components": {
+        "meaningVisible": 29,
+        "conceptDistinct": 19,
+        "answerSpecific": 11,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "釣り合う天秤は公平を示すが平等や釣り合いも強い。",
+      "alternativeAnswersEn": [
+        "equality",
+        "fairness"
+      ],
+      "assessedAt": "2026-10-19T09:18:31.861905+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "grand",
+      "w": "grand",
+      "p": [],
+      "rarity": 500,
+      "imagePath": "assets/word/grand.png",
+      "sourceOrdinal": 19174,
+      "reviewOrder": 300,
+      "localImageExists": true,
+      "imageGitBlobSha": "64ab5198601afff8db8ba285eebbd1306a7c5437",
+      "score": 85,
+      "components": {
+        "meaningVisible": 35,
+        "conceptDistinct": 23,
+        "answerSpecific": 17,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "豪華で大きい宮殿の玄関が壮大さを示すが豪華も自然。",
+      "alternativeAnswersEn": [
+        "magnificent",
+        "palatial"
+      ],
+      "assessedAt": "2026-10-19T09:18:31.861905+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "aged",
+      "w": "aged",
+      "p": [],
+      "rarity": 500,
+      "imagePath": "assets/word/aged.png",
+      "sourceOrdinal": 21022,
+      "reviewOrder": 301,
+      "localImageExists": true,
+      "imageGitBlobSha": "099fa62fdd6d10f2aa667f0261e5cea6438972aa",
+      "score": 92,
+      "components": {
+        "meaningVisible": 38,
+        "conceptDistinct": 24,
+        "answerSpecific": 20,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "白髪と杖の高齢女性で年齢の高い状態が明瞭。",
+      "alternativeAnswersEn": [
+        "elderly",
+        "old"
+      ],
+      "assessedAt": "2026-10-19T09:20:01.747790+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "bigger",
+      "w": "bigger",
+      "p": [],
+      "rarity": 500,
+      "imagePath": "assets/word/bigger.png",
+      "sourceOrdinal": 21075,
+      "reviewOrder": 302,
+      "localImageExists": true,
+      "imageGitBlobSha": "6354a66e7aa09b554be6ed79d8a4fedb84b28de9",
+      "score": 94,
+      "components": {
+        "meaningVisible": 39,
+        "conceptDistinct": 24,
+        "answerSpecific": 21,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "大小二つの同じりんごの比較でより大きいが読める。",
+      "alternativeAnswersEn": [
+        "larger",
+        "big"
+      ],
+      "assessedAt": "2026-10-19T09:20:01.747790+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "softly",
+      "w": "softly",
+      "p": [],
+      "rarity": 500,
+      "imagePath": "assets/word/softly.png",
+      "sourceOrdinal": 27375,
+      "reviewOrder": 303,
+      "localImageExists": true,
+      "imageGitBlobSha": "d2226d18e4d3a18ad3b62576379fd2e903f6e3db",
+      "score": 83,
+      "components": {
+        "meaningVisible": 35,
+        "conceptDistinct": 22,
+        "answerSpecific": 16,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "眠る子猫を毛布へそっと置く動作は穏やかさを示す。",
+      "alternativeAnswersEn": [
+        "gently",
+        "carefully"
+      ],
+      "assessedAt": "2026-10-19T09:20:01.747790+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "raising",
+      "w": "raising",
+      "p": [],
+      "rarity": 500,
+      "imagePath": "assets/word/raising.png",
+      "sourceOrdinal": 48481,
+      "reviewOrder": 304,
+      "localImageExists": true,
+      "imageGitBlobSha": "3fa66ecc5ccd1d414bb00eec5d78ede94c64fb53",
+      "score": 94,
+      "components": {
+        "meaningVisible": 39,
+        "conceptDistinct": 24,
+        "answerSpecific": 21,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "滑車で箱を上へ持ち上げる動作が明瞭。",
+      "alternativeAnswersEn": [
+        "lifting",
+        "hoisting"
+      ],
+      "assessedAt": "2026-10-19T09:20:01.747790+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "assist",
+      "w": "assist",
+      "p": [
+        "ad-",
+        "stā-"
+      ],
+      "rarity": 501,
+      "imagePath": "assets/word/assist.png",
+      "sourceOrdinal": 1153,
+      "reviewOrder": 305,
+      "localImageExists": true,
+      "imageGitBlobSha": "0ecb2e69c6ad71d9b81ac21b09f9c29469c28adb",
+      "score": 86,
+      "components": {
+        "meaningVisible": 36,
+        "conceptDistinct": 23,
+        "answerSpecific": 18,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "カーテン取り付けで相手を手伝う関係は分かるが助けるの同義語も強い。",
+      "alternativeAnswersEn": [
+        "help",
+        "support"
+      ],
+      "assessedAt": "2026-10-19T09:20:01.747790+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "burst",
+      "w": "burst",
+      "p": [
+        "bhres-"
+      ],
+      "rarity": 501,
+      "imagePath": "assets/word/burst.png",
+      "sourceOrdinal": 2121,
+      "reviewOrder": 306,
+      "localImageExists": true,
+      "imageGitBlobSha": "08d8cd37691580c0b7a2c0e1bad43444740f7674",
+      "score": 98,
+      "components": {
+        "meaningVisible": 40,
+        "conceptDistinct": 25,
+        "answerSpecific": 23,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "針が刺さり風船が裂ける瞬間で破裂が明瞭。",
+      "alternativeAnswersEn": [
+        "pop",
+        "explode"
+      ],
+      "assessedAt": "2026-10-19T09:20:01.747790+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "communicate",
+      "w": "communicate",
+      "p": [
+        "kom",
+        "mei-1"
+      ],
+      "rarity": 501,
+      "imagePath": "assets/word/communicate.png",
+      "sourceOrdinal": 3025,
+      "reviewOrder": 307,
+      "localImageExists": true,
+      "imageGitBlobSha": "58a738a8c5a6ad8979f4a6c5fa19d628ab738f22",
+      "score": 70,
+      "components": {
+        "meaningVisible": 30,
+        "conceptDistinct": 19,
+        "answerSpecific": 12,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "自転車の二人が話す様子は伝達を示すが話すや指示も自然。",
+      "alternativeAnswersEn": [
+        "talk",
+        "signal"
+      ],
+      "assessedAt": "2026-10-19T09:20:01.747790+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "interface",
+      "w": "interface",
+      "p": [
+        "en",
+        "dhē-"
+      ],
+      "rarity": 501,
+      "imagePath": "assets/word/interface.png",
+      "sourceOrdinal": 8287,
+      "reviewOrder": 308,
+      "localImageExists": true,
+      "imageGitBlobSha": "68e740190a796ee155ab5f118734b8e1cf0eae2e",
+      "score": 90,
+      "components": {
+        "meaningVisible": 37,
+        "conceptDistinct": 24,
+        "answerSpecific": 19,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "二色の液体が接する水平面を指して境界面を示す。",
+      "alternativeAnswersEn": [
+        "boundary",
+        "surface"
+      ],
+      "assessedAt": "2026-10-19T09:20:01.747790+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "lesson",
+      "w": "lesson",
+      "p": [
+        "leg-"
+      ],
+      "rarity": 501,
+      "imagePath": "assets/word/lesson.png",
+      "sourceOrdinal": 8936,
+      "reviewOrder": 309,
+      "localImageExists": true,
+      "imageGitBlobSha": "c34eb6bfd3c1c8c6542ea2cc09ed010c92f3e431",
+      "score": 92,
+      "components": {
+        "meaningVisible": 38,
+        "conceptDistinct": 24,
+        "answerSpecific": 20,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "ピアノを教える大人と学ぶ子で授業が読める。",
+      "alternativeAnswersEn": [
+        "teaching",
+        "class"
+      ],
+      "assessedAt": "2026-10-19T09:20:01.747790+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "liberal",
+      "w": "liberal",
+      "p": [
+        "leudh-2"
+      ],
+      "rarity": 501,
+      "imagePath": "assets/word/liberal.png",
+      "sourceOrdinal": 8970,
+      "reviewOrder": 310,
+      "localImageExists": true,
+      "imageGitBlobSha": "ccb57ae8808c2fc1944a956035bc5f018494a037",
+      "score": 38,
+      "components": {
+        "meaningVisible": 15,
+        "conceptDistinct": 10,
+        "answerSpecific": 3,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "かごから解放された鳥は自由を示すが自由主義という性質までは分からない。",
+      "alternativeAnswersEn": [
+        "free",
+        "freedom"
+      ],
+      "assessedAt": "2026-10-19T09:20:01.747790+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "lip",
+      "w": "lip",
+      "p": [
+        "leb-"
+      ],
+      "rarity": 501,
+      "imagePath": "assets/word/lip.png",
+      "sourceOrdinal": 9052,
+      "reviewOrder": 311,
+      "localImageExists": true,
+      "imageGitBlobSha": "389195cc6cd865c05a14ebd9e4c9f2d2613a205b",
+      "score": 98,
+      "components": {
+        "meaningVisible": 40,
+        "conceptDistinct": 25,
+        "answerSpecific": 23,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "大きく描いた上下の唇が明瞭。",
+      "alternativeAnswersEn": [
+        "lips",
+        "mouth"
+      ],
+      "assessedAt": "2026-10-19T09:20:01.747790+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "oriented",
+      "w": "oriented",
+      "p": [
+        "er-1"
+      ],
+      "rarity": 501,
+      "imagePath": "assets/word/oriented.png",
+      "sourceOrdinal": 10940,
+      "reviewOrder": 312,
+      "localImageExists": true,
+      "imageGitBlobSha": "30fc20ac9aa143ddbb2a94e01f929610fcf12be6",
+      "score": 26,
+      "components": {
+        "meaningVisible": 9,
+        "conceptDistinct": 6,
+        "answerSpecific": 2,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "使い捨て容器を断り再利用容器を持つ姿だけで志向を特定できない。",
+      "alternativeAnswersEn": [
+        "reusable",
+        "eco-friendly"
+      ],
+      "assessedAt": "2026-10-19T09:20:01.747790+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "panel",
+      "w": "panel",
+      "p": [
+        "pan-"
+      ],
+      "rarity": 501,
+      "imagePath": "assets/word/panel.png",
+      "sourceOrdinal": 11198,
+      "reviewOrder": 313,
+      "localImageExists": true,
+      "imageGitBlobSha": "0f1687308c2a90ec47c19f62f28986e8139cdd8d",
+      "score": 94,
+      "components": {
+        "meaningVisible": 39,
+        "conceptDistinct": 24,
+        "answerSpecific": 21,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "枠にはまった一枚の木板で羽目板が読める。",
+      "alternativeAnswersEn": [
+        "board",
+        "wood"
+      ],
+      "assessedAt": "2026-10-19T09:20:01.747790+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "port",
+      "w": "port",
+      "p": [
+        "per-2"
+      ],
+      "rarity": 501,
+      "imagePath": "assets/word/port.png",
+      "sourceOrdinal": 12153,
+      "reviewOrder": 314,
+      "localImageExists": true,
+      "imageGitBlobSha": "b91d578cd0b1e9aa366959bec7568eadd22b9f1b",
+      "score": 94,
+      "components": {
+        "meaningVisible": 39,
+        "conceptDistinct": 24,
+        "answerSpecific": 21,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "クレーンと貨物船と岸壁で港が明瞭。",
+      "alternativeAnswersEn": [
+        "harbor",
+        "dock"
+      ],
+      "assessedAt": "2026-10-19T09:20:01.747790+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "tendency",
+      "w": "tendency",
+      "p": [
+        "ten-"
+      ],
+      "rarity": 501,
+      "imagePath": "assets/word/tendency.png",
+      "sourceOrdinal": 15791,
+      "reviewOrder": 315,
+      "localImageExists": true,
+      "imageGitBlobSha": "438843ba2dd6e1c7f91fc56ba39d5d1951d56a68",
+      "score": 61,
+      "components": {
+        "meaningVisible": 25,
+        "conceptDistinct": 17,
+        "answerSpecific": 9,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "窓の光へ曲がる植物は傾向の例だが向光性も自然。",
+      "alternativeAnswersEn": [
+        "leaning",
+        "growth"
+      ],
+      "assessedAt": "2026-10-19T09:20:01.747790+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "ultimate",
+      "w": "ultimate",
+      "p": [
+        "al-1"
+      ],
+      "rarity": 501,
+      "imagePath": "assets/word/ultimate.png",
+      "sourceOrdinal": 16446,
+      "reviewOrder": 316,
+      "localImageExists": true,
+      "imageGitBlobSha": "59b07dad9ffdb7923d42245de15fdf783ef2c234",
+      "score": 44,
+      "components": {
+        "meaningVisible": 18,
+        "conceptDistinct": 12,
+        "answerSpecific": 5,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "山頂に到達した人は最終到達点を暗示するが究極という意味は限定しない。",
+      "alternativeAnswersEn": [
+        "final",
+        "summit"
+      ],
+      "assessedAt": "2026-10-19T09:20:01.747790+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "unlike",
+      "w": "unlike",
+      "p": [
+        "ne",
+        "līk-"
+      ],
+      "rarity": 501,
+      "imagePath": "assets/word/unlike.png",
+      "sourceOrdinal": 16556,
+      "reviewOrder": 317,
+      "localImageExists": true,
+      "imageGitBlobSha": "a69567a67b9497768694e8b27c75a6d0e4c0b8f1",
+      "score": 80,
+      "components": {
+        "meaningVisible": 33,
+        "conceptDistinct": 22,
+        "answerSpecific": 15,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "ブーツとサンダルの対比で似ていない関係が読める。",
+      "alternativeAnswersEn": [
+        "different",
+        "contrast"
+      ],
+      "assessedAt": "2026-10-19T09:20:01.747790+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "Virginia",
+      "w": "Virginia",
+      "p": [],
+      "rarity": 501,
+      "imagePath": "assets/word/Virginia.png",
+      "sourceOrdinal": 19175,
+      "reviewOrder": 318,
+      "localImageExists": true,
+      "imageGitBlobSha": "cea441ee13a60b060c67356e6c7c8c380d10b1e2",
+      "score": 12,
+      "components": {
+        "meaningVisible": 1,
+        "conceptDistinct": 1,
+        "answerSpecific": 0,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "女性の肖像だけで州名バージニアを識別する根拠がない。",
+      "alternativeAnswersEn": [
+        "woman",
+        "person"
+      ],
+      "assessedAt": "2026-10-19T09:20:01.747790+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "wondering",
+      "w": "wondering",
+      "p": [],
+      "rarity": 501,
+      "imagePath": "assets/word/wondering.png",
+      "sourceOrdinal": 48295,
+      "reviewOrder": 319,
+      "localImageExists": true,
+      "imageGitBlobSha": "3fc21965dc004f4795c6019825116c60ac13be98",
+      "score": 65,
+      "components": {
+        "meaningVisible": 28,
+        "conceptDistinct": 18,
+        "answerSpecific": 10,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "鳥と果実を思い浮かべて考える姿は疑問を示すが思考も強い。",
+      "alternativeAnswersEn": [
+        "thinking",
+        "pondering"
+      ],
+      "assessedAt": "2026-10-19T09:20:01.747790+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "bathroom",
+      "w": "bathroom",
+      "p": [
+        "bhē-",
+        "reuə-"
+      ],
+      "rarity": 502,
+      "imagePath": "assets/word/bathroom.png",
+      "sourceOrdinal": 1515,
+      "reviewOrder": 320,
+      "localImageExists": true,
+      "imageGitBlobSha": "8c3f5d97ff678145080e6336b7761c94bd0db756",
+      "score": 98,
+      "components": {
+        "meaningVisible": 40,
+        "conceptDistinct": 25,
+        "answerSpecific": 23,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "浴槽とシャワーと洗面台で浴室が明瞭。",
+      "alternativeAnswersEn": [
+        "washroom",
+        "bath"
+      ],
+      "assessedAt": "2026-10-19T09:20:01.747790+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "bias",
+      "w": "bias",
+      "p": [
+        "(s)ker-1"
+      ],
+      "rarity": 502,
+      "imagePath": "assets/word/bias.png",
+      "sourceOrdinal": 1685,
+      "reviewOrder": 321,
+      "localImageExists": true,
+      "imageGitBlobSha": "ada1c6a1e5b36d4be2e6ae05ce447e76588c821d",
+      "score": 70,
+      "components": {
+        "meaningVisible": 30,
+        "conceptDistinct": 19,
+        "answerSpecific": 12,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "似た作品の一方に賞を与えるが偏りか正当な評価かは曖昧。",
+      "alternativeAnswersEn": [
+        "favoritism",
+        "preference"
+      ],
+      "assessedAt": "2026-10-19T09:20:01.747790+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "bound@bheue",
+      "w": "bound",
+      "p": [
+        "bheuə-"
+      ],
+      "rarity": 502,
+      "imagePath": "assets/word/bound@bheue.png",
+      "sourceOrdinal": 1913,
+      "reviewOrder": 322,
+      "localImageExists": true,
+      "imageGitBlobSha": "e47775ac95a655b5f12bd1a25f4b19dccc52157d",
+      "score": 73,
+      "components": {
+        "meaningVisible": 31,
+        "conceptDistinct": 20,
+        "answerSpecific": 13,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "船が島の港へ向かうが行きという語形は目的地名なしで特定しにくい。",
+      "alternativeAnswersEn": [
+        "heading",
+        "destination"
+      ],
+      "assessedAt": "2026-10-19T09:20:01.747790+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "courage",
+      "w": "courage",
+      "p": [
+        "kerd-"
+      ],
+      "rarity": 502,
+      "imagePath": "assets/word/courage.png",
+      "sourceOrdinal": 3548,
+      "reviewOrder": 323,
+      "localImageExists": true,
+      "imageGitBlobSha": "5d46c13fdab8c14db424a2bca8e7f6d8407751c3",
+      "score": 86,
+      "components": {
+        "meaningVisible": 36,
+        "conceptDistinct": 23,
+        "answerSpecific": 18,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "怖がりつつ谷を渡る人の行為は勇気を示す。",
+      "alternativeAnswersEn": [
+        "bravery",
+        "boldness"
+      ],
+      "assessedAt": "2026-10-19T09:20:01.747790+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "lovely",
+      "w": "lovely",
+      "p": [
+        "leubh-"
+      ],
+      "rarity": 502,
+      "imagePath": "assets/word/lovely.png",
+      "sourceOrdinal": 9171,
+      "reviewOrder": 324,
+      "localImageExists": true,
+      "imageGitBlobSha": "a4a1cfd3cb02195ec916dd0081155e60d9dead34",
+      "score": 73,
+      "components": {
+        "meaningVisible": 31,
+        "conceptDistinct": 20,
+        "answerSpecific": 12,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "かわいい子犬は美しさを示すが可愛いの同義語が強い。",
+      "alternativeAnswersEn": [
+        "cute",
+        "adorable"
+      ],
+      "assessedAt": "2026-10-19T09:20:01.747790+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "motivation",
+      "w": "motivation",
+      "p": [
+        "meuə-"
+      ],
+      "rarity": 502,
+      "imagePath": "assets/word/motivation.png",
+      "sourceOrdinal": 10109,
+      "reviewOrder": 325,
+      "localImageExists": true,
+      "imageGitBlobSha": "b77071de2844b143e8a0f536e623a2191e1ba742",
+      "score": 71,
+      "components": {
+        "meaningVisible": 30,
+        "conceptDistinct": 20,
+        "answerSpecific": 12,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "杯を目指し走る人で動機づけを暗示するが報酬や競争も自然。",
+      "alternativeAnswersEn": [
+        "incentive",
+        "reward"
+      ],
+      "assessedAt": "2026-10-19T09:20:01.747790+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "parameter",
+      "w": "parameter",
+      "p": [
+        "per1",
+        "mē-2"
+      ],
+      "rarity": 502,
+      "imagePath": "assets/word/parameter.png",
+      "sourceOrdinal": 11248,
+      "reviewOrder": 326,
+      "localImageExists": true,
+      "imageGitBlobSha": "4e971e41b8783368cbdc71337222e60e08a1b2d9",
+      "score": 70,
+      "components": {
+        "meaningVisible": 30,
+        "conceptDistinct": 20,
+        "answerSpecific": 12,
+        "smallImageReadable": 8
+      },
+      "reasonJa": "変数と座標の関係は媒介変数を示すが式や変数一般も強い。",
+      "alternativeAnswersEn": [
+        "variable",
+        "equation"
+      ],
+      "assessedAt": "2026-10-19T09:20:01.747790+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "poet",
+      "w": "poet",
+      "p": [
+        "kʷei-2"
+      ],
+      "rarity": 502,
+      "imagePath": "assets/word/poet.png",
+      "sourceOrdinal": 12044,
+      "reviewOrder": 327,
+      "localImageExists": true,
+      "imageGitBlobSha": "e674288409c289ff94c062658118beb65242a8ef",
+      "score": 68,
+      "components": {
+        "meaningVisible": 29,
+        "conceptDistinct": 19,
+        "answerSpecific": 11,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "本と羽根ペンで書く人物は詩人を示唆するが作家も強い。",
+      "alternativeAnswersEn": [
+        "writer",
+        "author"
+      ],
+      "assessedAt": "2026-10-19T09:20:01.747790+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "prefer",
+      "w": "prefer",
+      "p": [
+        "per1",
+        "bher-1"
+      ],
+      "rarity": 502,
+      "imagePath": "assets/word/prefer.png",
+      "sourceOrdinal": 12288,
+      "reviewOrder": 328,
+      "localImageExists": true,
+      "imageGitBlobSha": "73ec7cebad6c3f5efe7243d9363c310d9f2ac17f",
+      "score": 82,
+      "components": {
+        "meaningVisible": 34,
+        "conceptDistinct": 22,
+        "answerSpecific": 16,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "二種の果物から片方へ手を伸ばす姿は好みを示すが選ぶも自然。",
+      "alternativeAnswersEn": [
+        "choose",
+        "like"
+      ],
+      "assessedAt": "2026-10-19T09:20:01.747790+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "priest",
+      "w": "priest",
+      "p": [
+        "per1",
+        "gʷā-"
+      ],
+      "rarity": 502,
+      "imagePath": "assets/word/priest.png",
+      "sourceOrdinal": 12394,
+      "reviewOrder": 329,
+      "localImageExists": true,
+      "imageGitBlobSha": "33ff7e8f992716f23dc9b31a149b74dc763a0e05",
+      "score": 97,
+      "components": {
+        "meaningVisible": 40,
+        "conceptDistinct": 25,
+        "answerSpecific": 22,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "聖職服で祭壇の杯を扱う人物が聖職者を示す。",
+      "alternativeAnswersEn": [
+        "clergyman",
+        "minister"
+      ],
+      "assessedAt": "2026-10-19T09:20:01.747790+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "Jim",
+      "w": "Jim",
+      "p": [],
+      "rarity": 502,
+      "imagePath": "assets/word/Jim.png",
+      "sourceOrdinal": 19176,
+      "reviewOrder": 330,
+      "localImageExists": true,
+      "imageGitBlobSha": "4b93e0fbaf78aebee0e02caf2f6e17f22bd1b344",
+      "score": 12,
+      "components": {
+        "meaningVisible": 1,
+        "conceptDistinct": 1,
+        "answerSpecific": 0,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "男性の肖像だけではジムという名前を識別できない。",
+      "alternativeAnswersEn": [
+        "man",
+        "person"
+      ],
+      "assessedAt": "2026-10-19T09:20:01.747790+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "alongside",
+      "w": "alongside",
+      "p": [],
+      "rarity": 502,
+      "imagePath": "assets/word/alongside.png",
+      "sourceOrdinal": 19177,
+      "reviewOrder": 331,
+      "localImageExists": true,
+      "imageGitBlobSha": "646c033887a6e60ef16323b19b88657f5ca25902",
+      "score": 92,
+      "components": {
+        "meaningVisible": 38,
+        "conceptDistinct": 24,
+        "answerSpecific": 20,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "二艘がぴったり横に並び位置関係が明瞭。",
+      "alternativeAnswersEn": [
+        "beside",
+        "side by side"
+      ],
+      "assessedAt": "2026-10-19T09:20:01.747790+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "equality",
+      "w": "equality",
+      "p": [],
+      "rarity": 502,
+      "imagePath": "assets/word/equality.png",
+      "sourceOrdinal": 19178,
+      "reviewOrder": 332,
+      "localImageExists": true,
+      "imageGitBlobSha": "ec022d325834fe0657906883c1c2dabf7251d239",
+      "score": 77,
+      "components": {
+        "meaningVisible": 32,
+        "conceptDistinct": 21,
+        "answerSpecific": 14,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "二人が同じ本を持ち等号があるが平等と同一の区別が弱い。",
+      "alternativeAnswersEn": [
+        "equal",
+        "sameness"
+      ],
+      "assessedAt": "2026-10-19T09:20:01.747790+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "pointing",
+      "w": "pointing",
+      "p": [],
+      "rarity": 502,
+      "imagePath": "assets/word/pointing.png",
+      "sourceOrdinal": 47788,
+      "reviewOrder": 333,
+      "localImageExists": true,
+      "imageGitBlobSha": "b907ce1894604e53a5884764d177b0b03aaaea3e",
+      "score": 98,
+      "components": {
+        "meaningVisible": 40,
+        "conceptDistinct": 25,
+        "answerSpecific": 23,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "蝶へ人差し指を向ける動作が明瞭。",
+      "alternativeAnswersEn": [
+        "point",
+        "showing"
+      ],
+      "assessedAt": "2026-10-19T09:20:01.747790+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "dedicated",
+      "w": "dedicated",
+      "p": [],
+      "rarity": 502,
+      "imagePath": "assets/word/dedicated.png",
+      "sourceOrdinal": 48310,
+      "reviewOrder": 334,
+      "localImageExists": true,
+      "imageGitBlobSha": "d703f5332cefcbbb94865a1ebe2c2ad8c29eebe6",
+      "score": 68,
+      "components": {
+        "meaningVisible": 29,
+        "conceptDistinct": 19,
+        "answerSpecific": 11,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "病人へ丁寧に付き添う姿は献身を暗示するが看護や世話も自然。",
+      "alternativeAnswersEn": [
+        "devoted",
+        "caring"
+      ],
+      "assessedAt": "2026-10-19T09:20:01.747790+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "beer",
+      "w": "beer",
+      "p": [
+        "pō(i)-"
+      ],
+      "rarity": 503,
+      "imagePath": "assets/word/beer.png",
+      "sourceOrdinal": 1565,
+      "reviewOrder": 335,
+      "localImageExists": true,
+      "imageGitBlobSha": "2d96d8820c4b05a1716e798e9137c6f3d85b1de9",
+      "score": 98,
+      "components": {
+        "meaningVisible": 40,
+        "conceptDistinct": 25,
+        "answerSpecific": 23,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "泡の盛り上がった金色の飲料入りジョッキでビールが明瞭。",
+      "alternativeAnswersEn": [
+        "ale",
+        "lager"
+      ],
+      "assessedAt": "2026-10-19T09:20:01.747790+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "briefly",
+      "w": "briefly",
+      "p": [
+        "mregh-u-"
+      ],
+      "rarity": 503,
+      "imagePath": "assets/word/briefly.png",
+      "sourceOrdinal": 2003,
+      "reviewOrder": 336,
+      "localImageExists": true,
+      "imageGitBlobSha": "aa608d263aed9917e7af0ae1793dde4f8139d52e",
+      "score": 48,
+      "components": {
+        "meaningVisible": 20,
+        "conceptDistinct": 13,
+        "answerSpecific": 6,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "砂時計の横の短い会話は手短さを暗示するが時間の長さが曖昧。",
+      "alternativeAnswersEn": [
+        "shortly",
+        "quickly"
+      ],
+      "assessedAt": "2026-10-19T09:20:01.747790+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "chin",
+      "w": "chin",
+      "p": [
+        "genu-2"
+      ],
+      "rarity": 503,
+      "imagePath": "assets/word/chin.png",
+      "sourceOrdinal": 2639,
+      "reviewOrder": 337,
+      "localImageExists": true,
+      "imageGitBlobSha": "fc795395dd9fe9ed67e01bc81703ee87dc5bd738",
+      "score": 69,
+      "components": {
+        "meaningVisible": 29,
+        "conceptDistinct": 19,
+        "answerSpecific": 11,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "横顔であごは見えるが対象部位を指す強調がない。",
+      "alternativeAnswersEn": [
+        "jaw",
+        "face"
+      ],
+      "assessedAt": "2026-10-19T09:20:01.747790+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "destroy",
+      "w": "destroy",
+      "p": [
+        "de-",
+        "sterə-"
+      ],
+      "rarity": 503,
+      "imagePath": "assets/word/destroy.png",
+      "sourceOrdinal": 4230,
+      "reviewOrder": 338,
+      "localImageExists": true,
+      "imageGitBlobSha": "dd8ed497f07b00a74b7f6016b6e4ec6c51f012e1",
+      "score": 98,
+      "components": {
+        "meaningVisible": 40,
+        "conceptDistinct": 25,
+        "answerSpecific": 23,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "削岩機でコンクリートを砕く動作が破壊を明瞭に示す。",
+      "alternativeAnswersEn": [
+        "demolish",
+        "break"
+      ],
+      "assessedAt": "2026-10-19T09:20:01.747790+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "mail@molko",
+      "w": "mail",
+      "p": [
+        "molko-"
+      ],
+      "rarity": 503,
+      "imagePath": "assets/word/mail@molko.png",
+      "sourceOrdinal": 9310,
+      "reviewOrder": 339,
+      "localImageExists": true,
+      "imageGitBlobSha": "b1979f3388a4238a2c317d0d30181b91fc94d20d",
+      "score": 94,
+      "components": {
+        "meaningVisible": 39,
+        "conceptDistinct": 24,
+        "answerSpecific": 21,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "郵便ポストへ封書を入れる動作で郵便が読める。",
+      "alternativeAnswersEn": [
+        "post",
+        "letter"
+      ],
+      "assessedAt": "2026-10-19T09:20:01.747790+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "newspaper",
+      "w": "newspaper",
+      "p": [
+        "newo-"
+      ],
+      "rarity": 503,
+      "imagePath": "assets/word/newspaper.png",
+      "sourceOrdinal": 10393,
+      "reviewOrder": 340,
+      "localImageExists": true,
+      "imageGitBlobSha": "61e3af35fc0321895f8534eb55e08a895eb89191",
+      "score": 98,
+      "components": {
+        "meaningVisible": 40,
+        "conceptDistinct": 25,
+        "answerSpecific": 23,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "段組みの記事と写真のある紙面で新聞が明瞭。",
+      "alternativeAnswersEn": [
+        "press",
+        "paper"
+      ],
+      "assessedAt": "2026-10-19T09:20:01.747790+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "pink",
+      "w": "pink",
+      "p": [
+        "peuk-"
+      ],
+      "rarity": 503,
+      "imagePath": "assets/word/pink.png",
+      "sourceOrdinal": 11827,
+      "reviewOrder": 341,
+      "localImageExists": true,
+      "imageGitBlobSha": "7c1da5c8602fd8a69100f5dc49b02c707707b87d",
+      "score": 92,
+      "components": {
+        "meaningVisible": 38,
+        "conceptDistinct": 24,
+        "answerSpecific": 20,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "鮮明な桃色のリボンは色を示すがリボン自体も自然。",
+      "alternativeAnswersEn": [
+        "rose",
+        "ribbon"
+      ],
+      "assessedAt": "2026-10-19T09:20:01.747790+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "pregnant@per1-gene",
+      "w": "pregnant",
+      "p": [
+        "per1",
+        "genə-"
+      ],
+      "rarity": 503,
+      "imagePath": "assets/word/pregnant@per1-gene.png",
+      "sourceOrdinal": 12296,
+      "reviewOrder": 342,
+      "localImageExists": true,
+      "imageGitBlobSha": "261f5717e7cebd4a13fd7b8f93037b2fc8b3dfcf",
+      "score": 98,
+      "components": {
+        "meaningVisible": 40,
+        "conceptDistinct": 25,
+        "answerSpecific": 23,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "大きなお腹を支える女性の姿で妊娠状態が明瞭。",
+      "alternativeAnswersEn": [
+        "expecting",
+        "pregnancy"
+      ],
+      "assessedAt": "2026-10-19T09:20:01.747790+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "reasoning",
+      "w": "reasoning",
+      "p": [
+        "rē(i)-"
+      ],
+      "rarity": 503,
+      "imagePath": "assets/word/reasoning.png",
+      "sourceOrdinal": 13073,
+      "reviewOrder": 343,
+      "localImageExists": true,
+      "imageGitBlobSha": "9c48d1ae552c2844472efa60c2bb0866db27445a",
+      "score": 70,
+      "components": {
+        "meaningVisible": 30,
+        "conceptDistinct": 19,
+        "answerSpecific": 12,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "雨から傘へとカードを関連付けて考え推論を示唆する。",
+      "alternativeAnswersEn": [
+        "logic",
+        "thinking"
+      ],
+      "assessedAt": "2026-10-19T09:20:01.747790+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "remarkable",
+      "w": "remarkable",
+      "p": [
+        "re-",
+        "merg-"
+      ],
+      "rarity": 503,
+      "imagePath": "assets/word/remarkable.png",
+      "sourceOrdinal": 13309,
+      "reviewOrder": 344,
+      "localImageExists": true,
+      "imageGitBlobSha": "e32f72811587fb7697ea7e1d36a050646a693eaa",
+      "score": 61,
+      "components": {
+        "meaningVisible": 26,
+        "conceptDistinct": 17,
+        "answerSpecific": 9,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "非常に高いひまわりと見上げる人で注目性を示すが巨大も自然。",
+      "alternativeAnswersEn": [
+        "extraordinary",
+        "tall"
+      ],
+      "assessedAt": "2026-10-19T09:20:01.747790+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "surgical",
+      "w": "surgical",
+      "p": [
+        "ghes-",
+        "werg-"
+      ],
+      "rarity": 503,
+      "imagePath": "assets/word/surgical.png",
+      "sourceOrdinal": 15495,
+      "reviewOrder": 345,
+      "localImageExists": true,
+      "imageGitBlobSha": "1be884f89e2044958ac52c4be4c7ce671af98b8a",
+      "score": 89,
+      "components": {
+        "meaningVisible": 37,
+        "conceptDistinct": 24,
+        "answerSpecific": 19,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "手術服で処置する場面は外科の属性を示すが手術の名詞も強い。",
+      "alternativeAnswersEn": [
+        "operation",
+        "surgery"
+      ],
+      "assessedAt": "2026-10-19T09:20:01.747790+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "Canadian",
+      "w": "Canadian",
+      "p": [],
+      "rarity": 503,
+      "imagePath": "assets/word/Canadian.png",
+      "sourceOrdinal": 19179,
+      "reviewOrder": 346,
+      "localImageExists": true,
+      "imageGitBlobSha": "e422a4fa8f4ec1ce54b29720f7ec11c4af0e29d8",
+      "score": 12,
+      "components": {
+        "meaningVisible": 1,
+        "conceptDistinct": 1,
+        "answerSpecific": 0,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "女性の肖像に国籍を示す要素がなくカナダ人と特定できない。",
+      "alternativeAnswersEn": [
+        "woman",
+        "person"
+      ],
+      "assessedAt": "2026-10-19T09:20:01.747790+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "coverage",
+      "w": "coverage",
+      "p": [],
+      "rarity": 503,
+      "imagePath": "assets/word/coverage.png",
+      "sourceOrdinal": 19180,
+      "reviewOrder": 347,
+      "localImageExists": true,
+      "imageGitBlobSha": "88574f12f153dfdeed4334b609cf88ffeb2bee34",
+      "score": 77,
+      "components": {
+        "meaningVisible": 33,
+        "conceptDistinct": 21,
+        "answerSpecific": 14,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "現場のカメラ取材と記者で報道を示すが取材の別名も強い。",
+      "alternativeAnswersEn": [
+        "reporting",
+        "journalism"
+      ],
+      "assessedAt": "2026-10-19T09:20:01.747790+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "license",
+      "w": "license",
+      "p": [],
+      "rarity": 503,
+      "imagePath": "assets/word/license.png",
+      "sourceOrdinal": 19181,
+      "reviewOrder": 348,
+      "localImageExists": true,
+      "imageGitBlobSha": "8ab7a2a98e6b74fc3c1a0592e1c52ed830aa979c",
+      "score": 73,
+      "components": {
+        "meaningVisible": 31,
+        "conceptDistinct": 20,
+        "answerSpecific": 13,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "係員が書類へ印を押すが認可証か証明書かは判別しにくい。",
+      "alternativeAnswersEn": [
+        "permit",
+        "approval"
+      ],
+      "assessedAt": "2026-10-19T09:20:01.747790+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "recording",
+      "w": "recording",
+      "p": [],
+      "rarity": 503,
+      "imagePath": "assets/word/recording.png",
+      "sourceOrdinal": 19787,
+      "reviewOrder": 349,
+      "localImageExists": true,
+      "imageGitBlobSha": "523353b068d3365fb9f31c764b23ae808a1a89a2",
+      "score": 92,
+      "components": {
+        "meaningVisible": 38,
+        "conceptDistinct": 24,
+        "answerSpecific": 20,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "マイクと撮影カメラを使って話す場面で記録が読める。",
+      "alternativeAnswersEn": [
+        "filming",
+        "record"
+      ],
+      "assessedAt": "2026-10-19T09:20:01.747790+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "bent",
+      "w": "bent",
+      "p": [
+        "bhendh-"
+      ],
+      "rarity": 504,
+      "imagePath": "assets/word/bent.png",
+      "sourceOrdinal": 1640,
+      "reviewOrder": 350,
+      "localImageExists": true,
+      "imageGitBlobSha": "174e53ff0dbe6e6086536e6b1f5f08379fcf4271",
+      "score": 98,
+      "components": {
+        "meaningVisible": 40,
+        "conceptDistinct": 25,
+        "answerSpecific": 23,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "柄が途中で折れ曲がったスプーンで曲がった状態が明瞭。",
+      "alternativeAnswersEn": [
+        "curved",
+        "crooked"
+      ],
+      "assessedAt": "2026-10-19T09:20:01.747790+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "circuit",
+      "w": "circuit",
+      "p": [
+        "(s)ker-3",
+        "ei-"
+      ],
+      "rarity": 504,
+      "imagePath": "assets/word/circuit.png",
+      "sourceOrdinal": 2730,
+      "reviewOrder": 351,
+      "localImageExists": true,
+      "imageGitBlobSha": "5123f5352a5e6aef3e9b5b25591838b91bb0dce2",
+      "score": 98,
+      "components": {
+        "meaningVisible": 40,
+        "conceptDistinct": 25,
+        "answerSpecific": 23,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "電池とスイッチと電球を結ぶ閉じた配線で回路が明瞭。",
+      "alternativeAnswersEn": [
+        "electrical circuit",
+        "wiring"
+      ],
+      "assessedAt": "2026-10-19T09:21:38.463316+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "competitive",
+      "w": "competitive",
+      "p": [
+        "kom",
+        "pet-"
+      ],
+      "rarity": 504,
+      "imagePath": "assets/word/competitive.png",
+      "sourceOrdinal": 3059,
+      "reviewOrder": 352,
+      "localImageExists": true,
+      "imageGitBlobSha": "5527c5957030f09a1f60e5c8bc4c654a493a6b24",
+      "score": 87,
+      "components": {
+        "meaningVisible": 36,
+        "conceptDistinct": 23,
+        "answerSpecific": 18,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "二人がゴールを競う表情で競争性が伝わるが競走も強い。",
+      "alternativeAnswersEn": [
+        "competition",
+        "race"
+      ],
+      "assessedAt": "2026-10-19T09:21:38.463316+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "enforcement",
+      "w": "enforcement",
+      "p": [
+        "en",
+        "bhergh-2"
+      ],
+      "rarity": 504,
+      "imagePath": "assets/word/enforcement.png",
+      "sourceOrdinal": 5241,
+      "reviewOrder": 353,
+      "localImageExists": true,
+      "imageGitBlobSha": "712160560979cb24580f23fdaa5e91e9d5877184",
+      "score": 77,
+      "components": {
+        "meaningVisible": 33,
+        "conceptDistinct": 21,
+        "answerSpecific": 14,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "係員が禁止標識に従い自転車を止め執行を示す。",
+      "alternativeAnswersEn": [
+        "restriction",
+        "prohibition"
+      ],
+      "assessedAt": "2026-10-19T09:21:38.463316+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "extend",
+      "w": "extend",
+      "p": [
+        "eghs",
+        "ten-"
+      ],
+      "rarity": 504,
+      "imagePath": "assets/word/extend.png",
+      "sourceOrdinal": 5762,
+      "reviewOrder": 354,
+      "localImageExists": true,
+      "imageGitBlobSha": "724a5cad46e98ed84867d6ac7655fe2914e8a4c2",
+      "score": 94,
+      "components": {
+        "meaningVisible": 39,
+        "conceptDistinct": 24,
+        "answerSpecific": 21,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "伸縮梯子を長くする動作が延長を明瞭に示す。",
+      "alternativeAnswersEn": [
+        "lengthen",
+        "stretch"
+      ],
+      "assessedAt": "2026-10-19T09:21:38.463316+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "graph",
+      "w": "graph",
+      "p": [
+        "gerbh-"
+      ],
+      "rarity": 504,
+      "imagePath": "assets/word/graph.png",
+      "sourceOrdinal": 6940,
+      "reviewOrder": 355,
+      "localImageExists": true,
+      "imageGitBlobSha": "ac896149038e0c98491ed6b1fbf5915fefed7320",
+      "score": 98,
+      "components": {
+        "meaningVisible": 40,
+        "conceptDistinct": 25,
+        "answerSpecific": 23,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "座標上へ点と線を描くのでグラフが明瞭。",
+      "alternativeAnswersEn": [
+        "chart",
+        "plot"
+      ],
+      "assessedAt": "2026-10-19T09:21:38.463316+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "links",
+      "w": "links",
+      "p": [
+        "kleng-"
+      ],
+      "rarity": 504,
+      "imagePath": "assets/word/links.png",
+      "sourceOrdinal": 9046,
+      "reviewOrder": 356,
+      "localImageExists": true,
+      "imageGitBlobSha": "ffa852da5ae9b4d63a2dac3f818ac9300542cdbf",
+      "score": 85,
+      "components": {
+        "meaningVisible": 35,
+        "conceptDistinct": 23,
+        "answerSpecific": 17,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "海沿いの砂丘とゴルフの旗はリンクスを示すが一般のゴルフ場も自然。",
+      "alternativeAnswersEn": [
+        "golf course",
+        "green"
+      ],
+      "assessedAt": "2026-10-19T09:21:38.463316+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "repair",
+      "w": "repair",
+      "p": [
+        "re-",
+        "perə-1"
+      ],
+      "rarity": 504,
+      "imagePath": "assets/word/repair.png",
+      "sourceOrdinal": 13358,
+      "reviewOrder": 357,
+      "localImageExists": true,
+      "imageGitBlobSha": "15dddbcc9e2ceacd566a306ad55dd9950d4f01d2",
+      "score": 98,
+      "components": {
+        "meaningVisible": 40,
+        "conceptDistinct": 25,
+        "answerSpecific": 23,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "工具で自転車の機構を直す動作が修理に直結する。",
+      "alternativeAnswersEn": [
+        "fix",
+        "mend"
+      ],
+      "assessedAt": "2026-10-19T09:21:38.463316+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "summary",
+      "w": "summary",
+      "p": [
+        "uper"
+      ],
+      "rarity": 504,
+      "imagePath": "assets/word/summary.png",
+      "sourceOrdinal": 15417,
+      "reviewOrder": 359,
+      "localImageExists": true,
+      "imageGitBlobSha": "e0f80ce427c49251cd90a18ecb0e101e8a6883ff",
+      "score": 64,
+      "components": {
+        "meaningVisible": 27,
+        "conceptDistinct": 18,
+        "answerSpecific": 10,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "多数の写真を少数へ選ぶ姿は要約を暗示するが選択も自然。",
+      "alternativeAnswersEn": [
+        "selection",
+        "overview"
+      ],
+      "assessedAt": "2026-10-19T09:21:38.463316+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "yesterday",
+      "w": "yesterday",
+      "p": [
+        "dhgh(y)es-",
+        "agh-2"
+      ],
+      "rarity": 504,
+      "imagePath": "assets/word/yesterday.png",
+      "sourceOrdinal": 17411,
+      "reviewOrder": 360,
+      "localImageExists": true,
+      "imageGitBlobSha": "1f4a89f324bfb1cb36bc30d960f0b3ba30c3a95f",
+      "score": 49,
+      "components": {
+        "meaningVisible": 20,
+        "conceptDistinct": 13,
+        "answerSpecific": 6,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "ちぎられた日めくり紙は過ぎた日を示すが昨日と特定できない。",
+      "alternativeAnswersEn": [
+        "past",
+        "calendar"
+      ],
+      "assessedAt": "2026-10-19T09:21:38.463316+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "odd",
+      "w": "odd",
+      "p": [],
+      "rarity": 504,
+      "imagePath": "assets/word/odd.png",
+      "sourceOrdinal": 19182,
+      "reviewOrder": 361,
+      "localImageExists": true,
+      "imageGitBlobSha": "c15dc1b8cbecb20ff805d3a4bb4a188e0a480fe8",
+      "score": 92,
+      "components": {
+        "meaningVisible": 38,
+        "conceptDistinct": 24,
+        "answerSpecific": 20,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "靴を履いた急須の非現実的な姿で奇妙さが明瞭。",
+      "alternativeAnswersEn": [
+        "strange",
+        "weird"
+      ],
+      "assessedAt": "2026-10-19T09:21:38.463316+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "shake",
+      "w": "shake",
+      "p": [],
+      "rarity": 504,
+      "imagePath": "assets/word/shake.png",
+      "sourceOrdinal": 19183,
+      "reviewOrder": 362,
+      "localImageExists": true,
+      "imageGitBlobSha": "d2d44bfe087d9c1086690ab2e47a9863b7723e1d",
+      "score": 97,
+      "components": {
+        "meaningVisible": 40,
+        "conceptDistinct": 25,
+        "answerSpecific": 22,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "体を抱え歯を鳴らし震える姿が明瞭。",
+      "alternativeAnswersEn": [
+        "shiver",
+        "tremble"
+      ],
+      "assessedAt": "2026-10-19T09:21:38.463316+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "ending",
+      "w": "ending",
+      "p": [],
+      "rarity": 504,
+      "imagePath": "assets/word/ending.png",
+      "sourceOrdinal": 46927,
+      "reviewOrder": 364,
+      "localImageExists": true,
+      "imageGitBlobSha": "1b4ae6938ac8617316efc425a64a412a3fbfb1ff",
+      "score": 74,
+      "components": {
+        "meaningVisible": 31,
+        "conceptDistinct": 20,
+        "answerSpecific": 13,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "道の終点に門があるが終わりか目的地かは曖昧。",
+      "alternativeAnswersEn": [
+        "end",
+        "destination"
+      ],
+      "assessedAt": "2026-10-19T09:21:38.463316+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "approval",
+      "w": "approval",
+      "p": [
+        "ad-",
+        "per1",
+        "bheuə-"
+      ],
+      "rarity": 505,
+      "imagePath": "assets/word/approval.png",
+      "sourceOrdinal": 969,
+      "reviewOrder": 365,
+      "localImageExists": true,
+      "imageGitBlobSha": "48d87570a2078c99b8c0a5af954f8f563d4eb280",
+      "score": 89,
+      "components": {
+        "meaningVisible": 37,
+        "conceptDistinct": 23,
+        "answerSpecific": 19,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "完成した椅子へ親指を立てる人で承認が読める。",
+      "alternativeAnswersEn": [
+        "acceptance",
+        "praise"
+      ],
+      "assessedAt": "2026-10-19T09:21:38.463316+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "availability",
+      "w": "availability",
+      "p": [
+        "ad-",
+        "wal-",
+        "-tro-"
+      ],
+      "rarity": 505,
+      "imagePath": "assets/word/availability.png",
+      "sourceOrdinal": 1333,
+      "reviewOrder": 366,
+      "localImageExists": true,
+      "imageGitBlobSha": "d9c1f683ca57aba79b06313e0e94acc9b04fbaf0",
+      "score": 61,
+      "components": {
+        "meaningVisible": 26,
+        "conceptDistinct": 17,
+        "answerSpecific": 9,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "荷物カートが複数用意され利用可能を示唆するが空きの別表現も強い。",
+      "alternativeAnswersEn": [
+        "available",
+        "access"
+      ],
+      "assessedAt": "2026-10-19T09:21:38.463316+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "collaboration",
+      "w": "collaboration",
+      "p": [
+        "kom"
+      ],
+      "rarity": 505,
+      "imagePath": "assets/word/collaboration.png",
+      "sourceOrdinal": 2926,
+      "reviewOrder": 367,
+      "localImageExists": true,
+      "imageGitBlobSha": "888d6709211d5cb6fca20257ebd8d8f878a678ca",
+      "score": 89,
+      "components": {
+        "meaningVisible": 37,
+        "conceptDistinct": 23,
+        "answerSpecific": 19,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "二人が一枚の絵を一緒に描き協力が読める。",
+      "alternativeAnswersEn": [
+        "cooperation",
+        "teamwork"
+      ],
+      "assessedAt": "2026-10-19T09:21:38.463316+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "crop",
+      "w": "crop",
+      "p": [
+        "g(e)r-2"
+      ],
+      "rarity": 505,
+      "imagePath": "assets/word/crop.png",
+      "sourceOrdinal": 3665,
+      "reviewOrder": 368,
+      "localImageExists": true,
+      "imageGitBlobSha": "ff66f0f67019d940951422f676f7a91d567164af",
+      "score": 94,
+      "components": {
+        "meaningVisible": 39,
+        "conceptDistinct": 24,
+        "answerSpecific": 21,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "畑の実った穀物と収穫者で作物が明瞭。",
+      "alternativeAnswersEn": [
+        "harvest",
+        "wheat"
+      ],
+      "assessedAt": "2026-10-19T09:21:38.463316+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "knee",
+      "w": "knee",
+      "p": [
+        "genu-1"
+      ],
+      "rarity": 505,
+      "imagePath": "assets/word/knee.png",
+      "sourceOrdinal": 8657,
+      "reviewOrder": 369,
+      "localImageExists": true,
+      "imageGitBlobSha": "22cff5d677dc16684b2bddc3f9e4f1264e119aba",
+      "score": 98,
+      "components": {
+        "meaningVisible": 40,
+        "conceptDistinct": 25,
+        "answerSpecific": 23,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "曲げた脚のひざを手で示し対象が明瞭。",
+      "alternativeAnswersEn": [
+        "joint",
+        "leg"
+      ],
+      "assessedAt": "2026-10-19T09:21:38.463316+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "lift",
+      "w": "lift",
+      "p": [
+        "leup-"
+      ],
+      "rarity": 505,
+      "imagePath": "assets/word/lift.png",
+      "sourceOrdinal": 8994,
+      "reviewOrder": 370,
+      "localImageExists": true,
+      "imageGitBlobSha": "4022f1ec5fdd3da6af28cc267cf50a9f4d2c2d3d",
+      "score": 98,
+      "components": {
+        "meaningVisible": 40,
+        "conceptDistinct": 25,
+        "answerSpecific": 23,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "箱を高い棚へ持ち上げる動作が明瞭。",
+      "alternativeAnswersEn": [
+        "raise",
+        "pick up"
+      ],
+      "assessedAt": "2026-10-19T09:21:38.463316+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "pace@pete",
+      "w": "pace",
+      "p": [
+        "petə-"
+      ],
+      "rarity": 505,
+      "imagePath": "assets/word/pace@pete.png",
+      "sourceOrdinal": 11108,
+      "reviewOrder": 371,
+      "localImageExists": true,
+      "imageGitBlobSha": "db0fc010ee83d1b1025a6e11d71ca1ed146bb3bf",
+      "score": 82,
+      "components": {
+        "meaningVisible": 34,
+        "conceptDistinct": 22,
+        "answerSpecific": 16,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "二人がそろった歩みで歩調を示すが歩く動作も強い。",
+      "alternativeAnswersEn": [
+        "stride",
+        "walking"
+      ],
+      "assessedAt": "2026-10-19T09:21:38.463316+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "psychology",
+      "w": "psychology",
+      "p": [
+        "bhes-2",
+        "leg-"
+      ],
+      "rarity": 505,
+      "imagePath": "assets/word/psychology.png",
+      "sourceOrdinal": 12685,
+      "reviewOrder": 372,
+      "localImageExists": true,
+      "imageGitBlobSha": "270df46bd5f90d5e1af28b9e4afb660349588ddf",
+      "score": 76,
+      "components": {
+        "meaningVisible": 32,
+        "conceptDistinct": 21,
+        "answerSpecific": 14,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "専門家が子供の課題反応を観察し心理学を示すが検査も自然。",
+      "alternativeAnswersEn": [
+        "assessment",
+        "testing"
+      ],
+      "assessedAt": "2026-10-19T09:21:38.463316+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "revenue",
+      "w": "revenue",
+      "p": [
+        "re-",
+        "gʷā-"
+      ],
+      "rarity": 505,
+      "imagePath": "assets/word/revenue.png",
+      "sourceOrdinal": 13559,
+      "reviewOrder": 373,
+      "localImageExists": true,
+      "imageGitBlobSha": "02ee4817b8f81cbbc6fa318a5c54b7ffa84231b6",
+      "score": 73,
+      "components": {
+        "meaningVisible": 31,
+        "conceptDistinct": 20,
+        "answerSpecific": 13,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "公的窓口の収納で歳入を示唆するが支払いや税も強い。",
+      "alternativeAnswersEn": [
+        "income",
+        "tax"
+      ],
+      "assessedAt": "2026-10-19T09:21:38.463316+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "modeling",
+      "w": "modeling",
+      "p": [],
+      "rarity": 505,
+      "imagePath": "assets/word/modeling.png",
+      "sourceOrdinal": 48380,
+      "reviewOrder": 374,
+      "localImageExists": true,
+      "imageGitBlobSha": "3b393c7adac1e9d4866b3b560333b7731e46ada2",
+      "score": 94,
+      "components": {
+        "meaningVisible": 39,
+        "conceptDistinct": 24,
+        "answerSpecific": 21,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "部品を接着して飛行機模型を作る姿で模型製作が明瞭。",
+      "alternativeAnswersEn": [
+        "model making",
+        "craft"
+      ],
+      "assessedAt": "2026-10-19T09:21:38.463316+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "mining",
+      "w": "mining",
+      "p": [],
+      "rarity": 505,
+      "imagePath": "assets/word/mining.png",
+      "sourceOrdinal": 48525,
+      "reviewOrder": 375,
+      "localImageExists": true,
+      "imageGitBlobSha": "11184f5a718e4e676ca9b7f4fd91c54ffb213849",
+      "score": 98,
+      "components": {
+        "meaningVisible": 40,
+        "conceptDistinct": 25,
+        "answerSpecific": 23,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "つるはしで鉱石を掘りトロッコへ集める姿で採鉱が明瞭。",
+      "alternativeAnswersEn": [
+        "excavation",
+        "digging"
+      ],
+      "assessedAt": "2026-10-19T09:21:38.463316+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "arrive",
+      "w": "arrive",
+      "p": [
+        "ad-",
+        "rei-1"
+      ],
+      "rarity": 506,
+      "imagePath": "assets/word/arrive.png",
+      "sourceOrdinal": 1068,
+      "reviewOrder": 376,
+      "localImageExists": true,
+      "imageGitBlobSha": "b76b29db124c2374a463db689ec6b55902bedbe7",
+      "score": 89,
+      "components": {
+        "meaningVisible": 37,
+        "conceptDistinct": 23,
+        "answerSpecific": 19,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "旅行者が荷物とともに小屋へ着き迎えられるので到着が読める。",
+      "alternativeAnswersEn": [
+        "arrival",
+        "reach"
+      ],
+      "assessedAt": "2026-10-19T09:21:38.463316+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "creature",
+      "w": "creature",
+      "p": [
+        "ker-3"
+      ],
+      "rarity": 506,
+      "imagePath": "assets/word/creature.png",
+      "sourceOrdinal": 3602,
+      "reviewOrder": 377,
+      "localImageExists": true,
+      "imageGitBlobSha": "4cabd552678ea449f348e1b7d1b2ace8ff3fcfbe",
+      "score": 59,
+      "components": {
+        "meaningVisible": 25,
+        "conceptDistinct": 16,
+        "answerSpecific": 8,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "カタツムリは生き物だが具体的な動物名が先に浮かぶ。",
+      "alternativeAnswersEn": [
+        "snail",
+        "animal"
+      ],
+      "assessedAt": "2026-10-19T09:21:38.463316+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "diameter",
+      "w": "diameter",
+      "p": [
+        "dwo-",
+        "mē-2"
+      ],
+      "rarity": 506,
+      "imagePath": "assets/word/diameter.png",
+      "sourceOrdinal": 4319,
+      "reviewOrder": 378,
+      "localImageExists": true,
+      "imageGitBlobSha": "dffa8a89f6dfea851cde6c563e3ef09a30c3c843",
+      "score": 96,
+      "components": {
+        "meaningVisible": 39,
+        "conceptDistinct": 25,
+        "answerSpecific": 22,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "円形断面の中心を通る幅を定規で示し直径が明瞭。",
+      "alternativeAnswersEn": [
+        "width",
+        "measurement"
+      ],
+      "assessedAt": "2026-10-19T09:21:38.463316+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "dimensional",
+      "w": "dimensional",
+      "p": [
+        "dwis-"
+      ],
+      "rarity": 506,
+      "imagePath": "assets/word/dimensional.png",
+      "sourceOrdinal": 4408,
+      "reviewOrder": 379,
+      "localImageExists": true,
+      "imageGitBlobSha": "5b3b07e81525e4627ab5d91290430611a11fbdb1",
+      "score": 73,
+      "components": {
+        "meaningVisible": 31,
+        "conceptDistinct": 20,
+        "answerSpecific": 13,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "透明箱の三辺を測って寸法を示すが次元の形容詞には絞れない。",
+      "alternativeAnswersEn": [
+        "dimensions",
+        "measurement"
+      ],
+      "assessedAt": "2026-10-19T09:21:38.463316+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "essence",
+      "w": "essence",
+      "p": [
+        "es-"
+      ],
+      "rarity": 506,
+      "imagePath": "assets/word/essence.png",
+      "sourceOrdinal": 5489,
+      "reviewOrder": 380,
+      "localImageExists": true,
+      "imageGitBlobSha": "cd0f8b763edf899335cb4a7c27e010c87f39b9ab",
+      "score": 45,
+      "components": {
+        "meaningVisible": 19,
+        "conceptDistinct": 12,
+        "answerSpecific": 5,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "時計の中の機構を見る場面だけでは本質の抽象概念を特定できない。",
+      "alternativeAnswersEn": [
+        "mechanism",
+        "inspection"
+      ],
+      "assessedAt": "2026-10-19T09:21:38.463316+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "ethics",
+      "w": "ethics",
+      "p": [
+        "s(w)e-"
+      ],
+      "rarity": 506,
+      "imagePath": "assets/word/ethics.png",
+      "sourceOrdinal": 5524,
+      "reviewOrder": 381,
+      "localImageExists": true,
+      "imageGitBlobSha": "9a0cf425997f8a52d1ba2c6b94d5309508c52904",
+      "score": 62,
+      "components": {
+        "meaningVisible": 26,
+        "conceptDistinct": 17,
+        "answerSpecific": 9,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "財布を返す正しい行為は倫理の例だが正直や道徳も自然。",
+      "alternativeAnswersEn": [
+        "honesty",
+        "morality"
+      ],
+      "assessedAt": "2026-10-19T09:21:38.463316+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "excitement",
+      "w": "excitement",
+      "p": [
+        "eghs",
+        "keiə-"
+      ],
+      "rarity": 506,
+      "imagePath": "assets/word/excitement.png",
+      "sourceOrdinal": 5633,
+      "reviewOrder": 382,
+      "localImageExists": true,
+      "imageGitBlobSha": "f5bd2df9845c90410e0d769a74714dfefdf2f486",
+      "score": 89,
+      "components": {
+        "meaningVisible": 37,
+        "conceptDistinct": 23,
+        "answerSpecific": 19,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "遊具へ喜んで跳ねる子の表情が興奮を示す。",
+      "alternativeAnswersEn": [
+        "joy",
+        "enthusiasm"
+      ],
+      "assessedAt": "2026-10-19T09:21:38.463316+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "fiction",
+      "w": "fiction",
+      "p": [
+        "dheigh-"
+      ],
+      "rarity": 506,
+      "imagePath": "assets/word/fiction.png",
+      "sourceOrdinal": 6035,
+      "reviewOrder": 383,
+      "localImageExists": true,
+      "imageGitBlobSha": "df1ce178c265052114866c9fc58e682ae4aac6a4",
+      "score": 86,
+      "components": {
+        "meaningVisible": 36,
+        "conceptDistinct": 23,
+        "answerSpecific": 18,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "本から想像する竜と城で架空の物語が読めるが空想も強い。",
+      "alternativeAnswersEn": [
+        "fantasy",
+        "story"
+      ],
+      "assessedAt": "2026-10-19T09:21:38.463316+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "grant",
+      "w": "grant",
+      "p": [
+        "kerd-",
+        "dhē-"
+      ],
+      "rarity": 506,
+      "imagePath": "assets/word/grant.png",
+      "sourceOrdinal": 6936,
+      "reviewOrder": 384,
+      "localImageExists": true,
+      "imageGitBlobSha": "e2605c27b9d5c024e11ec9812421dec209689f2a",
+      "score": 64,
+      "components": {
+        "meaningVisible": 27,
+        "conceptDistinct": 18,
+        "answerSpecific": 10,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "温室の鍵を渡す姿は与える意味を示すが譲渡や贈り物も自然。",
+      "alternativeAnswersEn": [
+        "give",
+        "transfer"
+      ],
+      "assessedAt": "2026-10-19T09:21:38.463316+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "heading",
+      "w": "heading",
+      "p": [
+        "kaput-"
+      ],
+      "rarity": 506,
+      "imagePath": "assets/word/heading.png",
+      "sourceOrdinal": 7239,
+      "reviewOrder": 385,
+      "localImageExists": true,
+      "imageGitBlobSha": "b937de4d29ad8cba88a9777fef94da2b45f922e2",
+      "score": 77,
+      "components": {
+        "meaningVisible": 32,
+        "conceptDistinct": 21,
+        "answerSpecific": 14,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "本の上部の帯を強調して見出しを示すが題名も自然。",
+      "alternativeAnswersEn": [
+        "title",
+        "header"
+      ],
+      "assessedAt": "2026-10-19T09:21:38.463316+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "particle",
+      "w": "particle",
+      "p": [
+        "perə-2"
+      ],
+      "rarity": 506,
+      "imagePath": "assets/word/particle.png",
+      "sourceOrdinal": 11315,
+      "reviewOrder": 386,
+      "localImageExists": true,
+      "imageGitBlobSha": "c8891098c780913c75d072c5329d271c15172a16",
+      "score": 89,
+      "components": {
+        "meaningVisible": 37,
+        "conceptDistinct": 23,
+        "answerSpecific": 19,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "砂粒の一つを拡大し微粒子へ注目を導く。",
+      "alternativeAnswersEn": [
+        "grain",
+        "speck"
+      ],
+      "assessedAt": "2026-10-19T09:21:38.463316+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "regardless",
+      "w": "regardless",
+      "p": [
+        "re-",
+        "wer-4",
+        "leu-"
+      ],
+      "rarity": 506,
+      "imagePath": "assets/word/regardless.png",
+      "sourceOrdinal": 13224,
+      "reviewOrder": 387,
+      "localImageExists": true,
+      "imageGitBlobSha": "16189630e34c6e57d669bc7811dac75f4e9f6f89",
+      "score": 48,
+      "components": {
+        "meaningVisible": 20,
+        "conceptDistinct": 13,
+        "answerSpecific": 6,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "雨でも塗装を続ける姿は無頓着さを暗示するが継続も自然。",
+      "alternativeAnswersEn": [
+        "despite",
+        "continue"
+      ],
+      "assessedAt": "2026-10-19T09:21:38.463316+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "sacrifice",
+      "w": "sacrifice",
+      "p": [
+        "sak-",
+        "dhē-"
+      ],
+      "rarity": 506,
+      "imagePath": "assets/word/sacrifice.png",
+      "sourceOrdinal": 13839,
+      "reviewOrder": 388,
+      "localImageExists": true,
+      "imageGitBlobSha": "e7c5b66007f20ab6d066ab783ef3baf3233b7402",
+      "score": 70,
+      "components": {
+        "meaningVisible": 30,
+        "conceptDistinct": 19,
+        "answerSpecific": 12,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "食べ物を困る相手へ譲る姿は犠牲を示唆するが分け合うも自然。",
+      "alternativeAnswersEn": [
+        "sharing",
+        "generosity"
+      ],
+      "assessedAt": "2026-10-19T09:21:38.463316+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "programme",
+      "w": "programme",
+      "p": [],
+      "rarity": 506,
+      "imagePath": "assets/word/programme.png",
+      "sourceOrdinal": 19184,
+      "reviewOrder": 389,
+      "localImageExists": true,
+      "imageGitBlobSha": "911b1fbf24ad6c3b6b19f564c1520ae1e3c141cc",
+      "score": 49,
+      "components": {
+        "meaningVisible": 20,
+        "conceptDistinct": 13,
+        "answerSpecific": 6,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "画面と色分けされた一覧だけでは番組か予定表かを特定しにくい。",
+      "alternativeAnswersEn": [
+        "program",
+        "schedule"
+      ],
+      "assessedAt": "2026-10-19T09:21:38.463316+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "abandoned",
+      "w": "abandoned",
+      "p": [],
+      "rarity": 506,
+      "imagePath": "assets/word/abandoned.png",
+      "sourceOrdinal": 48245,
+      "reviewOrder": 390,
+      "localImageExists": true,
+      "imageGitBlobSha": "e9599bbbdf4674f2e7224da57600381b68a42af2",
+      "score": 94,
+      "components": {
+        "meaningVisible": 39,
+        "conceptDistinct": 24,
+        "answerSpecific": 21,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "荒れた庭と壊れた屋根の家で放棄された状態が明瞭。",
+      "alternativeAnswersEn": [
+        "deserted",
+        "derelict"
+      ],
+      "assessedAt": "2026-10-19T09:21:38.463316+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "cards",
+      "w": "cards",
+      "p": [],
+      "rarity": 506,
+      "imagePath": "assets/word/cards.png",
+      "sourceOrdinal": 48816,
+      "reviewOrder": 391,
+      "localImageExists": true,
+      "imageGitBlobSha": "2558d2937de67727f4cad8d738296845de4791fd",
+      "score": 98,
+      "components": {
+        "meaningVisible": 40,
+        "conceptDistinct": 25,
+        "answerSpecific": 23,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "手札として扇状に持つトランプが明瞭。",
+      "alternativeAnswersEn": [
+        "playing cards",
+        "hand"
+      ],
+      "assessedAt": "2026-10-19T09:21:38.463316+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "acquisition",
+      "w": "acquisition",
+      "p": [
+        "ad-"
+      ],
+      "rarity": 507,
+      "imagePath": "assets/word/acquisition.png",
+      "sourceOrdinal": 167,
+      "reviewOrder": 392,
+      "localImageExists": true,
+      "imageGitBlobSha": "cb671d8cef7a7c0fd30de27a9b4f29b019c177ff",
+      "score": 65,
+      "components": {
+        "meaningVisible": 28,
+        "conceptDistinct": 18,
+        "answerSpecific": 10,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "骨董の器を受け取る場面で獲得を示すが購入や受領も自然。",
+      "alternativeAnswersEn": [
+        "purchase",
+        "receiving"
+      ],
+      "assessedAt": "2026-10-19T09:21:38.463316+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "adoption",
+      "w": "adoption",
+      "p": [
+        "ad-",
+        "op-2"
+      ],
+      "rarity": 507,
+      "imagePath": "assets/word/adoption.png",
+      "sourceOrdinal": 266,
+      "reviewOrder": 393,
+      "localImageExists": true,
+      "imageGitBlobSha": "5424ce51cbd51073ca616833bbad766721154a6a",
+      "score": 41,
+      "components": {
+        "meaningVisible": 17,
+        "conceptDistinct": 11,
+        "answerSpecific": 4,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "容器へ料理を詰める姿だけでは新方式の採用を特定できない。",
+      "alternativeAnswersEn": [
+        "packing",
+        "preparation"
+      ],
+      "assessedAt": "2026-10-19T09:21:38.463316+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "differently",
+      "w": "differently",
+      "p": [
+        "dwis-",
+        "bher-1"
+      ],
+      "rarity": 507,
+      "imagePath": "assets/word/differently.png",
+      "sourceOrdinal": 4379,
+      "reviewOrder": 394,
+      "localImageExists": true,
+      "imageGitBlobSha": "d870bbe1229e2c2d1362689e6b19b8c8ed0710c5",
+      "score": 83,
+      "components": {
+        "meaningVisible": 35,
+        "conceptDistinct": 22,
+        "answerSpecific": 16,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "じょうろとホースの異なる方法で同じ水やりをする対比が読める。",
+      "alternativeAnswersEn": [
+        "different ways",
+        "watering"
+      ],
+      "assessedAt": "2026-10-19T09:21:38.463316+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "enormous",
+      "w": "enormous",
+      "p": [
+        "eghs",
+        "gnō-"
+      ],
+      "rarity": 507,
+      "imagePath": "assets/word/enormous.png",
+      "sourceOrdinal": 5274,
+      "reviewOrder": 395,
+      "localImageExists": true,
+      "imageGitBlobSha": "87340f330e5f98d6a873f2a411f2decdb1a227b5",
+      "score": 92,
+      "components": {
+        "meaningVisible": 38,
+        "conceptDistinct": 24,
+        "answerSpecific": 20,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "人よりはるかに大きなかぼちゃで巨大さが明瞭。",
+      "alternativeAnswersEn": [
+        "huge",
+        "giant"
+      ],
+      "assessedAt": "2026-10-19T09:21:38.463316+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "friendship",
+      "w": "friendship",
+      "p": [
+        "prī-",
+        "(s)kep-"
+      ],
+      "rarity": 507,
+      "imagePath": "assets/word/friendship.png",
+      "sourceOrdinal": 6448,
+      "reviewOrder": 396,
+      "localImageExists": true,
+      "imageGitBlobSha": "24600303e630cc3bd96537e3adae9c7177218f2b",
+      "score": 73,
+      "components": {
+        "meaningVisible": 31,
+        "conceptDistinct": 20,
+        "answerSpecific": 13,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "笑顔で協力して箱を運ぶ二人は友情を示唆するが協力も自然。",
+      "alternativeAnswersEn": [
+        "teamwork",
+        "help"
+      ],
+      "assessedAt": "2026-10-19T09:21:38.463316+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "implement",
+      "w": "implement",
+      "p": [
+        "en",
+        "pelə-1"
+      ],
+      "rarity": 507,
+      "imagePath": "assets/word/implement.png",
+      "sourceOrdinal": 7832,
+      "reviewOrder": 397,
+      "localImageExists": true,
+      "imageGitBlobSha": "faa1797df1a2123b46870991c25fae52126d1c6e",
+      "score": 74,
+      "components": {
+        "meaningVisible": 31,
+        "conceptDistinct": 20,
+        "answerSpecific": 13,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "畑でくわを使う人は道具を示すがくわという具体名が強い。",
+      "alternativeAnswersEn": [
+        "tool",
+        "hoe"
+      ],
+      "assessedAt": "2026-10-19T09:21:38.463316+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "laboratory",
+      "w": "laboratory",
+      "p": [
+        "leb-2"
+      ],
+      "rarity": 507,
+      "imagePath": "assets/word/laboratory.png",
+      "sourceOrdinal": 8710,
+      "reviewOrder": 398,
+      "localImageExists": true,
+      "imageGitBlobSha": "b98db70a5e31e8b2c0837350a14d46265bb3a6e8",
+      "score": 97,
+      "components": {
+        "meaningVisible": 40,
+        "conceptDistinct": 25,
+        "answerSpecific": 23,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "顕微鏡と試験管と実験台で実験室が明瞭。",
+      "alternativeAnswersEn": [
+        "lab",
+        "science room"
+      ],
+      "assessedAt": "2026-10-19T09:21:38.463316+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "pace@pag",
+      "w": "pace",
+      "p": [
+        "pag-"
+      ],
+      "rarity": 507,
+      "imagePath": "assets/word/pace@pag.png",
+      "sourceOrdinal": 11109,
+      "reviewOrder": 399,
+      "localImageExists": true,
+      "imageGitBlobSha": "cbd543fc4edc27cd2819aad6aa662e2cf71e7d25",
+      "score": 29,
+      "components": {
+        "meaningVisible": 11,
+        "conceptDistinct": 7,
+        "answerSpecific": 2,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "年長者へ頭を下げる姿だけでは異論を断る特定の前置詞は分からない。",
+      "alternativeAnswersEn": [
+        "apology",
+        "respect"
+      ],
+      "assessedAt": "2026-10-19T09:21:38.463316+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "proposal",
+      "w": "proposal",
+      "p": [
+        "per1",
+        "apo-"
+      ],
+      "rarity": 507,
+      "imagePath": "assets/word/proposal.png",
+      "sourceOrdinal": 12568,
+      "reviewOrder": 400,
+      "localImageExists": true,
+      "imageGitBlobSha": "9cba71652e265c4a2e81df3060ffb5aafb13904c",
+      "score": 76,
+      "components": {
+        "meaningVisible": 32,
+        "conceptDistinct": 21,
+        "answerSpecific": 14,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "模型を示し計画を説明する人物で提案を示すが説明も自然。",
+      "alternativeAnswersEn": [
+        "plan",
+        "suggestion"
+      ],
+      "assessedAt": "2026-10-19T09:21:38.463316+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "servant",
+      "w": "servant",
+      "p": [
+        "servus"
+      ],
+      "rarity": 507,
+      "imagePath": "assets/word/servant.png",
+      "sourceOrdinal": 14337,
+      "reviewOrder": 401,
+      "localImageExists": true,
+      "imageGitBlobSha": "ee708ff2e3a451a54535e89aaed66b556a03379e",
+      "score": 92,
+      "components": {
+        "meaningVisible": 38,
+        "conceptDistinct": 24,
+        "answerSpecific": 20,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "豪華な椅子の人へ茶を運ぶ人物で召使いが読めるが給仕も自然。",
+      "alternativeAnswersEn": [
+        "butler",
+        "attendant"
+      ],
+      "assessedAt": "2026-10-19T09:23:19.342292+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "sustainability",
+      "w": "sustainability",
+      "p": [
+        "upo",
+        "ten-"
+      ],
+      "rarity": 507,
+      "imagePath": "assets/word/sustainability.png",
+      "sourceOrdinal": 15527,
+      "reviewOrder": 402,
+      "localImageExists": true,
+      "imageGitBlobSha": "5c6ace82d3a1e353ead00c6184551af4796f238d",
+      "score": 71,
+      "components": {
+        "meaningVisible": 30,
+        "conceptDistinct": 20,
+        "answerSpecific": 12,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "雨水利用と堆肥と菜園は持続可能性を示唆するが園芸や循環も自然。",
+      "alternativeAnswersEn": [
+        "recycling",
+        "ecology"
+      ],
+      "assessedAt": "2026-10-19T09:23:19.342292+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "tail",
+      "w": "tail",
+      "p": [
+        "dek-2"
+      ],
+      "rarity": 507,
+      "imagePath": "assets/word/tail.png",
+      "sourceOrdinal": 15657,
+      "reviewOrder": 403,
+      "localImageExists": true,
+      "imageGitBlobSha": "2eb6aa8f21517524d621f20f17700c1cfa93ce26",
+      "score": 94,
+      "components": {
+        "meaningVisible": 39,
+        "conceptDistinct": 24,
+        "answerSpecific": 21,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "犬の振るしっぽを動線で強調して対象を示す。",
+      "alternativeAnswersEn": [
+        "dog",
+        "wag"
+      ],
+      "assessedAt": "2026-10-19T09:23:19.342292+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "worker",
+      "w": "worker",
+      "p": [],
+      "rarity": 507,
+      "imagePath": "assets/word/worker.png",
+      "sourceOrdinal": 18949,
+      "reviewOrder": 404,
+      "localImageExists": true,
+      "imageGitBlobSha": "8e5c19a52624aa10af589f6f96b2d0ace4c25949",
+      "score": 92,
+      "components": {
+        "meaningVisible": 38,
+        "conceptDistinct": 24,
+        "answerSpecific": 20,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "安全帽をかぶりレンガを積む人物で作業員が読めるが職種名も強い。",
+      "alternativeAnswersEn": [
+        "builder",
+        "bricklayer"
+      ],
+      "assessedAt": "2026-10-19T09:23:19.342292+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "musical",
+      "w": "musical",
+      "p": [],
+      "rarity": 507,
+      "imagePath": "assets/word/musical.png",
+      "sourceOrdinal": 19185,
+      "reviewOrder": 405,
+      "localImageExists": true,
+      "imageGitBlobSha": "5c45afc8118b25465aeffe445e4e1816a7290186",
+      "score": 77,
+      "components": {
+        "meaningVisible": 32,
+        "conceptDistinct": 21,
+        "answerSpecific": 14,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "ピアノ演奏と音符で音楽性を示すが演奏の動詞も強い。",
+      "alternativeAnswersEn": [
+        "music",
+        "pianist"
+      ],
+      "assessedAt": "2026-10-19T09:23:19.342292+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "Jacob",
+      "w": "Jacob",
+      "p": [],
+      "rarity": 507,
+      "imagePath": "assets/word/Jacob.png",
+      "sourceOrdinal": 21271,
+      "reviewOrder": 406,
+      "localImageExists": true,
+      "imageGitBlobSha": "56b400fd33f78c180852d423cfd5f6fa1f945028",
+      "score": 12,
+      "components": {
+        "meaningVisible": 1,
+        "conceptDistinct": 1,
+        "answerSpecific": 0,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "男性の肖像に特定の名前を識別する情報がない。",
+      "alternativeAnswersEn": [
+        "man",
+        "person"
+      ],
+      "assessedAt": "2026-10-19T09:23:19.342292+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "closing",
+      "w": "closing",
+      "p": [],
+      "rarity": 507,
+      "imagePath": "assets/word/closing.png",
+      "sourceOrdinal": 47567,
+      "reviewOrder": 407,
+      "localImageExists": true,
+      "imageGitBlobSha": "9e5ed09e35c33610fa839339d759ba6bf1d2269e",
+      "score": 94,
+      "components": {
+        "meaningVisible": 39,
+        "conceptDistinct": 24,
+        "answerSpecific": 21,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "店のシャッターを下ろす姿で閉めることが明瞭。",
+      "alternativeAnswersEn": [
+        "closure",
+        "shut"
+      ],
+      "assessedAt": "2026-10-19T09:23:19.342292+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "Acts",
+      "w": "Acts",
+      "p": [],
+      "rarity": 507,
+      "imagePath": "assets/word/Acts.png",
+      "sourceOrdinal": 48041,
+      "reviewOrder": 408,
+      "localImageExists": true,
+      "imageGitBlobSha": "4ee1deb8119b407d168457afd31f082460f31bb7",
+      "score": 12,
+      "components": {
+        "meaningVisible": 1,
+        "conceptDistinct": 1,
+        "answerSpecific": 0,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "男性の肖像だけで使徒言行録という書名を推測できない。",
+      "alternativeAnswersEn": [
+        "man",
+        "person"
+      ],
+      "assessedAt": "2026-10-19T09:23:19.342292+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "attributes",
+      "w": "attributes",
+      "p": [],
+      "rarity": 507,
+      "imagePath": "assets/word/attributes.png",
+      "sourceOrdinal": 48272,
+      "reviewOrder": 409,
+      "localImageExists": true,
+      "imageGitBlobSha": "0b30e3e2bf9d5d5016066e1d733a3601220ce8c1",
+      "score": 27,
+      "components": {
+        "meaningVisible": 9,
+        "conceptDistinct": 6,
+        "answerSpecific": 2,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "赤い球を握る手だけでは属性という複数の抽象概念を特定できない。",
+      "alternativeAnswersEn": [
+        "grip",
+        "ball"
+      ],
+      "assessedAt": "2026-10-19T09:23:19.342292+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "comment",
+      "w": "comment",
+      "p": [
+        "kom",
+        "men-1"
+      ],
+      "rarity": 508,
+      "imagePath": "assets/word/comment.png",
+      "sourceOrdinal": 3004,
+      "reviewOrder": 410,
+      "localImageExists": true,
+      "imageGitBlobSha": "e7fcf45c50068fd44f83701172a8010642289ceb",
+      "score": 74,
+      "components": {
+        "meaningVisible": 32,
+        "conceptDistinct": 20,
+        "answerSpecific": 13,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "絵を指し意見を伝える人は論評を示すが感想や批評も自然。",
+      "alternativeAnswersEn": [
+        "opinion",
+        "critique"
+      ],
+      "assessedAt": "2026-10-19T09:23:19.342292+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "execution",
+      "w": "execution",
+      "p": [
+        "eghs",
+        "sekʷ-1"
+      ],
+      "rarity": 508,
+      "imagePath": "assets/word/execution.png",
+      "sourceOrdinal": 5652,
+      "reviewOrder": 411,
+      "localImageExists": true,
+      "imageGitBlobSha": "be09e5868a5ac53b83dbc82ab76f751400de8c57",
+      "score": 58,
+      "components": {
+        "meaningVisible": 25,
+        "conceptDistinct": 16,
+        "answerSpecific": 8,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "二人が計画を実作業にする姿は実行を示唆するが製作も自然。",
+      "alternativeAnswersEn": [
+        "construction",
+        "implementation"
+      ],
+      "assessedAt": "2026-10-19T09:23:19.342292+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "grave@gwere2",
+      "w": "grave",
+      "p": [
+        "gʷerə-2"
+      ],
+      "rarity": 508,
+      "imagePath": "assets/word/grave@gwere2.png",
+      "sourceOrdinal": 6960,
+      "reviewOrder": 412,
+      "localImageExists": true,
+      "imageGitBlobSha": "0efb0f1b6a1fbc407f3d441079c3029b25a602ce",
+      "score": 73,
+      "components": {
+        "meaningVisible": 31,
+        "conceptDistinct": 20,
+        "answerSpecific": 13,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "大きく損傷した構造物と制止する作業員で重大さを示す。",
+      "alternativeAnswersEn": [
+        "serious",
+        "dangerous"
+      ],
+      "assessedAt": "2026-10-19T09:23:19.342292+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "journal",
+      "w": "journal",
+      "p": [
+        "dyeu-"
+      ],
+      "rarity": 508,
+      "imagePath": "assets/word/journal.png",
+      "sourceOrdinal": 8521,
+      "reviewOrder": 413,
+      "localImageExists": true,
+      "imageGitBlobSha": "852ef613772f8e04efbb2e8ad9a1f6f208d233c5",
+      "score": 74,
+      "components": {
+        "meaningVisible": 31,
+        "conceptDistinct": 20,
+        "answerSpecific": 13,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "開いた手帳とペンで日誌を示すが普通のノートも強い。",
+      "alternativeAnswersEn": [
+        "diary",
+        "notebook"
+      ],
+      "assessedAt": "2026-10-19T09:23:19.342292+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "laughter",
+      "w": "laughter",
+      "p": [
+        "kleg-"
+      ],
+      "rarity": 508,
+      "imagePath": "assets/word/laughter.png",
+      "sourceOrdinal": 8831,
+      "reviewOrder": 414,
+      "localImageExists": true,
+      "imageGitBlobSha": "56d57ab0bce2bf8abf0c5d0374f8a853b05c5b23",
+      "score": 98,
+      "components": {
+        "meaningVisible": 40,
+        "conceptDistinct": 25,
+        "answerSpecific": 23,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "二人が口を開け腹を抱えて笑う姿で笑いが明瞭。",
+      "alternativeAnswersEn": [
+        "laughing",
+        "giggles"
+      ],
+      "assessedAt": "2026-10-19T09:23:19.342292+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "priority",
+      "w": "priority",
+      "p": [
+        "per-4"
+      ],
+      "rarity": 508,
+      "imagePath": "assets/word/priority.png",
+      "sourceOrdinal": 12422,
+      "reviewOrder": 415,
+      "localImageExists": true,
+      "imageGitBlobSha": "43f8d52a26f18d2945fc29084028064fdf552763",
+      "score": 86,
+      "components": {
+        "meaningVisible": 36,
+        "conceptDistinct": 23,
+        "answerSpecific": 18,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "車内で妊婦に席を譲り優先を示すが配慮や席譲りも自然。",
+      "alternativeAnswersEn": [
+        "preference",
+        "consideration"
+      ],
+      "assessedAt": "2026-10-19T09:23:19.342292+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "respective",
+      "w": "respective",
+      "p": [
+        "re-",
+        "spek-"
+      ],
+      "rarity": 508,
+      "imagePath": "assets/word/respective.png",
+      "sourceOrdinal": 13470,
+      "reviewOrder": 416,
+      "localImageExists": true,
+      "imageGitBlobSha": "ca45e66958af740bb0ee089863e6ca66b6fba81e",
+      "score": 52,
+      "components": {
+        "meaningVisible": 22,
+        "conceptDistinct": 14,
+        "answerSpecific": 7,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "各人と各色の自転車を対応させるがそれぞれのという限定は弱い。",
+      "alternativeAnswersEn": [
+        "each",
+        "individual"
+      ],
+      "assessedAt": "2026-10-19T09:23:19.342292+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "Hong",
+      "w": "Hong",
+      "p": [],
+      "rarity": 508,
+      "imagePath": "assets/word/Hong.png",
+      "sourceOrdinal": 20958,
+      "reviewOrder": 417,
+      "localImageExists": true,
+      "imageGitBlobSha": "c2ed6ec02579ec72e01ac9294ba929f374c173ef",
+      "score": 12,
+      "components": {
+        "meaningVisible": 1,
+        "conceptDistinct": 1,
+        "answerSpecific": 0,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "男性の顔だけでホンという固有名は識別できない。",
+      "alternativeAnswersEn": [
+        "man",
+        "person"
+      ],
+      "assessedAt": "2026-10-19T09:23:19.342292+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "chamber",
+      "w": "chamber",
+      "p": [
+        "kamer-"
+      ],
+      "rarity": 509,
+      "imagePath": "assets/word/chamber.png",
+      "sourceOrdinal": 2542,
+      "reviewOrder": 418,
+      "localImageExists": true,
+      "imageGitBlobSha": "6e348de677a73e42bfb2d2fb32df1a425a188d34",
+      "score": 83,
+      "components": {
+        "meaningVisible": 35,
+        "conceptDistinct": 22,
+        "answerSpecific": 16,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "豪華な室内が明瞭だが一般的な部屋の名称も強い。",
+      "alternativeAnswersEn": [
+        "room",
+        "hall"
+      ],
+      "assessedAt": "2026-10-19T09:23:19.342292+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "grain",
+      "w": "grain",
+      "p": [
+        "gr̥ə-no-"
+      ],
+      "rarity": 509,
+      "imagePath": "assets/word/grain.png",
+      "sourceOrdinal": 6922,
+      "reviewOrder": 419,
+      "localImageExists": true,
+      "imageGitBlobSha": "2df0472e179f2839480f8fc893cbf3b09dc7a626",
+      "score": 92,
+      "components": {
+        "meaningVisible": 38,
+        "conceptDistinct": 24,
+        "answerSpecific": 20,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "細長い穀粒が大きく描かれるが米も自然。",
+      "alternativeAnswersEn": [
+        "rice",
+        "seeds"
+      ],
+      "assessedAt": "2026-10-19T09:23:19.342292+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "intent",
+      "w": "intent",
+      "p": [
+        "en",
+        "ten-"
+      ],
+      "rarity": 509,
+      "imagePath": "assets/word/intent.png",
+      "sourceOrdinal": 8269,
+      "reviewOrder": 420,
+      "localImageExists": true,
+      "imageGitBlobSha": "87f6a2aa76976529fedac0e55dc0ea025fdab28b",
+      "score": 57,
+      "components": {
+        "meaningVisible": 24,
+        "conceptDistinct": 16,
+        "answerSpecific": 8,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "苗を植える準備の人物は目的を暗示するが意図そのものは見えない。",
+      "alternativeAnswersEn": [
+        "intention",
+        "planting"
+      ],
+      "assessedAt": "2026-10-19T09:23:19.342292+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "logical",
+      "w": "logical",
+      "p": [
+        "leg-"
+      ],
+      "rarity": 509,
+      "imagePath": "assets/word/logical.png",
+      "sourceOrdinal": 9126,
+      "reviewOrder": 421,
+      "localImageExists": true,
+      "imageGitBlobSha": "3c776c9c15455c7bd95a4a9680185717116dac73",
+      "score": 35,
+      "components": {
+        "meaningVisible": 14,
+        "conceptDistinct": 9,
+        "answerSpecific": 3,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "電気スタンドのプラグを差す行為だけでは論理的という性質を示しにくい。",
+      "alternativeAnswersEn": [
+        "connect",
+        "plug in"
+      ],
+      "assessedAt": "2026-10-19T09:23:19.342292+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "paragraph",
+      "w": "paragraph",
+      "p": [
+        "per1",
+        "gerbh-"
+      ],
+      "rarity": 509,
+      "imagePath": "assets/word/paragraph.png",
+      "sourceOrdinal": 11238,
+      "reviewOrder": 422,
+      "localImageExists": true,
+      "imageGitBlobSha": "9c0d5c233c38d2362d922754332d8c7c779106ec",
+      "score": 85,
+      "components": {
+        "meaningVisible": 35,
+        "conceptDistinct": 23,
+        "answerSpecific": 17,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "本の行のまとまりを指し段落を示すが文章も強い。",
+      "alternativeAnswersEn": [
+        "passage",
+        "text"
+      ],
+      "assessedAt": "2026-10-19T09:23:19.342292+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "phenomena",
+      "w": "phenomena",
+      "p": [
+        "bhā-1"
+      ],
+      "rarity": 509,
+      "imagePath": "assets/word/phenomena.png",
+      "sourceOrdinal": 11703,
+      "reviewOrder": 423,
+      "localImageExists": true,
+      "imageGitBlobSha": "2ef701480ce0ada188bacf9f624d62bab8b236a6",
+      "score": 76,
+      "components": {
+        "meaningVisible": 32,
+        "conceptDistinct": 21,
+        "answerSpecific": 14,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "雨と虹と水面の波を合わせ自然現象を示すが自然も自然な答え。",
+      "alternativeAnswersEn": [
+        "nature",
+        "weather"
+      ],
+      "assessedAt": "2026-10-19T09:23:19.342292+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "trail",
+      "w": "trail",
+      "p": [
+        "tragh-"
+      ],
+      "rarity": 509,
+      "imagePath": "assets/word/trail.png",
+      "sourceOrdinal": 16137,
+      "reviewOrder": 424,
+      "localImageExists": true,
+      "imageGitBlobSha": "7226116f1591e3d8fc077d3d94fb1997aa7dca2c",
+      "score": 98,
+      "components": {
+        "meaningVisible": 40,
+        "conceptDistinct": 25,
+        "answerSpecific": 23,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "森の小道と足跡で道筋が明瞭。",
+      "alternativeAnswersEn": [
+        "path",
+        "track"
+      ],
+      "assessedAt": "2026-10-19T09:23:19.342292+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "unity",
+      "w": "unity",
+      "p": [
+        "oi-no-"
+      ],
+      "rarity": 509,
+      "imagePath": "assets/word/unity.png",
+      "sourceOrdinal": 16548,
+      "reviewOrder": 425,
+      "localImageExists": true,
+      "imageGitBlobSha": "d1c0d1d9b7f1e672a792b32ee41e976c8ae3e1ad",
+      "score": 84,
+      "components": {
+        "meaningVisible": 35,
+        "conceptDistinct": 23,
+        "answerSpecific": 17,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "多様な人々が地球を囲み手をつないで一体感を示す。",
+      "alternativeAnswersEn": [
+        "togetherness",
+        "solidarity"
+      ],
+      "assessedAt": "2026-10-19T09:23:19.342292+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "Lewis",
+      "w": "Lewis",
+      "p": [],
+      "rarity": 509,
+      "imagePath": "assets/word/Lewis.png",
+      "sourceOrdinal": 19187,
+      "reviewOrder": 426,
+      "localImageExists": true,
+      "imageGitBlobSha": "6a871f6fd0f19de0740a827bfee70d8126d5fb5e",
+      "score": 12,
+      "components": {
+        "meaningVisible": 1,
+        "conceptDistinct": 1,
+        "answerSpecific": 0,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "男性の肖像だけでルイスという名前は判別できない。",
+      "alternativeAnswersEn": [
+        "man",
+        "person"
+      ],
+      "assessedAt": "2026-10-19T09:23:19.342292+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "Samuel",
+      "w": "Samuel",
+      "p": [],
+      "rarity": 509,
+      "imagePath": "assets/word/Samuel.png",
+      "sourceOrdinal": 19188,
+      "reviewOrder": 427,
+      "localImageExists": true,
+      "imageGitBlobSha": "61c21e6ea46f66639b45da87fdbc4e5e7805b00b",
+      "score": 12,
+      "components": {
+        "meaningVisible": 1,
+        "conceptDistinct": 1,
+        "answerSpecific": 0,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "男性の肖像だけでサミュエルという名前は判別できない。",
+      "alternativeAnswersEn": [
+        "man",
+        "person"
+      ],
+      "assessedAt": "2026-10-19T09:23:19.342292+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "lateral",
+      "w": "lateral",
+      "p": [],
+      "rarity": 509,
+      "imagePath": "assets/word/lateral.png",
+      "sourceOrdinal": 19189,
+      "reviewOrder": 428,
+      "localImageExists": true,
+      "imageGitBlobSha": "3599ed66f3553155c9a8a2f5886a88722ee7e470",
+      "score": 54,
+      "components": {
+        "meaningVisible": 23,
+        "conceptDistinct": 15,
+        "answerSpecific": 7,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "車の側面から荷物を扱うが横の形容詞へは限定しにくい。",
+      "alternativeAnswersEn": [
+        "side",
+        "loading"
+      ],
+      "assessedAt": "2026-10-19T09:23:19.342292+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "proceedings",
+      "w": "proceedings",
+      "p": [],
+      "rarity": 509,
+      "imagePath": "assets/word/proceedings.png",
+      "sourceOrdinal": 19190,
+      "reviewOrder": 429,
+      "localImageExists": true,
+      "imageGitBlobSha": "0519b3a186b66f40beddccea6b85b5c2e6dd1428",
+      "score": 61,
+      "components": {
+        "meaningVisible": 26,
+        "conceptDistinct": 17,
+        "answerSpecific": 9,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "会議の進行とメモ取りで議事を示すが議事録自体は明瞭でない。",
+      "alternativeAnswersEn": [
+        "meeting",
+        "minutes"
+      ],
+      "assessedAt": "2026-10-19T09:23:19.342292+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "aircraft",
+      "w": "aircraft",
+      "p": [
+        "wer-2"
+      ],
+      "rarity": 510,
+      "imagePath": "assets/word/aircraft.png",
+      "sourceOrdinal": 421,
+      "reviewOrder": 430,
+      "localImageExists": true,
+      "imageGitBlobSha": "160a36067430a9f7bebbc913b87679b06de51259",
+      "score": 94,
+      "components": {
+        "meaningVisible": 39,
+        "conceptDistinct": 24,
+        "answerSpecific": 21,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "旅客機が単独で明瞭だが飛行機の具体名も強い。",
+      "alternativeAnswersEn": [
+        "airplane",
+        "jet"
+      ],
+      "assessedAt": "2026-10-19T09:23:19.342292+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "Alice",
+      "w": "Alice",
+      "p": [
+        "at-al-",
+        "keit-"
+      ],
+      "rarity": 510,
+      "imagePath": "assets/word/Alice.png",
+      "sourceOrdinal": 473,
+      "reviewOrder": 431,
+      "localImageExists": true,
+      "imageGitBlobSha": "cbb6600787e36d48ac68f249f8e6a902d1b084fe",
+      "score": 12,
+      "components": {
+        "meaningVisible": 1,
+        "conceptDistinct": 1,
+        "answerSpecific": 0,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "女性の肖像だけでアリスという名前は判別できない。",
+      "alternativeAnswersEn": [
+        "woman",
+        "person"
+      ],
+      "assessedAt": "2026-10-19T09:23:19.342292+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "Charlie",
+      "w": "Charlie",
+      "p": [
+        "karlaz"
+      ],
+      "rarity": 510,
+      "imagePath": "assets/word/Charlie.png",
+      "sourceOrdinal": 2584,
+      "reviewOrder": 432,
+      "localImageExists": true,
+      "imageGitBlobSha": "1fddbedddd61f9dcf9870b9aad58514c9f6788b0",
+      "score": 12,
+      "components": {
+        "meaningVisible": 1,
+        "conceptDistinct": 1,
+        "answerSpecific": 0,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "男性の肖像だけでチャーリーという名前は判別できない。",
+      "alternativeAnswersEn": [
+        "man",
+        "person"
+      ],
+      "assessedAt": "2026-10-19T09:23:19.342292+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "Dutch",
+      "w": "Dutch",
+      "p": [
+        "teutā-"
+      ],
+      "rarity": 510,
+      "imagePath": "assets/word/Dutch.png",
+      "sourceOrdinal": 4853,
+      "reviewOrder": 433,
+      "localImageExists": true,
+      "imageGitBlobSha": "dc5446298b761ebec5e6ee21a2f1f406c32153fe",
+      "score": 12,
+      "components": {
+        "meaningVisible": 1,
+        "conceptDistinct": 1,
+        "answerSpecific": 0,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "金髪の男性だけではオランダの国籍を識別できない。",
+      "alternativeAnswersEn": [
+        "man",
+        "person"
+      ],
+      "assessedAt": "2026-10-19T09:23:19.342292+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "hydrogen",
+      "w": "hydrogen",
+      "p": [
+        "wed-1",
+        "genə-"
+      ],
+      "rarity": 510,
+      "imagePath": "assets/word/hydrogen.png",
+      "sourceOrdinal": 7614,
+      "reviewOrder": 434,
+      "localImageExists": true,
+      "imageGitBlobSha": "789dbfc4cf7f9bf18c6f453873abdf1d2ec09501",
+      "score": 58,
+      "components": {
+        "meaningVisible": 24,
+        "conceptDistinct": 17,
+        "answerSpecific": 8,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "一電子の原子図は水素を示すが主に元素記号を読む必要がある。",
+      "alternativeAnswersEn": [
+        "atom",
+        "element"
+      ],
+      "assessedAt": "2026-10-19T09:23:19.342292+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "instant",
+      "w": "instant",
+      "p": [
+        "en",
+        "stā-"
+      ],
+      "rarity": 510,
+      "imagePath": "assets/word/instant.png",
+      "sourceOrdinal": 8221,
+      "reviewOrder": 435,
+      "localImageExists": true,
+      "imageGitBlobSha": "ca05048a64a47a7b5fa78e93d1edbd3383bb3a74",
+      "score": 52,
+      "components": {
+        "meaningVisible": 22,
+        "conceptDistinct": 14,
+        "answerSpecific": 7,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "指を鳴らし紙が動く場面は瞬時を暗示するが瞬間の時間幅は曖昧。",
+      "alternativeAnswersEn": [
+        "snap",
+        "moment"
+      ],
+      "assessedAt": "2026-10-19T09:23:19.342292+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "linguistic",
+      "w": "linguistic",
+      "p": [
+        "dn̥ghū-"
+      ],
+      "rarity": 510,
+      "imagePath": "assets/word/linguistic.png",
+      "sourceOrdinal": 9039,
+      "reviewOrder": 436,
+      "localImageExists": true,
+      "imageGitBlobSha": "803cffa783532377beb4d2785c4f46d38cc42858",
+      "score": 65,
+      "components": {
+        "meaningVisible": 28,
+        "conceptDistinct": 18,
+        "answerSpecific": 10,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "二言語の挨拶は言語を示すが形容詞の意味は文字への依存がある。",
+      "alternativeAnswersEn": [
+        "language",
+        "bilingual"
+      ],
+      "assessedAt": "2026-10-19T09:23:19.342292+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "meaningful",
+      "w": "meaningful",
+      "p": [
+        "mei-no-",
+        "pelə-1"
+      ],
+      "rarity": 510,
+      "imagePath": "assets/word/meaningful.png",
+      "sourceOrdinal": 9574,
+      "reviewOrder": 437,
+      "localImageExists": true,
+      "imageGitBlobSha": "b4dcd40ee74378d819302a27db7da3d3d7b1db5b",
+      "score": 64,
+      "components": {
+        "meaningVisible": 27,
+        "conceptDistinct": 18,
+        "answerSpecific": 10,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "古い写真とぬいぐるみを大事にする姿は意味深さを示唆する。",
+      "alternativeAnswersEn": [
+        "sentimental",
+        "precious"
+      ],
+      "assessedAt": "2026-10-19T09:23:19.342292+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "reliable",
+      "w": "reliable",
+      "p": [
+        "re-",
+        "leig-"
+      ],
+      "rarity": 510,
+      "imagePath": "assets/word/reliable.png",
+      "sourceOrdinal": 13290,
+      "reviewOrder": 438,
+      "localImageExists": true,
+      "imageGitBlobSha": "0537c2cd890651e125d3135a4f9b0f7e57f209bf",
+      "score": 52,
+      "components": {
+        "meaningVisible": 22,
+        "conceptDistinct": 14,
+        "answerSpecific": 7,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "荷物を積んだ配達自転車だけでは信頼性を裏付けられない。",
+      "alternativeAnswersEn": [
+        "dependable",
+        "delivery"
+      ],
+      "assessedAt": "2026-10-19T09:23:19.342292+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "searching",
+      "w": "searching",
+      "p": [
+        "(s)ker-3"
+      ],
+      "rarity": 510,
+      "imagePath": "assets/word/searching.png",
+      "sourceOrdinal": 14155,
+      "reviewOrder": 439,
+      "localImageExists": true,
+      "imageGitBlobSha": "4a6abb8e989afb56f53f32cf924690f82767fa39",
+      "score": 44,
+      "components": {
+        "meaningVisible": 18,
+        "conceptDistinct": 12,
+        "answerSpecific": 5,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "家具の下を綿密に探す姿だが語義の厳しい形容詞より探す動作が強い。",
+      "alternativeAnswersEn": [
+        "search",
+        "thorough"
+      ],
+      "assessedAt": "2026-10-19T09:23:19.342292+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "wheel",
+      "w": "wheel",
+      "p": [
+        "kʷel-1"
+      ],
+      "rarity": 510,
+      "imagePath": "assets/word/wheel.png",
+      "sourceOrdinal": 17190,
+      "reviewOrder": 440,
+      "localImageExists": true,
+      "imageGitBlobSha": "ac70a6942b165b828b1f7564e24b5b3d354d4eae",
+      "score": 98,
+      "components": {
+        "meaningVisible": 40,
+        "conceptDistinct": 25,
+        "answerSpecific": 23,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "車軸へ取り付ける木の車輪が明瞭。",
+      "alternativeAnswersEn": [
+        "wagon wheel",
+        "cart"
+      ],
+      "assessedAt": "2026-10-19T09:23:19.342292+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "Harvard",
+      "w": "Harvard",
+      "p": [],
+      "rarity": 510,
+      "imagePath": "assets/word/Harvard.png",
+      "sourceOrdinal": 19191,
+      "reviewOrder": 441,
+      "localImageExists": true,
+      "imageGitBlobSha": "00daf52ead9c86e848dc7cc65c7ed92783965ef8",
+      "score": 12,
+      "components": {
+        "meaningVisible": 1,
+        "conceptDistinct": 1,
+        "answerSpecific": 0,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "眼鏡の人物だけでハーバードという固有名は判別できない。",
+      "alternativeAnswersEn": [
+        "man",
+        "person"
+      ],
+      "assessedAt": "2026-10-19T09:23:19.342292+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "Jean",
+      "w": "Jean",
+      "p": [],
+      "rarity": 510,
+      "imagePath": "assets/word/Jean.png",
+      "sourceOrdinal": 19192,
+      "reviewOrder": 442,
+      "localImageExists": true,
+      "imageGitBlobSha": "70eff0ec74b74206d6077afb4821695417968eaa",
+      "score": 12,
+      "components": {
+        "meaningVisible": 1,
+        "conceptDistinct": 1,
+        "answerSpecific": 0,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "人物の肖像だけでジーンという名前は判別できない。",
+      "alternativeAnswersEn": [
+        "woman",
+        "person"
+      ],
+      "assessedAt": "2026-10-19T09:23:19.342292+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "lit",
+      "w": "lit",
+      "p": [],
+      "rarity": 510,
+      "imagePath": "assets/word/lit.png",
+      "sourceOrdinal": 21343,
+      "reviewOrder": 443,
+      "localImageExists": true,
+      "imageGitBlobSha": "3ed06651a6f456d76cd21f3b88c0cc5694a17f56",
+      "score": 61,
+      "components": {
+        "meaningVisible": 25,
+        "conceptDistinct": 17,
+        "answerSpecific": 9,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "本と万年筆は文学を示唆するが略称の語形は特定できない。",
+      "alternativeAnswersEn": [
+        "literature",
+        "books"
+      ],
+      "assessedAt": "2026-10-19T09:23:19.342292+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "hiding",
+      "w": "hiding",
+      "p": [],
+      "rarity": 510,
+      "imagePath": "assets/word/hiding.png",
+      "sourceOrdinal": 46492,
+      "reviewOrder": 444,
+      "localImageExists": true,
+      "imageGitBlobSha": "45e55ac24d0941c52cd8dd52ef8dc8c9884f8f84",
+      "score": 92,
+      "components": {
+        "meaningVisible": 38,
+        "conceptDistinct": 24,
+        "answerSpecific": 20,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "箱の陰にほぼ隠れた球で隠れる状態が明瞭。",
+      "alternativeAnswersEn": [
+        "hidden",
+        "concealment"
+      ],
+      "assessedAt": "2026-10-19T09:23:19.342292+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "Arthur",
+      "w": "Arthur",
+      "p": [
+        "r̥tko-",
+        "wī̆-ro-"
+      ],
+      "rarity": 511,
+      "imagePath": "assets/word/Arthur.png",
+      "sourceOrdinal": 1087,
+      "reviewOrder": 445,
+      "localImageExists": true,
+      "imageGitBlobSha": "f19aad61b06373478e3482944aee40cdda0e1960",
+      "score": 12,
+      "components": {
+        "meaningVisible": 1,
+        "conceptDistinct": 1,
+        "answerSpecific": 0,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "男性の肖像だけでアーサーという名前は判別できない。",
+      "alternativeAnswersEn": [
+        "man",
+        "person"
+      ],
+      "assessedAt": "2026-10-19T09:23:19.342292+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "collect",
+      "w": "collect",
+      "p": [
+        "kom",
+        "leg-"
+      ],
+      "rarity": 511,
+      "imagePath": "assets/word/collect.png",
+      "sourceOrdinal": 2934,
+      "reviewOrder": 446,
+      "localImageExists": true,
+      "imageGitBlobSha": "78e29a63ddc9865442ae03a0ae2da97fdaf6b370",
+      "score": 94,
+      "components": {
+        "meaningVisible": 39,
+        "conceptDistinct": 24,
+        "answerSpecific": 21,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "落ちた木の実を籠へ拾い集める動作が明瞭。",
+      "alternativeAnswersEn": [
+        "gather",
+        "pick up"
+      ],
+      "assessedAt": "2026-10-19T09:23:19.342292+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "dialogue",
+      "w": "dialogue",
+      "p": [
+        "dwo-",
+        "leg-"
+      ],
+      "rarity": 511,
+      "imagePath": "assets/word/dialogue.png",
+      "sourceOrdinal": 4317,
+      "reviewOrder": 447,
+      "localImageExists": true,
+      "imageGitBlobSha": "a30332878a55d4a98d38c9db6ad2db7dfef48b88",
+      "score": 92,
+      "components": {
+        "meaningVisible": 38,
+        "conceptDistinct": 24,
+        "answerSpecific": 20,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "向かい合って交互に話す二人で対話が読める。",
+      "alternativeAnswersEn": [
+        "conversation",
+        "discussion"
+      ],
+      "assessedAt": "2026-10-19T09:23:19.342292+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "explicitly",
+      "w": "explicitly",
+      "p": [
+        "eghs",
+        "plek-"
+      ],
+      "rarity": 511,
+      "imagePath": "assets/word/explicitly.png",
+      "sourceOrdinal": 5728,
+      "reviewOrder": 448,
+      "localImageExists": true,
+      "imageGitBlobSha": "4f8d95174643cf48130a7ffa9cee827ffbfb0018",
+      "score": 58,
+      "components": {
+        "meaningVisible": 25,
+        "conceptDistinct": 16,
+        "answerSpecific": 8,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "工具を指して説明するが明確さという副詞の程度は確定しない。",
+      "alternativeAnswersEn": [
+        "clearly",
+        "explain"
+      ],
+      "assessedAt": "2026-10-19T09:23:19.342292+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "literally",
+      "w": "literally",
+      "p": [
+        "deph-"
+      ],
+      "rarity": 511,
+      "imagePath": "assets/word/literally.png",
+      "sourceOrdinal": 9071,
+      "reviewOrder": 449,
+      "localImageExists": true,
+      "imageGitBlobSha": "fcf68d249e1507603c4a206546b72db6d82f32f8",
+      "score": 61,
+      "components": {
+        "meaningVisible": 26,
+        "conceptDistinct": 17,
+        "answerSpecific": 9,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "豆をこぼす行為と慣用句の本の対比は文字通りを示すが文字読解に依存する。",
+      "alternativeAnswersEn": [
+        "actual",
+        "spill"
+      ],
+      "assessedAt": "2026-10-19T09:23:19.342292+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
+    },
+    {
+      "id": "mad",
+      "w": "mad",
+      "p": [
+        "kom",
+        "mei-1"
+      ],
+      "rarity": 511,
+      "imagePath": "assets/word/mad.png",
+      "sourceOrdinal": 9263,
+      "reviewOrder": 450,
+      "localImageExists": true,
+      "imageGitBlobSha": "6f5230a35a4567cb61e8dade42c86d39ac5a9759",
+      "score": 83,
+      "components": {
+        "meaningVisible": 35,
+        "conceptDistinct": 22,
+        "answerSpecific": 16,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "取り乱して逃げる王の姿は狂乱を示すが恐怖や慌てるも自然。",
+      "alternativeAnswersEn": [
+        "crazy",
+        "frantic"
+      ],
+      "assessedAt": "2026-10-19T09:23:19.342292+00:00",
+      "reviewer": "codex",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1",
+      "currentPublicImageVerification": "git_blob_match",
+      "verifiedPublicCommit": "e91ac7ce566ce10006a2c0ddf52cda8c8afb84f9"
     }
   ]
 };
