@@ -292,6 +292,7 @@ function wordPage(id) {
   const w = byId.get(id); if (!w) return String(id).startsWith('dictionary:')?dictionaryPage(id):notFound();
   const k = w.c[0], sub = SUB.get(k);
   side(sub?.cat.id, sub?.id);
+  const categoryTags=new Map();for(const key of w.c){const sub=SUB.get(key);if(!sub)continue;categoryTags.set('#/c/'+sub.cat.id,sub.cat.ja);categoryTags.set('#/c/'+sub.cat.id+'/'+sub.id,sub.ja);}
   const seen = new Set([w.id]);
   const related = w.c.flatMap(x => inSub.get(x) || []).filter(x => !seen.has(x.id) && seen.add(x.id));
   view.innerHTML = `<div class="page fade">
@@ -305,7 +306,7 @@ function wordPage(id) {
         ${pronunciationHTML(w)}
         ${meaningsHTML(w)}
         <div class="box scene-description" id="sceneBox" aria-live="polite">${hasCaption(w)?'':((needsRevision(w)||needsReview(w))?missingCaptionHTML(w):'')}</div>
-        <div class="word-categories"><div class="tags">${w.c.map(x => SUB.get(x)).filter(Boolean).map(s => `<a href="#/c/${s.cat.id}/${s.id}">${esc(s.cat.ja)} › ${esc(s.ja)}</a>`).join('')}</div></div>
+        <div class="word-categories"><div class="tags" aria-label="カテゴリー">${[...categoryTags].map(([url,label])=>`<a href="${esc(url)}">${esc(label)}</a>`).join('')}</div></div>
       </div>
     </article>
     ${related.length ? `<h2 class="h2">関連するイラスト${sub ? `<a href="#/c/${k}">${esc(sub.ja)}をすべて見る</a>` : ''}</h2>${grid(related.slice(0, 18))}` : ''}
