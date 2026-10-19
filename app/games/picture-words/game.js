@@ -718,28 +718,6 @@
       resetSelection(); setFeedback(text().release);
     }, 480);
   }
-  const praiseWords = {
-    ja: { gold: ['てんさい！', 'かんぺき！', 'さいこう！'], great: ['すごい！', 'やったね！', 'ナイス！', 'いいね！'], ok: ['できた！', 'クリア！', 'せいかい！'] },
-    en: { gold: ['GENIUS!', 'PERFECT!', 'AMAZING!'], great: ['GREAT!', 'NICE!', 'AWESOME!', 'SUPER!'], ok: ['GOT IT!', 'SOLVED!', 'CORRECT!'] },
-  };
-  function showPraise(stars, combo) {
-    const tier = combo >= COMBO_STEP || (stars === 3 && answer.length >= 6) ? 'gold' : stars === 3 ? 'great' : 'ok';
-    const words = praiseWords[mode][tier], praise = $('praise');
-    praise.textContent = words[Math.floor(Math.random() * words.length)];
-    praise.dataset.tier = tier;
-    praise.classList.remove('show'); void praise.offsetWidth; praise.classList.add('show');
-  }
-  function clearScore(missCount, viewed) {
-    return Math.max(0, 100 - 10 * missCount - (viewed ? 30 : 0));
-  }
-  function scoreStamp(score, viewed, label = '') {
-    const petals = Array.from({length:16}, (_,i) => {
-      const a=i*Math.PI/8, b=(i+.5)*Math.PI/8, c=(i+1)*Math.PI/8;
-      return `${i?'':'M '+(100+77*Math.cos(a))+' '+(100+77*Math.sin(a))} Q ${100+106*Math.cos(b)} ${100+106*Math.sin(b)} ${100+77*Math.cos(c)} ${100+77*Math.sin(c)}`;
-    }).join(' ');
-    const outline = score===100 ? `<path d="${petals} Z"/><circle cx="100" cy="100" r="65"/>` : '<circle cx="100" cy="100" r="82"/><circle cx="100" cy="100" r="73"/>';
-    return `<svg viewBox="0 0 200 200" aria-hidden="true">${outline}</svg><strong>${score}<small>点</small></strong><span>${label || (score===100?'はなまる':viewed?'答えを見た':'正解')}</span>`;
-  }
   function win() {
     if (!roundScene?.playable) return;
     $('rankUp').hidden = true;
@@ -747,7 +725,7 @@
     if (comboEligible) { saved.combo++; saved.bestCombo = Math.max(saved.bestCombo, saved.combo); }
     const combo = comboEligible ? saved.combo : 0, newBest = combo >= 2 && combo === saved.bestCombo;
     sound.win(combo); renderCombo(combo ? 'bump' : '');
-    const stars = Math.max(1, 3 - Math.min(2, (round.viewed[mode] ? 2 : 0) + (mistakes > 0 ? 1 : 0)));
+    const stars = 3; // Legacy save field: every correct answer registers equally.
     const first = !saved[mode].stars[entry.id];
     const newDiscovery = !saved.ja.stars[entry.id] && !saved.en.stars[entry.id];
     const award = discovery.collect(saved.discovery, entry.id, mode, {isNew: newDiscovery});
@@ -756,21 +734,19 @@
     const record=wordRecords[mode] || {independent:0,assisted:0};
     const recordKind=round.viewed[mode]?'assisted':'independent';
     record[recordKind]=(Number(record[recordKind])||0)+1;
-    const score = clearScore(mistakes, round.viewed[mode]);
-    record.lastScore = score; record.bestScore = Math.max(record.bestScore || 0, score);
     record.last=recordKind; record.lastAt=new Date().toISOString();
     wordRecords[mode]=record;
     saved[mode].stars[entry.id]=Math.max(saved[mode].stars[entry.id]||0,stars);persist();
     if (first) lastAcquired = { lang: mode, id: entry.id };
     updateAnswer();
-    $('answerInfo').textContent = `${'✦'.repeat(stars)}${'✧'.repeat(3 - stars)}  ${mode === 'ja' ? entry.ja : entry.en.toUpperCase()}`;
+    $('answerInfo').textContent = mode === 'ja' ? entry.ja : entry.en.toUpperCase();
     const complete = collectedCount(mode) === availableCount(mode);
     const both = !!saved.ja.stars[entry.id] && !!saved.en.stars[entry.id];
     setFeedback(first ? (complete ? `${bookName(mode)} ${mode === 'ja' ? 'コンプリート！' : 'complete!'}` : text().correct) : (mode === 'ja' ? '正解！ この単語は獲得済み' : 'Correct! Already collected.'), 'success');
-    $('game').dataset.record = recordKind;
-    $('pictureStamp').innerHTML = scoreStamp(score, round.viewed[mode]);
-    $('rewardScene').dataset.record=recordKind;
-    $('rewardScene').dataset.score=String(score);
+    $('game').dataset.record = 'registered';
+    $('pictureStamp').textContent = '登録！';
+    $('rewardScene').dataset.record='registered';
+    delete $('rewardScene').dataset.score;
     $('rewardScene').classList.toggle('page-complete', award.pageCompleted);
     $('dailyReward').classList.toggle('complete', award.pageCompleted);
     $('dailyReward').textContent = mode === 'ja' ? (award.added ? `今日 ${award.daily.count} 語目の発見！${award.pageCompleted ? ' 10枚そろった！' : ''}` : '覚えたことばが、またひとつ強くなる') : (award.added ? `Discovery ${award.daily.count} today!${award.pageCompleted ? ' All 10 stamps collected!' : ''}` : 'Another word, remembered');
@@ -787,8 +763,7 @@
     $('rewardAfter').textContent = String(award.daily.pageFilled);
     $('rewardTotal').textContent = ' / 10';
     $('rewardProgress').textContent = mode === 'ja' ? `辞書に ${uniqueCount()} 語 / ${catalog.length} 語` : `${uniqueCount()} / ${catalog.length} words discovered`;
-    $('rewardSeal').innerHTML = scoreStamp(score, round.viewed[mode]);
-    $('rewardSeal').setAttribute('aria-label', `${score}点${score===100?'、花丸':round.viewed[mode]?'、答えを見た':''}`);
+    $('rewardSeal').replaceChildren(); $('rewardSeal').hidden = true;
     $('advanceLabel').textContent = '次の問題へ →';
     const library = $('rewardShelf'); library.className = 'book-shelf book-library-grid';
     library.replaceChildren(...Array.from({length:10}, (_, pageIndex) => {
@@ -802,11 +777,10 @@
       return page;
     }));
     $('wordReward').setAttribute('aria-label', `${bookName(mode)} ${mode === 'ja' ? 'を開く' : '— open'}`);
-    $('rewardStars').replaceChildren(...[0, 1, 2].map(i => { const star = document.createElement('i'); star.textContent = '★'; star.style.setProperty('--i', i); star.className = i < stars ? 'on' : ''; return star; }));
+    $('rewardStars').replaceChildren();
     $('hint').disabled = true; $('shuffle').disabled = true;
-    if (recordKind === 'independent') showPraise(stars, combo);
     const wheelRect = $('wheel').getBoundingClientRect();
-    petals.burst(wheelRect.left + wheelRect.width / 2, wheelRect.top + wheelRect.height / 2, recordKind === 'independent' ? 100 : 12, recordKind === 'independent' ? 'gold' : true);
+    petals.burst(wheelRect.left + wheelRect.width / 2, wheelRect.top + wheelRect.height / 2, 100, 'gold');
     $('centerLabel').textContent = 'bloom!';
     const comboBanner = $('rewardCombo'), milestone = combo >= COMBO_STEP && combo % COMBO_STEP === 0;
     comboBanner.hidden = combo < 2; comboBanner.dataset.level = String(comboLevel(combo)); comboBanner.classList.toggle('milestone', milestone);
@@ -820,8 +794,8 @@
       $('rewardScroll').scrollTop = 0;
       $('rewardScene').showPopover?.(); $('rewardBackdrop').hidden = false;
       const rect = $('wordReward').getBoundingClientRect();
-      petals.burst(rect.left + rect.width / 2, rect.top + rect.height / 3, recordKind === 'independent' ? 170 : 18, recordKind === 'independent' ? 'gold' : true);
-      if (recordKind === 'independent' && (milestone || award.pageCompleted)) later(() => { petals.burst(innerWidth / 2, innerHeight * .25, 150, 'gold'); sound.win(10); }, 380);
+      petals.burst(rect.left + rect.width / 2, rect.top + rect.height / 3, 170, 'gold');
+      if ((milestone || award.pageCompleted)) later(() => { petals.burst(innerWidth / 2, innerHeight * .25, 150, 'gold'); sound.win(10); }, 380);
       later(() => { $('rewardScene').classList.add('page-filled'); updateProgress(); }, 420);
       if (award.added) later(animateAcquisition, 500);
     }, reducedMotion.matches ? 0 : PRAISE_TIME);
@@ -830,7 +804,7 @@
     if (!$('winPronunciation').hidden) $('winPronunciation').append(pronunciationPanel(entry, mode, roundScene));
     if (roundScene.status === 'reviewed' && roundScene.ttsAllowed === true) {
       // Let the success fanfare (including the delayed collection bonus) finish.
-      const bonusFanfare = recordKind === 'independent' && (milestone || award.pageCompleted);
+      const bonusFanfare = (milestone || award.pageCompleted);
       const narrationDelay = bonusFanfare ? 2700 : combo >= 2 && combo % COMBO_STEP === 0 ? 2050 : 1400;
       later(() => {
         if (phase === 'solved' && !document.hidden && saved.sound) speech.speakScene(entry, roundScene, mode);
@@ -970,7 +944,7 @@
         later(()=>node.button.classList.remove('answer-wave'),at+620);
       }
     }
-    later(()=>{phase='playing';$('game').dataset.state=phase;$('hint').disabled=false;$('shuffle').disabled=false;setFeedback('答えを見た記録が残ります。なぞって辞書をゲット！');},tick*280+650);
+    later(()=>{phase='playing';$('game').dataset.state=phase;$('hint').disabled=false;$('shuffle').disabled=false;setFeedback('なぞって答えると辞書に登録！');},tick*280+650);
   });
   $('sound').addEventListener('click', () => {
     saved.sound = !saved.sound; speech.setEnabled(saved.sound); persist(); updateSound(); updateLabels();
@@ -1018,12 +992,12 @@
       '英語か日本語を選び、絵を見て答えを考えます。途中で言語を変えても同じ絵のままです。',
       '隣り合う六角形を一筆でつなぎます。途中で離すと取り消します。',
       '英語でも日本語でも、正解した単語が同じコレクションに登録されます。',
-      '答えボタンは正解の順に文字を光らせます。自力と答えを見た記録は言語ごとに保存します。'
+      '答えボタンは正解の順に文字を光らせます。答えを見ても、正解すれば辞書に登録されます。'
     ] : [
       'Choose English or Japanese. Switching language keeps the same picture.',
       'Connect neighbouring hex tiles in one stroke. An unfinished stroke is cancelled.',
       'Solve in English or Japanese to add the word to the same collection.',
-      'Answer demonstrates the current solution. Independent and assisted clears are recorded per language.'
+      'Answer demonstrates the current solution. Every correct answer adds the word to your dictionary.'
     ];
     const note=mode==='ja'?'同じ文字も別々のマスとしてつなぎます。離れたマスや別の言語のマスには飛べません。':'Repeated letters have separate tiles. You cannot jump to a distant tile or switch languages during a stroke.';
     openModal(text().help, `<div class="help-steps">${steps.map((line, i) => `<div class="help-step"><b>${i + 1}</b><p>${line}</p></div>`).join('')}</div><p class="help-note">${note}</p>${layoutSettings()}<button class="modal-primary" id="startPlaying" type="button">${mode === 'ja' ? 'ことばを咲かせよう' : 'Let it bloom'}</button>`);
@@ -1071,22 +1045,6 @@
 
   // One collection per exact catalog ID; language-specific progress stays unchanged.
   const dictionaryOwned = word => !!(saved.ja.stars[word.id] || saved.en.stars[word.id]);
-  function dictionaryBestScore(word) {
-    const records = saved.answerRecords[word.id];
-    // Older saves may have stars or a shared record but no actual score.
-    const scores = [records?.ja?.bestScore, records?.en?.bestScore, records?.bestScore]
-      .filter(score => Number.isInteger(score) && score >= 0 && score <= 100);
-    return scores.length ? Math.max(...scores) : null;
-  }
-  function dictionaryScoreStamp(word) {
-    const score = dictionaryBestScore(word);
-    if (score === null || !dictionaryOwned(word)) return null;
-    const stamp = document.createElement('span'); stamp.className = 'result-stamp collection-score-stamp';
-    stamp.dataset.score = String(score); stamp.setAttribute('role', 'img');
-    stamp.setAttribute('aria-label', `最高 ${score}点`);
-    stamp.innerHTML = scoreStamp(score, false, '最高');
-    return stamp;
-  }
   const dictionaryPlayLanguage = word => supports(word, mode) ? mode : supports(word, mode === 'ja' ? 'en' : 'ja') ? (mode === 'ja' ? 'en' : 'ja') : mode;
 
   // Collection rarity follows Quest's five frequency bands, independent of puzzle spelling difficulty.
@@ -1151,7 +1109,6 @@
     art.setAttribute('aria-label', '単語の発音を聞く');
     art.addEventListener('click', () => { sound.unlock(); speech.speak(word, lang, false, true); });
     const image = document.createElement('img'); image.src = imgURL(word); image.alt = word.ja || word.en || ''; art.append(image);
-    const stamp = dictionaryScoreStamp(word); if (stamp) art.append(stamp);
     const heading = document.createElement('h3'); heading.textContent = word.en || word.ja || word.pic;
     const profile = difficulty.challenge(word, lang), rarity = document.createElement('p'); rarity.className = 'entry-rarity'; rarity.style.setProperty('--rarity', profile.color);
     rarity.innerHTML = rarityStars(word.tier);

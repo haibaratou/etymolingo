@@ -1134,3 +1134,5 @@ html.phone-host body> :not(.desktop-phone-host){display:none!important}
 .reward-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;flex-shrink:0;width:100%;margin-top:13px}
 .reward-actions .advance-label{margin-top:0;min-height:48px;font-size:14px}
 .reward-actions #advanceLabel{background:#2c5146;color:#fff;box-shadow:0 3px 0 #183c32}
+
+#rewardSeal,#rewardStars,#pictureStamp{display:none!important}

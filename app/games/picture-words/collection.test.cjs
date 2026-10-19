@@ -53,7 +53,7 @@ test('bilingual toggle works after a solve, keeps the same image and scores, and
   assert.equal(app.get('rewardScene').hidden,true);assert.equal(app.get('rewardBackdrop').hidden,true);
   assert.equal(app.save().ja.stars.family,undefined);assert.equal(app.save().answerRecords.family.ja,undefined);
   assert.equal(app.get('winPronunciation').hidden,true);assert.equal(app.get('modeToggle').getAttribute('aria-disabled'),'false');
-  app.solve();assert.equal(app.save().ja.stars.family,3);assert.equal(app.save().answerRecords.family.en.bestScore,100);
+  app.solve();assert.equal(app.save().ja.stars.family,3);assert.equal(app.save().answerRecords.family.en.bestScore,undefined);
   app.get('modeToggle').click();assert.equal(app.snapshot().mode,'en');assert.equal(app.snapshot().state,'playing');
   assert.equal(app.get('clueImage').src,image);app.flushTimers();assert.equal(app.snapshot().id,'family');
 });
@@ -88,4 +88,20 @@ test('post-solve language replay then Next ignores repeated clicks and stale nar
 
 test('game illustration tap requests its headword',async()=>{
   const app=await boot({query:'?word=car&lang=en',saved:basic()});app.get('clueImage').click();assert.equal(app.speech.at(-1).text,'car');
+});
+
+
+test('an answer-assisted clear registers equally and can be replayed from the dictionary',async()=>{
+  const app=await boot({query:'?word=car&lang=en',saved:basic()});
+  app.get('hint').click();app.flushTimers(3000);app.solve();
+  assert.equal(app.snapshot().state,'solved');assert.ok(app.save().en.stars.car);
+  assert.equal(app.save().answerRecords.car.en.bestScore,undefined);
+  assert.equal(app.get('rewardSeal').hidden,true);
+  app.get('collection').click();filter(app,'owned').click();
+  for(let band=0;band<5 && !card(app,'car');band++)body(app).querySelectorAll('.dictionary-tiers button')[band].click();
+  card(app,'car').click();
+  assert.equal(body(app).querySelector('.collection-score-stamp'),null);
+  body(app).querySelector('.modal-primary').click();
+  await app.settle(()=>app.snapshot().state==='playing');
+  assert.equal(app.snapshot().id,'car');assert.equal(app.get('modal').open,false);
 });
