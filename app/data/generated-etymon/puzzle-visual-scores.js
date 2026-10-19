@@ -8329,6 +8329,916 @@ window.ETYMON_PUZZLE_VISUAL_SCORES={
       "reviewer": "dot",
       "reviewMethod": "actual_image_visual_review",
       "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "women",
+      "w": "women",
+      "p": [],
+      "imagePath": "assets/word/women.png",
+      "imageGitBlobSha": "9b932f91e57712fe8e7dda6c870c1f1b01a480a7",
+      "score": 94,
+      "components": {
+        "meaningVisible": 39,
+        "conceptDistinct": 24,
+        "answerSpecific": 21,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "成人女性が三人並び、複数の女性が明瞭。peopleとの競合は残る。",
+      "alternativeAnswersEn": [
+        "people",
+        "adults"
+      ],
+      "assessedAt": "2026-10-19T05:17:48.881433+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "large",
+      "w": "large",
+      "p": [],
+      "imagePath": "assets/word/large.png",
+      "imageGitBlobSha": "683d2ee6aa6886bbb394e78d744b164c4547b161",
+      "score": 89,
+      "components": {
+        "meaningVisible": 38,
+        "conceptDistinct": 24,
+        "answerSpecific": 17,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "大小二つのリンゴのうち大きい方を指し、比較が明確。bigとの区別はつかない。",
+      "alternativeAnswersEn": [
+        "big",
+        "apple"
+      ],
+      "assessedAt": "2026-10-19T05:17:48.881433+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "give",
+      "w": "give",
+      "p": [
+        "ghabh-"
+      ],
+      "imagePath": "assets/word/give.png",
+      "imageGitBlobSha": "ac038cf5c423116f8f3409fbb46dc136f2ccf256",
+      "score": 87,
+      "components": {
+        "meaningVisible": 37,
+        "conceptDistinct": 23,
+        "answerSpecific": 17,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "贈り物を相手へ差し出す動作が明瞭。giftやpresentも自然な答え。",
+      "alternativeAnswersEn": [
+        "gift",
+        "present"
+      ],
+      "assessedAt": "2026-10-19T05:17:48.881433+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "seen@sekw2",
+      "w": "seen",
+      "p": [
+        "sekʷ-2"
+      ],
+      "imagePath": "assets/word/seen@sekw2.png",
+      "imageGitBlobSha": "cf5811eeab3c094ff1b1fe7f5dab6708786b0687",
+      "score": 33,
+      "components": {
+        "meaningVisible": 14,
+        "conceptDistinct": 9,
+        "answerSpecific": 1,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "蝶を思い出す人物と逆向き時計は見えるが、seenという過去分詞は特定できない。",
+      "alternativeAnswersEn": [
+        "remember",
+        "butterfly",
+        "think"
+      ],
+      "assessedAt": "2026-10-19T05:17:48.881433+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "seen@x",
+      "w": "seen",
+      "p": [],
+      "imagePath": "assets/word/seen@x.png",
+      "imageGitBlobSha": "317ad499b4eda603ec4447230d58160be85c3508",
+      "score": 37,
+      "components": {
+        "meaningVisible": 16,
+        "conceptDistinct": 11,
+        "answerSpecific": 1,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "観察した鳥の写真を示す姿は分かるが、seenの語形には絞れない。",
+      "alternativeAnswersEn": [
+        "bird",
+        "photo",
+        "observe"
+      ],
+      "assessedAt": "2026-10-19T05:17:48.881433+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "others",
+      "w": "others",
+      "p": [
+        "al-1"
+      ],
+      "imagePath": "assets/word/others.png",
+      "imageGitBlobSha": "80d691bc2b9d49de8447e30628f28481927fd9ef",
+      "score": 42,
+      "components": {
+        "meaningVisible": 19,
+        "conceptDistinct": 12,
+        "answerSpecific": 3,
+        "smallImageReadable": 8
+      },
+      "reasonJa": "一人と離れて待つ三人の対比は見えるが、othersという指示対象は曖昧。",
+      "alternativeAnswersEn": [
+        "friends",
+        "wait",
+        "group"
+      ],
+      "assessedAt": "2026-10-19T05:17:48.881433+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "best",
+      "w": "best",
+      "p": [
+        "bhad-"
+      ],
+      "imagePath": "assets/word/best.png",
+      "imageGitBlobSha": "b9eb7b5445740329a5e57a6756a1231eaec2d02b",
+      "score": 68,
+      "components": {
+        "meaningVisible": 31,
+        "conceptDistinct": 20,
+        "answerSpecific": 9,
+        "smallImageReadable": 8
+      },
+      "reasonJa": "三つのケーキの一つに賞の印があり最良を示すが、winnerやcakeも強い。",
+      "alternativeAnswersEn": [
+        "winner",
+        "cake",
+        "prize"
+      ],
+      "assessedAt": "2026-10-19T05:17:48.881433+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "left@leip",
+      "w": "left",
+      "p": [
+        "leip-"
+      ],
+      "imagePath": "assets/word/left@leip.png",
+      "imageGitBlobSha": "c4d11c2bfd52e3fc42ff6049c39eec0d1ede30d1",
+      "score": 40,
+      "components": {
+        "meaningVisible": 18,
+        "conceptDistinct": 12,
+        "answerSpecific": 1,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "扉を後にする動作と逆向き時計は見えるが、leftという過去形を特定しにくい。",
+      "alternativeAnswersEn": [
+        "leave",
+        "door",
+        "past"
+      ],
+      "assessedAt": "2026-10-19T05:17:48.881433+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "mind",
+      "w": "mind",
+      "p": [
+        "men-1"
+      ],
+      "imagePath": "assets/word/mind.png",
+      "imageGitBlobSha": "9cbcccc02abd79308d8baf4a448e0659fc950660",
+      "score": 55,
+      "components": {
+        "meaningVisible": 25,
+        "conceptDistinct": 16,
+        "answerSpecific": 5,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "パズルを考える姿から思考は読めるが、mindよりthinkやpuzzleが直接的。",
+      "alternativeAnswersEn": [
+        "think",
+        "puzzle"
+      ],
+      "assessedAt": "2026-10-19T05:17:48.881433+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "research",
+      "w": "research",
+      "p": [
+        "re-",
+        "(s)ker-3"
+      ],
+      "imagePath": "assets/word/research.png",
+      "imageGitBlobSha": "401ea6e4f3f191ef0b211c67c2a0a1dcb202d18f",
+      "score": 80,
+      "components": {
+        "meaningVisible": 35,
+        "conceptDistinct": 22,
+        "answerSpecific": 14,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "植物を虫眼鏡で観察して記録する行為から研究を連想できる。studyも候補。",
+      "alternativeAnswersEn": [
+        "study",
+        "observe",
+        "plant"
+      ],
+      "assessedAt": "2026-10-19T05:17:48.881433+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "development",
+      "w": "development",
+      "p": [
+        "dwis-"
+      ],
+      "imagePath": "assets/word/development.png",
+      "imageGitBlobSha": "10d1b05f227e864e327bdaa461c9fe39da5c766c",
+      "score": 54,
+      "components": {
+        "meaningVisible": 24,
+        "conceptDistinct": 16,
+        "answerSpecific": 5,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "芽のある植物を見守る場面で成長は連想できるが、developmentよりgrowやplantが強い。",
+      "alternativeAnswersEn": [
+        "growth",
+        "plant",
+        "grow"
+      ],
+      "assessedAt": "2026-10-19T05:17:48.881433+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "public",
+      "w": "public",
+      "p": [],
+      "imagePath": "assets/word/public.png",
+      "imageGitBlobSha": "3ef0a0cfbbc6d20f6a8d5f02b6384058a84d21bd",
+      "score": 39,
+      "components": {
+        "meaningVisible": 17,
+        "conceptDistinct": 11,
+        "answerSpecific": 2,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "ベンチの周りの人々は見えるが、publicという公共性は示しきれていない。",
+      "alternativeAnswersEn": [
+        "people",
+        "friends",
+        "bench"
+      ],
+      "assessedAt": "2026-10-19T05:17:48.881433+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "second",
+      "w": "second",
+      "p": [
+        "sekʷ-1"
+      ],
+      "imagePath": "assets/word/second.png",
+      "imageGitBlobSha": "2bd6f95b718034fb70c25825796850d40f9ffaf7",
+      "score": 81,
+      "components": {
+        "meaningVisible": 35,
+        "conceptDistinct": 23,
+        "answerSpecific": 13,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "ストップウォッチの一秒表示から時間の単位は読み取れるが、数字とs表記への依存が強い。",
+      "alternativeAnswersEn": [
+        "stopwatch",
+        "time"
+      ],
+      "assessedAt": "2026-10-19T05:24:01.643064+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "level",
+      "w": "level",
+      "p": [
+        "līthrā"
+      ],
+      "imagePath": "assets/word/level.png",
+      "imageGitBlobSha": "2739a03a2719fe4382fc74d0e44eec6716aa0375",
+      "score": 81,
+      "components": {
+        "meaningVisible": 35,
+        "conceptDistinct": 22,
+        "answerSpecific": 15,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "水槽の水面と目盛りを指す位置が明確で、水位を連想できる。waterやmeasureも候補。",
+      "alternativeAnswersEn": [
+        "water",
+        "measure"
+      ],
+      "assessedAt": "2026-10-19T05:24:01.643064+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "wanted",
+      "w": "wanted",
+      "p": [],
+      "imagePath": "assets/word/wanted.png",
+      "imageGitBlobSha": "fb9a3890c7f67322d5cc5dc91147991666a1ba96",
+      "score": 48,
+      "components": {
+        "meaningVisible": 22,
+        "conceptDistinct": 15,
+        "answerSpecific": 1,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "ぬいぐるみを欲しがる姿は見えるが、wantedという過去形は示されていない。",
+      "alternativeAnswersEn": [
+        "want",
+        "wish",
+        "toy"
+      ],
+      "assessedAt": "2026-10-19T05:24:01.643064+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "enough",
+      "w": "enough",
+      "p": [
+        "nek-2"
+      ],
+      "imagePath": "assets/word/enough.png",
+      "imageGitBlobSha": "a22e4aeb44e7e0a47e19b169b423f063dda20418",
+      "score": 55,
+      "components": {
+        "meaningVisible": 25,
+        "conceptDistinct": 16,
+        "answerSpecific": 6,
+        "smallImageReadable": 8
+      },
+      "reasonJa": "全員のコップに飲み物が配られるが、十分という判断は伝わりにくい。",
+      "alternativeAnswersEn": [
+        "share",
+        "pour",
+        "juice"
+      ],
+      "assessedAt": "2026-10-19T05:24:01.643064+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "light@leuk",
+      "w": "light",
+      "p": [
+        "leuk-"
+      ],
+      "imagePath": "assets/word/light@leuk.png",
+      "imageGitBlobSha": "f8d0c4432667cd69b04935f431abad5448222be9",
+      "score": 84,
+      "components": {
+        "meaningVisible": 36,
+        "conceptDistinct": 23,
+        "answerSpecific": 15,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "ろうそくの炎と光線から光を連想できるが、candleやflameの答えも強い。",
+      "alternativeAnswersEn": [
+        "candle",
+        "flame"
+      ],
+      "assessedAt": "2026-10-19T05:24:01.643064+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "model",
+      "w": "model",
+      "p": [
+        "med-"
+      ],
+      "imagePath": "assets/word/model.png",
+      "imageGitBlobSha": "a4fba980143038ffa623bf5ba548235dbe90eb72",
+      "score": 85,
+      "components": {
+        "meaningVisible": 37,
+        "conceptDistinct": 23,
+        "answerSpecific": 16,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "小型飛行機を組み立てる姿から模型が伝わる。airplaneやbuildも候補。",
+      "alternativeAnswersEn": [
+        "airplane",
+        "build"
+      ],
+      "assessedAt": "2026-10-19T05:24:01.643064+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "name",
+      "w": "name",
+      "p": [
+        "no-men"
+      ],
+      "imagePath": "assets/word/name.png",
+      "imageGitBlobSha": "998fde8654a9334b141ee4b7a53d3b43c2362e90",
+      "score": 70,
+      "components": {
+        "meaningVisible": 31,
+        "conceptDistinct": 20,
+        "answerSpecific": 10,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "名札を示す人物から名前を連想できるが、文字の読取りに一部依存する。",
+      "alternativeAnswersEn": [
+        "introduce",
+        "badge"
+      ],
+      "assessedAt": "2026-10-19T05:24:01.643064+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "feel",
+      "w": "feel",
+      "p": [
+        "pāl-"
+      ],
+      "imagePath": "assets/word/feel.png",
+      "imageGitBlobSha": "5c9fc30e1e300358cf3d1a25cba212aedfef2c27",
+      "score": 53,
+      "components": {
+        "meaningVisible": 23,
+        "conceptDistinct": 16,
+        "answerSpecific": 5,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "温かい飲み物を持つ表情から感覚は伝わるが、feelよりwarmやrelaxが自然。",
+      "alternativeAnswersEn": [
+        "warm",
+        "relax",
+        "drink"
+      ],
+      "assessedAt": "2026-10-19T05:24:01.643064+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "group",
+      "w": "group",
+      "p": [
+        "g(e)r-2"
+      ],
+      "imagePath": "assets/word/group.png",
+      "imageGitBlobSha": "d4cdb2bcaaaf753fd3de0db525519a853533f09b",
+      "score": 85,
+      "components": {
+        "meaningVisible": 36,
+        "conceptDistinct": 23,
+        "answerSpecific": 17,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "地図を囲む複数人がまとまりを作り、groupを連想できる。friendsやteamも候補。",
+      "alternativeAnswersEn": [
+        "friends",
+        "team"
+      ],
+      "assessedAt": "2026-10-19T05:24:01.643064+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "fact",
+      "w": "fact",
+      "p": [
+        "dhē-"
+      ],
+      "imagePath": "assets/word/fact.png",
+      "imageGitBlobSha": "d1b87af7bc2dbbd95709cc46e36d33b9d3d9329d",
+      "score": 27,
+      "components": {
+        "meaningVisible": 10,
+        "conceptDistinct": 7,
+        "answerSpecific": 1,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "卵の入った瓶を指す場面だけでは事実という抽象概念は特定できない。",
+      "alternativeAnswersEn": [
+        "eggs",
+        "jar",
+        "count"
+      ],
+      "assessedAt": "2026-10-19T05:24:01.643064+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "far",
+      "w": "far",
+      "p": [
+        "per1"
+      ],
+      "imagePath": "assets/word/far.png",
+      "imageGitBlobSha": "2de6f99cb09fbe1439b7afe5ccf3ec219ce62f40",
+      "score": 84,
+      "components": {
+        "meaningVisible": 36,
+        "conceptDistinct": 23,
+        "answerSpecific": 16,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "遠くの家と長い道の対比で距離の遠さが読み取りやすい。journeyやroadも候補。",
+      "alternativeAnswersEn": [
+        "distance",
+        "road",
+        "journey"
+      ],
+      "assessedAt": "2026-10-19T05:24:01.643064+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "night",
+      "w": "night",
+      "p": [
+        "nekʷ-t-"
+      ],
+      "imagePath": "assets/word/night.png",
+      "imageGitBlobSha": "f94a9d5c52ca477ad03bf79e3abcb25c2f26c4cd",
+      "score": 91,
+      "components": {
+        "meaningVisible": 38,
+        "conceptDistinct": 24,
+        "answerSpecific": 20,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "窓外の月と星、眠る人物がそろい夜を明確に示す。sleepも候補。",
+      "alternativeAnswersEn": [
+        "sleep",
+        "bedtime"
+      ],
+      "assessedAt": "2026-10-19T05:24:01.643064+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "possible",
+      "w": "possible",
+      "p": [
+        "poti-",
+        "es-"
+      ],
+      "imagePath": "assets/word/possible.png",
+      "imageGitBlobSha": "0df54221c29964e9eff2af07aa03b8cdcf3a84c9",
+      "score": 48,
+      "components": {
+        "meaningVisible": 21,
+        "conceptDistinct": 14,
+        "answerSpecific": 4,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "台に乗れば本に手が届く場面は見えるが、可能という性質よりreachやstoolが直接的。",
+      "alternativeAnswersEn": [
+        "reach",
+        "stool",
+        "book"
+      ],
+      "assessedAt": "2026-10-19T05:24:24.423669+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "control",
+      "w": "control",
+      "p": [
+        "kom",
+        "ret-"
+      ],
+      "imagePath": "assets/word/control.png",
+      "imageGitBlobSha": "3d4a400ee1daa23553026d1d38a79ff3182e7e2a",
+      "score": 75,
+      "components": {
+        "meaningVisible": 33,
+        "conceptDistinct": 21,
+        "answerSpecific": 12,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "弁を回して水の流れを調整する様子から制御を連想できる。valveやadjustも候補。",
+      "alternativeAnswersEn": [
+        "valve",
+        "adjust",
+        "water"
+      ],
+      "assessedAt": "2026-10-19T05:24:24.423669+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "thing",
+      "w": "thing",
+      "p": [],
+      "imagePath": "assets/word/thing.png",
+      "imageGitBlobSha": "b8fa4bc661ad29d58f2f11acfd2e07d53257aebc",
+      "score": 43,
+      "components": {
+        "meaningVisible": 18,
+        "conceptDistinct": 12,
+        "answerSpecific": 3,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "箱を指す絵では具体物のboxが最も自然で、thingという一般名には絞れない。",
+      "alternativeAnswersEn": [
+        "box",
+        "object"
+      ],
+      "assessedAt": "2026-10-19T05:24:24.423669+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "become",
+      "w": "become",
+      "p": [
+        "ambhi",
+        "gʷā-"
+      ],
+      "imagePath": "assets/word/become.png",
+      "imageGitBlobSha": "26821b58242e81d810b0ec69603ebd8fd3d9606c",
+      "score": 57,
+      "components": {
+        "meaningVisible": 25,
+        "conceptDistinct": 17,
+        "answerSpecific": 6,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "さなぎから出た蝶は変化を示すが、becomeよりbutterflyやtransformが強い。",
+      "alternativeAnswersEn": [
+        "butterfly",
+        "transform",
+        "emerge"
+      ],
+      "assessedAt": "2026-10-19T05:24:24.423669+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "course",
+      "w": "course",
+      "p": [
+        "kers-2"
+      ],
+      "imagePath": "assets/word/course.png",
+      "imageGitBlobSha": "5f8cb75ac0e0d637f3ebe17e86a930cf19a06a83",
+      "score": 55,
+      "components": {
+        "meaningVisible": 24,
+        "conceptDistinct": 16,
+        "answerSpecific": 6,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "岩の間を進む船の航路は見えるが、courseよりsailやrouteも自然。",
+      "alternativeAnswersEn": [
+        "sail",
+        "route",
+        "boat"
+      ],
+      "assessedAt": "2026-10-19T05:24:24.423669+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "later",
+      "w": "later",
+      "p": [],
+      "imagePath": "assets/word/later.png",
+      "imageGitBlobSha": "c4031171dc0fd1c4087f4e82525537f822ffc27d",
+      "score": 33,
+      "components": {
+        "meaningVisible": 14,
+        "conceptDistinct": 10,
+        "answerSpecific": 1,
+        "smallImageReadable": 8
+      },
+      "reasonJa": "夕方の読書場面と時計は見えるが、比較する前の時点がなくlaterは分かりにくい。",
+      "alternativeAnswersEn": [
+        "evening",
+        "read",
+        "relax"
+      ],
+      "assessedAt": "2026-10-19T05:24:24.423669+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "value",
+      "w": "value",
+      "p": [
+        "wal-"
+      ],
+      "imagePath": "assets/word/value.png",
+      "imageGitBlobSha": "b55fa21c9ea7851d8c66666f5d2da8f702e6e5f5",
+      "score": 58,
+      "components": {
+        "meaningVisible": 25,
+        "conceptDistinct": 17,
+        "answerSpecific": 7,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "写真入りの品を大切にする様子から価値を連想できるが、memoryやtreasureも強い。",
+      "alternativeAnswersEn": [
+        "memory",
+        "treasure",
+        "love"
+      ],
+      "assessedAt": "2026-10-19T05:24:24.423669+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "means",
+      "w": "means",
+      "p": [
+        "medhyo-"
+      ],
+      "imagePath": "assets/word/means.png",
+      "imageGitBlobSha": "951f7c0bc2d70484bc3270e82fbd555bf160f00b",
+      "score": 49,
+      "components": {
+        "meaningVisible": 22,
+        "conceptDistinct": 14,
+        "answerSpecific": 4,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "道具を使って果実を採る方法は見えるが、meansよりpickやtoolが直接的。",
+      "alternativeAnswersEn": [
+        "pick",
+        "tool",
+        "apple"
+      ],
+      "assessedAt": "2026-10-19T05:24:24.423669+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "tell",
+      "w": "tell",
+      "p": [
+        "del-2"
+      ],
+      "imagePath": "assets/word/tell.png",
+      "imageGitBlobSha": "dc2e1c5adab84c0755bcb1804d6ab5c51035393e",
+      "score": 80,
+      "components": {
+        "meaningVisible": 35,
+        "conceptDistinct": 22,
+        "answerSpecific": 14,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "写真を示して相手に話す場面が明瞭。tellとtalkやexplainが競合する。",
+      "alternativeAnswersEn": [
+        "talk",
+        "explain",
+        "show"
+      ],
+      "assessedAt": "2026-10-19T05:24:24.423669+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "done",
+      "w": "done",
+      "p": [],
+      "imagePath": "assets/word/done.png",
+      "imageGitBlobSha": "aaa5c642cf793d051c564a9748112e5f8ca51908",
+      "score": 66,
+      "components": {
+        "meaningVisible": 30,
+        "conceptDistinct": 20,
+        "answerSpecific": 7,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "完成した巣箱と達成した表情は完了を示すが、doneよりfinishやsuccessも候補。",
+      "alternativeAnswersEn": [
+        "finish",
+        "success",
+        "birdhouse"
+      ],
+      "assessedAt": "2026-10-19T05:24:24.423669+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "open",
+      "w": "open",
+      "p": [
+        "upo"
+      ],
+      "imagePath": "assets/word/open.png",
+      "imageGitBlobSha": "25a73f1fc01f6d74bd64de886f183de2475224fc",
+      "score": 93,
+      "components": {
+        "meaningVisible": 39,
+        "conceptDistinct": 24,
+        "answerSpecific": 20,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "開いた門と通れる空間が明確で、openを読み取りやすい。gateも候補。",
+      "alternativeAnswersEn": [
+        "gate"
+      ],
+      "assessedAt": "2026-10-19T05:24:24.423669+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "care",
+      "w": "care",
+      "p": [
+        "gar-"
+      ],
+      "imagePath": "assets/word/care.png",
+      "imageGitBlobSha": "b1e4cdc6772055dca35553ecad2305dec08ae8bf",
+      "score": 51,
+      "components": {
+        "meaningVisible": 22,
+        "conceptDistinct": 15,
+        "answerSpecific": 5,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "夜に電話を手に心配する様子は見えるが、careよりworryが自然。",
+      "alternativeAnswersEn": [
+        "worry",
+        "anxious",
+        "wait"
+      ],
+      "assessedAt": "2026-10-19T05:24:24.423669+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
     }
   ]
 };
