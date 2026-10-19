@@ -46,7 +46,7 @@ test('the compact card and detail stamp show only the highest real score across 
   assert.match(owned.getAttribute('aria-label'),/最高 100点/); assert.equal(score(owned).textContent,'100点最高');
   assert.doesNotMatch(body(app).textContent,/自力|答えを見た|回|はなまる|正解/);
   owned.click(); assert.equal(score(body(app)).dataset.score,'100');
-  assert.equal(app.get('modalTitle').textContent,'コレクション');
+  assert.equal(app.get('modalTitle').textContent,'ずかん');
   assert.equal(body(app).querySelector('.answer-record'),null); assert.equal(body(app).querySelector('.entry-books'),null);
   assert.doesNotMatch(body(app).textContent,/自力|答えを見た|今回|でもゲット/);
   body(app).querySelector('.dictionary-back').click(); assert.equal(app.document.activeElement.dataset.wordId,'car');
@@ -163,4 +163,20 @@ test('post-solve language replay then Next ignores repeated clicks and stale nar
   japaneseSpeech?.onend?.();firstSpeech?.onend?.();app.flushTimers();
   assert.equal(app.snapshot().id,next.id);assert.equal(app.speech.length,speechCount);
   assert.equal(app.save().answerRecords.family.en.independent,1);assert.equal(app.save().answerRecords.family.ja.independent,1);
+});
+
+
+test('illustration taps pronounce the headword and Quest tier tabs retain the collection', async () => {
+  const saved = basic(); saved.en.stars.car = 1;
+  const app = await boot({query:'?word=car&lang=en',saved});
+  app.get('clueImage').click(); assert.equal(app.speech.at(-1).text,'car');
+  app.get('collection').click();
+  const tabs = body(app).querySelectorAll('.dictionary-tiers button');
+  assert.ok(tabs.length > 1);
+  tabs[1].click(); assert.equal(body(app).querySelectorAll('.dictionary-tiers button')[1].getAttribute('aria-selected'),'true');
+  body(app).querySelectorAll('.dictionary-tiers button')[0].click();
+  card(app,'car').click();
+  body(app).querySelector('.dictionary-entry-art').click();
+  assert.equal(app.speech.at(-1).text,'car');
+  assert.equal(app.save().en.stars.car,1);
 });
