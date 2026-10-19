@@ -93,14 +93,14 @@ img.sil{filter:brightness(0);opacity:.12}
 .play-count .combo{color:#d9780a}
 .chip{display:inline-flex;align-items:center;padding:2px 8px;border-radius:999px;background:var(--c);color:#fff;font-size:11px;font-weight:800;letter-spacing:-.3px;white-space:nowrap}
 
-.stage{flex:1;min-height:0;display:flex;flex-direction:column;align-items:center;gap:10px;padding:14px 16px 10px;overflow:hidden}
-.picture{position:relative;flex:none;margin:0;width:min(100%,300px,34dvh);aspect-ratio:1;background:var(--card);border:2px solid var(--line);border-radius:22px;overflow:hidden}
+.stage{flex:1;min-height:0;display:flex;flex-direction:column;align-items:center;gap:8px;padding:10px 12px 8px;overflow:hidden}
+.picture{position:relative;flex:none;margin:0;width:min(100%,300px,var(--picture-vh,32dvh));aspect-ratio:1;background:var(--card);border:2px solid var(--line);border-radius:22px;overflow:hidden}
 .picture img{width:100%;height:100%;object-fit:contain;padding:5%;user-select:none;-webkit-user-drag:none}
 .picture.new::after{content:"NEW";position:absolute;top:10px;left:10px;padding:1px 8px;border-radius:999px;background:#ff8a3d;color:#fff;font-family:var(--en);font-weight:700;font-size:11px}
 .meaning{flex:none;margin:0;min-height:1.4em;font-size:15px;font-weight:800;color:var(--ink2);text-align:center}
 
 /* 答えのマス */
-.slots{--gap:6px;--s:min(44px,calc((min(100vw,520px) - 32px - (var(--n) - 1) * var(--gap)) / var(--n)));flex:none;display:flex;justify-content:center;gap:var(--gap)}
+.slots{--gap:6px;--s:min(50px,calc((min(100vw,520px) - 32px - (var(--n) - 1) * var(--gap)) / var(--n)));flex:none;display:flex;justify-content:center;gap:var(--gap)}
 .slot{width:var(--s);height:calc(var(--s) * 1.18);display:grid;place-items:center;border:2px dashed var(--line2);border-radius:calc(var(--s) * .22);font-family:var(--en);font-weight:700;font-size:calc(var(--s) * .56);color:var(--blue);background:transparent;transition:background .12s,border-color .12s}
 .slot.filled{border-style:solid;border-color:var(--blue);background:var(--blue-l)}
 .is-done .slot{border:0;background:var(--green);color:#fff}
@@ -109,7 +109,7 @@ img.sil{filter:brightness(0);opacity:.12}
 @keyframes shake{20%{transform:translateX(-6px)}40%{transform:translateX(5px)}60%{transform:translateX(-3px)}80%{transform:translateX(2px)}}
 
 /* 文字盤：JS が空きスペースに合わせてサイズを決め、中央に置く */
-.board-wrap{flex:1;min-height:150px;width:100%;display:flex;align-items:center;justify-content:center}
+.board-wrap{flex:1;min-height:0;width:100%;display:flex;align-items:center;justify-content:center}
 .board{position:relative;flex:none;touch-action:none;user-select:none;-webkit-user-select:none;cursor:pointer}
 .tiles{position:absolute;inset:0;z-index:1}
 .tile{position:absolute;width:var(--tw);height:var(--th);transform:translate(-50%,-50%);display:grid;place-items:center;pointer-events:none}
@@ -164,3 +164,8 @@ img.sil{filter:brightness(0);opacity:.12}
 .d-link{font-size:13px;font-weight:700;color:var(--blue)}
 
 @media (prefers-reduced-motion:reduce){.slots.wrong,.done{animation:none}}
+
+
+.trail{display:none!important}
+#app{isolation:isolate}.screen{z-index:1}.ambient-layer{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}.ambient-image{position:absolute;left:0;top:0;width:112px;height:112px;object-fit:contain;opacity:0;animation:ambient-drift linear both;will-change:transform;pointer-events:none}.background-toggle{font-size:10px;white-space:nowrap;border:1px solid var(--line);border-radius:999px;padding:6px 8px;color:var(--ink2);background:var(--paper);min-height:32px}.background-toggle[aria-pressed="false"]{opacity:.65}@keyframes ambient-drift{0%{transform:translate(var(--x0),var(--y0)) rotate(-12deg);opacity:0}8%{opacity:.055}90%{opacity:.055}100%{transform:translate(var(--x1),var(--y1)) rotate(-12deg);opacity:0}}@media(prefers-reduced-motion:reduce){.ambient-layer{display:none}.ambient-image{animation:none}}
+

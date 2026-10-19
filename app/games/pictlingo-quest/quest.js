@@ -238,6 +238,7 @@ function cellsFor(total) {
 }
 function buildBoard(word) {
   const chars = [...word];
+  $('#play').style.setProperty('--picture-vh', chars.length>=10?'27dvh':chars.length>=7?'30dvh':'32dvh');
   $('#slots').innerHTML = chars.map(() => '<span class="slot"></span>').join('');
   $('#slots').style.setProperty('--n', chars.length);
   B = { answer: chars, nodes: chars.map((char, id) => ({ id, char })), selected: [], pointer: null, step: stepFor(chars.length) };
@@ -258,7 +259,9 @@ function layoutBoard() {
   const xs = B.nodes.map(n => n.ux), ys = B.nodes.map(n => n.uy);
   const minX = Math.min(...xs), minY = Math.min(...ys);
   const uw = Math.max(...xs) - minX + tw, uh = Math.max(...ys) - minY + th;
-  const s = Math.max(.2, Math.min((wrap.clientWidth - 16) / uw, (wrap.clientHeight - 16) / uh, 88 / tw));
+  if(wrap.clientWidth<=0||wrap.clientHeight<=0)return;
+  const maxTile=Math.min(144,Math.max(96,wrap.clientWidth/(B.nodes.length<=4?3:B.nodes.length<=8?3.5:4.5)));
+  const s=Math.max(.01,Math.min(Math.max(1,wrap.clientWidth-8)/uw,Math.max(1,wrap.clientHeight-8)/uh,maxTile/tw));
   const bw = uw * s, bh = uh * s;
   board.style.width = bw + 'px'; board.style.height = bh + 'px';
   board.style.setProperty('--tw', tw * s + 'px'); board.style.setProperty('--th', th * s + 'px');
@@ -271,6 +274,7 @@ function layoutBoard() {
   drawTrail();
 }
 addEventListener('resize', () => layoutBoard());
+if('ResizeObserver' in window)new ResizeObserver(()=>layoutBoard()).observe($('#boardWrap'));
 function paint() {
   if (!B) return;
   $$('#slots .slot').forEach((el, k) => {
@@ -281,10 +285,7 @@ function paint() {
   drawTrail();
 }
 function drawTrail() {
-  if (!B) return;
-  const pts = B.selected.map(id => `${B.nodes[id].x},${B.nodes[id].y}`);
-  if (B.pointer && B.selected.length) pts.push(`${B.pointer.last.x},${B.pointer.last.y}`);
-  $('#trailLine').setAttribute('points', pts.join(' '));
+  $('#trailLine').setAttribute('points', '');
 }
 function select(id) {
   if (!B || P.solved || B.demo || B.selected.includes(id)) return;
@@ -399,8 +400,30 @@ addEventListener('keydown', e => {
   else if (e.key === 'Enter' && P.solved) { e.preventDefault(); nextQuestion(); }
 });
 
+const ambientAllowed=new Set(["car", "door", "book", "table", "sun", "tree", "dog", "fish", "elephant", "tiger", "pear"]);
+/* Optional low-contrast background. It never handles pointer input. */
+const ambientLayer=document.createElement('div');ambientLayer.className='ambient-layer';ambientLayer.setAttribute('aria-hidden','true');$('#app').prepend(ambientLayer);
+const reducedMotion=matchMedia('(prefers-reduced-motion: reduce)');let ambientTimer=null;
+if(typeof S.background!=='boolean')S.background=!reducedMotion.matches;
+function ambientSpawn(){
+ if(!S.background||reducedMotion.matches||document.hidden||ambientLayer.children.length>=3)return;
+ const choices=D.words.map((r,i)=>i).filter(i=>(D.words[i][6]&1)&&ambientAllowed.has(D.words[i][0])&&i!==P?.i);if(!choices.length)return;
+ const w=W(choices[rand(choices.length)]),im=new Image();im.alt='';im.draggable=false;im.src=thumbURL(w);im.dataset.full=fullURL(w);im.className='ambient-image';
+ const height=$('#app').clientHeight+240,dx=height*.42,x=Math.random()*($('#app').clientWidth+120)-180;
+ im.style.setProperty('--x0',x+'px');im.style.setProperty('--y0',($('#app').clientHeight+100)+'px');im.style.setProperty('--x1',(x+dx)+'px');im.style.setProperty('--y1','-140px');im.style.animationDuration=(Math.hypot(dx,height)/18)+'s';
+ im.addEventListener('animationend',()=>im.remove(),{once:true});ambientLayer.append(im);
+}
+function renderAmbient(){
+ clearInterval(ambientTimer);ambientTimer=null;ambientLayer.replaceChildren();
+ $$('[data-background]').forEach(b=>{b.setAttribute('aria-pressed',String(S.background));b.textContent=S.background?'背景 ON':'背景 OFF';});
+ if(S.background&&!reducedMotion.matches&&!document.hidden){ambientSpawn();ambientTimer=setInterval(ambientSpawn,20000);}
+}
+$$('[data-background]').forEach(b=>b.onclick=()=>{S.background=!S.background;persist();renderAmbient();});
+reducedMotion.addEventListener?.('change',renderAmbient);document.addEventListener('visibilitychange',renderAmbient);renderAmbient();
+
 /* ───────── boot ───────── */
 renderSound();
 showTab('Play');
 window.PQ = { get state() { return S; }, get play() { return P; }, get board() { return B; }, W, D, startPlay, _word: en => { const i = D.words.findIndex(r => r[1] === en && (r[6] & 1)); if (P && i >= 0) { P.retry.unshift({ i, at: 0 }); nextQuestion(); } } };
 })();
+
