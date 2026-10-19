@@ -3729,6 +3729,925 @@ window.ETYMON_PUZZLE_VISUAL_SCORES={
       "reviewer": "dot",
       "reviewMethod": "actual_image_visual_review",
       "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "try",
+      "w": "try",
+      "p": [],
+      "imagePath": "assets/word/try.png",
+      "imageGitBlobSha": "a4ae492b5f4efadf0bd24c1339221d67660d3639",
+      "score": 69,
+      "components": {
+        "meaningVisible": 31,
+        "conceptDistinct": 19,
+        "answerSpecific": 10,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "動かない岩を押して努力する姿は分かるが、試すより押す・力が先に浮かぶ。",
+      "alternativeAnswersEn": [
+        "push",
+        "effort",
+        "struggle"
+      ],
+      "assessedAt": "2026-10-19T04:16:57.640288+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "project",
+      "w": "project",
+      "p": [
+        "per1",
+        "yē-"
+      ],
+      "imagePath": "assets/word/project.png",
+      "imageGitBlobSha": "f1680d7b0660d53d6e6f95706db02877d4b4c5dd",
+      "score": 51,
+      "components": {
+        "meaningVisible": 24,
+        "conceptDistinct": 14,
+        "answerSpecific": 5,
+        "smallImageReadable": 8
+      },
+      "reasonJa": "設計図を見ながら箱庭を作る場面。具体的な工作や園芸からprojectへの限定は難しい。",
+      "alternativeAnswersEn": [
+        "gardening",
+        "build",
+        "model"
+      ],
+      "assessedAt": "2026-10-19T04:16:57.640288+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "red",
+      "w": "red",
+      "p": [
+        "reudh-"
+      ],
+      "imagePath": "assets/word/red.png",
+      "imageGitBlobSha": "a90bc42be49f0a7f0f067e3c30845ff2c67a78ba",
+      "score": 88,
+      "components": {
+        "meaningVisible": 38,
+        "conceptDistinct": 22,
+        "answerSpecific": 18,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "赤色が面積の大半を占めるが、色を答える指定がないとじょうろも自然な答え。",
+      "alternativeAnswersEn": [
+        "watering can"
+      ],
+      "assessedAt": "2026-10-19T04:16:57.640288+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "technology",
+      "w": "technology",
+      "p": [
+        "teks-",
+        "leg-"
+      ],
+      "imagePath": "assets/word/technology.png",
+      "imageGitBlobSha": "f2f47325cb0140b9a622e27e6361ec9e4e2dee39",
+      "score": 69,
+      "components": {
+        "meaningVisible": 31,
+        "conceptDistinct": 20,
+        "answerSpecific": 10,
+        "smallImageReadable": 8
+      },
+      "reasonJa": "ロボットを操作する場面は技術を連想させるが、ロボット・機械・工場と競合する。",
+      "alternativeAnswersEn": [
+        "robot",
+        "machine",
+        "factory"
+      ],
+      "assessedAt": "2026-10-19T04:16:57.640288+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "total",
+      "w": "total",
+      "p": [
+        "teutā-"
+      ],
+      "imagePath": "assets/word/total.png",
+      "imageGitBlobSha": "66c18536f1de153a63bbdd0c0009d1224b49dfac",
+      "score": 34,
+      "components": {
+        "meaningVisible": 15,
+        "conceptDistinct": 8,
+        "answerSpecific": 2,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "トレーの硬貨は見えるが、合計という概念や計算操作が示されていない。",
+      "alternativeAnswersEn": [
+        "coins",
+        "money",
+        "count"
+      ],
+      "assessedAt": "2026-10-19T04:16:57.640288+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "bad",
+      "w": "bad",
+      "p": [],
+      "imagePath": "assets/word/bad.png",
+      "imageGitBlobSha": "7277129e316cf3221958bd1b504ae87bb3bf8bcc",
+      "score": 50,
+      "components": {
+        "meaningVisible": 23,
+        "conceptDistinct": 13,
+        "answerSpecific": 5,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "割れたカップで状態の悪さは伝わるが、壊れた・ひびが入ったという語が直接的。",
+      "alternativeAnswersEn": [
+        "broken",
+        "cracked",
+        "cup"
+      ],
+      "assessedAt": "2026-10-19T04:16:57.640288+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "team",
+      "w": "team",
+      "p": [
+        "deuk-"
+      ],
+      "imagePath": "assets/word/team.png",
+      "imageGitBlobSha": "655c05cf0b6cf7b9b416719f40a1bb4d2e8f86ad",
+      "score": 92,
+      "components": {
+        "meaningVisible": 38,
+        "conceptDistinct": 24,
+        "answerSpecific": 21,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "同じユニフォームで手を重ねるサッカー仲間からチームが分かりやすい。",
+      "alternativeAnswersEn": [
+        "teamwork",
+        "players"
+      ],
+      "assessedAt": "2026-10-19T04:16:57.640288+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "paper",
+      "w": "paper",
+      "p": [],
+      "imagePath": "assets/word/paper.png",
+      "imageGitBlobSha": "84bb81848c3ecda1873847b7d1c0194f79928c1a",
+      "score": 99,
+      "components": {
+        "meaningVisible": 40,
+        "conceptDistinct": 25,
+        "answerSpecific": 24,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "折れた角を持つ一枚の白い紙が単独で描かれている。",
+      "alternativeAnswersEn": [
+        "sheet"
+      ],
+      "assessedAt": "2026-10-19T04:16:57.640288+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "presence",
+      "w": "presence",
+      "p": [
+        "per1",
+        "es-"
+      ],
+      "imagePath": "assets/word/presence.png",
+      "imageGitBlobSha": "e2ce64d8162ba6380b381074845add16ce916059",
+      "score": 34,
+      "components": {
+        "meaningVisible": 15,
+        "conceptDistinct": 9,
+        "answerSpecific": 2,
+        "smallImageReadable": 8
+      },
+      "reasonJa": "部屋へ来た人と迎える人が見えるが、存在・出席という抽象名詞には絞れない。",
+      "alternativeAnswersEn": [
+        "greet",
+        "visit",
+        "hello"
+      ],
+      "assessedAt": "2026-10-19T04:16:57.640288+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "smile",
+      "w": "smile",
+      "p": [
+        "smei-"
+      ],
+      "imagePath": "assets/word/smile.png",
+      "imageGitBlobSha": "89728601512f0976fe8a10062b1a6ecd5e99970f",
+      "score": 93,
+      "components": {
+        "meaningVisible": 39,
+        "conceptDistinct": 24,
+        "answerSpecific": 20,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "口角の上がった顔が大きく、笑顔を読み取りやすい。嬉しいという形容詞も候補。",
+      "alternativeAnswersEn": [
+        "happy",
+        "grin"
+      ],
+      "assessedAt": "2026-10-19T04:16:57.640288+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "office",
+      "w": "office",
+      "p": [
+        "op-",
+        "dhē-"
+      ],
+      "imagePath": "assets/word/office.png",
+      "imageGitBlobSha": "232a2272cfcf82d274e62db1e2e1df9618383999",
+      "score": 90,
+      "components": {
+        "meaningVisible": 38,
+        "conceptDistinct": 24,
+        "answerSpecific": 20,
+        "smallImageReadable": 8
+      },
+      "reasonJa": "机・書類棚・仕事をする人がそろい、事務所の場面として識別できる。",
+      "alternativeAnswersEn": [
+        "workplace",
+        "work"
+      ],
+      "assessedAt": "2026-10-19T04:16:57.640288+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "security",
+      "w": "security",
+      "p": [
+        "s(w)e-",
+        "kʷei-3"
+      ],
+      "imagePath": "assets/word/security.png",
+      "imageGitBlobSha": "8bf29feb7878f2d04a24951922f2f6006848e1c2",
+      "score": 64,
+      "components": {
+        "meaningVisible": 29,
+        "conceptDistinct": 19,
+        "answerSpecific": 8,
+        "smallImageReadable": 8
+      },
+      "reasonJa": "鍵を掛けて守る行為は読めるが、安全より鍵・施錠・防犯に分散する。",
+      "alternativeAnswersEn": [
+        "lock",
+        "safety",
+        "protect"
+      ],
+      "assessedAt": "2026-10-19T04:16:57.640288+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "movement",
+      "w": "movement",
+      "p": [
+        "meuə-"
+      ],
+      "imagePath": "assets/word/movement.png",
+      "imageGitBlobSha": "cb39c30b959ed6689d087bcbb4dd5fbc50e10843",
+      "score": 40,
+      "components": {
+        "meaningVisible": 17,
+        "conceptDistinct": 11,
+        "answerSpecific": 3,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "振り子の動きの印はあるが、時計という物体が強くmovement全般には絞れない。",
+      "alternativeAnswersEn": [
+        "clock",
+        "pendulum",
+        "swing"
+      ],
+      "assessedAt": "2026-10-19T04:16:57.640288+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "media",
+      "w": "media",
+      "p": [
+        "medhyo-"
+      ],
+      "imagePath": "assets/word/media.png",
+      "imageGitBlobSha": "5b63f158004fc082379c98b4a87c14b211893831",
+      "score": 62,
+      "components": {
+        "meaningVisible": 28,
+        "conceptDistinct": 18,
+        "answerSpecific": 8,
+        "smallImageReadable": 8
+      },
+      "reasonJa": "ニュース撮影の場面で報道を連想できるが、テレビ・取材・カメラが競合する。",
+      "alternativeAnswersEn": [
+        "news",
+        "television",
+        "reporter"
+      ],
+      "assessedAt": "2026-10-19T04:16:57.640288+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "source",
+      "w": "source",
+      "p": [
+        "upo",
+        "reg-"
+      ],
+      "imagePath": "assets/word/source.png",
+      "imageGitBlobSha": "0b6758402c1467e2b2e8081893049d16c6ecce88",
+      "score": 65,
+      "components": {
+        "meaningVisible": 28,
+        "conceptDistinct": 18,
+        "answerSpecific": 10,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "岩間から水が流れ出す場所は分かるが、泉や小川がより直接的な答えになる。",
+      "alternativeAnswersEn": [
+        "spring",
+        "stream",
+        "water"
+      ],
+      "assessedAt": "2026-10-19T04:16:57.640288+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "follow",
+      "w": "follow",
+      "p": [],
+      "imagePath": "assets/word/follow.png",
+      "imageGitBlobSha": "a779ecec020d0a3fd6b43278fd4416a36e92f714",
+      "score": 81,
+      "components": {
+        "meaningVisible": 34,
+        "conceptDistinct": 22,
+        "answerSpecific": 16,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "一人の後ろをもう一人が歩く配置で追従を連想できる。単に一緒に歩くとも見える。",
+      "alternativeAnswersEn": [
+        "walk",
+        "following"
+      ],
+      "assessedAt": "2026-10-19T04:16:57.640288+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "court",
+      "w": "court",
+      "p": [
+        "kom",
+        "gher-1"
+      ],
+      "imagePath": "assets/word/court.png",
+      "imageGitBlobSha": "08be88727bae95853cded27cf8756d43c8d6fa9d",
+      "score": 92,
+      "components": {
+        "meaningVisible": 39,
+        "conceptDistinct": 24,
+        "answerSpecific": 21,
+        "smallImageReadable": 8
+      },
+      "reasonJa": "裁判官と向かい合う席から法廷として識別しやすい。",
+      "alternativeAnswersEn": [
+        "courtroom",
+        "trial"
+      ],
+      "assessedAt": "2026-10-19T04:16:57.640288+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "phone",
+      "w": "phone",
+      "p": [
+        "bhā-2"
+      ],
+      "imagePath": "assets/word/phone.png",
+      "imageGitBlobSha": "d4be082dc6d5387120611e932b53c2c438945b36",
+      "score": 97,
+      "components": {
+        "meaningVisible": 40,
+        "conceptDistinct": 25,
+        "answerSpecific": 22,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "受話器と電話機が明瞭。phoneとtelephoneの語の選択は残る。",
+      "alternativeAnswersEn": [
+        "telephone",
+        "call"
+      ],
+      "assessedAt": "2026-10-19T04:16:57.640288+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "poor",
+      "w": "poor",
+      "p": [
+        "pau-",
+        "perə-1"
+      ],
+      "imagePath": "assets/word/poor.png",
+      "imageGitBlobSha": "9293dd35aadb374bb32b38e9ccd1ade9ec4f21c8",
+      "score": 75,
+      "components": {
+        "meaningVisible": 33,
+        "conceptDistinct": 20,
+        "answerSpecific": 14,
+        "smallImageReadable": 8
+      },
+      "reasonJa": "少ない食事・継ぎのある服・乏しい金銭から貧しさを連想できる。",
+      "alternativeAnswersEn": [
+        "poverty",
+        "hungry"
+      ],
+      "assessedAt": "2026-10-19T04:16:57.640288+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "stage",
+      "w": "stage",
+      "p": [
+        "stā-"
+      ],
+      "imagePath": "assets/word/stage.png",
+      "imageGitBlobSha": "75ec048754177816d4ffc791e08680a013c35e7f",
+      "score": 26,
+      "components": {
+        "meaningVisible": 10,
+        "conceptDistinct": 6,
+        "answerSpecific": 1,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "ろくろで器を作る場面で、段階や舞台というstageの手掛かりがほぼない。",
+      "alternativeAnswersEn": [
+        "pottery",
+        "potter",
+        "clay"
+      ],
+      "assessedAt": "2026-10-19T04:16:57.640288+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "property",
+      "w": "property",
+      "p": [
+        "per1"
+      ],
+      "imagePath": "assets/word/property.png",
+      "imageGitBlobSha": "fd884135b55fd99c4346df1c59a329f44b7f637d",
+      "score": 60,
+      "components": {
+        "meaningVisible": 27,
+        "conceptDistinct": 18,
+        "answerSpecific": 7,
+        "smallImageReadable": 8
+      },
+      "reasonJa": "家と鍵を持つ人物から所有物を連想できるが、家・所有者などに分かれる。",
+      "alternativeAnswersEn": [
+        "house",
+        "owner",
+        "home"
+      ],
+      "assessedAt": "2026-10-19T04:16:57.640288+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "features",
+      "w": "features",
+      "p": [],
+      "imagePath": "assets/word/features.png",
+      "imageGitBlobSha": "38fe3035e23ad3471a9ac61b8ca2bc5f74709610",
+      "score": 39,
+      "components": {
+        "meaningVisible": 17,
+        "conceptDistinct": 11,
+        "answerSpecific": 3,
+        "smallImageReadable": 8
+      },
+      "reasonJa": "虫眼鏡でテントウムシを見る場面で、特徴という複数名詞は特定しにくい。",
+      "alternativeAnswersEn": [
+        "ladybug",
+        "inspect",
+        "spots"
+      ],
+      "assessedAt": "2026-10-19T04:16:57.640288+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "application",
+      "w": "application",
+      "p": [
+        "ad-",
+        "plek-"
+      ],
+      "imagePath": "assets/word/application.png",
+      "imageGitBlobSha": "ea2ffc23db1f74b10f0c96a651d35d54da08f2c2",
+      "score": 29,
+      "components": {
+        "meaningVisible": 12,
+        "conceptDistinct": 7,
+        "answerSpecific": 2,
+        "smallImageReadable": 8
+      },
+      "reasonJa": "工具を木枠に当てて使う場面だが、applicationより計測・工具が自然。",
+      "alternativeAnswersEn": [
+        "measure",
+        "tool",
+        "use"
+      ],
+      "assessedAt": "2026-10-19T04:16:57.640288+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "issue",
+      "w": "issue",
+      "p": [
+        "eghs",
+        "ei-"
+      ],
+      "imagePath": "assets/word/issue.png",
+      "imageGitBlobSha": "e61cac56ba71fa8d06060db2d4fde87ab477c89f",
+      "score": 54,
+      "components": {
+        "meaningVisible": 24,
+        "conceptDistinct": 16,
+        "answerSpecific": 6,
+        "smallImageReadable": 8
+      },
+      "reasonJa": "水漏れという問題は分かるが、problem・leak・repairが直接的な答え。",
+      "alternativeAnswersEn": [
+        "problem",
+        "leak",
+        "repair"
+      ],
+      "assessedAt": "2026-10-19T04:16:57.640288+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "fear",
+      "w": "fear",
+      "p": [
+        "per-3"
+      ],
+      "imagePath": "assets/word/fear.png",
+      "imageGitBlobSha": "92193b3d8c4eaa36e3ee6cc12e5b46dadb281856",
+      "score": 89,
+      "components": {
+        "meaningVisible": 38,
+        "conceptDistinct": 24,
+        "answerSpecific": 18,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "震える姿と怯えた表情で恐怖が明瞭。名詞と形容詞の区別は絵だけでは難しい。",
+      "alternativeAnswersEn": [
+        "afraid",
+        "scared"
+      ],
+      "assessedAt": "2026-10-19T04:16:57.640288+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "product",
+      "w": "product",
+      "p": [
+        "per1",
+        "deuk-"
+      ],
+      "imagePath": "assets/word/product.png",
+      "imageGitBlobSha": "ea6fdc5057c215b654e30f593c12f3bffd04c6b1",
+      "score": 55,
+      "components": {
+        "meaningVisible": 25,
+        "conceptDistinct": 16,
+        "answerSpecific": 6,
+        "smallImageReadable": 8
+      },
+      "reasonJa": "完成した椅子を並べる場面は製品を連想できるが、椅子や家具が強い。",
+      "alternativeAnswersEn": [
+        "stool",
+        "furniture",
+        "make"
+      ],
+      "assessedAt": "2026-10-19T04:16:57.640288+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "church",
+      "w": "church",
+      "p": [
+        "keuə-"
+      ],
+      "imagePath": "assets/word/church.png",
+      "imageGitBlobSha": "df49d9c6ae36e769d6ba3995256b57478021de13",
+      "score": 98,
+      "components": {
+        "meaningVisible": 40,
+        "conceptDistinct": 25,
+        "answerSpecific": 23,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "十字架・鐘・尖った窓を持つ教会の建物が明瞭。",
+      "alternativeAnswersEn": [
+        "chapel"
+      ],
+      "assessedAt": "2026-10-19T04:16:57.640288+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "cut",
+      "w": "cut",
+      "p": [
+        "(s)kel-1"
+      ],
+      "imagePath": "assets/word/cut.png",
+      "imageGitBlobSha": "3e8b71bd6f1595cb654d92ecc8acbb15626b5f8d",
+      "score": 93,
+      "components": {
+        "meaningVisible": 39,
+        "conceptDistinct": 24,
+        "answerSpecific": 21,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "包丁でキュウリを切る接点と切片が見え、切る動作が分かりやすい。",
+      "alternativeAnswersEn": [
+        "slice",
+        "chop"
+      ],
+      "assessedAt": "2026-10-19T04:16:57.640288+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "report",
+      "w": "report",
+      "p": [
+        "re-",
+        "per-2"
+      ],
+      "imagePath": "assets/word/report.png",
+      "imageGitBlobSha": "e17389924b59cde310598ed7fafac6c407704635",
+      "score": 58,
+      "components": {
+        "meaningVisible": 26,
+        "conceptDistinct": 17,
+        "answerSpecific": 7,
+        "smallImageReadable": 8
+      },
+      "reasonJa": "橋の不具合を伝える作業員は見えるが、報告・点検・説明が競合する。",
+      "alternativeAnswersEn": [
+        "inspect",
+        "explain",
+        "damage"
+      ],
+      "assessedAt": "2026-10-19T04:16:57.640288+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "lines",
+      "w": "lines",
+      "p": [],
+      "imagePath": "assets/word/lines.png",
+      "imageGitBlobSha": "c36874e24fe61fc3c0fb635c1b90b14fe6ee3080",
+      "score": 87,
+      "components": {
+        "meaningVisible": 38,
+        "conceptDistinct": 23,
+        "answerSpecific": 16,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "直線・曲線・波線が並ぶが、lineとlinesの単複やdrawへの分散は残る。",
+      "alternativeAnswersEn": [
+        "line",
+        "draw"
+      ],
+      "assessedAt": "2026-10-19T04:16:57.640288+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "temperature",
+      "w": "temperature",
+      "p": [
+        "temp-"
+      ],
+      "imagePath": "assets/word/temperature.png",
+      "imageGitBlobSha": "7237227d74b56c63e98e8f573813d2f3ca86abdf",
+      "score": 91,
+      "components": {
+        "meaningVisible": 38,
+        "conceptDistinct": 24,
+        "answerSpecific": 20,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "温度計と温かい飲み物・冷たい飲み物の対比から温度を連想しやすい。",
+      "alternativeAnswersEn": [
+        "hot",
+        "cold",
+        "thermometer"
+      ],
+      "assessedAt": "2026-10-19T04:16:57.640288+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "week",
+      "w": "week",
+      "p": [
+        "weik-4"
+      ],
+      "imagePath": "assets/word/week.png",
+      "imageGitBlobSha": "750cfd4385cbfe5cc25bfd94087e63501928000c",
+      "score": 65,
+      "components": {
+        "meaningVisible": 30,
+        "conceptDistinct": 18,
+        "answerSpecific": 9,
+        "smallImageReadable": 8
+      },
+      "reasonJa": "七つの区画が週を示しうるが、日付や曜日がなくカレンダー・天気とも見える。",
+      "alternativeAnswersEn": [
+        "calendar",
+        "days",
+        "weather"
+      ],
+      "assessedAt": "2026-10-19T04:16:57.640288+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "direction",
+      "w": "direction",
+      "p": [
+        "dwis-",
+        "reg-"
+      ],
+      "imagePath": "assets/word/direction.png",
+      "imageGitBlobSha": "5355fdf69c91037d58d8d5316a00ed1b066a7722",
+      "score": 74,
+      "components": {
+        "meaningVisible": 32,
+        "conceptDistinct": 21,
+        "answerSpecific": 12,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "分かれ道で指さす姿が方向を示すが、道・右・指さすとも読める。",
+      "alternativeAnswersEn": [
+        "way",
+        "point",
+        "right"
+      ],
+      "assessedAt": "2026-10-19T04:16:57.640288+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "distance",
+      "w": "distance",
+      "p": [
+        "dwis-",
+        "stā-"
+      ],
+      "imagePath": "assets/word/distance.png",
+      "imageGitBlobSha": "0fef481399c9695dc6fc9e2f02e749ad559fdb51",
+      "score": 84,
+      "components": {
+        "meaningVisible": 36,
+        "conceptDistinct": 23,
+        "answerSpecific": 16,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "二本の柱の間を巻尺で測る様子から隔たりが分かる。測る・長さとも競合する。",
+      "alternativeAnswersEn": [
+        "measure",
+        "length"
+      ],
+      "assessedAt": "2026-10-19T04:16:57.640288+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "species",
+      "w": "species",
+      "p": [
+        "spek-"
+      ],
+      "imagePath": "assets/word/species.png",
+      "imageGitBlobSha": "839a3cd9c1a2f249b72f3f67f095593293287bce",
+      "score": 41,
+      "components": {
+        "meaningVisible": 18,
+        "conceptDistinct": 12,
+        "answerSpecific": 3,
+        "smallImageReadable": 8
+      },
+      "reasonJa": "複数の蝶は見えるが、種という分類単位を示す情報が乏しい。",
+      "alternativeAnswersEn": [
+        "butterflies",
+        "butterfly",
+        "insect"
+      ],
+      "assessedAt": "2026-10-19T04:16:57.640288+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "beginning",
+      "w": "beginning",
+      "p": [],
+      "imagePath": "assets/word/beginning.png",
+      "imageGitBlobSha": "f14badaae6e83c6fcf79d634626a6f65258e1a71",
+      "score": 67,
+      "components": {
+        "meaningVisible": 29,
+        "conceptDistinct": 19,
+        "answerSpecific": 10,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "旗のそばのスタート姿勢から開始を連想できるが、startやraceと分かれる。",
+      "alternativeAnswersEn": [
+        "start",
+        "race",
+        "runner"
+      ],
+      "assessedAt": "2026-10-19T04:16:57.640288+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
     }
   ]
 };
