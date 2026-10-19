@@ -6490,6 +6490,1845 @@ window.ETYMON_PUZZLE_VISUAL_SCORES={
       "reviewer": "dot",
       "reviewMethod": "actual_image_visual_review",
       "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "all",
+      "w": "all",
+      "p": [
+        "al-5"
+      ],
+      "imagePath": "assets/word/all.png",
+      "imageGitBlobSha": "1ee4ca9f4bc4fea68a3d7a6097f12855c943d444",
+      "score": 41,
+      "components": {
+        "meaningVisible": 19,
+        "conceptDistinct": 11,
+        "answerSpecific": 3,
+        "smallImageReadable": 8
+      },
+      "reasonJa": "収穫したリンゴと実のない木は見えるが、全部を取り切ったかは静止画だけでは確定しない。",
+      "alternativeAnswersEn": [
+        "harvest",
+        "apples",
+        "collect"
+      ],
+      "assessedAt": "2026-10-19T04:34:58.641608+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "been",
+      "w": "been",
+      "p": [
+        "bheuə-"
+      ],
+      "imagePath": "assets/word/been.png",
+      "imageGitBlobSha": "436ccfb3db8e3cc4619b4ee7ba5c11de35b85612",
+      "score": 26,
+      "components": {
+        "meaningVisible": 11,
+        "conceptDistinct": 7,
+        "answerSpecific": 0,
+        "smallImageReadable": 8
+      },
+      "reasonJa": "昔の写真を持つ高齢者は過去を連想させるが、beenという文法形は特定できない。",
+      "alternativeAnswersEn": [
+        "past",
+        "memory",
+        "retired"
+      ],
+      "assessedAt": "2026-10-19T04:34:58.641608+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "but",
+      "w": "but",
+      "p": [
+        "ambhi",
+        "ud-"
+      ],
+      "imagePath": "assets/word/but.png",
+      "imageGitBlobSha": "4f2afaebca2b9b3d75eb1e091827bceae5d1653a",
+      "score": 29,
+      "components": {
+        "meaningVisible": 12,
+        "conceptDistinct": 8,
+        "answerSpecific": 0,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "雨でも楽しそうな人物という対比はあるが、接続詞butを絵だけで特定できない。",
+      "alternativeAnswersEn": [
+        "rain",
+        "umbrella",
+        "happy"
+      ],
+      "assessedAt": "2026-10-19T04:34:58.641608+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "can",
+      "w": "can",
+      "p": [
+        "gnō-"
+      ],
+      "imagePath": "assets/word/can.png",
+      "imageGitBlobSha": "c204e64c341b9c1b056dffb6df4c96a1c1983a97",
+      "score": 50,
+      "components": {
+        "meaningVisible": 23,
+        "conceptDistinct": 14,
+        "answerSpecific": 4,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "自転車に乗れる子供は能力の一例だが、canよりride・bicycleが直接的な答え。",
+      "alternativeAnswersEn": [
+        "ride",
+        "bicycle",
+        "learn"
+      ],
+      "assessedAt": "2026-10-19T04:34:58.641608+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "have",
+      "w": "have",
+      "p": [
+        "kap-"
+      ],
+      "imagePath": "assets/word/have.png",
+      "imageGitBlobSha": "e5d4b739bd8e5c200810958ea6d147cf44a05a33",
+      "score": 54,
+      "components": {
+        "meaningVisible": 24,
+        "conceptDistinct": 15,
+        "answerSpecific": 6,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "ぬいぐるみを持つ姿から所有は連想できるが、抱く・持つという動作とも競合。",
+      "alternativeAnswersEn": [
+        "hold",
+        "hug",
+        "teddy bear"
+      ],
+      "assessedAt": "2026-10-19T04:34:58.641608+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "like",
+      "w": "like",
+      "p": [
+        "līk-"
+      ],
+      "imagePath": "assets/word/like.png",
+      "imageGitBlobSha": "0fd505718ca0c3c6d4349b8f6eb6042fc073c6f7",
+      "score": 62,
+      "components": {
+        "meaningVisible": 27,
+        "conceptDistinct": 18,
+        "answerSpecific": 8,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "鏡の前で服を気に入る表情は見えるが、満足・服・鏡などにも分かれる。",
+      "alternativeAnswersEn": [
+        "enjoy",
+        "pleased",
+        "jacket"
+      ],
+      "assessedAt": "2026-10-19T04:34:58.641608+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "more",
+      "w": "more",
+      "p": [
+        "mē-3"
+      ],
+      "imagePath": "assets/word/more.png",
+      "imageGitBlobSha": "e3299479715f7a0e7698895e359fe1576f7fcb44",
+      "score": 56,
+      "components": {
+        "meaningVisible": 25,
+        "conceptDistinct": 16,
+        "answerSpecific": 6,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "リンゴをさらに渡す場面だが、比較する量が示されずmoreへの特定は弱い。",
+      "alternativeAnswersEn": [
+        "give",
+        "add",
+        "apples"
+      ],
+      "assessedAt": "2026-10-19T04:34:58.641608+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "out",
+      "w": "out",
+      "p": [
+        "ud-"
+      ],
+      "imagePath": "assets/word/out.png",
+      "imageGitBlobSha": "7cd09a7c9d463480fd97d7fd7dade7ba9db04bc2",
+      "score": 78,
+      "components": {
+        "meaningVisible": 34,
+        "conceptDistinct": 22,
+        "answerSpecific": 13,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "犬が戸口の外へ出る位置関係は明瞭。outside・exitなども候補。",
+      "alternativeAnswersEn": [
+        "outside",
+        "exit",
+        "dog"
+      ],
+      "assessedAt": "2026-10-19T04:34:58.641608+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "said",
+      "w": "said",
+      "p": [],
+      "imagePath": "assets/word/said.png",
+      "imageGitBlobSha": "43d68d2d8c15f8bf8140a63cb68ee6f46199f80a",
+      "score": 26,
+      "components": {
+        "meaningVisible": 11,
+        "conceptDistinct": 7,
+        "answerSpecific": 0,
+        "smallImageReadable": 8
+      },
+      "reasonJa": "手を振り声を掛ける場面でsayは連想できても、過去形saidは示されていない。",
+      "alternativeAnswersEn": [
+        "say",
+        "goodbye",
+        "wave"
+      ],
+      "assessedAt": "2026-10-19T04:34:58.641608+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "their",
+      "w": "their",
+      "p": [
+        "to-"
+      ],
+      "imagePath": "assets/word/their.png",
+      "imageGitBlobSha": "9e0872e30dfc6ffd6d1a7941020cfd660f8949e2",
+      "score": 33,
+      "components": {
+        "meaningVisible": 15,
+        "conceptDistinct": 9,
+        "answerSpecific": 1,
+        "smallImageReadable": 8
+      },
+      "reasonJa": "別の二人とテントを指す場面だが、所有関係やtheirという語形は特定しにくい。",
+      "alternativeAnswersEn": [
+        "them",
+        "tent",
+        "camp"
+      ],
+      "assessedAt": "2026-10-19T04:34:58.641608+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "was",
+      "w": "was",
+      "p": [
+        "wes-3"
+      ],
+      "imagePath": "assets/word/was.png",
+      "imageGitBlobSha": "cc07388d5bebd4257c781815c21e9e8b6afa35eb",
+      "score": 25,
+      "components": {
+        "meaningVisible": 10,
+        "conceptDistinct": 6,
+        "answerSpecific": 0,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "一人の肖像と時計の矢印は過去を示しうるが、wasというbe動詞の形には絞れない。",
+      "alternativeAnswersEn": [
+        "past",
+        "portrait",
+        "time"
+      ],
+      "assessedAt": "2026-10-19T04:34:58.641608+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "were",
+      "w": "were",
+      "p": [
+        "wes-3"
+      ],
+      "imagePath": "assets/word/were.png",
+      "imageGitBlobSha": "6ae4ab4d3bbf19595d7f680337d3693342586019",
+      "score": 25,
+      "components": {
+        "meaningVisible": 10,
+        "conceptDistinct": 6,
+        "answerSpecific": 0,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "二人の肖像と時計の矢印だけではwereという文法形は特定できない。",
+      "alternativeAnswersEn": [
+        "past",
+        "people",
+        "time"
+      ],
+      "assessedAt": "2026-10-19T04:34:58.641608+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "which",
+      "w": "which",
+      "p": [
+        "kʷo-",
+        "līk-"
+      ],
+      "imagePath": "assets/word/which.png",
+      "imageGitBlobSha": "43ec7ae70d4ca25da927361327cffa34df2c2c08",
+      "score": 52,
+      "components": {
+        "meaningVisible": 24,
+        "conceptDistinct": 15,
+        "answerSpecific": 4,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "二つの帽子を前に選ぶ場面は分かるが、whichよりchoose・hatも自然。",
+      "alternativeAnswersEn": [
+        "choose",
+        "hat",
+        "choice"
+      ],
+      "assessedAt": "2026-10-19T04:34:58.641608+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "will",
+      "w": "will",
+      "p": [
+        "wel-2"
+      ],
+      "imagePath": "assets/word/will.png",
+      "imageGitBlobSha": "cfcc9e2af9166eec72d9ccc04d7c25c2d8e0f485",
+      "score": 50,
+      "components": {
+        "meaningVisible": 22,
+        "conceptDistinct": 14,
+        "answerSpecific": 5,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "旗の横で拳を握る人物から決意は連想できるが、willという名詞には絞りにくい。",
+      "alternativeAnswersEn": [
+        "determination",
+        "resolve",
+        "brave"
+      ],
+      "assessedAt": "2026-10-19T04:34:58.641608+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "only",
+      "w": "only",
+      "p": [
+        "oi-no-"
+      ],
+      "imagePath": "assets/word/only.png",
+      "imageGitBlobSha": "df65df0f260ad115de72f34d4ac82c4262178cfa",
+      "score": 57,
+      "components": {
+        "meaningVisible": 25,
+        "conceptDistinct": 16,
+        "answerSpecific": 6,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "皿に一つだけのクッキーは見えるが、one・last・cookieとも読める。",
+      "alternativeAnswersEn": [
+        "one",
+        "last",
+        "cookie"
+      ],
+      "assessedAt": "2026-10-19T04:34:58.641608+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "our",
+      "w": "our",
+      "p": [
+        "nes-2"
+      ],
+      "imagePath": "assets/word/our.png",
+      "imageGitBlobSha": "b99498c61b964415c19d6c76a021a167d7809252",
+      "score": 42,
+      "components": {
+        "meaningVisible": 20,
+        "conceptDistinct": 12,
+        "answerSpecific": 2,
+        "smallImageReadable": 8
+      },
+      "reasonJa": "鍵を持つ二人と家で共有の所有は連想できるが、ourとoursやhomeの区別はつかない。",
+      "alternativeAnswersEn": [
+        "ours",
+        "home",
+        "keys"
+      ],
+      "assessedAt": "2026-10-19T04:34:58.641608+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "over",
+      "w": "over",
+      "p": [
+        "uper"
+      ],
+      "imagePath": "assets/word/over.png",
+      "imageGitBlobSha": "5699f9374ecc0bebe47543c13b20a90e85bf04a9",
+      "score": 75,
+      "components": {
+        "meaningVisible": 33,
+        "conceptDistinct": 21,
+        "answerSpecific": 12,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "橋の上を飛ぶ鳥で上下関係は分かるが、overとabove・flyが競合する。",
+      "alternativeAnswersEn": [
+        "above",
+        "fly",
+        "bridge"
+      ],
+      "assessedAt": "2026-10-19T04:34:58.641608+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "any",
+      "w": "any",
+      "p": [
+        "oi-no-"
+      ],
+      "imagePath": "assets/word/any.png",
+      "imageGitBlobSha": "81547032ffbd785e90f4bb4f7836fe2edba4f0a8",
+      "score": 38,
+      "components": {
+        "meaningVisible": 17,
+        "conceptDistinct": 10,
+        "answerSpecific": 2,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "複数の物を示しているが、どれでもよいというanyの条件は絵では確定しない。",
+      "alternativeAnswersEn": [
+        "choose",
+        "objects",
+        "choice"
+      ],
+      "assessedAt": "2026-10-19T04:34:58.641608+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "first",
+      "w": "first",
+      "p": [
+        "per1"
+      ],
+      "imagePath": "assets/word/first.png",
+      "imageGitBlobSha": "dbc48a7b078c90f6afbe665ae9a5e02ca8c34f72",
+      "score": 90,
+      "components": {
+        "meaningVisible": 38,
+        "conceptDistinct": 24,
+        "answerSpecific": 19,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "ほかの走者より先にゴールする姿から一番が読み取りやすい。",
+      "alternativeAnswersEn": [
+        "win",
+        "winner"
+      ],
+      "assessedAt": "2026-10-19T04:34:58.641608+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "just@yeug",
+      "w": "just",
+      "p": [
+        "yeug-"
+      ],
+      "imagePath": "assets/word/just@yeug.png",
+      "imageGitBlobSha": "2d32d6b2125217a9aa8651509834bbeb729b79a9",
+      "score": 62,
+      "components": {
+        "meaningVisible": 32,
+        "conceptDistinct": 20,
+        "answerSpecific": 2,
+        "smallImageReadable": 8
+      },
+      "reasonJa": "登録語義に沿う馬上の槍試合は見えるが、答えとしてjoustが強くjustを特定しにくい。",
+      "alternativeAnswersEn": [
+        "joust",
+        "knights",
+        "tournament"
+      ],
+      "assessedAt": "2026-10-19T04:34:58.641608+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "made@mag",
+      "w": "made",
+      "p": [
+        "mag-"
+      ],
+      "imagePath": "assets/word/made@mag.png",
+      "imageGitBlobSha": "d0ab17e0fd6e478a3712ec386b0eca1159bb7f82",
+      "score": 56,
+      "components": {
+        "meaningVisible": 27,
+        "conceptDistinct": 17,
+        "answerSpecific": 3,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "職人と完成した椅子は作成済みを示しうるが、makeとmadeの時制は絵だけでは区別できない。",
+      "alternativeAnswersEn": [
+        "make",
+        "stool",
+        "finished"
+      ],
+      "assessedAt": "2026-10-19T04:34:58.641608+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "now",
+      "w": "now",
+      "p": [
+        "nu-"
+      ],
+      "imagePath": "assets/word/now.png",
+      "imageGitBlobSha": "7435f76023d629b8a27804da4b450a4b4bdcf23d",
+      "score": 27,
+      "components": {
+        "meaningVisible": 11,
+        "conceptDistinct": 7,
+        "answerSpecific": 0,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "靴ひもを結ぶ子供と待つ大人の場面で、今という時間指定は読み取れない。",
+      "alternativeAnswersEn": [
+        "tie",
+        "wait",
+        "shoes"
+      ],
+      "assessedAt": "2026-10-19T04:34:58.641608+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "life",
+      "w": "life",
+      "p": [
+        "leip-"
+      ],
+      "imagePath": "assets/word/life.png",
+      "imageGitBlobSha": "b0d305863e7e9db6417962c3b4bb86ab97123163",
+      "score": 64,
+      "components": {
+        "meaningVisible": 28,
+        "conceptDistinct": 18,
+        "answerSpecific": 8,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "手の中の苗から命を連想できるが、植物・成長・育てるとも競合する。",
+      "alternativeAnswersEn": [
+        "plant",
+        "growth",
+        "care"
+      ],
+      "assessedAt": "2026-10-19T04:34:58.641608+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "being",
+      "w": "being",
+      "p": [
+        "bheuə-"
+      ],
+      "imagePath": "assets/word/being.png",
+      "imageGitBlobSha": "13ef67b26133b4f7894a205b32a607c12be46a28",
+      "score": 32,
+      "components": {
+        "meaningVisible": 13,
+        "conceptDistinct": 8,
+        "answerSpecific": 1,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "ウサギという生物は見えるが、存在を意味するbeing一般には特定できない。",
+      "alternativeAnswersEn": [
+        "rabbit",
+        "animal"
+      ],
+      "assessedAt": "2026-10-19T04:34:58.641608+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "get",
+      "w": "get",
+      "p": [
+        "ghend-"
+      ],
+      "imagePath": "assets/word/get.png",
+      "imageGitBlobSha": "074ac9db68428ab8f3451ef8920c8339c0425968",
+      "score": 74,
+      "components": {
+        "meaningVisible": 33,
+        "conceptDistinct": 21,
+        "answerSpecific": 11,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "本を受け取る動作は明瞭だが、getとreceive・borrowが競合する。",
+      "alternativeAnswersEn": [
+        "receive",
+        "borrow",
+        "book"
+      ],
+      "assessedAt": "2026-10-19T04:34:58.641608+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "used",
+      "w": "used",
+      "p": [],
+      "imagePath": "assets/word/used.png",
+      "imageGitBlobSha": "cd9ec735f141c8951b72c8679d4da77fdafd9f9a",
+      "score": 30,
+      "components": {
+        "meaningVisible": 13,
+        "conceptDistinct": 8,
+        "answerSpecific": 0,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "包丁で調理している姿からuseは連想できるが、過去形usedは示されていない。",
+      "alternativeAnswersEn": [
+        "cut",
+        "cook",
+        "use"
+      ],
+      "assessedAt": "2026-10-19T04:34:58.641608+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "many",
+      "w": "many",
+      "p": [
+        "menegh-"
+      ],
+      "imagePath": "assets/word/many.png",
+      "imageGitBlobSha": "68ff0f7f444cc2e8bf6d1bbc30f9a9f320148a79",
+      "score": 71,
+      "components": {
+        "meaningVisible": 31,
+        "conceptDistinct": 20,
+        "answerSpecific": 10,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "多くのリンゴは見えるが、リンゴ・いっぱい・たくさんという候補に分かれる。",
+      "alternativeAnswersEn": [
+        "apples",
+        "lots",
+        "full"
+      ],
+      "assessedAt": "2026-10-19T04:34:58.641608+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "both",
+      "w": "both",
+      "p": [
+        "ambhō-",
+        "to-"
+      ],
+      "imagePath": "assets/word/both.png",
+      "imageGitBlobSha": "17d5ab494a51d3678ce501ffc7816b2e733cc0e8",
+      "score": 58,
+      "components": {
+        "meaningVisible": 26,
+        "conceptDistinct": 17,
+        "answerSpecific": 5,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "二つの菓子を両手に持つ姿で両方は連想できるが、two・cupcakesとも読める。",
+      "alternativeAnswersEn": [
+        "two",
+        "cupcakes",
+        "pair"
+      ],
+      "assessedAt": "2026-10-19T04:34:58.641608+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "same",
+      "w": "same",
+      "p": [
+        "sem-1"
+      ],
+      "imagePath": "assets/word/same.png",
+      "imageGitBlobSha": "eb10c305e3274c0551d6ef826fc460efa1203d6c",
+      "score": 87,
+      "components": {
+        "meaningVisible": 37,
+        "conceptDistinct": 23,
+        "answerSpecific": 17,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "同じ色柄と形のカップが並び、同一であることを読み取りやすい。",
+      "alternativeAnswersEn": [
+        "identical",
+        "matching"
+      ],
+      "assessedAt": "2026-10-19T04:34:58.641608+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "each",
+      "w": "each",
+      "p": [
+        "aiw-",
+        "līk-"
+      ],
+      "imagePath": "assets/word/each.png",
+      "imageGitBlobSha": "ea5745677a7b9850a7964c475052b5bc0495ea00",
+      "score": 64,
+      "components": {
+        "meaningVisible": 29,
+        "conceptDistinct": 18,
+        "answerSpecific": 8,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "各皿にリンゴが一つずつある配置は分かるが、eachとevery・oneが競合する。",
+      "alternativeAnswersEn": [
+        "every",
+        "one",
+        "serve"
+      ],
+      "assessedAt": "2026-10-19T04:34:58.641608+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "own",
+      "w": "own",
+      "p": [
+        "aik-1"
+      ],
+      "imagePath": "assets/word/own.png",
+      "imageGitBlobSha": "24466b1ebe9d736f3903b9739f8a30c67ec14165",
+      "score": 53,
+      "components": {
+        "meaningVisible": 24,
+        "conceptDistinct": 15,
+        "answerSpecific": 5,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "自転車に名札状の印を付ける様子は所有を連想させるが、mine・bicycleとも読める。",
+      "alternativeAnswersEn": [
+        "mine",
+        "bicycle",
+        "label"
+      ],
+      "assessedAt": "2026-10-19T04:34:58.641608+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "need",
+      "w": "need",
+      "p": [
+        "nāu-1"
+      ],
+      "imagePath": "assets/word/need.png",
+      "imageGitBlobSha": "6856f0fcad4a977596ccc3cb3baf8b2cb385ab7a",
+      "score": 58,
+      "components": {
+        "meaningVisible": 26,
+        "conceptDistinct": 17,
+        "answerSpecific": 7,
+        "smallImageReadable": 8
+      },
+      "reasonJa": "空の容器と喉の渇きから水が必要とは分かるが、thirsty・drinkが直接的。",
+      "alternativeAnswersEn": [
+        "thirsty",
+        "water",
+        "drink"
+      ],
+      "assessedAt": "2026-10-19T04:34:58.641608+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "day",
+      "w": "day",
+      "p": [
+        "agh-2"
+      ],
+      "imagePath": "assets/word/day.png",
+      "imageGitBlobSha": "f994348dd716f1fccf3e63021883a7f314db5541",
+      "score": 66,
+      "components": {
+        "meaningVisible": 29,
+        "conceptDistinct": 19,
+        "answerSpecific": 9,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "太陽の下で遊ぶ明るい場面は昼を示すが、dayよりplay・sunも自然な答え。",
+      "alternativeAnswersEn": [
+        "daytime",
+        "play",
+        "sun"
+      ],
+      "assessedAt": "2026-10-19T04:34:58.641608+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "still",
+      "w": "still",
+      "p": [
+        "stel-"
+      ],
+      "imagePath": "assets/word/still.png",
+      "imageGitBlobSha": "71241f710c0b0cbc23c4e38e2093a09c67533eb8",
+      "score": 48,
+      "components": {
+        "meaningVisible": 21,
+        "conceptDistinct": 14,
+        "answerSpecific": 4,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "静かに読書する人と眠る猫は落ち着きを示すが、動かないというstillは限定しにくい。",
+      "alternativeAnswersEn": [
+        "quiet",
+        "read",
+        "calm"
+      ],
+      "assessedAt": "2026-10-19T04:34:58.641608+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "off",
+      "w": "off",
+      "p": [
+        "apo-"
+      ],
+      "imagePath": "assets/word/off.png",
+      "imageGitBlobSha": "3b51eb7b1c3303487a3af8be3d75069d0e1bb521",
+      "score": 56,
+      "components": {
+        "meaningVisible": 25,
+        "conceptDistinct": 16,
+        "answerSpecific": 6,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "鍋のふたを外した状態は見えるが、offよりlid・remove・openが自然。",
+      "alternativeAnswersEn": [
+        "remove",
+        "lid",
+        "open"
+      ],
+      "assessedAt": "2026-10-19T04:34:58.641608+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "hand",
+      "w": "hand",
+      "p": [],
+      "imagePath": "assets/word/hand.png",
+      "imageGitBlobSha": "79b7e0ebac78a2921b40780b0068dc21981d2f5d",
+      "score": 99,
+      "components": {
+        "meaningVisible": 40,
+        "conceptDistinct": 25,
+        "answerSpecific": 24,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "開いた手のひらと五本の指が大きく単独で描かれている。",
+      "alternativeAnswersEn": [
+        "palm"
+      ],
+      "assessedAt": "2026-10-19T04:34:58.641608+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "going",
+      "w": "going",
+      "p": [
+        "ghē-"
+      ],
+      "imagePath": "assets/word/going.png",
+      "imageGitBlobSha": "631bb5f64bd2dbc0c974ef08140d8ea65f872d84",
+      "score": 54,
+      "components": {
+        "meaningVisible": 25,
+        "conceptDistinct": 16,
+        "answerSpecific": 4,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "バスへ乗り込み別れを告げる場面で行くことは連想できるが、goingという語形には絞れない。",
+      "alternativeAnswersEn": [
+        "go",
+        "leave",
+        "board"
+      ],
+      "assessedAt": "2026-10-19T04:40:16.626093+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "little",
+      "w": "little",
+      "p": [
+        "leud-"
+      ],
+      "imagePath": "assets/word/little.png",
+      "imageGitBlobSha": "1082605278103ec941469159473d3a6f3e343b95",
+      "score": 80,
+      "components": {
+        "meaningVisible": 35,
+        "conceptDistinct": 22,
+        "answerSpecific": 13,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "靴との大きさの対比で子猫の小ささは明瞭。littleとsmall・kittenが競合する。",
+      "alternativeAnswersEn": [
+        "small",
+        "kitten"
+      ],
+      "assessedAt": "2026-10-19T04:40:16.626093+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "found@bhudh",
+      "w": "found",
+      "p": [
+        "bhudh-"
+      ],
+      "imagePath": "assets/word/found@bhudh.png",
+      "imageGitBlobSha": "042e891aacd7998d73029d0352edd3e84d113e69",
+      "score": 58,
+      "components": {
+        "meaningVisible": 26,
+        "conceptDistinct": 17,
+        "answerSpecific": 7,
+        "smallImageReadable": 8
+      },
+      "reasonJa": "学校を思い描いて土台を積む姿から設立を連想できるが、build・foundationが直接的。",
+      "alternativeAnswersEn": [
+        "build",
+        "foundation",
+        "school"
+      ],
+      "assessedAt": "2026-10-19T04:40:16.626093+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "three",
+      "w": "three",
+      "p": [
+        "trei-"
+      ],
+      "imagePath": "assets/word/three.png",
+      "imageGitBlobSha": "655d702c42019e137d1b8aa7ed92e92f9aecfe7a",
+      "score": 93,
+      "components": {
+        "meaningVisible": 38,
+        "conceptDistinct": 24,
+        "answerSpecific": 21,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "三つのオレンジが重ならず数えやすい。果物を答える可能性は残る。",
+      "alternativeAnswersEn": [
+        "oranges"
+      ],
+      "assessedAt": "2026-10-19T04:40:16.626093+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "another",
+      "w": "another",
+      "p": [
+        "oi-no-",
+        "al-1"
+      ],
+      "imagePath": "assets/word/another.png",
+      "imageGitBlobSha": "138c50112230e500c29a1fd4ef40e91f3fc727f0",
+      "score": 53,
+      "components": {
+        "meaningVisible": 24,
+        "conceptDistinct": 15,
+        "answerSpecific": 5,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "既に一杯を持つ人へ別の一杯が差し出されるが、anotherよりmore・giveも候補。",
+      "alternativeAnswersEn": [
+        "more",
+        "give",
+        "cup"
+      ],
+      "assessedAt": "2026-10-19T04:40:16.626093+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "come",
+      "w": "come",
+      "p": [
+        "gʷā-"
+      ],
+      "imagePath": "assets/word/come.png",
+      "imageGitBlobSha": "eb6730347ae395420b8a7e265be2972fa8d0bf1f",
+      "score": 79,
+      "components": {
+        "meaningVisible": 34,
+        "conceptDistinct": 22,
+        "answerSpecific": 14,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "迎える人物へ走り寄る動作は分かる。comeとarrive・runが競合する。",
+      "alternativeAnswersEn": [
+        "arrive",
+        "run"
+      ],
+      "assessedAt": "2026-10-19T04:40:16.626093+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "away",
+      "w": "away",
+      "p": [
+        "ne",
+        "wegh-"
+      ],
+      "imagePath": "assets/word/away.png",
+      "imageGitBlobSha": "7d6b1ffafb6ed1535ca41062083ed64b466666b7",
+      "score": 70,
+      "components": {
+        "meaningVisible": 31,
+        "conceptDistinct": 20,
+        "answerSpecific": 10,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "吠える犬から離れて走る方向が明瞭だが、awayより逃げる動詞も自然。",
+      "alternativeAnswersEn": [
+        "escape",
+        "run",
+        "afraid"
+      ],
+      "assessedAt": "2026-10-19T04:40:16.626093+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "are@er1",
+      "w": "are",
+      "p": [
+        "er-1"
+      ],
+      "imagePath": "assets/word/are@er1.png",
+      "imageGitBlobSha": "bbced066af3506a9563ad35e240e29131a35a8b3",
+      "score": 25,
+      "components": {
+        "meaningVisible": 9,
+        "conceptDistinct": 6,
+        "answerSpecific": 0,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "二人が自分を指す姿だけではareというbe動詞の語形を特定できない。",
+      "alternativeAnswersEn": [
+        "people",
+        "we",
+        "father"
+      ],
+      "assessedAt": "2026-10-19T04:40:16.626093+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "came@gwa",
+      "w": "came",
+      "p": [
+        "gʷā-"
+      ],
+      "imagePath": "assets/word/came@gwa.png",
+      "imageGitBlobSha": "284a71e4f6be095ed11f202b10d84ea1e225b2ad",
+      "score": 31,
+      "components": {
+        "meaningVisible": 13,
+        "conceptDistinct": 8,
+        "answerSpecific": 1,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "入口の人物と時計の逆向き矢印は過去を示しうるが、cameに絞る手掛かりは弱い。",
+      "alternativeAnswersEn": [
+        "arrive",
+        "past",
+        "door"
+      ],
+      "assessedAt": "2026-10-19T04:40:16.626093+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "social",
+      "w": "social",
+      "p": [
+        "sekʷ-1"
+      ],
+      "imagePath": "assets/word/social.png",
+      "imageGitBlobSha": "ebdaab0216707ba6d21787458ac58b590dd45d09",
+      "score": 52,
+      "components": {
+        "meaningVisible": 23,
+        "conceptDistinct": 15,
+        "answerSpecific": 6,
+        "smallImageReadable": 8
+      },
+      "reasonJa": "食卓を囲む人々は交流を示すが、socialより家族・食事・会話が強い。",
+      "alternativeAnswersEn": [
+        "family",
+        "meal",
+        "together"
+      ],
+      "assessedAt": "2026-10-19T04:40:16.626093+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "face",
+      "w": "face",
+      "p": [
+        "dhē-"
+      ],
+      "imagePath": "assets/word/face.png",
+      "imageGitBlobSha": "00c21bd74ea23985dbf058ccb1c141f0a4ed969c",
+      "score": 98,
+      "components": {
+        "meaningVisible": 40,
+        "conceptDistinct": 25,
+        "answerSpecific": 23,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "目・鼻・口を持つ顔が単独で大きく示されている。",
+      "alternativeAnswersEn": [
+        "head"
+      ],
+      "assessedAt": "2026-10-19T04:40:16.626093+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "water",
+      "w": "water",
+      "p": [
+        "wed-1"
+      ],
+      "imagePath": "assets/word/water.png",
+      "imageGitBlobSha": "399187075e3c449442049587b53de7257cb0bdd2",
+      "score": 91,
+      "components": {
+        "meaningVisible": 38,
+        "conceptDistinct": 24,
+        "answerSpecific": 20,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "透明な液体をコップへ注ぐ様子で水を連想できる。注ぐという動詞も候補。",
+      "alternativeAnswersEn": [
+        "pour",
+        "drink"
+      ],
+      "assessedAt": "2026-10-19T04:40:16.626093+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "few",
+      "w": "few",
+      "p": [
+        "pau-"
+      ],
+      "imagePath": "assets/word/few.png",
+      "imageGitBlobSha": "64e6d070db4403c1055f1313623a95f092be8265",
+      "score": 78,
+      "components": {
+        "meaningVisible": 33,
+        "conceptDistinct": 22,
+        "answerSpecific": 13,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "大きな皿に少数の豆だけがあり、少なさを読み取りやすい。threeやpeasも候補。",
+      "alternativeAnswersEn": [
+        "three",
+        "peas",
+        "little"
+      ],
+      "assessedAt": "2026-10-19T04:40:16.626093+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "things",
+      "w": "things",
+      "p": [],
+      "imagePath": "assets/word/things.png",
+      "imageGitBlobSha": "4d49729f43ee70ef9c98c84d210e74fe0c89849b",
+      "score": 63,
+      "components": {
+        "meaningVisible": 27,
+        "conceptDistinct": 18,
+        "answerSpecific": 9,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "種類の異なる日用品の集まりで物全般を連想できるが、objects・stuffとも分かれる。",
+      "alternativeAnswersEn": [
+        "objects",
+        "stuff",
+        "basket"
+      ],
+      "assessedAt": "2026-10-19T04:40:16.626093+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "help",
+      "w": "help",
+      "p": [
+        "kelb-"
+      ],
+      "imagePath": "assets/word/help.png",
+      "imageGitBlobSha": "2f617d2d64b17f1c9178d3f34a2dea8fca9ff1e2",
+      "score": 88,
+      "components": {
+        "meaningVisible": 37,
+        "conceptDistinct": 24,
+        "answerSpecific": 18,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "二人で重い箱を持つ姿から助け合う行為が明瞭。carry・liftとも競合する。",
+      "alternativeAnswersEn": [
+        "carry",
+        "lift"
+      ],
+      "assessedAt": "2026-10-19T04:40:16.626093+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "important",
+      "w": "important",
+      "p": [
+        "en",
+        "per-2"
+      ],
+      "imagePath": "assets/word/important.png",
+      "imageGitBlobSha": "7e6f139c4026fd683a664175809f7772f435c55c",
+      "score": 36,
+      "components": {
+        "meaningVisible": 16,
+        "conceptDistinct": 10,
+        "answerSpecific": 2,
+        "smallImageReadable": 8
+      },
+      "reasonJa": "鍵の掛かった薬棚と鍵を持つ人物は見えるが、重要という性質は特定しにくい。",
+      "alternativeAnswersEn": [
+        "key",
+        "medicine",
+        "lock"
+      ],
+      "assessedAt": "2026-10-19T04:40:16.626093+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "using",
+      "w": "using",
+      "p": [],
+      "imagePath": "assets/word/using.png",
+      "imageGitBlobSha": "d9a3d81124e9a52528be72a12ff102dc03b46ad4",
+      "score": 32,
+      "components": {
+        "meaningVisible": 14,
+        "conceptDistinct": 8,
+        "answerSpecific": 1,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "掃除機を使う行為は分かるが、usingという一般的な進行形よりvacuumが自然。",
+      "alternativeAnswersEn": [
+        "vacuum",
+        "clean",
+        "use"
+      ],
+      "assessedAt": "2026-10-19T04:40:16.626093+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "example",
+      "w": "example",
+      "p": [
+        "eghs",
+        "em-"
+      ],
+      "imagePath": "assets/word/example.png",
+      "imageGitBlobSha": "2c7d15d590162f005627723e8b8ff313f15a485b",
+      "score": 59,
+      "components": {
+        "meaningVisible": 25,
+        "conceptDistinct": 17,
+        "answerSpecific": 8,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "折り紙を見せて教える場面は例示を連想できるが、teach・origamiも強い。",
+      "alternativeAnswersEn": [
+        "teach",
+        "origami",
+        "show"
+      ],
+      "assessedAt": "2026-10-19T04:40:16.626093+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "last@le2",
+      "w": "last",
+      "p": [
+        "lē-2"
+      ],
+      "imagePath": "assets/word/last@le2.png",
+      "imageGitBlobSha": "fc2c8f4dd343d25467b56bbc182eb4dfa9c14cb3",
+      "score": 86,
+      "components": {
+        "meaningVisible": 36,
+        "conceptDistinct": 23,
+        "answerSpecific": 17,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "一列の最後尾のアヒルが指で示され、最後という位置が分かりやすい。",
+      "alternativeAnswersEn": [
+        "duck",
+        "end"
+      ],
+      "assessedAt": "2026-10-19T04:40:16.626093+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "human",
+      "w": "human",
+      "p": [
+        "dhghem-"
+      ],
+      "imagePath": "assets/word/human.png",
+      "imageGitBlobSha": "55da34d7876560ac00dada2d6c8c9ff1d3e72eda",
+      "score": 34,
+      "components": {
+        "meaningVisible": 15,
+        "conceptDistinct": 9,
+        "answerSpecific": 2,
+        "smallImageReadable": 8
+      },
+      "reasonJa": "針仕事をする女性が主役で、人類一般を指すhumanには特定しにくい。",
+      "alternativeAnswersEn": [
+        "sew",
+        "woman",
+        "needle"
+      ],
+      "assessedAt": "2026-10-19T04:40:16.626093+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "small",
+      "w": "small",
+      "p": [
+        "(s)mēlo-"
+      ],
+      "imagePath": "assets/word/small.png",
+      "imageGitBlobSha": "1fbec5697fed67d4ec6face5dcd3d48a7cb5ba5a",
+      "score": 45,
+      "components": {
+        "meaningVisible": 20,
+        "conceptDistinct": 13,
+        "answerSpecific": 4,
+        "smallImageReadable": 8
+      },
+      "reasonJa": "小さなカップは見えるが、人物や椅子が大きくsmallの対象が明確ではない。",
+      "alternativeAnswersEn": [
+        "cup",
+        "drink",
+        "man"
+      ],
+      "assessedAt": "2026-10-19T04:40:16.626093+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "great",
+      "w": "great",
+      "p": [
+        "ghrēu-"
+      ],
+      "imagePath": "assets/word/great.png",
+      "imageGitBlobSha": "cbe9641d607f580c0a92d1bc92568096de00e65b",
+      "score": 48,
+      "components": {
+        "meaningVisible": 22,
+        "conceptDistinct": 14,
+        "answerSpecific": 4,
+        "smallImageReadable": 8
+      },
+      "reasonJa": "表彰される研究者の場面で称賛は連想できるが、greatよりaward・scientistが直接的。",
+      "alternativeAnswersEn": [
+        "award",
+        "scientist",
+        "honor"
+      ],
+      "assessedAt": "2026-10-19T04:40:16.626093+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "home",
+      "w": "home",
+      "p": [
+        "tkei-"
+      ],
+      "imagePath": "assets/word/home.png",
+      "imageGitBlobSha": "e98db5d486e7b0af1bbfc7b423ddfe31beb69359",
+      "score": 86,
+      "components": {
+        "meaningVisible": 37,
+        "conceptDistinct": 23,
+        "answerSpecific": 17,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "家に迎えられる人物と生活の雰囲気からhomeを連想できる。houseとの競合は残る。",
+      "alternativeAnswersEn": [
+        "house",
+        "welcome"
+      ],
+      "assessedAt": "2026-10-19T04:40:16.626093+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "following",
+      "w": "following",
+      "p": [],
+      "imagePath": "assets/word/following.png",
+      "imageGitBlobSha": "674dad52f39aa0d0c7e79a8d9be08f593ae055e9",
+      "score": 74,
+      "components": {
+        "meaningVisible": 35,
+        "conceptDistinct": 22,
+        "answerSpecific": 8,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "足跡と矢印で後を追う関係は分かるが、followとfollowingの語形は限定できない。",
+      "alternativeAnswersEn": [
+        "follow",
+        "behind"
+      ],
+      "assessedAt": "2026-10-19T04:40:16.626093+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "men@man1",
+      "w": "men",
+      "p": [
+        "man-1"
+      ],
+      "imagePath": "assets/word/men@man1.png",
+      "imageGitBlobSha": "eb951c42c9904c393e0b16988a739440dfca8130",
+      "score": 93,
+      "components": {
+        "meaningVisible": 39,
+        "conceptDistinct": 24,
+        "answerSpecific": 20,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "成人男性が三人並び、複数の男性として読み取りやすい。peopleも候補。",
+      "alternativeAnswersEn": [
+        "people",
+        "adults"
+      ],
+      "assessedAt": "2026-10-19T04:40:16.626093+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "point",
+      "w": "point",
+      "p": [
+        "peuk-"
+      ],
+      "imagePath": "assets/word/point.png",
+      "imageGitBlobSha": "9cdeb24e85e53bb8745bd9053664aa728abb36c1",
+      "score": 62,
+      "components": {
+        "meaningVisible": 27,
+        "conceptDistinct": 18,
+        "answerSpecific": 8,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "ペン先の点は見えるが、点を指すpointよりdot・writeの答えも強い。",
+      "alternativeAnswersEn": [
+        "dot",
+        "write"
+      ],
+      "assessedAt": "2026-10-19T04:40:16.626093+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "love",
+      "w": "love",
+      "p": [
+        "leubh-"
+      ],
+      "imagePath": "assets/word/love.png",
+      "imageGitBlobSha": "83621701b2c16585491de33d3e5f475e18494fe4",
+      "score": 87,
+      "components": {
+        "meaningVisible": 37,
+        "conceptDistinct": 23,
+        "answerSpecific": 18,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "親しげに寄り添い手をつなぐ二人から愛情が読み取りやすい。恋人という名詞も候補。",
+      "alternativeAnswersEn": [
+        "couple",
+        "romance"
+      ],
+      "assessedAt": "2026-10-19T04:40:16.626093+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "given",
+      "w": "given",
+      "p": [],
+      "imagePath": "assets/word/given.png",
+      "imageGitBlobSha": "7f7f3b8bf6b092df94d2d26afa2a40f216cf1982",
+      "score": 41,
+      "components": {
+        "meaningVisible": 19,
+        "conceptDistinct": 12,
+        "answerSpecific": 1,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "贈り物を差し出す動作は分かるが、givenという過去分詞は絵だけで特定できない。",
+      "alternativeAnswersEn": [
+        "give",
+        "gift",
+        "present"
+      ],
+      "assessedAt": "2026-10-19T04:40:16.626093+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "got@ghend",
+      "w": "got",
+      "p": [
+        "ghend-"
+      ],
+      "imagePath": "assets/word/got@ghend.png",
+      "imageGitBlobSha": "2e92536ac7f680a2d441f681c7af9ed4059f074a",
+      "score": 38,
+      "components": {
+        "meaningVisible": 17,
+        "conceptDistinct": 11,
+        "answerSpecific": 1,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "星を持つ人物と時計の矢印は獲得後を示しうるが、gotという過去形は限定できない。",
+      "alternativeAnswersEn": [
+        "get",
+        "star",
+        "past"
+      ],
+      "assessedAt": "2026-10-19T04:40:16.626093+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "got@x",
+      "w": "got",
+      "p": [],
+      "imagePath": "assets/word/got@x.png",
+      "imageGitBlobSha": "f41d0cf6c9db2d8f3f2a275785ba8f51db2feb6a",
+      "score": 44,
+      "components": {
+        "meaningVisible": 20,
+        "conceptDistinct": 13,
+        "answerSpecific": 2,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "贈られた自転車と写真は入手を連想させるが、gotよりbike・giftが強い。",
+      "alternativeAnswersEn": [
+        "bicycle",
+        "gift",
+        "get"
+      ],
+      "assessedAt": "2026-10-19T04:40:16.626093+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "side",
+      "w": "side",
+      "p": [
+        "sē-2"
+      ],
+      "imagePath": "assets/word/side.png",
+      "imageGitBlobSha": "c08386019078a9fcc75687f75c5dc9c46c2b1bb8",
+      "score": 70,
+      "components": {
+        "meaningVisible": 30,
+        "conceptDistinct": 20,
+        "answerSpecific": 11,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "家具の横の面を拭く位置は分かるが、sideより拭く・家具が直接的にも読める。",
+      "alternativeAnswersEn": [
+        "wipe",
+        "cabinet",
+        "clean"
+      ],
+      "assessedAt": "2026-10-19T04:40:16.626093+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "went",
+      "w": "went",
+      "p": [
+        "wendh-"
+      ],
+      "imagePath": "assets/word/went.png",
+      "imageGitBlobSha": "664593af8076e7b2128bc7160fbe91ea4b0d01f2",
+      "score": 34,
+      "components": {
+        "meaningVisible": 15,
+        "conceptDistinct": 10,
+        "answerSpecific": 1,
+        "smallImageReadable": 8
+      },
+      "reasonJa": "旅行の写真と荷物は過去の旅を示すが、wentという動詞の過去形には絞れない。",
+      "alternativeAnswersEn": [
+        "trip",
+        "travel",
+        "holiday"
+      ],
+      "assessedAt": "2026-10-19T04:40:16.626093+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "children",
+      "w": "children",
+      "p": [],
+      "imagePath": "assets/word/children.png",
+      "imageGitBlobSha": "8343eef19fca8f783d619e0513e213c889e41c4b",
+      "score": 93,
+      "components": {
+        "meaningVisible": 39,
+        "conceptDistinct": 24,
+        "answerSpecific": 21,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "複数の幼い子供が遊ぶ様子が明瞭。kidsという類義語も候補。",
+      "alternativeAnswersEn": [
+        "kids",
+        "play"
+      ],
+      "assessedAt": "2026-10-19T04:40:16.626093+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "next",
+      "w": "next",
+      "p": [
+        "nēhw-iz"
+      ],
+      "imagePath": "assets/word/next.png",
+      "imageGitBlobSha": "4accd608ba8f73da21ea89a2f4659e1283d1adcb",
+      "score": 53,
+      "components": {
+        "meaningVisible": 24,
+        "conceptDistinct": 16,
+        "answerSpecific": 5,
+        "smallImageReadable": 8
+      },
+      "reasonJa": "会計で後ろに待つ人は見えるが、次の人という指定がなくqueue・shopも強い。",
+      "alternativeAnswersEn": [
+        "queue",
+        "wait",
+        "shop"
+      ],
+      "assessedAt": "2026-10-19T04:40:16.626093+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "person",
+      "w": "person",
+      "p": [],
+      "imagePath": "assets/word/person.png",
+      "imageGitBlobSha": "8b6af298a49355e203187cf7bd9caf6db26aec6e",
+      "score": 83,
+      "components": {
+        "meaningVisible": 36,
+        "conceptDistinct": 22,
+        "answerSpecific": 15,
+        "smallImageReadable": 10
+      },
+      "reasonJa": "一人の人物が単独で示されるが、personよりmanという具体名にも答えが分かれる。",
+      "alternativeAnswersEn": [
+        "man",
+        "human"
+      ],
+      "assessedAt": "2026-10-19T04:40:16.626093+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
+    },
+    {
+      "id": "form",
+      "w": "form",
+      "p": [
+        "merph-"
+      ],
+      "imagePath": "assets/word/form.png",
+      "imageGitBlobSha": "17e6d7f1a59678ff8feb12cbb492a7c7895b6e04",
+      "score": 58,
+      "components": {
+        "meaningVisible": 25,
+        "conceptDistinct": 17,
+        "answerSpecific": 7,
+        "smallImageReadable": 9
+      },
+      "reasonJa": "粘土を形作る行為は見えるが、formとshape・makeの区別は絵だけではつかない。",
+      "alternativeAnswersEn": [
+        "shape",
+        "make",
+        "clay"
+      ],
+      "assessedAt": "2026-10-19T04:40:16.626093+00:00",
+      "reviewer": "dot",
+      "reviewMethod": "actual_image_visual_review",
+      "rubricVersion": "visual-answer-v1"
     }
   ]
 };

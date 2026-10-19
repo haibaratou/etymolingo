@@ -14,10 +14,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Stage runtime without duplicated media
-        run: python3 tools/build_pages.py --repository "$GITHUB_REPOSITORY" --commit "$GITHUB_SHA" --out _site
+        run: |
+          python3 tools/build_dictionary_basics.py --root .
+          python3 tools/build_pages.py --repository "$GITHUB_REPOSITORY" --commit "$GITHUB_SHA" --out _site
       - name: Check generated JavaScript
         run: |
           node --check _site/pages-assets.js
+          node --check _site/app/eigo-no-e/app.js
+          node --check _site/app/eigo-no-e/lexical-utils.js
           node --check _site/app/games/picture-words/reviewed-scenes.js
       - uses: actions/upload-pages-artifact@v3
         with:
@@ -37,3 +41,4 @@ jobs:
         uses: actions/deploy-pages@v4
         with:
           timeout: 1200000
+

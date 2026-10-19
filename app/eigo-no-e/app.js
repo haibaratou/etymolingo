@@ -79,15 +79,45 @@ const thumb = w => `${assetURL(w.thumb.path)}?v=${w.thumb.sha256.slice(0,12)}`;
 const href = w => `#/w/${encodeURIComponent(w.id)}`;
 const firstJa = w => String(w.ja || '').split('、')[0];
 const num = n => Number(n||0).toLocaleString('ja-JP');
-const POS = {'名':'名詞','動':'動詞','形':'形容詞','副':'副詞','前':'前置詞','代':'代名詞','接':'接続詞','冠':'冠詞','間':'間投詞','助':'助動詞'};
-const posLabel = w => (w.pos || '').split('/').map(p => POS[p.charAt(0)] || p).join('・');
+const L=window.PictpediaLexical;
+const lexicalProfiles=window.ETYMON_LEXICAL_PROFILES||{entries:[]};
+let dictionaryBasics={entries:[]};try{dictionaryBasics=await L.decodeBasics(window.ETYMON_DICTIONARY_BASICS_GZIP);}catch(e){console.warn('Dictionary basics unavailable',e);}
+const basicById=new Map(dictionaryBasics.entries.map(e=>[e.dictionaryIndex,e]));
+const basicByKey=new Map();for(const e of dictionaryBasics.entries){const key=L.key(e.w,e.p);if(!basicByKey.has(key))basicByKey.set(key,[]);basicByKey.get(key).push(e);}
+function basicRecord(w){const match=e=>e&&L.key(e.w,e.p)===L.key(w.w,w.p)&&String(e.ja||'').split('、')[0]===String(w.ja||'').split('、')[0];const direct=basicById.get(w.dictionaryIndex);if(match(direct))return direct;const hits=(basicByKey.get(L.key(w.w,w.p))||[]).filter(match);return hits.length===1?hits[0]:null;}
+const levelIndex=new Map((window.ETYMON_WEBLIO_LEVELS?.entries||[]).map(e=>[e.w.toLowerCase(),e]));
+const lexicalRows=dictionaryBasics.entries.map(e=>({...e,id:'dictionary:'+e.dictionaryIndex,dictionaryOnly:true}));
+const illustratedSpellings=new Set(W.filter(w=>w.w).map(w=>w.w.toLowerCase()));
+const termIndex=L.indexWords([...W,...lexicalRows.filter(e=>!illustratedSpellings.has(e.w.toLowerCase()))]);
+const wordProfile=w=>L.profile(w,lexicalProfiles);
+const tokenHTML=text=>L.linkedTokens(String(text||''),termIndex).map(t=>t.href?`<a class="sentence-word" href="${esc(t.href)}">${esc(t.text)}</a>`:esc(t.text)).join('');
+function difficultyHTML(w){const d=L.difficulty(levelIndex.get(String(w.w||'').toLowerCase()));if(!d)return '';return `<span class="difficulty-stars${d.value>10?' compact':''}" role="img" aria-label="難易度 星${d.value}、Weblioレベル${d.level}" title="Weblio レベル${d.level}（星${d.value}）">${'<span class="star full" aria-hidden="true">★</span>'.repeat(d.full)}${d.half?'<span class="star half" aria-hidden="true">★</span>':''}</span>`;}
+function imagePOS(w){const p=wordProfile(w);const name=p?.senses.find(s=>s.id===p.illustratedSense)?.pos;const fallback=L.splitPOS(w.pos);return name|| (fallback.length===1?fallback[0]:'');}
+function pronunciationHTML(w){const p=wordProfile(w),old=basicRecord(w);const items=p?.pronunciations;
+ if(items?.length)return `<div class="phonetics">${items.map(x=>`<span><small>${esc(x.label)}</small> <span lang="en">/${esc(x.ipa)}/</span></span>`).join('')}</div>`;
+ if(old?.phonetic)return `<div class="phonetics"><span lang="en">${esc(old.phonetic)}</span><small class="source-pending">原典未確認の収録値</small></div>`;
+ return '<p class="phonetics missing">発音記号は未収録</p>';
+}
+function meaningsHTML(w){const p=wordProfile(w),record=basicRecord(w),rows=L.meanings(record?{...w,ja:record.ja,pos:record.pos}:w,p);if(!rows.length)return '';
+ const forms=(p?.forms||[]).map(f=>`<span>${esc(f.label)}：${tokenHTML(f.value)}</span>`).join('');
+ return `<section class="box dictionary-meanings"><h3>単語の意味</h3>${forms?`<p class="word-forms">${forms}</p>`:''}<ol>${rows.map(s=>`<li>${s.pos?`<span class="pos">${esc(s.pos)}</span>`:''}<span>${esc(s.glossJa)}${s.usage?`<small class="sense-usage" lang="en">${tokenHTML(s.usage)}</small>`:''}</span></li>`).join('')}</ol></section>`;
+}
+function sourcesHTML(w){const p=wordProfile(w),old=basicRecord(w);let items='';
+ if(p){items=p.sources.map(s=>`<li><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title)}</a><small>${esc(s.fields.map(f=>({pronunciations:'発音記号',senses:'品詞・語義',forms:'語形'}[f]||f)).join('・'))}</small></li>`).join('');items+='<li>日本語の語義説明は、確認した辞書の意味を基に編集しています。</li>';}
+ else items+='<li>語義・品詞：母艦の収録値。原典と品詞別の意味の対応は未確認です。</li>';
+ if(!p?.pronunciations?.length&&old?.phonetic){const data=dictionaryBasics;const path=`https://github.com/haibaratou/etymolingo/blob/${data.sourceCommit||'main'}/app/data/generated-etymon/det/${encodeURIComponent(old.shard)}.json`;items+=`<li>発音記号：原典未確認。<a href="${path}" target="_blank" rel="noopener">取り込み記録</a>（ID ${esc(old.record)}）</li>`;}
+ items+='<li>再生音声：端末の合成音声。辞書の録音ではありません。</li><li>イラスト解説：画像を説明する編集文。辞書の定義とは別です。</li>';
+ return `<details class="box word-sources"><summary>出典・確認状況</summary><ul>${items}</ul></details>`;
+}
+function captionHTML(w){if(!hasCaption(w))return missingCaptionHTML(w);return `<div class="caption-line"><p class="en" lang="en">${tokenHTML(w.scene.en)}</p><button class="sentence-audio" type="button" data-say="${esc(w.scene.en)}" data-lang="en-US" aria-label="英語の解説文を再生"><svg><use href="#i-sound"/></svg><span>英語</span></button></div><div class="caption-line"><p lang="ja">${esc(w.scene.ja)}</p><button class="sentence-audio" type="button" data-say="${esc(w.scene.ja)}" data-lang="ja-JP" aria-label="日本語の解説文を再生"><svg><use href="#i-sound"/></svg><span>日本語</span></button></div>`;}
+
 const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.random() * (i + 1) | 0; [a[i], a[j]] = [a[j], a[i]]; } return a; };
 const titleOf = w => w.w || (w.bindingStatus==='alternate'?'別の画像・旧版':'画像の対応確認中');
 const hasCaption = w => w.description ? w.description.status==='reviewed'&&!!w.description.en&&!!w.description.ja : w.status==='reviewed'&&!!w.scene?.en&&!!w.scene?.ja;
 const needsRevision = w => w.description?.status==='mismatch';
 const needsReview = w => w.description?.reason==='illustration_needs_review';
 const missingCaptionHTML = w => (needsRevision(w)||needsReview(w))?`<p class="caption-status" lang="ja">${needsReview(w)?'イラスト要確認':'イラスト要修正'}</p>${w.description?.detail?`<small class="caption-revision-reason">${esc(w.description.detail)}</small>`:''}`:'<p class="caption-status">解説未作成</p>';
-const tile = w => `<a class="tile" href="${href(w)}"><span class="pic"><img src="${esc(thumb(w))}" data-fallback="${esc(full(w))}" alt="${esc(w.w ? w.w+' のイラスト' : titleOf(w))}" loading="lazy" decoding="async" width="320" height="320"></span><span class="cap"><span class="w">${esc(titleOf(w))}</span>${w.ja?`<span class="j">${esc(firstJa(w))}</span>`:''}${w.w&&!hasCaption(w)?`<small class="caption-status">${needsReview(w)?'イラスト要確認':needsRevision(w)?'イラスト要修正':'解説未作成'}</small>`:''}</span></a>`;
+const tile = w => `<a class="tile" href="${href(w)}"><span class="pic"><img src="${esc(thumb(w))}" data-fallback="${esc(full(w))}" alt="${esc(w.w ? w.w+' のイラスト' : titleOf(w))}" loading="lazy" decoding="async" width="320" height="320">${difficultyHTML(w)}</span><span class="cap"><span class="w">${esc(titleOf(w))}</span>${w.ja?`<span class="j">${esc(firstJa(w))}</span>`:''}${w.w&&!hasCaption(w)?`<small class="caption-status">${needsReview(w)?'イラスト要確認':needsRevision(w)?'イラスト要修正':'解説未作成'}</small>`:''}</span></a>`;
 const gridPages = new Map(); let gridSerial=0;
 const grid = list => {
   list=list.filter(w=>!w.unavailable);const token=String(++gridSerial),shown=Math.min(60,list.length);
@@ -98,8 +128,8 @@ const chev = '<svg><use href="#i-chev"/></svg>';
 const reasonLabel = reason => ({__proto__:null,image_composition_defect:'画像の構図を確認中',reading_candidate:'日本語の読みを確認中',reading_needs_review:'日本語の読みを確認中',reading_unreviewed:'日本語の読みを確認中',missing_answer:'答えを確認中',unsupported_format:'この表記はパズル未対応',image_first_sense_mismatch:'画像と語義を確認中',known_image_mismatch:'画像と語義を確認中',ownership_pending:'画像の対応確認中',alternate:'別の画像・旧版',owned_alternate_or_superseded:'別の画像・旧版',stale_first_sense:'語義を確認中',stale_art_mapping:'画像の対応確認中',missing_identity:'画像の対応確認中'}[reason] || 'この問題は現在利用できません');
 function puzzleActions(w, imageReady){
   const reasons=[];
-  const actions=['en','ja'].map(lang=>{
-    const a=w.availability?.[lang],label=lang==='en'?'英語パズル':'日本語パズル';
+  const actions=['en'].map(lang=>{
+    const a=w.availability?.[lang],label='英語パズル';
     if(a?.playable&&a.answer&&imageReady)return `<a class="btn word-puzzle" href="games/picture-words.html?word=${encodeURIComponent(w.id)}&amp;lang=${lang}" target="_blank" rel="noopener">${label} ↗</a>`;
     if(!a?.playable)reasons.push(reasonLabel(a?.reason));
     return `<button class="btn" type="button" disabled>${label}</button>`;
@@ -248,8 +278,16 @@ function catPage(cid, sid) {
   document.title = `${s ? s.ja : c.ja}のイラスト — Pictpedia`;
 }
 
+function dictionaryPage(id){
+ if(!/^dictionary:\d+$/.test(String(id)))return notFound();
+ const index=Number(String(id).slice('dictionary:'.length)),record=basicById.get(index);if(!record)return notFound();const w={...record,id};side();
+ view.innerHTML=`<div class="page fade"><nav class="crumbs"><a href="#/">トップ</a>${chev}<span>${esc(w.w)}</span></nav><article class="dictionary-only"><h1 class="word-title" lang="en">${esc(w.w)}</h1>${pronunciationHTML(w)}<div class="acts"><button class="btn primary" id="speak" type="button"><svg><use href="#i-sound"/></svg>単語の発音</button></div>${meaningsHTML(w)}${sourcesHTML(w)}</article></div>`;
+ $('#speak').onclick=()=>speak(w.w,'en-US',$('#speak'));document.title=w.w+' — Pictpedia';
+}
+function dictionaryChoices(word){const rows=lexicalRows.filter(e=>e.w.toLowerCase()===String(word).toLowerCase());if(!rows.length)return notFound();side();view.innerHTML=`<div class="page fade"><h1 class="h1">${esc(word)}</h1><ul class="dictionary-choices">${rows.map(w=>`<li><a href="#/w/${encodeURIComponent(w.id)}"><b lang="en">${esc(w.w)}</b> ${esc(w.ja)}</a></li>`).join('')}</ul></div>`;}
+
 function wordPage(id) {
-  const w = byId.get(id); if (!w) return notFound();
+  const w = byId.get(id); if (!w) return String(id).startsWith('dictionary:')?dictionaryPage(id):notFound();
   const k = w.c[0], sub = SUB.get(k);
   side(sub?.cat.id, sub?.id);
   const seen = new Set([w.id]);
@@ -257,20 +295,22 @@ function wordPage(id) {
   view.innerHTML = `<div class="page fade">
     <nav class="crumbs"><a href="#/">トップ</a>${sub ? `${chev}<a href="#/c/${sub.cat.id}">${esc(sub.cat.ja)}</a>${chev}<a href="#/c/${k}">${esc(sub.ja)}</a>` : ''}${chev}<span>${esc(titleOf(w))}</span></nav>
     <article class="word">
-      <div class="plate"><img src="${esc(full(w))}" alt="${esc(titleOf(w))}" width="1024" height="1024"></div>
+      <div class="plate"><img src="${esc(full(w))}" alt="${esc(titleOf(w))}" width="1024" height="1024">${difficultyHTML(w)}</div>
       <div>
-        ${posLabel(w) ? `<span class="pos">${esc(posLabel(w))}</span>` : ''}
+        ${imagePOS(w) ? `<div class="pos-tags"><span class="pos">${esc(imagePOS(w))}</span></div>` : ''}
         <h1 class="word-title${w.w?'':' pending-title'}"${w.w?' lang="en"':''}>${esc(titleOf(w))}</h1>
-        ${w.ja?`<p class="word-ja">${esc(firstJa(w))}</p>`:`<p class="asset-name">画像ファイル：${esc(w.art)}.png</p>`}
+        ${pronunciationHTML(w)}
+        ${w.ja?`<p class="illustrated-sense-label">このイラストの意味</p><p class="word-ja">${esc(firstJa(w))}</p>`:`<p class="asset-name">画像ファイル：${esc(w.art)}.png</p>`}
         ${w.semanticUnavailable?'<p class="word-semantic">意味の分類を確認できません</p>':w.semanticDistinction?`<p class="word-semantic">${esc(w.semanticDistinction.ja)}</p>`:''}
         ${w.semanticTags?`<p class="semantic-tags">${w.semanticTags.map(esc).join(' · ')}</p>`:''}
         <div class="acts">
-          ${w.w?'<button class="btn primary" id="speak" type="button"><svg><use href="#i-sound"/></svg>発音をきく</button>':''}
-          <a class="btn" href="${esc(full(w))}" download="${esc(w.art)}.png"><svg><use href="#i-down"/></svg>PNG</a>
+          ${w.w?'<button class="btn primary" id="speak" type="button"><svg><use href="#i-sound"/></svg>単語の発音</button>':''}
           <button class="btn" id="copy" type="button"><svg><use href="#i-link"/></svg>リンク</button>
         </div>
         <div class="puzzle-actions" id="puzzleActions">${puzzleActions(w,false)}</div>
         <div class="box" id="sceneBox" aria-live="polite">${hasCaption(w)?'<p>解説を確認しています…</p>':missingCaptionHTML(w)}</div>
+        ${meaningsHTML(w)}
+        ${sourcesHTML(w)}
         <div class="box"><h3>カテゴリー</h3><div class="tags">${w.c.map(x => SUB.get(x)).filter(Boolean).map(s => `<a href="#/c/${s.cat.id}/${s.id}">${esc(s.cat.ja)} › ${esc(s.ja)}</a>`).join('')}</div></div>
       </div>
     </article>
@@ -281,14 +321,14 @@ function wordPage(id) {
     if(!sceneBox.isConnected)return;
     if(ok){
       actions.innerHTML=puzzleActions(w,true);
-      sceneBox.innerHTML=hasCaption(w)?`<p class="en" lang="en">${esc(w.scene.en)}</p><p lang="ja">${esc(w.scene.ja)}</p>`:missingCaptionHTML(w);
+      sceneBox.innerHTML=captionHTML(w);
     }else{
       actions.innerHTML='<small class="play-status">画像を確認できないため、パズルを開けません</small><button class="btn" type="button" id="retryImage">再確認</button>';
       sceneBox.innerHTML=missingCaptionHTML(w)+'<small>画像の更新を確認中</small>';
       $('#retryImage').onclick=()=>wordPage(id);
     }
   });
-  if($('#speak'))$('#speak').onclick = () => speak(w.w);
+  if($('#speak'))$('#speak').onclick = () => speak(w.w,'en-US',$('#speak'));
   $('#copy').onclick = () => {
     if(!navigator.clipboard?.writeText)return toast(location.href);
     navigator.clipboard.writeText(location.href).then(()=>toast('リンクをコピーしました'),()=>toast(location.href));
@@ -319,18 +359,29 @@ function resultPage(m, q) {
 function notFound() { side(); view.innerHTML = `<div class="page empty"><b>ページが見つかりませんでした</b><a href="#/">トップへ</a></div>`; }
 
 /* ───────── 共通 ───────── */
-let voice = null;
-const pickVoice = () => { const vs = speechSynthesis.getVoices(); voice = vs.find(v => /en-US/i.test(v.lang) && /Samantha|Google|Jenny|Aria/i.test(v.name)) || vs.find(v => /^en/i.test(v.lang)) || null; };
-if ('speechSynthesis' in window) { pickVoice(); speechSynthesis.onvoiceschanged = pickVoice; }
-function speak(t) {
-  if (!String(t||'').trim()) return;
-  if (!('speechSynthesis' in window)) return toast('この端末では発音を再生できません');
-  speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(t); u.lang = 'en-US'; u.rate = .9; if (voice) u.voice = voice; speechSynthesis.speak(u);
+let activeSpeech=null,activeSpeechButton=null;
+function resetSpeechButton(){if(activeSpeechButton){activeSpeechButton.removeAttribute('aria-busy');activeSpeechButton.setAttribute('aria-pressed','false');}activeSpeechButton=null;}
+function stopSpeech(){activeSpeech=null;resetSpeechButton();if('speechSynthesis' in window)speechSynthesis.cancel();}
+function speak(text,lang='en-US',button=null){
+ if(!String(text||'').trim())return;
+ if(!('speechSynthesis' in window)||!('SpeechSynthesisUtterance' in window))return toast('この端末では音声を再生できません');
+ if(activeSpeechButton===button&&activeSpeech&&button){stopSpeech();return;}
+ stopSpeech();const u=new SpeechSynthesisUtterance(text);activeSpeech=u;activeSpeechButton=button;
+ u.lang=lang;u.rate=lang.startsWith('ja')?1:.9;
+ const voices=speechSynthesis.getVoices(),voice=voices.find(v=>v.lang.toLowerCase()===lang.toLowerCase())||voices.find(v=>v.lang.toLowerCase().startsWith(lang.slice(0,2).toLowerCase()));
+ if(voice)u.voice=voice;
+ if(button){button.setAttribute('aria-busy','true');button.setAttribute('aria-pressed','true');}
+ u.onend=()=>{if(activeSpeech===u){activeSpeech=null;resetSpeechButton();}};
+ u.onerror=e=>{if(activeSpeech!==u)return;activeSpeech=null;resetSpeechButton();if(!['canceled','interrupted'].includes(e.error))toast('音声を再生できませんでした。端末の音声設定を確認してください');};
+ speechSynthesis.speak(u);
 }
+view.addEventListener('click',event=>{const button=event.target.closest?.('button[data-say]');if(button)speak(button.dataset.say,button.dataset.lang||'en-US',button);});
+
 let tt; function toast(m) { const t = $('#toast'); t.textContent = m; t.classList.add('show'); clearTimeout(tt); tt = setTimeout(() => t.classList.remove('show'), 1800); }
 addEventListener('keydown', e => { if (e.key === '/' && !/input|textarea/i.test(document.activeElement.tagName)) { e.preventDefault(); input.focus(); } });
 
 function route() {
+  stopSpeech();
   gridPages.clear();
   let h;try{h=decodeURIComponent(location.hash.replace(/^#\/?/, ''));}catch{return notFound();}
   const [kind, a, b] = h.split('/');
@@ -340,6 +391,7 @@ function route() {
   else if (kind === 'all') allPage();
   else if (kind === 'c') catPage(a, b);
   else if (kind === 'w') wordPage(h.slice(2));
+  else if (kind === 'd') dictionaryChoices(h.slice(2));
   else if (kind === 'p') location.replace('games/picture-words.html?word='+encodeURIComponent(h.slice(2)));
   else if (kind === 's' || kind === 't') resultPage(kind, h.slice(2));
   else notFound();
@@ -355,4 +407,5 @@ document.querySelectorAll('#barSearch input,#barSearch button,#menuBtn').forEach
 addEventListener('hashchange', route);
 route();
 })();
+
 

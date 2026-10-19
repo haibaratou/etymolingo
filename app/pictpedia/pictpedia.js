@@ -14,7 +14,7 @@ const num = n => Number(n || 0).toLocaleString('ja-JP');
 const PUZZLE = 'games/picture-words.html';
 const DAILY_CATS = ['animals', 'food', 'vehicles', 'nature', 'home', 'things', 'clothes', 'play', 'arts'];
 function todaysWord() {
-  const words = (window.EIGO_NO_E?.words || []).filter(w => w.w && w.bindingStatus === 'bound' && w.availability?.en?.playable && w.availability?.ja?.playable
+  const words = (window.EIGO_NO_E?.words || []).filter(w => w.w && w.bindingStatus === 'bound' && w.availability?.en?.playable
     && (w.c || []).some(k => DAILY_CATS.includes(String(k).split('/')[0])));
   if (!words.length) return null;
   const d = new Date();
@@ -31,11 +31,11 @@ function playSection() {
     <div class="pp-play-copy">
       <span class="pp-kicker">英単語パズル <b>Pictlingo</b></span>
       <h2 id="ppPlayTitle">見つけた絵で、<span>パズル</span>しよう！</h2>
-      <p>絵を見て、文字をなぞるだけ。英語でも日本語でも遊べます。</p>
+      <p>絵を見て、文字をなぞるだけ。英語のパズルで遊べます。</p>
       ${w ? `<div class="pp-today">
         <div class="pp-today-pic"><img src="${esc(thumb)}" alt="きょうの1問のイラスト" loading="lazy" decoding="async"><span>？</span></div>
         <div class="pp-today-body"><small>きょうの1問</small><b>この絵、英語でなんて言う？</b>
-          <div class="pp-today-go"><a class="btn primary" href="${go('en')}">英語であそぶ</a><a class="btn" href="${go('ja')}">日本語であそぶ</a></div></div>
+          <div class="pp-today-go"><a class="btn primary" href="${go('en')}">英語であそぶ</a></div></div>
       </div>` : `<a class="btn primary pp-play-main" href="${PUZZLE}">パズルで遊ぶ</a>`}
       <ol class="pp-steps">
         <li><i>1</i><b>さがす</b><span>辞書で絵を見つける</span></li>
@@ -116,3 +116,4 @@ if (foot && !foot.querySelector('.pp-foot-run')) {
   foot.querySelector('.foot-in > p')?.insertAdjacentHTML('beforebegin', `<img class="pp-foot-logo" src="${IMG}logo.webp" alt="Pictpedia">`);
 }
 })();
+
