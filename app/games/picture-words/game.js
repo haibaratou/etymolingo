@@ -98,7 +98,7 @@
   let entry, roundScene = null, answer = [], nodes = [], selected = [], hintCount = 0, mistakes = 0;
   let phase = 'loading', generation = 0, pointer = null, wheelRect = null, shuffleBusy = false, boardHeight = 360;
   let feedbackTimer = 0;
-  let dictionaryFilter = 'all', lastAcquired = null, dictionaryPage = 0, dictionaryQuery = '', dictionaryTier = -1;
+  let dictionaryFilter = 'all', lastAcquired = null, dictionaryPage = 0, dictionaryQuery = '', dictionaryTier = 0;
   const DICTIONARY_PAGE_SIZE = 48;
   let advanceTimers = [];
   let keyboardNavigation = false;
@@ -1003,6 +1003,7 @@
   $('advanceLabel').addEventListener('click', () => { if (phase === 'solved') loadLevel(nextUncollected(mode, index), true, true); });
 
   function openModal(title, body) {
+    $('modal').classList.toggle('quest-dex-modal', !!body?.classList?.contains('quest-dictionary'));
     pauseAdvance(); cancelGesture(); speech.stop(); $('modalTitle').textContent = title; $('modalBody').replaceChildren();
     if (typeof body === 'string') $('modalBody').innerHTML = body; else $('modalBody').append(body);
     if (!$('modal').open) $('modal').showModal();
@@ -1062,7 +1063,7 @@
   $('difficulty').addEventListener('click', openDifficulty);
   $('launchDifficulty').addEventListener('click', openDifficulty);
   $('levels').addEventListener('click', () => { dictionaryFilter = 'missing'; dictionaryPage = 0; dictionaryQuery = ''; renderDictionary(); });
-  function openDictionary() { dictionaryFilter = 'owned'; dictionaryPage = 0; dictionaryQuery = ''; renderDictionary(); }
+  function openDictionary() { dictionaryFilter = 'all'; dictionaryPage = 0; dictionaryQuery = ''; renderDictionary(); }
   $('collection').addEventListener('click', openDictionary);
   $('dailyCollection').addEventListener('click', () => { dictionaryFilter = 'owned'; dictionaryPage = 0; dictionaryQuery = ''; renderDictionary(); });
   $('wordReward').addEventListener('click', openDictionary);
@@ -1093,79 +1094,58 @@
   }
   const dictionaryPlayLanguage = word => supports(word, mode) ? mode : supports(word, mode === 'ja' ? 'en' : 'ja') ? (mode === 'ja' ? 'en' : 'ja') : mode;
 
+  // Collection rarity follows Quest's five frequency bands, independent of puzzle spelling difficulty.
+  const dexNames = ['まいにち語', 'よくみる語', 'ときどき語', 'レア語', 'げきレア語'];
+  const dexColors = ['#7d8f87','#3fa7d6','#4cbb5e','#8e6fd8','#e89a0c'];
+  const questRanks = new Map((window.PQ_DATA?.words || []).map(row => [row[0], row[8]]));
+  const dexOrder = catalog.map((word, wordIndex) => ({word, wordIndex})).sort((a,b) =>
+    (questRanks.get(a.word.id) ?? a.word.order) - (questRanks.get(b.word.id) ?? b.word.order) || a.word.en.localeCompare(b.word.en));
+  const dexRows = dexOrder.map((row, i) => ({...row, number:i+1, band:[.06,.18,.36,.60].filter(limit => i / dexOrder.length >= limit).length}));
   function renderDictionary(focusControl = '') {
-    const count = uniqueCount(), totalWords = catalog.length, percent = totalWords ? Math.floor(count / totalWords * 100) : 0;
-    const container = document.createElement('div'); container.className = 'dictionary';
+    const container = document.createElement('div'); container.className = 'dictionary quest-dictionary';
     const summary = document.createElement('div'); summary.className = 'dictionary-summary';
-    summary.innerHTML = `<div><span class="eyebrow">コレクション</span><p><b>${count}</b> / ${totalWords} <span>語</span></p></div><strong>${percent}<small>%</small></strong>`;
-    const meter = document.createElement('div'); meter.className = 'dictionary-meter'; meter.setAttribute('role', 'progressbar');
-    meter.setAttribute('aria-label', 'コレクション'); meter.setAttribute('aria-valuenow', String(count)); meter.setAttribute('aria-valuemin', '0'); meter.setAttribute('aria-valuemax', String(totalWords));
-    const fill = document.createElement('span'); fill.style.width = `${percent}%`; meter.append(fill);
-    const caption = document.createElement('p'); caption.className = 'dictionary-caption';
-    caption.textContent = `獲得 ${count}語`;
-    const filters = document.createElement('div'); filters.className = 'dictionary-filters'; filters.setAttribute('role', 'group');
-    filters.setAttribute('aria-label', mode === 'ja' ? '獲得状況で絞り込む' : 'Filter by collection status');
-    for (const [value, label, total] of [['owned', '獲得済み', count], ['missing', '未獲得', totalWords - count], ['all', 'すべて', totalWords]]) {
-      const button = document.createElement('button'); button.type = 'button'; button.textContent = `${label} ${total}`; button.dataset.filter = value;
-      button.setAttribute('aria-pressed', String(dictionaryFilter === value)); button.addEventListener('click', () => { dictionaryFilter = value; dictionaryPage = 0; renderDictionary('filter'); }); filters.append(button);
-    }
-    const search = document.createElement('input'); search.type = 'search'; search.className = 'dictionary-search'; search.value = dictionaryQuery;
-    search.placeholder = 'ことばを探す'; search.setAttribute('aria-label', search.placeholder);
-    const updateSearch = event => { if (event.isComposing) return; dictionaryQuery = search.value; dictionaryPage = 0; renderDictionary('search'); };
-    search.addEventListener('input', updateSearch); search.addEventListener('compositionend', updateSearch);
-    const tiers = document.createElement('div'); tiers.className = 'dictionary-tiers'; tiers.setAttribute('role', 'tablist'); tiers.setAttribute('aria-label', '星の数で絞り込む');
-    [-1, ...difficulty.tiers.map((_, i) => i)].forEach(tierIndex => {
-      const tier = difficulty.tiers[tierIndex], list = catalog.filter(word => tierIndex < 0 || word.tier === tierIndex);
-      const button = document.createElement('button'); button.type = 'button'; button.setAttribute('role', 'tab');
-      button.setAttribute('aria-selected', String(dictionaryTier === tierIndex));
-      button.style.setProperty('--tier-color', tier?.color || 'var(--accent)');
-      button.innerHTML = `${tier ? rarityStars(tierIndex) : '<b>ぜんぶ</b>'}<small>${list.filter(dictionaryOwned).length}<span> / ${list.length}</span></small>`;
-      button.addEventListener('click', () => { dictionaryTier = tierIndex; dictionaryPage = 0; renderDictionary('tier'); }); tiers.append(button);
+    summary.innerHTML = `<p><b>${uniqueCount().toLocaleString('ja-JP')}</b> / ${catalog.length.toLocaleString('ja-JP')}語</p>`;
+    const tiers = document.createElement('div'); tiers.className = 'dictionary-tiers'; tiers.setAttribute('role','tablist'); tiers.setAttribute('aria-label','星の数で絞り込む');
+    dexNames.forEach((name, band) => {
+      const list = dexRows.filter(row => row.band === band), button = document.createElement('button');
+      button.type = 'button'; button.setAttribute('role','tab'); button.setAttribute('aria-selected',String(dictionaryTier === band));
+      button.style.setProperty('--tier-color',dexColors[band]);
+      button.innerHTML = `<span>${'★'.repeat(band+1)}</span><strong>${name}</strong><small>${list.filter(row => dictionaryOwned(row.word)).length.toLocaleString('ja-JP')}<em>/${list.length.toLocaleString('ja-JP')}</em></small>`;
+      button.addEventListener('click',()=>{dictionaryTier=band;dictionaryPage=0;renderDictionary('tier');}); tiers.append(button);
     });
-    const grid = document.createElement('div'); grid.className = 'dictionary-grid';
-    const collator = new Intl.Collator('en');
-    const query = dictionaryQuery.trim().toLocaleLowerCase();
-    const words = catalog.map((word, wordIndex) => ({ word, wordIndex })).filter(({word}) => (dictionaryTier < 0 || word.tier === dictionaryTier) && (dictionaryFilter !== 'owned' || dictionaryOwned(word)) && (dictionaryFilter !== 'missing' || !dictionaryOwned(word)) && (!query || `${word.en} ${word.ja} ${word.w}`.toLocaleLowerCase().includes(query))).sort((a, b) => collator.compare(a.word.en || a.word.ja || a.word.pic, b.word.en || b.word.ja || b.word.pic));
-    const pages = Math.max(1, Math.ceil(words.length / DICTIONARY_PAGE_SIZE)); dictionaryPage = Math.min(dictionaryPage, pages - 1);
-    for (const { word, wordIndex } of words.slice(dictionaryPage * DICTIONARY_PAGE_SIZE, (dictionaryPage + 1) * DICTIONARY_PAGE_SIZE)) {
-      const owned = dictionaryOwned(word), lang = dictionaryPlayLanguage(word), playable = supports(word,lang);
-      const card = document.createElement('button'); card.type = 'button'; card.className = `dictionary-card ${owned ? 'owned' : 'missing'}`; card.dataset.wordId = word.id;
-      const rarity = difficulty.tiers[word.tier]; card.dataset.rarity = rarity.key; card.style.setProperty('--rarity', rarity.color);
-      const number = document.createElement('span'); number.className = 'dictionary-number'; number.textContent = `NO. ${String(wordIndex + 1).padStart(3, '0')}`;
-      const title = document.createElement('strong'), subtitle = document.createElement('small');
-      card.append(number);
-      if (owned || !playable) {
-        const art = document.createElement('span'); art.className = 'dictionary-art';
-        const image = document.createElement('img'); image.src = imgURL(word); image.alt = ''; image.loading = 'lazy'; art.append(image);
-        const stamp = dictionaryScoreStamp(word); if (stamp) art.append(stamp); card.append(art);
-        title.textContent = word.en || word.ja || word.pic; subtitle.textContent = playable ? (word.ja || word.w || '') : window.WordBloomReviewedScenes.unavailableReason(word,lang,mode);
-        const mark = document.createElement('span'); mark.className = 'dictionary-owned-mark'; mark.innerHTML = owned ? icon('check') : ''; card.append(mark);
-        const bestScore = dictionaryBestScore(word);
-        card.setAttribute('aria-label', `${title.textContent} · ${owned ? '獲得済み' : '出題準備中'}${owned && bestScore !== null ? `、最高 ${bestScore}点` : ''}、詳細を見る`);
-        if (lastAcquired?.id === word.id) card.classList.add('just-collected');
-        card.addEventListener('click', () => showDictionaryEntry(word, wordIndex, lang));
-      } else {
-        const placeholder = document.createElement('span'); placeholder.className = 'dictionary-placeholder'; placeholder.innerHTML = `<img src="${imgURL(word)}" alt="" loading="lazy" class="dictionary-silhouette">`; card.append(placeholder);
-        title.textContent = mode === 'ja' ? '未獲得' : 'Not collected'; subtitle.textContent = mode === 'ja' ? 'タップして挑戦' : 'Tap to discover';
-        card.setAttribute('aria-label', mode === 'ja' ? `未獲得 No.${String(wordIndex + 1).padStart(3, '0')} に挑戦` : `Discover missing word ${wordIndex + 1}`);
-        card.addEventListener('click', () => beginDictionaryPuzzle(lang, wordIndex));
-      }
-      const rarityTag = document.createElement('span'); rarityTag.className = 'dictionary-rarity'; rarityTag.innerHTML = rarityStars(word.tier);
-      card.append(title, subtitle, rarityTag); grid.append(card);
+    const tools = document.createElement('div'); tools.className = 'dictionary-tools';
+    const filters = document.createElement('div'); filters.className = 'dictionary-filters'; filters.setAttribute('role','group'); filters.setAttribute('aria-label','登録状況');
+    for (const [value,label] of [['all','ぜんぶ'],['owned','登録済み'],['missing','未登録']]) {
+      const button = document.createElement('button'); button.type='button'; button.dataset.filter=value; button.textContent=label;
+      button.setAttribute('aria-pressed',String(dictionaryFilter===value));
+      button.addEventListener('click',()=>{dictionaryFilter=value;dictionaryPage=0;renderDictionary('filter');});filters.append(button);
     }
-    const paging = document.createElement('div'); paging.className = 'dictionary-pages';
-    for (const delta of [-1,1]) {
-      const button = document.createElement('button'); button.type = 'button'; button.textContent = delta < 0 ? '←' : '→'; button.disabled = dictionaryPage + delta < 0 || dictionaryPage + delta >= pages;
-      button.setAttribute('aria-label', delta < 0 ? 'Previous page' : 'Next page');
-      button.addEventListener('click', () => { dictionaryPage += delta; renderDictionary(); }); paging.append(button);
-      if (delta < 0) { const label = document.createElement('span'); label.textContent = `${dictionaryPage + 1} / ${pages} · ${words.length.toLocaleString()}`; paging.append(label); }
+    const words=dexRows.filter(({word,band})=>band===dictionaryTier && (dictionaryFilter!=='owned'||dictionaryOwned(word)) && (dictionaryFilter!=='missing'||!dictionaryOwned(word)));
+    const pages=Math.max(1,Math.ceil(words.length/DICTIONARY_PAGE_SIZE));dictionaryPage=Math.min(dictionaryPage,pages-1);
+    const paging=document.createElement('div');paging.className='dictionary-pages';
+    for(const delta of [-1,1]){
+      const button=document.createElement('button');button.type='button';button.textContent=delta<0?'‹':'›';
+      button.disabled=dictionaryPage+delta<0||dictionaryPage+delta>=pages;button.setAttribute('aria-label',delta<0?'前のページ':'次のページ');
+      button.addEventListener('click',()=>{dictionaryPage+=delta;renderDictionary();});paging.append(button);
+      if(delta<0){const label=document.createElement('span');label.textContent=`${dictionaryPage+1} / ${pages}`;paging.append(label);}
     }
-    container.append(summary, meter, caption, tiers, filters, search, paging, grid);
-    if (!grid.childElementCount) { const empty = document.createElement('p'); empty.className = 'dictionary-empty'; empty.textContent = query ? (mode === 'ja' ? '見つかりませんでした。別のことばで探してみよう。' : 'No matching words. Try another search.') : (mode === 'ja' ? '新しい絵を解いて、このページを埋めよう。' : 'Solve a new picture to fill this page.'); container.append(empty); }
-    openModal('ずかん', container);
-    if (focusControl === 'tier') tiers.querySelector('[aria-selected="true"]').focus({ preventScroll: true });
-    if (focusControl === 'filter') filters.querySelector('[aria-pressed="true"]').focus({ preventScroll: true });
-    if (focusControl === 'search') { search.focus({preventScroll:true}); search.setSelectionRange(search.value.length, search.value.length); }
+    tools.append(filters,paging);
+    const grid=document.createElement('div');grid.className='dictionary-grid';
+    for(const {word,wordIndex,number} of words.slice(dictionaryPage*DICTIONARY_PAGE_SIZE,(dictionaryPage+1)*DICTIONARY_PAGE_SIZE)){
+      const owned=dictionaryOwned(word),lang=dictionaryPlayLanguage(word);
+      const card=document.createElement('button');card.type='button';card.className=`dictionary-card ${owned?'owned':'missing'}`;card.dataset.wordId=word.id;
+      const no=document.createElement('span');no.className='dictionary-number';no.textContent=`No.${String(number).padStart(5,'0')}`;
+      const art=document.createElement('span');art.className='dictionary-art';
+      const image=document.createElement('img');image.src=imgURL(word);image.alt='';image.loading='lazy';image.draggable=false;if(!owned)image.className='dictionary-silhouette';art.append(image);
+      const title=document.createElement('strong');title.textContent=owned?(word.en||word.ja):'？？？';card.append(no,art,title);
+      card.setAttribute('aria-label',owned?`${word.en}、詳細を見る`:`未登録 No.${number} に挑戦`);
+      card.addEventListener('click',()=>owned?showDictionaryEntry(word,wordIndex,lang):beginDictionaryPuzzle(lang,wordIndex));grid.append(card);
+    }
+    container.append(summary,tiers,tools,grid);
+    if(!grid.childElementCount){const empty=document.createElement('p');empty.className='dictionary-empty';empty.textContent='まだありません';container.append(empty);}
+    openModal('ずかん',container);
+    if(focusControl==='tier')tiers.querySelector('[aria-selected="true"]').focus({preventScroll:true});
+    if(focusControl==='filter')filters.querySelector('[aria-pressed="true"]').focus({preventScroll:true});
   }
 
   function showDictionaryEntry(word, wordIndex, lang) {

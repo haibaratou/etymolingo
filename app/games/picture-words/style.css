@@ -1108,3 +1108,25 @@ html.phone-host body> :not(.desktop-phone-host){display:none!important}
 .dictionary .dictionary-owned-mark{right:4px;top:4px;width:18px;height:18px}
 .dictionary-entry-art{padding:0;cursor:pointer;background:transparent}
 #clueImage[role=button]{cursor:pointer}#clueImage[role=button]:focus-visible,.dictionary-entry-art:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+
+/* The collection uses the Quest screen geometry, not the puzzle modal theme. */
+#modal.quest-dex-modal{--ink:#2c3a35;--ink-soft:#6b766f;--line:#e6e0cf;--panel:#fffdf6;width:min(100vw,520px);height:100dvh;max-height:100dvh;max-width:100vw;margin:0 auto;padding:12px 16px 28px;border-radius:0;background:#fffdf6;color:#2c3a35;box-shadow:none}
+.quest-dex-modal .modal-top{height:36px}.quest-dex-modal>h2{text-align:center;margin:0;font-size:24px}.quest-dex-modal .modal-top .eyebrow{visibility:hidden}
+.quest-dictionary .dictionary-summary{display:block;text-align:center;margin:6px 0 18px}.quest-dictionary .dictionary-summary p{font-size:13px;color:#6b766f;font-weight:700}.quest-dictionary .dictionary-summary p b{font-size:18px;color:#2c3a35}
+.quest-dictionary .dictionary-tiers{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px;overflow:visible;margin:0;padding:0}
+.quest-dictionary .dictionary-tiers>button{min-width:0;min-height:66px;padding:8px 2px;gap:1px;background:white;border:2px solid #e6e0cf;border-radius:12px;color:#2c3a35}
+.quest-dictionary .dictionary-tiers>button[aria-selected=true]{border-color:var(--tier-color);box-shadow:inset 0 -3px 0 var(--tier-color)}
+.quest-dictionary .dictionary-tiers>button>span{font-size:10px;letter-spacing:-1px;white-space:nowrap;color:var(--tier-color)}
+.quest-dictionary .dictionary-tiers strong{font-size:10.5px;white-space:nowrap;font-weight:800}.quest-dictionary .dictionary-tiers small{font-size:12px}.quest-dictionary .dictionary-tiers em{font-style:normal;font-size:10px;color:#6b766f}
+.quest-dictionary .dictionary-tools{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:12px 0}
+.quest-dictionary .dictionary-filters{display:flex;flex-wrap:nowrap;gap:4px;padding:3px;margin:0;background:#f0ebdd;border-radius:999px}
+.quest-dictionary .dictionary-filters button{height:auto;min-height:30px;padding:6px 12px;background:none;border-radius:999px;box-shadow:none;font-size:12px;color:#6b766f;white-space:nowrap}
+.quest-dictionary .dictionary-filters button[aria-pressed=true]{background:white;color:#2c3a35;box-shadow:0 1px 2px #0000001a}
+.quest-dictionary .dictionary-pages{margin:0;gap:6px;font-size:13px;white-space:nowrap;color:#6b766f}.quest-dictionary .dictionary-pages button{width:34px;min-width:34px;height:34px;min-height:34px;padding:0;border:1.5px solid #d9d2bf;border-radius:50%;background:white;box-shadow:none;font-size:20px;color:#2c3a35}
+.quest-dictionary .dictionary-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.quest-dictionary .dictionary-card{min-width:0;padding:6px 6px 8px;gap:2px;border:1.5px solid #e6e0cf;border-radius:14px;background:white;color:#2c3a35;box-shadow:none}
+.quest-dictionary .dictionary-card.missing{background:transparent;border:1.5px dashed #e6e0cf}.quest-dictionary .dictionary-card.missing strong{color:#b8b09c}
+.quest-dictionary .dictionary-number{align-self:flex-start;font-size:10px;letter-spacing:0;color:#6b766f}
+.quest-dictionary .dictionary-art{aspect-ratio:1;height:auto;width:100%;margin:0}.quest-dictionary .dictionary-art>img{width:100%;height:100%;object-fit:contain;padding:0;margin:0}
+.quest-dictionary .dictionary-silhouette{filter:brightness(0);opacity:.12}.quest-dictionary .dictionary-card>strong{font-size:13px;font-weight:600;max-width:100%;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+@media(max-width:360px){#modal.quest-dex-modal{padding-left:8px;padding-right:8px}.quest-dictionary .dictionary-filters button{padding:6px 8px}.quest-dictionary .dictionary-tiers strong{font-size:9px}}
