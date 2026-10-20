@@ -4163,6 +4163,2892 @@
       ],
       "representativeWord": "mermaid",
       "representativeWordKana": "マーメイド"
+    },
+    {
+      "rootId": "peuk",
+      "kana": "ペウク・ポイント",
+      "name": "Peuk · point",
+      "kanaParts": [
+        "ペウク",
+        "ポイント"
+      ],
+      "nameParts": [
+        "Peuk",
+        "point"
+      ],
+      "meaningJa": "刺す",
+      "meaningEn": "to prick",
+      "pie": "*peuk-",
+      "representativeWord": "point",
+      "representativeWordKana": "ポイント",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "peuk-"
+        }
+      ]
+    },
+    {
+      "rootId": "pau",
+      "kana": "パウ・ポウニ",
+      "name": "Pau · pony",
+      "kanaParts": [
+        "パウ",
+        "ポウニ"
+      ],
+      "nameParts": [
+        "Pau",
+        "pony"
+      ],
+      "meaningJa": "わずかの",
+      "meaningEn": "few",
+      "pie": "*pau-",
+      "representativeWord": "pony",
+      "representativeWordKana": "ポウニ",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "pau-"
+        }
+      ]
+    },
+    {
+      "rootId": "mittere",
+      "kana": "ミッテレ・ミソル",
+      "name": "Mittere · missile",
+      "kanaParts": [
+        "ミッテレ",
+        "ミソル"
+      ],
+      "nameParts": [
+        "Mittere",
+        "missile"
+      ],
+      "meaningJa": "行かせる",
+      "meaningEn": "to let go",
+      "pie": "*mittere",
+      "representativeWord": "missile",
+      "representativeWordKana": "ミソル",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "mittere"
+        }
+      ]
+    },
+    {
+      "rootId": "pele2",
+      "kana": "ペレ・パム",
+      "name": "Pele2 · palm",
+      "kanaParts": [
+        "ペレ",
+        "パム"
+      ],
+      "nameParts": [
+        "Pele2",
+        "palm"
+      ],
+      "meaningJa": "平ら",
+      "meaningEn": "flat",
+      "pie": "*pelə-2",
+      "representativeWord": "palm",
+      "representativeWordKana": "パム",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "pelə-2"
+        }
+      ]
+    },
+    {
+      "rootId": "medhyo",
+      "kana": "メディオ・メダル",
+      "name": "Medhyo · medal",
+      "kanaParts": [
+        "メディオ",
+        "メダル"
+      ],
+      "nameParts": [
+        "Medhyo",
+        "medal"
+      ],
+      "meaningJa": "中央",
+      "meaningEn": "middle",
+      "pie": "*medhyo-",
+      "representativeWord": "medal",
+      "representativeWordKana": "メダル",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "medhyo-"
+        }
+      ]
+    },
+    {
+      "rootId": "wal",
+      "kana": "ワル・ヴァラァ",
+      "name": "Wal · valor",
+      "kanaParts": [
+        "ワル",
+        "ヴァラァ"
+      ],
+      "nameParts": [
+        "Wal",
+        "valor"
+      ],
+      "meaningJa": "強い",
+      "meaningEn": "to be strong",
+      "pie": "*wal-",
+      "representativeWord": "valor",
+      "representativeWordKana": "ヴァラァ",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "wal-"
+        }
+      ]
+    },
+    {
+      "rootId": "wed1",
+      "kana": "ウェド・ウォタァ",
+      "name": "Wed1 · water",
+      "kanaParts": [
+        "ウェド",
+        "ウォタァ"
+      ],
+      "nameParts": [
+        "Wed1",
+        "water"
+      ],
+      "meaningJa": "水",
+      "meaningEn": "water",
+      "pie": "*wed-1",
+      "representativeWord": "water",
+      "representativeWordKana": "ウォタァ",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "wed-1"
+        }
+      ]
+    },
+    {
+      "rootId": "nem",
+      "kana": "ネム・ナムバ",
+      "name": "Nem · number",
+      "kanaParts": [
+        "ネム",
+        "ナムバ"
+      ],
+      "nameParts": [
+        "Nem",
+        "number"
+      ],
+      "meaningJa": "割り当てる",
+      "meaningEn": "to assign",
+      "pie": "*nem-",
+      "representativeWord": "number",
+      "representativeWordKana": "ナムバ",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "nem-"
+        }
+      ]
+    },
+    {
+      "rootId": "pag",
+      "kana": "パグ・パクト",
+      "name": "Pag · pact",
+      "kanaParts": [
+        "パグ",
+        "パクト"
+      ],
+      "nameParts": [
+        "Pag",
+        "pact"
+      ],
+      "meaningJa": "留める",
+      "meaningEn": "to fasten",
+      "pie": "*pag-",
+      "representativeWord": "pact",
+      "representativeWordKana": "パクト",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "pag-"
+        }
+      ]
+    },
+    {
+      "rootId": "bhel3",
+      "kana": "ベル・フラウアァ",
+      "name": "Bhel3 · flower",
+      "kanaParts": [
+        "ベル",
+        "フラウアァ"
+      ],
+      "nameParts": [
+        "Bhel3",
+        "flower"
+      ],
+      "meaningJa": "咲く",
+      "meaningEn": "to thrive",
+      "pie": "*bhel-3",
+      "representativeWord": "flower",
+      "representativeWordKana": "フラウアァ",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "bhel-3"
+        }
+      ]
+    },
+    {
+      "rootId": "bhreg",
+      "kana": "ブレグ・ブレーキ",
+      "name": "Bhreg · brake",
+      "kanaParts": [
+        "ブレグ",
+        "ブレーキ"
+      ],
+      "nameParts": [
+        "Bhreg",
+        "brake"
+      ],
+      "meaningJa": "壊す",
+      "meaningEn": "to break",
+      "pie": "*bhreg-",
+      "representativeWord": "brake",
+      "representativeWordKana": "ブレーキ",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "bhreg-"
+        }
+      ]
+    },
+    {
+      "rootId": "dhes",
+      "kana": "デース・ファン",
+      "name": "Dhes · fan",
+      "kanaParts": [
+        "デース",
+        "ファン"
+      ],
+      "nameParts": [
+        "Dhes",
+        "fan"
+      ],
+      "meaningJa": "祭礼",
+      "meaningEn": "religious rite",
+      "pie": "*dhēs-",
+      "representativeWord": "fan",
+      "representativeWordKana": "ファン",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "dhēs-"
+        }
+      ]
+    },
+    {
+      "rootId": "merph",
+      "kana": "メルフ・フォーム",
+      "name": "Merph · form",
+      "kanaParts": [
+        "メルフ",
+        "フォーム"
+      ],
+      "nameParts": [
+        "Merph",
+        "form"
+      ],
+      "meaningJa": "形",
+      "meaningEn": "form",
+      "pie": "*merph-",
+      "representativeWord": "form",
+      "representativeWordKana": "フォーム",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "merph-"
+        }
+      ]
+    },
+    {
+      "rootId": "gwele",
+      "kana": "グウェレ・バレー",
+      "name": "Gwele · ballet",
+      "kanaParts": [
+        "グウェレ",
+        "バレー"
+      ],
+      "nameParts": [
+        "Gwele",
+        "ballet"
+      ],
+      "meaningJa": "投げる",
+      "meaningEn": "to throw",
+      "pie": "*gʷelə-",
+      "representativeWord": "ballet",
+      "representativeWordKana": "バレー",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "gʷelə-"
+        }
+      ]
+    },
+    {
+      "rootId": "ar",
+      "kana": "アル・アート",
+      "name": "Ar · art",
+      "kanaParts": [
+        "アル",
+        "アート"
+      ],
+      "nameParts": [
+        "Ar",
+        "art"
+      ],
+      "meaningJa": "ぴったり合う",
+      "meaningEn": "to fit together",
+      "pie": "*ar-",
+      "representativeWord": "art",
+      "representativeWordKana": "アート",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "ar-"
+        }
+      ]
+    },
+    {
+      "rootId": "gher1",
+      "kana": "ゲル・ガーデン",
+      "name": "Gher1 · garden",
+      "kanaParts": [
+        "ゲル",
+        "ガーデン"
+      ],
+      "nameParts": [
+        "Gher1",
+        "garden"
+      ],
+      "meaningJa": "しっかり握る",
+      "meaningEn": "to grasp",
+      "pie": "*gher-1",
+      "representativeWord": "garden",
+      "representativeWordKana": "ガーデン",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "gher-1"
+        }
+      ]
+    },
+    {
+      "rootId": "kar",
+      "kana": "カル・ハード",
+      "name": "Kar · hard",
+      "kanaParts": [
+        "カル",
+        "ハード"
+      ],
+      "nameParts": [
+        "Kar",
+        "hard"
+      ],
+      "meaningJa": "硬い",
+      "meaningEn": "hard",
+      "pie": "*kar-",
+      "representativeWord": "hard",
+      "representativeWordKana": "ハード",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "kar-"
+        }
+      ]
+    },
+    {
+      "rootId": "al3",
+      "kana": "アル・アダルト",
+      "name": "Al3 · adult",
+      "kanaParts": [
+        "アル",
+        "アダルト"
+      ],
+      "nameParts": [
+        "Al3",
+        "adult"
+      ],
+      "meaningJa": "成長する・養う",
+      "meaningEn": "to grow",
+      "pie": "*al-3",
+      "representativeWord": "adult",
+      "representativeWordKana": "アダルト",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "al-3"
+        }
+      ]
+    },
+    {
+      "rootId": "op",
+      "kana": "オプ・アペラ",
+      "name": "Op · opera",
+      "kanaParts": [
+        "オプ",
+        "アペラ"
+      ],
+      "nameParts": [
+        "Op",
+        "opera"
+      ],
+      "meaningJa": "働く",
+      "meaningEn": "to work",
+      "pie": "*op-",
+      "representativeWord": "opera",
+      "representativeWordKana": "アペラ",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "op-"
+        }
+      ]
+    },
+    {
+      "rootId": "deu2",
+      "kana": "デウ・ダイナマイト",
+      "name": "Deu2 · dynamite",
+      "kanaParts": [
+        "デウ",
+        "ダイナマイト"
+      ],
+      "nameParts": [
+        "Deu2",
+        "dynamite"
+      ],
+      "meaningJa": "動作をする",
+      "meaningEn": "to do",
+      "pie": "*deu-2",
+      "representativeWord": "dynamite",
+      "representativeWordKana": "ダイナマイト",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "deu-2"
+        }
+      ]
+    },
+    {
+      "rootId": "reudh",
+      "kana": "レウド・レド",
+      "name": "Reudh · red",
+      "kanaParts": [
+        "レウド",
+        "レド"
+      ],
+      "nameParts": [
+        "Reudh",
+        "red"
+      ],
+      "meaningJa": "赤",
+      "meaningEn": "red",
+      "pie": "*reudh-",
+      "representativeWord": "red",
+      "representativeWordKana": "レド",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "reudh-"
+        }
+      ]
+    },
+    {
+      "rootId": "kel2",
+      "kana": "ケル・ヘルマト",
+      "name": "Kel2 · helmet",
+      "kanaParts": [
+        "ケル",
+        "ヘルマト"
+      ],
+      "nameParts": [
+        "Kel2",
+        "helmet"
+      ],
+      "meaningJa": "覆う",
+      "meaningEn": "to cover",
+      "pie": "*kel-2",
+      "representativeWord": "helmet",
+      "representativeWordKana": "ヘルマト",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "kel-2"
+        }
+      ]
+    },
+    {
+      "rootId": "penkwe",
+      "kana": "ペンクェ・ファイヴ",
+      "name": "Penkwe · five",
+      "kanaParts": [
+        "ペンクェ",
+        "ファイヴ"
+      ],
+      "nameParts": [
+        "Penkwe",
+        "five"
+      ],
+      "meaningJa": "五",
+      "meaningEn": "five",
+      "pie": "*penkʷe",
+      "representativeWord": "five",
+      "representativeWordKana": "ファイヴ",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "penkʷe"
+        }
+      ]
+    },
+    {
+      "rootId": "beu",
+      "kana": "ベウ・パフ",
+      "name": "Beu · puff",
+      "kanaParts": [
+        "ベウ",
+        "パフ"
+      ],
+      "nameParts": [
+        "Beu",
+        "puff"
+      ],
+      "meaningJa": "ふくらむ",
+      "meaningEn": "to swell",
+      "pie": "*beu-",
+      "representativeWord": "puff",
+      "representativeWordKana": "パフ",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "beu-"
+        }
+      ]
+    },
+    {
+      "rootId": "ud",
+      "kana": "ウド・アウトゥレト",
+      "name": "Ud · outlet",
+      "kanaParts": [
+        "ウド",
+        "アウトゥレト"
+      ],
+      "nameParts": [
+        "Ud",
+        "outlet"
+      ],
+      "meaningJa": "上へ",
+      "meaningEn": "up",
+      "pie": "*ud-",
+      "representativeWord": "outlet",
+      "representativeWordKana": "アウトゥレト",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "ud-"
+        }
+      ]
+    },
+    {
+      "rootId": "plat",
+      "kana": "プラト・プレイト",
+      "name": "Plat · plate",
+      "kanaParts": [
+        "プラト",
+        "プレイト"
+      ],
+      "nameParts": [
+        "Plat",
+        "plate"
+      ],
+      "meaningJa": "広げる",
+      "meaningEn": "to spread",
+      "pie": "*plat-",
+      "representativeWord": "plate",
+      "representativeWordKana": "プレイト",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "plat-"
+        }
+      ]
+    },
+    {
+      "rootId": "wer4",
+      "kana": "ウェル・ガード",
+      "name": "Wer4 · guard",
+      "kanaParts": [
+        "ウェル",
+        "ガード"
+      ],
+      "nameParts": [
+        "Wer4",
+        "guard"
+      ],
+      "meaningJa": "認める",
+      "meaningEn": "to perceive",
+      "pie": "*wer-4",
+      "representativeWord": "guard",
+      "representativeWordKana": "ガード",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "wer-4"
+        }
+      ]
+    },
+    {
+      "rootId": "klei",
+      "kana": "クレイ・ラダァ",
+      "name": "Klei · ladder",
+      "kanaParts": [
+        "クレイ",
+        "ラダァ"
+      ],
+      "nameParts": [
+        "Klei",
+        "ladder"
+      ],
+      "meaningJa": "反り返る",
+      "meaningEn": "to lean",
+      "pie": "*klei-",
+      "representativeWord": "ladder",
+      "representativeWordKana": "ラダァ",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "klei-"
+        }
+      ]
+    },
+    {
+      "rootId": "men4",
+      "kana": "メン・マンク",
+      "name": "Men4 · monk",
+      "kanaParts": [
+        "メン",
+        "マンク"
+      ],
+      "nameParts": [
+        "Men4",
+        "monk"
+      ],
+      "meaningJa": "小さい・孤立した",
+      "meaningEn": "small",
+      "pie": "*men-4",
+      "representativeWord": "monk",
+      "representativeWordKana": "マンク",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "men-4"
+        }
+      ]
+    },
+    {
+      "rootId": "dek",
+      "kana": "デク・ダクタァ",
+      "name": "Dek · doctor",
+      "kanaParts": [
+        "デク",
+        "ダクタァ"
+      ],
+      "nameParts": [
+        "Dek",
+        "doctor"
+      ],
+      "meaningJa": "取る",
+      "meaningEn": "to take",
+      "pie": "*dek-",
+      "representativeWord": "doctor",
+      "representativeWordKana": "ダクタァ",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "dek-"
+        }
+      ]
+    },
+    {
+      "rootId": "meue",
+      "kana": "メウェ・モータァ",
+      "name": "Meue · motor",
+      "kanaParts": [
+        "メウェ",
+        "モータァ"
+      ],
+      "nameParts": [
+        "Meue",
+        "motor"
+      ],
+      "meaningJa": "押し出す",
+      "meaningEn": "to push away",
+      "pie": "*meuə-",
+      "representativeWord": "motor",
+      "representativeWordKana": "モータァ",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "meuə-"
+        }
+      ]
+    },
+    {
+      "rootId": "dem",
+      "kana": "デム・ドーム",
+      "name": "Dem · dome",
+      "kanaParts": [
+        "デム",
+        "ドーム"
+      ],
+      "nameParts": [
+        "Dem",
+        "dome"
+      ],
+      "meaningJa": "家",
+      "meaningEn": "house",
+      "pie": "*dem-",
+      "representativeWord": "dome",
+      "representativeWordKana": "ドーム",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "dem-"
+        }
+      ]
+    },
+    {
+      "rootId": "yeug",
+      "kana": "イェウグ・ヨウガ",
+      "name": "Yeug · yoga",
+      "kanaParts": [
+        "イェウグ",
+        "ヨウガ"
+      ],
+      "nameParts": [
+        "Yeug",
+        "yoga"
+      ],
+      "meaningJa": "一緒になる",
+      "meaningEn": "to join",
+      "pie": "*yeug-",
+      "representativeWord": "yoga",
+      "representativeWordKana": "ヨウガ",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "yeug-"
+        }
+      ]
+    },
+    {
+      "rootId": "tele",
+      "kana": "テレ・アトゥラス",
+      "name": "Tele · Atlas",
+      "kanaParts": [
+        "テレ",
+        "アトゥラス"
+      ],
+      "nameParts": [
+        "Tele",
+        "Atlas"
+      ],
+      "meaningJa": "持ち上げる",
+      "meaningEn": "to lift",
+      "pie": "*telə-",
+      "representativeWord": "Atlas",
+      "representativeWordKana": "アトゥラス",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "telə-"
+        }
+      ]
+    },
+    {
+      "rootId": "pel6",
+      "kana": "ペル・プシュ",
+      "name": "Pel6 · push",
+      "kanaParts": [
+        "ペル",
+        "プシュ"
+      ],
+      "nameParts": [
+        "Pel6",
+        "push"
+      ],
+      "meaningJa": "強く押す",
+      "meaningEn": "to thrust",
+      "pie": "*pel-6",
+      "representativeWord": "push",
+      "representativeWordKana": "プシュ",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "pel-6"
+        }
+      ]
+    },
+    {
+      "rootId": "dhghem",
+      "kana": "ドゲム・ヒュマン",
+      "name": "Dhghem · human",
+      "kanaParts": [
+        "ドゲム",
+        "ヒュマン"
+      ],
+      "nameParts": [
+        "Dhghem",
+        "human"
+      ],
+      "meaningJa": "大地",
+      "meaningEn": "earth",
+      "pie": "*dhghem-",
+      "representativeWord": "human",
+      "representativeWordKana": "ヒュマン",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "dhghem-"
+        }
+      ]
+    },
+    {
+      "rootId": "poti",
+      "kana": "ポティ・ハスピトゥル",
+      "name": "Poti · hospital",
+      "kanaParts": [
+        "ポティ",
+        "ハスピトゥル"
+      ],
+      "nameParts": [
+        "Poti",
+        "hospital"
+      ],
+      "meaningJa": "力",
+      "meaningEn": "power",
+      "pie": "*poti-",
+      "representativeWord": "hospital",
+      "representativeWordKana": "ハスピトゥル",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "poti-"
+        }
+      ]
+    },
+    {
+      "rootId": "ghend",
+      "kana": "ゲンド・プレイ",
+      "name": "Ghend · prey",
+      "kanaParts": [
+        "ゲンド",
+        "プレイ"
+      ],
+      "nameParts": [
+        "Ghend",
+        "prey"
+      ],
+      "meaningJa": "つかむ",
+      "meaningEn": "to seize",
+      "pie": "*ghend-",
+      "representativeWord": "prey",
+      "representativeWordKana": "プレイ",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "ghend-"
+        }
+      ]
+    },
+    {
+      "rootId": "teue2",
+      "kana": "テウェ・サム",
+      "name": "Teue2 · thumb",
+      "kanaParts": [
+        "テウェ",
+        "サム"
+      ],
+      "nameParts": [
+        "Teue2",
+        "thumb"
+      ],
+      "meaningJa": "膨らむ",
+      "meaningEn": "to swell",
+      "pie": "*teuə-2",
+      "representativeWord": "thumb",
+      "representativeWordKana": "サム",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "teuə-2"
+        }
+      ]
+    },
+    {
+      "rootId": "deru",
+      "kana": "デル・ツリー",
+      "name": "Deru · tree",
+      "kanaParts": [
+        "デル",
+        "ツリー"
+      ],
+      "nameParts": [
+        "Deru",
+        "tree"
+      ],
+      "meaningJa": "堅い",
+      "meaningEn": "to be firm",
+      "pie": "*deru-",
+      "representativeWord": "tree",
+      "representativeWordKana": "ツリー",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "deru-"
+        }
+      ]
+    },
+    {
+      "rootId": "pete",
+      "kana": "ペテ・ペトゥル",
+      "name": "Pete · petal",
+      "kanaParts": [
+        "ペテ",
+        "ペトゥル"
+      ],
+      "nameParts": [
+        "Pete",
+        "petal"
+      ],
+      "meaningJa": "広げる",
+      "meaningEn": "to spread",
+      "pie": "*petə-",
+      "representativeWord": "petal",
+      "representativeWordKana": "ペトゥル",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "petə-"
+        }
+      ]
+    },
+    {
+      "rootId": "em",
+      "kana": "エム・サムプル",
+      "name": "Em · sample",
+      "kanaParts": [
+        "エム",
+        "サムプル"
+      ],
+      "nameParts": [
+        "Em",
+        "sample"
+      ],
+      "meaningJa": "取る",
+      "meaningEn": "to take",
+      "pie": "*em-",
+      "representativeWord": "sample",
+      "representativeWordKana": "サムプル",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "em-"
+        }
+      ]
+    },
+    {
+      "rootId": "dhei",
+      "kana": "デイ・フォン",
+      "name": "Dhei · fawn",
+      "kanaParts": [
+        "デイ",
+        "フォン"
+      ],
+      "nameParts": [
+        "Dhei",
+        "fawn"
+      ],
+      "meaningJa": "吸う",
+      "meaningEn": "to suck",
+      "pie": "*dhē(i)-",
+      "representativeWord": "fawn",
+      "representativeWordKana": "フォン",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "dhē(i)-"
+        }
+      ]
+    },
+    {
+      "rootId": "gwere2",
+      "kana": "グウェレ・グラヴィティ",
+      "name": "Gwere2 · gravity",
+      "kanaParts": [
+        "グウェレ",
+        "グラヴィティ"
+      ],
+      "nameParts": [
+        "Gwere2",
+        "gravity"
+      ],
+      "meaningJa": "重い・激しい",
+      "meaningEn": "heavy",
+      "pie": "*gʷerə-2",
+      "representativeWord": "gravity",
+      "representativeWordKana": "グラヴィティ",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "gʷerə-2"
+        }
+      ]
+    },
+    {
+      "rootId": "men2",
+      "kana": "メン・マウンテン",
+      "name": "Men2 · mountain",
+      "kanaParts": [
+        "メン",
+        "マウンテン"
+      ],
+      "nameParts": [
+        "Men2",
+        "mountain"
+      ],
+      "meaningJa": "突出する",
+      "meaningEn": "to project",
+      "pie": "*men-2",
+      "representativeWord": "mountain",
+      "representativeWordKana": "マウンテン",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "men-2"
+        }
+      ]
+    },
+    {
+      "rootId": "pleu",
+      "kana": "プレウ・フロウト",
+      "name": "Pleu · float",
+      "kanaParts": [
+        "プレウ",
+        "フロウト"
+      ],
+      "nameParts": [
+        "Pleu",
+        "float"
+      ],
+      "meaningJa": "流れる",
+      "meaningEn": "to flow",
+      "pie": "*pleu-",
+      "representativeWord": "float",
+      "representativeWordKana": "フロウト",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "pleu-"
+        }
+      ]
+    },
+    {
+      "rootId": "bhergh2",
+      "kana": "ベルグ・フォートレス",
+      "name": "Bhergh2 · fortress",
+      "kanaParts": [
+        "ベルグ",
+        "フォートレス"
+      ],
+      "nameParts": [
+        "Bhergh2",
+        "fortress"
+      ],
+      "meaningJa": "高い",
+      "meaningEn": "high",
+      "pie": "*bhergh-2",
+      "representativeWord": "fortress",
+      "representativeWordKana": "フォートレス",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "bhergh-2"
+        }
+      ]
+    },
+    {
+      "rootId": "da",
+      "kana": "ダー・タイム",
+      "name": "Da · time",
+      "kanaParts": [
+        "ダー",
+        "タイム"
+      ],
+      "nameParts": [
+        "Da",
+        "time"
+      ],
+      "meaningJa": "分ける",
+      "meaningEn": "to divide",
+      "pie": "*dā-",
+      "representativeWord": "time",
+      "representativeWordKana": "タイム",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "dā-"
+        }
+      ]
+    },
+    {
+      "rootId": "ghredh",
+      "kana": "グレド・グレイド",
+      "name": "Ghredh · grade",
+      "kanaParts": [
+        "グレド",
+        "グレイド"
+      ],
+      "nameParts": [
+        "Ghredh",
+        "grade"
+      ],
+      "meaningJa": "歩いていく",
+      "meaningEn": "to walk",
+      "pie": "*ghredh-",
+      "representativeWord": "grade",
+      "representativeWordKana": "グレイド",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "ghredh-"
+        }
+      ]
+    },
+    {
+      "rootId": "sol",
+      "kana": "ソル・セイフ",
+      "name": "Sol · safe",
+      "kanaParts": [
+        "ソル",
+        "セイフ"
+      ],
+      "nameParts": [
+        "Sol",
+        "safe"
+      ],
+      "meaningJa": "全体",
+      "meaningEn": "whole",
+      "pie": "*sol-",
+      "representativeWord": "safe",
+      "representativeWordKana": "セイフ",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "sol-"
+        }
+      ]
+    },
+    {
+      "rootId": "weik1",
+      "kana": "ウェイク・ヴィラ",
+      "name": "Weik1 · villa",
+      "kanaParts": [
+        "ウェイク",
+        "ヴィラ"
+      ],
+      "nameParts": [
+        "Weik1",
+        "villa"
+      ],
+      "meaningJa": "一族・村",
+      "meaningEn": "clan",
+      "pie": "*weik-1",
+      "representativeWord": "villa",
+      "representativeWordKana": "ヴィラ",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "weik-1"
+        }
+      ]
+    },
+    {
+      "rootId": "kel1",
+      "kana": "ケル・クロウン",
+      "name": "Kel1 · clone",
+      "kanaParts": [
+        "ケル",
+        "クロウン"
+      ],
+      "nameParts": [
+        "Kel1",
+        "clone"
+      ],
+      "meaningJa": "打つ",
+      "meaningEn": "to strike",
+      "pie": "*kel-1",
+      "representativeWord": "clone",
+      "representativeWordKana": "クロウン",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "kel-1"
+        }
+      ]
+    },
+    {
+      "rootId": "sag",
+      "kana": "サーグ・シーク",
+      "name": "Sag · seek",
+      "kanaParts": [
+        "サーグ",
+        "シーク"
+      ],
+      "nameParts": [
+        "Sag",
+        "seek"
+      ],
+      "meaningJa": "探し出す",
+      "meaningEn": "to seek out",
+      "pie": "*sāg-",
+      "representativeWord": "seek",
+      "representativeWordKana": "シーク",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "sāg-"
+        }
+      ]
+    },
+    {
+      "rootId": "legh",
+      "kana": "レグ・ライ",
+      "name": "Legh · lie",
+      "kanaParts": [
+        "レグ",
+        "ライ"
+      ],
+      "nameParts": [
+        "Legh",
+        "lie"
+      ],
+      "meaningJa": "横たえる",
+      "meaningEn": "to lie",
+      "pie": "*legh-",
+      "representativeWord": "lie",
+      "representativeWordKana": "ライ",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "legh-"
+        }
+      ]
+    },
+    {
+      "rootId": "pa",
+      "kana": "パー・フド",
+      "name": "Pa · food",
+      "kanaParts": [
+        "パー",
+        "フド"
+      ],
+      "nameParts": [
+        "Pa",
+        "food"
+      ],
+      "meaningJa": "保護する",
+      "meaningEn": "to protect/feed",
+      "pie": "*pā-",
+      "representativeWord": "food",
+      "representativeWordKana": "フド",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "pā-"
+        }
+      ]
+    },
+    {
+      "rootId": "segh",
+      "kana": "セグ・スクール",
+      "name": "Segh · school",
+      "kanaParts": [
+        "セグ",
+        "スクール"
+      ],
+      "nameParts": [
+        "Segh",
+        "school"
+      ],
+      "meaningJa": "つかむ",
+      "meaningEn": "to hold",
+      "pie": "*segh-",
+      "representativeWord": "school",
+      "representativeWordKana": "スクール",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "segh-"
+        }
+      ]
+    },
+    {
+      "rootId": "skeu",
+      "kana": "スケウ・スカイ",
+      "name": "Skeu · sky",
+      "kanaParts": [
+        "スケウ",
+        "スカイ"
+      ],
+      "nameParts": [
+        "Skeu",
+        "sky"
+      ],
+      "meaningJa": "覆う",
+      "meaningEn": "to cover",
+      "pie": "*(s)keu-",
+      "representativeWord": "sky",
+      "representativeWordKana": "スカイ",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "(s)keu-"
+        }
+      ]
+    },
+    {
+      "rootId": "tragh",
+      "kana": "トラグ・トゥラクタ",
+      "name": "Tragh · tractor",
+      "kanaParts": [
+        "トラグ",
+        "トゥラクタ"
+      ],
+      "nameParts": [
+        "Tragh",
+        "tractor"
+      ],
+      "meaningJa": "引っ張る",
+      "meaningEn": "to pull",
+      "pie": "*tragh-",
+      "representativeWord": "tractor",
+      "representativeWordKana": "トゥラクタ",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "tragh-"
+        }
+      ]
+    },
+    {
+      "rootId": "aiw",
+      "kana": "アイウ・エイジ",
+      "name": "Aiw · age",
+      "kanaParts": [
+        "アイウ",
+        "エイジ"
+      ],
+      "nameParts": [
+        "Aiw",
+        "age"
+      ],
+      "meaningJa": "生命の力",
+      "meaningEn": "vital force",
+      "pie": "*aiw-",
+      "representativeWord": "age",
+      "representativeWordKana": "エイジ",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "aiw-"
+        }
+      ]
+    },
+    {
+      "rootId": "pekw",
+      "kana": "ペク・クク",
+      "name": "Pekw · cook",
+      "kanaParts": [
+        "ペク",
+        "クク"
+      ],
+      "nameParts": [
+        "Pekw",
+        "cook"
+      ],
+      "meaningJa": "料理する",
+      "meaningEn": "to cook",
+      "pie": "*pekʷ-",
+      "representativeWord": "cook",
+      "representativeWordKana": "クク",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "pekʷ-"
+        }
+      ]
+    },
+    {
+      "rootId": "ker3",
+      "kana": "ケル・シーリアル",
+      "name": "Ker3 · cereal",
+      "kanaParts": [
+        "ケル",
+        "シーリアル"
+      ],
+      "nameParts": [
+        "Ker3",
+        "cereal"
+      ],
+      "meaningJa": "成長する",
+      "meaningEn": "to grow",
+      "pie": "*ker-3",
+      "representativeWord": "cereal",
+      "representativeWordKana": "シーリアル",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "ker-3"
+        }
+      ]
+    },
+    {
+      "rootId": "ters",
+      "kana": "テルス・トースト",
+      "name": "Ters · toast",
+      "kanaParts": [
+        "テルス",
+        "トースト"
+      ],
+      "nameParts": [
+        "Ters",
+        "toast"
+      ],
+      "meaningJa": "乾く",
+      "meaningEn": "to dry",
+      "pie": "*ters-",
+      "representativeWord": "toast",
+      "representativeWordKana": "トースト",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "ters-"
+        }
+      ]
+    },
+    {
+      "rootId": "skribh",
+      "kana": "スクリブ・スクライブ",
+      "name": "Skribh · scribe",
+      "kanaParts": [
+        "スクリブ",
+        "スクライブ"
+      ],
+      "nameParts": [
+        "Skribh",
+        "scribe"
+      ],
+      "meaningJa": "刻む",
+      "meaningEn": "to cut",
+      "pie": "*skrībh-",
+      "representativeWord": "scribe",
+      "representativeWordKana": "スクライブ",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "skrībh-"
+        }
+      ]
+    },
+    {
+      "rootId": "ster2",
+      "kana": "ステル・スター",
+      "name": "Ster2 · star",
+      "kanaParts": [
+        "ステル",
+        "スター"
+      ],
+      "nameParts": [
+        "Ster2",
+        "star"
+      ],
+      "meaningJa": "星",
+      "meaningEn": "star",
+      "pie": "*ster-2",
+      "representativeWord": "star",
+      "representativeWordKana": "スター",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "ster-2"
+        }
+      ]
+    },
+    {
+      "rootId": "plak1",
+      "kana": "プラーク・フラグ",
+      "name": "Plak1 · flag",
+      "kanaParts": [
+        "プラーク",
+        "フラグ"
+      ],
+      "nameParts": [
+        "Plak1",
+        "flag"
+      ],
+      "meaningJa": "平ら",
+      "meaningEn": "to be flat",
+      "pie": "*plāk-1",
+      "representativeWord": "flag",
+      "representativeWordKana": "フラグ",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "plāk-1"
+        }
+      ]
+    },
+    {
+      "rootId": "tag",
+      "kana": "タグ・タクシー",
+      "name": "Tag · taxi",
+      "kanaParts": [
+        "タグ",
+        "タクシー"
+      ],
+      "nameParts": [
+        "Tag",
+        "taxi"
+      ],
+      "meaningJa": "触る",
+      "meaningEn": "to touch",
+      "pie": "*tag-",
+      "representativeWord": "taxi",
+      "representativeWordKana": "タクシー",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "tag-"
+        }
+      ]
+    },
+    {
+      "rootId": "mei2",
+      "kana": "メイ・ミニ",
+      "name": "Mei2 · mini",
+      "kanaParts": [
+        "メイ",
+        "ミニ"
+      ],
+      "nameParts": [
+        "Mei2",
+        "mini"
+      ],
+      "meaningJa": "小さい",
+      "meaningEn": "small",
+      "pie": "*mei-2",
+      "representativeWord": "mini",
+      "representativeWordKana": "ミニ",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "mei-2"
+        }
+      ]
+    },
+    {
+      "rootId": "teme1",
+      "kana": "テメ・アトム",
+      "name": "Teme1 · atom",
+      "kanaParts": [
+        "テメ",
+        "アトム"
+      ],
+      "nameParts": [
+        "Teme1",
+        "atom"
+      ],
+      "meaningJa": "切る",
+      "meaningEn": "to cut",
+      "pie": "*temə-1",
+      "representativeWord": "atom",
+      "representativeWordKana": "アトム",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "temə-1"
+        }
+      ]
+    },
+    {
+      "rootId": "bheidh",
+      "kana": "ベイド・フェイス",
+      "name": "Bheidh · faith",
+      "kanaParts": [
+        "ベイド",
+        "フェイス"
+      ],
+      "nameParts": [
+        "Bheidh",
+        "faith"
+      ],
+      "meaningJa": "信頼する",
+      "meaningEn": "to trust",
+      "pie": "*bheidh-",
+      "representativeWord": "faith",
+      "representativeWordKana": "フェイス",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "bheidh-"
+        }
+      ]
+    },
+    {
+      "rootId": "lendh2",
+      "kana": "レンド・ランド",
+      "name": "Lendh2 · land",
+      "kanaParts": [
+        "レンド",
+        "ランド"
+      ],
+      "nameParts": [
+        "Lendh2",
+        "land"
+      ],
+      "meaningJa": "広々とした",
+      "meaningEn": "open land",
+      "pie": "*lendh-2",
+      "representativeWord": "land",
+      "representativeWordKana": "ランド",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "lendh-2"
+        }
+      ]
+    },
+    {
+      "rootId": "bhleu",
+      "kana": "ブレウ・フルイド",
+      "name": "Bhleu · fluid",
+      "kanaParts": [
+        "ブレウ",
+        "フルイド"
+      ],
+      "nameParts": [
+        "Bhleu",
+        "fluid"
+      ],
+      "meaningJa": "膨張する",
+      "meaningEn": "to swell",
+      "pie": "*bhleu-",
+      "representativeWord": "fluid",
+      "representativeWordKana": "フルイド",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "bhleu-"
+        }
+      ]
+    },
+    {
+      "rootId": "pau2",
+      "kana": "パウ・コムピュト",
+      "name": "Pau2 · compute",
+      "kanaParts": [
+        "パウ",
+        "コムピュト"
+      ],
+      "nameParts": [
+        "Pau2",
+        "compute"
+      ],
+      "meaningJa": "切る",
+      "meaningEn": "to cut",
+      "pie": "*pau-2",
+      "representativeWord": "compute",
+      "representativeWordKana": "コムピュト",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "pau-2"
+        }
+      ]
+    },
+    {
+      "rootId": "kad",
+      "kana": "カド・シュト",
+      "name": "Kad · chute",
+      "kanaParts": [
+        "カド",
+        "シュト"
+      ],
+      "nameParts": [
+        "Kad",
+        "chute"
+      ],
+      "meaningJa": "落下",
+      "meaningEn": "to fall",
+      "pie": "*kad-",
+      "representativeWord": "chute",
+      "representativeWordKana": "シュト",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "kad-"
+        }
+      ]
+    },
+    {
+      "rootId": "sek",
+      "kana": "セク・ソ",
+      "name": "Sek · saw",
+      "kanaParts": [
+        "セク",
+        "ソ"
+      ],
+      "nameParts": [
+        "Sek",
+        "saw"
+      ],
+      "meaningJa": "切る",
+      "meaningEn": "to cut",
+      "pie": "*sek-",
+      "representativeWord": "saw",
+      "representativeWordKana": "ソ",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "sek-"
+        }
+      ]
+    },
+    {
+      "rootId": "wekw",
+      "kana": "ウェク・ヴォイス",
+      "name": "Wekw · voice",
+      "kanaParts": [
+        "ウェク",
+        "ヴォイス"
+      ],
+      "nameParts": [
+        "Wekw",
+        "voice"
+      ],
+      "meaningJa": "話す",
+      "meaningEn": "to speak",
+      "pie": "*wekʷ-",
+      "representativeWord": "voice",
+      "representativeWordKana": "ヴォイス",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "wekʷ-"
+        }
+      ]
+    },
+    {
+      "rootId": "wer5",
+      "kana": "ウェル・カヴァァ",
+      "name": "Wer5 · cover",
+      "kanaParts": [
+        "ウェル",
+        "カヴァァ"
+      ],
+      "nameParts": [
+        "Wer5",
+        "cover"
+      ],
+      "meaningJa": "覆う",
+      "meaningEn": "to cover",
+      "pie": "*wer-5",
+      "representativeWord": "cover",
+      "representativeWordKana": "カヴァァ",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "wer-5"
+        }
+      ]
+    },
+    {
+      "rootId": "kwei3",
+      "kana": "クウェイ・キュア",
+      "name": "Kwei3 · cure",
+      "kanaParts": [
+        "クウェイ",
+        "キュア"
+      ],
+      "nameParts": [
+        "Kwei3",
+        "cure"
+      ],
+      "meaningJa": "認める",
+      "meaningEn": "to perceive",
+      "pie": "*kʷei-3",
+      "representativeWord": "cure",
+      "representativeWordKana": "キュア",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "kʷei-3"
+        }
+      ]
+    },
+    {
+      "rootId": "rei",
+      "kana": "レイ・リード",
+      "name": "Rei · read",
+      "kanaParts": [
+        "レイ",
+        "リード"
+      ],
+      "nameParts": [
+        "Rei",
+        "read"
+      ],
+      "meaningJa": "評価",
+      "meaningEn": "rate",
+      "pie": "*rē(i)-",
+      "representativeWord": "read",
+      "representativeWordKana": "リード",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "rē(i)-"
+        }
+      ]
+    },
+    {
+      "rootId": "stel",
+      "kana": "ステル・ペデスタル",
+      "name": "Stel · pedestal",
+      "kanaParts": [
+        "ステル",
+        "ペデスタル"
+      ],
+      "nameParts": [
+        "Stel",
+        "pedestal"
+      ],
+      "meaningJa": "置く",
+      "meaningEn": "to put",
+      "pie": "*stel-",
+      "representativeWord": "pedestal",
+      "representativeWordKana": "ペデスタル",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "stel-"
+        }
+      ]
+    },
+    {
+      "rootId": "awi",
+      "kana": "アウィ・エグ",
+      "name": "Awi · egg",
+      "kanaParts": [
+        "アウィ",
+        "エグ"
+      ],
+      "nameParts": [
+        "Awi",
+        "egg"
+      ],
+      "meaningJa": "鳥",
+      "meaningEn": "bird",
+      "pie": "*awi-",
+      "representativeWord": "egg",
+      "representativeWordKana": "エグ",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "awi-"
+        }
+      ]
+    },
+    {
+      "rootId": "ret",
+      "kana": "レト・ローラァ",
+      "name": "Ret · roller",
+      "kanaParts": [
+        "レト",
+        "ローラァ"
+      ],
+      "nameParts": [
+        "Ret",
+        "roller"
+      ],
+      "meaningJa": "走る",
+      "meaningEn": "to run",
+      "pie": "*ret-",
+      "representativeWord": "roller",
+      "representativeWordKana": "ローラァ",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "ret-"
+        }
+      ]
+    },
+    {
+      "rootId": "reup",
+      "kana": "レウプ・ルート",
+      "name": "Reup · loot",
+      "kanaParts": [
+        "レウプ",
+        "ルート"
+      ],
+      "nameParts": [
+        "Reup",
+        "loot"
+      ],
+      "meaningJa": "奪う",
+      "meaningEn": "to snatch",
+      "pie": "*reup-",
+      "representativeWord": "loot",
+      "representativeWordKana": "ルート",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "reup-"
+        }
+      ]
+    },
+    {
+      "rootId": "to",
+      "kana": "ト・ジス",
+      "name": "To · this",
+      "kanaParts": [
+        "ト",
+        "ジス"
+      ],
+      "nameParts": [
+        "To",
+        "this"
+      ],
+      "meaningJa": "それ",
+      "meaningEn": "demonstrative pronoun",
+      "pie": "*to-",
+      "representativeWord": "this",
+      "representativeWordKana": "ジス",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "to-"
+        }
+      ]
+    },
+    {
+      "rootId": "bhreue",
+      "kana": "ブレウェ・ブルー",
+      "name": "Bhreue · brew",
+      "kanaParts": [
+        "ブレウェ",
+        "ブルー"
+      ],
+      "nameParts": [
+        "Bhreue",
+        "brew"
+      ],
+      "meaningJa": "沸く",
+      "meaningEn": "to boil",
+      "pie": "*bhreuə-",
+      "representativeWord": "brew",
+      "representativeWordKana": "ブルー",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "bhreuə-"
+        }
+      ]
+    },
+    {
+      "rootId": "kleu",
+      "kana": "クレウ・リスン",
+      "name": "Kleu · listen",
+      "kanaParts": [
+        "クレウ",
+        "リスン"
+      ],
+      "nameParts": [
+        "Kleu",
+        "listen"
+      ],
+      "meaningJa": "聴く",
+      "meaningEn": "to hear",
+      "pie": "*kleu-",
+      "representativeWord": "listen",
+      "representativeWordKana": "リスン",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "kleu-"
+        }
+      ]
+    },
+    {
+      "rootId": "gwou",
+      "kana": "グウォウ・カゥ",
+      "name": "Gwou · cow",
+      "kanaParts": [
+        "グウォウ",
+        "カゥ"
+      ],
+      "nameParts": [
+        "Gwou",
+        "cow"
+      ],
+      "meaningJa": "牛",
+      "meaningEn": "cow/ox",
+      "pie": "*gʷou-",
+      "representativeWord": "cow",
+      "representativeWordKana": "カゥ",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "gʷou-"
+        }
+      ]
+    },
+    {
+      "rootId": "skep",
+      "kana": "スケプ・スクープ",
+      "name": "Skep · scoop",
+      "kanaParts": [
+        "スケプ",
+        "スクープ"
+      ],
+      "nameParts": [
+        "Skep",
+        "scoop"
+      ],
+      "meaningJa": "切る",
+      "meaningEn": "to cut",
+      "pie": "*(s)kep-",
+      "representativeWord": "scoop",
+      "representativeWordKana": "スクープ",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "(s)kep-"
+        }
+      ]
+    },
+    {
+      "rootId": "eue",
+      "kana": "エウェ・ヴァキューム",
+      "name": "Eue · vacuum",
+      "kanaParts": [
+        "エウェ",
+        "ヴァキューム"
+      ],
+      "nameParts": [
+        "Eue",
+        "vacuum"
+      ],
+      "meaningJa": "見離す",
+      "meaningEn": "to leave",
+      "pie": "*euə-",
+      "representativeWord": "vacuum",
+      "representativeWordKana": "ヴァキューム",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "euə-"
+        }
+      ]
+    },
+    {
+      "rootId": "mele",
+      "kana": "メレ・ミル",
+      "name": "Mele · mill",
+      "kanaParts": [
+        "メレ",
+        "ミル"
+      ],
+      "nameParts": [
+        "Mele",
+        "mill"
+      ],
+      "meaningJa": "押しつぶす",
+      "meaningEn": "to crush",
+      "pie": "*melə-",
+      "representativeWord": "mill",
+      "representativeWordKana": "ミル",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "melə-"
+        }
+      ]
+    },
+    {
+      "rootId": "keie",
+      "kana": "ケイェ・スィネマ",
+      "name": "Keie · cinema",
+      "kanaParts": [
+        "ケイェ",
+        "スィネマ"
+      ],
+      "nameParts": [
+        "Keie",
+        "cinema"
+      ],
+      "meaningJa": "始める",
+      "meaningEn": "to set in motion",
+      "pie": "*keiə-",
+      "representativeWord": "cinema",
+      "representativeWordKana": "スィネマ",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "keiə-"
+        }
+      ]
+    },
+    {
+      "rootId": "newo",
+      "kana": "ネウォ・ヌゥー",
+      "name": "Newo · new",
+      "kanaParts": [
+        "ネウォ",
+        "ヌゥー"
+      ],
+      "nameParts": [
+        "Newo",
+        "new"
+      ],
+      "meaningJa": "新しい",
+      "meaningEn": "new",
+      "pie": "*newo-",
+      "representativeWord": "new",
+      "representativeWordKana": "ヌゥー",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "newo-"
+        }
+      ]
+    },
+    {
+      "rootId": "magh",
+      "kana": "マグ・マジク",
+      "name": "Magh · magic",
+      "kanaParts": [
+        "マグ",
+        "マジク"
+      ],
+      "nameParts": [
+        "Magh",
+        "magic"
+      ],
+      "meaningJa": "能力をもつ",
+      "meaningEn": "to be able",
+      "pie": "*magh-",
+      "representativeWord": "magic",
+      "representativeWordKana": "マジク",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "magh-"
+        }
+      ]
+    },
+    {
+      "rootId": "nekwt",
+      "kana": "ネクト・ナイト",
+      "name": "Nekwt · night",
+      "kanaParts": [
+        "ネクト",
+        "ナイト"
+      ],
+      "nameParts": [
+        "Nekwt",
+        "night"
+      ],
+      "meaningJa": "夜",
+      "meaningEn": "night",
+      "pie": "*nekʷ-t-",
+      "representativeWord": "night",
+      "representativeWordKana": "ナイト",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "nekʷ-t-"
+        }
+      ]
+    },
+    {
+      "rootId": "skel1",
+      "kana": "スケル・カト",
+      "name": "Skel1 · cut",
+      "kanaParts": [
+        "スケル",
+        "カト"
+      ],
+      "nameParts": [
+        "Skel1",
+        "cut"
+      ],
+      "meaningJa": "切る",
+      "meaningEn": "cut",
+      "pie": "*(s)kel-1",
+      "representativeWord": "cut",
+      "representativeWordKana": "カト",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "(s)kel-1"
+        }
+      ]
+    },
+    {
+      "rootId": "per4",
+      "kana": "ペル・プリンタァ",
+      "name": "Per4 · printer",
+      "kanaParts": [
+        "ペル",
+        "プリンタァ"
+      ],
+      "nameParts": [
+        "Per4",
+        "printer"
+      ],
+      "meaningJa": "押す",
+      "meaningEn": "to strike",
+      "pie": "*per-4",
+      "representativeWord": "printer",
+      "representativeWordKana": "プリンタァ",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "per-4"
+        }
+      ]
+    },
+    {
+      "rootId": "streig",
+      "kana": "ストレイグ・ストローク",
+      "name": "Streig · stroke",
+      "kanaParts": [
+        "ストレイグ",
+        "ストローク"
+      ],
+      "nameParts": [
+        "Streig",
+        "stroke"
+      ],
+      "meaningJa": "撫でる",
+      "meaningEn": "to stroke",
+      "pie": "*streig-",
+      "representativeWord": "stroke",
+      "representativeWordKana": "ストローク",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "streig-"
+        }
+      ]
+    },
+    {
+      "rootId": "merg",
+      "kana": "メルグ・マーカァ",
+      "name": "Merg · marker",
+      "kanaParts": [
+        "メルグ",
+        "マーカァ"
+      ],
+      "nameParts": [
+        "Merg",
+        "marker"
+      ],
+      "meaningJa": "境界",
+      "meaningEn": "boundary",
+      "pie": "*merg-",
+      "representativeWord": "marker",
+      "representativeWordKana": "マーカァ",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "merg-"
+        }
+      ]
+    },
+    {
+      "rootId": "mel1",
+      "kana": "メル・メルト",
+      "name": "Mel1 · melt",
+      "kanaParts": [
+        "メル",
+        "メルト"
+      ],
+      "nameParts": [
+        "Mel1",
+        "melt"
+      ],
+      "meaningJa": "柔らかい",
+      "meaningEn": "soft",
+      "pie": "*mel-1",
+      "representativeWord": "melt",
+      "representativeWordKana": "メルト",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "mel-1"
+        }
+      ]
+    },
+    {
+      "rootId": "keue",
+      "kana": "ケウェ・ケイヴ",
+      "name": "Keue · cave",
+      "kanaParts": [
+        "ケウェ",
+        "ケイヴ"
+      ],
+      "nameParts": [
+        "Keue",
+        "cave"
+      ],
+      "meaningJa": "膨れる",
+      "meaningEn": "to swell",
+      "pie": "*keuə-",
+      "representativeWord": "cave",
+      "representativeWordKana": "ケイヴ",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "keuə-"
+        }
+      ]
+    },
+    {
+      "rootId": "kan",
+      "kana": "カン・チャント",
+      "name": "Kan · chant",
+      "kanaParts": [
+        "カン",
+        "チャント"
+      ],
+      "nameParts": [
+        "Kan",
+        "chant"
+      ],
+      "meaningJa": "歌う",
+      "meaningEn": "to sing",
+      "pie": "*kan-",
+      "representativeWord": "chant",
+      "representativeWordKana": "チャント",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "kan-"
+        }
+      ]
+    },
+    {
+      "rootId": "wer2",
+      "kana": "ウェル・エア",
+      "name": "Wer2 · air",
+      "kanaParts": [
+        "ウェル",
+        "エア"
+      ],
+      "nameParts": [
+        "Wer2",
+        "air"
+      ],
+      "meaningJa": "持上げる",
+      "meaningEn": "to raise",
+      "pie": "*wer-2",
+      "representativeWord": "air",
+      "representativeWordKana": "エア",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "wer-2"
+        }
+      ]
+    },
+    {
+      "rootId": "ord",
+      "kana": "オルド・オーダァ",
+      "name": "Ord · order",
+      "kanaParts": [
+        "オルド",
+        "オーダァ"
+      ],
+      "nameParts": [
+        "Ord",
+        "order"
+      ],
+      "meaningJa": "整える",
+      "meaningEn": "order",
+      "pie": "*ōrd-",
+      "representativeWord": "order",
+      "representativeWordKana": "オーダァ",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "ōrd-"
+        }
+      ]
+    },
+    {
+      "rootId": "akwa",
+      "kana": "アクア・アクアリウム",
+      "name": "Akwa · aquarium",
+      "kanaParts": [
+        "アクア",
+        "アクアリウム"
+      ],
+      "nameParts": [
+        "Akwa",
+        "aquarium"
+      ],
+      "meaningJa": "水",
+      "meaningEn": "water",
+      "pie": "*akʷ-ā-",
+      "representativeWord": "aquarium",
+      "representativeWordKana": "アクアリウム",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "akʷ-ā-"
+        }
+      ]
+    },
+    {
+      "rootId": "sent",
+      "kana": "セント・セント",
+      "name": "Sent · scent",
+      "kanaParts": [
+        "セント",
+        "セント"
+      ],
+      "nameParts": [
+        "Sent",
+        "scent"
+      ],
+      "meaningJa": "向かう",
+      "meaningEn": "to head for",
+      "pie": "*sent-",
+      "representativeWord": "scent",
+      "representativeWordKana": "セント",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "sent-"
+        }
+      ]
+    },
+    {
+      "rootId": "steig",
+      "kana": "ステイグ・ステーキ",
+      "name": "Steig · steak",
+      "kanaParts": [
+        "ステイグ",
+        "ステーキ"
+      ],
+      "nameParts": [
+        "Steig",
+        "steak"
+      ],
+      "meaningJa": "突き刺す",
+      "meaningEn": "to stick",
+      "pie": "*steig-",
+      "representativeWord": "steak",
+      "representativeWordKana": "ステーキ",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "steig-"
+        }
+      ]
+    },
+    {
+      "rootId": "mel5",
+      "kana": "メル・マラディー",
+      "name": "Mel5 · malady",
+      "kanaParts": [
+        "メル",
+        "マラディー"
+      ],
+      "nameParts": [
+        "Mel5",
+        "malady"
+      ],
+      "meaningJa": "誤りの",
+      "meaningEn": "false",
+      "pie": "*mel-5",
+      "representativeWord": "malady",
+      "representativeWordKana": "マラディー",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "mel-5"
+        }
+      ]
+    },
+    {
+      "rootId": "leig",
+      "kana": "レイグ・アライアンス",
+      "name": "Leig · alliance",
+      "kanaParts": [
+        "レイグ",
+        "アライアンス"
+      ],
+      "nameParts": [
+        "Leig",
+        "alliance"
+      ],
+      "meaningJa": "束ねる",
+      "meaningEn": "to bind",
+      "pie": "*leig-",
+      "representativeWord": "alliance",
+      "representativeWordKana": "アライアンス",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "leig-"
+        }
+      ]
+    },
+    {
+      "rootId": "legwh",
+      "kana": "レグ・レヴァァ",
+      "name": "Legwh · lever",
+      "kanaParts": [
+        "レグ",
+        "レヴァァ"
+      ],
+      "nameParts": [
+        "Legwh",
+        "lever"
+      ],
+      "meaningJa": "軽い",
+      "meaningEn": "lightweight",
+      "pie": "*legʷh-",
+      "representativeWord": "lever",
+      "representativeWordKana": "レヴァァ",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "legʷh-"
+        }
+      ]
+    },
+    {
+      "rootId": "wel2",
+      "kana": "ウェル・ウィル",
+      "name": "Wel2 · will",
+      "kanaParts": [
+        "ウェル",
+        "ウィル"
+      ],
+      "nameParts": [
+        "Wel2",
+        "will"
+      ],
+      "meaningJa": "望む",
+      "meaningEn": "to wish",
+      "pie": "*wel-2",
+      "representativeWord": "will",
+      "representativeWordKana": "ウィル",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "wel-2"
+        }
+      ]
+    },
+    {
+      "rootId": "mer2",
+      "kana": "メル・モータル",
+      "name": "Mer2 · mortal",
+      "kanaParts": [
+        "メル",
+        "モータル"
+      ],
+      "nameParts": [
+        "Mer2",
+        "mortal"
+      ],
+      "meaningJa": "こすり落とす",
+      "meaningEn": "to rub away",
+      "pie": "*mer-2",
+      "representativeWord": "mortal",
+      "representativeWordKana": "モータル",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "mer-2"
+        }
+      ]
+    },
+    {
+      "rootId": "saewel",
+      "kana": "サウェル・サン",
+      "name": "Saewel · sun",
+      "kanaParts": [
+        "サウェル",
+        "サン"
+      ],
+      "nameParts": [
+        "Saewel",
+        "sun"
+      ],
+      "meaningJa": "太陽",
+      "meaningEn": "sun",
+      "pie": "*saəwel-",
+      "representativeWord": "sun",
+      "representativeWordKana": "サン",
+      "reasonJa": "PIE表示名＋データベース登録の代表英単語。",
+      "sources": [
+        {
+          "title": "登録単語データベース",
+          "path": "app/data/generated-etymon/words.json",
+          "rootKey": "saəwel-"
+        }
+      ]
     }
   ]
 }

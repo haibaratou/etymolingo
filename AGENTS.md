@@ -23,3 +23,6 @@ Hard rules (details in docs/CODEX_HANDOFF.md — read it first):
 - Do not confuse the two etymon datasets: `app/data/pie/` = 語源データベース (1,437 roots, the illustration target) vs `app/data/*.csv` = エティモペディア mock (only 8 roots). "All etymons already exist" based on the 8-root CSV is wrong.
 - Image filenames: use the ファイル名 column of `tools/word-art-todo.csv` / `tools/root-art-todo.csv` verbatim. Never derive filenames from spellings yourself. Homograph senses use the `word@rootslug.png` form — never overwrite a shared `word.png` with a different sense.
 
+
+## Wild Wordopia character art
+For any Wild Wordopia character/art task, read work/wildwordopia/AGENTS.md and work/wildwordopia/STYLE_GUIDE.md first, and visually inspect the approved reference images listed there. Preserve the approved Nendoroid-like physical figure look across threads.

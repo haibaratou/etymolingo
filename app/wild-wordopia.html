@@ -12,8 +12,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Dela+Gothic+One&family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="../assets/chara/brainrot/world-clearing-fresh.png">
 <script src="../assets/chara/brainrot/selection-sync.js?v=20261014"></script>
-<script src="../assets/chara/brainrot/library/library.js?v=20261019-official"></script>
-<script src="../assets/chara/brainrot/site-characters.js?v=20261019-official"></script>
+<script src="../assets/chara/brainrot/library/library.js?v=20261019-notes42"></script>
+<script src="../assets/chara/brainrot/site-characters.js?v=20261019-notes42"></script>
 <script src="data/wild-wordopia-dictionary.js"></script>
 <style>
 :root{
@@ -254,6 +254,20 @@ footer .mini{font-family:var(--f-logo);font-size:22px;color:var(--ink)}
 .sectionKicker{margin:0 0 14px;font-size:12px;font-weight:900;color:#405f46;letter-spacing:.16em}.anatomy{gap:clamp(24px,4vw,64px)}#anatomy .sub{font-size:15px;line-height:1.95;max-width:35em}.parts{margin-top:24px;gap:12px}.parts li{padding:15px 17px;align-items:start;border:1px solid #d8e5c3}.parts li span:last-child{margin-top:6px;font-size:14px;line-height:1.8;color:#344b3b}.storyButton{margin-top:22px;background:var(--forest);color:var(--cream);box-shadow:0 4px 0 #092522}.storyButton span{margin-left:12px}.detailKicker{display:block;color:#607166;font-size:11px;letter-spacing:.13em;margin-bottom:14px}.dBody h3{margin:15px 0 9px}.facts{margin:8px 0 24px!important;gap:6px}.facts span{font-size:12px}.motifTitle{font-size:13px;color:#526456;letter-spacing:.04em;margin:24px 0 12px}.mlist li{padding:16px 14px;gap:13px;border:1px solid #e8dfc8}.mlist .wd{display:inline-block;margin-bottom:3px}.mlist .why{font-size:14px;line-height:1.8;margin-top:9px}.mlist .pt{margin-top:5px;font-size:12px}.familySection{margin-top:28px}.familySection details{padding:18px 0}.familySection summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:14px}.familySection summary::-webkit-details-marker{display:none}.familySection summary::after{content:'＋';font-size:20px;color:var(--forest);flex:none}.familySection details[open]>summary::after{content:'−'}.familySection summary span{margin-left:auto;white-space:nowrap}.dLinks{margin-top:24px}.dNav{position:sticky;bottom:0;top:auto;right:0;width:100%;display:flex;justify-content:flex-end;padding:10px 16px;background:rgba(255,244,220,.96);border-top:1px solid #e1d8c1;z-index:5}.dBody{padding-top:34px}dialog{scrollbar-gutter:stable}.card .mean{max-width:calc(100% - 20px);overflow-wrap:anywhere}.familyWord strong{font-size:17px}.familyWord p{color:#415348}
 @media(max-width:760px){.hero{display:flex;flex-direction:column;overflow:hidden}.hero .copy{position:relative;top:auto;left:auto;right:auto;max-width:none;padding:78px 22px 24px;order:1;z-index:3}.hero .stage{order:2;overflow-x:auto;overflow-y:hidden;padding-bottom:85px}.hero .world{width:920px;max-width:none;flex:none}.hero .lbl b{font-size:16px!important}.hero .lbl small{font-size:12px!important}.hero .w .lbl{min-width:135px;max-width:180px}.hero .tag{font-size:22px;line-height:1.5}.hero .lead{font-size:14px;line-height:1.85;max-width:30em}.hero .logo{font-size:68px}.hero .cta{gap:10px}.hero .btn{font-size:14px;padding:12px 17px}.edge{margin-top:-26px;height:26px}section.band{padding:48px 0 58px}.sectionKicker{font-size:11px}.dBody .mean{font-size:20px}.dBody{padding:26px 20px}.dNav{padding:10px 12px}.parts li{grid-template-columns:54px 1fr;padding:13px;gap:12px}.parts li img{width:54px;height:54px}.parts li b{font-size:18px}.parts li span:last-child{font-size:13px}.mlist li{grid-template-columns:48px 1fr;padding:13px}.mlist li img{width:48px;height:48px}.mlist .ja{display:block;margin-left:0}.mlist .why{font-size:13px}}
 @media(max-width:800px){.dArt{position:relative}}
+/* Scene-relative foot labels: scale with the landscape, never cover heads. */
+.hero .world{container-type:inline-size}
+.hero .world .w .lbl{top:98%;bottom:auto;left:0;width:max-content;min-width:0;max-width:18cqw;padding:3px 7px;border-width:2px;box-shadow:2px 2px 0 var(--forest);transform:translateX(-10%) rotate(3deg);line-height:1.2}
+.hero .world .w:nth-child(even) .lbl{transform:translateX(-10%) rotate(3deg)}
+.hero .world .w .lbl b{font-size:clamp(10px,1.05cqw,18px)!important;letter-spacing:-.03em;white-space:nowrap}
+.hero .world .w .lbl b span{display:inline;white-space:normal}
+.hero .world .w .lbl small{font-size:clamp(8px,.8cqw,12px)!important}
+.card .win .mean{top:auto;right:auto;bottom:2px;left:10px;rotate:3deg;max-width:calc(100% - 28px)}
+/* Each sign follows its resident's feet without touching neighbouring faces. */
+.hero .world .w[data-slot="0"] .lbl{left:36%;top:98%;transform:translateX(-10%) rotate(3deg)}
+.hero .world .w[data-slot="1"] .lbl{left:58%;top:98%;transform:translateX(-10%) rotate(3deg)}
+.hero .world .w[data-slot="2"] .lbl{left:43%;top:98%;transform:translateX(-10%) rotate(3deg)}
+.hero .world .w[data-slot="3"] .lbl{left:28%;top:98%;transform:translateX(-10%) rotate(3deg)}
+.hero .world .w[data-slot="4"] .lbl{left:43%;top:98%;transform:translateX(-10%) rotate(3deg)}
 </style>
 </head>
 <body>
@@ -335,7 +349,7 @@ const family=c=>DICT.roots[DICT.aliases[c.id]||c.rootKey||String(c.root||'').rep
 const familyWords=c=>{const key=family(c)?.key;return key?DICT.words.filter(w=>(w.p||[]).includes(key)):[];};
 const motifWord=(c,m)=>{const hits=familyWords(c).filter(w=>w.w===m.word);return hits.length===1?hits[0]:null;};
 const rep=c=>({w:family(c)?.en||c.rootCharacterName?.meaningEn||'',ja:family(c)?.ja||c.meaning||''});
-const lbl=c=>{const r=rep(c);return `<span class="lbl"><b><span>${esc(r.ja)}</span><span>一族</span></b><small>${esc(r.w)}</small></span>`;};
+const lbl=c=>{const r=rep(c);return `<span class="lbl"><b>${esc(r.ja)}一族</b></span>`;};
 // Character rarity is separate from word rarity: fewer descendants => more stars.
 const wildRarity=c=>{const count=Number(family(c)?.all)||familyWords(c).length;return count>=150?1:count>=100?2:count>=75?3:count>=60?4:5;};
 const stars=c=>`<span class="wildStars" role="img" aria-label="ワイルドのレア度 ${wildRarity(c)} / 5" title="派生語が少ない一族ほどレア">${'★'.repeat(wildRarity(c))}</span>`;
@@ -352,16 +366,21 @@ const find=()=>{};
 /* ---------- 谷の住人 ---------- */
 /* id, 横位置(画像幅に対する割合), 足もとの高さ(画像高に対する割合), 背丈(画像高に対する割合), 種類 */
 /* Close terrain: central ledge, foreground root, upper root bridge, right ledge, cave bank. */
-const SLOTS=[[.45,.70,.26,.25,.62,.34],[.64,.85,.40,.50,.86,.42],[.68,.51,.22,.25,.28,.31],[.90,.79,.29,.76,.62,.34],
-  [.26,.80,.23,.26,.80,.23],[.51,.49,.18,.51,.49,.18]];
-const FIRST=["ped","kaput","oino","weid","kom","gene"];
+const SLOTS=[
+  [.89,.82,.32,.89,.82,.32], // 足: 大樹の前、存在感を保つ
+  [.71,.48,.29,.71,.48,.29], // 見る: 岩の上、従来の大きさ
+  [.45,.70,.26,.45,.70,.26], // 外へ: 元の足一族の場所
+  [.25,.82,.27,.25,.82,.27], // 下から上へ: 川の中
+  [.57,.93,.40,.57,.93,.40]  // 頭: 道の中央から少し左へ
+];
+const FIRST=["ped","weid","eghs","upo","kaput"];
 function critter(c,x,g,h,kind,i){
   return `<button type="button" class="w ${kind}" data-id="${esc(c.id)}" style="left:${x*100}%;--g:${g};--h:${h};--z:${Math.round(g*20)};--sp:${(3+((i*7)%10)/5).toFixed(1)}s;--dl:${(-i*.37).toFixed(2)}s" aria-label="${esc(c.kana)}(${esc(c.meaning)}のワイルド)">
     ${lbl(c)}<img src="${img(c)}" alt="" ${h>.2?'fetchpriority="high"':'loading="lazy"'}></button>`;
 }
 function buildWorld(){
   const w=$("#world");
-  w.innerHTML=SLOTS.map((p,i)=>`<button type="button" class="w" data-slot="${i}" style="--x:${p[0]};--g:${p[1]};--h:${p[2]};--mx:${p[3]};--mg:${p[4]};--mw:${p[5]};--z:${i===1?9:Math.round(p[1]*8)};--sp:${(3.2+i*.35).toFixed(2)}s;--dl:${(-i*.6).toFixed(1)}s"></button>`).join("");
+  w.innerHTML=SLOTS.map((p,i)=>`<button type="button" class="w" data-slot="${i}" style="--x:${p[0]};--g:${p[1]};--h:${p[2]};--mx:${p[3]};--mg:${p[4]};--mw:${p[5]};--z:${i===4?30:Math.round(p[1]*8)};--sp:${(3.2+i*.35).toFixed(2)}s;--dl:${(-i*.6).toFixed(1)}s"></button>`).join("");
   w.querySelectorAll(".w").forEach(b=>b.addEventListener("click",()=>open(BY[b.dataset.id])));
   cast(FIRST.map(id=>BY[id]).filter(Boolean));
 
@@ -396,8 +415,7 @@ let LIMIT=24;
 function cardHTML(c){
   const ws=uniq(c).slice(0,3).map(m=>`<span>${esc(m.word)}</span>`).join("");
   return `<button type="button" class="card" data-id="${esc(c.id)}" style="--c:${esc(c.color||"#e8875a")}">
-    <span class="mean">${esc(rep(c).ja)}一族</span>
-    <div class="win"><span class="no">${no(c)}</span><img src="${img(c)}" alt="" loading="lazy" decoding="async">${stars(c)}</div>
+    <div class="win"><span class="mean">${esc(rep(c).ja)}一族</span><span class="no">${no(c)}</span><img src="${img(c)}" alt="" loading="lazy" decoding="async">${stars(c)}</div>
     <div class="body"><div class="nm">${esc(c.kana)}</div><div class="rt">${esc(rep(c).w)}</div><div class="ws">${ws}</div></div>
 </button>`;
 }

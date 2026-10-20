@@ -253,7 +253,9 @@
 .reference-designs{margin:24px auto;max-width:1400px;padding:16px;border:1px solid #ddd4c6;border-radius:12px}.reference-designs summary{cursor:pointer;font-weight:700}.reference-designs p{font-size:13px;color:#746e62}#reference-thumbnails{display:grid;grid-template-columns:repeat(auto-fill,minmax(106px,1fr));gap:10px}.reference-item{display:block;color:inherit;font-size:11px;text-decoration:none}.reference-item img{display:block;width:100%;height:110px;object-fit:contain;background:#f4f1eb;border-radius:6px}.thumb-reactions:empty,.rarity-row:empty{display:none}
 
 .inline-references{margin:12px 0 6px;border-top:1px solid #e5dfd4;padding-top:10px}.inline-references h3{font-size:12px;margin:0 0 6px;color:#786e60}.inline-reference-strip{display:flex;gap:8px;overflow-x:auto;padding:3px 2px 8px}.inline-reference{flex:0 0 82px;text-align:center;font-size:10px;color:#786e60;text-decoration:none}.inline-reference img{display:block;width:82px;height:82px;object-fit:contain;background:#f4f1eb;border:1px solid #e3ddd1;border-radius:6px}.unused-words{margin:4px 0 12px;font-size:12px;line-height:1.9;color:#716c65}.unused-words strong{font-weight:600;margin-right:8px}.unused-word{display:inline-block;margin-right:12px}.reference-only .root-meaning-title{font-size:23px}.reference-only .inline-references{border-top:0}.reference-only{padding-bottom:6px}
-.image-delete{font:600 12px/1.4 system-ui;padding:7px 11px;border:1px solid #c3a4a0;border-radius:6px;background:#fff6f4;color:#873c32;cursor:pointer}.art-stage{position:relative}.art-stage>.image-delete{position:absolute;right:12px;bottom:12px;z-index:3}.reference-entry[hidden]{display:none!important}.reference-entry{flex:0 0 82px;display:flex;flex-direction:column;gap:4px}.reference-entry .image-delete{font-size:10px;padding:4px}.candidate-thumb-item>.image-delete{align-self:center}.latest-official{font-size:11px;color:#39713d;font-weight:700}</style>
+.image-delete{font:600 12px/1.4 system-ui;padding:7px 11px;border:1px solid #c3a4a0;border-radius:6px;background:#fff6f4;color:#873c32;cursor:pointer}.art-stage{position:relative}.art-stage>.image-delete{position:absolute;right:12px;bottom:12px;z-index:3}.reference-entry[hidden]{display:none!important}.reference-entry{flex:0 0 82px;display:flex;flex-direction:column;gap:4px}.reference-entry .image-delete{font-size:10px;padding:4px}.candidate-thumb-item>.image-delete{align-self:center}.latest-official{font-size:11px;color:#39713d;font-weight:700}/* clan-label */ .clan-label{display:inline-block;font-size:.78em;font-weight:600;margin-right:.55em;color:#796344}
+/* pie-id */ .pie-id{display:block;font:600 12px/1.6 system-ui;color:#786e60;margin:3px 0 8px}
+</style>
 </head>
 <body>
   <div class="shell">
@@ -294,7 +296,7 @@
 <div class="filter-bar" lang="ja">
         <label for="root-sort">並び順<select id="root-sort"><option value="updated">更新が新しい語根順</option><option value="rank">語根の番号順</option></select></label>
         
-        <label for="campaign-filter">候補<select id="campaign-filter"><option value="all">正式画像すべて</option><option value="meaning30">追加30体</option><option value="more20">追加20体（続き）</option><option value="notes13">メモ修正13体</option><option value="notes14">メモ修正14体</option><option value="meaning20">新規20体</option><option value="cutefigure">これまでのフィギュア案</option></select></label>
+        <label for="campaign-filter">候補<select id="campaign-filter"><option value="all">正式画像すべて</option><option value="meaning30">追加30体</option><option value="more20">追加20体（続き）</option><option value="notes13">メモ修正13体</option><option value="notes14">メモ修正14体</option><option value="top100">100位までの補完21体</option><option value="meaning20">新規20体</option><option value="cutefigure">これまでのフィギュア案</option></select></label>
       </div>
       <p class="ranking-note" id="ranking-note" lang="ja">保存済みの候補を読み込んでいます。</p>
     <p class="rarity-note" lang="ja">レアリティ：1〜20位 ★1 · 21〜40位 ★2 · 41〜60位 ★3 · 61〜80位 ★4 · 81〜100位 ★5。接頭辞を中心に広がった語根は★2以下。星数はゲーム用の設定です。</p>
@@ -390,7 +392,7 @@
     }
     function rarityHtml(family) {
       const rarity = rarityFor(family);
-      if (rarity.stars === null) return '<p class="rarity" lang="ja">順位未設定 · 星数未設定</p>';
+      if (rarity.stars === null) return '';
       const label = rarity.stars + '星' + (rarity.prefixDominant ? ' · 接頭辞で広がった語根' : '');
       return '<p class="rarity" lang="ja" aria-label="レアリティ ' + escapeHtml(label) + '"><span class="rarity-stars" aria-hidden="true">' + '★'.repeat(rarity.stars) + '<span class="empty-star">' + '☆'.repeat(5-rarity.stars) + '</span></span></p>';
     }
@@ -507,6 +509,7 @@
       if(campaign==='more20')return /^more20-/.test(candidate.campaignEntryId||'');
       if(campaign==='notes13')return /^cutefigure-note13-/.test(candidate.campaignEntryId||'');
       if(campaign==='notes14')return /^cutefigure-note14-/.test(candidate.campaignEntryId||'');
+      if(campaign==='top100')return /^cutefigure-top100-/.test(candidate.campaignEntryId||'');
       if(campaign==='meaning20')return /^meaning20-/.test(candidate.campaignEntryId||'');
       if(campaign==='cutefigure')return /^cutefigure-/.test(candidate.campaignEntryId||'');
       if(campaign==='wildbeast')return /^wildbeast-/.test(candidate.campaignEntryId||'');
@@ -630,8 +633,16 @@
       return '<section class="inline-references" data-reference-root="'+escapeHtml(family.id)+'"><h3>参考デザイン</h3><div class="inline-reference-strip">'+original+refs.map(c=>item(artFolder+c.file,c.candidateId,c.candidateId)).join('')+'</div></section>';
     }
 
+    function designTraitsHtml(candidate) {
+      const t=candidate.designTraits;
+      if(!t)return '';
+      const fields=[["animalMotif", "動物モチーフ"], ["animalBreed", "品種・系統"], ["earDesign", "耳"], ["tailDesign", "尻尾"], ["hairBaseColor", "髪の基本色"], ["hairHighlights", "メッシュ"], ["hairGradient", "グラデーション"]];
+      return '<details class="design-traits"><summary>'+escapeHtml(t.animalMotif+' / 髪：'+t.hairBaseColor)+' · 耳・尻尾・髪色の詳細</summary><dl>'+fields.map(([k,label])=>'<div><dt>'+label+'</dt><dd>'+escapeHtml(t[k]||(k==='animalBreed'?'未設定（生成時の品種指定なし）':'未記録'))+'</dd></div>').join('')+'</dl></details>';
+    }
+    function pieIdHtml(candidate){return '<span class="pie-id">PIE ID: '+escapeHtml(candidate.rootId)+'</span>';}
+    function clanNameHtml(candidate){const labels={"per1": "前へ一族", "kom": "一緒に一族", "en": "中に一族", "ne": "否定一族", "re": "後ろに一族", "eghs": "外へ一族", "ad": "～へ一族", "dhe": "置く一族", "de": "指し示す一族", "sta": "立つ一族", "dwis": "二つに・離れて一族", "leg": "集める一族", "apo": "離れて一族", "upo": "下から上へ一族", "gene": "命を与える一族", "weid": "見る・知る一族", "ten": "伸ばす一族", "dwo": "二一族", "epi": "近くに一族", "reg": "まっすぐ導く一族", "wer3": "回す一族", "pele1": "満たす一族", "ambhi": "周囲に一族", "ag": "動かす一族", "ped": "足一族", "kap": "しっかり握る一族", "bher1": "運ぶ一族", "sem1": "一つ・一緒に一族", "swe": "自身一族", "sed": "座る一族", "gwei": "生きる一族", "trei": "三一族", "uper": "超えて一族", "spek": "観察する一族", "deik": "示す一族", "dekm": "十一族", "mei1": "変化する一族", "ak": "鋭い一族", "per2": "導く一族", "tere2": "横切る一族", "bha2": "話す一族", "leu": "解く一族", "men1": "考える一族", "gno": "知る一族", "kwel1": "回転する一族", "gwa": "行く一族", "spen": "引く一族", "gerbh": "ひっかく一族", "al1": "越えて一族", "pet": "急ぐ一族", "bheue": "存在する一族", "okw": "見る一族", "a": "一族", "wegh": "行く一族", "sker1": "切る一族", "sker3": "回す一族", "bhel1": "輝く一族", "ant": "前一族", "deuk": "導く一族", "plek": "編む一族", "ker1": "角一族", "bha1": "輝く一族", "me2": "測る一族", "wel3": "転がる一族", "ei": "行く一族", "kwo": "誰・何一族", "ghel2": "輝く一族", "do": "与える一族", "kaput": "頭一族", "kwetwer": "四一族", "kers2": "走る一族", "oino": "ひとつ一族", "pere2": "認める一族", "skei": "切る一族", "leuk": "光一族", "an": "上に一族", "pere1": "生産する一族", "sekw1": "追う一族", "med": "処置する一族", "kele2": "叫ぶ一族", "man2": "手一族", "krei": "ふるう一族", "stere": "広げる一族", "es": "存在する一族", "werg": "行動する一族", "klau": "留め金一族", "ye": "投げる一族", "nomen": "名一族", "meg": "大きい一族", "kaeid": "殴る一族", "ghabh": "与える一族", "steu1": "押す一族", "ksun": "共に一族", "tere1": "こする一族", "dheu1": "立ちのぼる一族", "dyeu": "輝く一族", "gheu": "注ぐ一族", "ger2": "曲がった一族", "ked": "行く一族", "kerd": "心一族", "ane": "息をする一族", "bhel2": "膨らむ一族", "genu1": "ひざ・角一族", "mori": "海・水域一族", "peuk": "刺す一族", "pau": "わずかの一族", "mittere": "行かせる一族", "pele2": "平ら一族", "medhyo": "中央一族", "wal": "強い一族", "wed1": "水一族", "nem": "割り当てる一族", "pag": "留める一族", "bhel3": "咲く一族", "bhreg": "壊す一族", "dhes": "祭礼一族", "merph": "形一族", "gwele": "投げる一族", "ar": "ぴったり合う一族", "gher1": "しっかり握る一族", "kar": "硬い一族", "al3": "成長する・養う一族", "op": "働く一族", "deu2": "動作をする一族", "reudh": "赤一族", "kel2": "覆う一族", "penkwe": "五一族", "beu": "ふくらむ一族", "ud": "上へ一族", "plat": "広げる一族", "wer4": "認める一族", "klei": "反り返る一族", "men4": "小さい・孤立した一族", "dek": "取る一族", "meue": "押し出す一族", "dem": "家一族", "yeug": "一緒になる一族", "tele": "持ち上げる一族", "pel6": "強く押す一族", "dhghem": "大地一族", "poti": "力一族", "ghend": "つかむ一族", "teue2": "膨らむ一族", "deru": "堅い一族", "pete": "広げる一族", "em": "取る一族", "dhei": "吸う一族", "gwere2": "重い・激しい一族", "men2": "突出する一族", "pleu": "流れる一族", "bhergh2": "高い一族", "da": "分ける一族", "ghredh": "歩いていく一族", "sol": "全体一族", "weik1": "一族・村一族", "kel1": "打つ一族", "sag": "探し出す一族", "legh": "横たえる一族", "pa": "保護する一族", "segh": "つかむ一族", "skeu": "覆う一族", "tragh": "引っ張る一族", "aiw": "生命の力一族", "pekw": "料理する一族", "ker3": "成長する一族", "ters": "乾く一族", "skribh": "刻む一族", "ster2": "星一族", "plak1": "平ら一族", "tag": "触る一族", "mei2": "小さい一族", "teme1": "切る一族", "bheidh": "信頼する一族", "lendh2": "広々とした一族", "bhleu": "膨張する一族", "pau2": "切る一族", "kad": "落下一族", "sek": "切る一族", "wekw": "話す一族", "wer5": "覆う一族", "kwei3": "認める一族", "rei": "評価一族", "stel": "置く一族", "awi": "鳥一族", "ret": "走る一族", "reup": "奪う一族", "to": "それ一族", "bhreue": "沸く一族", "kleu": "聴く一族", "gwou": "牛一族", "skep": "切る一族", "eue": "見離す一族", "mele": "押しつぶす一族", "keie": "始める一族", "newo": "新しい一族", "magh": "能力をもつ一族", "nekwt": "夜一族", "skel1": "切る一族", "per4": "押す一族", "streig": "撫でる一族", "merg": "境界一族", "mel1": "柔らかい一族", "keue": "膨れる一族", "kan": "歌う一族", "wer2": "持上げる一族", "ord": "整える一族", "akwa": "水一族", "sent": "向かう一族", "steig": "突き刺す一族", "mel5": "誤りの一族", "leig": "束ねる一族", "legwh": "軽い一族", "wel2": "望む一族", "mer2": "こすり落とす一族", "saewel": "太陽一族"};return '<span class="clan-label">'+escapeHtml(labels[candidate.rootId]||'')+'</span> ';}
     function tagsFor(candidate) {
-      return '<div class="word-tags" aria-label="この画像のデザインに使用した英単語と日本語訳">'+designWordsFor(candidate).map(item=>'<span class="word-tag" title="この案のデザインに使用"><strong>'+escapeHtml(item.word)+'</strong> · '+escapeHtml(item.meaningJa)+'</span>').join('')+'</div>'+unusedWordsHtml(candidate);
+      return '<div class="word-tags" aria-label="この画像のデザインに使用した英単語と日本語訳">'+designWordsFor(candidate).map(item=>'<span class="word-tag" title="この案のデザインに使用"><strong>'+escapeHtml(item.word)+'</strong> · '+escapeHtml(item.meaningJa)+'</span>').join('')+'</div>'+unusedWordsHtml(candidate)+designTraitsHtml(candidate);
     }
 
     function rootCoreDetails(candidate) {
@@ -708,8 +719,8 @@
       const art = candidate.file ? artFolder + candidate.file : '';
       const image = art ? '<img class="creature-art new-art" src="' + escapeHtml(art) + '" alt="' + escapeHtml(name + ': ' + candidate.motifs.map(motif => motif.word).join(', ')) + '" width="512" height="512" loading="' + (index < 3 ? 'eager' : 'lazy') + '" decoding="async">' : '<div class="missing-art" lang="ja">画像を読み込めません。</div>';
       return '<article class="' + className + '" id="root-' + escapeHtml(family.id) + '" style="--tint:' + escapeHtml(family.color || '#e8875a') + '">' + rootMeaningHtml(family) + '<div class="art-stage">' + image + originalImage(family) + imageDeleteButton(family.id,candidate.candidateId) +
-        (family.art ? '' : '<div class="missing-art original-name" lang="ja">この語根には元キャラの画像がありません。</div>') + '</div>' + '<div class="rarity-row">' + rarityHtml(family) + likeButton(family.id,candidate.candidateId) + dislikeButton(family.id,candidate.candidateId) + '</div>' +
-        '<div class="card-copy">' + candidateMeta(family,candidate) + '<h2 class="new-name" lang="ja" tabindex="-1">' + escapeHtml(name) + '</h2>' + englishNameHtml(candidate) + '<h2 class="original-name">' + escapeHtml(family.meaning || family.root) + ' character</h2>' + tagsFor(candidate) +
+        '' + '</div>' + '<div class="rarity-row">' + rarityHtml(family) + likeButton(family.id,candidate.candidateId) + dislikeButton(family.id,candidate.candidateId) + '</div>' +
+        '<div class="card-copy">' + candidateMeta(family,candidate) + '<h2 class="new-name" lang="ja" tabindex="-1">' + clanNameHtml(candidate) + escapeHtml(name) + '</h2>' + pieIdHtml(candidate) + englishNameHtml(candidate) + '<h2 class="original-name">' + escapeHtml(family.meaning || family.root) + ' character</h2>' + tagsFor(candidate) +
         candidateNavigation(family,candidate) + rootReferencesHtml(family) + rootNotePanel(family) + '<p class="original-review-note" lang="ja">原作を表示しています。新作の候補チェックは「New creatures」で行えます。</p>' + lessonDetails(family) + wordDetails(family,candidate,detailsOpened.has(family.id)) + assetLinks(candidate) + '</div></article>';
     }
 
@@ -828,7 +839,7 @@
       const family = familyFor(rootId);
       if (!family || !family.candidates.length) return;
       document.getElementById('compare-title').textContent = rootMeaningText(family) + ' · ' + family.root;
-      compareGrid.innerHTML = visibleCandidates(family).map(candidate => '<article class="compare-candidate">' + rootMeaningHtml(family) + '<img class="compare-art" src="' + escapeHtml(artFolder + candidate.file) + '" alt="' + escapeHtml(displayName(candidate)) + '" width="512" height="512">' + '<div class="rarity-row">' + rarityHtml(family) + likeButton(family.id,candidate.candidateId) + dislikeButton(family.id,candidate.candidateId) + '</div><div class="compare-copy">' + candidateMeta(family,candidate) + '<h3 lang="ja">' + escapeHtml(displayName(candidate)) + '</h3>' + englishNameHtml(candidate) + tagsFor(candidate) + '<p class="candidate-style">' + escapeHtml(candidate.concept || '') + '</p>' + reviewPanel(family,candidate,false) + wordDetails(family,candidate,true) + assetLinks(candidate) + '<button type="button" class="toolbar-button" lang="ja" data-action="choose-from-compare" data-root="' + escapeHtml(rootId) + '" data-candidate="' + escapeHtml(candidate.candidateId) + '">この案をメイン表示する</button></div></article>').join('');
+      compareGrid.innerHTML = visibleCandidates(family).map(candidate => '<article class="compare-candidate">' + rootMeaningHtml(family) + '<img class="compare-art" src="' + escapeHtml(artFolder + candidate.file) + '" alt="' + escapeHtml(displayName(candidate)) + '" width="512" height="512">' + '<div class="rarity-row">' + rarityHtml(family) + likeButton(family.id,candidate.candidateId) + dislikeButton(family.id,candidate.candidateId) + '</div><div class="compare-copy">' + candidateMeta(family,candidate) + '<h3 lang="ja">' + clanNameHtml(candidate) + escapeHtml(displayName(candidate)) + '</h3>' + pieIdHtml(candidate) + englishNameHtml(candidate) + tagsFor(candidate) + '<p class="candidate-style">' + escapeHtml(candidate.concept || '') + '</p>' + reviewPanel(family,candidate,false) + wordDetails(family,candidate,true) + assetLinks(candidate) + '<button type="button" class="toolbar-button" lang="ja" data-action="choose-from-compare" data-root="' + escapeHtml(rootId) + '" data-candidate="' + escapeHtml(candidate.candidateId) + '">この案をメイン表示する</button></div></article>').join('');
     }
     function openComparison(rootId) {
       compareRootId = rootId;
@@ -1175,6 +1186,49 @@
     })();
     }
   </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- design-rules:start -->
+<style>
+.design-rules-button{position:fixed;right:14px;bottom:14px;z-index:60;border:1px solid #8d877b;background:#fffdf7;color:#38342e;border-radius:9px;padding:10px 13px;font:600 12px/1.4 sans-serif;box-shadow:0 2px 9px #0002;cursor:pointer}
+#design-rules-dialog{position:fixed;inset:0;margin:auto;width:min(760px,calc(100vw - 32px));max-height:80vh;box-sizing:border-box;padding:22px;background:#fffdf8;color:#302d28;border:1px solid #aaa;border-radius:14px;overflow:auto;line-height:1.8;z-index:100}
+#design-rules-dialog::backdrop{background:#0007}#design-rules-dialog h2{font-size:21px;margin:0 0 14px}#design-rules-dialog h3{font-size:16px;margin:20px 0 5px}#design-rules-dialog p{font-size:14px;margin:7px 0}#design-rules-close{position:sticky;top:0;float:right;padding:7px 13px;background:#fff;color:#302d28;border:1px solid #aaa;border-radius:6px;cursor:pointer}
+.design-traits{margin:10px 0;font-size:12px;line-height:1.65;color:#554d43}.design-traits summary{cursor:pointer;font-weight:600}.design-traits dl{margin:6px 0;padding:8px 10px;background:#f8f6f1;border-radius:7px}.design-traits dl div{display:grid;grid-template-columns:110px 1fr;gap:8px}.design-traits dt{font-weight:600}.design-traits dd{margin:0;overflow-wrap:anywhere}
+.copy>.design-traits{color:#e5dfd5}.copy>.design-traits dl{background:#2b303d}
+@media(max-width:480px){.design-rules-button{right:9px;bottom:9px;font-size:11px;padding:8px}.design-traits dl div{grid-template-columns:92px 1fr}}
+</style>
+<button type="button" class="design-rules-button" id="design-rules-open">デザイン・画像生成ルール</button>
+<dialog id="design-rules-dialog" aria-labelledby="design-rules-title"><button type="button" id="design-rules-close">閉じる</button><h2 id="design-rules-title">ワイルドのデザイン・画像生成ルール</h2><h3>語源がデザインの中心</h3><p>production/root-lessons.json の登録単語から、だいたい３語程度を目安に意味を造形化する（上限ではない）。関連がない連想語を同じ語源として扱わない。</p><p>大きな持ち物、動作、髪型、シルエットで意味を読み取れることを優先する。汎用衣装＋ケモ耳＋小物の持ち替えだけで量産しない。</p><p>語源に関係のない細かい紋様、宝石、飾り紐、バッジ、過剰な金具は不要。職業や意味に必要な構造は残す。王の風格など、役柄に必要な大きな衣装まで質素にしない。</p><h3>プロポーションと質感</h3><p>約２頭身、大きな頭、小さな胴体、短い手足。ねんどろいどのような実物の立体PVCフィギュアの質感を維持する。</p><p>かわいさ、カッコよさを優先。平面イラスト、細長い通常頭身、過度な奇形、無関係なホラー化を避ける。</p><p>全員を同じ顔にしない。目・眉・表情・髪型・役柄・大きなモチーフの組み合わせを分散する。</p><h3>動物と髪の記録</h3><p>動物の耳を使い、人間の耳は髪などで隠す。動物モチーフは兎など一種に偏らせない。</p><p>犬・猫は品種・系統も新規生成の設計項目にする。例：柴犬風、コーギー風、サモエド風、メインクーン風、シャム猫風。耳の立ち方・大きさ、尾の形・毛量、毛色へ反映し、髪型だけの違いにしない。</p><p>品種は候補ごとのanimalBreedに記録する。指定せず生成した既存画像は「未設定」とし、見た目から純血種を断定しない。実在品種ではない場合は「架空の混合系統」と明記する。</p><p>新規生成では動物耳と尻尾を必須とし、尻尾の形と腰後ろの自然な付け根が分かるポーズ・衣装・構図を先に設計する。見えないから省略する方針にしない。小物や乗り物から生やさず、機能しない二股などを強行しない。個別の最新指定で非表示とされた場合だけ例外を記録する。</p><p>候補画像ごとに動物モチーフ、耳の形・色、尻尾の形・色・表示有無、髪の基本色、メッシュ、グラデーションを記録する。</p><p>画像に見えない特徴を断定しない。「見えない」と「ない」を区別する。変更指示は語根・バージョンを指定して行えるようにする。</p><h3>画像内の英単語は絶対禁止</h3><p>英単語を服、持ち物、本、看板、機械、画面、ラベル、ロゴなど画像内のどこにも絶対に描かない。</p><p>全プロンプトに no English words, no written labels, no lettering, no typographic logos anywhere を入れる。</p><p>英単語と和訳は画像外のHTML学習タグに表示する。画像には文字で説明せず、形と動作で意味を表す。</p><h3>構造と仕上げ</h3><p>指、握り、関節、道具、車輪、双眼鏡などの構造が自然につながっていること。意味のない光線や余分な小物を足さない。</p><p>背景は透明。全身と主要な道具を切らずに収める。ぼかした背景や床を焼き込まない。</p><p>正式画像は512×512のRGBA PNG。原寸の生成画像とプロンプトも別に保存する。透明部分を維持する。</p><h3>保存とサイト</h3><p>基本的に後から生成した正式シリーズ画像を正式版とする。旧版は参考として保持し、元ファイルを消さない。</p><p>画像近くの削除ボタンはサイト上の非表示を保存する。復元できるようにし、メモを消さない。</p><p>キャラ名の下に実際に使った登録英単語と和訳、その下に未使用の代表語を表示する。</p><p>変更は指定された候補を対象に行う。ゼロから生成し直す指示なら古い画像への継ぎ足しをしない。</p><p>大量生成後に修正する指示を守る。生成済み・保存済み・サイト反映済みを区別して報告する。</p><h3>2026-10-19 再生成の品質基準</h3><p>修正メモはコンセプトに取り込み、原則として画像を編集せずゼロから新規生成。以前の編集プロンプト・欠陥を連鎖させない。</p><p>生成後、約２頭身の立体PVC質感、顔・手・道具の構造、動物耳と尻尾の自然な接続と表示、画像内の文字なしを目視確認してから正式候補へ追加。以前の版・参考デザイン・メモは保持する。</p><h3>正方形の構図とキャラの表示サイズ（2026-10-19）</h3><p>正式画像は512×512。生成前から1:1の正方形内でデザインし、キャラ本体を大きく主役として収める。小物を真横に一列で並べて横長にしない。</p><p>テント・建物・乗り物などは斜め後ろへ寄せたり手前に重ね、奥行きで収める。重要な英単語のモチーフは認識できる部分を残す。キャラの顔・全身・尻尾を隠したり切ったりしない。</p><p>キャラ本体の頭と身長を他キャラと比較して大きさを揃える。小物込み外枠を同じサイズに縮めるだけで済ませない。余白を減らすだけで小物との相対サイズが直るとは考えない。</p><h3>想定年齢の管理</h3><p>幼児・子ども・思春期・大人・老人をdesignTraits.designAgeGroupとして生成前に設計する。約２頭身の共通プロポーションとは別の、顔立ち・表情・髪・役柄などで表す想定年齢。</p><p>既存画像に指定がなかった場合は未設定。小さい頭身だけで幼児と判断しない。比較ページで候補ごとに指定し、動物・髪色・想定年齢の組み合わせで被りを確認する。</p><h3>英単語モチーフの数（最新方針）</h3><p>「３つ」は語源に関連する英単語の数の目安であり、上限・厳密な個数ではない。４語以上でも、デザイン上の意味が伝わればよい。</p><p>４語目を追加する指示は、既存の英単語モチーフを削除する指示ではない。数合わせで既存要素を削らず、追加として扱う。削除・置き換えを明示された場合だけその指定に従う。</p><p>新規プロンプトに exactly three / only three / three motifs only のような厳密な個数制限を入れない。既存の過去プロンプトを再利用するときもこの制限を引き継がない。画像で使った英単語は個数にかかわらず学習タグへすべて反映する。</p><h3>メモの保存と消去の条件（2026-10-19 最新）</h3><p>ダウンロード開始は保存成功ではない。保存先への書き込み・クローズ成功を確認できた場合だけ、書き出した内容と一致するメモを自動消去する。保存失敗・キャンセル時は残す。</p><p>ブラウザーの通常ダウンロードでは完了を検証できないため、メモを保持し、利用者の「保存できたので書き出したメモを消去」で対象を消す。</p><p>ファイル名は日本時間の日時と一意な末尾を付ける。空の書き出しで消去前バックアップを上書きしない。消去前バックアップと履歴を保持し、復元・本文表示／コピーを提供する。</p></dialog>
+<script>(()=>{const d=document.getElementById('design-rules-dialog');document.getElementById('design-rules-open').onclick=()=>d.showModal();document.getElementById('design-rules-close').onclick=()=>d.close();d.addEventListener('click',e=>{if(e.target===d){const r=d.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)d.close();}});})();</script>
+<!-- design-rules:end -->
 </body>
 </html>
 
