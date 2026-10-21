@@ -18,7 +18,7 @@
   // canonical CSV imports as a script; preserve all existing identities.
   if (scriptBase && globalThis.location?.protocol === 'file:') {
     const script = document.createElement('script');
-    script.src = new URL('../data/generated-etymon/csv-illustration-scenes.js?v=csv-import-1', scriptBase).href;
+    script.src = new URL('../data/generated-etymon/csv-illustration-scenes.js?v=08de0c5e58b5', scriptBase).href;
     script.onload = async () => {
       try {
         const envelope = globalThis.ETYMON_CSV_SCENES;
@@ -47,8 +47,17 @@
     }).catch(error => { loads.delete(url); throw error; }));
     return loads.get(url);
   }
-  function find(data, word, art) {
-    return data.entries.find(entry => key(entry) === identity(word.w, word.p, art)) || importedScenes.find(entry => key(entry) === identity(word.w, word.p, art)) || null;
+  function find(data, word, art, supplements = importedScenes) {
+    const match = identity(word.w, word.p, art);
+    const base = data.entries.find(entry => key(entry) === match);
+    const imported = supplements.find(entry => key(entry) === match);
+    // Only an explicitly bound replacement PNG can supersede embedded history.
+    // Current-image verification below still applies; same-image text never wins.
+    if (base && imported?.review?.status === 'reviewed'
+        && imported.supersedes_image_sha256 === base.image?.sha256
+        && imported.image?.sha256 !== base.image?.sha256
+        && imported.sense?.sha256 === base.sense?.sha256) return imported;
+    return base || imported || null;
   }
   async function verify(entry, options = {}) {
     if (!entry) return {status:'unreviewed',entry:null};
