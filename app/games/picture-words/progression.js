@@ -51,14 +51,9 @@
   }
 
   function discoveryWeight(word, collected = 0, language = 'en') {
-    // The first three pages favor familiar, short spellings. Every later page
-    // gently widens that preference; even the rarest word keeps a positive draw.
-    const { easyLimit, commonLimit } = discoveryLimits(collected);
-    const score = Number.isFinite(word.difficultyScore) ? word.difficultyScore : [...(language === 'ja' ? word.w : word.en)].length * 2;
-    const rank = Number.isFinite(word.rank) && word.rank > 0 ? word.rank : null;
-    const ease = Math.max(1, 4 - Math.max(0, score - easyLimit) / 4);
-    const familiarity = rank === null ? 3 : Math.max(1, 8 - Math.max(0, rank - commonLimit) / 70);
-    return ease * familiarity;
+    // The reviewed custom level is the learning axis; this selector never reads r.
+    const tier=Number.isInteger(word.tier)?word.tier:3;
+    return Math.max(1,10-tier);
   }
 
   function selectNext(catalog, saved, options = {}) {
@@ -69,6 +64,7 @@
     const recency = new Map(seen.map((id, index) => [id, index]));
     const stars = isRecord(saved?.[language]?.stars) ? saved[language].stars : {};
     let choices = (Array.isArray(catalog) ? catalog : []).map((word, index) => ({ word, index })).filter(({ word }) => supports(word, language));
+    if(targetTier>=0)choices=choices.filter(({word})=>word.tier===targetTier);
     if (!choices.length) return -1;
 
     // A rank is a preference: every missing page can appear before a review.
@@ -93,15 +89,7 @@
     const fraction = Number.isFinite(sample) ? Math.max(0, Math.min(1 - Number.EPSILON, sample)) : 0;
     if (targetTier < 0 && choices.length > 1) {
       const collected = new Set(languages.flatMap(lang => Object.entries(isRecord(saved?.[lang]?.stars) ? saved[lang].stars : {}).filter(([, stars]) => [1, 2, 3].includes(stars)).map(([id]) => id))).size;
-      const { easyLimit, commonLimit } = discoveryLimits(collected);
-      const approachable = choices.filter(({ word }) => Number.isFinite(word.rank) && word.rank > 0 && word.rank <= commonLimit && Number.isFinite(word.difficultyScore) && word.difficultyScore <= easyLimit);
-      // Most draws keep a mobile session brisk; the remaining draws can reveal
-      // any missing illustration, so new and uncommon vocabulary stays in play.
-      let poolFraction = fraction;
-      if (approachable.length && approachable.length < choices.length) {
-        if (fraction < .8) { choices = approachable; poolFraction = fraction / .8; }
-        else poolFraction = (fraction - .8) / .2;
-      }
+      const poolFraction=fraction;
       const weights = choices.map(({ word }) => discoveryWeight(word, collected, language));
       let draw = poolFraction * weights.reduce((sum, weight) => sum + weight, 0);
       for (let index = 0; index < choices.length; index++) {

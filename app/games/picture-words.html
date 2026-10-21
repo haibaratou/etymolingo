@@ -35,19 +35,31 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=M+PLUS+Rounded+1c:wght@500;700;800&display=swap">
   <link rel="manifest" href="picture-words/manifest.webmanifest">
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <link rel="stylesheet" href="picture-words/style.css?v=e8e10dde472c">
-  <script src="picture-words/desktop.js?v=pictlingo8" defer></script>
+  <link rel="stylesheet" href="picture-words/style.css?v=513b34926732">
+  <script src="picture-words/desktop.js?v=c5e0c217bc08" defer></script>
   <script src="picture-words/catalog.js?v=7294524c2ae8" defer></script>
-  <script src="picture-words/difficulty.js?v=608642e9ac23" defer></script>
-  <script src="picture-words/gesture.js?v=2a4781a2dbdc" defer></script>
-  <script src="picture-words/pronunciation.js?v=dcb3952cb4a4" defer></script>
-  <script src="picture-words/progression.js?v=new-card1" defer></script>
-  <script src="picture-words/reviewed-scenes.js?v=861f9beb3a65" defer></script>
-  <script src="picture-words/offline.js?v=32f21e1f97a9" defer></script>
-  <link rel="stylesheet" href="../shared/illustration-scenes.css?v=footer2">
-  <script src="../shared/illustration-scenes.js?v=1ea9593d99d5" defer></script>
-  <script src="pictlingo-quest/quest-data.js?v=2" defer></script>
-  <script src="picture-words/game.js?v=6d1a1bd80291" defer></script>
+  <script src="../data/generated-etymon/learning-levels.js?v=48bcf2f15474" defer></script>
+  <script src="../shared/learning-levels.js?v=79e8fc2cad88" defer></script>
+  <script src="../data/generated-etymon/picture-words-selection.js?v=218926139bb6" defer></script>
+  <script src="picture-words/learning-gate.js?v=3d154a5b1112" defer></script>
+  <script src="picture-words/difficulty.js?v=700501f148a9" defer></script>
+  <script src="picture-words/gesture.js?v=e43ccedf011a" defer></script>
+  <script src="picture-words/pronunciation.js?v=092b18575e5d" defer></script>
+  <script src="picture-words/progression.js?v=13cb4bf190e9" defer></script>
+  <script src="picture-words/reviewed-scenes.js?v=4d10193475e7" defer></script>
+  <script src="picture-words/offline.js?v=e3c662c81b63" defer></script>
+  <link rel="stylesheet" href="../shared/illustration-scenes.css?v=d8f7a1554521">
+  <script src="../shared/illustration-scenes.js?v=6b978e791e31" defer></script>
+  <script src="pictlingo-quest/quest-data.js?v=28dcfbcdf71d" defer></script>
+<link rel="stylesheet" href="../shared/english-paraphrases.css?v=047a6dd2a569">
+<script src="../data/generated-etymon/english-paraphrases.js?v=a098b4de3875" defer></script>
+<script src="../shared/english-paraphrases.js?v=d1d4a4ee4c0c" defer></script>
+<script src="../data/generated-etymon/dictionary-basics.js?v=0af8aa359283" defer></script>
+<link rel="stylesheet" href="../shared/rarity-presentation.css?v=72739a7155e0">
+<script src="../shared/rarity-presentation.js?v=7f511677b174" defer></script>
+  <script src="picture-words/game.js?v=47120acf3014" defer></script>
+<script src="../data/generated-etymon/custom-learning-levels.js?v=f5cfb48d7e4b"></script>
+<script src="../shared/custom-learning-levels.js?v=6e4bce3f02ce"></script>
 </head>
 <body>
   <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -163,6 +175,7 @@
                 <span class="book-right"><span class="book-page-number" id="rewardPageNumber"></span><span class="book-placeholder" aria-hidden="true">?</span><span class="reward-art-wrap"><img id="rewardArt" class="book-word-art" alt="" width="220" height="220"><span id="rewardSeal" class="result-stamp" role="status"></span></span><strong id="rewardWord" class="book-word"></strong><small id="rewardReading" class="book-reading"></small><span id="rewardStars" class="reward-stars" aria-hidden="true"></span></span>
               </button>
               <div id="rewardExplanation" class="reward-explanation" hidden></div>
+              <section id="rewardParaphrase" hidden></section>
               <div id="winPronunciation" class="win-pronunciation" hidden></div>
     </div>
               <div class="reward-actions">

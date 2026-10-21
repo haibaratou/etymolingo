@@ -932,7 +932,7 @@ function drawRootLines(){
   svg.style.width=mr.width+"px";svg.style.height=mr.height+"px";
   let p="";
   map.querySelectorAll(".wnode").forEach(node=>{
-    const b=node.getBoundingClientRect();
+    const b=(node.querySelector('.wnImg')||node).getBoundingClientRect();
     const onLeft=node.closest(".rmSide").classList.contains("left");
     const ex=(onLeft?b.right:b.left)-mr.left, ey=b.top+b.height/2-mr.top;
     const dx=ex-cx, dy=ey-cy, len=Math.hypot(dx,dy)||1;
@@ -946,6 +946,10 @@ function drawRootLines(){
 addEventListener("resize",()=>{if($(".rootMap"))drawRootLines();});
 addEventListener("load",()=>{if($(".rootMap"))drawRootLines();});
 if(document.fonts&&document.fonts.ready)document.fonts.ready.then(()=>{if($(".rootMap"))drawRootLines();});
+// Image/font/layout changes must keep the connector attached to the visible node.
+const rootLineObserver=new ResizeObserver(()=>{if($(".rootMap"))drawRootLines();});
+rootLineObserver.observe($("#view"));
+document.addEventListener('load',e=>{if(e.target.matches?.('.rmChar,.wnImg img'))drawRootLines();},true);
 
 /* ---- 未登録エティモンのページ ----
    12体のエティモン以外の祖先(語根・接辞)はここに集まる。

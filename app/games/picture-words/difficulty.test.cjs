@@ -56,17 +56,17 @@ test('the reviewed dictionary preserves eligible identities and stable valid ran
   assert.deepEqual(ordered.map(w => w.id).sort(), source.map(w => w.id).sort());
   assert.equal(new Set(ordered.map(w => w.id)).size, source.length);
   for (let i = 1; i < ordered.length; i++) assert.ok(ordered[i].difficultyScore >= ordered[i - 1].difficultyScore);
-  assert.equal(tiers.length, 8); // The rank system remains complete even when a reviewed subset is sparse.
+  assert.equal(tiers.length, 10); // Empty learning tiers remain explicit.
   assert.ok(ordered.every(word => Number.isFinite(word.difficultyScore) && Number.isInteger(word.tier) && word.tier >= 0 && word.tier < tiers.length));
   assert.ok(ordered.filter(word => word.tier < 7).length > ordered.length * .8, 'Expansion must not place every added word in the final rank');
   assert.equal(ordered.find(word => word.id === 'car').tier, 0);
 });
 
-test('synthetic spellings cover all eight stable ranks regardless of the reviewed subset', () => {
-  const samples = ['abc', 'abcde', 'abcdef', 'abcdefgh', 'abcdefghi', 'abcdefghijk', 'abcdefghijklmn', 'abcdefghijklmnopq'].map(en => ({ id: `fixture-${en}`, en, w: '' }));
-  const small = buildCatalog(samples), expanded = buildCatalog([...source, ...samples]);
-  assert.deepEqual(small.map(word => word.tier), [0, 1, 2, 3, 4, 5, 6, 7]);
-  for (const word of small) assert.equal(expanded.find(candidate => candidate.id === word.id).tier, word.tier);
+test('custom levels determine tiers independently of spelling length or direct rarity use', () => {
+  const samples = [1,2,3,4].map((level,i) => ({id:`custom-${level}`,en:i===0?'abcdefghijklmn':'cat',w:'',rank:i===0?99999:1,customLearningLevel:{level}}));
+  const small=buildCatalog(samples),expanded=buildCatalog([...source,...samples]);
+  assert.deepEqual(small.map(word=>word.tier),[0,1,2,3]);
+  for(const word of small)assert.equal(expanded.find(candidate=>candidate.id===word.id).tier,word.tier);
 });
 
 test('short words stay in one ring, long words use two rings with at most six inner letters', () => {

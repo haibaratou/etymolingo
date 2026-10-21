@@ -14,6 +14,8 @@ from datetime import datetime, timezone, timedelta
 import json
 from pathlib import Path
 import re
+import shutil
+import subprocess
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[2]
@@ -533,6 +535,10 @@ def main():
             parser.error('catalog.js is out of date; rebuild it first.')
     else:
         args.output.write_text(text, encoding='utf-8')
+        if args.output.resolve()==(HERE/'catalog.js').resolve():
+            node=shutil.which('node')
+            if not node:raise RuntimeError('Node.js is required to refresh the CEFR/reviewed-image selection')
+            subprocess.run([node,str(HERE/'build-selection.cjs')],check=True)
     print(f'{"Verified" if args.check else "Wrote"} {len(selected):,} unique English/image pairs; '
           f'{sum(bool(row["w"]) for row in selected):,} have verified Japanese answers. '
           f'All English answers use 2-{MAX_LETTERS} letters; all artwork exists.')

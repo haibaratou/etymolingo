@@ -1,16 +1,7 @@
 /* Shared word order: language switches keep the same illustration and rarity. */
 ((root) => {
   'use strict';
-  const tiers = [
-    { key: 'common', code: 'C', name: 'COMMON', ja: 'はじめの一歩', en: 'First steps', color: '#688b62', decoys: 1 },
-    { key: 'uncommon', code: 'UC', name: 'UNCOMMON', ja: 'ひとつ上の挑戦', en: 'A step further', color: '#398b8b', decoys: 2 },
-    { key: 'rare', code: 'R', name: 'RARE', ja: '手ごわいことば', en: 'Tricky words', color: '#527cbb', decoys: 3 },
-    { key: 'epic', code: 'SR', name: 'EPIC', ja: 'むずかしいことば', en: 'Expert words', color: '#9466b3', decoys: 4 },
-    { key: 'legendary', code: 'SSR', name: 'LEGENDARY', ja: 'ことばの達人', en: 'Word master', color: '#b88a35', decoys: 5 },
-    { key: 'mythic', code: 'UR', name: 'MYTHIC', ja: '熟練のことば', en: 'Master spellings', color: '#bc617d', decoys: 6 },
-    { key: 'extreme', code: 'EX', name: 'EXTREME', ja: '超難関のことば', en: 'Extreme vocabulary', color: '#6960ae', decoys: 6 },
-    { key: 'master', code: 'Ω', name: 'BILINGUAL BOSS', ja: '熟語・最終試練', en: 'Compound word mastery', color: '#ad7440', decoys: 7 },
-  ];
+  const tiers = Array.from({length:10},(_,i)=>({key:String(i+1),code:'Lv'+(i+1),name:'独自レベル '+(i+1),ja:'独自レベル '+(i+1),en:'Custom level '+(i+1),color:['#688b62','#398b8b','#527cbb','#9466b3'][Math.min(3,Math.floor(i/3))],decoys:0}));
   const repeats = text => [...text].length - new Set([...text]).size;
   // A game-specific spelling score, not a language proficiency / frequency level.
   function wordScore(word) {
@@ -21,8 +12,8 @@
   }
   function buildCatalog(words) {
     return words.map((word, sourceIndex) => ({ ...word, sourceIndex, difficultyScore: wordScore(word) }))
-      .sort((a, b) => a.difficultyScore - b.difficultyScore || a.sourceIndex - b.sourceIndex)
-      .map((word, order) => ({ ...word, order, tier: [9, 12, 15, 18, 22, 27, 34].filter(limit => word.difficultyScore >= limit).length }));
+      .sort((a,b) => (a.customLearningLevel?.level||1)-(b.customLearningLevel?.level||1) || a.difficultyScore-b.difficultyScore || a.sourceIndex-b.sourceIndex)
+      .map((word, order) => ({ ...word, order, tier: (word.customLearningLevel?.level||1)-1 }));
   }
   function challenge(word, language) {
     const tier = tiers[word.tier], length = [...((language === 'ja' ? word.w : word.en) || '')].length;
@@ -46,7 +37,12 @@
     const id = source[Math.max(0, Math.min(source.length - 1, old.index))]?.id;
     return Math.max(0, ordered.findIndex(word => word.id === id));
   }
-  const api = { tiers, wordScore, buildCatalog, bilingualCatalog, challenge, resumeIndex };
+  function migrateSelection(raw){
+    const old=raw.learningScheme==='CEFR-J-1.6'&&Number.isInteger(raw.targetTier)&&raw.targetTier>=0&&raw.targetTier<4;
+    const targetTier=raw.learningScheme==='custom-learning-hint-v0.1'&&Number.isInteger(raw.targetTier)&&raw.targetTier>=-1&&raw.targetTier<10?raw.targetTier:old?raw.targetTier*2:-1;
+    return {targetTier,learningScheme:'custom-learning-hint-v0.1',legacyLearningSelection:raw.legacyLearningSelection||(old?{scheme:raw.learningScheme,targetTier:raw.targetTier,migration:'paired_band_lower_level'}:null)};
+  }
+  const api = { migrateSelection, tiers, wordScore, buildCatalog, bilingualCatalog, challenge, resumeIndex };
   if (typeof module === 'object' && module.exports) module.exports = api;
   else root.WordBloomDifficulty = api;
 })(typeof window === 'undefined' ? globalThis : window);

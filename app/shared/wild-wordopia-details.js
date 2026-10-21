@@ -1,0 +1,35 @@
+/* Exact sense-bound detail data from authorized published dictionaries. */
+(()=>{'use strict';
+const loads=new Map();
+function load(src){if(!loads.has(src))loads.set(src,new Promise((resolve,reject)=>{const s=document.createElement('script');s.src=src;s.onload=resolve;s.onerror=()=>reject(Error('詳細データを読み込めませんでした。'));document.head.append(s);}));return loads.get(src);}
+let ready,dictionary;
+function loadDictionary(){return dictionary||(dictionary=(async()=>{await load('data/wild-wordopia-word-details.js');const e=WILDWORDOPIA_WORD_DETAILS_GZIP,bytes=Uint8Array.from(atob(e.data),c=>c.charCodeAt(0));const raw=new Uint8Array(await new Response(new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'))).arrayBuffer());const hash=[...new Uint8Array(await crypto.subtle.digest('SHA-256',raw))].map(v=>v.toString(16).padStart(2,'0')).join('');if(hash!==e.sha256)throw Error('一族辞書のチェックサムが一致しません。');return window.WILDWORDOPIA_WORD_DETAILS=JSON.parse(new TextDecoder().decode(raw));})());}
+async function services(){return ready||(ready=(async()=>{
+ await loadDictionary();
+ await Promise.all([load('shared/custom-learning-levels.js'),load('data/generated-etymon/custom-learning-levels.js'),load('shared/english-paraphrases.js'),load('data/generated-etymon/english-paraphrases.js'),load('data/generated-etymon/dictionary-basics.js')]);
+ const learning=await EtymonCustomLearningLevels.decode(ETYMON_CUSTOM_LEARNING_LEVELS),basics=await EnglishParaphrases.decode(ETYMON_DICTIONARY_BASICS_GZIP);
+ return {learning,paraphrases:EnglishParaphrases.create(ETYMON_ENGLISH_PARAPHRASES,basics)};
+})());}
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+window.WildWordDetails={loadDictionary,async render(target,entry,rootDictionary){
+ target.textContent='詳細を読み込んでいます…';
+ try{const svc=await services();if(!target.isConnected)return;
+ const row=Number.isInteger(entry.dictionaryIndex)?WILDWORDOPIA_WORD_DETAILS.rows[entry.dictionaryIndex]:WILDWORDOPIA_WORD_DETAILS.rows.find(x=>x.w===entry.w&&JSON.stringify(x.p)===JSON.stringify(entry.p)&&x.ja===entry.ja&&x.en===entry.en);
+ if(!row||row.w!==entry.w||JSON.stringify(row.p)!==JSON.stringify(entry.p)||row.ja!==entry.ja||row.en!==entry.en){target.textContent='この語義の詳細は照合できていません。';return;}
+ const level=svc.learning.lookup(row),regions={G:'ゲルマン',L:'ロマンス',Gr:'ギリシャ',S:'サンスクリット',Sa:'サンスクリット',Ce:'ケルト',Sl:'スラヴ',Ir:'ペルシャ'};
+ target.innerHTML=`<div class="wordDetailHead"><h4>${esc(row.syllables||row.w)}</h4><button type="button" class="wordSpeak" aria-label="${esc(row.w)}の発音を再生">🔊 発音</button></div>
+ ${row.phonetic?`<p lang="en" class="wordPhonetic">${esc(row.phonetic)}</p>`:''}${row.k||row.kana?`<p>読み：${esc(row.k||row.kana)}</p>`:''}
+ <p>${row.pos?`<b class="wordPos">${esc(row.pos)}</b> `:''}${esc(row.ja)}</p>${row.en?`<p lang="en">${esc(row.en)}</p>`:''}
+ <div class="wordDetailBadges">${EtymonRarity.html(EtymonRarity.numeric(row.r,'detail'))}<span>レア度 ${row.r>0&&row.r<99999?esc(row.r):'未確認'}</span></div>
+ <p class="wordLearning">独自レベル ${level?esc(level.level)+(level.basis!=='cefr_pos_match'?'（推定）':''):'未分類'}<small>学習の目安です。単語レア度とは別の指標です。</small></p>
+ ${(row.gs||[row.g]).filter(Boolean).length?`<p>語派：${(row.gs||[row.g]).filter(Boolean).map(x=>esc(regions[x]||x)).join('・')}</p>`:''}
+ ${row.pre||row.suf?`<p>接頭辞：${esc(row.pre||'—')} ／ 接尾辞：${esc(row.suf||'—')}</p>`:''}
+ ${row.b?`<section><h5>語源メモ</h5><p>${esc(row.b)}</p></section>`:''}
+ <section><h5>つながる語根（PIE）</h5>${row.p.map(k=>{const r=WILDWORDOPIA_WORD_DETAILS.roots[k]||rootDictionary[k],note=r?.d||r?.def;return `<div><a href="etymon-explorer.html#root:${encodeURIComponent(k)}" target="_blank" rel="noopener">*${esc(r?.pie||k)} ${esc(r?.ja||'')} ${esc(r?.en||'')}</a>${note?`<details><summary>語根の説明を読む</summary><p>${esc(note)}</p>${r.aff?.length?`<p>関連する接辞：${r.aff.map(esc).join('・')}</p>`:''}</details>`:''}</div>`;}).join('')}</section>
+ <div class="wildParaphrase"></div><p><a href="pictpedia.html#/w/dictionary:${row.dictionaryIndex}" target="_blank" rel="noopener">この語義をPictpediaで開く ↗</a></p>`;
+ target.querySelector('.wordSpeak').onclick=()=>{if(!('speechSynthesis'in window))return;speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(row.w);u.lang='en-US';u.rate=.9;speechSynthesis.speak(u);};
+ EnglishParaphrases.render(target.querySelector('.wildParaphrase'),row,svc.paraphrases,'pictpedia.html');
+ target.dataset.word= row.w;target.dataset.dictionaryIndex=row.dictionaryIndex;
+ }catch(e){target.textContent=e.message;}
+}};
+})();

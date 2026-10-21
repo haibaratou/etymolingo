@@ -1277,6 +1277,8 @@ img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
 #veil .joins img{width:min(22vw,86px);height:min(22vw,86px);object-fit:contain;margin:0}
 #veil .joins b{display:none}
 </style>
+<link rel="stylesheet" href="../shared/rarity-presentation.css?v=72739a7155e0">
+<script src="../shared/rarity-presentation.js?v=7f511677b174"></script>
 </head>
 <body>
 <div id="stage">
@@ -3065,10 +3067,7 @@ function flyToAnswer(b,slot){
 function drawMeta(){
   const t=rarityTier(card);
   const name=RARITY_LABEL[t]||"";
-  const bits=['<span class="g"><span>レアリティ</span>'
-    +'<span class="stars">'+"★".repeat(t)
-    +'<span class="off">'+"★".repeat(7-t)+"</span></span>"
-    +(name?"<span>"+esc(name)+"</span>":"")+"</span>"];
+  const bits=[window.EtymonRarity?window.EtymonRarity.html(window.EtymonRarity.band(t,7,name||'レアリティ','game')):'<span class="g">レアリティ '+"★".repeat(t)+'</span>'];
   // 成り立ち。接頭辞もふくめて、出てくる順に全部つなぐ。
   // 語根だけ出しても「後ろへ運ぶ」の「後ろへ」が抜けて、意味が通らない
   // 語根の細かい話はここに出さない。戦っているエティモンが誰かは

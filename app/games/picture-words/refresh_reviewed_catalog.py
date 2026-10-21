@@ -4,7 +4,7 @@ The historical command filename is retained for local Windows workflows.
 Descriptions and Japanese readings are never fabricated to admit a puzzle.
 """
 from pathlib import Path
-import argparse,hashlib,json,re,sys
+import argparse,hashlib,json,re,sys,shutil,subprocess
 GAME=Path('app/games/picture-words');HTML=Path('app/games/picture-words.html')
 def sha256(raw):return hashlib.sha256(raw).hexdigest()
 def json_bytes(data,pretty=False):return (json.dumps(data,ensure_ascii=False,indent=2 if pretty else None,separators=None if pretty else (',',':'))+'\n').encode()
@@ -43,8 +43,7 @@ def main(argv=None):
     raise
    official,_=mod.build(a.root)
    outputs.update({a.root/k:b for k,b in official.items()})
-   # Preserve the user's direct-link command without a new Node requirement
-   # for the existing Python/Windows refresh. Its output is a constant lazy view.
+   # Preserve the direct-link compatibility view alongside reviewed sidecars.
    compatibility=a.root/GAME/'build-dictionary-links.cjs'
    if compatibility.is_file():
     source=compatibility.read_text(encoding='utf-8')
@@ -60,12 +59,21 @@ def main(argv=None):
     for key,field in [('words_sha256','sourceWordsSha256'),('scenes_sha256','scenesSha256'),('illustration_index_sha256','indexSha256')]:
      if dictionary['sources'][key]!=report['meta'][field]:raise ValueError('Dictionary compatibility provenance differs')
     outputs[a.root/GAME/'dictionary-links.js']=match[1].encode()
+  canonical_output=out.resolve()==(a.root/GAME).resolve()
+  node=shutil.which('node') if not a.check and canonical_output else None
+  if not a.check and canonical_output and not node:raise ValueError('Node.js is required to refresh reviewed prototype sidecars')
   changed=[]
   for path,raw in outputs.items():
    if not path.exists() or path.read_bytes()!=raw:
     changed.append(str(path))
     if not a.check:path.parent.mkdir(parents=True,exist_ok=True);tmp=path.with_name(path.name+'.tmp');tmp.write_bytes(raw);tmp.replace(path)
   if a.check and changed:raise ValueError('Generated outputs stale: '+', '.join(changed[:10]))
+  if node:
+   scripts=[a.root/GAME/'build-selection.cjs']
+   if not a.game_only:scripts.append(a.root/'app/eigo-no-e/build-caption-snapshot.cjs')
+   for script in scripts:
+    try:subprocess.run([node,str(script.resolve()),'--root',str(a.root.resolve())],check=True)
+    except subprocess.CalledProcessError as err:raise ValueError('Reviewed sidecar refresh failed: '+script.name) from err
   print(('Verified' if a.check else 'Wrote')+f" {report['emittedRows']} image entries; {report['meta']['wordEntryCount']} bound words; playable {report['meta']['playableCounts']}; {report['lazyAssets']} lazy reviewed-image packs.")
   return 0
  except (OSError,ValueError,KeyError,AssertionError) as e:print('Image catalog refresh failed: '+str(e),file=sys.stderr);return 1

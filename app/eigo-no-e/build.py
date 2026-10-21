@@ -9,7 +9,7 @@ No source-repository/private data, WordNet notes, gloss overrides, file mtimes,
 or guessed image filenames are used. Originals and canonical data are read-only.
 """
 from __future__ import annotations
-import argparse, hashlib, io, json, re, sys, unicodedata
+import argparse, hashlib, io, json, re, sys, unicodedata, shutil, subprocess
 from collections import Counter
 from pathlib import Path
 from PIL import Image, __version__ as PILLOW_VERSION
@@ -183,5 +183,9 @@ def main():
     for reason,n in sorted(Counter(x['reason'] for x in report['excluded']).items()):print(f'  excluded {reason}: {n}')
     if a.check and changed:
         print('Rebuild required: '+' '.join(changed[:12]),file=sys.stderr);return 1
+    if not a.check:
+        node=shutil.which('node')
+        if not node:raise RuntimeError('Node.js is required to refresh the reviewed caption sidecar')
+        subprocess.run([node,str(HERE/'build-caption-snapshot.cjs'),'--root',str(a.root.resolve())],check=True)
     return 0
 if __name__=='__main__':raise SystemExit(main())

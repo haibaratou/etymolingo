@@ -256,3 +256,5 @@ main{outline:none;min-width:0}
 @media(max-width:620px){.caption-line{gap:7px}.sentence-audio{padding:7px}.sentence-audio span{display:none}.dictionary-meanings li{gap:8px}.phonetics{font-size:17px}.word-sources{font-size:11px}}
 
 .dictionary-only{max-width:760px;margin:auto}.dictionary-choices{padding-left:20px}.dictionary-choices li{margin:12px 0}.dictionary-choices a{text-decoration:underline;text-underline-offset:3px}
+
+.custom-learning-label{font-size:12px!important;display:flex;gap:4px;align-items:center;background:rgba(255,255,255,.94);color:#365446;padding:4px 7px;border-radius:8px;max-width:95%}.custom-learning-label small{font-size:9px}.word-art .custom-learning-label{font-size:15px!important}

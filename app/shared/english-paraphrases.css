@@ -1,0 +1,7 @@
+.english-paraphrase{margin:14px 0;padding:13px 15px;border:1px solid #e4dccb;border-radius:12px;background:#fffdf6;color:#37483f;text-align:left;overflow-wrap:anywhere}
+.english-paraphrase h3{margin:0 0 8px;font-size:13px;line-height:1.5;color:#476957}
+.english-paraphrase p{margin:0;font-size:15px;line-height:1.8;font-weight:500;letter-spacing:normal}
+.english-paraphrase a{color:#256d72;text-decoration:underline;text-decoration-style:dotted;text-underline-offset:3px}
+.english-paraphrase a:focus-visible{outline:2px solid #256d72;outline-offset:3px}
+.english-paraphrase small{display:block;margin-top:8px;font-size:10px;line-height:1.6;color:#776f62}
+.english-paraphrase[data-paraphrase-status="missing"] p{font-size:12px;color:#807b72}

@@ -115,12 +115,13 @@
     }
     async prepare(word) {
       if(!validRow(word))return {status:'unavailable',reason:'invalid-image-binding',playable:false};
+      if(!validCaption(word))return {status:'unavailable',reason:'caption-unverified',playable:false};
       const blocker=playBlocker(word);
       if(blocker)return {status:'held',reason:blocker.code||'known_issue_needs_review',playable:false,ttsAllowed:false,entry:null};
       const dataset=await this.checkDataset();if(!dataset.ok)return {status:'unavailable',reason:dataset.reason,playable:false};
       try {
         let imageURL,imageVerified=false;
-        if(this.location.protocol==='file:' && !hasPack(word)) imageURL=this.canonicalURL(word);
+        if(this.location.protocol==='file:' && !hasPack(word)) throw new Error('pack-unavailable');
         else {
           let bytes;
           if(this.snapshot())bytes=await this.loadPack(word);
@@ -131,7 +132,7 @@
         let captionReady=dataset.captionsCurrent && imageVerified && validCaption(word);
         if(captionReady) {const e=word.reviewedScene,senseBytes=new TextEncoder().encode(JSON.stringify([normalize(e.w),e.p,e.sense.ja,e.sense.en]));captionReady=await this.digest('SHA-256',senseBytes)===e.sense.sha256;}
         const status=hasIssues(word)?'held':captionReady?'reviewed':(word.description?.status==='reviewed'?'stale':word.description?.status||'missing');
-        return freeze({status,playable:true,captionStatus:status,ttsAllowed:captionReady,entry:captionReady?JSON.parse(JSON.stringify(word.reviewedScene)):null,imageURL,imageVerified,mode:dataset.mode});
+        return freeze({status,playable:captionReady&&imageVerified,captionStatus:status,ttsAllowed:captionReady,entry:captionReady?JSON.parse(JSON.stringify(word.reviewedScene)):null,imageURL,imageVerified,mode:dataset.mode});
       } catch(error){return {status:'unavailable',reason:error.message||'image-unavailable',playable:false};}
     }
   }

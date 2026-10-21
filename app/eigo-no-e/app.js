@@ -38,7 +38,8 @@ view.innerHTML='<div class="page empty" role="status">イラストを読み込�
 try {
   if (!generated || !window.EigoCatalogValidation || !window.IllustrationScenes) throw Error('Catalog scripts unavailable');
   if(localSnapshot){
-    D=window.EigoCatalogValidation.buildSnapshotCatalog(generated);
+    const snapshot=await window.PictpediaCaptionSnapshot.load(window.PICTPEDIA_SCENES,generated);
+    D=window.EigoCatalogValidation.buildCurrentCatalog(generated,snapshot.scenes,window.EigoCatalogValidation.snapshotWords(generated),snapshot.index);
     try{D=await window.SemanticClassifications.applyToCatalog(D,generated.semanticClassifications,window.SemanticClassifications.canonicalWords(generated));}
     catch(error){console.warn('Semantic classification unavailable:',error);D=semanticFallback(D);}
   } else {
@@ -87,13 +88,16 @@ const usPronunciationByWord=new Map(usPronunciations.entries.map(e=>[e.w,e]));
 const basicById=new Map(dictionaryBasics.entries.map(e=>[e.dictionaryIndex,e]));
 const basicByKey=new Map();for(const e of dictionaryBasics.entries){const key=L.key(e.w,e.p);if(!basicByKey.has(key))basicByKey.set(key,[]);basicByKey.get(key).push(e);}
 function basicRecord(w){const match=e=>e&&L.key(e.w,e.p)===L.key(w.w,w.p)&&String(e.ja||'').split('、')[0]===String(w.ja||'').split('、')[0];const direct=basicById.get(w.dictionaryIndex);if(match(direct))return direct;const hits=(basicByKey.get(L.key(w.w,w.p))||[]).filter(match);return hits.length===1?hits[0]:null;}
-const levelIndex=new Map((window.ETYMON_WEBLIO_LEVELS?.entries||[]).map(e=>[e.w.toLowerCase(),e]));
+let paraphrases=null;try{paraphrases=window.EnglishParaphrases.create(window.ETYMON_ENGLISH_PARAPHRASES,dictionaryBasics);}catch(error){console.warn('English meaning data unavailable',error);}
+const customLevels=await window.EtymonCustomLearningLevels.decode(window.ETYMON_CUSTOM_LEARNING_LEVELS).catch(()=>null);
+const cefrLevels=window.EtymonLearningLevels?.create(window.ETYMON_LEARNING_LEVELS);
 const lexicalRows=dictionaryBasics.entries.map(e=>({...e,id:'dictionary:'+e.dictionaryIndex,dictionaryOnly:true}));
 const illustratedSpellings=new Set(W.filter(w=>w.w).map(w=>w.w.toLowerCase()));
 const termIndex=L.indexWords([...W,...lexicalRows.filter(e=>!illustratedSpellings.has(e.w.toLowerCase()))]);
 const wordProfile=w=>L.profile(w,lexicalProfiles);
 const tokenHTML=text=>L.linkedTokens(String(text||''),termIndex).map(t=>t.href?`<a class="sentence-word" href="${esc(t.href)}">${esc(t.text)}</a>`:esc(t.text)).join('');
-function difficultyHTML(w){const d=L.difficulty(levelIndex.get(String(w.w||'').toLowerCase()));if(!d)return '';return `<span class="difficulty-stars${d.value>10?' compact':''}" role="img" aria-label="難易度 星${d.value}、Weblioレベル${d.level}" title="Weblio レベル${d.level}（星${d.value}）">${'<span class="star full" aria-hidden="true">★</span>'.repeat(d.full)}</span>`;}
+function rarityHTML(w,context='list'){return window.EtymonRarity?.html(window.EtymonRarity.numeric(w.r,context))||'';}
+function difficultyHTML(w){if(!w.w)return '';const d=customLevels?.lookup(w),official=cefrLevels?.lookup(String(w.w||''),w.pos||'');const label=d?'独自レベル '+d.level:'独自レベル未分類';const explanation=d?'暫定推定。'+(d.basis==='cefr_anchor_then_edited_auxiliary_split'?'CEFRの品詞一致区分＋編集済み補助指標。':'語形・項目単位の編集済み補助指標による低信頼推定。')+(d.targetPosStatus==='unresolved'?'対象品詞は未確定。':''):'対象語義・品詞・根拠の確認待ち。';return `<span class="difficulty-stars custom-learning-label" title="${esc(explanation+(official?' 既存CEFR-J参照: '+official.level:''))}" aria-label="${label}・推定">${label}<small>推定</small></span>`;}
 function imagePOS(w){const p=wordProfile(w);const name=p?.senses.find(s=>s.id===p.illustratedSense)?.pos;const fallback=L.splitPOS(w.pos);return name|| (fallback.length===1?fallback[0]:'');}
 function pronunciationHTML(w){const imported=usPronunciationByWord.get(w.w);
  if(imported?.status==='imported'&&imported.ipa.length===1)return `<div class="phonetics"><span lang="en">/${esc(imported.ipa[0])}/</span></div>`;
@@ -121,7 +125,7 @@ const hasCaption = w => w.description ? w.description.status==='reviewed'&&!!w.d
 const needsRevision = w => w.description?.status==='mismatch';
 const needsReview = w => w.description?.reason==='illustration_needs_review';
 const missingCaptionHTML = w => (needsRevision(w)||needsReview(w))?`<p class="caption-status" lang="ja">${needsReview(w)?'イラスト要確認':'イラスト要修正'}</p>${w.description?.detail?`<small class="caption-revision-reason">${esc(w.description.detail)}</small>`:''}`:'<p class="caption-status">解説未作成</p>';
-const tile = w => `<a class="tile" href="${href(w)}"><span class="pic"><img src="${esc(thumb(w))}" data-fallback="${esc(full(w))}" alt="${esc(w.w ? w.w+' のイラスト' : titleOf(w))}" loading="lazy" decoding="async" width="320" height="320">${difficultyHTML(w)}</span><span class="cap"><span class="w">${esc(titleOf(w))}</span>${w.ja?`<span class="j">${esc(firstJa(w))}</span>`:''}${w.w&&!hasCaption(w)?`<small class="caption-status">${needsReview(w)?'イラスト要確認':needsRevision(w)?'イラスト要修正':'解説未作成'}</small>`:''}</span></a>`;
+const tile = w => `<a class="tile" href="${href(w)}"><span class="pic"><img src="${esc(thumb(w))}" data-fallback="${esc(full(w))}" alt="${esc(w.w ? w.w+' のイラスト' : titleOf(w))}" loading="lazy" decoding="async" width="320" height="320">${difficultyHTML(w)}</span><span class="cap"><span class="w">${esc(titleOf(w))}</span>${w.ja?`<span class="j">${esc(firstJa(w))}</span>`:''}${rarityHTML(w)}${w.w&&!hasCaption(w)?`<small class="caption-status">${needsReview(w)?'イラスト要確認':needsRevision(w)?'イラスト要修正':'解説未作成'}</small>`:''}</span></a>`;
 const gridPages = new Map(); let gridSerial=0;
 const grid = list => {
   list=list.filter(w=>!w.unavailable);const token=String(++gridSerial),shown=Math.min(60,list.length);
@@ -285,7 +289,8 @@ function catPage(cid, sid) {
 function dictionaryPage(id){
  if(!/^dictionary:\d+$/.test(String(id)))return notFound();
  const index=Number(String(id).slice('dictionary:'.length)),record=basicById.get(index);if(!record)return notFound();const w={...record,id};side();
- view.innerHTML=`<div class="page fade"><nav class="crumbs"><a href="#/">トップ</a>${chev}<span>${esc(w.w)}</span></nav><article class="dictionary-only"><div class="word-heading"><h1 class="word-title" lang="en">${esc(w.w)}</h1><button class="word-speak" id="speak" type="button" aria-label="単語の発音"><svg><use href="#i-sound"/></svg></button></div>${pronunciationHTML(w)}${meaningsHTML(w)}</article></div>`;
+ view.innerHTML=`<div class="page fade"><nav class="crumbs"><a href="#/">トップ</a>${chev}<span>${esc(w.w)}</span></nav><article class="dictionary-only"><div class="word-heading"><h1 class="word-title" lang="en">${esc(w.w)}</h1><button class="word-speak" id="speak" type="button" aria-label="単語の発音"><svg><use href="#i-sound"/></svg></button></div><div class="word-rarity">${rarityHTML(w,'detail')}</div>${pronunciationHTML(w)}${meaningsHTML(w)}<section id="wordParaphrase"></section></article></div>`;
+ window.EnglishParaphrases.render($('#wordParaphrase'),w,paraphrases);
  $('#speak').onclick=()=>speak(w.w,'en-US',$('#speak'));document.title=w.w+' — Pictpedia';
 }
 function dictionaryChoices(word){const rows=lexicalRows.filter(e=>e.w.toLowerCase()===String(word).toLowerCase());if(!rows.length)return notFound();side();view.innerHTML=`<div class="page fade"><h1 class="h1">${esc(word)}</h1><ul class="dictionary-choices">${rows.map(w=>`<li><a href="#/w/${encodeURIComponent(w.id)}"><b lang="en">${esc(w.w)}</b> ${esc(w.ja)}</a></li>`).join('')}</ul></div>`;}
@@ -305,14 +310,16 @@ function wordPage(id) {
       </div>
       <div class="word-info">
         <div class="word-heading"><h1 class="word-title${w.w?'':' pending-title'}"${w.w?' lang="en"':''}>${esc(titleOf(w))}</h1>${w.w?'<button class="word-speak" id="speak" type="button" aria-label="単語の発音" title="発音を聞く"><svg><use href="#i-sound"/></svg></button>':''}</div>
+        <div class="word-rarity">${rarityHTML(w,'detail')}</div>
         ${pronunciationHTML(w)}
-        ${meaningsHTML(w)}
+        ${meaningsHTML(w)}<section id="wordParaphrase"></section>
         <div class="box scene-description" id="sceneBox" aria-live="polite">${hasCaption(w)?'':((needsRevision(w)||needsReview(w))?missingCaptionHTML(w):'')}</div>
         <div class="word-categories"><div class="tags" aria-label="カテゴリー">${[...categoryTags].map(([url,label])=>`<a href="${esc(url)}">${esc(label)}</a>`).join('')}</div></div>
       </div>
     </article>
     ${related.length ? `<h2 class="h2">関連するイラスト${sub ? `<a href="#/c/${k}">${esc(sub.ja)}をすべて見る</a>` : ''}</h2>${grid(related.slice(0, 18))}` : ''}
   </div>`;
+  window.EnglishParaphrases.render($('#wordParaphrase'),w,paraphrases);
   const sceneBox=$('#sceneBox');
   verifyImage(w).then(ok=>{
     if(!sceneBox.isConnected)return;

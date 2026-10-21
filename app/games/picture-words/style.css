@@ -1182,3 +1182,17 @@ html.phone-host body> :not(.desktop-phone-host){display:none!important}
  html[data-layout=mobile] #puzzleTools{grid-column:1/-1;grid-row:3;align-self:center;margin:0}
  html[data-layout=mobile] #wheel{grid-column:1/-1;grid-row:4}
 }
+
+/* Slightly larger bilingual explanations, within the existing scrolling result. */
+#rewardExplanation p,.dictionary-entry .illustration-explanation p{font-size:15px;line-height:1.75}
+.cefr-level{font:700 15px/1.2 Fredoka,sans-serif;white-space:nowrap}
+
+#rewardStars.star-reveal{display:flex!important;justify-content:center;gap:5px;min-height:34px;flex-shrink:0;pointer-events:none}
+#rewardStars.star-reveal img{width:32px;height:32px;object-fit:contain;animation:reward-star-pop .5s both;animation-delay:calc(var(--star-index)*.12s);filter:drop-shadow(0 0 3px #f4d36b66)}
+#rewardStars.star-reveal[data-rarity="4"] img,#rewardStars.star-reveal[data-rarity="5"] img{filter:drop-shadow(0 0 6px #f4c34099)}
+@keyframes reward-star-pop{0%{opacity:0;transform:scale(.6) rotate(-8deg)}65%{opacity:1;transform:scale(1.18) rotate(3deg)}100%{opacity:1;transform:scale(1) rotate(0)}}
+@media(prefers-reduced-motion:reduce){#rewardStars.star-reveal img{animation:none;opacity:1;transform:none}}
+
+#rewardStars.star-reveal img{animation-name:reward-star-pop,reward-star-glint;animation-duration:.5s,.65s;animation-fill-mode:both,both;animation-delay:calc(var(--star-index)*.12s),calc(.5s + var(--star-index)*.12s)}
+@keyframes reward-star-glint{0%,100%{filter:brightness(1) drop-shadow(0 0 3px #f4d36b66)}50%{filter:brightness(1.25) drop-shadow(0 0 7px #f4c34099)}}
+@media(prefers-reduced-motion:reduce){#rewardStars.star-reveal img{animation:none}}

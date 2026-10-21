@@ -122,6 +122,8 @@ button.pick.on{background:#fff3c4}
 #dexTabs button.on{background:var(--yellow)}
 .dex{cursor:pointer}
 </style>
+<link rel="stylesheet" href="../shared/rarity-presentation.css?v=72739a7155e0">
+<script src="../shared/rarity-presentation.js?v=7f511677b174"></script>
 </head>
 <body>
 <main class="app">
@@ -1925,7 +1927,7 @@ function paintDexView() {
   $("#dexTabs").innerHTML = tabs.map(([n, label, h, a]) =>
     `<button type="button" data-tab="${n}" class="${n === dexTab ? "on" : ""}">${label} ${h.toLocaleString()}/${a.toLocaleString()}</button>`).join("");
   $("#dexTabs").querySelectorAll("button").forEach(b =>
-    b.onclick = () => { dexTab = Number(b.dataset.tab); paintDexView(); });
+    {if(dictMode==='en'&&Number(b.dataset.tab)>0)window.EtymonRarity?.paint(b,window.EtymonRarity.band(Number(b.dataset.tab),5,L.stars[Number(b.dataset.tab)-1],'list'));b.setAttribute('aria-pressed',String(Number(b.dataset.tab)===dexTab));b.onclick = () => { dexTab = Number(b.dataset.tab); paintDexView(); };});
   const list = mine.filter(e => !dexTab || starOf(e) === dexTab)
                    .sort((a, b) => b.w.length - a.w.length || a.rank - b.rank);
   const CAP = 400;
@@ -2099,6 +2101,7 @@ function endGame(reason) {
   $("#resWord").textContent = longest ? dispOf(longest) : t().noWord;
   $("#resMean").textContent = longest ? [subOf(longest), glossOf(longest), starText(longest)].filter(Boolean).join(" ／ ") : "";
   $("#resTag").textContent = longest ? `${longest.w.length}${lang === "ja" ? "文字" : " letters"}` : "";
+  if(dictMode==='en'&&longest&&window.EtymonRarity)$("#resTag").insertAdjacentHTML('beforeend',' '+window.EtymonRarity.html(window.EtymonRarity.band(starOf(longest),5,t().stars[starOf(longest)-1],'detail')));
   $("#resScore").textContent = score.toLocaleString();
   $("#resWords").textContent = madeWords.length + (newCount ? ` (NEW ${newCount})` : "");
   try { localStorage.setItem(dexKey(), [...collected].join("\n")); } catch (_) {}

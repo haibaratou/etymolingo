@@ -16,13 +16,16 @@
     if (!$('launchScreen').open) $('launchScreen').showModal();
     return;
   }
+  let paraphrases=null;try{const basics=await window.EnglishParaphrases.decode(window.ETYMON_DICTIONARY_BASICS_GZIP);paraphrases=window.EnglishParaphrases.create(window.ETYMON_ENGLISH_PARAPHRASES,basics);}catch(error){console.warn('English meaning data unavailable',error);}
   const difficulty = window.WordBloomDifficulty;
   const offline = await window.NicolingoOffline.ready();
-  const sceneRuntime = new window.WordBloomReviewedScenes.Runtime({meta:window.PICTURE_WORDS_CATALOG_META,offline});
+  const learningState = await window.WordBloomLearningGate.load(originalCatalog,window.PICTURE_WORDS_CATALOG_META,window.PICTURE_WORDS_SELECTION,window.EtymonLearningLevels,window.WordBloomReviewedScenes).catch(()=>({words:[],meta:window.PICTURE_WORDS_CATALOG_META,report:null}));
+  window.PICTURE_WORDS_SELECTION_REPORT=learningState.report;
+  const sceneRuntime = new window.WordBloomReviewedScenes.Runtime({meta:learningState.meta,offline});
   const datasetState = await sceneRuntime.checkDataset();
   let datasetUnavailable = !datasetState.ok;
   const failedEntries = new Set();
-  const catalog = datasetState.ok ? difficulty.buildCatalog(window.WordBloomReviewedScenes.filterCatalog(originalCatalog)) : [];
+  const catalog = datasetState.ok ? difficulty.buildCatalog(window.WordBloomReviewedScenes.filterCatalog(learningState.words)) : [];
   const discovery = window.PictureWordsProgression;
   const byId = new Map(catalog.map(word => [word.id, word]));
   const supports = (word, lang) => !datasetUnavailable && !failedEntries.has(word.id) && offline.canPlay(word) && window.WordBloomReviewedScenes.supportsLanguage(word, lang);
@@ -81,13 +84,13 @@
   function readSave() {
     let raw = {};
     try { raw = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch { /* Storage is optional. */ }
-    const value = { mode: raw.mode === 'ja' ? 'ja' : 'en', sound: raw.sound !== false, theme: raw.theme === 'dark' ? 'dark' : 'light', layout: raw.layout === 'mobile' || raw.layout === 'desktop' ? raw.layout : 'auto', targetTier: raw.routeVersion === 2 && Number.isInteger(raw.targetTier) && raw.targetTier >= -1 && raw.targetTier < difficulty.tiers.length ? raw.targetTier : -1, routeVersion: 2, discovery: discovery.hydrate(raw.discovery),
+    const value = { mode: raw.mode === 'ja' ? 'ja' : 'en', sound: raw.sound !== false, theme: raw.theme === 'dark' ? 'dark' : 'light', layout: raw.layout === 'mobile' || raw.layout === 'desktop' ? raw.layout : 'auto', ...difficulty.migrateSelection(raw), routeVersion: 2, discovery: discovery.hydrate(raw.discovery),
       answerRecords: raw.answerRecords && typeof raw.answerRecords === 'object' ? raw.answerRecords : {}, combo: 0, bestCombo: Number.isInteger(raw.bestCombo) && raw.bestCombo > 0 ? raw.bestCombo : 0 };
     for (const lang of ['ja', 'en']) {
       const old = raw[lang] || {};
       const stars = {};
       for (const [id, count] of Object.entries(old.stars || {})) if ([1, 2, 3].includes(count)) stars[id] = count;
-      value[lang] = { index: difficulty.resumeIndex(raw, old, originalCatalog, catalog), stars };
+      value[lang] = { wordId:old.wordId, index: difficulty.resumeIndex(raw, old, originalCatalog, catalog), stars };
     }
     return value;
   }
@@ -111,7 +114,9 @@
   const pending = new Set();
   const text = () => copy[mode];
   const progress = () => saved[mode];
-  const rarityStars = tier => `<span class="art-stars" role="img" aria-label="${tier+1} stars">${Array.from({length:tier+1},()=>'<img src="../../assets/ui/word_et_star.png" alt="" width="64" height="64">').join('')}</span>`;
+  const rarityStars = tier => `<span class="art-stars ${window.EtymonRarity?.classes(window.EtymonRarity.band(tier+1,5,'レア度','game'))||''}" data-rarity-scale="5" role="img" aria-label="コレクション内レア度 星${tier+1}・5段階、学習レベルとは別">${Array.from({length:tier+1},()=>'<img src="../../assets/ui/word_et_star.png" alt="" width="64" height="64">').join('')}</span>`;
+  const rarityBandFor = word => dexRows.find(row=>row.word.id===word.id)?.band??0;
+  const learningBadge = tier => `<span class="art-stars cefr-level" aria-label="独自レベル ${difficulty.tiers[tier]?.key||''}">独自レベル ${difficulty.tiers[tier]?.key||''}</span>`;
   const collectedCount = lang => catalog.filter(word => supports(word, lang) && saved[lang].stars[word.id]).length;
   const uniqueCount = () => catalog.filter(word => saved.ja.stars[word.id] || saved.en.stars[word.id]).length;
   const bookName = lang => lang === 'ja' ? '日本語' : '英語';
@@ -144,6 +149,7 @@
     const panel = $('rewardExplanation'); panel.hidden = true; panel.replaceChildren();
     if (phase !== 'solved' || entry.id !== word.id || !roundScene?.playable) return;
     renderExplanation(panel, roundScene); panel.hidden = false;
+    window.EnglishParaphrases.render($('rewardParaphrase'),word,paraphrases,'../pictpedia.html');$('rewardParaphrase').hidden=false;
     sceneReadingHold = true; // Keep the existing Next control available for every solved image.
   }
 
@@ -428,12 +434,12 @@
     const group = Math.floor(index / 10), stars = progress().stars;
     const profile = difficulty.challenge(entry, mode);
     $('game').style.setProperty('--rarity', profile.color); $('game').dataset.rarity = profile.key;
-    $('chapterNumber').textContent = `${mode === 'ja' ? 'この絵' : 'THIS WORD'} · RANK ${profile.rank}/${difficulty.tiers.length}`;
+    $('chapterNumber').textContent = `${mode === 'ja' ? 'この絵' : 'THIS WORD'} · 独自レベル ${profile.key}（推定）`;
     const target = difficulty.tiers[saved.targetTier];
-    $('difficultyText').innerHTML = target ? rarityStars(saved.targetTier) : (mode === 'ja' ? 'おまかせ発見' : 'Discovery');
+    $('difficultyText').innerHTML = target ? learningBadge(saved.targetTier) : (mode === 'ja' ? 'おまかせ発見' : 'Discovery');
     $('chapterName').textContent = mode === 'ja' ? profile.ja : profile.en;
-    $('rarityBadge').innerHTML = rarityStars(entry.tier);
-    $('rarityBadge').setAttribute('aria-label', `${profile.rank} stars`);
+    $('rarityBadge').innerHTML = rarityStars(rarityBandFor(entry));
+    $('rarityBadge').setAttribute('aria-label', `レア度 星${rarityBandFor(entry)+1}`);
     $('connectLabel').textContent = `${profile.name} CHALLENGE`;
     $('levelText').textContent = availableCount(mode).toLocaleString();
     $('pictureNumber').textContent = `NO. ${String(index + 1).padStart(3, '0')}`;
@@ -617,6 +623,7 @@
     $('rankUp').hidden = true;
     $('winPronunciation').hidden = true; $('winPronunciation').replaceChildren();
     delete $('winPronunciation').dataset.utteranceText; delete $('winPronunciation').dataset.utteranceLanguage;
+    $('rewardParaphrase').hidden=true;$('rewardParaphrase').replaceChildren();
     sceneRequest++; roundScene = null; sceneReadingHold = false; $('rewardExplanation').hidden = true; $('rewardExplanation').replaceChildren();
     index = (nextIndex + catalog.length) % catalog.length; progress().index = index;
     entry = catalog[index];
@@ -672,7 +679,7 @@
       image.onerror = () => failScene('image-decode-failed');
       sceneRuntime.prepare(word).then(result => {
         if (version !== generation || entry.id !== word.id) return;
-        if (!result.playable) { failScene(result.reason); return; }
+        if (!result.playable || result.status!=='reviewed' || result.ttsAllowed!==true || !result.imageVerified) { failScene(result.reason||'caption-unverified'); return; }
         roundScene = result; datasetUnavailable = false; failedEntries.delete(word.id);
         image.dataset.sceneId = word.id; image.src = result.imageURL;
       }).catch(() => failScene('image-unavailable'));
@@ -680,7 +687,7 @@
   }
 
   function showRankUp(profile) {
-    $('rankUpName').innerHTML = rarityStars(profile.rank-1);
+    $('rankUpName').innerHTML = learningBadge(profile.rank-1);
     $('rankUpDetail').textContent = '';
     $('rankUpDiamonds').textContent = '';
     $('rankUp').hidden = false;
@@ -783,7 +790,11 @@
       return page;
     }));
     $('wordReward').setAttribute('aria-label', mode === 'ja' ? '単語の発音を聞く' : 'Listen to the word');
-    $('rewardStars').replaceChildren();
+    const rewardStars=$('rewardStars'),rarityBand=rarityBandFor(entry);
+    rewardStars.replaceChildren();rewardStars.className='reward-stars star-reveal';rewardStars.dataset.rarity=String(rarityBand+1);
+    rewardStars.setAttribute('aria-label',`コレクション内レア度 星${rarityBand+1}・5段階、学習レベルとは別`);
+    window.EtymonRarity?.paint(rewardStars,window.EtymonRarity.band(rarityBand+1,5,'レア度','game'));
+    for(let i=0;i<=rarityBand;i++){const star=document.createElement('img');star.src='../../assets/ui/word_et_star.png';star.alt='';star.width=32;star.height=32;star.style.setProperty('--star-index',i);rewardStars.append(star);}
     $('hint').disabled = true; $('shuffle').disabled = true;
     const wheelRect = $('wheel').getBoundingClientRect();
     petals.burst(wheelRect.left + wheelRect.width / 2, wheelRect.top + wheelRect.height / 2, 100, 'gold');
@@ -1020,7 +1031,7 @@
   });
   function openDifficulty() {
     const title = '難易度';
-    const intro = document.createElement('p'); intro.className = 'modal-copy'; intro.textContent = '星が少ないほど簡単な単語です。';
+    const intro = document.createElement('p'); intro.className = 'modal-copy'; intro.textContent = '独自レベル1〜10の暫定目安です。CEFRを主軸に、編集済み補助指標で細分化しています。公式CEFRの追加区分や実測の学習難易度ではありません。CEFR未収録・品詞不一致の推定は特に低信頼です。';
     const grid = document.createElement('div'); grid.className = 'difficulty-grid';
     const automatic = document.createElement('button'); automatic.type = 'button'; automatic.className = 'difficulty-choice';
     automatic.setAttribute('aria-pressed', String(saved.targetTier === -1)); automatic.textContent = 'おまかせ';
@@ -1029,7 +1040,9 @@
       const button = document.createElement('button'); button.type = 'button'; button.className = 'difficulty-choice';
       button.dataset.tier = String(tierIndex); button.style.setProperty('--tier-color', tier.color);
       button.setAttribute('aria-pressed', String(saved.targetTier === tierIndex));
-      button.innerHTML = rarityStars(tierIndex);
+      const count=catalog.filter(word=>word.tier===tierIndex&&supports(word,mode)).length;
+      button.disabled=count===0;button.title=count+'問'+(count?'':'・出題可能な語がありません');
+      button.innerHTML = learningBadge(tierIndex)+'<small>'+count+'問</small>';
       button.addEventListener('click', () => {
         saved.targetTier = tierIndex; persist(); $('modal').close();
         loadLevel(nextUncollected(mode, index), true);
@@ -1066,7 +1079,10 @@
   const questRanks = new Map((window.PQ_DATA?.words || []).map(row => [row[0], row[8]]));
   const dexOrder = catalog.map((word, wordIndex) => ({word, wordIndex})).sort((a,b) =>
     (questRanks.get(a.word.id) ?? a.word.order) - (questRanks.get(b.word.id) ?? b.word.order) || a.word.en.localeCompare(b.word.en));
-  const dexRows = dexOrder.map((row, i) => ({...row, number:i+1, band:[.06,.18,.36,.60].filter(limit => i / dexOrder.length >= limit).length}));
+  // Keep collection rarity from the original complete dictionary, independent of the CEFR-filtered pool.
+  const originalRarityOrder=difficulty.buildCatalog(originalCatalog).sort((a,b)=>(questRanks.get(a.id)??a.order)-(questRanks.get(b.id)??b.order)||a.en.localeCompare(b.en));
+  const originalRarityBands=new Map(originalRarityOrder.map((word,i)=>[word.id,[.06,.18,.36,.60].filter(limit=>i/originalRarityOrder.length>=limit).length]));
+  const dexRows = dexOrder.map((row,i)=>({...row,number:i+1,band:originalRarityBands.get(row.word.id)??0}));
   function renderDictionary(focusControl = '') {
     const container = document.createElement('div'); container.className = 'dictionary quest-dictionary';
     const summary = document.createElement('div'); summary.className = 'dictionary-summary';
@@ -1075,7 +1091,7 @@
     dexNames.forEach((name, band) => {
       const list = dexRows.filter(row => row.band === band), button = document.createElement('button');
       button.type = 'button'; button.setAttribute('role','tab'); button.setAttribute('aria-selected',String(dictionaryTier === band));
-      button.style.setProperty('--tier-color',dexColors[band]);
+      button.style.setProperty('--tier-color',dexColors[band]);window.EtymonRarity?.paint(button,window.EtymonRarity.band(band+1,5,name,'list'));
       button.innerHTML = `<span>${'★'.repeat(band+1)}</span><strong>${name}</strong><small>${list.filter(row => dictionaryOwned(row.word)).length.toLocaleString('ja-JP')}<em>/${list.length.toLocaleString('ja-JP')}</em></small>`;
       button.addEventListener('click',()=>{dictionaryTier=band;dictionaryPage=0;renderDictionary('tier');}); tiers.append(button);
     });
@@ -1124,7 +1140,7 @@
     const image = document.createElement('img'); image.src = imgURL(word); image.alt = word.ja || word.en || ''; art.append(image);
     const heading = document.createElement('h3'); heading.textContent = word.en || word.ja || word.pic;
     const profile = difficulty.challenge(word, lang), rarity = document.createElement('p'); rarity.className = 'entry-rarity'; rarity.style.setProperty('--rarity', profile.color);
-    rarity.innerHTML = rarityStars(word.tier);
+    rarity.innerHTML = rarityStars(rarityBandFor(word));
     const reading = document.createElement('p'); reading.className = 'entry-reading'; reading.textContent = word.ja || word.w || '';
     const translation = document.createElement('a'); translation.className = 'entry-translation'; translation.textContent = mode === 'ja' ? '語源辞書で詳しく見る ↗' : 'Explore this word in the dictionary ↗'; translation.href = `../etymon-explorer.html#words/q=${encodeURIComponent(word.en)}`; translation.target = '_blank'; translation.rel = 'noopener';
     const challengeLang = dictionaryPlayLanguage(word);
@@ -1213,7 +1229,8 @@
       loadLevel(requestedWord.index);
     }
   } else if (catalog.length) {
-    loadLevel(nextUncollected(mode, index));
+    const resume=catalog[index];
+    loadLevel(saved[mode].wordId===resume?.id&&supports(resume,mode)&&(saved.targetTier<0||resume.tier===saved.targetTier)?index:nextUncollected(mode,index));
     const installed = matchMedia('(display-mode: fullscreen), (display-mode: standalone)').matches;
     if (effectiveLayout() === 'mobile' && !installed) closePlay();
   }
