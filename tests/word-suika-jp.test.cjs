@@ -56,35 +56,26 @@ function game(width = 390) {
   return { run, advance, until, bounds };
 }
 
-test('connected そ・ら・ち first form a real 空 ball, then そちら', () => {
+test('touching ひ・と・つ form ひとつ, shown as the chain 人 → ひとつ', () => {
   const g = game();
-  assert.equal(g.run('stageTarget'), 'そちら');
-  g.run('mode="choice"; addBody("そ",115,420); addBody("ら",195,420); addBody("ち",275,420); tryWordMerge()');
-  assert.equal(g.run('wordChain.finalWords.join()'), 'そら');
-  g.until('bodies.some(b=>b.word==="そら")');
-  assert.equal(g.run('bodies.length'), 2);
-  assert.equal(g.run('bodies.find(b=>b.word==="そら").ja'), '空');
-  assert.equal(g.run('bodies.some(b=>b.letters==="ち" && !b.word)'), true);
-  assert.equal(g.run('bodies.some(b=>b.clearsStage)'), false);
-  const skyRadius = g.run('bodies.find(b=>b.word==="そら").r');
-  g.until('wordChain?.finalWords.includes("そちら")');
-  assert.equal(g.run('wordChain.steps.map(s=>s.word).join()'), 'そちら');
-  g.until('bodies.some(b=>b.word==="そちら")');
+  assert.equal(g.run('stageTarget'), 'ひとつ');
+  g.run('mode="choice"; addBody("ひ",115,420); addBody("と",195,420); addBody("つ",275,420); tryWordMerge()');
+  assert.equal(g.run('wordChain.finalWords.join()'), 'ひとつ');
+  assert.equal(g.run('wordChain.steps.map(s=>s.word).join()'), 'ひと,ひとつ');
+  g.until('bodies.some(b=>b.word==="ひとつ")');
   assert.equal(g.run('bodies.length'), 1);
-  assert.ok(g.run('bodies[0].r') > skyRadius);
-  assert.equal(g.run('score'), 130);
-  assert.equal(g.run('wordCount'), 2);
   g.until('stageCleared');
   assert.equal(g.run('bodies.length'), 0);
 });
 
-test('stage 1 offers ち, ら, そ as its first three balls', () => {
+test('stage 1 offers つ, と, ひ as its first three balls', () => {
   const g = game();
   g.run('startStage(1)');
-  assert.equal(g.run('JSON.stringify(queue.slice(0, 3))'), '["ち","ら","そ"]');
+  assert.equal(g.run('JSON.stringify(queue.slice(0, 3))'), '["つ","と","ひ"]');
 });
 
-for (const letters of ['そらち', 'そちら', 'らそち', 'らちそ', 'ちそら', 'ちらそ']) {
+// 玉に左右はない。どの順に落としても、ひ・と → ひと、ひと・つ → ひとつ とつながる。
+for (const letters of ['ひとつ', 'ひつと', 'とひつ', 'とつひ', 'つひと', 'つとひ']) {
   test(`stage 1 clears through actual drops in order ${letters}`, () => {
     const g = game();
     g.run('startStage(1)');
@@ -99,29 +90,46 @@ for (const letters of ['そらち', 'そちら', 'らそち', 'らちそ', 'ち�
       }
     }
     g.until('stageCleared');
-    assert.ok(formed.has('そちら'));
-    assert.equal(g.run('over'), true);
+    assert.ok(formed.has('ひとつ'));
   });
 }
+
+test('words without a picture still merge (いた = 板)', () => {
+  const g = game();
+  g.run('addBody("た",150,420); addBody("い",235,420); tryWordMerge()');
+  assert.ok(g.run('wordChain.finalWords').includes('いた'));
+  assert.equal(g.run('buildTargets.includes("いた")'), false);
+});
+
+test('a ball keeps its letter order: an anagram of its letters never forms', () => {
+  const g = game();
+  g.run('setDictionary([{w:"あい",ja:"A"},{w:"いあう",ja:"B"}]); addBody("あい",150,420,"あい"); addBody("う",235,420)');
+  assert.equal(g.run('tryWordMerge()'), false);
+});
+
+test('loose kana join in any order: け・い・か make かけい (and けいか, a double)', () => {
+  const g = game();
+  g.run('addBody("け",120,400); addBody("い",195,400); addBody("か",270,400); tryWordMerge()');
+  assert.equal(g.run('wordChain.finalWords.slice().sort().join()'), 'かけい,けいか');
+});
 
 test('separated kana do not merge', () => {
   const g = game(720);
   assert.equal(g.run('addBody("そ",100,200); addBody("ら",500,200); tryWordMerge()'), false);
 });
 
-test('a longer word with no shorter dictionary subset can still form', () => {
+test('the longest word among touching balls forms', () => {
   const g = game();
-  g.run('setDictionary([{w:"あいう",ja:"テスト"}]); addBody("あ",140,400); addBody("い",220,400); addBody("う",180,330); tryWordMerge()');
+  g.run('setDictionary([{w:"いう",ja:"A"},{w:"あいう",ja:"B"}]); addBody("あ",120,400); addBody("い",195,400); addBody("う",270,400); tryWordMerge()');
   assert.equal(g.run('wordChain.finalWords.join()'), 'あいう');
   g.until('bodies.some(b=>b.word==="あいう")');
   assert.equal(g.run('bodies.length'), 1);
 });
 
-test('anagrams remain available and no extra merge starts during stage clear', () => {
+test('no extra merge starts during stage clear', () => {
   const g = game();
-  g.run('setDictionary([{w:"あい",ja:"A"},{w:"いあ",ja:"B"}]); STAGES[0].goal=2; addBody("あ",140,400); addBody("い",220,400); tryWordMerge()');
+  g.run('setDictionary([{w:"あい",ja:"A"}]); STAGES[0].goal=2; addBody("あ",140,400); addBody("い",220,400); tryWordMerge()');
   g.until('bodies.some(b=>b.clearsStage)');
-  assert.equal(g.run('bodies.filter(b=>b.word).length'), 2);
   assert.equal(g.run('tryWordMerge()'), false);
 });
 
@@ -162,4 +170,35 @@ test('drop cooldown cannot unlock input in the middle of a merge', () => {
   const count = g.run('bodies.length');
   g.run('dropAt(195)');
   assert.equal(g.run('bodies.length'), count);
+});
+
+test('a merged word grows at its head or its tail, whichever side the ball touches', () => {
+  const g = game();
+  g.run('mode="choice"; addBody("つ",150,420); addBody("ひと",235,420,"ひと"); tryWordMerge()');
+  g.until('bodies.some(b=>b.word==="ひとつ")');
+});
+
+test('the endless stage never clears, keeps dropping kana and pops words that cannot grow', () => {
+  const g = game();
+  const last = g.run('STAGES.length');
+  g.run(`startStage(${last})`);
+  assert.equal(g.run('isEndless()'), true);
+  assert.equal(g.run('queue.length >= 16 && queue.every(c=>/^[ぁ-ゔ]$/.test(c))'), true);
+  g.run('setDictionary([{w:"あい",ja:"A"},{w:"あいう",ja:"B"},{w:"かさ",ja:"C"}]); addBody("か",150,420); addBody("さ",235,420); tryWordMerge()');
+  g.until('bodies.some(b=>b.word==="かさ")');
+  g.until('!bodies.some(b=>b.word==="かさ")');
+  g.run('addBody("あ",150,420); addBody("い",235,420); tryWordMerge()');
+  g.until('bodies.some(b=>b.word==="あい")');
+  g.advance(2000);
+  assert.equal(g.run('bodies.some(b=>b.word==="あい")'), true);
+  assert.equal(g.run('stageCleared || bodies.some(b=>b.clearsStage)'), false);
+});
+
+test('two balls that read a word both ways make a double (かお ＋ おか)', () => {
+  const g = game();
+  g.run('setDictionary([{w:"かお",ja:"顔"},{w:"おか",ja:"丘"}]); mode="choice"; addBody("か",150,420); addBody("お",235,420); tryWordMerge()');
+  assert.equal(g.run('wordChain.finalWords.slice().sort().join()'), 'おか,かお');
+  g.until('bodies.filter(b=>b.word).length===2');
+  assert.equal(g.run('bodies.map(b=>b.word).sort().join()'), 'おか,かお');
+  assert.equal(g.run('score'), (40 + 40) * 3);
 });

@@ -1,0 +1,314 @@
+{
+  "state": {
+    "schema": 1,
+    "owner": "works",
+    "token": "50c98737301d410083f3c9647db5a900",
+    "csv_sha256": "f5023b276a7580b71312ed343a2116f275d407cc955c7505fbded455abc77e79",
+    "started_at": "2026-10-24T01:06:43.253433+00:00"
+  },
+  "csv": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_rows_weblio_missing_low500_20261024.csv",
+  "total": 500,
+  "held": [
+    [
+      "had",
+      "Current canonical first sense missing, ambiguous or changed"
+    ],
+    [
+      "lain",
+      "Current canonical first sense missing, ambiguous or changed"
+    ],
+    [
+      "sang",
+      "Current canonical first sense missing, ambiguous or changed"
+    ],
+    [
+      "owed",
+      "Current canonical first sense missing, ambiguous or changed"
+    ],
+    [
+      "zoo-",
+      "Current canonical first sense missing, ambiguous or changed"
+    ],
+    [
+      "bled",
+      "Current canonical first sense missing, ambiguous or changed"
+    ],
+    [
+      "blest",
+      "Current canonical first sense missing, ambiguous or changed"
+    ],
+    [
+      "bug",
+      "Current canonical first sense missing, ambiguous or changed"
+    ],
+    [
+      "wove",
+      "Current canonical first sense missing, ambiguous or changed"
+    ],
+    [
+      "idler",
+      "Current canonical first sense missing, ambiguous or changed"
+    ],
+    [
+      "overtaken",
+      "Current canonical first sense missing, ambiguous or changed"
+    ],
+    [
+      "democrat",
+      "Current canonical first sense missing, ambiguous or changed"
+    ],
+    [
+      "recorder",
+      "Current canonical first sense missing, ambiguous or changed"
+    ],
+    [
+      "amen",
+      "Current canonical first sense missing, ambiguous or changed"
+    ],
+    [
+      "sown",
+      "Current canonical first sense missing, ambiguous or changed"
+    ],
+    [
+      "trod",
+      "Current canonical first sense missing, ambiguous or changed"
+    ],
+    [
+      "awing",
+      "Current canonical first sense missing, ambiguous or changed"
+    ],
+    [
+      "withheld",
+      "Current canonical first sense missing, ambiguous or changed"
+    ],
+    [
+      "CDS",
+      "Current canonical first sense missing, ambiguous or changed"
+    ],
+    [
+      "robin",
+      "Current canonical first sense missing, ambiguous or changed"
+    ],
+    [
+      "mailman",
+      "Current canonical first sense missing, ambiguous or changed"
+    ],
+    [
+      "con-",
+      "Current canonical first sense missing, ambiguous or changed"
+    ],
+    [
+      "kiwi",
+      "Current canonical first sense missing, ambiguous or changed"
+    ],
+    [
+      "puma",
+      "Current canonical first sense missing, ambiguous or changed"
+    ],
+    [
+      "koala",
+      "Current canonical first sense missing, ambiguous or changed"
+    ],
+    [
+      "acer",
+      "Current canonical first sense missing, ambiguous or changed"
+    ],
+    [
+      "herbivore",
+      "Current canonical first sense missing, ambiguous or changed"
+    ],
+    [
+      "quasar",
+      "Current canonical first sense missing, ambiguous or changed"
+    ],
+    [
+      "retailer",
+      "Current canonical first sense missing, ambiguous or changed"
+    ],
+    [
+      "yam",
+      "Current canonical first sense missing, ambiguous or changed"
+    ],
+    [
+      "tuba",
+      "Current canonical first sense missing, ambiguous or changed"
+    ],
+    [
+      "aping",
+      "Current canonical first sense missing, ambiguous or changed"
+    ],
+    [
+      "heron",
+      "Current canonical first sense missing, ambiguous or changed"
+    ],
+    [
+      "igloo",
+      "Current canonical first sense missing, ambiguous or changed"
+    ],
+    [
+      "kayak",
+      "Current canonical first sense missing, ambiguous or changed"
+    ],
+    [
+      "llama",
+      "Current canonical first sense missing, ambiguous or changed"
+    ],
+    [
+      "foreseen",
+      "Current canonical first sense missing, ambiguous or changed"
+    ],
+    [
+      "programmer",
+      "Current canonical first sense missing, ambiguous or changed"
+    ],
+    [
+      "chairperson",
+      "Current canonical first sense missing, ambiguous or changed"
+    ],
+    [
+      "Tori",
+      "Current canonical first sense missing, ambiguous or changed"
+    ],
+    [
+      "gull",
+      "Current canonical first sense missing, ambiguous or changed"
+    ],
+    [
+      "haiku",
+      "Current canonical first sense missing, ambiguous or changed"
+    ],
+    [
+      "lemur",
+      "Current canonical first sense missing, ambiguous or changed"
+    ],
+    [
+      "pupa",
+      "Current canonical first sense missing, ambiguous or changed"
+    ],
+    [
+      "forsaken",
+      "Current canonical first sense missing, ambiguous or changed"
+    ],
+    [
+      "vying",
+      "Current canonical first sense missing, ambiguous or changed"
+    ],
+    [
+      "jay",
+      "Current canonical first sense missing, ambiguous or changed"
+    ],
+    [
+      "aha",
+      "Current canonical first sense missing, ambiguous or changed"
+    ],
+    [
+      "gee",
+      "Current canonical first sense missing, ambiguous or changed"
+    ],
+    [
+      "a-ha",
+      "Current canonical first sense missing, ambiguous or changed"
+    ],
+    [
+      "clam",
+      "Current canonical first sense missing, ambiguous or changed"
+    ],
+    [
+      "pika",
+      "Current canonical first sense missing, ambiguous or changed"
+    ],
+    [
+      "rhea",
+      "Current canonical first sense missing, ambiguous or changed"
+    ],
+    [
+      "guppy",
+      "Current canonical first sense missing, ambiguous or changed"
+    ],
+    [
+      "bash",
+      "Current canonical first sense missing, ambiguous or changed"
+    ],
+    [
+      "munching",
+      "Current canonical first sense missing, ambiguous or changed"
+    ],
+    [
+      "insulate",
+      "Current canonical first sense missing, ambiguous or changed"
+    ],
+    [
+      "watt",
+      "Current canonical first sense missing, ambiguous or changed"
+    ],
+    [
+      "buns",
+      "Current canonical first sense missing, ambiguous or changed"
+    ],
+    [
+      "banjo",
+      "Current canonical first sense missing, ambiguous or changed"
+    ],
+    [
+      "munch",
+      "Current canonical first sense missing, ambiguous or changed"
+    ],
+    [
+      "carcinogen",
+      "Current canonical first sense missing, ambiguous or changed"
+    ],
+    [
+      "URL",
+      "Current canonical first sense missing, ambiguous or changed"
+    ],
+    [
+      "ATM",
+      "Current canonical first sense missing, ambiguous or changed"
+    ],
+    [
+      "shackle",
+      "Current canonical first sense missing, ambiguous or changed"
+    ],
+    [
+      "chide",
+      "Current canonical first sense missing, ambiguous or changed"
+    ],
+    [
+      "talon",
+      "Current canonical first sense missing, ambiguous or changed"
+    ],
+    [
+      "finesse",
+      "Current canonical first sense missing, ambiguous or changed"
+    ],
+    [
+      "vestige",
+      "Current canonical first sense missing, ambiguous or changed"
+    ],
+    [
+      "lewd",
+      "Current canonical first sense missing, ambiguous or changed"
+    ],
+    [
+      "timidity",
+      "Current canonical first sense missing, ambiguous or changed"
+    ],
+    [
+      "squander",
+      "Current canonical first sense missing, ambiguous or changed"
+    ],
+    [
+      "caucus",
+      "Current canonical first sense missing, ambiguous or changed"
+    ],
+    [
+      "bingo",
+      "Current canonical first sense missing, ambiguous or changed"
+    ],
+    [
+      "pundit",
+      "Current canonical first sense missing, ambiguous or changed"
+    ]
+  ],
+  "status": "active"
+}

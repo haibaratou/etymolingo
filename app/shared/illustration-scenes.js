@@ -18,7 +18,7 @@
   // canonical CSV imports as a script; preserve all existing identities.
   if (scriptBase && globalThis.location?.protocol === 'file:') {
     const script = document.createElement('script');
-    script.src = new URL('../data/generated-etymon/csv-illustration-scenes.js?v=08de0c5e58b5', scriptBase).href;
+    script.src = new URL('../data/generated-etymon/csv-illustration-scenes.js?v=fdfc3b220532', scriptBase).href;
     script.onload = async () => {
       try {
         const envelope = globalThis.ETYMON_CSV_SCENES;
