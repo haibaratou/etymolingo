@@ -119,6 +119,6 @@ if (typeof window !== 'undefined' && /\/etymon-explorer\.html$/.test(window.loca
     addScript('data/generated-etymon/weblio-learning-levels.js?v=92b587b8148d'),
     addScript('data/generated-etymon/learning-levels.js?v=d310e93cb81f'),
     addScript('data/generated-etymon/puzzle-visual-scores.js?v=cafdf82a6535').catch(() => null)
-  ]).then(() => addScript('shared/explorer-difficulty-v2.js?v=ca750a8eba69'))
+  ]).then(() => addScript('shared/explorer-difficulty-v2.js?v=eb3deacd9a9e'))
     .catch(err => console.warn('Explorer difficulty module unavailable', err));
 }
