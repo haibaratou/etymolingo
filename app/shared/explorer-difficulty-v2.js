@@ -85,14 +85,32 @@ function mount(root){
  }
  function imageScore(w,tr){
   const src=root.ETYMON_PUZZLE_VISUAL_SCORES?.entries;
-  if(!Array.isArray(src))return null;
-  if(!imageScore.cache||imageScore.raw!==src){
-   imageScore.raw=src;imageScore.cache=new Map(src.map(e=>[JSON.stringify([e.w,e.p||[]]),e]));
-  }
-  const e=imageScore.cache.get(JSON.stringify([w.w,w.p||[]]));
   const im=tr.querySelector('td.cPic img');
-  if(e&&im&&im.src.endsWith('/'+e.imagePath)&&Number.isInteger(e.score)&&e.score>=0&&e.score<=100)return e.score;
-  return null;
+  if(!Array.isArray(src)||!im)return null;
+  // The Explorer's WORDS array is not necessarily visible to this sidecar.
+  // Recover the headword from the row itself; accept only a matching reviewed PNG.
+  const rowWord=tr.querySelector('td.cW .spk[data-say]')?.dataset.say?.trim()||w.w;
+  const imageUrl=im.currentSrc||im.src;
+  if(!rowWord||!imageUrl)return null;
+  if(!imageScore.byWord||imageScore.raw!==src){
+   imageScore.raw=src;
+   imageScore.byWord=new Map();
+   for(const e of src){
+    if(!imageScore.byWord.has(e.w))imageScore.byWord.set(e.w,[]);
+    imageScore.byWord.get(e.w).push(e);
+   }
+  }
+  const matches=(imageScore.byWord.get(rowWord)||[]).filter(e=>
+   typeof e.imagePath==='string'&&imageUrl.endsWith('/'+e.imagePath)&&
+   Number.isInteger(e.score)&&e.score>=0&&e.score<=100);
+  if(!matches.length)return null;
+  // Prefer the exact PIE identity when present; otherwise the actual image path
+  // disambiguates rows where WORDS is inaccessible.
+  if(Array.isArray(w.p)&&w.p.length){
+   const exact=matches.filter(e=>JSON.stringify(e.p||[])===JSON.stringify(w.p));
+   if(exact.length===1)return exact[0].score;
+  }
+  return matches.length===1?matches[0].score:null;
  }
  function processRow(tr){
   if(tr.dataset.difficultyV2Processed)return;
