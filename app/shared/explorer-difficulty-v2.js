@@ -63,9 +63,10 @@ function modalHTML(w,d){
 function mount(root){
  const doc=root.document,style=doc.createElement('style');
  style.textContent='.difficulty-v2-col{width:76px!important;min-width:76px!important;max-width:76px!important;white-space:nowrap!important;text-align:left!important;padding-left:8px!important;vertical-align:middle!important}.difficulty-v2-button{font-weight:700;font-size:13px;line-height:1.35;font-family:inherit;color:#245d4b;border:1px solid #a4c6b4;background:#eaf5ef;border-radius:7px;padding:2px 7px;white-space:nowrap;cursor:pointer;text-align:left;margin:0}.difficulty-v2-button:hover,.difficulty-v2-button:focus-visible{border-color:#338a6b;background:#d9efe3}.difficulty-v2-button[data-unknown="1"]{color:#62676a;background:#f4f4f4;border-color:#ddd}#difficultyV2Dialog{max-width:min(480px,92vw);border:1px solid #b7c1bd;border-radius:12px;padding:20px 22px;box-shadow:0 12px 40px #0003;background:#fff;color:#273b32}#difficultyV2Dialog::backdrop{background:#0006}#difficultyV2Dialog h2{font-size:20px;margin:0 0 8px}#difficultyV2Dialog p{margin:8px 0;line-height:1.55}#difficultyV2Dialog dl{display:grid;grid-template-columns:max-content 1fr;gap:7px 14px;margin:12px 0}#difficultyV2Dialog dt{font-weight:700}#difficultyV2Dialog dd{margin:0}#difficultyV2Dialog .difficulty-v2-close{display:block;margin:18px 0 0 auto;padding:6px 14px;cursor:pointer}#difficultyV2Dialog .difficulty-v2-caution{font-size:12px;color:#6a6a6a}';
+ style.textContent+='th.guess-v2-col,td.guess-v2-col{min-width:90px!important;max-width:90px!important;width:90px!important;text-align:left!important;padding-left:9px!important;font-size:12px;white-space:nowrap}.guess-v2-score{font-weight:700;font-variant-numeric:tabular-nums}.guess-v2-score.low{color:#b24e48}.guess-v2-score.mid{color:#86713f}.guess-v2-score.high{color:#167744}';
  doc.head.append(style);
  const index=makeIndex(root.ETYMON_WEBLIO_LEVELS,root.ETYMON_LEARNING_LEVELS);
- let pending=false,table=null,removed=[],difficultyIndex=-1,hadDifficultyColumn=false;
+ let pending=false,table=null,removed=[],difficultyIndex=-1;
  function wordOf(tr){
   const i=Number(tr.dataset.i);
   try{if(Number.isInteger(i)&&typeof WORDS!=='undefined'&&WORDS[i])return WORDS[i];}catch(_){}
@@ -82,40 +83,47 @@ function mount(root){
   if(d.level===null)b.dataset.unknown='1';
   b._details={w,d};return b;
  }
+ function imageScore(w,tr){
+  const src=root.ETYMON_PUZZLE_VISUAL_SCORES?.entries;
+  if(!Array.isArray(src))return null;
+  if(!imageScore.cache||imageScore.raw!==src){
+   imageScore.raw=src;imageScore.cache=new Map(src.map(e=>[JSON.stringify([e.w,e.p||[]]),e]));
+  }
+  const e=imageScore.cache.get(JSON.stringify([w.w,w.p||[]]));
+  const im=tr.querySelector('td.cPic img');
+  if(e&&im&&im.src.endsWith('/'+e.imagePath)&&Number.isInteger(e.score)&&e.score>=0&&e.score<=100)return e.score;
+  return null;
+ }
  function processRow(tr){
   if(tr.dataset.difficultyV2Processed)return;
-  // Rendered rows are always reconstructed in original column order.
+  const w=wordOf(tr),score=imageScore(w,tr);
   for(const i of removed)if(tr.children[i])tr.children[i].remove();
-  let cell=hadDifficultyColumn?tr.children[difficultyIndex]:null;
-  if(!cell){
-   cell=doc.createElement('td');
-   tr.insertBefore(cell,tr.children[difficultyIndex]||null);
-  }
-  cell.classList.add('difficulty-v2-col');
-  cell.replaceChildren(makeButton(wordOf(tr)));
+  const c=doc.createElement('td');c.className='difficulty-v2-col';c.append(makeButton(w));
+  const g=doc.createElement('td');g.className='guess-v2-col';
+  if(score!==null)g.innerHTML='<span class="guess-v2-score '+(score<50?'low':score>=80?'high':'mid')+'">'+score+' / 100</span>';
+  else g.textContent='—';
+  g.title='画像から単語を推測できる度合い（AI推定、実測正答率ではありません）';
+  tr.insertBefore(c,tr.children[difficultyIndex]||null);
+  tr.insertBefore(g,tr.children[difficultyIndex+1]||null);
   tr.dataset.difficultyV2Processed='1';
  }
  function processTable(t){
   const header=t.querySelector('thead tr');if(!header)return;
-  const headers=[...header.children],existing=headers.findIndex(h=>h.classList.contains('difficulty-v2-col'));
   if(t!==table){
    table=t;
-   const chosen=headers.findIndex(h=>h.textContent.replace(/\s+/g,'').includes('英単語の難易度')||h.textContent.trim()==='難易度');
-   removed=headers.map((h,i)=>({txt:h.textContent.replace(/\s+/g,'').trim(),i}))
-    .filter(x=>x.txt==='画像評価'||x.txt.includes('レア度')||x.txt==='Ngram'||(x.txt.includes('英単語の難易度')&&x.i!==chosen))
-    .map(x=>x.i).sort((a,b)=>b-a);
-   // In old releases no difficulty column existed.
-   hadDifficultyColumn=chosen>=0;
-   let retained=chosen>=0?chosen:headers.findIndex(h=>h.textContent.trim()==='カナ')+1;
-   difficultyIndex=retained-removed.filter(i=>i<retained).length;
-   for(const i of removed)headers[i]?.remove();
-   const h=chosen>=0?headers[chosen]:doc.createElement('th');
-   if(chosen<0)header.insertBefore(h,header.children[difficultyIndex]||null);
-   h.textContent='難易度';h.classList.add('difficulty-v2-col');
-   for(const tr of t.querySelectorAll('tbody tr'))processRow(tr);
-  }else{
-   for(const tr of t.querySelectorAll('tbody tr:not([data-difficulty-v2-processed])'))processRow(tr);
+   const hs=[...header.children];
+   removed=hs.map((h,i)=>({i,text:h.textContent.replace(/\\s+/g,'').trim()}))
+     .filter(x=>hs[x.i].classList.contains('cR')||x.text==='画像評価'||x.text.includes('英単語の難易度')||x.text.includes('独自レベル')||x.text==='難易度'||x.text==='画像の推測度'||x.text==='WeblioLv'||x.text==='Ngram'||x.text.includes('レア度'))
+     .map(x=>x.i).sort((a,b)=>b-a);
+   const kanaIndex=hs.findIndex(h=>h.classList.contains('cK')||h.textContent.trim()==='カナ');
+   difficultyIndex=(kanaIndex>=0?kanaIndex+1:3)-removed.filter(i=>i<=(kanaIndex>=0?kanaIndex:2)).length;
+   for(const i of removed)hs[i]?.remove();
+   const h=doc.createElement('th');h.textContent='難易度';h.className='difficulty-v2-col';
+   const g=doc.createElement('th');g.textContent='画像の推測度';g.className='guess-v2-col';
+   header.insertBefore(h,header.children[difficultyIndex]||null);
+   header.insertBefore(g,header.children[difficultyIndex+1]||null);
   }
+  for(const tr of t.querySelectorAll('tbody tr:not([data-difficulty-v2-processed])'))processRow(tr);
  }
  function update(){
   pending=false;
