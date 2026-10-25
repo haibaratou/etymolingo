@@ -3,6 +3,8 @@
 (() => {
   'use strict';
   if (!/\/etymon-explorer\.html$/.test(location.pathname)) return;
+  if(window.__etyExplorerStarsInitialized)return;
+  window.__etyExplorerStarsInitialized=true;
   const $=(sel,root=document)=>root.querySelector(sel);
   const expectedColumns=[
     {id:'custom',cls:'cCustom',name:'独自Lv',match:/独自レベル|独自Lv|英単語の難易度/},
