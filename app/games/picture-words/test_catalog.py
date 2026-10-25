@@ -90,7 +90,7 @@ class CatalogRulesTest(unittest.TestCase):
     def test_puzzle_filters(self):
         valid = {'w': 'apple', 'pos': '名', 'ja': 'リンゴ'}
         self.assertTrue(catalog.eligible(valid))
-        for update in ({'w': 'ice-cream'}, {'w': 'Paris'}, {'w': 'a'},
+        for update in ({'w': 'ice-cream'}, {'w': 'full-time'}, {'w': 'Paris'}, {'w': 'a'}, {'w': 'be'},
                        {'w': 'abcdefghijklmno'}, {'ja': ''}, {'pos': '名/助'},
                        {'w': 'orgasm'}, {'ja': '誤綴'}):
             self.assertFalse(catalog.eligible({**valid, **update}), update)
