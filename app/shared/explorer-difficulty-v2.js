@@ -63,14 +63,14 @@ function modalHTML(w,d){
 function mount(root){
  const doc=root.document,style=doc.createElement('style');
  style.textContent='.difficulty-v2-col{width:76px!important;min-width:76px!important;max-width:76px!important;white-space:nowrap!important;text-align:left!important;padding-left:8px!important;vertical-align:middle!important}.difficulty-v2-button{font-weight:700;font-size:13px;line-height:1.35;font-family:inherit;color:#245d4b;border:1px solid #a4c6b4;background:#eaf5ef;border-radius:7px;padding:2px 7px;white-space:nowrap;cursor:pointer;text-align:left;margin:0}.difficulty-v2-button:hover,.difficulty-v2-button:focus-visible{border-color:#338a6b;background:#d9efe3}.difficulty-v2-button[data-unknown="1"]{color:#62676a;background:#f4f4f4;border-color:#ddd}#difficultyV2Dialog{max-width:min(480px,92vw);border:1px solid #b7c1bd;border-radius:12px;padding:20px 22px;box-shadow:0 12px 40px #0003;background:#fff;color:#273b32}#difficultyV2Dialog::backdrop{background:#0006}#difficultyV2Dialog h2{font-size:20px;margin:0 0 8px}#difficultyV2Dialog p{margin:8px 0;line-height:1.55}#difficultyV2Dialog dl{display:grid;grid-template-columns:max-content 1fr;gap:7px 14px;margin:12px 0}#difficultyV2Dialog dt{font-weight:700}#difficultyV2Dialog dd{margin:0}#difficultyV2Dialog .difficulty-v2-close{display:block;margin:18px 0 0 auto;padding:6px 14px;cursor:pointer}#difficultyV2Dialog .difficulty-v2-caution{font-size:12px;color:#6a6a6a}';
- style.textContent+='th.guess-v2-col,td.guess-v2-col{min-width:90px!important;max-width:90px!important;width:90px!important;text-align:left!important;padding-left:9px!important;font-size:12px;white-space:nowrap}.guess-v2-score{font-weight:700;font-variant-numeric:tabular-nums}.guess-v2-score.low{color:#b24e48}.guess-v2-score.mid{color:#86713f}.guess-v2-score.high{color:#167744}';
+ style.textContent+='th.guess-v2-col,td.guess-v2-col{min-width:90px!important;max-width:90px!important;width:90px!important;text-align:left!important;padding-left:9px!important;font-size:12px;white-space:nowrap}.guess-v2-score{font-weight:700;font-variant-numeric:tabular-nums}.guess-v2-score.low{color:#b24e48}.guess-v2-score.mid{color:#86713f}.guess-v2-score.high{color:#167744}th.spelling-v2-col,td.spelling-v2-col{width:84px!important;min-width:84px!important;max-width:84px!important;text-align:left!important;padding-left:9px!important;white-space:nowrap;font-size:12px}.spelling-v2-ok{color:#17754c;font-weight:800}.spelling-v2-false{color:#666;font-weight:600}';
  doc.head.append(style);
  const index=makeIndex(root.ETYMON_WEBLIO_LEVELS,root.ETYMON_LEARNING_LEVELS);
- let pending=false,table=null,removed=[],difficultyIndex=-1;
+ let pending=false,table=null,removed=[],difficultyIndex=-1,sourcePosIndex=-1,sourceJaIndex=-1,sourceEnIndex=-1;
  function wordOf(tr){
   const i=Number(tr.dataset.i);
   try{if(Number.isInteger(i)&&typeof WORDS!=='undefined'&&WORDS[i])return WORDS[i];}catch(_){}
-  const w=tr.querySelector('td.cW')?.textContent?.trim().split('🔊')[0]?.trim();
+  const w=tr.querySelector('td.cW .spk[data-say]')?.dataset.say||tr.querySelector('td.cW')?.textContent?.replace(/ゲーム外/g,'').split('🔊')[0]?.trim();
   return {w:w||'',pos:'',r:null};
  }
  function makeButton(w){
@@ -112,17 +112,45 @@ function mount(root){
   }
   return matches.length===1?matches[0].score:null;
  }
+ function removeLegacyGameTag(tr){
+  const cell=tr.querySelector('td.cW');
+  if(!cell)return;
+  // Remove only the obsolete badge, never the headword or pronunciation button.
+  for(const el of [...cell.querySelectorAll('span,small,em,b,strong')].reverse()){
+   if(el.textContent.trim()==='ゲーム外'&&!el.querySelector('button,a'))el.remove();
+  }
+ }
  function processRow(tr){
+  if(!tr.hasAttribute('data-i')||tr.classList.contains('detRow'))return;
+  removeLegacyGameTag(tr);
   if(tr.dataset.difficultyV2Processed)return;
-  const w=wordOf(tr),score=imageScore(w,tr);
+  const cells=[...tr.children],w=wordOf(tr),score=imageScore(w,tr);
+  const headword=tr.querySelector('td.cW .spk[data-say]')?.dataset.say?.trim()||w.w;
+  const posCell=cells[sourcePosIndex];
+  const rawPos=posCell?.textContent?.trim()||w.pos||'';
+  // Display-only hotfix until the canonical source correction is re-exported.
+  const pos=headword==='could'&&rawPos==='動'?'助':rawPos;
+  if(headword==='could'&&rawPos==='動'&&posCell)posCell.textContent='助';
+  const row={w:headword,pos,ja:cells[sourceJaIndex]?.textContent?.trim()||w.ja||'',
+    en:cells[sourceEnIndex]?.textContent?.trim()||w.en||''};
+  const suitability=root.EtymonSpellingEligibility?.evaluate(row)
+    ||{eligible:false,reason:'判定モジュール未読込'};
   for(const i of removed)if(tr.children[i])tr.children[i].remove();
   const c=doc.createElement('td');c.className='difficulty-v2-col';c.append(makeButton(w));
   const g=doc.createElement('td');g.className='guess-v2-col';
   if(score!==null)g.innerHTML='<span class="guess-v2-score '+(score<50?'low':score>=80?'high':'mid')+'">'+score+' / 100</span>';
   else g.textContent='—';
   g.title='画像から単語を推測できる度合い（AI推定、実測正答率ではありません）';
+  const p=doc.createElement('td');p.className='spelling-v2-col';
+  const label=doc.createElement('span');
+  label.className=suitability.eligible?'spelling-v2-ok':'spelling-v2-false';
+  label.textContent=suitability.eligible?'✓':'false';
+  p.append(label);
+  p.title=suitability.reason;
+  p.setAttribute('aria-label','スペリング適性 '+(suitability.eligible?'候補':'対象外')+'。'+suitability.reason);
   tr.insertBefore(c,tr.children[difficultyIndex]||null);
   tr.insertBefore(g,tr.children[difficultyIndex+1]||null);
+  tr.insertBefore(p,tr.children[difficultyIndex+2]||null);
   tr.dataset.difficultyV2Processed='1';
  }
  function processTable(t){
@@ -130,6 +158,8 @@ function mount(root){
   if(t!==table){
    table=t;
    const hs=[...header.children];
+   const columnIndex=label=>hs.findIndex(h=>h.textContent.replace(/\s+/g,'').trim()===label);
+   sourcePosIndex=columnIndex('品詞');sourceJaIndex=columnIndex('語義');sourceEnIndex=columnIndex('パラフレーズ');
    removed=hs.map((h,i)=>({i,text:h.textContent.replace(/\s+/g,'').trim()}))
      .filter(x=>hs[x.i].classList.contains('cR')||x.text==='画像評価'||x.text.includes('英単語の難易度')||x.text.includes('独自レベル')||x.text==='難易度'||x.text==='画像の推測度'||x.text==='WeblioLv'||x.text==='Ngram'||x.text.includes('レア度'))
      .map(x=>x.i).sort((a,b)=>b-a);
@@ -140,8 +170,10 @@ function mount(root){
    const g=doc.createElement('th');g.textContent='画像の推測度';g.className='guess-v2-col';
    header.insertBefore(h,header.children[difficultyIndex]||null);
    header.insertBefore(g,header.children[difficultyIndex+1]||null);
+   const p=doc.createElement('th');p.textContent='スペリング適性';p.className='spelling-v2-col';p.title='単語自体のスペリングパズル適性。✓ は候補、false は対象外。実際の出題には画像・語義の検品も必要。';
+   header.insertBefore(p,header.children[difficultyIndex+2]||null);
   }
-  for(const tr of t.querySelectorAll('tbody tr:not([data-difficulty-v2-processed])'))processRow(tr);
+  for(const tr of t.querySelectorAll('tbody tr[data-i]'))processRow(tr);
  }
  function update(){
   pending=false;
