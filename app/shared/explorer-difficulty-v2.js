@@ -67,6 +67,69 @@ function mount(root){
  doc.head.append(style);
  const index=makeIndex(root.ETYMON_WEBLIO_LEVELS,root.ETYMON_LEARNING_LEVELS);
  let pending=false,table=null,removed=[],difficultyIndex=-1,sourcePosIndex=-1,sourceJaIndex=-1,sourceEnIndex=-1;
+ const selectedLevels=new Set();
+ let scoresByImage=null;
+ async function prepareVisualScores(){
+  const env=root.ETYMON_PUZZLE_ENVELOPE,visual=root.ETYMON_PUZZLE_VISUAL_SCORES;
+  if(env?.schema!==1||env.encoding!=='gzip-base64'||!Array.isArray(visual?.entries))
+   throw Error('Puzzle visual assessment data unavailable');
+  const bytes=Uint8Array.from(atob(env.data),c=>c.charCodeAt(0));
+  const raw=await new Response(new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'))).text();
+  const selection=JSON.parse(raw);
+  if(selection.schema!==1||!Array.isArray(selection.entries))throw Error('Invalid selection catalog');
+  const scores=new Map(visual.entries.map(e=>[e.id,e]));
+  const mapping=new Map();
+  for(const row of selection.entries){
+   const score=scores.get(row.id);
+   if(!score||score.imageGitBlobSha!==row.imageGitBlobSha||
+      !Number.isInteger(score.score)||score.score<0||score.score>100||
+      !row.w||!row.imagePath)continue;
+   const key=JSON.stringify([row.w,row.imagePath]);
+   if(!mapping.has(key))mapping.set(key,[]);
+   mapping.get(key).push({score:score.score,p:row.p||[]});
+  }
+  scoresByImage=mapping;
+ }
+ function installLevelFilters(){
+  if(root.__etyDifficultyLevelFilters||typeof root.applyFilters!=='function'||typeof root.renderToolbar!=='function')return;
+  root.__etyDifficultyLevelFilters=true;
+  const oldApply=root.applyFilters,oldToolbar=root.renderToolbar;
+  root.applyFilters=function(list){
+   const filtered=oldApply(list);
+   return selectedLevels.size?filtered.filter(w=>selectedLevels.has(evaluate(w,index).level)):filtered;
+  };
+  function toolbar(){
+   const t=doc.getElementById('toolbar');if(!t)return;
+   const old=[...t.querySelectorAll('.tLabel')].find(e=>e.textContent.trim()==='レア度');
+   if(old){
+    let node=old;
+    while(node&&!(node.nodeType===1&&node.classList?.contains('tLabel')&&node.textContent.trim()==='語派')){
+     const next=node.nextSibling;node.remove();node=next;
+    }
+   }
+   if(t.querySelector('[data-difficulty-filter]'))return;
+   const first=t.firstChild;
+   const label=doc.createElement('span');label.className='tLabel';label.textContent='難易度';
+   t.insertBefore(label,first);
+   for(let n=1;n<=10;n++){
+    const button=doc.createElement('button');button.type='button';
+    button.className='tBtn difficulty-v2-filter'+(selectedLevels.has(n)?' on':'');
+    button.dataset.difficultyFilter=String(n);button.textContent='★'+n;
+    button.setAttribute('aria-pressed',selectedLevels.has(n)?'true':'false');
+    button.title='タップしてレベル'+n+'を'+(selectedLevels.has(n)?'解除':'追加')+'。複数選択可';
+    button.addEventListener('click',()=>toggle(n));
+    t.insertBefore(button,first);
+   }
+  }
+  root.renderToolbar=function(...args){const value=oldToolbar(...args);toolbar();return value;};
+  toolbar();
+ }
+ function toggle(level){
+  if(!Number.isInteger(level)||level<1||level>10)return;
+  if(selectedLevels.has(level))selectedLevels.delete(level);else selectedLevels.add(level);
+  if(typeof root.renderAll==='function')root.renderAll();
+  else if(typeof root.renderToolbar==='function'&&typeof root.renderTable==='function'){root.renderToolbar();root.renderTable();}
+ }
  function wordOf(tr){
   const i=Number(tr.dataset.i);
   try{if(Number.isInteger(i)&&typeof WORDS!=='undefined'&&WORDS[i])return WORDS[i];}catch(_){}
@@ -78,39 +141,36 @@ function mount(root){
   b.className='difficulty-v2-button';b.dataset.difficultyV2='1';
   b.dataset.word=w.w||'';b.dataset.level=d.level===null?'':String(d.level);
   b.textContent=d.level===null?'★ —':'★ '+d.level;
-  b.title='難易度の根拠（CEFR-J・Weblio・Ngram）を見る';
+  b.title=d.level===null?'レベル未分類':'★'+d.level+'の単語を絞り込み。再クリックで解除、複数選択可';
+  b.setAttribute('aria-pressed',d.level!==null&&selectedLevels.has(d.level)?'true':'false');
   b.setAttribute('aria-label',esc(w.w)+' 独自難易度 '+(d.level===null?'未分類':d.level)+'。根拠を表示');
   if(d.level===null)b.dataset.unknown='1';
   b._details={w,d};return b;
  }
  function imageScore(w,tr){
-  const src=root.ETYMON_PUZZLE_VISUAL_SCORES?.entries;
+  if(!scoresByImage)return null;
   const im=tr.querySelector('td.cPic img');
-  if(!Array.isArray(src)||!im)return null;
-  // The Explorer's WORDS array is not necessarily visible to this sidecar.
-  // Recover the headword from the row itself; accept only a matching reviewed PNG.
-  const rowWord=tr.querySelector('td.cW .spk[data-say]')?.dataset.say?.trim()||w.w;
-  const imageUrl=im.currentSrc||im.src;
-  if(!rowWord||!imageUrl)return null;
-  if(!imageScore.byWord||imageScore.raw!==src){
-   imageScore.raw=src;
-   imageScore.byWord=new Map();
-   for(const e of src){
-    if(!imageScore.byWord.has(e.w))imageScore.byWord.set(e.w,[]);
-    imageScore.byWord.get(e.w).push(e);
-   }
+  if(!im)return null;
+  const word=tr.querySelector('td.cW .spk[data-say]')?.dataset.say?.trim()||w.w;
+  let path='';
+  try{path=decodeURIComponent(new URL(im.currentSrc||im.src,doc.baseURI).pathname);}
+  catch(_){return null;}
+  const found=[];
+  for(const [identity,scores] of scoresByImage){
+   const [sourceWord,imagePath]=JSON.parse(identity);
+   if(sourceWord===word&&path.endsWith('/'+imagePath))found.push(...scores);
   }
-  const matches=(imageScore.byWord.get(rowWord)||[]).filter(e=>
-   typeof e.imagePath==='string'&&imageUrl.endsWith('/'+e.imagePath)&&
-   Number.isInteger(e.score)&&e.score>=0&&e.score<=100);
-  if(!matches.length)return null;
-  // Prefer the exact PIE identity when present; otherwise the actual image path
-  // disambiguates rows where WORDS is inaccessible.
-  if(Array.isArray(w.p)&&w.p.length){
-   const exact=matches.filter(e=>JSON.stringify(e.p||[])===JSON.stringify(w.p));
+  if(Array.isArray(w.p)){
+   const exact=found.filter(e=>JSON.stringify(e.p)===JSON.stringify(w.p));
    if(exact.length===1)return exact[0].score;
   }
-  return matches.length===1?matches[0].score:null;
+  return found.length===1?found[0].score:null;
+ }
+ function fillScore(cell,score){
+  const label=score===null?'—':score+' / 100';
+  if(cell.textContent.trim()===label)return;
+  if(score===null){cell.textContent='—';return;}
+  cell.innerHTML='<span class="guess-v2-score '+(score<50?'low':score>=80?'high':'mid')+'">'+label+'</span>';
  }
  function removeLegacyGameTag(tr){
   const cell=tr.querySelector('td.cW');
@@ -123,7 +183,11 @@ function mount(root){
  function processRow(tr){
   if(!tr.hasAttribute('data-i')||tr.classList.contains('detRow'))return;
   removeLegacyGameTag(tr);
-  if(tr.dataset.difficultyV2Processed)return;
+  if(tr.dataset.difficultyV2Processed){
+   const cell=tr.querySelector('td.guess-v2-col');
+   if(cell)fillScore(cell,imageScore(wordOf(tr),tr));
+   return;
+  }
   const cells=[...tr.children],w=wordOf(tr),score=imageScore(w,tr);
   const headword=tr.querySelector('td.cW .spk[data-say]')?.dataset.say?.trim()||w.w;
   const posCell=cells[sourcePosIndex];
@@ -138,8 +202,7 @@ function mount(root){
   for(const i of removed)if(tr.children[i])tr.children[i].remove();
   const c=doc.createElement('td');c.className='difficulty-v2-col';c.append(makeButton(w));
   const g=doc.createElement('td');g.className='guess-v2-col';
-  if(score!==null)g.innerHTML='<span class="guess-v2-score '+(score<50?'low':score>=80?'high':'mid')+'">'+score+' / 100</span>';
-  else g.textContent='—';
+  fillScore(g,score);
   g.title='画像から単語を推測できる度合い（AI推定、実測正答率ではありません）';
   const p=doc.createElement('td');p.className='spelling-v2-col';
   const label=doc.createElement('span');
@@ -185,11 +248,12 @@ function mount(root){
   const b=e.target.closest?.('button[data-difficulty-v2]');if(!b)return;
   e.preventDefault();e.stopPropagation();e.stopImmediatePropagation();
   const d=b._details;if(!d)return;
-  const dialog=makeModal(root);dialog.querySelector('#difficultyV2Details').innerHTML=modalHTML(d.w,d.d);
-  if(typeof dialog.showModal==='function')dialog.showModal();else dialog.setAttribute('open','');
+  toggle(d.d.level);
  },true);
  const observe=()=>{const el=doc.getElementById('tableWrap')||doc.body;new MutationObserver(schedule).observe(el,{childList:true,subtree:true});schedule()};
- if(doc.readyState==='loading')doc.addEventListener('DOMContentLoaded',observe,{once:true});else observe();
+ prepareVisualScores().then(schedule).catch(e=>console.warn('画像推測度データ未取得',e));
+ const init=()=>{installLevelFilters();observe();};
+ if(doc.readyState==='loading')doc.addEventListener('DOMContentLoaded',init,{once:true});else init();
 }
 return {WEBLIO_TO_10,R_CUTS,makeIndex,evaluate,mount};
 });
