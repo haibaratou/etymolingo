@@ -10,7 +10,7 @@
     {id:'guess',cls:'cGuess',name:'画像推測',match:/画像の推測度|画像推測/}
   ];
   const source='data/generated-etymon/';
-  let customByIndex=new Map(),weblioByWord=new Map(),guessByKey=new Map(),sourceValid=false;
+  let customByIndex=new Map(),weblioByWord=new Map(),guessByKey=new Map();
   let revision=0,pending=false;
   const css=document.createElement('style');
   css.textContent='.cCustom,.cWeblio,.cGuess{text-align:right!important;font-variant-numeric:tabular-nums;white-space:nowrap;min-width:65px}.cCustom,.cWeblio{font-weight:600}@media(max-width:620px){th.cGuess,td.cGuess{display:none}}';
@@ -58,6 +58,7 @@
     return {index,w,custom:e?.w===w?e:null};
   }
   function numericOnly(cell,value){
+    if(!cell)return;
     const s=value===null||value===undefined?'':String(value);
     if(cell.textContent.trim()!==s)cell.textContent=s;
   }
@@ -99,6 +100,10 @@
   }
   function enhance(){
     pending=false;
+    // Filter toolbar is redrawn independently of the table.
+    for(const label of document.querySelectorAll('#toolbar .tLabel')){
+      if(label.textContent.trim()==='レア度')label.textContent='Ngram';
+    }
     const table=$('#tableWrap table');
     if(!table)return;
     configureHeader(table);
@@ -124,7 +129,7 @@
       .then(data=>{
         customByIndex=new Map(data.data.entries.map(e=>[e.dictionaryIndex,e]));
         // The JS decoder already checks its checksum, and lookup records remain index+word matched.
-        sourceValid=true;refresh();
+        refresh();
       }).catch(e=>console.warn('Explorer provisional level data unavailable',e));
     loadScript(source+'puzzle-visual-scores.js?v=20261025').then(()=>{
       guessByKey=new Map((window.ETYMON_PUZZLE_VISUAL_SCORES?.entries||[])
