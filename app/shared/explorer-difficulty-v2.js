@@ -112,7 +112,7 @@ function mount(root){
   if(t!==table){
    table=t;
    const hs=[...header.children];
-   removed=hs.map((h,i)=>({i,text:h.textContent.replace(/\\s+/g,'').trim()}))
+   removed=hs.map((h,i)=>({i,text:h.textContent.replace(/\s+/g,'').trim()}))
      .filter(x=>hs[x.i].classList.contains('cR')||x.text==='画像評価'||x.text.includes('英単語の難易度')||x.text.includes('独自レベル')||x.text==='難易度'||x.text==='画像の推測度'||x.text==='WeblioLv'||x.text==='Ngram'||x.text.includes('レア度'))
      .map(x=>x.i).sort((a,b)=>b-a);
    const kanaIndex=hs.findIndex(h=>h.classList.contains('cK')||h.textContent.trim()==='カナ');
