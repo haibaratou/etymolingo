@@ -54,8 +54,9 @@ if(typeof document!=='undefined' && /\/etymon-explorer\.html$/.test(location.pat
  const puzzleScript=document.createElement('script');
  puzzleScript.src=new URL('puzzle-eligibility.js?v=rarity-corrected-v2',document.currentScript.src).href;
  document.head.append(puzzleScript);
- const weblioColumnScript=document.createElement('script');
- weblioColumnScript.src=new URL('weblio-level-column.js?v=47f938f8294e',document.currentScript.src).href;
- document.head.append(weblioColumnScript);
+ // Explorer statistics, color-coded learning stars and drill-down are handled together.
+ const starColumnsScript=document.createElement('script');
+ starColumnsScript.src=new URL('explorer-numeric-columns.js?v=stars-20261025',document.currentScript.src).href;
+ document.head.append(starColumnsScript);
 }
 
