@@ -1,5 +1,4 @@
-/* Numeric-only Explorer comparison: provisional learning, Weblio, image guessability, Ngram.
-   Does not write or recalculate any dictionary values. */
+/* Color-coded rarity and 10-step learning stars for Explorer.\n   Source metrics are shown only on tap; stored dictionary values are unchanged. */
 (() => {
   'use strict';
   if (!/\/etymon-explorer\.html$/.test(location.pathname)) return;
@@ -64,7 +63,7 @@
     document.head.append(el);
   });
   function classifyHeader(th){
-    if(th.classList.contains('cPic'))return 'picture';
+    if(th.classList.contains('cPic')||/^(画像|イラスト|絵)$/.test(th.textContent.trim()))return 'picture';
     if(th.classList.contains('cR')||/^(レア度|幻レア度|Ngram)/i.test(th.textContent.trim()))return 'ngram';
     return expectedColumns.find(x=>th.classList.contains(x.cls)||x.match.test(th.textContent))?.id||null;
   }
