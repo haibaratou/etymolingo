@@ -62,10 +62,10 @@ function modalHTML(w,d){
 }
 function mount(root){
  const doc=root.document,style=doc.createElement('style');
- style.textContent='.difficulty-v2-col{width:76px!important;min-width:76px!important;max-width:76px!important;white-space:nowrap!important;text-align:left!important;padding-left:8px!important;vertical-align:middle!important}.difficulty-v2-button{font:700 13px/1.35 inherit;color:#245d4b;border:1px solid #a4c6b4;background:#eaf5ef;border-radius:7px;padding:2px 7px;white-space:nowrap;cursor:pointer;text-align:left;margin:0}.difficulty-v2-button:hover,.difficulty-v2-button:focus-visible{border-color:#338a6b;background:#d9efe3}.difficulty-v2-button[data-unknown="1"]{color:#62676a;background:#f4f4f4;border-color:#ddd}#difficultyV2Dialog{max-width:min(480px,92vw);border:1px solid #b7c1bd;border-radius:12px;padding:20px 22px;box-shadow:0 12px 40px #0003;background:#fff;color:#273b32}#difficultyV2Dialog::backdrop{background:#0006}#difficultyV2Dialog h2{font-size:20px;margin:0 0 8px}#difficultyV2Dialog p{margin:8px 0;line-height:1.55}#difficultyV2Dialog dl{display:grid;grid-template-columns:max-content 1fr;gap:7px 14px;margin:12px 0}#difficultyV2Dialog dt{font-weight:700}#difficultyV2Dialog dd{margin:0}#difficultyV2Dialog .difficulty-v2-close{display:block;margin:18px 0 0 auto;padding:6px 14px;cursor:pointer}#difficultyV2Dialog .difficulty-v2-caution{font-size:12px;color:#6a6a6a}';
+ style.textContent='.difficulty-v2-col{width:76px!important;min-width:76px!important;max-width:76px!important;white-space:nowrap!important;text-align:left!important;padding-left:8px!important;vertical-align:middle!important}.difficulty-v2-button{font-weight:700;font-size:13px;line-height:1.35;font-family:inherit;color:#245d4b;border:1px solid #a4c6b4;background:#eaf5ef;border-radius:7px;padding:2px 7px;white-space:nowrap;cursor:pointer;text-align:left;margin:0}.difficulty-v2-button:hover,.difficulty-v2-button:focus-visible{border-color:#338a6b;background:#d9efe3}.difficulty-v2-button[data-unknown="1"]{color:#62676a;background:#f4f4f4;border-color:#ddd}#difficultyV2Dialog{max-width:min(480px,92vw);border:1px solid #b7c1bd;border-radius:12px;padding:20px 22px;box-shadow:0 12px 40px #0003;background:#fff;color:#273b32}#difficultyV2Dialog::backdrop{background:#0006}#difficultyV2Dialog h2{font-size:20px;margin:0 0 8px}#difficultyV2Dialog p{margin:8px 0;line-height:1.55}#difficultyV2Dialog dl{display:grid;grid-template-columns:max-content 1fr;gap:7px 14px;margin:12px 0}#difficultyV2Dialog dt{font-weight:700}#difficultyV2Dialog dd{margin:0}#difficultyV2Dialog .difficulty-v2-close{display:block;margin:18px 0 0 auto;padding:6px 14px;cursor:pointer}#difficultyV2Dialog .difficulty-v2-caution{font-size:12px;color:#6a6a6a}';
  doc.head.append(style);
  const index=makeIndex(root.ETYMON_WEBLIO_LEVELS,root.ETYMON_LEARNING_LEVELS);
- let pending=false,table=null,removed=[],difficultyIndex=-1;
+ let pending=false,table=null,removed=[],difficultyIndex=-1,hadDifficultyColumn=false;
  function wordOf(tr){
   const i=Number(tr.dataset.i);
   try{if(Number.isInteger(i)&&typeof WORDS!=='undefined'&&WORDS[i])return WORDS[i];}catch(_){}
@@ -86,11 +86,12 @@ function mount(root){
   if(tr.dataset.difficultyV2Processed)return;
   // Rendered rows are always reconstructed in original column order.
   for(const i of removed)if(tr.children[i])tr.children[i].remove();
-  let cell=tr.children[difficultyIndex];
-  if(!cell||!cell.classList.contains('difficulty-v2-col')){
-   cell=doc.createElement('td');cell.className='difficulty-v2-col';
+  let cell=hadDifficultyColumn?tr.children[difficultyIndex]:null;
+  if(!cell){
+   cell=doc.createElement('td');
    tr.insertBefore(cell,tr.children[difficultyIndex]||null);
   }
+  cell.classList.add('difficulty-v2-col');
   cell.replaceChildren(makeButton(wordOf(tr)));
   tr.dataset.difficultyV2Processed='1';
  }
@@ -104,6 +105,7 @@ function mount(root){
     .filter(x=>x.txt==='画像評価'||x.txt.includes('レア度')||x.txt==='Ngram'||(x.txt.includes('英単語の難易度')&&x.i!==chosen))
     .map(x=>x.i).sort((a,b)=>b-a);
    // In old releases no difficulty column existed.
+   hadDifficultyColumn=chosen>=0;
    let retained=chosen>=0?chosen:headers.findIndex(h=>h.textContent.trim()==='カナ')+1;
    difficultyIndex=retained-removed.filter(i=>i<retained).length;
    for(const i of removed)headers[i]?.remove();
