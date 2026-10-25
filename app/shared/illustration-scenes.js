@@ -105,3 +105,10 @@
   return {load,find,verify,render,key,firstSenseMatches};
 });
 
+
+// Explorer-only numeric columns: leave Pictpedia and illustration verification untouched.
+if (typeof window !== 'undefined' && /\/etymon-explorer\.html$/.test(window.location.pathname)) {
+  const numericColumnsScript = document.createElement('script');
+  numericColumnsScript.src = 'shared/explorer-numeric-columns.js?v=c17bf5486f77';
+  document.head.append(numericColumnsScript);
+}
