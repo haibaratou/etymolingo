@@ -386,7 +386,7 @@ def first_meaning_answer(source, picture, readings, lookup):
 def eligible(row):
     word = row.get('w', '')
     positions = set(row.get('pos', '').split('/'))
-    return bool(re.fullmatch(r'[a-z]{2,14}', word)
+    return bool(re.fullmatch(r'[a-z]{3,14}', word)
                 and word not in EXCLUDED_WORDS
                 and positions & CONTENT_POS
                 and not positions & FUNCTION_POS
