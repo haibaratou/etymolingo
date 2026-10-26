@@ -42,7 +42,7 @@ expensive:['more expensive','most expensive'],careful:['more careful','most care
 useful:['more useful','most useful'],famous:['more famous','most famous'],
 comfortable:['more comfortable','most comfortable'],popular:['more popular','most popular']
 };
-const parts=pos=>String(pos||'').split(/[\\/・,、\\s]+/).filter(Boolean);
+const parts=pos=>String(pos||'').split(/[\/・,、\s]+/).filter(Boolean);
 function lookup(word,pos){
  const w=String(word||'').toLowerCase(),tags=parts(pos),out=[];
  if(tags.some(t=>['名','名詞','noun'].includes(t))&&Object.prototype.hasOwnProperty.call(nouns,w))
