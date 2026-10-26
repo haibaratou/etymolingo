@@ -95,6 +95,19 @@ class CatalogRulesTest(unittest.TestCase):
                        {'w': 'orgasm'}, {'ja': '誤綴'}):
             self.assertFalse(catalog.eligible({**valid, **update}), update)
 
+    def test_past_only_forms_are_never_independent_puzzles(self):
+        for word, gloss in [('wrote', 'past of write'),
+                            ('eaten', 'past participle of eat'),
+                            ('sold', 'past and past participle of sell')]:
+            self.assertFalse(catalog.eligible({
+                'w':word, 'ja':'活用形', 'en':gloss, 'pos':'動'}), word)
+        self.assertFalse(catalog.eligible({
+            'w':'went', 'ja':'行った', 'en':'traveled', 'pos':'動'}))
+        # Inflection-shaped spelling alone is not grounds for exclusion.
+        for row in [{'w':'broken','ja':'壊れた','en':'damaged','pos':'形'},
+                    {'w':'saw','ja':'のこぎり','en':'cutting tool','pos':'名'}]:
+            self.assertTrue(catalog.eligible(row), row)
+
     def test_optional_ledger_preserves_filename_verbatim(self):
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / 'ledger.csv'
