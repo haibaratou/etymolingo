@@ -47,6 +47,14 @@ class ResolverTests(unittest.TestCase):
         self.assertEqual(len(result['safe_primary']),1)
         self.assertEqual(result['safe_primary'][0]['canonicalRowIndices'],[0,1])
 
+    def test_distinct_rootless_etymologies_fail_closed(self):
+        insect=row('roach', ja='ゴキブリ', en='cockroach')
+        fish=row('roach', ja='淡水魚', en='freshwater fish')
+        # These are different origins, not one PIE root and not interchangeable
+        # artwork. The (word, roots) key cannot represent both yet.
+        with self.assertRaisesRegex(ValueError, 'origin_id'):
+            resolve_bindings([insect,fish],inventory('roach','roach@x'),{})
+
     def test_immutable_copy_requires_name_and_byte_identity(self):
         digest='a'*64
         inv=inventory('cat','cat@'+digest,'cat@'+'c'*64)
