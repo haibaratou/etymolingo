@@ -128,7 +128,7 @@ if (typeof window !== 'undefined' && /\/etymon-explorer\.html$/.test(window.loca
       addScript('data/generated-etymon/learning-levels.js?v=48bcf2f15474')
     ]).then(()=>Promise.all([
       addScript('shared/explorer-inflections.js?v=1c848c89c842'),
-      addScript('shared/explorer-difficulty-v2.js?v=8a275148ef8b')
+      addScript('shared/explorer-difficulty-v2.js?v=4e2cfe422d43')
     ]));
     panels.then(()=>{
       document.documentElement.dataset.explorerPanelsReady='1';
