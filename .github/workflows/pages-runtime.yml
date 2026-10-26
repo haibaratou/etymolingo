@@ -27,7 +27,11 @@ jobs:
           node --check app/shared/explorer-difficulty-v2.js
           node --check app/shared/explorer-inflections.js
           node --check app/shared/lexical-identity.js
-          node --test --test-timeout=30000 tests/explorer-dom/overlay.test.cjs tests/explorer-family-tags.test.cjs app/shared/explorer-language-tags.test.cjs app/shared/lexical-identity.test.cjs tests/explicit-inflection-eligibility.test.cjs
+          node --test --test-timeout=30000 tests/explorer-dom/overlay.test.cjs tests/explorer-dom/startup.test.cjs tests/explorer-family-tags.test.cjs app/shared/explorer-language-tags.test.cjs app/shared/lexical-identity.test.cjs tests/explicit-inflection-eligibility.test.cjs app/shared/multilingual-answers.test.cjs
+      - name: Check Pages startup and asset routes
+        run: |
+          python3 tools/test_pages_build.py
+          node --test --test-timeout=30000 tools/test_pages_assets.cjs
       - name: Stage runtime without duplicated media
         run: |
           python3 tools/build_dictionary_basics.py --root .

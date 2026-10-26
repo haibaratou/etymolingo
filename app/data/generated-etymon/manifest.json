@@ -140,6 +140,12 @@
           "sha256": "1e3512bd6ad8261017d8c52f2ca23608126ebc46a67857571d003593fe2dc87c"
         }
       ]
+    },
+    "illustration_review_status": {
+      "file": "illustration-review-status.js",
+      "bytes": 6901,
+      "count": 18,
+      "sha256": "491d6620d95d58c45475b52b710b59c1b2f229ec643f4e9243e672312b5401ef"
     }
   }
 }

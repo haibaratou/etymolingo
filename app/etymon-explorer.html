@@ -328,6 +328,13 @@ function detOf(word,i){
   return DET_SHARD[c].then(sh=>sh[i]||null);
 }
 let EO_SLUG=new Set();   // etymonline に実在する見出し(eo_slugs.json)
+let eoSlugsReady;
+function prepareEOSlugs(){
+  if(!eoSlugsReady)eoSlugsReady=(location.protocol==='file:'?offlineDictionary().then(d=>d.eo_slugs)
+    :fetch(DATA_DIR+'eo_slugs.json?v='+PIE_V).then(x=>x.ok?x.json():[]))
+    .then(list=>{EO_SLUG=new Set(list);}).catch(()=>{});
+  return eoSlugsReady;
+}
 /* 同音異義語よけ: 行番号 → 残す語義の並び。guy「張り綱」に guy「やつ」の語源が
    混ざらないようにする。build_eo_pick.py が eo_pick.json を作る(母艦側)。 */
 let EO_PICK=null;
@@ -415,7 +422,14 @@ function embeddedData(){
   if(!embeddedPromise)embeddedPromise=(async()=>{
     const el=document.getElementById('pieData');
     if(!el)throw Error('No embedded snapshot');
-    return el.type==='application/gzip-base64'?unpack(el.textContent.trim()):JSON.parse(el.textContent);
+    let text=el.textContent.trim();
+    if(!text&&el.dataset.src){
+      const response=await fetch(el.dataset.src);
+      if(!response.ok)throw Error('Fallback snapshot unavailable');
+      text=(await response.text()).trim();
+    }
+    if(!text)throw Error('No embedded snapshot data');
+    return el.type==='application/gzip-base64'?unpack(text):JSON.parse(text);
   })();
   return embeddedPromise;
 }
@@ -444,8 +458,9 @@ async function unpack(b64){
 }
 async function loadData(){
   await findDataDir();
-  try{MULTILINGUAL=window.MultilingualAnswers.index(await loadSidecar('multilingual-answers.json','multilingual_answers'));}
-  catch{multilingualUnavailable=true;}
+  const multilingualReady=loadSidecar('multilingual-answers.json','multilingual_answers')
+    .then(data=>{MULTILINGUAL=window.MultilingualAnswers.index(data);})
+    .catch(()=>{multilingualUnavailable=true;});
   try{
     const [r,w,a,parts]=await Promise.all([
       fetch(DATA_DIR+'roots.json?v='+PIE_V).then(x=>{if(!x.ok)throw 0;return x.json();}),
@@ -458,7 +473,7 @@ async function loadData(){
     // http で読めなかった(＝file:// 直開き)。HTMLに埋めた控えを使う。
     // 素で入れると HTML が10MB超えになるので gzip+base64 で持っている。
     const el=$('#pieData'), emb=el?el.textContent.trim():'';
-    if(emb){
+    if(emb||el?.dataset.src){
       try{
         const d=await embeddedData();
         ROOTS=d.roots;WORDS=d.words;AFFIXES=d.affixes||[];WORD_PARTS=d.word_parts||{};
@@ -468,6 +483,7 @@ async function loadData(){
       }
     }
   }
+  await multilingualReady;
   // Image-only additions are keyed by exact spelling and roots, keeping homographs separate.
   window.EtymonLexicalIdentity.applyArtwork(WORDS,globalThis.ETYMON_WORD_ART||{});
   const embeddedSemantics=JSON.parse(document.getElementById('semanticData').textContent);
@@ -510,9 +526,6 @@ async function loadData(){
     if(!byRoot.has(c))byRoot.set(c,[]);
     byRoot.get(c).push(w);
   }
-  // 単語詳細(約30MB)は別ファイルを非同期で読む。届いたら表を描き直す
-  (location.protocol==='file:'?offlineDictionary().then(d=>d.eo_slugs):fetch(DATA_DIR+'eo_slugs.json?v='+PIE_V).then(x=>x.ok?x.json():[])) 
-    .then(list=>{EO_SLUG=new Set(list);}).catch(()=>{});
   // 版番号も出す。HTML自体にはキャッシュ破りが効かないので、
   // 「更新したのに画面が変わらない」ときはここを見れば古い版を掴んでいると分かる。
   // 版は開発用の目印なので、狭い画面では .statVer ごと畳む(CSS側で display:none)。
@@ -533,6 +546,9 @@ async function loadData(){
   }
   renderAll();
   pushState(true);              // 履歴の起点(ここより前には戻さない)
+  document.documentElement.dataset.explorerReady='1';
+  document.documentElement.dataset.explorerReadyMs=String(Math.round(performance.now()));
+  window.dispatchEvent(new Event('etymon:ready'));
 }
 function wordParts(w,labeled=false){
   if(new Set(w.p||[]).size<2)return '';
@@ -925,26 +941,97 @@ function affixChips(v){
   ).join(' ');
 }
 const illustrationSceneIndex=new Map();
+let illustrationReviewIndex;
+function illustrationReviewEntry(w){
+  const data=window.ETYMON_ILLUSTRATION_REVIEW_STATUS;
+  if(data?.schema!==1||!Array.isArray(data.entries))return null;
+  if(!illustrationReviewIndex)illustrationReviewIndex=new Map(data.entries.filter(entry=>entry.status==='mismatch').map(entry=>[window.IllustrationScenes.key(entry),entry]));
+  return illustrationReviewIndex.get(window.IllustrationScenes.key({...w,art:w.pica||safeWordAssetName(w.w)}));
+}
+const illustrationReviewObserver=new IntersectionObserver(items=>{
+  for(const item of items)if(item.isIntersecting){
+    illustrationReviewObserver.unobserve(item.target);
+    const marker=item.target.querySelector('span[hidden][data-scene-word]');
+    if(marker)fillIllustrationReview(marker);
+  }
+},{rootMargin:'180px'});
+async function fillIllustrationReview(marker){
+  if(!marker.isConnected||marker.dataset.reviewLoading)return;
+  const w=WORDS[Number(marker.dataset.sceneWord)],entry=w&&illustrationReviewEntry(w);
+  if(!entry)return;
+  marker.dataset.reviewLoading='1';
+  try{
+    const result=await window.IllustrationScenes.verify(entry,{word:w,imageUrl:wordImageURL(w),protocol:location.protocol,snapshot:location.protocol==='file:'});
+    if(!marker.isConnected)return;
+    marker.dataset.reviewStatus=result.status;
+    marker.closest('tr')?.querySelectorAll('td.cPic img').forEach(img=>{
+      if(img.src!==new URL(wordImageURL(w),location.href).href)return;
+      img.classList.toggle('illustration-needs-revision',result.status==='mismatch');
+      if(result.status==='mismatch')img.setAttribute('aria-label','イラスト要修正');
+      else img.removeAttribute('aria-label');
+    });
+  }finally{delete marker.dataset.reviewLoading;}
+}
+function hydrateIllustrationReview(marker){
+  const w=WORDS[Number(marker.dataset.sceneWord)];
+  if(!w||marker.dataset.reviewObserved||!illustrationReviewEntry(w))return;
+  marker.dataset.reviewObserved='1';illustrationReviewObserver.observe(marker.closest('tr'));
+}
+window.addEventListener('etymon:review-ready',()=>{
+  illustrationReviewIndex=null;
+  const body=document.getElementById('tblBody');if(body)hydrateIllustrationScenes(body);
+});
 const sceneSearchText=w=>{
   const entry=illustrationSceneIndex.get(window.IllustrationScenes.key({...w,art:w.pica||safeWordAssetName(w.w)}));
   return entry&&window.IllustrationScenes.firstSenseMatches(entry,w)?(entry.scene.en+' '+entry.scene.ja).toLowerCase():'';
 };
-const illustrationSceneData = loadSidecar('illustration-scenes.json','illustration_scenes').then(data=>{
-  for(const entry of data.entries)if((entry.status||entry.review.status)==='reviewed')illustrationSceneIndex.set(window.IllustrationScenes.key(entry),entry);
-  if(q&&WORDS.length)renderTable();
-  return data;
-}).catch(()=>null);
+let illustrationSceneData;
+function loadIllustrationSceneData(){
+  if(!illustrationSceneData)illustrationSceneData=loadSidecar('illustration-scenes.json','illustration_scenes').then(data=>{
+    for(const entry of data.entries)if((entry.status||entry.review?.status)==='reviewed')illustrationSceneIndex.set(window.IllustrationScenes.key(entry),entry);
+    return data;
+  }).catch(()=>null);
+  return illustrationSceneData;
+}
+function repaintSceneSearch(){
+  const wrap=document.getElementById('tableWrap');
+  if(!wrap){renderTable();return;}
+  const detail=wrap.querySelector('tr.detRow'),selected=detail?.previousElementSibling?.dataset.i;
+  const top=wrap.scrollTop,left=wrap.scrollLeft;
+  if(detail)detail.remove();
+  renderTable();
+  const row=selected===undefined?null:wrap.querySelector('tr[data-i="'+selected+'"]');
+  if(detail&&row){
+    row.after(detail);
+    detail.querySelectorAll('[data-scene-observed]').forEach(cell=>{
+      if(!cell.dataset.sceneLoading&&!cell.dataset.sceneStatus)delete cell.dataset.sceneObserved;
+    });
+    hydrateIllustrationScenes(detail);
+  }
+  wrap.scrollTop=top;wrap.scrollLeft=left;
+}
+let sceneSearchRequest=0;
+function refreshSceneSearch(query){
+  const request=++sceneSearchRequest;
+  if(!query)return;
+  loadIllustrationSceneData().then(data=>{
+    if(data&&request===sceneSearchRequest&&q===query&&WORDS.length)repaintSceneSearch();
+  });
+}
 const sceneObserver = new IntersectionObserver(items=>{
   for(const item of items)if(item.isIntersecting){
     sceneObserver.unobserve(item.target);
-    const cell=item.target.matches('[data-scene-word]')?item.target:item.target.querySelector('[data-scene-word]');
+    const cell=item.target;
     if(cell)fillIllustrationScene(cell);
   }
 },{rootMargin:'180px'});
 async function fillIllustrationScene(cell){
+  if(cell.hidden||cell.closest('[hidden]')||!cell.isConnected||cell.dataset.sceneLoading)return;
   const w=WORDS[Number(cell.dataset.sceneWord)];
   if(!w)return;
-  const data=await illustrationSceneData;
+  cell.dataset.sceneLoading='1';
+  try{
+  const data=await loadIllustrationSceneData();
   if(!cell.isConnected)return;
   const art=w.pica||safeWordAssetName(w.w);
   const entry=data&&window.IllustrationScenes.find(data,w,art);
@@ -962,10 +1049,13 @@ async function fillIllustrationScene(cell){
       else img.removeAttribute('aria-label');
     });
   }
+  }finally{delete cell.dataset.sceneLoading;}
 }
 function hydrateIllustrationScenes(parent){
   parent.querySelectorAll('[data-scene-word]:not([data-scene-observed])').forEach(cell=>{
-    cell.dataset.sceneObserved='1';sceneObserver.observe(cell.closest('tr')||cell);
+    if(cell.hidden){hydrateIllustrationReview(cell);return;}
+    if(cell.closest('[hidden]')||cell.dataset.sceneLoading||cell.dataset.sceneStatus)return;
+    cell.dataset.sceneObserved='1';sceneObserver.observe(cell);
   });
 }
 function semanticLine(w){return w.semanticUnavailable?'<small class="semantic-classification">意味の分類を確認できません</small>':w.semanticDistinction?`<small class="semantic-classification">${esc(w.semanticDistinction.ja)} ${w.semanticTags.map(esc).join(' · ')}</small>`:'';}
@@ -991,6 +1081,7 @@ function rowHTML(w){
 }
 function renderTable(){
   sceneObserver.disconnect();
+  illustrationReviewObserver.disconnect();
   tblRows=applyFilters(baseWords());
   tblShown=0;
   const wrap=$('#tableWrap');
@@ -1102,7 +1193,7 @@ function toggleDetail(cell){
   const word=cell.querySelector('.spk')?.dataset.say||cell.childNodes[0].textContent.trim();
   const w=WORDS[Number(tr.dataset.i)];
   if(!w)return;
-  detOf(w.w,w.i).then(d=>{if(tr.isConnected)renderDetail(tr,w,d);}).catch(()=>{if(tr.isConnected)renderDetail(tr,w,null);});
+  Promise.all([detOf(w.w,w.i),prepareEOSlugs()]).then(([d])=>{if(tr.isConnected)renderDetail(tr,w,d);}).catch(()=>{if(tr.isConnected)renderDetail(tr,w,null);});
 }
 function renderDetail(tr,w,d){
   const cols=tr.children.length;
@@ -1192,7 +1283,7 @@ for(const[id,m]of Object.entries(NAV)){
     setNav();renderAll();pushState();
   };
 }
-function renderAll(){renderSide();renderHead();renderToolbar();renderTable();}
+function renderAll(){renderSide();renderHead();renderToolbar();renderTable();refreshSceneSearch(q);}
 /* ---- ブラウザの戻る/進む: タブ・選択・検索語を1つずつたどる ---- */
 let navLock=false;
 function pushState(replace){

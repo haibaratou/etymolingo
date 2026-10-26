@@ -49,13 +49,4 @@
  return {load,decode,hashWords,anchors};
 });
 
-/* Explorer optional feature: shared, mother-owned picture-puzzle decisions. */
-if(typeof document!=='undefined' && /\/etymon-explorer\.html$/.test(location.pathname)){
- const puzzleScript=document.createElement('script');
- puzzleScript.src=new URL('../data/generated-etymon/puzzle-eligibility.js?v=76cf845d0966',document.currentScript.src).href;
- document.head.append(puzzleScript);
- // illustration-scenes.js installs the current difficulty/score/POS panel.
- // Running the old numeric-column mutator as well races on the same headers
- // and makes it overwrite source meaning/etymology cells.
-}
-
+// Explorer optional scoring data is loaded after first paint by illustration-scenes.js.
