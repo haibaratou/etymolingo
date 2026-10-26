@@ -12,7 +12,7 @@ doc.head.append(style);
 function column(tr,name){
  const table=tr.closest('table'),heads=[...(table?.querySelector('thead tr')?.children||[])];
  const index=heads.findIndex(th=>th.textContent.replace(/\s+/g,'').trim()===name);
- return index>=0?tr.children[index]?.textContent?.trim()||'':'';
+ return index>=0?(tr.children[index]?.dataset.posRaw||tr.children[index]?.textContent?.trim()||''):'';
 }
 function esc(v){return String(v||'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));}
 function add(tr){
