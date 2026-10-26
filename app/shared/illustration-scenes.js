@@ -117,9 +117,13 @@ if (typeof window !== 'undefined' && /\/etymon-explorer\.html$/.test(window.loca
   });
   Promise.all([
     addScript('shared/spelling-puzzle-eligibility.js?v=a250ce85e39f'),
+    addScript('shared/verb-inflections.js?v=e5a32476fa53'),
     addScript('data/generated-etymon/weblio-learning-levels.js?v=92b587b8148d'),
     addScript('data/generated-etymon/learning-levels.js?v=d310e93cb81f'),
     addScript('data/generated-etymon/puzzle-visual-scores.js?v=cafdf82a6535').catch(() => null)
-  ]).then(() => addScript('shared/explorer-difficulty-v2.js?v=5f40574fb116'))
+  ]).then(() => Promise.all([
+      addScript('shared/explorer-inflections.js?v=1026dd0376db'),
+      addScript('shared/explorer-difficulty-v2.js?v=5f40574fb116')
+    ]))
     .catch(err => console.warn('Explorer difficulty module unavailable', err));
 }
