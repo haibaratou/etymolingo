@@ -64,6 +64,7 @@ function mount(root){
  const doc=root.document,style=doc.createElement('style');
  style.textContent='.difficulty-v2-col{width:76px!important;min-width:76px!important;max-width:76px!important;white-space:nowrap!important;text-align:left!important;padding-left:8px!important;vertical-align:middle!important}.difficulty-v2-button{font-weight:700;font-size:13px;line-height:1.35;font-family:inherit;color:#245d4b;border:1px solid #a4c6b4;background:#eaf5ef;border-radius:7px;padding:2px 7px;white-space:nowrap;cursor:pointer;text-align:left;margin:0}.difficulty-v2-button:hover,.difficulty-v2-button:focus-visible{border-color:#338a6b;background:#d9efe3}.difficulty-v2-button[data-unknown="1"]{color:#62676a;background:#f4f4f4;border-color:#ddd}#difficultyV2Dialog{max-width:min(480px,92vw);border:1px solid #b7c1bd;border-radius:12px;padding:20px 22px;box-shadow:0 12px 40px #0003;background:#fff;color:#273b32}#difficultyV2Dialog::backdrop{background:#0006}#difficultyV2Dialog h2{font-size:20px;margin:0 0 8px}#difficultyV2Dialog p{margin:8px 0;line-height:1.55}#difficultyV2Dialog dl{display:grid;grid-template-columns:max-content 1fr;gap:7px 14px;margin:12px 0}#difficultyV2Dialog dt{font-weight:700}#difficultyV2Dialog dd{margin:0}#difficultyV2Dialog .difficulty-v2-close{display:block;margin:18px 0 0 auto;padding:6px 14px;cursor:pointer}#difficultyV2Dialog .difficulty-v2-caution{font-size:12px;color:#6a6a6a}';
  style.textContent+='th.guess-v2-col,td.guess-v2-col{min-width:90px!important;max-width:90px!important;width:90px!important;text-align:left!important;padding-left:9px!important;font-size:12px;white-space:nowrap}.guess-v2-score{font-weight:700;font-variant-numeric:tabular-nums}.guess-v2-score.low{color:#b24e48}.guess-v2-score.mid{color:#86713f}.guess-v2-score.high{color:#167744}th.spelling-v2-col,td.spelling-v2-col{width:84px!important;min-width:84px!important;max-width:84px!important;text-align:left!important;padding-left:9px!important;white-space:nowrap;font-size:12px}.spelling-v2-ok{color:#17754c;font-weight:800}.spelling-v2-false{color:#666;font-weight:600}';
+ style.textContent+='.ety-pos-tags{display:flex;flex-wrap:wrap;gap:4px}.ety-pos-tag{display:inline-block;padding:2px 6px;border-radius:5px;background:#e8edf5;color:#284564;border:1px solid #c5d3e7;font-weight:600;font-size:11px;white-space:nowrap}.ety-pos-tag[data-kind="動"]{background:#e9f5ec;border-color:#badcc4;color:#275d3a}.ety-pos-tag[data-kind="形"]{background:#fff0dc;border-color:#e5ceb1;color:#805324}.ety-pos-tag[data-kind="副"]{background:#f3e9fb;border-color:#d8c4e8;color:#614181}';
  doc.head.append(style);
  const index=makeIndex(root.ETYMON_WEBLIO_LEVELS,root.ETYMON_LEARNING_LEVELS);
  let pending=false,table=null,removed=[],difficultyIndex=-1,sourcePosIndex=-1,sourceJaIndex=-1,sourceEnIndex=-1;
@@ -191,10 +192,16 @@ function mount(root){
   const cells=[...tr.children],w=wordOf(tr),score=imageScore(w,tr);
   const headword=tr.querySelector('td.cW .spk[data-say]')?.dataset.say?.trim()||w.w;
   const posCell=cells[sourcePosIndex];
-  const rawPos=posCell?.textContent?.trim()||w.pos||'';
+  const rawPos=posCell?.dataset.posRaw||posCell?.textContent?.trim()||w.pos||'';
   // Display-only hotfix until the canonical source correction is re-exported.
   const pos=headword==='could'&&rawPos==='動'?'助':rawPos;
-  if(headword==='could'&&rawPos==='動'&&posCell)posCell.textContent='助';
+  if(posCell){
+   posCell.dataset.posRaw=pos;
+   const parts=pos.split(/[\\/・,、\\s]+/).map(x=>x.trim()).filter(Boolean);
+   const chips=doc.createElement('div');chips.className='ety-pos-tags';
+   for(const part of parts){const tag=doc.createElement('span');tag.className='ety-pos-tag';tag.dataset.kind=part;tag.textContent=part;tag.title=({名:'名詞',動:'動詞',形:'形容詞',副:'副詞',前:'前置詞',助:'助動詞',代:'代名詞',接:'接続詞',冠:'冠詞'})[part]||part;chips.append(tag);}
+   if(parts.length)posCell.replaceChildren(chips);
+  }
   const row={w:headword,pos,ja:cells[sourceJaIndex]?.textContent?.trim()||w.ja||'',
     en:cells[sourceEnIndex]?.textContent?.trim()||w.en||''};
   const suitability=root.EtymonSpellingEligibility?.evaluate(row)
