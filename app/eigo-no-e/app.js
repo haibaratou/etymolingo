@@ -105,20 +105,12 @@ function pronunciationHTML(w){const imported=usPronunciationByWord.get(w.w);
  if(items.length)return `<div class="phonetics"><span lang="en">${[...new Set(items.map(x=>'/'+x.ipa+'/'))].map(esc).join('、')}</span></div>`;
  return '';
 }
-const familyLabel={G:'ゲルマン',L:'ロマンス',Gr:'ギリシャ',S:'サンスクリット',Sa:'サンスクリット',Ce:'ケルト',Sl:'スラヴ',Ir:'ペルシャ'};
-function familyTagsHTML(w){
- const family=Array.isArray(w.gs)&&w.gs.length?w.gs:[w.g].filter(Boolean);
- const values=[...new Set(family)];
- return values.length?'<div class="word-families" aria-label="語源の言語系統"><b>語派：</b>'+values.map(code=>'<span class="word-family-tag">'+esc(familyLabel[code]||code)+'</span>').join('')+'</div>':'';
-}
 function meaningsHTML(w){const p=wordProfile(w),record=basicRecord(w),rows=L.meanings(record?{...w,ja:record.ja,pos:record.pos}:w,p);if(!rows.length)return '';
  const forms=(p?.forms||[]).map(f=>`<span>${esc(f.label)}：${tokenHTML(f.value)}</span>`).join('');
  const verifiedVerbForms=window.EtymonVerbInflections?.lookup(w.w,record?.pos||w.pos)||null;
  const verbForms=verifiedVerbForms?`<p class="word-forms word-verb-forms"><strong>動詞の活用</strong>${verifiedVerbForms.map(f=>`<span>${esc(f.label)}：${tokenHTML(f.value)}</span>`).join('')}</p>`:'';
- const morphology=window.EtymonNominalAdjectiveInflections?.lookup(w.w,record?.pos||w.pos)||[];
- const otherForms=morphology.map(group=>'<p class="word-forms"><strong>'+esc(group.category)+'の活用</strong>'+group.forms.map(f=>'<span>'+esc(f.label)+'：'+tokenHTML(f.value)+'</span>').join('')+'</p>').join('');
  const groups=new Map();for(const row of rows){const key=row.pos||'';if(!groups.has(key))groups.set(key,[]);groups.get(key).push(row);}
- return `<section class="dictionary-meanings">${forms?`<p class="word-forms">${forms}</p>`:''}${verbForms}${otherForms}${[...groups].map(([pos,senses])=>`<p class="meaning-group">${pos?pos.split(/[\/・,、\s]+/).filter(Boolean).map(tag=>`<span class="pos" title="品詞：${esc(tag)}">${esc(tag)}</span>`).join(' '):''} <span class="meaning-text">${senses.map(x=>esc(x.glossJa)+(x.usage?` <span class="sense-usage" lang="en">（${tokenHTML(x.usage)}）</span>`:'')).join('、')}</span></p>`).join('')}</section>`;
+ return `<section class="dictionary-meanings">${forms?`<p class="word-forms">${forms}</p>`:''}${verbForms}${[...groups].map(([pos,senses])=>`<p class="meaning-group">${pos?`<span class="pos">${esc(pos)}</span> `:''}<span class="meaning-text">${senses.map(x=>esc(x.glossJa)+(x.usage?` <span class="sense-usage" lang="en">（${tokenHTML(x.usage)}）</span>`:'')).join('、')}</span></p>`).join('')}</section>`;
 }
 function sourcesHTML(w){const p=wordProfile(w),old=basicRecord(w);let items='';
  if(p){items=p.sources.map(s=>`<li><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title)}</a><small>${esc(s.fields.map(f=>({pronunciations:'発音記号',senses:'品詞・語義',forms:'語形'}[f]||f)).join('・'))}</small></li>`).join('');items+='<li>日本語の語義説明は、確認した辞書の意味を基に編集しています。</li>';}
@@ -299,7 +291,7 @@ function catPage(cid, sid) {
 function dictionaryPage(id){
  if(!/^dictionary:\d+$/.test(String(id)))return notFound();
  const index=Number(String(id).slice('dictionary:'.length)),record=basicById.get(index);if(!record)return notFound();const w={...record,id};side();
- view.innerHTML=`<div class="page fade"><nav class="crumbs"><a href="#/">トップ</a>${chev}<span>${esc(w.w)}</span></nav><article class="dictionary-only"><div class="word-heading"><h1 class="word-title" lang="en">${esc(w.w)}</h1><button class="word-speak" id="speak" type="button" aria-label="単語の発音"><svg><use href="#i-sound"/></svg></button></div><div class="word-rarity">${rarityHTML(w,'detail')}</div>${pronunciationHTML(w)}${familyTagsHTML(w)}${meaningsHTML(w)}<section id="wordParaphrase"></section></article></div>`;
+ view.innerHTML=`<div class="page fade"><nav class="crumbs"><a href="#/">トップ</a>${chev}<span>${esc(w.w)}</span></nav><article class="dictionary-only"><div class="word-heading"><h1 class="word-title" lang="en">${esc(w.w)}</h1><button class="word-speak" id="speak" type="button" aria-label="単語の発音"><svg><use href="#i-sound"/></svg></button></div><div class="word-rarity">${rarityHTML(w,'detail')}</div>${pronunciationHTML(w)}${meaningsHTML(w)}<section id="wordParaphrase"></section></article></div>`;
  window.EnglishParaphrases.render($('#wordParaphrase'),w,paraphrases);
  $('#speak').onclick=()=>speak(w.w,'en-US',$('#speak'));document.title=w.w+' — Pictpedia';
 }
@@ -322,7 +314,6 @@ function wordPage(id) {
         <div class="word-heading"><h1 class="word-title${w.w?'':' pending-title'}"${w.w?' lang="en"':''}>${esc(titleOf(w))}</h1>${w.w?'<button class="word-speak" id="speak" type="button" aria-label="単語の発音" title="発音を聞く"><svg><use href="#i-sound"/></svg></button>':''}</div>
         <div class="word-rarity">${rarityHTML(w,'detail')}</div>
         ${pronunciationHTML(w)}
-        ${familyTagsHTML(w)}
         ${meaningsHTML(w)}<section id="wordParaphrase"></section>
         <div class="box scene-description" id="sceneBox" aria-live="polite">${hasCaption(w)?'':((needsRevision(w)||needsReview(w))?missingCaptionHTML(w):'')}</div>
         <div class="word-categories"><div class="tags" aria-label="カテゴリー">${[...categoryTags].map(([url,label])=>`<a href="${esc(url)}">${esc(label)}</a>`).join('')}</div></div>
