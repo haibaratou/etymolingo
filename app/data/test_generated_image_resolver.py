@@ -3,7 +3,7 @@ from generated_image_resolver import resolve_bindings
 
 
 def row(w, roots=(), **extra):
-    return dict(w=w, p=list(roots), ja='語', en='word', **extra)
+    return dict({'w':w, 'p':list(roots), 'ja':'語', 'en':'word'}, **extra)
 
 
 def inventory(*stems):
@@ -54,6 +54,32 @@ class ResolverTests(unittest.TestCase):
         # artwork. The (word, roots) key cannot represent both yet.
         with self.assertRaisesRegex(ValueError, 'origin_id'):
             resolve_bindings([insect,fish],inventory('roach','roach@x'),{})
+
+    def test_explicit_nonpie_etymologies_bind_only_their_own_images(self):
+        words=[
+          row('roach', etymology_id='roach-cockroach', etymology_art='roach@np-cockroach',
+              ja='ゴキブリ', en='cockroach'),
+          row('roach', etymology_id='roach-fish', etymology_art='roach@np-fish',
+              ja='淡水魚', en='freshwater fish')]
+        inv=inventory('roach','roach@x','roach@np-cockroach','roach@np-fish')
+        result=resolve_bindings(words, inv, {})
+        self.assertEqual(
+            {(r['etymology_id'],r['art']) for r in result['safe_primary']},
+            {('roach-cockroach','roach@np-cockroach'),
+             ('roach-fish','roach@np-fish')})
+        self.assertEqual(len(result['safe_primary']),2)
+        for art in ('roach','roach@x'):
+            unresolved=next(a for a in result['assets'] if a['art']==art)
+            self.assertEqual(unresolved['bindingStatus'],'ownership_pending')
+        for r in result['safe_primary']:
+            self.assertEqual(len(r['canonicalRowIndices']),1)
+
+    def test_nonpie_identity_does_not_spoof_a_pie_root(self):
+        with self.assertRaisesRegex(ValueError, 'PIE roots'):
+            resolve_bindings([
+                row('roach',['false-root'],etymology_id='roach-fish',
+                    etymology_art='roach@np-fish')
+            ],inventory('roach@np-fish'),{})
 
     def test_immutable_copy_requires_name_and_byte_identity(self):
         digest='a'*64
