@@ -49,5 +49,5 @@ function evaluate(row){
  if(!parts.some(x=>contentParts.has(x)))return {eligible:false,reason:'スペリング問題向けの自立語ではない'};
  return {eligible:true,reason:'単語の基本条件に適合。画像・語義・解説の検品は別途必要'};
 }
-return {evaluate};
+return {evaluate,inflectionOnly};
 });
