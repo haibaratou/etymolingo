@@ -5,6 +5,7 @@
 'use strict';
 if(!root?.document||!/\/etymon-explorer\.html$/.test(root.location.pathname))return;
 const doc=root.document;
+const morphologyScript=doc.createElement('script');morphologyScript.src='shared/nominal-adjective-inflections.js';morphologyScript.onload=()=>schedule();doc.head.append(morphologyScript);
 const style=doc.createElement('style');
 style.textContent='.ety-inflection-detail{margin:12px 0 8px;padding:10px 12px;border:1px solid #bdd1c7;border-radius:10px;background:#f7faf8;color:#273c33;font-size:13px}.ety-inflection-detail strong{display:block;margin-bottom:6px}.ety-inflection-detail .ety-form-items{display:flex;flex-wrap:wrap;gap:7px 16px}.ety-inflection-detail .ety-form-items span{white-space:nowrap}.ety-inflection-detail .ety-form-note{font-size:11px;margin-top:7px;color:#52665d}';
 doc.head.append(style);
@@ -28,12 +29,13 @@ function add(tr){
   lemma=api?.lemmaForForm(word,'past')||api?.lemmaForForm(word,'past_participle');
   if(lemma)forms=api.lookup(lemma,'動');
  }
- if(!forms)return;
+ const nominal=root.EtymonNominalAdjectiveInflections?.lookup(word,pos)||[];
+ if(!forms&&!nominal.length)return;
  const node=doc.createElement('section');node.className='ety-inflection-detail';
  const title=lemma?'基本動詞 '+lemma+' の活用形':'動詞の活用形';
- node.innerHTML='<strong>'+esc(title)+'</strong><div class="ety-form-items">'+
-  forms.map(f=>'<span>'+esc(f.label)+'：<b lang="en">'+esc(f.value)+'</b></span>').join('')+
-  '</div><div class="ety-form-note">登録済みの動詞に限って表示しています。単純な過去形・過去分詞はパズルの独立出題対象ではありません。</div>';
+ const verb= forms?'<strong>'+esc(title)+'</strong><div class="ety-form-items">'+forms.map(f=>'<span>'+esc(f.label)+'：<b lang="en">'+esc(f.value)+'</b></span>').join('')+'</div>':'';
+ const other=nominal.map(group=>'<strong>'+esc(group.category)+'の活用形</strong><div class="ety-form-items">'+group.forms.map(f=>'<span>'+esc(f.label)+'：<b lang="en">'+esc(f.value)+'</b></span>').join('')+'</div>').join('');
+ node.innerHTML=verb+other+'<div class="ety-form-note">確認済みの語形のみ表示します。語義・品詞が異なる同綴語には流用しません。</div>';
  details.append(node);
 }
 let pending=false;
