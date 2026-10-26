@@ -9,6 +9,7 @@ from datetime import datetime, timezone
 import base64, copy, csv, hashlib, importlib.util, json, re, sys, unicodedata
 from generated_image_resolver import resolve_bindings, identity_key
 from image_content_evidence import load_evidence, apply_evidence
+from inflection_policy import is_simple_inflection_only
 
 ROOT=Path(__file__).resolve().parents[2]
 GEN=Path('app/data/generated-etymon')
@@ -201,10 +202,14 @@ def build_catalog_rows(root=ROOT,include_packs=True):
   reviewed,status,reason=validate_caption(scene_map.get(key),word,art,image)
   if active:
    reviewed=None;status='held';reason=active[0]['code']
-  answer,evidence=japanese_answer(word,old,answers);ja_ok=bool(re.fullmatch('[ぁ-ゔー]{1,14}',answer) and re.search('[ぁ-ゔ]',answer))
-  en_ok=bool(re.fullmatch('[A-Za-z]{1,14}',word['w']))
-  en_reason=blockers[0]['code'] if blockers else '' if en_ok else 'unsupported_english_answer_format'
-  ja_reason=blockers[0]['code'] if blockers else '' if ja_ok else evidence if not answer else 'unsupported_japanese_answer_length'
+  answer,evidence=japanese_answer(word,old,answers)
+  # Keep the dictionary/image row, but never offer a simple grammatical past
+  # form as an English or Japanese spelling puzzle.
+  grammatical_form=is_simple_inflection_only(word)
+  ja_ok=bool(re.fullmatch('[ぁ-ゔー]{1,14}',answer) and re.search('[ぁ-ゔ]',answer) and not grammatical_form)
+  en_ok=bool(re.fullmatch('[A-Za-z]{3,14}',word['w']) and not grammatical_form)
+  en_reason=blockers[0]['code'] if blockers else 'simple_past_or_participle_only' if grammatical_form else '' if en_ok else 'unsupported_english_answer_format'
+  ja_reason=blockers[0]['code'] if blockers else 'simple_past_or_participle_only' if grammatical_form else '' if ja_ok else evidence if not answer else 'unsupported_japanese_answer_length'
   description={'status':status,'en':reviewed['scene']['en'] if reviewed else '', 'ja':reviewed['scene']['ja'] if reviewed else '', 'reason':reason,'ttsAllowed':bool(reviewed)}
   dates=meta['recordedUpdatedAt'];row={'id':candidate,'pic':art,'en':word['w'],'w':answer if ja_ok else '', 'ja':sense['ja'],'roots':word.get('p',[]),'dictionaryIndex':binding['dictionaryIndex'],'rank':word.get('r') or 99999,'generatedImage':True,'updatedArt':after_cutoff(dates),'bindingStatus':'bound','image':image,'sense':sense,'sceneBinding':{k:word.get(k,[] if k=='p' else '') for k in ['w','p','ja','en']},'description':description,'availability':{'en':{'playable':en_ok and not blockers,'answer':word['w'],'reason':en_reason},'ja':{'playable':ja_ok and not blockers,'answer':answer if ja_ok else '', 'reason':ja_reason}},'issues':active,'recordedUpdatedAt':max(dates) if dates else None,'readingEvidence':evidence,'imageDateProvenance':meta['imageDateProvenance'],'pos':word.get('pos','')}
   if word.get('tags') is not None:row['tags']=word['tags']
