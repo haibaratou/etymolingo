@@ -965,7 +965,8 @@ async function fillIllustrationReview(marker){
     if(!marker.isConnected)return;
     marker.dataset.reviewStatus=result.status;
     marker.closest('tr')?.querySelectorAll('td.cPic img').forEach(img=>{
-      if(img.src!==new URL(wordImageURL(w),location.href).href)return;
+      const expected=window.ETYMON_ASSET_URL?.(wordImageURL(w),location.href)||wordImageURL(w);
+      if(img.src!==new URL(expected,location.href).href)return;
       img.classList.toggle('illustration-needs-revision',result.status==='mismatch');
       if(result.status==='mismatch')img.setAttribute('aria-label','イラスト要修正');
       else img.removeAttribute('aria-label');
@@ -1043,7 +1044,8 @@ async function fillIllustrationScene(cell){
     const scope=cell.closest('tr');
     // Dim only this exact word's image, never another row or another sense.
     scope?.querySelectorAll('img').forEach(img=>{
-      if(img.src!==new URL(wordImageURL(w),location.href).href)return;
+      const expected=window.ETYMON_ASSET_URL?.(wordImageURL(w),location.href)||wordImageURL(w);
+      if(img.src!==new URL(expected,location.href).href)return;
       img.classList.toggle('illustration-needs-revision',result.status==='mismatch');
       if(result.status==='mismatch')img.setAttribute('aria-label','イラスト要修正');
       else img.removeAttribute('aria-label');

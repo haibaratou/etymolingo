@@ -132,6 +132,32 @@ test('hidden list markers cannot request scene data or PNG verification',async()
  assert.equal(loads,0);assert.equal(verifications,0);
 });
 
+test('list and detail warnings match pinned Pages media URLs and ignore another displayed asset',async()=>{
+ const api=require('../../app/shared/illustration-scenes.js');
+ const location={protocol:'https:',href:'https://haibaratou.github.io/etymolingo/app/etymon-explorer.html'};
+ const routed=url=>new URL(url,location.href).href.replace('https://haibaratou.github.io/etymolingo/','https://raw.githubusercontent.com/haibaratou/etymolingo/pinned-commit/');
+ for(const kind of ['list','detail']){
+  const expected=routed('../assets/word/repair.png?v=fixture'),other=routed('../assets/word/another.png?v=fixture');
+  const {document}=parseHTML('<html><body><table><tbody><tr class="'+(kind==='detail'?'detRow':'')+'"><td class="cPic"><img id="target" src="'+expected+'"><img id="other" src="'+other+'"><'+(kind==='list'?'span hidden':'div')+' data-scene-word="0"></'+(kind==='list'?'span':'div')+'></td></tr></tbody></table></body></html>');
+  const word={w:'repair',p:[],pica:'repair',ja:'例',en:'sample'},entry={...word,art:'repair',status:'mismatch'};
+  const helper={key:api.key,find:()=>entry,verify:async()=>({status:'mismatch'}),render(){}};
+  const context={document,WORDS:[word],URL,location,safeWordAssetName:w=>w,wordImageURL:()=> '../assets/word/repair.png?v=fixture',loadIllustrationSceneData:async()=>({entries:[entry]}),
+   IntersectionObserver:class{observe(){}unobserve(){}},window:{IllustrationScenes:helper,ETYMON_ASSET_URL:routed,ETYMON_ILLUSTRATION_REVIEW_STATUS:{schema:1,entries:[entry]},addEventListener(){}}};
+  vm.runInNewContext(kind==='list'?between(html,'let illustrationReviewIndex;','const sceneSearchText='):between(html,'async function fillIllustrationScene','function hydrateIllustrationScenes'),context);
+  const marker=document.querySelector('[data-scene-word]'),target=document.getElementById('target'),unrelated=document.getElementById('other');
+  const fill=kind==='list'?context.fillIllustrationReview:context.fillIllustrationScene;
+  await fill(marker);
+  assert.equal(target.classList.contains('illustration-needs-revision'),true,kind+' pinned raw URL warning');
+  assert.equal(target.getAttribute('aria-label'),'イラスト要修正');
+  assert.equal(unrelated.classList.contains('illustration-needs-revision'),false,kind+' unrelated image guard');
+  let resolve;helper.verify=()=>new Promise(r=>{resolve=r;});
+  const pending=fill(marker);await tick();
+  target.classList.remove('illustration-needs-revision');target.removeAttribute('aria-label');target.src=other;
+  resolve({status:'mismatch'});await pending;
+  assert.equal(target.classList.contains('illustration-needs-revision'),false,kind+' replaced displayed asset guard');
+ }
+});
+
 test('opening the local page does not decode the large offline dictionary merely for EO links',async()=>{
  let loads=0;
  const context={location:{protocol:'file:'},offlineDictionary(){loads++;return Promise.resolve({eo_slugs:['steam']});},DATA_DIR:'unused',PIE_V:'fixture'};
