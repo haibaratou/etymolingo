@@ -11,6 +11,10 @@
   const levels=cefr.create(globalThis.ETYMON_LEARNING_LEVELS),overlays=new Map(data.entries.map(e=>[e.id,e]));
   const words=[];
   for(const row of catalog){
+   // A past/participle-only form is a lexical record, not a picture-answer.
+   // Use the bound dictionary gloss, never infer from a word ending in -ed.
+   const form=row.sceneBinding?.en||'';
+   if(globalThis.EtymonSpellingEligibility?.inflectionOnly?.(row.en,row.pos,row.ja,form))continue;
    const e=overlays.get(row.id),learningLevel=levels.lookup(row.en,row.pos),customLearningLevel=custom.lookup(row);
    if(!e||!customLearningLevel||e.customLearningLevel?.level!==customLearningLevel.level||e.customLearningLevel?.senseSha256!==customLearningLevel.senseSha256||e.visualReview?.score<50||e.visualReview?.imageGitBlobSha!==row.image?.git_blob_sha||e.currentImageGitBlobSha!==row.image.git_blob_sha)continue;
    const word={...row,description:e.description,reviewedScene:e.reviewedScene,learningLevel,customLearningLevel,visualReview:e.visualReview};
