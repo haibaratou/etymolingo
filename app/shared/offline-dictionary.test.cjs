@@ -6,6 +6,11 @@ const payload={schema:1,det:{b:{0:['carry'],1:['animal']}},eo:{b:{bear:[{p:'v.'}
 async function fixture(){return {schema:1,encoding:'gzip-base64',words_sha256:await api.hashWords(words),data:zlib.gzipSync(JSON.stringify(payload)).toString('base64')}}
 test('offline decode preserves exact homograph indices and filters',async()=>{const out=await api.decode(await fixture(),words);assert.deepEqual(out,payload)});
 test('reordered words reject index-based dictionary data',async()=>await assert.rejects(api.decode(await fixture(),[...words].reverse()),/identity\/order/));
+test('changing a non-PIE origin rejects stale dictionary bindings',async()=>{
+ const rootless=[{w:'roach',p:[],etymology_id:'roach-fish',ja:'魚',en:'fish'}];
+ const envelope={...(await fixture()),words_sha256:await api.hashWords(rootless)};
+ await assert.rejects(api.decode(envelope,[{...rootless[0],etymology_id:'roach-cockroach'}]),/identity\/order/);
+});
 test('changed sense rejects dictionary data',async()=>await assert.rejects(api.decode(await fixture(),[{...words[0],ja:'熊'},words[1]]),/identity\/order/));
 test('incomplete payload rejects instead of silent empty dictionary',async()=>{const f=await fixture();f.data=zlib.gzipSync(JSON.stringify({schema:1})).toString('base64');await assert.rejects(api.decode(f,words),/Incomplete/)});
 test('local script loading uses script element rather than fetch',async()=>{const f=await fixture();delete global.ETYMON_OFFLINE_DICTIONARY;global.fetch=()=>{throw Error('must not fetch')};global.document={createElement:()=>({}),head:{append(s){assert.equal(s.src,'fixture.js');global.ETYMON_OFFLINE_DICTIONARY=f;s.onload()}}};assert.deepEqual(await api.load(words,{url:'fixture.js'}),payload);await assert.rejects(api.load([...words].reverse(),{url:'fixture.js'}),/identity\/order/);delete global.ETYMON_OFFLINE_DICTIONARY;});

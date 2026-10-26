@@ -1,7 +1,7 @@
 /* Loads a user's existing local dictionary data; no network fallback or inferred entries. */
 (function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.OfflineDictionary=api;})(typeof globalThis==='object'?globalThis:this,function(){
  'use strict';
- const anchors=words=>words.map(w=>[w.w,w.p||[],w.ja||'',w.en||'']);
+ const anchors=words=>words.map(w=>[w.w,w.p||[],w.ja||'',w.en||'',...(w.etymology_id?[w.etymology_id]:[])]);
  async function hashWords(words){
   const bytes=new TextEncoder().encode(JSON.stringify(anchors(words)));
   const hash=await globalThis.crypto.subtle.digest('SHA-256',bytes);
@@ -35,7 +35,7 @@
   return {...envelope,data:values.join('')};
  }
  function load(words,options={}){
-  const url=options.url||'data/generated-etymon/offline-dictionary.js';
+  const url=options.url||'data/generated-etymon/offline-dictionary.js?v=a2af398e1219';
   if(!loads.has(url))loads.set(url,new Promise((resolve,reject)=>{
    if(globalThis.ETYMON_OFFLINE_DICTIONARY){resolve(globalThis.ETYMON_OFFLINE_DICTIONARY);return;}
    const script=document.createElement('script');script.src=url;script.async=true;
@@ -52,11 +52,10 @@
 /* Explorer optional feature: shared, mother-owned picture-puzzle decisions. */
 if(typeof document!=='undefined' && /\/etymon-explorer\.html$/.test(location.pathname)){
  const puzzleScript=document.createElement('script');
- puzzleScript.src=new URL('puzzle-eligibility.js?v=rarity-corrected-v2',document.currentScript.src).href;
+ puzzleScript.src=new URL('../data/generated-etymon/puzzle-eligibility.js?v=76cf845d0966',document.currentScript.src).href;
  document.head.append(puzzleScript);
- // Explorer statistics, color-coded learning stars and drill-down are handled together.
- const starColumnsScript=document.createElement('script');
- starColumnsScript.src=new URL('explorer-numeric-columns.js?v=stars-20261025',document.currentScript.src).href;
- document.head.append(starColumnsScript);
+ // illustration-scenes.js installs the current difficulty/score/POS panel.
+ // Running the old numeric-column mutator as well races on the same headers
+ // and makes it overwrite source meaning/etymology cells.
 }
 

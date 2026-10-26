@@ -2,17 +2,32 @@ name: Publish runtime site
 on:
   push:
     branches: [main]
+  pull_request:
   workflow_dispatch:
 permissions:
   contents: read
 concurrency:
-  group: pages-runtime
+  group: pages-runtime-${{ github.event_name }}-${{ github.ref }}
   cancel-in-progress: true
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: tests/explorer-dom/package-lock.json
+      - name: Install Explorer DOM test dependencies
+        working-directory: tests/explorer-dom
+        run: npm ci --ignore-scripts --no-audit --no-fund
+      - name: Check Explorer columns, memo interactions and sense identity
+        run: |
+          node --check app/shared/explorer-difficulty-v2.js
+          node --check app/shared/explorer-inflections.js
+          node --check app/shared/lexical-identity.js
+          node --test --test-timeout=30000 tests/explorer-dom/overlay.test.cjs tests/explorer-family-tags.test.cjs app/shared/explorer-language-tags.test.cjs app/shared/lexical-identity.test.cjs tests/explicit-inflection-eligibility.test.cjs
       - name: Stage runtime without duplicated media
         run: |
           python3 tools/build_dictionary_basics.py --root .
@@ -23,10 +38,12 @@ jobs:
           node --check _site/app/eigo-no-e/app.js
           node --check _site/app/eigo-no-e/lexical-utils.js
           node --check _site/app/games/picture-words/reviewed-scenes.js
+          node --check _site/app/shared/explorer-difficulty-v2.js
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
   deploy:
+    if: github.event_name != 'pull_request'
     needs: build
     runs-on: ubuntu-latest
     permissions:

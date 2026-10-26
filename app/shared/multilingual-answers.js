@@ -2,7 +2,7 @@
   'use strict';
   const norm=x=>String(x||'').normalize('NFC').trim();
   const input=x=>String(x||'').normalize('NFKC').toLowerCase().trim();
-  const key=w=>JSON.stringify([w.w,w.p||[]]);
+  const key=w=>JSON.stringify([w.w,w.p||[],...(w.etymology_id?[w.etymology_id]:[])]);
   const esc=x=>String(x||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   function index(data){if(data?.schema!==1||!Array.isArray(data.entries))throw Error('Unsupported multilingual data');return new Map(data.entries.map(e=>[key(e),e]));}
   function current(s,w){const ja=String(w.ja||'').split('、'),en=String(w.en||'').split(' / ');return s.binding_status!=='stale_sense'&&norm(ja[s.index])===norm(s.ja_gloss)&&norm(en[s.index])===norm(s.en_gloss);}

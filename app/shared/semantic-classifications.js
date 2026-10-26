@@ -2,13 +2,14 @@
 (function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.SemanticClassifications=api;})(typeof globalThis==='object'?globalThis:this,function(){
 'use strict';
 const norm=x=>String(x||'').normalize('NFKC').replace(/[‘’]/g,"'").replace(/[‐‑]/g,'-').trim().replace(/\s+/g,' ');
-const wordKey=x=>JSON.stringify([x.w,x.p||[]]);
-const key=x=>JSON.stringify([x.w,x.p||[],x.art]);
+const wordKey=x=>JSON.stringify([x.w,x.p||[],...(x.etymology_id?[x.etymology_id]:[])]);
+const key=x=>JSON.stringify([x.w,x.p||[],x.art,...(x.etymology_id?[x.etymology_id]:[])]);
+const artKey=x=>JSON.stringify([x.w,(x.p||[]).join('+'),...(x.etymology_id?[x.etymology_id]:[])]);
 const firstJa=x=>norm(String(x.ja||'').split('、')[0]);
 const firstEn=x=>norm(String(x.en||'').split(' / ')[0]);
 const sha=async bytes=>[...new Uint8Array(await globalThis.crypto.subtle.digest('SHA-256',bytes))].map(n=>n.toString(16).padStart(2,'0')).join('');
 const textSha=text=>sha(new TextEncoder().encode(text));
-const senseOf=async w=>({index:0,ja:firstJa(w),en:firstEn(w),sha256:await textSha(JSON.stringify([norm(w.w),w.p||[],firstJa(w),firstEn(w)]))});
+const senseOf=async w=>({index:0,ja:firstJa(w),en:firstEn(w),sha256:await textSha(JSON.stringify([norm(w.w),w.p||[],firstJa(w),firstEn(w),...(w.etymology_id?[w.etymology_id]:[])]))});
 const sameSense=(a,b)=>a&&b&&['index','ja','en','sha256'].every(k=>a[k]===b[k])&&Object.keys(a).length===4;
 const nonempty=x=>typeof x==='string'&&!!x.trim();
 const strings=x=>Array.isArray(x)&&x.length>0&&x.every(nonempty)&&new Set(x).size===x.length;
@@ -69,14 +70,14 @@ async function applyToCatalog(data,payload,words){
 }
 function protectExplorerImages(words,embedded,index){
   const expected=new Map((embedded?.entries||[]).map(e=>[wordKey(e),e.art]));
-  for(const w of words){if(!expected.has(wordKey(w)))continue;const art=index[JSON.stringify([w.w,(w.p||[]).join('+')])];w.semanticImageBlocked=art!==expected.get(wordKey(w));}
+  for(const w of words){if(!expected.has(wordKey(w)))continue;const art=index[artKey(w)];w.semanticImageBlocked=art!==expected.get(wordKey(w));}
 }
 async function bindExplorer(words,payload,index){
   await validate(payload,words);
   const assignments=[];
   for(const e of payload.entries){
     const w=words.find(w=>wordKey(w)===wordKey(e));
-    if(index[JSON.stringify([w.w,(w.p||[]).join('+')])]!==e.art)throw Error('Semantic explorer artwork binding mismatch');
+    if(index[artKey(w)]!==e.art)throw Error('Semantic explorer artwork binding mismatch');
     assignments.push([w,e]);
   }
   for(const [w,e] of assignments){w.pica=e.art;w.pic=true;w.semanticImageBlocked=false;w.semanticUnavailable=false;w.semanticTags=[...e.semanticTags];w.semanticDistinction={...e.distinction};}
