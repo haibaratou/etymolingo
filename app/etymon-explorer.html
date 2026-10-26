@@ -1136,7 +1136,7 @@ function renderDetail(tr,w,d){
   fillEO(w.w,det,w).catch(()=>{const box=det.querySelector('.eoLocal span');if(box)box.textContent=offlineDictionaryError||'語源辞書データを読み込めません。';});
 }
 /* ダウンロードしたCSVを読み戻す。書いた内容はこのブラウザにしか残らないので、
-   端末を変えるとき・消えたときの復旧路。word / tag / note の3列だけ見る。 */
+   端末を変えるとき・消えたときの復旧路。語根・語源IDがあるCSVは別語源を区別する。 */
 function loadSheetCSV(text){
   const rows=[]; let row=[], cell='', q=false;
   for(let i=0;i<text.length;i++){
@@ -1161,6 +1161,7 @@ function loadSheetCSV(text){
     if(matches.length!==1)continue;
     const key=window.EtymonLexicalIdentity.memoKey(matches[0]);
     if(tag||note){memos[key]={tag,note};n++;} else delete memos[key];
+    if(!matches[0].etymology_id&&WORDS.filter(row=>row.w===w).length===1)delete memos[w];
   }
   return n;
 }

@@ -106,6 +106,40 @@ test('memo clicks leave details closed while the headword still opens details',(
  assert.equal(opened,1);
 });
 
+function csvImporter(words,memos){
+ const body=explorer.slice(explorer.indexOf('function loadSheetCSV(text){'),explorer.indexOf('function sheetCSV(){'));
+ const context={window:{EtymonLexicalIdentity:identity},WORDS:words,memos};
+ vm.runInNewContext(body,context);return context.loadSheetCSV;
+}
+
+test('blank CSV notes clear unique legacy spelling notes without fallback resurrection',()=>{
+ const memos={steam:{tag:'old tag',note:'old note'}};
+ const load=csvImporter([steam],memos);
+ assert.equal(identity.memoFor(steam,memos,[steam])?.note,'old note');
+ load('word,tag,note\nsteam,,\n');
+ assert.equal(memos.steam,undefined);
+ assert.equal(identity.memoFor(steam,memos,[steam]),null);
+});
+
+test('CSV note migration replaces unique legacy notes and later deletion remains clear',()=>{
+ const memos={steam:{note:'old note'}},words=[steam],load=csvImporter(words,memos);
+ assert.equal(load('word,tag,note\nsteam,new tag,new note\n'),1);
+ assert.equal(memos.steam,undefined);
+ assert.equal(identity.memoFor(steam,memos,words).note,'new note');
+ load('word,tag,note\nsteam,,\n');
+ assert.equal(identity.memoFor(steam,memos,words),null);
+});
+
+test('CSV clearing one homograph preserves legacy history and another origin note',()=>{
+ const fish={w:'roach',p:[],etymology_id:'roach-fish'},insect={w:'roach',p:[],etymology_id:'roach-cockroach'};
+ const legacy={note:'unassigned old note'},other={note:'insect note'};
+ const memos={roach:legacy,[identity.memoKey(fish)]:{note:'fish note'},[identity.memoKey(insect)]:other};
+ csvImporter([fish,insect],memos)('word,roots,etymology_id,tag,note\nroach,,roach-fish,,\n');
+ assert.equal(identity.memoFor(fish,memos,[fish,insect]),null);
+ assert.equal(identity.memoFor(insect,memos,[fish,insect]),other);
+ assert.equal(memos.roach,legacy);
+});
+
 test('native family sorting and filters share the same whitelist and hybrid tags',()=>{
  const native=explorer.slice(explorer.indexOf('function wLangs(w){'),explorer.indexOf('/* 印欧祖語のチップ。'));
  const context={window:{EtymonLexicalIdentity:identity}};vm.runInNewContext(native,context);
