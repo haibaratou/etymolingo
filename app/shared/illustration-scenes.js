@@ -18,7 +18,7 @@
   // canonical CSV imports as a script; preserve all existing identities.
   if (scriptBase && globalThis.location?.protocol === 'file:') {
     const script = document.createElement('script');
-    script.src = new URL('../data/generated-etymon/csv-illustration-scenes.js?v=fdfc3b220532', scriptBase).href;
+    script.src = new URL('../data/generated-etymon/csv-illustration-scenes.js?v=127aafe7aa67', scriptBase).href;
     script.onload = async () => {
       try {
         const envelope = globalThis.ETYMON_CSV_SCENES;
@@ -120,10 +120,10 @@ if (typeof window !== 'undefined' && /\/etymon-explorer\.html$/.test(window.loca
     addScript('shared/verb-inflections.js?v=8fb33d6858ab'),
     addScript('data/generated-etymon/weblio-learning-levels.js?v=e6a41b9d8680'),
     addScript('data/generated-etymon/learning-levels.js?v=48bcf2f15474'),
-    addScript('data/generated-etymon/puzzle-visual-scores.js?v=df84ff421e79').catch(() => null)
+    addScript('data/generated-etymon/puzzle-visual-scores.js?v=dfe9fac2156b').catch(() => null)
   ]).then(() => Promise.all([
-      addScript('shared/explorer-inflections.js?v=71a3c9f5c42e'),
-      addScript('shared/explorer-difficulty-v2.js?v=877e13efd802')
+      addScript('shared/explorer-inflections.js?v=1c848c89c842'),
+      addScript('shared/explorer-difficulty-v2.js?v=8a275148ef8b')
     ]))
     .catch(err => console.warn('Explorer difficulty module unavailable', err));
 }
