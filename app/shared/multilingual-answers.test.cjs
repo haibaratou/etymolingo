@@ -10,27 +10,27 @@ test('candidates cannot be game answers',()=>assert.equal(api.accepts(make({...j
 test('stale gloss and different homographs are excluded',()=>{assert.equal(api.accepts(make(),{...w,ja:'山脈'},0,'ja','yama'),false);assert.equal(api.accepts(make(),{...w,p:[]},0,'ja','yama'),false)});
 test('empty state does not invent answer',()=>assert.match(api.html(new Map(),w,'ja'),/未入力/));
 test('rendered answer escaped',()=>assert.match(api.html(make({...ja,text:'<img onerror="x">'}),w,'ja'),/&lt;img/));
-test('visible row hydrates far-right caption and image revision without horizontal scroll',()=>{
+test('only a visible detail caption is observed; hidden list markers never trigger scene loads',()=>{
  const fs=require('node:fs'),vm=require('node:vm');
  const html=fs.readFileSync(__dirname+'/../etymon-explorer.html','utf8');
  const observerCode=html.slice(html.indexOf('const sceneObserver ='),html.indexOf('async function fillIllustrationScene'));
  const hydrateCode=html.slice(html.indexOf('function hydrateIllustrationScenes'),html.indexOf('function semanticLine'));
  let observer,observed,filled;
- const row={matches:()=>false,querySelector:()=>cell};
- const cell={dataset:{},closest:()=>row};
- const context={IntersectionObserver:class{constructor(callback){this.callback=callback;observer=this;}observe(node){observed=node;}unobserve(){}},fillIllustrationScene(node){filled=node;}};
+ const cell={dataset:{},closest:()=>null},hidden={hidden:true,dataset:{},closest:()=>null};
+ const context={IntersectionObserver:class{constructor(callback){this.callback=callback;observer=this;}observe(node){observed=node;}unobserve(){}},hydrateIllustrationReview(){},fillIllustrationScene(node){filled=node;}};
  vm.createContext(context);vm.runInContext(observerCode+hydrateCode,context);
- context.hydrateIllustrationScenes({querySelectorAll:()=>[cell]});
- assert.equal(observed,row);observer.callback([{isIntersecting:true,target:row}]);assert.equal(filled,cell);
+ context.hydrateIllustrationScenes({querySelectorAll:()=>[hidden,cell]});
+ assert.equal(hidden.dataset.sceneObserved,undefined);
+ assert.equal(observed,cell);observer.callback([{isIntersecting:true,target:cell}]);assert.equal(filled,cell);
 });
 test('removed detail or older selection cannot render a late verification into the new row',async()=>{
  const fs=require('node:fs'),vm=require('node:vm');
  const html=fs.readFileSync(__dirname+'/../etymon-explorer.html','utf8');
  const code=html.slice(html.indexOf('async function fillIllustrationScene'),html.indexOf('function hydrateIllustrationScenes'));
  const pending=[],renders=[];
- const ctx={WORDS:[{w:'old'},{w:'new'}],illustrationSceneData:Promise.resolve({verification:'export_snapshot'}),safeWordAssetName:x=>x,wordImageURL:w=>w.w+'.png',location:{protocol:'file:',href:'file:///app/explorer.html'},URL,window:{IllustrationScenes:{find:()=>({}),verify:()=>new Promise(resolve=>pending.push(resolve)),render:(cell)=>renders.push(cell.id)}}};
+ const ctx={WORDS:[{w:'old'},{w:'new'}],loadIllustrationSceneData:()=>Promise.resolve({verification:'export_snapshot'}),safeWordAssetName:x=>x,wordImageURL:w=>w.w+'.png',location:{protocol:'file:',href:'file:///app/explorer.html'},URL,window:{IllustrationScenes:{find:()=>({}),verify:()=>new Promise(resolve=>pending.push(resolve)),render:(cell)=>renders.push(cell.id)}}};
  vm.createContext(ctx);vm.runInContext(code,ctx);
- const cell=(id,i)=>({id,dataset:{sceneWord:String(i)},isConnected:true,closest:()=>({querySelectorAll:()=>[]})});
+ const cell=(id,i)=>({id,dataset:{sceneWord:String(i)},isConnected:true,closest:selector=>selector==='[hidden]'?null:({querySelectorAll:()=>[]})});
  const old=cell('old-detail',0),next=cell('new-selection',1);
  const oldCall=ctx.fillIllustrationScene(old);await new Promise(setImmediate);
  old.isConnected=false;

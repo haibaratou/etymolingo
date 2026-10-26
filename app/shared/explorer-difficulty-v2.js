@@ -281,10 +281,20 @@ function mount(root){
   toggle(d.d.level);
  },true);
  const observe=()=>{const el=doc.getElementById('tableWrap')||doc.body;new MutationObserver(schedule).observe(el,{childList:true,subtree:true});schedule()};
- function loadVisualScores(){prepareVisualScores().then(schedule).catch(e=>{visualStatus='error';schedule();console.warn('画像推測度データ未取得',e);});}
+ let visualLoadPromise=null;
+ function loadVisualScores(){
+  if(visualLoadPromise||scoresByImage)return visualLoadPromise;
+  if(!root.ETYMON_PUZZLE_ENVELOPE||!root.ETYMON_PUZZLE_VISUAL_SCORES)return;
+  visualLoadPromise=prepareVisualScores().then(schedule).catch(e=>{
+   visualStatus='error';schedule();console.warn('画像推測度データ未取得',e);
+  }).finally(()=>{visualLoadPromise=null;});
+  return visualLoadPromise;
+ }
  loadVisualScores();
- // Selection and score scripts may load after this module during initial navigation.
- root.addEventListener('load',()=>{if(!scoresByImage){visualStatus='loading';loadVisualScores();}},{once:true});
+ root.addEventListener('etymon:visual-ready',()=>{visualStatus='loading';loadVisualScores();});
+ root.addEventListener('etymon:visual-error',()=>{visualStatus='error';schedule();});
+ // Also accept optional data supplied before the module or by local file loaders.
+ root.addEventListener('load',loadVisualScores,{once:true});
  const init=()=>{installLevelFilters();observe();};
  if(doc.readyState==='loading')doc.addEventListener('DOMContentLoaded',init,{once:true});else init();
 }
