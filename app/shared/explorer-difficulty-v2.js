@@ -187,8 +187,13 @@ function mount(root){
  function renderFamilyTags(tr,w){
   const cell=sourceFamilyIndex>=0?tr.children[sourceFamilyIndex]:null;
   if(!cell)return;
-  let parts=Array.isArray(w.gs)&&w.gs.length?w.gs:[w.g].filter(Boolean);
-  if(!parts.length){const original=cell.dataset.familyRaw||cell.textContent.trim();parts=original.split(/[\/・,、+＋\s]+/).filter(Boolean);}
+  // Only language-family codes belong in this column; never tokenize a memo.
+  let parts=(Array.isArray(w.gs)&&w.gs.length?w.gs:[w.g]).filter(part=>Object.prototype.hasOwnProperty.call(familyNames,part));
+  if(!parts.length){
+   const original=cell.dataset.familyRaw||cell.textContent.trim();
+   const tokens=original.split(/[\/・,、+＋\s]+/).filter(Boolean);
+   if(tokens.length&&tokens.every(part=>Object.prototype.hasOwnProperty.call(familyNames,part)))parts=tokens;
+  }
   if(!parts.length)return;
   cell.dataset.familyRaw=cell.dataset.familyRaw||cell.textContent.trim();
   const holder=doc.createElement('div');holder.className='ety-family-tags';
@@ -206,6 +211,8 @@ function mount(root){
    if(cell)fillScore(cell,imageScore(wordOf(tr),tr));
    return;
   }
+  // Header indexes already exclude legacy columns: remove matching row cells first.
+  for(const i of removed)if(tr.children[i])tr.children[i].remove();
   const cells=[...tr.children],w=wordOf(tr),score=imageScore(w,tr);
   renderFamilyTags(tr,w);
   const headword=tr.querySelector('td.cW .spk[data-say]')?.dataset.say?.trim()||w.w;
@@ -224,7 +231,6 @@ function mount(root){
     en:cells[sourceEnIndex]?.textContent?.trim()||w.en||''};
   const suitability=root.EtymonSpellingEligibility?.evaluate(row)
     ||{eligible:false,reason:'判定モジュール未読込'};
-  for(const i of removed)if(tr.children[i])tr.children[i].remove();
   const c=doc.createElement('td');c.className='difficulty-v2-col';c.append(makeButton(w));
   const g=doc.createElement('td');g.className='guess-v2-col';
   fillScore(g,score);
