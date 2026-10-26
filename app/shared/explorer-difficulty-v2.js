@@ -64,10 +64,11 @@ function mount(root){
  const doc=root.document,style=doc.createElement('style');
  style.textContent='.difficulty-v2-col{width:76px!important;min-width:76px!important;max-width:76px!important;white-space:nowrap!important;text-align:left!important;padding-left:8px!important;vertical-align:middle!important}.difficulty-v2-button{font-weight:700;font-size:13px;line-height:1.35;font-family:inherit;color:#245d4b;border:1px solid #a4c6b4;background:#eaf5ef;border-radius:7px;padding:2px 7px;white-space:nowrap;cursor:pointer;text-align:left;margin:0}.difficulty-v2-button:hover,.difficulty-v2-button:focus-visible{border-color:#338a6b;background:#d9efe3}.difficulty-v2-button[data-unknown="1"]{color:#62676a;background:#f4f4f4;border-color:#ddd}#difficultyV2Dialog{max-width:min(480px,92vw);border:1px solid #b7c1bd;border-radius:12px;padding:20px 22px;box-shadow:0 12px 40px #0003;background:#fff;color:#273b32}#difficultyV2Dialog::backdrop{background:#0006}#difficultyV2Dialog h2{font-size:20px;margin:0 0 8px}#difficultyV2Dialog p{margin:8px 0;line-height:1.55}#difficultyV2Dialog dl{display:grid;grid-template-columns:max-content 1fr;gap:7px 14px;margin:12px 0}#difficultyV2Dialog dt{font-weight:700}#difficultyV2Dialog dd{margin:0}#difficultyV2Dialog .difficulty-v2-close{display:block;margin:18px 0 0 auto;padding:6px 14px;cursor:pointer}#difficultyV2Dialog .difficulty-v2-caution{font-size:12px;color:#6a6a6a}';
  style.textContent+='th.guess-v2-col,td.guess-v2-col{min-width:90px!important;max-width:90px!important;width:90px!important;text-align:left!important;padding-left:9px!important;font-size:12px;white-space:nowrap}.guess-v2-score{font-weight:700;font-variant-numeric:tabular-nums}.guess-v2-score.low{color:#b24e48}.guess-v2-score.mid{color:#86713f}.guess-v2-score.high{color:#167744}th.spelling-v2-col,td.spelling-v2-col{width:84px!important;min-width:84px!important;max-width:84px!important;text-align:left!important;padding-left:9px!important;white-space:nowrap;font-size:12px}.spelling-v2-ok{color:#17754c;font-weight:800}.spelling-v2-false{color:#666;font-weight:600}';
+ style.textContent+='.ety-family-tags{display:flex;flex-wrap:wrap;gap:4px}.ety-family-tag{display:inline-block;border:1px solid #bfcee1;background:#edf2f8;color:#284866;padding:2px 6px;border-radius:6px;font-size:11px;font-weight:700;white-space:nowrap}.ety-family-tag[data-family="G"]{background:#e7f4e9;color:#24643b;border-color:#afd3b7}.ety-family-tag[data-family="L"]{background:#fcece9;color:#843e3b;border-color:#e4b8b0}.ety-family-tag[data-family="Gr"]{background:#e8effb;color:#34568d;border-color:#b8cbe9}';
  style.textContent+='.ety-pos-tags{display:flex;flex-wrap:wrap;gap:4px}.ety-pos-tag{display:inline-block;padding:2px 6px;border-radius:5px;background:#e8edf5;color:#284564;border:1px solid #c5d3e7;font-weight:600;font-size:11px;white-space:nowrap}.ety-pos-tag[data-kind="動"]{background:#e9f5ec;border-color:#badcc4;color:#275d3a}.ety-pos-tag[data-kind="形"]{background:#fff0dc;border-color:#e5ceb1;color:#805324}.ety-pos-tag[data-kind="副"]{background:#f3e9fb;border-color:#d8c4e8;color:#614181}';
  doc.head.append(style);
  const index=makeIndex(root.ETYMON_WEBLIO_LEVELS,root.ETYMON_LEARNING_LEVELS);
- let pending=false,table=null,removed=[],difficultyIndex=-1,sourcePosIndex=-1,sourceJaIndex=-1,sourceEnIndex=-1;
+ let pending=false,table=null,removed=[],difficultyIndex=-1,sourcePosIndex=-1,sourceJaIndex=-1,sourceEnIndex=-1,sourceFamilyIndex=-1;
  const selectedLevels=new Set();
  let scoresByImage=null,visualStatus='loading';
  async function prepareVisualScores(){
@@ -182,6 +183,21 @@ function mount(root){
    if(el.textContent.trim()==='ゲーム外'&&!el.querySelector('button,a'))el.remove();
   }
  }
+ const familyNames={G:'ゲルマン',L:'ロマンス',Gr:'ギリシャ',S:'サンスクリット',Sa:'サンスクリット',Ce:'ケルト',Sl:'スラヴ',Ir:'ペルシャ'};
+ function renderFamilyTags(tr,w){
+  const cell=sourceFamilyIndex>=0?tr.children[sourceFamilyIndex]:null;
+  if(!cell)return;
+  let parts=Array.isArray(w.gs)&&w.gs.length?w.gs:[w.g].filter(Boolean);
+  if(!parts.length){const original=cell.dataset.familyRaw||cell.textContent.trim();parts=original.split(/[\/・,、+＋\s]+/).filter(Boolean);}
+  if(!parts.length)return;
+  cell.dataset.familyRaw=cell.dataset.familyRaw||cell.textContent.trim();
+  const holder=doc.createElement('div');holder.className='ety-family-tags';
+  for(const part of [...new Set(parts)]){
+   const tag=doc.createElement('span');tag.className='ety-family-tag';tag.dataset.family=part;
+   tag.textContent=familyNames[part]||part;tag.title='語源の言語系統：'+tag.textContent;holder.append(tag);
+  }
+  cell.replaceChildren(holder);
+ }
  function processRow(tr){
   if(!tr.hasAttribute('data-i')||tr.classList.contains('detRow'))return;
   removeLegacyGameTag(tr);
@@ -191,6 +207,7 @@ function mount(root){
    return;
   }
   const cells=[...tr.children],w=wordOf(tr),score=imageScore(w,tr);
+  renderFamilyTags(tr,w);
   const headword=tr.querySelector('td.cW .spk[data-say]')?.dataset.say?.trim()||w.w;
   const posCell=cells[sourcePosIndex];
   const rawPos=posCell?.dataset.posRaw||posCell?.textContent?.trim()||w.pos||'';
@@ -230,7 +247,7 @@ function mount(root){
    table=t;
    const hs=[...header.children];
    const columnIndex=label=>hs.findIndex(h=>h.textContent.replace(/\s+/g,'').trim()===label);
-   sourcePosIndex=columnIndex('品詞');sourceJaIndex=columnIndex('語義');sourceEnIndex=columnIndex('パラフレーズ');
+   sourcePosIndex=columnIndex('品詞');sourceJaIndex=columnIndex('語義');sourceEnIndex=columnIndex('パラフレーズ');sourceFamilyIndex=columnIndex('語派');
    removed=hs.map((h,i)=>({i,text:h.textContent.replace(/\s+/g,'').trim()}))
      .filter(x=>hs[x.i].classList.contains('cR')||x.text==='画像評価'||x.text.includes('英単語の難易度')||x.text.includes('独自レベル')||x.text==='難易度'||x.text==='画像の推測度'||x.text==='WeblioLv'||x.text==='Ngram'||x.text.includes('レア度'))
      .map(x=>x.i).sort((a,b)=>b-a);
