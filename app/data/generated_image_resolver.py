@@ -24,8 +24,11 @@ import re
 import unicodedata
 
 
-def identity_key(word, roots):
-    return json.dumps([word, list(roots)], ensure_ascii=False, separators=(',', ':'))
+def identity_key(word, roots, etymology_id=None):
+    fields=[word, list(roots)]
+    if etymology_id:
+        fields.append(etymology_id)
+    return json.dumps(fields, ensure_ascii=False, separators=(',', ':'))
 
 
 def _stem(value):
@@ -57,7 +60,9 @@ def resolve_bindings(words, png_inventory, protected_index,
     canonical, joined, spelling = defaultdict(list), defaultdict(set), defaultdict(set)
     raw_words, case_words = defaultdict(set), defaultdict(set)
     for index, row in enumerate(words):
-        key = row['w'], tuple(row.get('p') or [])
+        key = (row['w'], tuple(row.get('p') or []), row['etymology_id']) if row.get('etymology_id') else (row['w'], tuple(row.get('p') or []))
+        if row.get('etymology_id') and row.get('p'):
+            raise ValueError('An explicit non-PIE etymology ID may not claim PIE roots')
         canonical[key].append(index)
         joined[key[0], '+'.join(key[1])].add(key)
         spelling[key[0]].add(key)
@@ -100,12 +105,23 @@ def resolve_bindings(words, png_inventory, protected_index,
             protected[key] = _stem(art)
 
     for key, art in protected_index.items():
-        word, roots = json.loads(key) if isinstance(key, str) else key
-        roots = '+'.join(roots) if isinstance(roots, (list, tuple)) else roots
-        add_joined(word, roots, art, 'protected_exact_index', 0)
+        parts = json.loads(key) if isinstance(key, str) else key
+        if len(parts) not in (2,3):
+            raise ValueError('Invalid protected lexical identity')
+        word, roots = parts[:2]
+        etymology_id = parts[2] if len(parts)==3 else None
+        if etymology_id:
+            exact=(word,tuple(roots) if isinstance(roots,(list,tuple)) else tuple(str(roots).split('+') if roots else ()),etymology_id)
+            add(exact, art, 'protected_exact_origin', 0)
+            if exact in canonical and _stem(art) in inv:
+                protected[exact]=_stem(art)
+        else:
+            roots = '+'.join(roots) if isinstance(roots, (list, tuple)) else roots
+            add_joined(word, roots, art, 'protected_exact_index', 0)
     scenes = reviewed_scenes.get('entries', []) if isinstance(reviewed_scenes, dict) else reviewed_scenes
     for scene in scenes:
-        add((scene['w'], tuple(scene.get('p') or [])), scene['art'], 'reviewed_scene_binding', 1,
+        scene_key=(scene['w'], tuple(scene.get('p') or []), scene['etymology_id']) if scene.get('etymology_id') else (scene['w'], tuple(scene.get('p') or []))
+        add(scene_key, scene['art'], 'reviewed_scene_binding', 1,
             expectedImageSha256=scene.get('image', {}).get('sha256'))
     for row in explicit_ledger_tuples:
         if isinstance(row, dict):
@@ -120,7 +136,12 @@ def resolve_bindings(words, png_inventory, protected_index,
             word, roots, art = row[:3]
             source, priority, date = 'dated_art_exact_tuple', 2, row[3] if len(row) > 3 else None
         extra = {'recordedUpdatedAt': date} if date else {}
-        add_joined(word, roots, art, source, priority, **extra)
+        etym_id = row.get('etymology_id') if isinstance(row,dict) else None
+        if etym_id:
+            pieces=tuple(row.get('p') or []) if 'p' in row else tuple(roots.split('+') if roots else ())
+            add((word,pieces,etym_id),art,source,priority,**extra)
+        else:
+            add_joined(word, roots, art, source, priority, **extra)
 
     def base_name(word):
         text = _raw_name(word)
@@ -136,7 +157,13 @@ def resolve_bindings(words, png_inventory, protected_index,
     for key in canonical:
         base = base_name(key[0])
         bases[base].add(key)
-        senses[base + '@' + _sense_slug(key[1])].add(key)
+        if len(key)==3:
+            canonical_art=words[canonical[key][0]].get('etymology_art')
+            if not canonical_art or not canonical_art.startswith(base+'@np-'):
+                raise ValueError('Explicit non-PIE origin needs its reserved artwork stem: '+identity_key(*key))
+            senses[canonical_art].add(key)
+        else:
+            senses[base + '@' + _sense_slug(key[1])].add(key)
     for art, keys in senses.items():
         if art in inv and len(keys) == 1:
             add(next(iter(keys)), art, 'canonical_unique_sense_filename', 4)
@@ -193,7 +220,7 @@ def resolve_bindings(words, png_inventory, protected_index,
             immutable[art] = base
             claims[art][owner[base]].append({'art': art, 'source': 'verified_immutable_sha256_copy',
                                            'exactBase': base, 'sha256': digest})
-    primary = [{'w': key[0], 'p': list(key[1]), 'art': art,
+    primary = [{'w': key[0], 'p': list(key[1]), 'etymology_id':key[2] if len(key)==3 else '', 'art': art,
                 'dictionaryIndex': canonical[key][0], 'canonicalRowIndices': canonical[key],
                 'canonicalIdentity': identity_key(*key), 'bindingStatus': 'exact',
                 'evidence': evidence[key]}
