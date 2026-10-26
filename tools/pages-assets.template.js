@@ -1,11 +1,16 @@
 /* Generated for Pages only. Original files and dictionary identities are unchanged. */
 (function(){
 'use strict';
-const root=new URL('./',document.currentScript.src), raw=__RAW_BASE__, files=new Set(__MEDIA_PATHS__);
+const root=new URL('./',document.currentScript.src), raw=__RAW_BASE__, mediaExtensions=new Set(__MEDIA_EXTENSIONS__);
+function externalMedia(path){
+ if(path.startsWith('assets/ui/')||path.split('/').includes('.git'))return false;
+ const dot=path.lastIndexOf('.'),slash=path.lastIndexOf('/');
+ return path.startsWith('app/games/picture-words/scene-assets/')||(dot>slash&&mediaExtensions.has(path.slice(dot).toLowerCase()));
+}
 function map(value,base){
  if(typeof value!=='string'||!value||/^(data:|blob:|#)/i.test(value))return value;
  try{const u=new URL(value,base||document.baseURI);if(u.origin!==root.origin||!u.pathname.startsWith(root.pathname))return value;
- const path=decodeURIComponent(u.pathname.slice(root.pathname.length));if(!files.has(path))return value;
+ const path=decodeURIComponent(u.pathname.slice(root.pathname.length));if(!externalMedia(path))return value;
  return raw+path.split('/').map(encodeURIComponent).join('/')+u.search+u.hash;
  }catch(_){return value;}
 }
