@@ -2,7 +2,7 @@
 (function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.EigoCatalogValidation=api;})(typeof globalThis==='object'?globalThis:this,function(){
 'use strict';
 const normalize=value=>String(value||'').normalize('NFKC').replace(/[‘’]/g,"'").replace(/[‐‑]/g,'-').trim().replace(/\s+/g,' ');
-const wordKey=x=>JSON.stringify([x.w,x.p||[]]);
+const wordKey=x=>JSON.stringify(x.etymology_id?[x.w,x.p||[],x.etymology_id]:[x.w,x.p||[]]);
 const sceneKey=x=>JSON.stringify([x.w,x.p||[],x.art]);
 const firstJa=x=>normalize(String(x.ja||'').split('、')[0]);
 const firstEn=x=>normalize(String(x.en||'').split(' / ')[0]);
