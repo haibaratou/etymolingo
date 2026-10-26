@@ -11,6 +11,7 @@ async function services(){return ready||(ready=(async()=>{
  return {learning,paraphrases:EnglishParaphrases.create(ETYMON_ENGLISH_PARAPHRASES,basics)};
 })());}
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const familyStyle=document.createElement('style');familyStyle.textContent='.wordLanguageFamilies{display:flex;align-items:center;flex-wrap:wrap;gap:6px;margin:8px 0}.wordLanguageTag{display:inline-block;padding:3px 9px;border-radius:999px;background:#edf2f8;border:1px solid #bfcee1;color:#284866;font-size:12px;font-weight:700}';document.head.append(familyStyle);
 window.WildWordDetails={loadDictionary,async render(target,entry,rootDictionary){
  target.textContent='詳細を読み込んでいます…';
  try{const svc=await services();if(!target.isConnected)return;
@@ -22,7 +23,7 @@ window.WildWordDetails={loadDictionary,async render(target,entry,rootDictionary)
  <p>${row.pos?`<b class="wordPos">${esc(row.pos)}</b> `:''}${esc(row.ja)}</p>${row.en?`<p lang="en">${esc(row.en)}</p>`:''}
  <div class="wordDetailBadges">${EtymonRarity.html(EtymonRarity.numeric(row.r,'detail'))}<span>レア度 ${row.r>0&&row.r<99999?esc(row.r):'未確認'}</span></div>
  <p class="wordLearning">独自レベル ${level?esc(level.level)+(level.basis!=='cefr_pos_match'?'（推定）':''):'未分類'}<small>学習の目安です。単語レア度とは別の指標です。</small></p>
- ${(row.gs||[row.g]).filter(Boolean).length?`<p>語派：${(row.gs||[row.g]).filter(Boolean).map(x=>esc(regions[x]||x)).join('・')}</p>`:''}
+ ${(row.gs||[row.g]).filter(Boolean).length?`<div class="wordLanguageFamilies" aria-label="語源の言語系統"><b>語派：</b>${[...new Set((row.gs||[row.g]).filter(Boolean))].map(x=>`<span class="wordLanguageTag" title="語源構成：${esc(regions[x]||x)}">${esc(regions[x]||x)}</span>`).join('')}</div>`:''}
  ${row.pre||row.suf?`<p>接頭辞：${esc(row.pre||'—')} ／ 接尾辞：${esc(row.suf||'—')}</p>`:''}
  ${row.b?`<section><h5>語源メモ</h5><p>${esc(row.b)}</p></section>`:''}
  <section><h5>つながる語根（PIE）</h5>${row.p.map(k=>{const r=WILDWORDOPIA_WORD_DETAILS.roots[k]||rootDictionary[k],note=r?.d||r?.def;return `<div><a href="etymon-explorer.html#root:${encodeURIComponent(k)}" target="_blank" rel="noopener">*${esc(r?.pie||k)} ${esc(r?.ja||'')} ${esc(r?.en||'')}</a>${note?`<details><summary>語根の説明を読む</summary><p>${esc(note)}</p>${r.aff?.length?`<p>関連する接辞：${r.aff.map(esc).join('・')}</p>`:''}</details>`:''}</div>`;}).join('')}</section>
