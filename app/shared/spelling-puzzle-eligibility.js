@@ -24,7 +24,7 @@ const contentParts=new Set(['名','動','形','副']);
 const grammarForms=new Set(['been','am','are','was','were','is','ought','could','would','should','shall']);
 const explicitMeaning=/(?:誤字|誤記|誤綴|廃語|侮蔑語|差別語|陰茎|性交|膣|腟|自慰|射精|強姦|わいせつ|ポルノ|卑猥|性器)/;
 const ordinaryName=/(?:男性名|女性名|人名|人の名前|姓名|名字|名前として)|(?:\b(?:male name|female name|given name|personal name|first name|forename|surname)\b)/i;
-const purePastGloss=/^(?:past(?:\\s+tense)?(?:\\s+and\\s+past\\s+participle)?|past\\s+participle|past\\s+form|simple\\s+past(?:\\s+tense)?|preterite)\\s+of\\s+[a-z][a-z'-]*\\b/i;
+const purePastGloss=/^(?:past(?:\s+tense)?(?:\s+and\s+past\s+participle)?|past\s+participle|past\s+form|simple\s+past(?:\s+tense)?|preterite)\s+of\s+[a-z][a-z'-]*\b/i;
 const legacyPastOnly=new Set(['went','was','were']);
 function inflectionOnly(w,pos,ja,en){
  const parts=String(en||'').trim().split(' / ').map(s=>s.trim()).filter(Boolean);
