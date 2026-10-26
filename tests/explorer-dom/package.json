@@ -1,0 +1,9 @@
+{
+  "name": "etymon-explorer-dom-regressions",
+  "private": true,
+  "version": "1.0.0",
+  "description": "DOM regressions for development Explorer columns and interactions",
+  "devDependencies": {
+    "linkedom": "0.18.12"
+  }
+}

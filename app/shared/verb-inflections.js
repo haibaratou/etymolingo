@@ -1,3 +1,5 @@
+// Generated from etymon-source/app/data/english-inflections.json.
+// Edit the mother tables and export; never infer unreviewed forms here.
 /* Curated English verb inflections for details. This is not a replacement for
    canonical headword/sense records. Never project verb morphology on a noun
    homograph (e.g. saw = cutting tool). Unlisted verbs stay unlisted. */

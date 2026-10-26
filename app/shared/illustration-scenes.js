@@ -8,9 +8,9 @@
   const normalized = value => String(value || '').normalize('NFKC').replace(/[‘’]/g, "'").replace(/[‐‑]/g, '-').trim().replace(/\s+/g, ' ');
   const firstJa = text => normalized(String(text || '').split('、')[0]);
   const firstEn = text => normalized(String(text || '').split(' / ')[0]);
-  const identity = (w, p, art) => JSON.stringify([w, p || [], art]);
-  const key = entry => identity(entry.w, entry.p, entry.art);
-  const firstSenseMatches = (entry, word) => word && entry.w === word.w && JSON.stringify(entry.p) === JSON.stringify(word.p || []) && firstJa(word.ja) === normalized(entry.sense.ja) && firstEn(word.en) === normalized(entry.sense.en);
+  const identity = (w, p, art, origin) => JSON.stringify([w, p || [], art,...(origin?[origin]:[])]);
+  const key = entry => identity(entry.w, entry.p, entry.art,entry.etymology_id);
+  const firstSenseMatches = (entry, word) => word && entry.w === word.w && (entry.etymology_id||'')===(word.etymology_id||'') && JSON.stringify(entry.p) === JSON.stringify(word.p || []) && firstJa(word.ja) === normalized(entry.sense.ja) && firstEn(word.en) === normalized(entry.sense.en);
   const loads = new Map();
   let importedScenes = [];
   const scriptBase = typeof document !== 'undefined' ? document.currentScript?.src : null;
@@ -18,7 +18,7 @@
   // canonical CSV imports as a script; preserve all existing identities.
   if (scriptBase && globalThis.location?.protocol === 'file:') {
     const script = document.createElement('script');
-    script.src = new URL('../data/generated-etymon/csv-illustration-scenes.js?v=fdfc3b220532', scriptBase).href;
+    script.src = new URL('../data/generated-etymon/csv-illustration-scenes.js?v=127aafe7aa67', scriptBase).href;
     script.onload = async () => {
       try {
         const envelope = globalThis.ETYMON_CSV_SCENES;
@@ -48,7 +48,7 @@
     return loads.get(url);
   }
   function find(data, word, art, supplements = importedScenes) {
-    const match = identity(word.w, word.p, art);
+    const match = identity(word.w, word.p, art,word.etymology_id);
     const base = data.entries.find(entry => key(entry) === match);
     const imported = supplements.find(entry => key(entry) === match);
     // Only an explicitly bound replacement PNG can supersede embedded history.
@@ -116,14 +116,14 @@ if (typeof window !== 'undefined' && /\/etymon-explorer\.html$/.test(window.loca
     document.head.append(el);
   });
   Promise.all([
-    addScript('shared/spelling-puzzle-eligibility.js?v=a250ce85e39f'),
-    addScript('shared/verb-inflections.js?v=e5a32476fa53'),
-    addScript('data/generated-etymon/weblio-learning-levels.js?v=92b587b8148d'),
-    addScript('data/generated-etymon/learning-levels.js?v=d310e93cb81f'),
-    addScript('data/generated-etymon/puzzle-visual-scores.js?v=cafdf82a6535').catch(() => null)
+    addScript('shared/spelling-puzzle-eligibility.js?v=83aed001140c'),
+    addScript('shared/verb-inflections.js?v=8fb33d6858ab'),
+    addScript('data/generated-etymon/weblio-learning-levels.js?v=e6a41b9d8680'),
+    addScript('data/generated-etymon/learning-levels.js?v=48bcf2f15474'),
+    addScript('data/generated-etymon/puzzle-visual-scores.js?v=dfe9fac2156b').catch(() => null)
   ]).then(() => Promise.all([
-      addScript('shared/explorer-inflections.js?v=1026dd0376db'),
-      addScript('shared/explorer-difficulty-v2.js?v=5f40574fb116')
+      addScript('shared/explorer-inflections.js?v=1c848c89c842'),
+      addScript('shared/explorer-difficulty-v2.js?v=8a275148ef8b')
     ]))
     .catch(err => console.warn('Explorer difficulty module unavailable', err));
 }

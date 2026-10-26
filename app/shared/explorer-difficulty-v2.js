@@ -12,18 +12,14 @@ const R_CUTS=[415,467.75,520.5,556.25,592,651,710,822,1046];
 const BANDS=['A1','A2','B1','B2'];
 const R_MID={A1:415,A2:520.5,B1:592,B2:710};
 const POS={noun:'名',verb:'動',adjective:'形',adverb:'副',pronoun:'代',preposition:'前',conjunction:'接',interjection:'間',determiner:'冠',article:'冠','modal auxiliary':'助',number:'数'};
+const FAMILY_NAMES={G:'ゲルマン',L:'ロマンス',Gr:'ギリシャ',S:'サンスクリット',Sa:'サンスクリット',Ce:'ケルト',Sl:'スラヴ',Ir:'イラン',Al:'アルバニア',Ar:'アラビア語',He:'ヘブライ語',Tu:'トルコ語',J:'日本語',Ch:'中国語',Ko:'朝鮮語',Ma:'マレー語',Na:'ナワトル語',Am:'アメリカ先住民語',Po:'ポリネシア語',Dr:'ドラヴィダ語',Ur:'ウラル語',Ba:'バスク語',Af:'アフリカ諸語',Ot:'その他'};
+function languageFamilies(w){
+ const groups=Array.isArray(w?.gs)?w.gs:[];
+ const known=[...new Set(groups.filter(code=>Object.prototype.hasOwnProperty.call(FAMILY_NAMES,code)))];
+ return known.length?known:(Object.prototype.hasOwnProperty.call(FAMILY_NAMES,w?.g)?[w.g]:[]);
+}
 const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const numeric=v=>typeof v==='number'&&Number.isFinite(v)&&v>0&&v<99999?v:null;
-const FAMILY_CODES=new Set(['G','L','Gr','S','Sa','Ce','Sl','Ir']);
-function resolveFamilyTags(w,fallback){
- const src=Array.isArray(w?.gs)&&w.gs.length?w.gs:[w?.g];
- let parts=src.filter(part=>FAMILY_CODES.has(part));
- if(!parts.length){
-  const tokens=String(fallback||'').split(/[\/・,、+＋\s]+/).filter(Boolean);
-  if(tokens.length&&tokens.every(part=>FAMILY_CODES.has(part)))parts=tokens;
- }
- return [...new Set(parts)];
-}
 function makeIndex(webData,cefrData){
  const web=new Map(),cefr=new Map();
  for(const e of webData?.entries||[])if(e.status==='rated'&&Number.isInteger(e.level)&&e.level>=1&&e.level<=30)web.set(e.w,e.level);
@@ -74,11 +70,11 @@ function mount(root){
  const doc=root.document,style=doc.createElement('style');
  style.textContent='.difficulty-v2-col{width:76px!important;min-width:76px!important;max-width:76px!important;white-space:nowrap!important;text-align:left!important;padding-left:8px!important;vertical-align:middle!important}.difficulty-v2-button{font-weight:700;font-size:13px;line-height:1.35;font-family:inherit;color:#245d4b;border:1px solid #a4c6b4;background:#eaf5ef;border-radius:7px;padding:2px 7px;white-space:nowrap;cursor:pointer;text-align:left;margin:0}.difficulty-v2-button:hover,.difficulty-v2-button:focus-visible{border-color:#338a6b;background:#d9efe3}.difficulty-v2-button[data-unknown="1"]{color:#62676a;background:#f4f4f4;border-color:#ddd}#difficultyV2Dialog{max-width:min(480px,92vw);border:1px solid #b7c1bd;border-radius:12px;padding:20px 22px;box-shadow:0 12px 40px #0003;background:#fff;color:#273b32}#difficultyV2Dialog::backdrop{background:#0006}#difficultyV2Dialog h2{font-size:20px;margin:0 0 8px}#difficultyV2Dialog p{margin:8px 0;line-height:1.55}#difficultyV2Dialog dl{display:grid;grid-template-columns:max-content 1fr;gap:7px 14px;margin:12px 0}#difficultyV2Dialog dt{font-weight:700}#difficultyV2Dialog dd{margin:0}#difficultyV2Dialog .difficulty-v2-close{display:block;margin:18px 0 0 auto;padding:6px 14px;cursor:pointer}#difficultyV2Dialog .difficulty-v2-caution{font-size:12px;color:#6a6a6a}';
  style.textContent+='th.guess-v2-col,td.guess-v2-col{min-width:90px!important;max-width:90px!important;width:90px!important;text-align:left!important;padding-left:9px!important;font-size:12px;white-space:nowrap}.guess-v2-score{font-weight:700;font-variant-numeric:tabular-nums}.guess-v2-score.low{color:#b24e48}.guess-v2-score.mid{color:#86713f}.guess-v2-score.high{color:#167744}th.spelling-v2-col,td.spelling-v2-col{width:84px!important;min-width:84px!important;max-width:84px!important;text-align:left!important;padding-left:9px!important;white-space:nowrap;font-size:12px}.spelling-v2-ok{color:#17754c;font-weight:800}.spelling-v2-false{color:#666;font-weight:600}';
- style.textContent+='.ety-family-tags{display:flex;flex-wrap:wrap;gap:4px}.ety-family-tag{display:inline-block;border:1px solid #bfcee1;background:#edf2f8;color:#284866;padding:2px 6px;border-radius:6px;font-size:11px;font-weight:700;white-space:nowrap}.ety-family-tag[data-family="G"]{background:#e7f4e9;color:#24643b;border-color:#afd3b7}.ety-family-tag[data-family="L"]{background:#fcece9;color:#843e3b;border-color:#e4b8b0}.ety-family-tag[data-family="Gr"]{background:#e8effb;color:#34568d;border-color:#b8cbe9}';
+ style.textContent+='.ety-family-tags{display:flex;flex-wrap:wrap;gap:4px}td.cLang .ety-family-tag{display:inline-block;border:1px solid #bfcee1;background:#edf2f8;color:#284866;padding:2px 6px;border-radius:6px;font-size:11px;font-weight:700;white-space:nowrap}td.cLang .ety-family-tag[data-family="G"]{background:#e7f4e9;color:#24643b;border-color:#afd3b7}td.cLang .ety-family-tag[data-family="L"]{background:#fcece9;color:#843e3b;border-color:#e4b8b0}td.cLang .ety-family-tag[data-family="Gr"]{background:#e8effb;color:#34568d;border-color:#b8cbe9}';
  style.textContent+='.ety-pos-tags{display:flex;flex-wrap:wrap;gap:4px}.ety-pos-tag{display:inline-block;padding:2px 6px;border-radius:5px;background:#e8edf5;color:#284564;border:1px solid #c5d3e7;font-weight:600;font-size:11px;white-space:nowrap}.ety-pos-tag[data-kind="動"]{background:#e9f5ec;border-color:#badcc4;color:#275d3a}.ety-pos-tag[data-kind="形"]{background:#fff0dc;border-color:#e5ceb1;color:#805324}.ety-pos-tag[data-kind="副"]{background:#f3e9fb;border-color:#d8c4e8;color:#614181}';
  doc.head.append(style);
  const index=makeIndex(root.ETYMON_WEBLIO_LEVELS,root.ETYMON_LEARNING_LEVELS);
- let pending=false,table=null,removed=[],difficultyIndex=-1,sourcePosIndex=-1,sourceJaIndex=-1,sourceEnIndex=-1,sourceFamilyIndex=-1;
+ let pending=false,table=null,removed=[],difficultyIndex=-1;
  const selectedLevels=new Set();
  let scoresByImage=null,visualStatus='loading';
  async function prepareVisualScores(){
@@ -94,11 +90,11 @@ function mount(root){
   for(const row of selection.entries){
    const score=scores.get(row.id);
    if(!score||score.imageGitBlobSha!==row.imageGitBlobSha||
-      !Number.isInteger(score.score)||score.score<0||score.score>100||
+      (score.status!=='needs_sense_review'&&(!Number.isInteger(score.score)||score.score<0||score.score>100))||
       !row.w||!row.imagePath)continue;
    const key=JSON.stringify([row.w,row.imagePath]);
    if(!mapping.has(key))mapping.set(key,[]);
-   mapping.get(key).push({score:score.score,p:row.p||[]});
+   mapping.get(key).push({score:score.score,p:row.p||[],etymology_id:score.etymology_id||row.etymology_id||'',needsReview:score.status==='needs_sense_review'});
   }
   scoresByImage=mapping;
   visualStatus='ready';
@@ -168,18 +164,21 @@ function mount(root){
   let path='';
   try{path=decodeURIComponent(new URL(im.currentSrc||im.src,doc.baseURI).pathname);}
   catch(_){return null;}
-  const found=[];
-  for(const [identity,scores] of scoresByImage){
-   const [sourceWord,imagePath]=JSON.parse(identity);
-   if(sourceWord===word&&path.endsWith('/'+imagePath))found.push(...scores);
-  }
+  const marker='/assets/word/',offset=path.lastIndexOf(marker);
+  if(offset<0)return null;
+  const imagePath=path.slice(offset+1);
+  const found=scoresByImage.get(JSON.stringify([word,imagePath]))||[];
   if(Array.isArray(w.p)){
-   const exact=found.filter(e=>JSON.stringify(e.p)===JSON.stringify(w.p));
-   if(exact.length===1)return exact[0].score;
+   const exact=found.filter(e=>JSON.stringify(e.p)===JSON.stringify(w.p)&&(!w.etymology_id||e.etymology_id===w.etymology_id||e.needsReview));
+   if(exact.length===1)return exact[0].needsReview?'review':exact[0].score;
   }
-  return found.length===1?found[0].score:null;
+  return !w.etymology_id&&found.length===1?(found[0].needsReview?'review':found[0].score):null;
  }
  function fillScore(cell,score){
+  if(score==='review'){
+   if(cell.textContent!=='再評価待ち')cell.textContent='再評価待ち';
+   cell.title='第一語義・品詞・語源IDが変更されたため、以前の画像評価を引き継いでいません。';return;
+  }
   const label=score===null?(visualStatus==='loading'?'読込中':visualStatus==='error'?'読込エラー':'未評価'):score+' / 100';
   if(cell.textContent.trim()===label)return;
   if(score===null){cell.textContent=label;cell.title=visualStatus==='ready'?'対応画像の評価スコアが未登録か画像改訂後の再評価待ちです。':'評価データの読込状態を確認してください。';return;}
@@ -193,23 +192,15 @@ function mount(root){
    if(el.textContent.trim()==='ゲーム外'&&!el.querySelector('button,a'))el.remove();
   }
  }
- const familyNames={G:'ゲルマン',L:'ロマンス',Gr:'ギリシャ',S:'サンスクリット',Sa:'サンスクリット',Ce:'ケルト',Sl:'スラヴ',Ir:'ペルシャ'};
  function renderFamilyTags(tr,w){
-  // Only modify the cell whose LIVE header is exactly 語派. Never use stale
-  // offsets: the difficulty overlay inserts/removes other table columns.
-  const headings=[...tr.closest('table')?.querySelectorAll('thead tr > th')||[]];
-  const familyPosition=headings.findIndex(th=>th.textContent.replace(/\\s+/g,'').trim()==='語派');
-  if(familyPosition<0)return;
-  const visiblePosition=familyPosition-(tr.dataset.difficultyV2Processed?0:headings.slice(0,familyPosition).filter(th=>th.classList.contains('difficulty-v2-col')||th.classList.contains('guess-v2-col')||th.classList.contains('spelling-v2-col')).length);
-  const cell=tr.children[visiblePosition];
-  if(!cell||cell.classList.contains('cB')||cell.classList.contains('cMemo'))return;
-  const parts=resolveFamilyTags(w,''); // Never parse arbitrary column text as family codes.
-  if(!parts.length)return;
-  cell.dataset.familyRaw=cell.dataset.familyRaw||cell.textContent.trim();
+  const cell=tr.querySelector('td.cLang');
+  if(!cell)return;
+  const parts=languageFamilies(w);
+  if(!parts.length){cell.textContent='未確認';return;}
   const holder=doc.createElement('div');holder.className='ety-family-tags';
-  for(const part of parts){
+  for(const part of [...new Set(parts)]){
    const tag=doc.createElement('span');tag.className='ety-family-tag';tag.dataset.family=part;
-   tag.textContent=familyNames[part]||part;tag.title='語源の言語系統：'+tag.textContent;holder.append(tag);
+   tag.textContent=FAMILY_NAMES[part];tag.title='語源の言語系統：'+tag.textContent;holder.append(tag);
   }
   cell.replaceChildren(holder);
  }
@@ -221,12 +212,10 @@ function mount(root){
    if(cell)fillScore(cell,imageScore(wordOf(tr),tr));
    return;
   }
-  // Header indexes already exclude legacy columns: remove matching row cells first.
-  for(const i of removed)if(tr.children[i])tr.children[i].remove();
-  const cells=[...tr.children],w=wordOf(tr),score=imageScore(w,tr);
+  const w=wordOf(tr),score=imageScore(w,tr);
   renderFamilyTags(tr,w);
   const headword=tr.querySelector('td.cW .spk[data-say]')?.dataset.say?.trim()||w.w;
-  const posCell=cells[sourcePosIndex];
+  const posCell=tr.querySelector('td.cPos');
   const rawPos=posCell?.dataset.posRaw||posCell?.textContent?.trim()||w.pos||'';
   // Display-only hotfix until the canonical source correction is re-exported.
   const pos=headword==='could'&&rawPos==='動'?'助':rawPos;
@@ -237,10 +226,11 @@ function mount(root){
    for(const part of parts){const tag=doc.createElement('span');tag.className='ety-pos-tag';tag.dataset.kind=part;tag.textContent=part;tag.title=({名:'名詞',動:'動詞',形:'形容詞',副:'副詞',前:'前置詞',助:'助動詞',代:'代名詞',接:'接続詞',冠:'冠詞'})[part]||part;chips.append(tag);}
    if(parts.length)posCell.replaceChildren(chips);
   }
-  const row={w:headword,pos,ja:cells[sourceJaIndex]?.textContent?.trim()||w.ja||'',
-    en:cells[sourceEnIndex]?.textContent?.trim()||w.en||''};
+  const row={w:headword,pos,ja:w.ja||tr.querySelector('td.cJa')?.textContent?.trim()||'',
+    en:w.en||tr.querySelector('td.cEn')?.textContent?.trim()||''};
   const suitability=root.EtymonSpellingEligibility?.evaluate(row)
     ||{eligible:false,reason:'判定モジュール未読込'};
+  for(const i of removed)if(tr.children[i])tr.children[i].remove();
   const c=doc.createElement('td');c.className='difficulty-v2-col';c.append(makeButton(w));
   const g=doc.createElement('td');g.className='guess-v2-col';
   fillScore(g,score);
@@ -259,22 +249,15 @@ function mount(root){
  }
  function processTable(t){
   const header=t.querySelector('thead tr');if(!header)return;
-  for(const th of header.children){if(/語源.*クリックで詳細/.test(th.textContent))th.textContent='語源ひとことメモ';}
   if(t!==table){
    table=t;
    const hs=[...header.children];
-   const columnIndex=label=>hs.findIndex(h=>h.textContent.replace(/\s+/g,'').trim()===label);
-   sourcePosIndex=columnIndex('品詞');sourceJaIndex=columnIndex('語義');sourceEnIndex=columnIndex('パラフレーズ');sourceFamilyIndex=columnIndex('語派');
    removed=hs.map((h,i)=>({i,text:h.textContent.replace(/\s+/g,'').trim()}))
      .filter(x=>hs[x.i].classList.contains('cR')||x.text==='画像評価'||x.text.includes('英単語の難易度')||x.text.includes('独自レベル')||x.text==='難易度'||x.text==='画像の推測度'||x.text==='WeblioLv'||x.text==='Ngram'||x.text.includes('レア度'))
      .map(x=>x.i).sort((a,b)=>b-a);
    const kanaIndex=hs.findIndex(h=>h.classList.contains('cK')||h.textContent.trim()==='カナ');
    difficultyIndex=(kanaIndex>=0?kanaIndex+1:3)-removed.filter(i=>i<=(kanaIndex>=0?kanaIndex:2)).length;
-   const adjusted=i=>i<0?-1:i-removed.filter(r=>r<i).length;
-   sourcePosIndex=adjusted(sourcePosIndex);
-   sourceJaIndex=adjusted(sourceJaIndex);
-   sourceEnIndex=adjusted(sourceEnIndex);
-   sourceFamilyIndex=adjusted(sourceFamilyIndex);
+   // Remove the matching legacy cells on each native row before adding metrics.
    for(const i of removed)hs[i]?.remove();
    const h=doc.createElement('th');h.textContent='難易度';h.className='difficulty-v2-col';
    const g=doc.createElement('th');g.textContent='画像の推測度';g.className='guess-v2-col';
@@ -305,5 +288,5 @@ function mount(root){
  const init=()=>{installLevelFilters();observe();};
  if(doc.readyState==='loading')doc.addEventListener('DOMContentLoaded',init,{once:true});else init();
 }
-return {WEBLIO_TO_10,R_CUTS,makeIndex,evaluate,mount,resolveFamilyTags};
+return {WEBLIO_TO_10,R_CUTS,makeIndex,evaluate,mount,languageFamilies,resolveFamilyTags:languageFamilies};
 });

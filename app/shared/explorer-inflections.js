@@ -5,14 +5,14 @@
 'use strict';
 if(!root?.document||!/\/etymon-explorer\.html$/.test(root.location.pathname))return;
 const doc=root.document;
-const morphologyScript=doc.createElement('script');morphologyScript.src='shared/nominal-adjective-inflections.js';morphologyScript.onload=()=>schedule();doc.head.append(morphologyScript);
+const morphologyScript=doc.createElement('script');morphologyScript.src='shared/nominal-adjective-inflections.js?v=3e8b9061212d';morphologyScript.onload=()=>schedule();doc.head.append(morphologyScript);
 const style=doc.createElement('style');
 style.textContent='.ety-inflection-detail{margin:12px 0 8px;padding:10px 12px;border:1px solid #bdd1c7;border-radius:10px;background:#f7faf8;color:#273c33;font-size:13px}.ety-inflection-detail strong{display:block;margin-bottom:6px}.ety-inflection-detail .ety-form-items{display:flex;flex-wrap:wrap;gap:7px 16px}.ety-inflection-detail .ety-form-items span{white-space:nowrap}.ety-inflection-detail .ety-form-note{font-size:11px;margin-top:7px;color:#52665d}';
 doc.head.append(style);
 function column(tr,name){
- const table=tr.closest('table'),heads=[...(table?.querySelector('thead tr')?.children||[])];
- const index=heads.findIndex(th=>th.textContent.replace(/\s+/g,'').trim()===name);
- return index>=0?(tr.children[index]?.dataset.posRaw||tr.children[index]?.textContent?.trim()||''):'';
+ const selector=({'品詞':'td.cPos','パラフレーズ':'td.cEn','語義':'td.cJa'})[name];
+ const cell=selector&&tr.querySelector(selector);
+ return cell?(cell.dataset.posRaw||cell.textContent?.trim()||''):'';
 }
 function esc(v){return String(v||'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));}
 function add(tr){
