@@ -195,9 +195,15 @@ function mount(root){
  }
  const familyNames={G:'ゲルマン',L:'ロマンス',Gr:'ギリシャ',S:'サンスクリット',Sa:'サンスクリット',Ce:'ケルト',Sl:'スラヴ',Ir:'ペルシャ'};
  function renderFamilyTags(tr,w){
-  const cell=sourceFamilyIndex>=0?tr.children[sourceFamilyIndex]:null;
-  if(!cell)return;
-  const parts=resolveFamilyTags(w,cell.dataset.familyRaw||cell.textContent.trim());
+  // Only modify the cell whose LIVE header is exactly 語派. Never use stale
+  // offsets: the difficulty overlay inserts/removes other table columns.
+  const headings=[...tr.closest('table')?.querySelectorAll('thead tr > th')||[]];
+  const familyPosition=headings.findIndex(th=>th.textContent.replace(/\\s+/g,'').trim()==='語派');
+  if(familyPosition<0)return;
+  const visiblePosition=familyPosition-(tr.dataset.difficultyV2Processed?0:headings.slice(0,familyPosition).filter(th=>th.classList.contains('difficulty-v2-col')||th.classList.contains('guess-v2-col')||th.classList.contains('spelling-v2-col')).length);
+  const cell=tr.children[visiblePosition];
+  if(!cell||cell.classList.contains('cB')||cell.classList.contains('cMemo'))return;
+  const parts=resolveFamilyTags(w,''); // Never parse arbitrary column text as family codes.
   if(!parts.length)return;
   cell.dataset.familyRaw=cell.dataset.familyRaw||cell.textContent.trim();
   const holder=doc.createElement('div');holder.className='ety-family-tags';
@@ -253,6 +259,7 @@ function mount(root){
  }
  function processTable(t){
   const header=t.querySelector('thead tr');if(!header)return;
+  for(const th of header.children){if(/語源.*クリックで詳細/.test(th.textContent))th.textContent='語源ひとことメモ';}
   if(t!==table){
    table=t;
    const hs=[...header.children];
