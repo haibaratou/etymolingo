@@ -253,6 +253,11 @@ function mount(root){
      .map(x=>x.i).sort((a,b)=>b-a);
    const kanaIndex=hs.findIndex(h=>h.classList.contains('cK')||h.textContent.trim()==='カナ');
    difficultyIndex=(kanaIndex>=0?kanaIndex+1:3)-removed.filter(i=>i<=(kanaIndex>=0?kanaIndex:2)).length;
+   const adjusted=i=>i<0?-1:i-removed.filter(r=>r<i).length;
+   sourcePosIndex=adjusted(sourcePosIndex);
+   sourceJaIndex=adjusted(sourceJaIndex);
+   sourceEnIndex=adjusted(sourceEnIndex);
+   sourceFamilyIndex=adjusted(sourceFamilyIndex);
    for(const i of removed)hs[i]?.remove();
    const h=doc.createElement('th');h.textContent='難易度';h.className='difficulty-v2-col';
    const g=doc.createElement('th');g.textContent='画像の推測度';g.className='guess-v2-col';
