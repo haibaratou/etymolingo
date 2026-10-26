@@ -63,6 +63,19 @@ def resolve_bindings(words, png_inventory, protected_index,
         spelling[key[0]].add(key)
         raw_words[_raw_name(key[0])].add(key[0])
         case_words[key[0].lower()].add(key[0])
+    # The public resolver keys images by (word, ordered PIE roots). Do not
+    # silently assign one image to two etymologically distinct rows which share
+    # that key (notably multiple non-PIE senses with p=[]). Identical duplicate
+    # rows are tolerated for backward compatibility with legacy dictionaries.
+    for key, indices in canonical.items():
+        if len(indices) < 2:
+            continue
+        senses = {(str(words[i].get('ja','')), str(words[i].get('en','')),
+                   str(words[i].get('pos',''))) for i in indices}
+        if len(senses) > 1:
+            raise ValueError(
+                'Ambiguous lexical identity (w,p) needs a distinct origin_id '
+                'before image binding: ' + identity_key(*key))
     evidence, rejected, protected = defaultdict(list), [], {}
 
     def add(key, art, source, priority, **extra):
