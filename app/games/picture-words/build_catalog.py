@@ -16,9 +16,12 @@ from pathlib import Path
 import re
 import shutil
 import subprocess
+import sys
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[2]
+sys.path.insert(0, str(ROOT / 'app' / 'data'))
+from inflection_policy import is_simple_inflection_only
 MAX_LETTERS = 14
 UPDATED_ART = HERE / 'updated-art.json'
 CUTOFF = datetime(2026, 9, 11, tzinfo=timezone(timedelta(hours=9)))
@@ -388,6 +391,7 @@ def eligible(row):
     positions = set(row.get('pos', '').split('/'))
     return bool(re.fullmatch(r'[a-z]{3,14}', word)
                 and word not in EXCLUDED_WORDS
+                and not is_simple_inflection_only(row)
                 and positions & CONTENT_POS
                 and not positions & FUNCTION_POS
                 and row.get('ja', '').strip()
