@@ -14,6 +14,16 @@ const R_MID={A1:415,A2:520.5,B1:592,B2:710};
 const POS={noun:'名',verb:'動',adjective:'形',adverb:'副',pronoun:'代',preposition:'前',conjunction:'接',interjection:'間',determiner:'冠',article:'冠','modal auxiliary':'助',number:'数'};
 const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const numeric=v=>typeof v==='number'&&Number.isFinite(v)&&v>0&&v<99999?v:null;
+const FAMILY_CODES=new Set(['G','L','Gr','S','Sa','Ce','Sl','Ir']);
+function resolveFamilyTags(w,fallback){
+ const src=Array.isArray(w?.gs)&&w.gs.length?w.gs:[w?.g];
+ let parts=src.filter(part=>FAMILY_CODES.has(part));
+ if(!parts.length){
+  const tokens=String(fallback||'').split(/[\/・,、+＋\s]+/).filter(Boolean);
+  if(tokens.length&&tokens.every(part=>FAMILY_CODES.has(part)))parts=tokens;
+ }
+ return [...new Set(parts)];
+}
 function makeIndex(webData,cefrData){
  const web=new Map(),cefr=new Map();
  for(const e of webData?.entries||[])if(e.status==='rated'&&Number.isInteger(e.level)&&e.level>=1&&e.level<=30)web.set(e.w,e.level);
@@ -187,17 +197,11 @@ function mount(root){
  function renderFamilyTags(tr,w){
   const cell=sourceFamilyIndex>=0?tr.children[sourceFamilyIndex]:null;
   if(!cell)return;
-  // Only language-family codes belong in this column; never tokenize a memo.
-  let parts=(Array.isArray(w.gs)&&w.gs.length?w.gs:[w.g]).filter(part=>Object.prototype.hasOwnProperty.call(familyNames,part));
-  if(!parts.length){
-   const original=cell.dataset.familyRaw||cell.textContent.trim();
-   const tokens=original.split(/[\/・,、+＋\s]+/).filter(Boolean);
-   if(tokens.length&&tokens.every(part=>Object.prototype.hasOwnProperty.call(familyNames,part)))parts=tokens;
-  }
+  const parts=resolveFamilyTags(w,cell.dataset.familyRaw||cell.textContent.trim());
   if(!parts.length)return;
   cell.dataset.familyRaw=cell.dataset.familyRaw||cell.textContent.trim();
   const holder=doc.createElement('div');holder.className='ety-family-tags';
-  for(const part of [...new Set(parts)]){
+  for(const part of parts){
    const tag=doc.createElement('span');tag.className='ety-family-tag';tag.dataset.family=part;
    tag.textContent=familyNames[part]||part;tag.title='語源の言語系統：'+tag.textContent;holder.append(tag);
   }
@@ -294,5 +298,5 @@ function mount(root){
  const init=()=>{installLevelFilters();observe();};
  if(doc.readyState==='loading')doc.addEventListener('DOMContentLoaded',init,{once:true});else init();
 }
-return {WEBLIO_TO_10,R_CUTS,makeIndex,evaluate,mount};
+return {WEBLIO_TO_10,R_CUTS,makeIndex,evaluate,mount,resolveFamilyTags};
 });
