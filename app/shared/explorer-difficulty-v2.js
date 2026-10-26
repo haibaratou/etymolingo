@@ -69,7 +69,7 @@ function mount(root){
  const index=makeIndex(root.ETYMON_WEBLIO_LEVELS,root.ETYMON_LEARNING_LEVELS);
  let pending=false,table=null,removed=[],difficultyIndex=-1,sourcePosIndex=-1,sourceJaIndex=-1,sourceEnIndex=-1;
  const selectedLevels=new Set();
- let scoresByImage=null;
+ let scoresByImage=null,visualStatus='loading';
  async function prepareVisualScores(){
   const env=root.ETYMON_PUZZLE_ENVELOPE,visual=root.ETYMON_PUZZLE_VISUAL_SCORES;
   if(env?.schema!==1||env.encoding!=='gzip-base64'||!Array.isArray(visual?.entries))
@@ -90,6 +90,7 @@ function mount(root){
    mapping.get(key).push({score:score.score,p:row.p||[]});
   }
   scoresByImage=mapping;
+  visualStatus='ready';
  }
  function installLevelFilters(){
   if(root.__etyDifficultyLevelFilters||typeof root.applyFilters!=='function'||typeof root.renderToolbar!=='function')return;
@@ -168,9 +169,9 @@ function mount(root){
   return found.length===1?found[0].score:null;
  }
  function fillScore(cell,score){
-  const label=score===null?'—':score+' / 100';
+  const label=score===null?(visualStatus==='loading'?'読込中':visualStatus==='error'?'読込エラー':'未評価'):score+' / 100';
   if(cell.textContent.trim()===label)return;
-  if(score===null){cell.textContent='—';return;}
+  if(score===null){cell.textContent=label;cell.title=visualStatus==='ready'?'対応画像の評価スコアが未登録か画像改訂後の再評価待ちです。':'評価データの読込状態を確認してください。';return;}
   cell.innerHTML='<span class="guess-v2-score '+(score<50?'low':score>=80?'high':'mid')+'">'+label+'</span>';
  }
  function removeLegacyGameTag(tr){
@@ -258,7 +259,10 @@ function mount(root){
   toggle(d.d.level);
  },true);
  const observe=()=>{const el=doc.getElementById('tableWrap')||doc.body;new MutationObserver(schedule).observe(el,{childList:true,subtree:true});schedule()};
- prepareVisualScores().then(schedule).catch(e=>console.warn('画像推測度データ未取得',e));
+ function loadVisualScores(){prepareVisualScores().then(schedule).catch(e=>{visualStatus='error';schedule();console.warn('画像推測度データ未取得',e);});}
+ loadVisualScores();
+ // Selection and score scripts may load after this module during initial navigation.
+ root.addEventListener('load',()=>{if(!scoresByImage){visualStatus='loading';loadVisualScores();}},{once:true});
  const init=()=>{installLevelFilters();observe();};
  if(doc.readyState==='loading')doc.addEventListener('DOMContentLoaded',init,{once:true});else init();
 }
