@@ -197,7 +197,7 @@ function mount(root){
   const pos=headword==='could'&&rawPos==='動'?'助':rawPos;
   if(posCell){
    posCell.dataset.posRaw=pos;
-   const parts=pos.split(/[\\/・,、\\s]+/).map(x=>x.trim()).filter(Boolean);
+   const parts=pos.split(/[\/・,、\s]+/).map(x=>x.trim()).filter(Boolean);
    const chips=doc.createElement('div');chips.className='ety-pos-tags';
    for(const part of parts){const tag=doc.createElement('span');tag.className='ety-pos-tag';tag.dataset.kind=part;tag.textContent=part;tag.title=({名:'名詞',動:'動詞',形:'形容詞',副:'副詞',前:'前置詞',助:'助動詞',代:'代名詞',接:'接続詞',冠:'冠詞'})[part]||part;chips.append(tag);}
    if(parts.length)posCell.replaceChildren(chips);
