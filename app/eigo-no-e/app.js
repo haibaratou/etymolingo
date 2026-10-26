@@ -107,8 +107,10 @@ function pronunciationHTML(w){const imported=usPronunciationByWord.get(w.w);
 }
 function meaningsHTML(w){const p=wordProfile(w),record=basicRecord(w),rows=L.meanings(record?{...w,ja:record.ja,pos:record.pos}:w,p);if(!rows.length)return '';
  const forms=(p?.forms||[]).map(f=>`<span>${esc(f.label)}：${tokenHTML(f.value)}</span>`).join('');
+ const verifiedVerbForms=window.EtymonVerbInflections?.lookup(w.w,record?.pos||w.pos)||null;
+ const verbForms=verifiedVerbForms?`<p class="word-forms word-verb-forms"><strong>動詞の活用</strong>${verifiedVerbForms.map(f=>`<span>${esc(f.label)}：${tokenHTML(f.value)}</span>`).join('')}</p>`:'';
  const groups=new Map();for(const row of rows){const key=row.pos||'';if(!groups.has(key))groups.set(key,[]);groups.get(key).push(row);}
- return `<section class="dictionary-meanings">${forms?`<p class="word-forms">${forms}</p>`:''}${[...groups].map(([pos,senses])=>`<p class="meaning-group">${pos?`<span class="pos">${esc(pos)}</span> `:''}<span class="meaning-text">${senses.map(x=>esc(x.glossJa)+(x.usage?` <span class="sense-usage" lang="en">（${tokenHTML(x.usage)}）</span>`:'')).join('、')}</span></p>`).join('')}</section>`;
+ return `<section class="dictionary-meanings">${forms?`<p class="word-forms">${forms}</p>`:''}${verbForms}${[...groups].map(([pos,senses])=>`<p class="meaning-group">${pos?`<span class="pos">${esc(pos)}</span> `:''}<span class="meaning-text">${senses.map(x=>esc(x.glossJa)+(x.usage?` <span class="sense-usage" lang="en">（${tokenHTML(x.usage)}）</span>`:'')).join('、')}</span></p>`).join('')}</section>`;
 }
 function sourcesHTML(w){const p=wordProfile(w),old=basicRecord(w);let items='';
  if(p){items=p.sources.map(s=>`<li><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title)}</a><small>${esc(s.fields.map(f=>({pronunciations:'発音記号',senses:'品詞・語義',forms:'語形'}[f]||f)).join('・'))}</small></li>`).join('');items+='<li>日本語の語義説明は、確認した辞書の意味を基に編集しています。</li>';}
