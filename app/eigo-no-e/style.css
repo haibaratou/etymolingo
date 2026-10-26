@@ -258,6 +258,3 @@ main{outline:none;min-width:0}
 .dictionary-only{max-width:760px;margin:auto}.dictionary-choices{padding-left:20px}.dictionary-choices li{margin:12px 0}.dictionary-choices a{text-decoration:underline;text-underline-offset:3px}
 
 .custom-learning-label{font-size:12px!important;display:flex;gap:4px;align-items:center;background:rgba(255,255,255,.94);color:#365446;padding:4px 7px;border-radius:8px;max-width:95%}.custom-learning-label small{font-size:9px}.word-art .custom-learning-label{font-size:15px!important}
-
-/* Etymology families: a compound may carry several independent origins. */
-.word-families{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:8px 0 12px;font-size:13px}.word-family-tag{display:inline-block;padding:3px 9px;border:1px solid #bfcee1;border-radius:999px;background:#edf2f8;color:#284866;font-weight:700;font-size:12px}
