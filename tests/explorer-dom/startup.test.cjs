@@ -71,7 +71,7 @@ test('optional scoring and band scripts wait until first native render and two a
 test('lazy scene search deduplicates requests and never repaints obsolete query results',async()=>{
  let resolve,loads=0,renders=0;
  const pending=new Promise(r=>{resolve=r;});
- const context={q:'first',WORDS:[{}],document:{getElementById:()=>null},loadSidecar(){loads++;return pending;},window:{IllustrationScenes:{key:e=>e.w}},illustrationSceneIndex:new Map(),renderTable(){renders++;}};
+ const context={q:'first',WORDS:[{}],document:{getElementById:()=>null},loadSidecar(){loads++;return pending;},window:{IllustrationScenes:{key:e=>e.w}},illustrationSceneIndex:new Map(),updateTableCount(){},renderTable(){renders++;}};
  vm.runInNewContext(between(html,'let illustrationSceneData;','const sceneObserver ='),context);
  assert.equal(loads,0);
  context.refreshSceneSearch('first');context.q='second';context.refreshSceneSearch('second');
@@ -85,13 +85,52 @@ test('late caption search repaint preserves an opened detail and the table scrol
  const {document}=parseHTML('<html><body><div id="tableWrap"><table><tbody><tr data-i="7"><td>steam</td></tr><tr class="detRow"><td><input value="still editing"><div data-scene-observed="1" data-scene-loading="1"></div></td></tr></tbody></table></div></body></html>');
  const wrap=document.getElementById('tableWrap'),detail=wrap.querySelector('tr.detRow');
  wrap.scrollTop=240;wrap.scrollLeft=360;let hydrated;
- const context={document,renderTable(){wrap.innerHTML='<table><tbody><tr data-i="7"><td>steam with captions</td></tr><tr data-i="8"><td>new caption match</td></tr></tbody></table>';wrap.scrollTop=0;},hydrateIllustrationScenes(node){hydrated=node;}};
+ const context={document,updateTableCount(){},renderTable(){wrap.innerHTML='<table><tbody><tr data-i="7"><td>steam with captions</td></tr><tr data-i="8"><td>new caption match</td></tr></tbody></table>';wrap.scrollTop=0;},hydrateIllustrationScenes(node){hydrated=node;}};
  vm.runInNewContext(between(html,'function repaintSceneSearch(){','let sceneSearchRequest='),context);
  context.repaintSceneSearch();
  assert.equal(wrap.querySelector('tr.detRow'),detail);
  assert.equal(detail.previousElementSibling.dataset.i,'7');assert.equal(hydrated,detail);
  assert.equal(detail.querySelector('input').value,'still editing');
  assert.equal(wrap.scrollTop,240);assert.equal(wrap.scrollLeft,360);
+});
+
+test('late scene-only matches update the real counter without rebuilding controls or closing details',async()=>{
+ const names=['television','program','viewer','animation','delusion','unrestrained'];
+ const words=names.map((w,i)=>({w,i,pos:i===5?'形':'名'}));
+ const {document}=parseHTML('<html><body><div id="toolbar"><input id="draft" value="unfinished filter"><span id="tCount"><b>1</b> / 1語</span></div><div id="tableWrap"><table><tbody><tr data-i="0"><td>television</td></tr><tr class="detRow"><td><input id="note" value="still editing"></td></tr></tbody></table></div></body></html>');
+ const wrap=document.getElementById('tableWrap'),counter=document.getElementById('tCount'),draft=document.getElementById('draft'),detail=wrap.querySelector('tr.detRow'),note=document.getElementById('note');
+ let focused=draft;Object.defineProperty(document,'activeElement',{get:()=>focused});
+ note.focus=()=>{focused=note;};note.selectionStart=2;note.selectionEnd=5;note.selectionDirection='forward';
+ note.setSelectionRange=(start,end,direction)=>{note.selectionStart=start;note.selectionEnd=end;note.selectionDirection=direction;};
+ let resolve;const pending=new Promise(r=>{resolve=r;});
+ const F={min:'',max:'',lang:'',pos:'',comp:false,noroot:false,pic:'',tag:'',review:false,sortCol:'w',sortDir:-1,userSorted:true};
+ const before=JSON.stringify(F),index=new Map();
+ const context={document,F,q:'television',WORDS:words,illustrationSceneIndex:index,loadSidecar:()=>pending,window:{IllustrationScenes:{key:e=>e.w}},
+  baseWords:()=>index.size?words:[words[0]],applyFilters:base=>base.filter(w=>!F.pos||w.pos===F.pos).slice().sort((a,b)=>F.sortDir*a.w.localeCompare(b.w)),
+  renderTable(){wrap.innerHTML='<table><tbody>'+context.applyFilters(context.baseWords()).map(w=>'<tr data-i="'+w.i+'"><td>'+w.w+'</td></tr>').join('')+'</tbody></table>';},
+  renderToolbar(){throw Error('late count update must not rebuild active controls');},hydrateIllustrationScenes(){}};
+ vm.runInNewContext(between(html,'function tableCountHTML(','function renderToolbar(){')+between(html,'let illustrationSceneData;','const sceneObserver ='),context);
+ context.refreshSceneSearch('television');
+ resolve({entries:names.map(w=>({w,review:{status:'reviewed'}}))});await tick();
+ assert.equal(wrap.querySelectorAll('tr[data-i]').length,6);assert.equal(counter.textContent,'6 / 6語');
+ assert.equal(wrap.querySelector('tr.detRow'),detail);assert.equal(document.getElementById('draft'),draft);assert.equal(draft.value,'unfinished filter');
+ assert.equal(draft.isConnected,true);assert.equal(document.activeElement,draft);assert.equal(JSON.stringify(F),before);
+ F.pos='名';focused=note;context.repaintSceneSearch();
+ assert.equal(wrap.querySelectorAll('tr[data-i]').length,5);assert.equal(counter.textContent,'5 / 6語 (絞り込み中)');
+ assert.equal(wrap.querySelector('tr.detRow'),detail);assert.equal(document.activeElement,note);assert.equal(note.selectionStart,2);assert.equal(note.selectionEnd,5);
+ assert.equal(F.sortCol,'w');assert.equal(F.sortDir,-1);assert.equal(F.pos,'名');
+});
+
+test('initial and filtered toolbars use the same count format as a late search repaint',()=>{
+ const {document}=parseHTML('<html><body><div id="toolbar"></div></body></html>');
+ const F={min:'',max:'',lang:'',pos:'',comp:false,noroot:false,pic:'',tag:'',review:false};
+ const words=[{pos:'名'},{pos:'形'}];
+ const context={document,F,$:s=>document.querySelector(s),baseWords:()=>words,applyFilters:base=>base.filter(w=>!F.pos||w.pos===F.pos),esc:String,langList:()=>[['','全語派']],tagPanelOpen:false};
+ vm.runInNewContext(between(html,'const RAR_PRESETS=','/* ===== テーブル ===== */'),context);
+ context.renderToolbar();
+ assert.equal(document.getElementById('tCount').textContent,'2 / 2語');assert.equal(document.getElementById('fReset'),null);
+ F.pos='名';context.renderToolbar();
+ assert.equal(document.getElementById('tCount').textContent,'1 / 2語 (絞り込み中)');assert(document.getElementById('fReset'));
 });
 
 test('compact list warnings verify only mismatches and reject changed images or senses',async(t)=>{

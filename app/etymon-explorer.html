@@ -879,6 +879,15 @@ function renderHead(){
 /* ===== ツールバー ===== */
 const RAR_PRESETS=[['すべて','',''],['〜400','','400'],['400〜800','400','800'],['800〜1200','800','1200'],['1200〜','1200','']];
 const POSES=[['','全品詞'],['名','名詞'],['動','動詞'],['助','助動詞'],['形','形容詞'],['副','副詞']];
+function tableCountHTML(shown,total){
+  const active=F.min!==''||F.max!==''||F.lang!==''||F.pos!==''||F.comp||F.noroot||F.pic!==''||F.tag!==''||F.review;
+  return `<b>${shown}</b> / ${total}語${active?' <span style="color:#c0392b">(絞り込み中)</span>':''}`;
+}
+function updateTableCount(){
+  const counter=document.getElementById('tCount');if(!counter)return;
+  const base=baseWords();
+  counter.innerHTML=tableCountHTML(applyFilters(base).length,base.length);
+}
 function renderToolbar(){
   const base=baseWords();
   const shown=applyFilters(base);
@@ -900,7 +909,7 @@ function renderToolbar(){
     ${[['','すべて'],['1','絵あり'],['0','絵なし']].map(([v,l])=>`<button class="tBtn${F.pic===v?' on':''}" data-pic="${v}">${l}</button>`).join('')}
     <button class="tBtn${F.tag?' on':''}" id="fTagOpen">${F.tag?`タグ: ${esc(tagLabel(F.tag))} ▾`:'タグでさがす ▾'}</button>
     ${active?`<button class="tBtn" id="fReset" style="border-color:#c0392b;color:#c0392b">✕ 絞り込み解除</button>`:''}
-    <span id="tCount"><b>${shown.length}</b> / ${base.length}語${active?' <span style="color:#c0392b">(絞り込み中)</span>':''}</span>
+    <span id="tCount">${tableCountHTML(shown.length,base.length)}</span>
     ${tagPanelOpen?tagPanelHTML(base):''}`;
   const rb=$('#fReset');
   if(rb)rb.onclick=()=>{F.min='';F.max='';F.lang='';F.pos='';F.comp=false;F.noroot=false;F.pic='';F.tag='';F.review=false;saveF();limit=400;renderToolbar();renderTable();};
@@ -996,11 +1005,14 @@ function loadIllustrationSceneData(){
 }
 function repaintSceneSearch(){
   const wrap=document.getElementById('tableWrap');
-  if(!wrap){renderTable();return;}
+  if(!wrap){renderTable();updateTableCount();return;}
   const detail=wrap.querySelector('tr.detRow'),selected=detail?.previousElementSibling?.dataset.i;
+  const focused=detail?.contains(document.activeElement)?document.activeElement:null;
+  const selection=focused&&typeof focused.selectionStart==='number'?[focused.selectionStart,focused.selectionEnd,focused.selectionDirection]:null;
   const top=wrap.scrollTop,left=wrap.scrollLeft;
   if(detail)detail.remove();
   renderTable();
+  updateTableCount();
   const row=selected===undefined?null:wrap.querySelector('tr[data-i="'+selected+'"]');
   if(detail&&row){
     row.after(detail);
@@ -1009,6 +1021,7 @@ function repaintSceneSearch(){
     });
     hydrateIllustrationScenes(detail);
   }
+  if(focused?.isConnected){focused.focus({preventScroll:true});if(selection)focused.setSelectionRange(...selection);}
   wrap.scrollTop=top;wrap.scrollLeft=left;
 }
 let sceneSearchRequest=0;
