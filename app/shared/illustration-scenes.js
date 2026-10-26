@@ -116,7 +116,7 @@ if (typeof window !== 'undefined' && /\/etymon-explorer\.html$/.test(window.loca
     document.head.append(el);
   });
   Promise.all([
-    addScript('shared/spelling-puzzle-eligibility.js?v=db7c68c88086'),
+    addScript('shared/spelling-puzzle-eligibility.js?v=a250ce85e39f'),
     addScript('data/generated-etymon/weblio-learning-levels.js?v=92b587b8148d'),
     addScript('data/generated-etymon/learning-levels.js?v=d310e93cb81f'),
     addScript('data/generated-etymon/puzzle-visual-scores.js?v=cafdf82a6535').catch(() => null)
