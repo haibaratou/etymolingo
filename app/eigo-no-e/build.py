@@ -117,7 +117,7 @@ def build(root=ROOT,thumb_size=320):
     rows=[];thumb_outputs={};bindings=[]
     for g in game_rows:
         bound=g['bindingStatus']=='bound';sense=g.get('sense',{})
-        row={'id':g['id'],'art':g['pic'],'w':g['en'],'p':g['roots'],'ja':g['ja'],'en':sense.get('en',''),'pos':g.get('pos',''),'r':g['rank'],'c':[],
+        row={'id':g['id'],'art':g['pic'],'w':g['en'],'p':g['roots'],'etymology_id':g.get('etymology_id',''),'ja':g['ja'],'en':sense.get('en',''),'pos':g.get('pos',''),'r':g['rank'],'c':[],
              'sense':sense,'scene':{'en':g['description']['en'],'ja':g['description']['ja']},'image':g['image'],'status':g['description']['status'],
              'review':{'status':g['description']['status']},'description':g['description'],'availability':g['availability'],'bindingStatus':g['bindingStatus'],
              'issues':g['issues'],'recordedUpdatedAt':g['recordedUpdatedAt'],'imageDateProvenance':g['imageDateProvenance'],'dictionaryIndex':g['dictionaryIndex']}
