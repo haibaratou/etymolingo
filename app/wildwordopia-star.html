@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>星の一族 · Wild Wordopia</title>
+<meta name="description" content="星のワイルドと学ぶ語根 *ster。star、disaster、astronaut、constellation など39語につながる星の一族の図鑑。">
+<style>
+:root{
+  --ink:#12223a;--ink2:#4b5a6b;--ink3:#7b8794;--teal:#319bb4;--teal2:#2a91ac;--teal-bg:#e0f3f8;
+  --cream:#fff7eb;--frame:#342d2a;--gold:#eab742;--line:#e3e9ee;
+  --G:#5a8f3d;--L:#b5651d;--Gr:#3d6fb0;
+  --night:#14274a;--night2:#1d3866;
+}
+*{box-sizing:border-box}
+html{background:#fff;color:var(--ink);scroll-behavior:smooth}
+body{margin:0;font-family:"Yu Gothic","Hiragino Kaku Gothic ProN",Meiryo,sans-serif}
+main{max-width:760px;margin:auto;padding:28px 28px 40px}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #dfac3c;outline-offset:4px;border-radius:6px}
+.en{font-family:Arial,"Helvetica Neue",sans-serif}
+
+/* ---------- 見出し(既存デザイン) ---------- */
+.root-label{display:flex;align-items:center;width:fit-content;min-width:330px;background:var(--teal-bg);border-radius:50px;overflow:hidden;color:var(--teal2);font-size:28px;font-weight:800;letter-spacing:.08em}
+.number{background:var(--teal);color:#fff;padding:5px 23px;font-size:36px;letter-spacing:0;font-variant-numeric:tabular-nums}
+.meaning{padding:0 24px}
+.portrait{margin:32px auto 0;text-align:center}
+.portrait img{display:block;width:min(100%,565px);height:auto;margin:auto}
+.star-caption{text-align:center;padding-top:18px}
+.rarity{color:var(--gold);font-family:Arial,sans-serif;font-size:29px;letter-spacing:.16em;line-height:1.4}
+.epithet{margin:14px 0 12px;font-size:22px;letter-spacing:.1em;font-weight:600;color:#344956}
+.root{font-family:Arial,sans-serif;font-weight:800;color:var(--teal);letter-spacing:-.04em;margin:0;font-size:88px;line-height:1.1}
+.root-sub{margin:6px 0 34px;font-size:14px;color:var(--ink3);letter-spacing:.06em}
+.root-sub b{color:var(--ink2)}
+.story{background:var(--cream);border:3px solid var(--frame);border-radius:23px;padding:27px 30px;box-shadow:0 3px 0 #ede4d7}
+.story p{font-size:16px;line-height:2.15;font-weight:600;margin:0}
+
+/* ---------- 目次 ---------- */
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 0;padding:0;list-style:none}
+.toc a{display:block;padding:7px 14px;border-radius:99px;background:#f2f6f8;color:#19677b;font-size:13px;font-weight:700;text-decoration:none}
+.toc a:hover{background:var(--teal-bg)}
+
+/* ---------- セクション共通 ---------- */
+section.block{margin-top:56px;scroll-margin-top:16px}
+.kicker{font-size:12px;font-weight:800;letter-spacing:.18em;color:var(--teal)}
+.block h2{margin:4px 0 8px;font-size:25px;line-height:1.4;letter-spacing:.04em;text-wrap:balance}
+.lead{margin:0 0 20px;font-size:14px;line-height:1.9;color:var(--ink2)}
+
+/* 語派バッジ */
+.badge{display:inline-block;padding:2px 8px;border-radius:99px;font-size:11px;font-weight:800;color:#fff;letter-spacing:.04em;white-space:nowrap;vertical-align:middle}
+.badge.G{background:var(--G)}.badge.L{background:var(--L)}.badge.Gr{background:var(--Gr)}
+/* レア度 */
+.rar{display:inline-block;padding:2px 8px;border-radius:99px;font-size:11px;font-weight:800;white-space:nowrap;border:1.5px solid currentColor;vertical-align:middle}
+.rar.t1{color:#5e8e6d}.rar.t2{color:#3e8aa0}.rar.t3{color:#5b6fd0}.rar.t4{color:#9a55c9}.rar.t5{color:#c9548d}.rar.t6{color:#c9822a}.rar.t7{color:#6b6b6b}
+
+/* ---------- 3つの道 ---------- */
+.bar{display:flex;height:16px;border-radius:99px;overflow:hidden;gap:3px;margin:4px 0 8px}
+.bar span{display:block}
+.bar-legend{display:flex;flex-wrap:wrap;gap:4px 16px;font-size:12px;color:var(--ink2);margin-bottom:18px}
+.bar-legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+.roads{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.road{border:2px solid var(--line);border-radius:18px;padding:16px 16px 14px;border-top:7px solid var(--c)}
+.road .bn{font-size:12px;font-weight:800;color:var(--c);letter-spacing:.06em}
+.road .form{font-family:Arial,sans-serif;font-weight:800;font-size:26px;line-height:1.15;margin:6px 0 2px;letter-spacing:-.02em}
+.road .form small{display:block;font-size:12px;font-weight:600;color:var(--ink3);letter-spacing:0;margin-top:3px;font-family:"Yu Gothic","Hiragino Kaku Gothic ProN",Meiryo,sans-serif}
+.road .cnt{font-size:13px;color:var(--ink2);margin:8px 0 10px}
+.road .cnt b{font-size:22px;color:var(--ink);font-family:Arial,sans-serif}
+.road .ex{display:flex;flex-wrap:wrap;gap:6px}
+.road .ex a{font-family:Arial,sans-serif;font-size:13px;font-weight:700;color:var(--ink);text-decoration:none;border-bottom:2px solid color-mix(in srgb,var(--c) 40%,transparent)}
+.note-s{font-size:12px;color:var(--ink3);line-height:1.8;margin:12px 0 0}
+
+/* ---------- 一族マップ(夜空) ---------- */
+.sky{position:relative;background:radial-gradient(120% 90% at 50% 45%,var(--night2),var(--night));border-radius:28px;padding:26px 18px 22px;color:#fff;overflow:hidden}
+.sky .kicker{color:#9fd8e6}.sky h2{color:#fff}.sky .lead{color:#c8d3e3}
+.sky .twinkle{position:absolute;inset:0;pointer-events:none;background-image:
+ radial-gradient(1.6px 1.6px at 8% 12%,#fff 60%,transparent),radial-gradient(1.2px 1.2px at 22% 38%,#fff 60%,transparent),
+ radial-gradient(1.8px 1.8px at 91% 9%,#ffe9a8 60%,transparent),radial-gradient(1.2px 1.2px at 73% 30%,#fff 60%,transparent),
+ radial-gradient(1.4px 1.4px at 54% 6%,#fff 60%,transparent),radial-gradient(1.2px 1.2px at 6% 88%,#fff 60%,transparent),
+ radial-gradient(1.6px 1.6px at 40% 94%,#ffe9a8 60%,transparent),radial-gradient(1.2px 1.2px at 95% 64%,#fff 60%,transparent),
+ radial-gradient(1.2px 1.2px at 63% 97%,#fff 60%,transparent),radial-gradient(1.4px 1.4px at 33% 20%,#fff 60%,transparent);
+ animation:tw 5s ease-in-out infinite alternate}
+@keyframes tw{from{opacity:.55}to{opacity:1}}
+.map{position:relative;aspect-ratio:1/1.12;margin:6px auto 0;max-width:620px}
+.map svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.map line{stroke:#ffe08a;stroke-width:2;stroke-dasharray:3 6;stroke-linecap:round;opacity:.75}
+.map .core{position:absolute;left:50%;top:50%;width:42%;transform:translate(-50%,-50%);text-align:center}
+.map .core::before{content:"";position:absolute;inset:-8%;border-radius:50%;background:radial-gradient(circle,rgba(255,236,170,.55),rgba(255,236,170,0) 68%)}
+.map .core img{position:relative;display:block;width:100%;height:auto}
+.map .core .concept{position:relative;display:inline-block;margin-top:2px;padding:3px 12px;border-radius:99px;background:#ffe08a;color:var(--night);font-weight:800;font-size:14px}
+.map .core .pie{position:relative;display:block;font-family:Arial,sans-serif;font-size:11px;color:#b9c6da;margin-top:4px}
+.node{position:absolute;transform:translate(-50%,-38px);width:30%;max-width:150px;text-align:center;color:#fff;text-decoration:none}
+.node .th{display:block;width:76px;height:76px;margin:0 auto 6px;border-radius:50%;background:#fff;border:3px solid #ffe08a;overflow:hidden;box-shadow:0 0 0 6px rgba(255,224,138,.13)}
+.node .th img{width:100%;height:100%;object-fit:contain}
+.node .wd{display:block;font-family:Arial,sans-serif;font-weight:800;font-size:18px;line-height:1.1}
+.node .jj{display:block;font-size:12px;color:#d4ddea;margin:3px 0 5px}
+.node:hover .th{transform:scale(1.06)}
+.node .th{transition:transform .2s}
+
+/* ---------- 4コマ ---------- */
+.manga{margin:0;border-radius:20px;overflow:hidden;border:3px solid var(--frame);box-shadow:0 3px 0 #ede4d7;background:#fff}
+.manga img{display:block;width:100%;height:auto}
+.manga a{display:block}
+.zoom{display:block;text-align:right;font-size:12px;margin:8px 4px 0;color:#397b90}
+.formula{margin-top:16px;background:var(--cream);border:3px solid var(--frame);border-radius:20px;padding:18px 20px}
+.eq{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px 10px;font-weight:800}
+.eq .pt{text-align:center;background:#fff;border:2px solid #e6dccb;border-radius:14px;padding:8px 14px}
+.eq .pt b{display:block;font-family:Arial,sans-serif;font-size:22px;color:var(--ink)}
+.eq .pt span{font-size:12px;color:var(--ink2)}
+.eq .pt.hl{border-color:var(--teal);background:var(--teal-bg)}
+.eq .op{font-size:22px;color:var(--ink3)}
+.formula p{margin:14px 0 0;font-size:14px;line-height:1.9;font-weight:600}
+.formula a{color:#19677b;white-space:nowrap}
+
+/* ---------- 単語ずかん ---------- */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.card{border:2px solid var(--line);border-radius:20px;overflow:hidden;background:#fff;display:flex;flex-direction:column;scroll-margin-top:16px;transition:box-shadow .3s,border-color .3s}
+.card.flash{border-color:var(--gold);box-shadow:0 0 0 4px rgba(234,183,66,.35)}
+.card .pic{background:#fbf8f2;aspect-ratio:1/1;display:grid;place-items:center}
+.card .pic img{width:88%;height:88%;object-fit:contain}
+.card .bd{padding:12px 14px 14px;display:flex;flex-direction:column;gap:6px;flex:1}
+.card .tags{display:flex;gap:5px;flex-wrap:wrap}
+.card .wd{font-family:Arial,sans-serif;font-weight:800;font-size:23px;line-height:1.1;letter-spacing:-.01em;margin-top:2px}
+.card .kn{font-size:11px;color:var(--ink3)}
+.card .jj{font-size:14px;font-weight:700}
+.parts{display:flex;flex-wrap:wrap;gap:4px;margin:2px 0}
+.parts span{display:inline-flex;flex-direction:column;align-items:center;padding:3px 7px;border-radius:9px;background:#f3f6f8;line-height:1.25}
+.parts span b{font-family:Arial,sans-serif;font-size:13px}
+.parts span i{font-style:normal;font-size:10px;color:var(--ink2)}
+.parts span.st{background:var(--teal-bg)}
+.parts span.st b{color:var(--teal2)}
+.card .nt{font-size:12px;line-height:1.75;color:var(--ink2);margin:auto 0 0;padding-top:6px;border-top:1px dashed var(--line)}
+
+/* ---------- ぜんぶの語 ---------- */
+.filters{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+.filters button{font:inherit;font-size:13px;font-weight:700;border:2px solid var(--line);background:#fff;color:var(--ink2);border-radius:99px;padding:5px 13px;cursor:pointer}
+.filters button[aria-pressed="true"]{border-color:var(--ink);color:var(--ink);background:#f6f3ec}
+.list{border-top:2px solid var(--ink)}
+.list details{border-bottom:1px solid var(--line)}
+.list summary{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1.3fr) auto;gap:4px 10px;align-items:center;padding:10px 4px;cursor:pointer;list-style:none}
+.list summary::-webkit-details-marker{display:none}
+.list summary:hover{background:#fafbfc}
+.list .lw{font-family:Arial,sans-serif;font-weight:800;font-size:16px;overflow-wrap:anywhere}
+.list .lw .pin{color:var(--gold);font-size:12px;margin-left:4px}
+.list .lj{font-size:13px;color:var(--ink2)}
+.list .lt{display:flex;gap:4px;justify-content:flex-end;flex-wrap:wrap}
+.list .ln{margin:0 4px 12px;padding:10px 12px;background:#fbf8f2;border-radius:12px;font-size:13px;line-height:1.85;color:var(--ink2)}
+.list .ln .kn{display:block;font-size:11px;color:var(--ink3);margin-bottom:2px}
+.list .ln a{color:#19677b;font-weight:700}
+.count{font-size:12px;color:var(--ink3);margin:10px 2px 0;text-align:right}
+
+/* ---------- フッター ---------- */
+.footer{display:flex;justify-content:space-between;gap:15px;align-items:center;margin-top:44px;padding-top:16px;border-top:1px solid var(--line);font-size:12px;color:#77818e}
+.footer a{color:#397b90;text-underline-offset:4px}
+.footer small{font-size:11px}
+
+@media(min-width:601px){
+  .map{aspect-ratio:1.45/1}
+  .map .core{width:30%}
+}
+@media(max-width:600px){
+  .roads{grid-template-columns:1fr}
+  .list summary{grid-template-columns:1fr auto;grid-template-areas:"w t" "j j";gap:2px 8px}
+  .list .lw{grid-area:w}.list .lt{grid-area:t}.list .lj{grid-area:j}
+  .grid{grid-template-columns:repeat(2,1fr);gap:10px}
+}
+@media(max-width:480px){
+  main{padding:20px 16px 28px}
+  .root-label{min-width:265px;font-size:23px}.number{font-size:31px;padding:5px 18px}
+  .portrait{margin-top:26px}.star-caption{padding-top:12px}
+  .rarity{font-size:25px}.epithet{font-size:17px;letter-spacing:.07em;margin:11px 0}
+  .root{font-size:72px}.root-sub{margin-bottom:28px}
+  .story{padding:21px 20px;border-radius:20px}.story p{font-size:14px;line-height:2.1}
+  .block h2{font-size:21px}
+  .sky{padding:22px 10px 18px;border-radius:22px}
+  .sky .kicker,.sky h2,.sky .lead{padding:0 8px}
+  .node .th{width:62px;height:62px}.node{transform:translate(-50%,-31px)}
+  .node .wd{font-size:15px}.node .jj{font-size:11px}
+  .card .bd{padding:10px 11px 12px}.card .wd{font-size:19px}
+  .footer{align-items:flex-start}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.sky .twinkle{animation:none}.node .th,.card{transition:none}}
+</style>
+</head>
+<body><main>
+<header class="root-label" aria-label="PIE順位165 星"><span class="number">165</span><span class="meaning">星</span></header>
+<figure class="portrait"><img src="assets/wildwordopia/star/star-pair.png" width="1254" height="1254" alt="宇宙服の金髪の女の子と、寄り添って座る黄色い星のワイルド"><figcaption class="star-caption"><div class="rarity" aria-label="レア度3">★ ★ ★</div><p class="epithet">夜空にちらばる光の点</p><div class="root">*ster</div><p class="root-sub">意味 <b>星</b> ・ 英語の子孫 <b>39語</b></p></figcaption></figure>
+<section class="story" aria-label="星の語根解説">
+<p>夜空にちらばる光の点。人はそこに自分の運命が書かれていると信じ、この語根はその信仰ごと英語に流れ込んだ。39語のうち24語はギリシャ語派から astro- の形で入り、ゲルマン語派から直に来た7語のなかに star がいる。災難を指す disaster は文字どおり「悪い星」で、不運を星回りのせいにした占星術のことばであり、印刷記号の asterisk はギリシャ語の「小さな星」、宇宙飛行士の astronaut は「星の船乗り」だ。天文学の astronomy と占星術の astrology は、17世紀までは同じものとして扱われていた。</p>
+</section>
+<nav aria-label="このページの中身"><ul class="toc">
+<li><a href="#roads">3つの道</a></li><li><a href="#map">一族マップ</a></li><li><a href="#manga">4コマ disaster</a></li><li><a href="#zukan">単語ずかん</a></li><li><a href="#all">ぜんぶの39語</a></li>
+</ul></nav>
+
+<section class="block" id="roads" aria-labelledby="h-roads">
+<div class="kicker">ROUTES</div>
+<h2 id="h-roads">星は3つの道を通って英語に来た</h2>
+<p class="lead">同じ「星」が、通ってきた言葉によって astro・stella・star の3つの姿に分かれた。</p>
+<div class="bar" role="img" aria-label="ギリシャ語派24語、ロマンス語派9語、ゲルマン語派7語">
+<span style="flex:24;background:var(--Gr)"></span><span style="flex:9;background:var(--L)"></span><span style="flex:7;background:var(--G)"></span>
+</div>
+<div class="bar-legend"><span><i style="background:var(--Gr)"></i>ギリシャ語派 24</span><span><i style="background:var(--L)"></i>ロマンス語派 9</span><span><i style="background:var(--G)"></i>ゲルマン語派 7</span></div>
+<div class="roads">
+<div class="road" style="--c:var(--Gr)"><div class="bn">ギリシャ語派</div><div class="form">astro- / aster<small>ギリシャ語 astēr・astron「星」</small></div><div class="cnt"><b>24</b> 語 ・ いちばんの大家族</div><div class="ex"><a href="#w-astronaut">astronaut</a><a href="#w-asterisk">asterisk</a><a href="#w-asteroid">asteroid</a></div></div>
+<div class="road" style="--c:var(--L)"><div class="bn">ロマンス語派</div><div class="form">stella<small>ラテン語 stella「星」</small></div><div class="cnt"><b>9</b> 語 ・ stell の形で残る</div><div class="ex"><a href="#w-constellation">constellation</a><a href="#w-stellar">stellar</a><a href="#l-interstellar">interstellar</a></div></div>
+<div class="road" style="--c:var(--G)"><div class="bn">ゲルマン語派</div><div class="form">star<small>英語に直に受け継がれた形</small></div><div class="cnt"><b>7</b> 語 ・ いちばん身近</div><div class="ex"><a href="#w-star">star</a><a href="#w-starlight">starlight</a><a href="#l-lodestar">lodestar</a></div></div>
+</div>
+<p class="note-s">※ disaster はギリシャ語の「星」がロマンス語を通って入った語なので、ギリシャ語派とロマンス語派の両方に数えています。</p>
+</section>
+
+<section class="block sky" id="map" aria-labelledby="h-map">
+<div class="twinkle" aria-hidden="true"></div>
+<div class="kicker">FAMILY MAP</div>
+<h2 id="h-map">星のワイルドから生まれたことば</h2>
+<p class="lead">線はワイルドと単語のあいだだけ。単語どうしは親子ではなく、みんな同じ祖先から別々に生まれた兄弟。</p>
+<div class="map" id="mapBox">
+<svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true" id="mapLines"></svg>
+<div class="core"><img src="assets/wildwordopia/star/star-pair.png" width="1254" height="1254" alt="星のワイルド"><span class="concept">星</span><span class="pie">PIE *ster-</span></div>
+</div>
+</section>
+
+<section class="block" id="manga" aria-labelledby="h-manga">
+<div class="kicker">4-PANEL</div>
+<h2 id="h-manga">4コマでおぼえる disaster〈災難〉</h2>
+<p class="lead">星から「はなれる」と、運に見はなされる。占星術の時代の考えかたが、そのまま英単語になった。</p>
+<figure class="manga"><a href="assets/wildwordopia/star/disaster-manga.png" target="_blank" rel="noopener"><img src="assets/wildwordopia/star/disaster-manga.png" width="1024" height="1580" loading="lazy" alt="4コマ漫画。星のワイルドの二人が「あの星みたいにずっといっしょ」と約束するが、「ぼくこっち」「私はあっち」と別れた瞬間、燃える隕石が降ってくる。牛の角の女の子が「急いでー！」と叫び、二人は「やっぱりいっしょー！」と駆け戻る。最後に disaster = dis-〈はなれる〉+ astro〈星〉、星回りが悪い→災難、の解説。"></a></figure>
+<a class="zoom" href="assets/wildwordopia/star/disaster-manga.png" target="_blank" rel="noopener">マンガを大きく見る ↗</a>
+<div class="formula">
+<div class="eq" aria-label="dis はなれる たす aster 星 で disaster 災難">
+<div class="pt"><b>dis-</b><span>はなれる</span></div><div class="op">+</div><div class="pt"><b>aster</b><span>星</span></div><div class="op">=</div><div class="pt hl"><b>disaster</b><span>災難</span></div>
+</div>
+<p>文字どおりは「悪い星」。不運を星回りのせいにした占星術のことば。<a href="#w-disaster">ずかんで見る →</a></p>
+</div>
+</section>
+
+<section class="block" id="zukan" aria-labelledby="h-zukan">
+<div class="kicker">PICTURE BOOK</div>
+<h2 id="h-zukan">単語ずかん</h2>
+<p class="lead">よく出会う語から順に。水色のかけらが「星」の部分。</p>
+<div class="grid" id="grid"></div>
+</section>
+
+<section class="block" id="all" aria-labelledby="h-all">
+<div class="kicker">ALL 39 WORDS</div>
+<h2 id="h-all">星の一族 ぜんぶの39語</h2>
+<p class="lead">タップで語源メモがひらく。下にいくほど出会うのがむずかしいレアな語。</p>
+<div class="filters" role="group" aria-label="語派でしぼりこむ">
+<button type="button" data-f="" aria-pressed="true">すべて</button><button type="button" data-f="Gr" aria-pressed="false">ギリシャ語派</button><button type="button" data-f="L" aria-pressed="false">ロマンス語派</button><button type="button" data-f="G" aria-pressed="false">ゲルマン語派</button>
+</div>
+<div class="list" id="list"></div>
+<p class="count" id="count"></p>
+</section>
+
+<footer class="footer"><a href="etymon-explorer.html#root:ster-2/q=star">語源データベースで詳しく見る ↗</a><small>星の一族 · PIE ster-2</small></footer>
+</main>
+<script>
+const WORDS=[{"w":"star","k":"スター","ja":"星、スター","g":"G","gs":["G"],"r":481,"b":"昔は惑星や彗星も star と呼んだ。falling star にその名残。","pic":"star","parts":[["star","星"]]},{"w":"disaster","k":"ディザスタァ","ja":"災害、大失敗","g":"Gr","gs":["L","Gr"],"r":514,"b":"文字どおりは「悪い星」。不運を星回りのせいにした占星術の語。","pic":"disaster","parts":[["dis-","はなれる"],["aster","星"]]},{"w":"Esther","k":"エスタァ","ja":"エスター","g":"Gr","gs":["Gr"],"r":666,"b":"ペルシャ語の「星」から。英語の star と同じ語根にさかのぼる。","pic":"Esther","parts":null},{"w":"constellation","k":"カンステレイション","ja":"星座","g":"L","gs":["L"],"r":757,"b":"もとは占星術の語で、星の配置が人を左右すると考えられた。","pic":"constellation","parts":[["con-","共に"],["stell","星"],["-ation","〜したもの"]]},{"w":"stroll","k":"ストゥロウル","ja":"ぶらつく","g":"G","gs":["G"],"r":758,"b":"由来は不確かだが、放浪する占星術師 astrologo からとも言われる。","pic":"stroll","parts":null},{"w":"astronomy","k":"アストゥラノミィ","ja":"天文学","g":"Gr","gs":["Gr"],"r":783,"b":"中身は「星を規則で治める」。17世紀まで astrology と区別がなかった。","pic":"astronomy","parts":[["astro","星"],["-nomy","きまり"]]},{"w":"astronomical","k":"アストゥラナミカル","ja":"天文の、けたはずれに巨大な","g":"Gr","gs":["Gr"],"r":803,"b":"「けたはずれに巨大な」という意味で使い出したのは1899年から。","pic":"astronomical","parts":[["astro","星"],["nom","きまり"],["-ical","〜の"]]},{"w":"stellar","k":"ステラァ","ja":"星の、すばらしい","g":"L","gs":["L"],"r":826,"b":"「すばらしい」の意味は1883年から。舞台のスターがそのまま形容詞に。","pic":"stellar","parts":[["stell","星"],["-ar","〜の"]]},{"w":"astrology","k":"アストゥラロジィ","ja":"占星術","g":"Gr","gs":["Gr"],"r":851,"b":"字義は「星を語ること」。もとは天文学と同じ言葉だった。","pic":"astrology","parts":[["astro","星"],["-logy","語ること"]]},{"w":"astral","k":"アストゥラル","ja":"星の","g":"Gr","gs":["Gr"],"r":863,"b":"もとは純粋に「星の」。霊的な意味は19世紀末に神智学が広めた。","pic":"astral","parts":[["astr","星"],["-al","〜の"]]},{"w":"starry","k":"スターリィ","ja":"星の多い","g":"G","gs":["G"],"r":872,"b":"starry-eyed は星のように輝く目のことで、後に「夢見がち」に。","pic":"starry","parts":[["star","星"],["-y","〜でいっぱい"]]},{"w":"asteroid","k":"アスタロイド","ja":"小惑星","g":"Gr","gs":["Gr"],"r":873,"b":"「星のような姿」という意味で、1802年に天文学者が作った新語。","pic":"asteroid","parts":[["aster","星"],["-oid","〜のような"]]},{"w":"astronomer","k":"アストゥラナマァ","ja":"天文学者","g":"Gr","gs":["Gr"],"r":881,"b":"中身は「星」+「きまり」。星の決まりごとを知る人、の意。","pic":"astronomer","parts":[["astro","星"],["nom","きまり"],["-er","人"]]},{"w":"asterisk","k":"アステリスク","ja":"星印","g":"Gr","gs":["Gr"],"r":907,"b":"ギリシャ語で「小さな星」。印刷の記号としては14世紀末から使う。","pic":"asterisk","parts":[["aster","星"],["-isk","小さな"]]},{"w":"astronaut","k":"アストゥラノト","ja":"宇宙飛行士","g":"Gr","gs":["Gr"],"r":919,"b":"語源は「星の船乗り」。1880年の小説では宇宙船の名前だった。","pic":"astronaut","parts":[["astro","星"],["naut","船乗り"]]},{"w":"starlight","k":"スターライト","ja":"星明かり","g":"G","gs":["G"],"r":937,"b":"star(星)+ light(光)から。star はラテン語 stella、ギリシャ語 astēr と同じ「星」の語である。","pic":"starlight","parts":[["star","星"],["light","光"]]},{"w":"interstellar","k":"インターステラ","ja":"星間の","g":"L","gs":["L"],"r":942,"b":"ラテン語 inter-(…の間)+ stella(星)から。star や stellar と同じ「星」の語である。","pic":null,"parts":null},{"w":"starfish","k":"スターフィシュ","ja":"ヒトデ","g":"Gr","gs":["Gr"],"r":1014,"b":"star(星)+ fish(魚)から。star はギリシャ語 astēr、ラテン語 stella と同じ「星」の語である。","pic":null,"parts":null},{"w":"Estella","k":"エステラ","ja":"エステラ","g":"L","gs":["L"],"r":1027,"b":"人名。スペイン語 estrella(星)から。ラテン語 stella で、star や stellar と同じ「星」の語である。","pic":null,"parts":null},{"w":"stellate","k":"ステレイト","ja":"星形の","g":"L","gs":["L"],"r":1035,"b":"ラテン語 stella(星)から。star と同じ一族の星形である。","pic":null,"parts":null},{"w":"stardust","k":"スターダスト","ja":"星くず","g":"G","gs":["G"],"r":1115,"b":"star と dust の合成。もとは天文学の語である。","pic":null,"parts":null},{"w":"aster","k":"アスタァ","ja":"アスター","g":"Gr","gs":["Gr"],"r":1153,"b":"ギリシャ語 aster(星)から。star と同じ語で、星形の花の名。","pic":null,"parts":null},{"w":"astrolabe","k":"アストゥラレイブ","ja":"アストロラーベ","g":"Gr","gs":["Gr"],"r":1188,"b":"ギリシャ語で「星をつかむもの」。star と同じ語である。","pic":null,"parts":null},{"w":"starlet","k":"スターレト","ja":"新進女優","g":"L","gs":["L"],"r":1190,"b":"star に小さいことを表す -let がついた語。「小さな星」から新進女優へ。","pic":null,"parts":null},{"w":"lodestar","k":"ロウドスター","ja":"導きの星","g":"G","gs":["G"],"r":1234,"b":"lode(進むべき道)と star から。かつて北極星を指した。","pic":null,"parts":null},{"w":"asterism","k":"アスタリズム","ja":"星群","g":"Gr","gs":["Gr"],"r":1265,"b":"ギリシャ語 aster(星)から。star と同じ語である。","pic":null,"parts":null},{"w":"astrobiology","k":"アストゥロウバイアロジィ","ja":"宇宙生物学","g":"L","gs":["L"],"r":1270,"b":"astro-(星)と biology から。1903年ごろの語である。","pic":null,"parts":null},{"w":"AstroTurf","k":"アストゥロウターフ","ja":"アストロターフ(人工芝の商標名)","g":"G","gs":["G"],"r":1454,"b":"astro-(星)と turf(芝)から。1966年ヒューストンの Astrodome で使われたことによる商標名である。","pic":null,"parts":null},{"w":"periastron","k":"ペリアストゥラン","ja":"近星点","g":"Gr","gs":["Gr"],"r":1511,"b":"ギリシャ語 peri(まわり)と astron(星)から。perimeter や astronomy と同じ語である。","pic":null,"parts":null},{"w":"asteroseismology","k":"アスタロウサイズモロジィ","ja":"星震学","g":"Gr","gs":["Gr"],"r":1528,"b":"ギリシャ語 aster(星)と seismos(揺れ)と logos(論)から。star と同じ語である。","pic":null,"parts":null},{"w":"astroid","k":"アストゥロイド","ja":"星形の","g":"Gr","gs":["Gr"],"r":1539,"b":"ギリシャ語 astron(星)と eidos(形)から。star や asterisk と同じ語である。","pic":null,"parts":null},{"w":"astrolatry","k":"アストゥララトゥリィ","ja":"星辰崇拝","g":"Gr","gs":["Gr"],"r":1653,"b":"ギリシャ語 astron(星)と latreia(崇拝)から。star や asterisk と同じ語である。","pic":null,"parts":null},{"w":"instellation","k":"インステレイション","ja":"星の中に置くこと","g":"L","gs":["L"],"r":1694,"b":"ラテン語 in-(中に)と stella(星)から。star や constellation と同じ語である。","pic":null,"parts":null},{"w":"astromancy","k":"アストゥラマンスィ","ja":"星占い","g":"Gr","gs":["Gr"],"r":1710,"b":"ギリシャ語 astron(星)と manteia(占い)から。star と necromancy を合わせた語である。","pic":null,"parts":null},{"w":"astrobleme","k":"アストゥロブリーム","ja":"隕石痕","g":"Gr","gs":["Gr"],"r":1734,"b":"ギリシャ語 astron(星)と blema(投げつけたもの)から。star と ballistic を合わせた語である。","pic":null,"parts":null},{"w":"astraphobia","k":"アストゥラフォウビア","ja":"電光雷鳴恐怖症","g":"Gr","gs":["Gr"],"r":1766,"b":"ギリシャ語 astrapē(稲妻)+ phobos(恐れ)から。前半は star や asterisk と同じ「星」の語である。","pic":null,"parts":null},{"w":"apastron","k":"アパストゥロン","ja":"遠星点","g":"Gr","gs":["Gr"],"r":1820,"b":"ギリシャ語 apo-(離れて)+ astron(星)から。連星が最も離れる点のことで、star や astronomy と同じ「星」の語である。","pic":null,"parts":null},{"w":"asteriated","k":"オスティアリエイティド","ja":"星形の光彩を示す","g":"Gr","gs":["Gr"],"r":1865,"b":"ギリシャ語 astēr(星)から。宝石に星形の光彩が現れることをいい、star や asterisk と同じ語である。","pic":null,"parts":null},{"w":"astrognosy","k":"アストゥラグノスィ","ja":"恒星学","g":"Gr","gs":["Gr"],"r":2289,"b":"ギリシャ語 astron(星)+ gnōsis(知識)から。star と know(知る)と同じ語からなる。","pic":null,"parts":null}];
+const BR={G:'ゲルマン',L:'ロマンス',Gr:'ギリシャ'};
+const TIERS=['','ふだん語','ときどき語','めずらし語','激レア語','幻レア語','神レア語','究極絶滅語'];
+const tier=r=>{r=+r||0;if(!r)return 7;return r<400?1:r<600?2:r<800?3:r<1000?4:r<1400?5:r<1800?6:7};
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const img=w=>`../assets/word/${encodeURIComponent(w.pic)}.png`;
+const badge=g=>BR[g]?`<span class="badge ${g}">${BR[g]}</span>`:'';
+const rar=r=>{const t=tier(r);return `<span class="rar t${t}" title="レア度 ${r}">${TIERS[t]}</span>`};
+const STEM=new Set(['star','aster','astro','astr','stell']);
+const byW=Object.fromEntries(WORDS.map(w=>[w.w,w]));
+
+/* 一族マップ: キャラ→単語の線だけを引く(単語どうしはつながない) */
+const FEATURED=[['star',17,22],['constellation',17,78],['disaster',83,22],['astronaut',83,78]];
+(function(){
+  const box=document.getElementById('mapBox'),svg=document.getElementById('mapLines');
+  let lines='';
+  FEATURED.forEach(([k,x,y])=>{
+    const w=byW[k];if(!w)return;
+    lines+=`<line x1="50" y1="50" x2="${x}" y2="${y}" vector-effect="non-scaling-stroke"/>`;
+    const a=document.createElement('a');
+    a.className='node';a.href='#w-'+k;a.style.left=x+'%';a.style.top=y+'%';
+    a.innerHTML=`<span class="th"><img src="${img(w)}" alt=""></span><span class="wd">${esc(w.w)}</span><span class="jj">${esc(w.ja.split('、')[0])}</span>${badge(w.g)}`;
+    box.appendChild(a);
+  });
+  svg.innerHTML=lines;
+})();
+
+/* 単語ずかん(図版つき) */
+document.getElementById('grid').innerHTML=WORDS.filter(w=>w.pic).map(w=>`
+<article class="card" id="w-${esc(w.w)}">
+  <div class="pic"><img src="${img(w)}" alt="${esc(w.w)}（${esc(w.ja)}）の図版" loading="lazy"></div>
+  <div class="bd">
+    <div class="tags">${badge(w.g)}${rar(w.r)}</div>
+    <div class="wd">${esc(w.w)}</div>
+    <div class="kn">${esc(w.k)}</div>
+    <div class="jj">${esc(w.ja)}</div>
+    ${w.parts?`<div class="parts">${w.parts.map(([p,m])=>`<span${STEM.has(p)?' class="st"':''}><b>${esc(p)}</b><i>${esc(m)}</i></span>`).join('')}</div>`:''}
+    <p class="nt">${esc(w.b)}</p>
+  </div>
+</article>`).join('');
+
+/* ぜんぶの語 */
+const listEl=document.getElementById('list'),countEl=document.getElementById('count');
+function renderList(f){
+  const rows=WORDS.filter(w=>!f||w.gs.includes(f));
+  listEl.innerHTML=rows.map(w=>`
+<details id="l-${esc(w.w)}">
+  <summary><span class="lw">${esc(w.w)}${w.pic?'<span class="pin" title="ずかんに図版あり">★</span>':''}</span><span class="lj">${esc(w.ja)}</span><span class="lt">${badge(w.g)}${rar(w.r)}</span></summary>
+  <div class="ln"><span class="kn">${esc(w.k)}</span>${esc(w.b)}${w.pic?` <a href="#w-${esc(w.w)}">ずかんへ →</a>`:''}</div>
+</details>`).join('');
+  countEl.textContent=`${rows.length} / ${WORDS.length} 語`;
+}
+renderList('');
+document.querySelectorAll('.filters button').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('.filters button').forEach(x=>x.setAttribute('aria-pressed',x===b));
+  renderList(b.dataset.f);
+});
+
+/* ページ内リンク: 着地したカードを光らせ、一覧の語はひらく */
+function land(){
+  const id=decodeURIComponent(location.hash.slice(1));if(!id)return;
+  let el=document.getElementById(id);
+  if(!el&&id.startsWith('l-')){document.querySelector('.filters button[data-f=""]').click();el=document.getElementById(id)}
+  if(!el)return;
+  if(el.tagName==='DETAILS')el.open=true;
+  if(el.classList.contains('card')){el.classList.remove('flash');void el.offsetWidth;el.classList.add('flash');setTimeout(()=>el.classList.remove('flash'),1600)}
+  if(el.tagName==='DETAILS'||el.classList.contains('card'))el.scrollIntoView({block:'center'});
+}
+addEventListener('hashchange',land);land();
+</script>
+</body></html>

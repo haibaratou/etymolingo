@@ -5,6 +5,8 @@ sys.path.insert(0,str(P))
 import workflow_io as w
 C=P/'prompt_rows_weblio_missing_low500_redone_20261024_v3.csv'
 def main():
+ global C
+ if len(sys.argv)>2:C=pathlib.Path(sys.argv[2]).resolve()
  items=json.loads(pathlib.Path(sys.argv[1]).read_text(encoding='utf-8'))
  for item in items:
   _,_,rows=w.read_csv(C);row=next(r for r in rows if r['ファイル名']==item['filename'])
