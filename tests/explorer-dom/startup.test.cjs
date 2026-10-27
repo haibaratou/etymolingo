@@ -10,6 +10,17 @@ const between=(text,start,end)=>text.slice(text.indexOf(start),text.indexOf(end,
 const unpack=b64=>JSON.parse(zlib.gunzipSync(Buffer.from(b64,'base64')));
 const pack=data=>zlib.gzipSync(JSON.stringify(data)).toString('base64');
 
+test('root chips show uncertain relations without converting them into proven etymologies',()=>{
+ const context={esc:s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))};
+ vm.runInNewContext(between(html,'const ROOT_BY=new Map();','/* この語根がどの道'),context);
+ const marked=context.rootChip('gnō-',{root_relations:{'gnō-':{status:'uncertain',direct_form:'norma',direct_meaning:'直角定規・規則',note:'<img src=x onerror=bad()>'}}});
+ const {document}=parseHTML('<div>'+marked+'</div>');
+ assert.equal(document.querySelector('[data-root-relation]').textContent,'関連未確定');
+ assert.match(document.querySelector('[data-root-relation]').title,/norma/);
+ assert.equal(document.querySelectorAll('img').length,0);
+ assert.doesNotMatch(context.rootChip('gnō-',{w:'know'}),/関連未確定/);
+});
+
 function fallbackContext(element,fetch){
  const context={document:{getElementById:()=>element},location:{protocol:'https:'},PIE_V:'fixture',fetch,unpack};
  vm.runInNewContext(between(html,'let embeddedPromise;','function multilingualCell'),context);
