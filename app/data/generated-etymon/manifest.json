@@ -10,9 +10,9 @@
     },
     "words": {
       "file": "words.json",
-      "bytes": 23484279,
+      "bytes": 24619502,
       "count": 49180,
-      "sha256": "acc7a127224e1c3e5e8e75bbd697d15b7013ad718329b306215b47692c7993f1"
+      "sha256": "3a039b85620ae5ad768e374a5b8658ae3c92ac89623f1771991ee76e1e9a5ee3"
     },
     "affixes": {
       "file": "affixes.json",
@@ -59,15 +59,21 @@
     },
     "illustration_scenes": {
       "file": "illustration-scenes.json",
-      "bytes": 14002064,
+      "bytes": 14003390,
       "count": 11007,
-      "sha256": "ac549771b22e4e612243170f23f47b5a6578df7c8ad275e4f31b2939992125ae"
+      "sha256": "057c11ce87caaa82a47538ca4b7119f89a0e946527b85eaf6d08b456bec3bfe7"
+    },
+    "illustration_review_status": {
+      "file": "illustration-review-status.js",
+      "bytes": 6901,
+      "count": 18,
+      "sha256": "491d6620d95d58c45475b52b710b59c1b2f229ec643f4e9243e672312b5401ef"
     },
     "word_suika_words": {
       "file": "word-suika-words.json",
-      "bytes": 3551637,
+      "bytes": 3899075,
       "count": 15018,
-      "sha256": "bc207e31f6c096c135d0a05da4e760a6f09d116a48a9032ac7ce5bca34223ca3"
+      "sha256": "1b959838b87bcbe5930c52e8176567bb1384c98224976a2e9d42078d0c2ab00a"
     },
     "det": {
       "file": "det/*.json",
@@ -87,12 +93,12 @@
     },
     "offline_dictionary": {
       "file": "offline-dictionary.js",
-      "words_sha256": "446c5d3de738404481a5ff419e0f1b6fe48f65b7cb64015b007f06f023ab8ce3",
+      "words_sha256": "e0da3908fb3a10f38740acef5959cd36354ca85f1d1b57736cb4806c6ae4add6",
       "parts": [
         {
           "file": "offline-dictionary.js",
           "bytes": 1380,
-          "sha256": "809e5d9a22d1ed3bd7f9b3e5a99a325f3dbe2e4b87c88036f9045d74267e1187"
+          "sha256": "9cb6b1e3b270c2637c67e0cefaa7fdd41a75214dcf631e8edca0f400ff704b34"
         },
         {
           "file": "offline-dictionary-part-bd8809b373ac-00.js",
@@ -140,12 +146,6 @@
           "sha256": "1e3512bd6ad8261017d8c52f2ca23608126ebc46a67857571d003593fe2dc87c"
         }
       ]
-    },
-    "illustration_review_status": {
-      "file": "illustration-review-status.js",
-      "bytes": 6901,
-      "count": 18,
-      "sha256": "491d6620d95d58c45475b52b710b59c1b2f229ec643f4e9243e672312b5401ef"
     }
   }
 }

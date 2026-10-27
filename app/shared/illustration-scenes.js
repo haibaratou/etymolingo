@@ -122,19 +122,19 @@ if (typeof window !== 'undefined' && /\/etymon-explorer\.html$/.test(window.loca
       window.dispatchEvent(new Event('etymon:review-ready'));
     }).catch(err=>console.warn('Illustration review status unavailable',err));
     const panels=Promise.all([
-      addScript('shared/spelling-puzzle-eligibility.js?v=83aed001140c'),
-      addScript('shared/verb-inflections.js?v=8fb33d6858ab'),
+      addScript('shared/spelling-puzzle-eligibility.js?v=a5edb2f52b2f'),
+      addScript('shared/verb-inflections.js?v=73427e80a6fe'),
       addScript('data/generated-etymon/weblio-learning-levels.js?v=e6a41b9d8680'),
       addScript('data/generated-etymon/learning-levels.js?v=48bcf2f15474')
     ]).then(()=>Promise.all([
       addScript('shared/explorer-inflections.js?v=1c848c89c842'),
-      addScript('shared/explorer-difficulty-v2.js?v=4e2cfe422d43')
+      addScript('shared/explorer-difficulty-v2.js?v=f1ddd89bb61b')
     ]));
     panels.then(()=>{
       document.documentElement.dataset.explorerPanelsReady='1';
       return Promise.all([
         addScript('data/generated-etymon/puzzle-eligibility.js?v=76cf845d0966'),
-        addScript('data/generated-etymon/puzzle-visual-scores.js?v=dfe9fac2156b')
+        addScript('data/generated-etymon/puzzle-visual-scores.js?v=cad9e1f162f3')
       ]);
     }).then(()=>{
       document.documentElement.dataset.explorerVisualReady='1';

@@ -27,7 +27,7 @@ const explicitMeaning=/(?:誤字|誤記|誤綴|廃語|侮蔑語|差別語|陰茎
 const ordinaryName=/(?:男性名|女性名|人名|人の名前|姓名|名字|名前として)|(?:\b(?:male name|female name|given name|personal name|first name|forename|surname)\b)/i;
 // Only explicit grammatical definitions qualify. Never guess from a suffix:
 // glasses/spectacles and broken/damaged retain their independent meanings.
-const pureFormGloss=/^(?:(?:past(?:\s+tense)?(?:\s+and\s+past\s+participle)?|past\s+participle|present\s+participle|past\s+form|simple\s+past(?:\s+tense)?|preterite|plural|comparative|superlative|third-person\s+singular(?:\s+simple\s+present)?|third\s+person\s+singular(?:\s+present)?|present\s+tense)\s+of\s+[a-z][a-z'-]*)[.!]?$/i;
+const pureFormGloss=/^(?:(?:nonstandard|dialectal|archaic)\s+)?(?:(?:past(?:\s+tense)?(?:\s+and\s+past\s+participle)?|past\s+participle|present\s+participle|past\s+form|simple\s+past(?:\s+tense)?|preterite|plural|comparative|superlative|third-person\s+singular(?:\s+simple\s+present)?|third\s+person\s+singular(?:\s+present)?|present\s+tense)\s+of\s+[a-z][a-z'-]*)[.!]?$/i;
 const legacyPastOnly=new Set(['went','was','were']);
 function inflectionOnly(w,pos,ja,en){
  const parts=String(en||'').trim().split(' / ').map(s=>s.trim()).filter(Boolean);
