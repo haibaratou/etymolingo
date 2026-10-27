@@ -72,6 +72,24 @@ test('the signum branch, away and inherited inspectorate roots use the corrected
  assert.match(parts[JSON.stringify(['important','en+per-2'])],/ant（〜している）/);
 });
 
+test('contested add ancestry and templum meanings preserve the exact lexical records',()=>{
+ const words=JSON.parse(fs.readFileSync(path.join(__dirname,'../app/data/generated-etymon/words.json'),'utf8'));
+ const parts=JSON.parse(fs.readFileSync(path.join(__dirname,'../app/data/generated-etymon/word-parts.json'),'utf8'));
+ for(const name of ['add','addendum','addition','additional','additionally']){
+  const matches=words.filter(w=>w.w===name);
+  assert.equal(matches.length,1);
+  assert.deepEqual(matches[0].p,['ad-']);
+ }
+ const added=words.filter(w=>w.w==='added');
+ assert.equal(added.length,2);
+ assert.ok(added.some(w=>w.p.length===0));
+ assert.ok(added.some(w=>JSON.stringify(w.p)===JSON.stringify(['ad-'])));
+ assert.equal(parts[JSON.stringify(['add','ad-'])],'ad（〜へ）＋d（置く）');
+ assert.equal(parts[JSON.stringify(['add','ad-+dō-'])],undefined);
+ assert.match(parts[JSON.stringify(['contemplate','kom+temə-1'])],/templ（占いのための場所）/);
+ assert.doesNotMatch(parts[JSON.stringify(['contemplate','kom+temə-1'])],/場所を見る/);
+});
+
 test('attested Latin and Greek references are labelled consistently in titles and word chips',()=>{
  const roots=JSON.parse(fs.readFileSync(path.join(__dirname,'../app/data/generated-etymon/roots.json'),'utf8'));
  const html=fs.readFileSync(path.join(__dirname,'../app/etymon-explorer.html'),'utf8');
