@@ -31,7 +31,7 @@ test('shared root explanation connects the registered semantic branches',()=>{
  const spek=roots.find(r=>r.key==='spek-');
  const dis=roots.find(r=>r.key==='dwis-');
  assert.match(spek.d,/観察する/);
- assert.match(spek.d,/pect だけに「待つ」という意味があるわけではない/);
+ assert.match(spek.d,/pect だけに「待つ」(?:という意味があるわけではない|を割り当てない)/);
  assert.match(dis.d,/離れて/);
  assert.match(dis.d,/否定/);
 });
