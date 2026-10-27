@@ -35,7 +35,7 @@
   return {...envelope,data:values.join('')};
  }
  function load(words,options={}){
-  const url=options.url||'data/generated-etymon/offline-dictionary.js?v=809e5d9a22d1';
+  const url=options.url||'data/generated-etymon/offline-dictionary.js?v=9cb6b1e3b270';
   if(!loads.has(url))loads.set(url,new Promise((resolve,reject)=>{
    if(globalThis.ETYMON_OFFLINE_DICTIONARY){resolve(globalThis.ETYMON_OFFLINE_DICTIONARY);return;}
    const script=document.createElement('script');script.src=url;script.async=true;

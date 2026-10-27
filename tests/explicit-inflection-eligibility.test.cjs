@@ -24,3 +24,10 @@ test('a grammatical phrase embedded in a lexical definition is not form-only',()
  assert.equal(inflectionOnly('children','名','','plural of child in a legal context'),false);
  assert.equal(inflectionOnly('pastel','名','','color from the past'),false);
 });
+
+test('explicit nonstandard forms remain grammatical while lexical meanings stay eligible',()=>{
+ assert.equal(evaluate({w:'brung',pos:'動',ja:'非標準的な過去形',en:'nonstandard past form of bring'}).eligible,false);
+ assert.equal(evaluate({w:'hove',pos:'動',ja:'過去形・過去分詞',en:'past form of heave'}).eligible,false);
+ assert.equal(evaluate({w:'begotten',pos:'動',ja:'過去分詞',en:'past participle of beget'}).eligible,false);
+ assert.equal(evaluate({w:'rogue',pos:'名',ja:'ならず者',en:'nonstandard software implementation'}).eligible,true);
+});
