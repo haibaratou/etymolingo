@@ -12,7 +12,7 @@ const pack=data=>zlib.gzipSync(JSON.stringify(data)).toString('base64');
 
 test('root chips show uncertain relations without converting them into proven etymologies',()=>{
  const context={esc:s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))};
- vm.runInNewContext(between(html,'const ROOT_BY=new Map();','/* この語根がどの道'),context);
+ vm.runInNewContext(html.match(/^function rootLabel\([^]*?^}/m)[0]+'\n'+between(html,'const ROOT_BY=new Map();','/* この語根がどの道'),context);
  const marked=context.rootChip('gnō-',{root_relations:{'gnō-':{status:'uncertain',direct_form:'norma',direct_meaning:'直角定規・規則',note:'<img src=x onerror=bad()>'}}});
  const {document}=parseHTML('<div>'+marked+'</div>');
  assert.equal(document.querySelector('[data-root-relation]').textContent,'関連未確定');

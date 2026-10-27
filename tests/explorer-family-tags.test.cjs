@@ -72,6 +72,28 @@ test('the signum branch, away and inherited inspectorate roots use the corrected
  assert.match(parts[JSON.stringify(['important','en+per-2'])],/ant（〜している）/);
 });
 
+test('attested Latin and Greek references are labelled consistently in titles and word chips',()=>{
+ const roots=JSON.parse(fs.readFileSync(path.join(__dirname,'../app/data/generated-etymon/roots.json'),'utf8'));
+ const html=fs.readFileSync(path.join(__dirname,'../app/etymon-explorer.html'),'utf8');
+ const vm=require('node:vm');const context={ROOT_BY:new Map(roots.map(r=>[r.key,r])),esc:s=>String(s)};
+ vm.createContext(context);
+ for(const name of ['rootLabel','rootChip','eoTag','hasPieRoot']){
+  vm.runInContext(html.match(new RegExp('^function '+name+'\\([^]*?^}','m'))[0],context);
+ }
+ for(const [key,label] of [['gerere','ラテン語'],['autos','ギリシャ語'],['servus','ラテン語'],['bassus','ラテン語'],['plumbum','ラテン語'],['angelos','ギリシャ語'],['ferrum','ラテン語'],['asinus','ラテン語'],['kannabis','ギリシャ語'],['philos','ギリシャ語']]){
+  const r=context.ROOT_BY.get(key);
+  assert.match(context.rootLabel(r),new RegExp('^'+label+' '));
+  assert.ok(!context.rootChip(key).includes('*'+key));
+  assert.match(context.rootChip(key),new RegExp(label+' '+key));
+  assert.equal(context.eoTag({...r,eo:'different'}),'');
+  assert.equal(context.hasPieRoot({p:[key]}),false);
+ }
+ assert.match(context.rootChip('gnō-'),/\*gnō-|\*gnō-/);
+ assert.equal(context.hasPieRoot({p:['autos','men-1']}),true);
+ assert.equal(context.hasPieRoot({p:[]}),false);
+ assert.match(html,/>語根・部品\$\{arrow\('p'\)\}/);
+});
+
 test('doubtful gno links do not appear in PIE membership or character explanations',()=>{
  const words=JSON.parse(fs.readFileSync(path.join(__dirname,'../app/data/generated-etymon/words.json'),'utf8'));
  const roots=JSON.parse(fs.readFileSync(path.join(__dirname,'../app/data/generated-etymon/roots.json'),'utf8'));
