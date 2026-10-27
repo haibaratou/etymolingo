@@ -118,7 +118,7 @@ if (typeof window !== 'undefined' && /\/etymon-explorer\.html$/.test(window.loca
   let started=false;
   const start=()=>{
     if(started)return;started=true;
-    addScript('data/generated-etymon/illustration-review-status.js?v=491d6620d95d').then(()=>{
+    addScript('data/generated-etymon/illustration-review-status.js?v=687a48cc3f12').then(()=>{
       window.dispatchEvent(new Event('etymon:review-ready'));
     }).catch(err=>console.warn('Illustration review status unavailable',err));
     const panels=Promise.all([
@@ -134,7 +134,7 @@ if (typeof window !== 'undefined' && /\/etymon-explorer\.html$/.test(window.loca
       document.documentElement.dataset.explorerPanelsReady='1';
       return Promise.all([
         addScript('data/generated-etymon/puzzle-eligibility.js?v=76cf845d0966'),
-        addScript('data/generated-etymon/puzzle-visual-scores.js?v=cad9e1f162f3')
+        addScript('data/generated-etymon/puzzle-visual-scores.js?v=5c014d2fe617')
       ]);
     }).then(()=>{
       document.documentElement.dataset.explorerVisualReady='1';
