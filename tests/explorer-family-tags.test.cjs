@@ -35,3 +35,20 @@ test('shared root explanation connects the registered semantic branches',()=>{
  assert.match(dis.d,/取り除く/);
  assert.match(dis.d,/否定/);
 });
+
+test('norma and nota references are visibly distinguished from established gno examples',()=>{
+ const words=JSON.parse(fs.readFileSync(path.join(__dirname,'../app/data/generated-etymon/words.json'),'utf8'));
+ const roots=JSON.parse(fs.readFileSync(path.join(__dirname,'../app/data/generated-etymon/roots.json'),'utf8'));
+ for(const name of ['enormity','norm','normal','note','notable']){
+  assert.equal(words.find(w=>w.w===name).root_relations['gnō-'].status,'uncertain');
+ }
+ for(const name of ['know','noble','notice'])assert.equal(words.find(w=>w.w===name).root_relations,undefined);
+ const refs=words.filter(w=>w.root_relations?.['gnō-']?.status==='uncertain');
+ assert.equal(refs.length,22);
+ const gno=roots.find(r=>r.key==='gnō-');
+ assert.equal(gno.uncertain,refs.length);
+ assert.match(gno.d,/直角定規/);
+ assert.match(gno.d,/接続は確定していない/);
+ assert.match(gno.d,/nota/);
+ assert.doesNotMatch(gno.d,/\d+語/,'the prose must not retain stale family counts');
+});
