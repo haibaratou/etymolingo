@@ -23,7 +23,7 @@ test('exported composition uses component meanings rather than the complete word
  const entry=(w,p)=>parts[JSON.stringify([w,p])];
  assert.equal(entry('disorder','dwis-+ōrd-'),'dis（否定）＋order（秩序）');
  assert.equal(entry('discourse','dwis-+kers-2'),'dis（離れて）＋course（走る）');
- assert.equal(entry('unexpected','ne+eghs+spek-'),'un（ない）＋ex（外へ）＋pect（観察する）＋ed（〜した）');
+ assert.equal(entry('unexpected','ne+eghs+spek-'),'un（否定）＋ex（十分に）＋pect（観察する）＋ed（〜した）');
 });
 
 test('shared root explanation connects the registered semantic branches',()=>{
@@ -31,24 +31,62 @@ test('shared root explanation connects the registered semantic branches',()=>{
  const spek=roots.find(r=>r.key==='spek-');
  const dis=roots.find(r=>r.key==='dwis-');
  assert.match(spek.d,/観察する/);
- assert.match(spek.d,/pect だけに「待つ」という意味があるわけではない/);
- assert.match(dis.d,/取り除く/);
+ assert.match(spek.d,/pect だけに「待つ」(?:という意味があるわけではない|を割り当てない)/);
+ assert.match(dis.d,/離れて/);
  assert.match(dis.d,/否定/);
 });
 
-test('norma and nota references are visibly distinguished from established gno examples',()=>{
+test('a known direct-language decomposition remains visible with zero or one PIE root',()=>{
+ const html=fs.readFileSync(path.join(__dirname,'../app/etymon-explorer.html'),'utf8');
+ const parts=JSON.parse(fs.readFileSync(path.join(__dirname,'../app/data/generated-etymon/word-parts.json'),'utf8'));
+ const vm=require('node:vm');
+ const code=html.match(/^function wordParts\([^]*?^}/m)[0];
+ const context={WORD_PARTS:parts,esc:s=>String(s)};vm.createContext(context);vm.runInContext(code,context);
+ assert.match(context.wordParts({w:'normal',p:[]},true),/norm（基準）＋al（〜に関する）/);
+ assert.match(context.wordParts({w:'mission',p:[]}),/miss（送る）＋ion（こと）/);
+ assert.match(context.wordParts({w:'transmit',p:['terə-2']}),/mit（送る）/);
+ assert.equal(context.wordParts({w:'unreviewed-word',p:['a','b']}),'');
+});
+
+test('an attested Latin lemma is not presented as a reconstructed PIE root',()=>{
+ const roots=JSON.parse(fs.readFileSync(path.join(__dirname,'../app/data/generated-etymon/roots.json'),'utf8'));
+ const words=JSON.parse(fs.readFileSync(path.join(__dirname,'../app/data/generated-etymon/words.json'),'utf8'));
+ const lemma=roots.find(r=>r.key==='mittere');
+ assert.equal(lemma.kind,'latin_lemma');assert.equal(lemma.all,0);
+ assert.equal(words.filter(w=>w.p.includes('mittere')).length,0);
+ const html=fs.readFileSync(path.join(__dirname,'../app/etymon-explorer.html'),'utf8');
+ const code=html.match(/^function rootLabel\([^]*?^}/m)[0];
+ const vm=require('node:vm');const context={};vm.createContext(context);vm.runInContext(code,context);
+ assert.equal(context.rootLabel(lemma),'ラテン語 mittere');
+ assert.equal(context.rootLabel({key:'gnō-'}),'*gnō-');
+});
+
+test('the signum branch, away and inherited inspectorate roots use the corrected identities',()=>{
+ const words=JSON.parse(fs.readFileSync(path.join(__dirname,'../app/data/generated-etymon/words.json'),'utf8'));
+ const word=w=>words.find(r=>r.w===w);
+ assert.deepEqual(word('design').p,['de-','sekʷ-1']);
+ assert.deepEqual(word('insignificance').p,['ne','sekʷ-1','dhē-']);
+ assert.deepEqual(word('away').p,['an-','wegh-']);
+ assert.deepEqual(word('inspectorate').p,['en','spek-']);
+ const parts=JSON.parse(fs.readFileSync(path.join(__dirname,'../app/data/generated-etymon/word-parts.json'),'utf8'));
+ assert.match(parts[JSON.stringify(['important','en+per-2'])],/ant（〜している）/);
+});
+
+test('doubtful gno links do not appear in PIE membership or character explanations',()=>{
  const words=JSON.parse(fs.readFileSync(path.join(__dirname,'../app/data/generated-etymon/words.json'),'utf8'));
  const roots=JSON.parse(fs.readFileSync(path.join(__dirname,'../app/data/generated-etymon/roots.json'),'utf8'));
  for(const name of ['enormity','norm','normal','note','notable']){
-  assert.equal(words.find(w=>w.w===name).root_relations['gnō-'].status,'uncertain');
+  const word=words.find(w=>w.w===name);
+  assert.ok(!word.p.includes('gnō-'));
+  assert.equal(word.root_relations,undefined);
  }
- for(const name of ['know','noble','notice'])assert.equal(words.find(w=>w.w===name).root_relations,undefined);
- const refs=words.filter(w=>w.root_relations?.['gnō-']?.status==='uncertain');
- assert.equal(refs.length,22);
+ for(const name of ['know','noble','notice'])assert.ok(words.find(w=>w.w===name).p.includes('gnō-'));
+ assert.deepEqual(words.find(w=>w.w==='enormity').p,['eghs']);
+ assert.deepEqual(words.find(w=>w.w==='norm').p,[]);
  const gno=roots.find(r=>r.key==='gnō-');
- assert.equal(gno.uncertain,refs.length);
- assert.match(gno.d,/直角定規/);
- assert.match(gno.d,/接続は確定していない/);
- assert.match(gno.d,/nota/);
- assert.doesNotMatch(gno.d,/\d+語/,'the prose must not retain stale family counts');
+ assert.equal(gno.all,66);
+ assert.equal(words.filter(w=>w.p.includes('gnō-')).length,66);
+ assert.equal(gno.uncertain,undefined);
+ assert.doesNotMatch(gno.d,/norma|nota|enormity|規則|直角定規/);
+ assert.doesNotMatch(gno.d,/\d+語/);
 });
