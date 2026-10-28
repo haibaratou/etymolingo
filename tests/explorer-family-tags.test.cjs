@@ -26,6 +26,17 @@ test('exported composition uses component meanings rather than the complete word
  assert.equal(entry('unexpected','ne+eghs+spek-'),'un（否定）＋ex（十分に）＋pect（観察する）＋ed（〜した）');
 });
 
+test('direct Greek references and restored Greek word components retain their provenance',()=>{
+ const roots=JSON.parse(fs.readFileSync(path.join(__dirname,'../app/data/generated-etymon/roots.json'),'utf8'));
+ const words=JSON.parse(fs.readFileSync(path.join(__dirname,'../app/data/generated-etymon/words.json'),'utf8'));
+ assert.equal(roots.find(r=>r.key==='gē').kind,'greek_lemma');
+ assert.equal(roots.find(r=>r.key==='sed-2').kind,'unverified_reconstruction');
+ assert.equal(roots.find(r=>r.key==='(s)kai-1').alias_target,'keit-');
+ assert.deepEqual(words.find(w=>w.w==='cataclysm').p,['kat-','kleuə-']);
+ assert.deepEqual(words.find(w=>w.w==='anarthrous').p,['ne','ar-']);
+ assert.deepEqual(words.find(w=>w.w==='enarthrosis').p,['en','ar-']);
+});
+
 test('shared root explanation connects the registered semantic branches',()=>{
  const roots=JSON.parse(fs.readFileSync(path.join(__dirname,'../app/data/generated-etymon/roots.json'),'utf8'));
  const spek=roots.find(r=>r.key==='spek-');
