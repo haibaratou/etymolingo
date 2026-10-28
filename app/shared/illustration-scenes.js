@@ -134,7 +134,7 @@ if (typeof window !== 'undefined' && /\/etymon-explorer\.html$/.test(window.loca
       document.documentElement.dataset.explorerPanelsReady='1';
       return Promise.all([
         addScript('data/generated-etymon/puzzle-eligibility.js?v=76cf845d0966'),
-        addScript('data/generated-etymon/puzzle-visual-scores.js?v=9a9f8f972d78')
+        addScript('data/generated-etymon/puzzle-visual-scores.js?v=6d60b7ad32fb')
       ]);
     }).then(()=>{
       document.documentElement.dataset.explorerVisualReady='1';
