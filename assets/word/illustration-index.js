@@ -4705,7 +4705,6 @@ globalThis.ETYMON_WORD_ART = {
   "[\"colleague\",\"kom+leg-\"]": "colleague",
   "[\"collect\",\"kom+leg-\"]": "collect",
   "[\"collection\",\"kom+leg-\"]": "collection",
-  "[\"collective\",\"kom+let-+-wo-\"]": "collective",
   "[\"collector\",\"\"]": "collector",
   "[\"collegiate\",\"kom+leg-\"]": "collegiate",
   "[\"collide\",\"kom\"]": "collide",
@@ -17507,5 +17506,6 @@ globalThis.ETYMON_WORD_ART = {
   "[\"various\",\"\"]": "various",
   "[\"vary\",\"\"]": "vary",
   "[\"variable\",\"\"]": "variable",
-  "[\"key\",\"\"]": "key"
+  "[\"key\",\"\"]": "key",
+  "[\"collective\",\"kom+leg-+-wo-\"]": "collective"
 };
