@@ -4,15 +4,15 @@
   "files": {
     "roots": {
       "file": "roots.json",
-      "bytes": 881003,
+      "bytes": 873775,
       "count": 1436,
-      "sha256": "f04aded200dbf0f8c6adfea3e670bf613f6c3911fb0db2064bcf69d40e45c0e9"
+      "sha256": "4c985952fafc29f4a50fef0fffbdba358b0d400ab5dbd04cd8ce449ba7cba2b3"
     },
     "words": {
       "file": "words.json",
-      "bytes": 24648332,
+      "bytes": 24650562,
       "count": 49180,
-      "sha256": "d70ea6180a8522a5f710c14151b569ead43a577b43e3346cb229ab0a8d68d859"
+      "sha256": "0b77a952fc024b84b6788615d24292cbe13a63797d895e1c9ed1c9fb9954641e"
     },
     "affixes": {
       "file": "affixes.json",
@@ -59,9 +59,9 @@
     },
     "illustration_scenes": {
       "file": "illustration-scenes.json",
-      "bytes": 14002919,
+      "bytes": 14002875,
       "count": 11007,
-      "sha256": "79a768ff6379cff85dc67bb99a6e79455f8c52ab927f96af4f51c90a84ab0e2b"
+      "sha256": "449b53f183312b4736b78c55ac193cdeddb4fff3f651691e4cb3be74d0756277"
     },
     "illustration_review_status": {
       "file": "illustration-review-status.js",
@@ -71,9 +71,9 @@
     },
     "word_suika_words": {
       "file": "word-suika-words.json",
-      "bytes": 3915806,
+      "bytes": 3917037,
       "count": 15018,
-      "sha256": "7a57446ed13137b5f70b0ae3e3f9a0493d95129b3728f1e25a6387c0a6205068"
+      "sha256": "0694f30ff43afd838ed900b932f748e0a203ac17c4c08ac45132fd29af2737ed"
     },
     "det": {
       "file": "det/*.json",
@@ -93,12 +93,12 @@
     },
     "offline_dictionary": {
       "file": "offline-dictionary.js",
-      "words_sha256": "7d20778357ee416810e8cae5c5c2cc9003f48e017049366fad5a94563f004119",
+      "words_sha256": "b91e648ae4517186da30a9690cc096e9c2884be7577e3c79659350f51a509e9d",
       "parts": [
         {
           "file": "offline-dictionary.js",
           "bytes": 1380,
-          "sha256": "63d9442278259c4f3f3154fba90da80208ac4e8d41a92d09b0373bc4cbce14a3"
+          "sha256": "5717cc5e101e0fe93e7257f67c044ed36ced8b41a7765bae91f62fdeeb9a807a"
         },
         {
           "file": "offline-dictionary-part-bd8809b373ac-00.js",
