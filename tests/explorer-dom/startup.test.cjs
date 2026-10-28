@@ -16,6 +16,17 @@ test('root labels distinguish direct lemmas, uncertain reconstructions and legac
  assert.equal(context.rootLabel({key:'merph-',kind:'unverified_reconstruction'}),'由来未確定 merph-');
  assert.equal(context.rootLabel({key:'ōrd-',kind:'legacy_alias',display_form:'ōrd- → ar-'}),'旧参照 ōrd- → ar-');
  assert.equal(context.rootLabel({key:'ar-'}),'*ar-');
+ assert.equal(context.rootLabel({key:'-tro-',kind:'pie_formative'}),'PIEの語形成 -tro-');
+});
+
+test('PIE formatives remain assigned PIE evidence for the dictionary filter',()=>{
+ const context={ROOT_BY:new Map([['-tro-',{kind:'pie_formative'}],['autos',{kind:'greek_lemma'}],['merph-',{kind:'unverified_reconstruction'}]])};
+ vm.runInNewContext(html.match(/^function hasPieRoot\([^]*?^}/m)[0],context);
+ assert.equal(context.hasPieRoot({p:['-tro-']}),true);
+ assert.equal(context.hasPieRoot({p:['ar-']}),true);
+ assert.equal(context.hasPieRoot({p:['autos']}),false);
+ assert.equal(context.hasPieRoot({p:['merph-']}),false);
+ assert.equal(context.hasPieRoot({p:[]}),false);
 });
 
 test('root chips show uncertain relations without converting them into proven etymologies',()=>{
