@@ -138,12 +138,13 @@ test('doubtful gno links do not appear in PIE membership or character explanatio
   assert.ok(!word.p.includes('gnō-'));
   assert.equal(word.root_relations,undefined);
  }
- for(const name of ['know','noble','notice'])assert.ok(words.find(w=>w.w===name).p.includes('gnō-'));
+ for(const name of ['know','noble','notice','chirognomy'])assert.ok(words.find(w=>w.w===name).p.includes('gnō-'));
  assert.deepEqual(words.find(w=>w.w==='enormity').p,['eghs']);
  assert.deepEqual(words.find(w=>w.w==='norm').p,[]);
  const gno=roots.find(r=>r.key==='gnō-');
- assert.equal(gno.all,66);
- assert.equal(words.filter(w=>w.p.includes('gnō-')).length,66);
+ assert.deepEqual(words.find(w=>w.w==='chirognomy').p,['ghes-','gnō-']);
+ assert.equal(gno.all,67);
+ assert.equal(words.filter(w=>w.p.includes('gnō-')).length,67);
  assert.equal(gno.uncertain,undefined);
  assert.doesNotMatch(gno.d,/norma|nota|enormity|規則|直角定規/);
  assert.doesNotMatch(gno.d,/\d+語/);
