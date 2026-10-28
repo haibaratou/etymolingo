@@ -35,6 +35,10 @@ test('direct Greek references and restored Greek word components retain their pr
  assert.deepEqual(words.find(w=>w.w==='cataclysm').p,['kat-','kleuə-']);
  assert.deepEqual(words.find(w=>w.w==='anarthrous').p,['ne','ar-']);
  assert.deepEqual(words.find(w=>w.w==='enarthrosis').p,['en','ar-']);
+ assert.deepEqual(words.find(w=>w.w==='dendrite').p,['deru-']);
+ assert.deepEqual(words.find(w=>w.w==='dendrochronology').p,['deru-','leg-']);
+ const parts=JSON.parse(fs.readFileSync(path.join(__dirname,'../app/data/generated-etymon/word-parts.json'),'utf8'));
+ assert.equal(parts[JSON.stringify(['dendrochronology','deru-+leg-'])],'dendro（木）＋chrono（時間）＋logy（学問）');
 });
 
 test('shared root explanation connects the registered semantic branches',()=>{
