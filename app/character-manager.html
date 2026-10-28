@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ja">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>キャラクター管理 · Wild Wordopia</title>
+<link rel="stylesheet" href="support/character-manager/manager.css">
+<link rel="stylesheet" href="support/character-manager/comparison.css">
+<link rel="stylesheet" href="support/character-manager/history.css">
+<header class="manager-header">
+  <div class="manager-heading"><h1>キャラクター管理</h1><span>Wild Wordopia · 開発用</span></div>
+  <nav role="tablist" aria-label="確認するデータ">
+    <button id="tab-comparison" role="tab" aria-controls="panel-comparison" aria-selected="true">正式画像・参考デザイン</button>
+    <button id="tab-history" role="tab" aria-controls="panel-history" aria-selected="false" tabindex="-1">全履歴 <span id="history-count"></span></button>
+  </nav>
+  <p id="manager-status" role="status">採用状態・メモを確認し、削除済み・不採用・途中版も全履歴で見返せます。</p>
+</header>
+<main>
+  <section id="panel-comparison" role="tabpanel" aria-labelledby="tab-comparison"><div id="view-comparison" class="manager-view"></div></section>
+  <section id="panel-history" role="tabpanel" aria-labelledby="tab-history" hidden><div id="view-history" class="manager-view"></div></section>
+</main>
+<noscript>JavaScriptを有効にしてキャラクター管理を開いてください。</noscript>
+<script src="support/character-manager/comparison-markup.js"></script>
+<script src="support/character-manager/history-markup.js"></script>
+<script src="support/wildwordopia-history/wildwordopia-history-data.js"></script>
+<script src="support/character-manager/runtime.js"></script>
+<script src="support/character-manager/comparison-bridge.js"></script>
+<script src="support/character-manager/comparison.js"></script>
+<script src="support/wildwordopia-history/wildwordopia-history.js"></script>
+<script src="support/character-manager/manager.js"></script>
+<script src="support/character-manager/site-selection.js"></script>
+</html>

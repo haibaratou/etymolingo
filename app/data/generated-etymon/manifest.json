@@ -4,15 +4,15 @@
   "files": {
     "roots": {
       "file": "roots.json",
-      "bytes": 887200,
+      "bytes": 910931,
       "count": 1436,
-      "sha256": "904ec1eb892ca368bcb512b0d44478892423b7c76f06375d9af40d264c004e1b"
+      "sha256": "24b6fbfcc892857c2e7d7f2b805cdcac46ac8c3a08a2a8dc21c307b54aa0e2df"
     },
     "words": {
       "file": "words.json",
-      "bytes": 24654571,
+      "bytes": 27226479,
       "count": 49180,
-      "sha256": "2bc457365134859e047ada793e6dd7eed4c46c81092849adc83c41f6f268c101"
+      "sha256": "eb08b4a563f3b58a255ed24932fc5d0b658a6b4fd15f0495c6f93d59556c03a5"
     },
     "affixes": {
       "file": "affixes.json",
@@ -46,9 +46,9 @@
     },
     "word_parts": {
       "file": "word-parts.json",
-      "bytes": 189627,
-      "count": 2171,
-      "sha256": "6c58eecf74447ef73a5013bb6e57874a7538ca4e0d2f3d0668e19e5494175b97",
+      "bytes": 247587,
+      "count": 2882,
+      "sha256": "92478f42808fa4fed4fbfc00276d9a563d7923a84f47fc1983c29c90946b0abd",
       "meaning_basis": "component-core-v2"
     },
     "multilingual_answers": {
@@ -59,21 +59,21 @@
     },
     "illustration_scenes": {
       "file": "illustration-scenes.json",
-      "bytes": 14002750,
-      "count": 11007,
-      "sha256": "b54bea89ed223de6f7fd8a5d201f2c381cf2cacc01b741f704275fa58443e05e"
+      "bytes": 17968035,
+      "count": 12344,
+      "sha256": "7e1816319a5240344d00c895089e86588ffbf897b4617a6472610c6a79fd805f"
     },
     "illustration_review_status": {
       "file": "illustration-review-status.js",
-      "bytes": 4211,
-      "count": 11,
-      "sha256": "687a48cc3f12bc48e5e0719458b7cd52bdfed363b7d0bd0bdba58482b53c85a1"
+      "bytes": 6592,
+      "count": 17,
+      "sha256": "b84a464a2cf40896e477ac3e0aacb26de44143a3547ea93f130770978ebfa6e6"
     },
     "word_suika_words": {
       "file": "word-suika-words.json",
-      "bytes": 3920034,
+      "bytes": 3920519,
       "count": 15018,
-      "sha256": "938b86c706aeb61d68d38cf59712c9543d9df4724fb37baca384a80db7e921ad"
+      "sha256": "1a97f8a1f52cdaab1475b982ca2fce65681b6d7714846201f344899323f60850"
     },
     "det": {
       "file": "det/*.json",
@@ -93,12 +93,12 @@
     },
     "offline_dictionary": {
       "file": "offline-dictionary.js",
-      "words_sha256": "7947e7725b21f78c6c2aefa3ab40ed4f5e59c11e594a1fdad3b7cfe1448623db",
+      "words_sha256": "f550a31683a70748e23389bdd1f2b5f9a7562b4e3f39e37f99dc9c24b3fdd595",
       "parts": [
         {
           "file": "offline-dictionary.js",
           "bytes": 1380,
-          "sha256": "e76cb043670e2ea464344b0a8d92d43eeab3af49fc29b3d2cf64ea111ea5e9d5"
+          "sha256": "c3c25d7b77dd1c011701ccf1ce68b6b0d4607dc375c1747dd1be82d5ba09bd28"
         },
         {
           "file": "offline-dictionary-part-bd8809b373ac-00.js",
@@ -146,6 +146,26 @@
           "sha256": "1e3512bd6ad8261017d8c52f2ca23608126ebc46a67857571d003593fe2dc87c"
         }
       ]
+    },
+    "etymology_origins": {
+      "file": "etymology-origins.js",
+      "bytes": 12051030,
+      "count": 49180,
+      "sha256": "ed9290c0337c1d5c26d9e86b9969c73455d8943c37aa4031e42109eafa316092"
+    },
+    "word_parts_supplement": {
+      "file": "word-parts-supplement.js",
+      "bytes": 128962,
+      "count": 711,
+      "sha256": "f81c75234d00f1f110396aeaa208842c4fb58142cf354e4f1833be0b0cb3d6b8"
+    },
+    "etymological_components": {
+      "file": "etymological-components.js",
+      "bytes": 468160,
+      "count": 96,
+      "sha256": "b901f18392cf83d456adf9f7554b481861078833fbe4163d210fff3a68c8d813",
+      "entity_count": 152,
+      "context_hash_algorithm": "component-word-context-v1"
     }
   }
 }

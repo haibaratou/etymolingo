@@ -12,7 +12,7 @@ test('empty state does not invent answer',()=>assert.match(api.html(new Map(),w,
 test('rendered answer escaped',()=>assert.match(api.html(make({...ja,text:'<img onerror="x">'}),w,'ja'),/&lt;img/));
 test('only a visible detail caption is observed; hidden list markers never trigger scene loads',()=>{
  const fs=require('node:fs'),vm=require('node:vm');
- const html=fs.readFileSync(__dirname+'/../etymon-explorer.html','utf8');
+ const html=fs.readFileSync(__dirname+'/../vocabulary-master.html','utf8');
  const observerCode=html.slice(html.indexOf('const sceneObserver ='),html.indexOf('async function fillIllustrationScene'));
  const hydrateCode=html.slice(html.indexOf('function hydrateIllustrationScenes'),html.indexOf('function semanticLine'));
  let observer,observed,filled;
@@ -25,7 +25,7 @@ test('only a visible detail caption is observed; hidden list markers never trigg
 });
 test('removed detail or older selection cannot render a late verification into the new row',async()=>{
  const fs=require('node:fs'),vm=require('node:vm');
- const html=fs.readFileSync(__dirname+'/../etymon-explorer.html','utf8');
+ const html=fs.readFileSync(__dirname+'/../vocabulary-master.html','utf8');
  const code=html.slice(html.indexOf('async function fillIllustrationScene'),html.indexOf('function hydrateIllustrationScenes'));
  const pending=[],renders=[];
  const ctx={WORDS:[{w:'old'},{w:'new'}],loadIllustrationSceneData:()=>Promise.resolve({verification:'export_snapshot'}),safeWordAssetName:x=>x,wordImageURL:w=>w.w+'.png',location:{protocol:'file:',href:'file:///app/explorer.html'},URL,window:{IllustrationScenes:{find:()=>({}),verify:()=>new Promise(resolve=>pending.push(resolve)),render:(cell)=>renders.push(cell.id)}}};
@@ -38,4 +38,12 @@ test('removed detail or older selection cannot render a late verification into t
  pending[1]({status:'reviewed'});await newCall;
  pending[0]({status:'mismatch'});await oldCall;
  assert.deepEqual(renders,['new-selection']);
+});
+
+test('expanded dictionary detail keeps spelling and omits the multilingual placeholder block',()=>{
+ const fs=require('node:fs');
+ const html=fs.readFileSync(__dirname+'/../vocabulary-master.html','utf8');
+ const detail=html.slice(html.indexOf('det.innerHTML='),html.indexOf('det.innerHTML=')+1000);
+ assert.match(detail,/detailSpelling/);
+ assert.doesNotMatch(detail,/multilingualDetail|multilingualCell/);
 });

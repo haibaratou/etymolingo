@@ -20,3 +20,9 @@
 @keyframes etymonRarityFlow{to{background-position:400% 0}}
 @media(prefers-reduced-motion:reduce){.er-surface,.er-surface::before,.er-surface::after{animation:none!important;transition:none!important}}
 @media(forced-colors:active){.er-surface{background:Canvas!important;color:CanvasText!important;border:1px solid CanvasText!important}.er-label{background:Canvas!important;color:CanvasText!important}}
+
+/* Current custom level is the exact visible star count (1–10). */
+.etymon-rarity.custom-level{max-width:100%;padding:4px 8px;white-space:normal;line-height:1.15}
+.custom-level .er-stars{display:flex;flex-wrap:wrap;justify-content:center;gap:0;max-width:100%;font-size:28px;line-height:1.15;letter-spacing:0}
+.custom-level .er-star{display:block;flex:0 0 1em;text-align:center}
+.custom-level .er-label:empty{display:none}

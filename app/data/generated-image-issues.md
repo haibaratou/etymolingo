@@ -62,6 +62,6 @@ still apply independently to English and Japanese play.
 Focused checks (no generated output writes):
 
 ```sh
-python app/games/picture-words/test_refresh_reviewed_catalog.py
-node --test app/games/picture-words/reviewed-scenes.test.cjs app/eigo-no-e/all-images.test.cjs app/eigo-no-e/catalog-validation.test.cjs
+python app/support/picture-words/test_refresh_reviewed_catalog.py
+node --test app/support/picture-words/reviewed-scenes.test.cjs app/eigo-no-e/all-images.test.cjs app/eigo-no-e/catalog-validation.test.cjs
 ```

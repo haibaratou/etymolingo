@@ -3,7 +3,7 @@ const test=require('node:test'),assert=require('node:assert/strict');
 const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),crypto=require('node:crypto');
 const root=path.resolve(__dirname,'../..');
 const read=p=>fs.readFileSync(path.join(root,p),'utf8');
-const html=read('app/etymon-explorer.html');
+const html=read('app/vocabulary-master.html');
 const words=JSON.parse(read('app/data/generated-etymon/words.json'));
 const scenes=JSON.parse(read('app/data/generated-etymon/illustration-scenes.json')).entries.filter(e=>(e.status||e.review?.status)==='reviewed');
 const indexText=read('assets/word/illustration-index.js'),ctx={};vm.runInNewContext(indexText,ctx);const index=ctx.ETYMON_WORD_ART;

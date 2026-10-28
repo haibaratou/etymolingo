@@ -6,7 +6,7 @@ import unittest
 
 HERE = Path(__file__).resolve().parent
 PUBLIC = HERE.parents[1]
-sys.path[:0] = [str(HERE), str(PUBLIC / 'app/games/picture-words')]
+sys.path[:0] = [str(HERE), str(PUBLIC / 'app/support/picture-words')]
 import test_refresh_reviewed_catalog as fixture
 import build_generated_image_catalog as C
 

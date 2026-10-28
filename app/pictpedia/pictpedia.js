@@ -11,7 +11,7 @@ const num = n => Number(n || 0).toLocaleString('ja-JP');
 
 // ---------- 英単語パズル（Pictlingo）への入口 ----------
 // 辞書で見つける → パズルで遊ぶ → 毎日つづけて記録、の流れをトップで見せる
-const PUZZLE = 'games/picture-words.html';
+const PUZZLE = 'pictlingo-game.html';
 const DAILY_CATS = ['animals', 'food', 'vehicles', 'nature', 'home', 'things', 'clothes', 'play', 'arts'];
 function todaysWord() {
   const words = (window.EIGO_NO_E?.words || []).filter(w => w.w && w.bindingStatus === 'bound' && w.availability?.en?.playable
@@ -29,7 +29,7 @@ function playSection() {
   const go = lang => w ? `${PUZZLE}?word=${encodeURIComponent(w.id)}&amp;lang=${lang}` : PUZZLE;
   return `<section class="pp-play" aria-labelledby="ppPlayTitle">
     <div class="pp-play-copy">
-      <span class="pp-kicker">英単語パズル <b>Pictlingo</b></span>
+      <span class="pp-kicker">英単語パズル <b>Pictlingo Game</b></span>
       <h2 id="ppPlayTitle">見つけた絵で、<span>パズル</span>しよう！</h2>
       <p>絵を見て、文字をなぞるだけ。英語のパズルで遊べます。</p>
       ${w ? `<div class="pp-today">
@@ -67,7 +67,7 @@ function decorate() {
   if (hero) {
     const total = window.EIGO_NO_E?.total_art;
     hero.insertAdjacentHTML('afterend', `<section class="pp-panel" aria-label="さがす">
-      ${ch('pair-welcome', 'pp-pair', 'Pictpedia のふたり')}
+      ${ch('pair-welcome', 'pp-pair', 'Pictlingo Dictionary characters')}
       <h2>英単語を、<span>イラスト</span>でさがそう！</h2>
       <p>${total ? `<b>${num(total)}</b> 枚のイラストから、` : ''}英語でも日本語でもさがせます。上の検索バーからどうぞ。</p>
     </section>`);
@@ -113,7 +113,7 @@ if (foot && !foot.querySelector('.pp-foot-run')) {
   const leftWords = ['runs', 'boy', 'boyfriend', 'friendship', 'brotherhood', 'childhood', 'play', 'run'];
   const rightWords = ['girl', 'girlfriend', 'friend', 'dance', 'laughing', 'love', 'meet@mod', 'hug'];
   foot.insertAdjacentHTML('afterbegin', `<div class="pp-foot-run" aria-hidden="true"><div class="pp-foot-crowd pp-foot-left">${wordCrowd(leftWords, 'left')}</div><div class="pp-foot-meet">${ch('boy-running', 'pp-foot-mascot', '')}${ch('girl-running', 'pp-foot-mascot', '')}</div><div class="pp-foot-crowd pp-foot-right">${wordCrowd(rightWords, 'right')}</div></div>`);
-  foot.querySelector('.foot-in > p')?.insertAdjacentHTML('beforebegin', `<img class="pp-foot-logo" src="${IMG}logo.webp" alt="Pictpedia">`);
+  foot.querySelector('.foot-in > p')?.insertAdjacentHTML('beforebegin', `<span class="pp-foot-logo">Pictlingo Dictionary</span>`);
 }
 })();
 

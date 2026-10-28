@@ -8,9 +8,9 @@ test('exact root, spelling and art selection',()=>{
  assert.equal(scenes.find({entries:sample},{...word,p:['wrong']},e.art),null);
  assert.equal(scenes.find({entries:sample},word,'taken'),null);
 });
-test('first sense must match both languages',()=>{
+test('image meaning follows first Japanese sense independently of paraphrase',()=>{
  assert(scenes.firstSenseMatches(e,word));
- assert(!scenes.firstSenseMatches(e,{...word,en:'changed'}));
+ assert(scenes.firstSenseMatches(e,{...word,en:'changed'}));
  assert(!scenes.firstSenseMatches(e,{...word,ja:'別義'}));
 });
 test('unreviewed and stale records fail closed without image requests',async()=>{
@@ -26,8 +26,8 @@ test('replaced image rejected, actual image verified',async()=>{
   assert.equal((await scenes.verify(e,{word,imageUrl:'image.png'})).status,'stale_image');
  }finally{global.fetch=prev;}
 });
-test('source changed rejected before fetch',async()=>{
- assert.equal((await scenes.verify(e,{word:{...word,en:'changed'},imageUrl:'image.png'})).status,'stale_sense');
+test('Japanese meaning changed rejected before fetch',async()=>{
+ assert.equal((await scenes.verify(e,{word:{...word,ja:'別義'},imageUrl:'image.png'})).status,'stale_sense');
 });
 test('network unavailable remains explicit',async()=>{
  const prev=global.fetch;global.fetch=async()=>{throw Error('offline')};

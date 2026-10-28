@@ -48,7 +48,7 @@ GitHub の説明文「Config files for my GitHub profile」は誤り。実体は
 
 | | 中身 |
 |---|---|
-| **配信先 `etymolingo`** | `app/` は入口と製品2本、ゲームは `app/games/` にまとめた。`assets/` が画像の正本 |
+| **配信先 `etymolingo`** | `app/` は入口と製品2本、ゲームは `app/` にまとめた。`assets/` が画像の正本 |
 
     app/
       index.html            入口。ここからリンクされているものが「消してはいけないもの」

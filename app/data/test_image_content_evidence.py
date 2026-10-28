@@ -19,8 +19,8 @@ class EvidenceTests(unittest.TestCase):
    p=self.root/name;p.parent.mkdir(parents=True,exist_ok=True);data=json.dumps(value,ensure_ascii=False,separators=(',',':')).encode();p.write_bytes(data);return data
   words=write('app/data/generated-etymon/words.json',[]);scenes=write('app/data/generated-etymon/illustration-scenes.json',{'schema':1,'entries':[]});write('app/data/generated-etymon/manifest.json',{'files':{'words':{'sha256':builder.digest(words)},'illustration_scenes':{'sha256':builder.digest(scenes)}}})
   dest=self.root/'assets/word';dest.mkdir(parents=True);Image.new('RGBA',(512,512),(10,30,40,0)).save(dest/'unbound.png');(dest/'illustration-index.js').write_text('window.INDEX = {};',encoding='utf-8')
-  for name,value in [('app/games/picture-words/updated-art.json',[]),('app/data/generated-image-legacy-ids.json',{'rows':[]}),('app/data/generated-image-issues.json',{'issues':[]}),('app/data/puzzle-ja-answers.json',{'rows':[]})]:write(name,value)
+  for name,value in [('app/support/picture-words/updated-art.json',[]),('app/data/generated-image-legacy-ids.json',{'rows':[]}),('app/data/generated-image-issues.json',{'issues':[]}),('app/data/puzzle-ja-answers.json',{'rows':[]})]:write(name,value)
   for name in ['app/data/generated_image_resolver.py','app/data/build_generated_image_catalog.py']:(self.root/name).write_text('# fixture hash input',encoding='utf-8')
-  (self.root/'app/games/picture-words/build_catalog.py').write_text('LEDGER_SENSE_ART=[]\nLEGACY_CHOICES=[]\n',encoding='utf-8')
+  (self.root/'app/support/picture-words/build_catalog.py').write_text('LEDGER_SENSE_ART=[]\nLEGACY_CHOICES=[]\n',encoding='utf-8')
   self.assertFalse((self.root/'work/etymopedia/png_creation_dates.csv').exists());rows,meta,packs,report=builder.build_catalog_rows(self.root,include_packs=False);self.assertEqual(len(rows),1);self.assertEqual(rows[0]['pic'],'unbound');self.assertIsNone(rows[0]['recordedUpdatedAt']);self.assertFalse(rows[0]['updatedArt']);self.assertIsNone(meta['imageDateEvidenceSha256'])
 if __name__=='__main__':unittest.main()

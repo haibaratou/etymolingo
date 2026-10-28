@@ -1,12 +1,26 @@
 # Reviewed prototype build outputs
 
+The development character review entrance is `app/character-manager.html`.
+Both review modules run in that document using files under support; the retired
+`app/compare.html` and `app/wildwordopia-history.html` are not dependencies and
+must not be recreated. No new launcher is needed. The limited UI
+installer and verification commands are documented in
+[`support/character-manager/README.md`](support/character-manager/README.md).
+This integration does not require art, dictionary, gallery or history generation.
+
+All product entrance HTML files stay directly in `app/`; runtime support and current
+builders live in `app/support/`. Apps and games follow the same layout; never recreate
+`app/games/`. Use the current commands below. Dated work patches and old repair
+snapshots record historical algorithms and layouts; they are not update entry points.
+
+
 Run these limited builds from a public checkout after its published generated data
 and PNG assets have been refreshed. They read published files only and do not read
 `app/data/pie/` or modify canonical meanings, PNGs or captions.
 
 ```sh
 node app/eigo-no-e/build-caption-snapshot.cjs
-node app/games/picture-words/build-selection.cjs
+node app/support/picture-words/build-selection.cjs
 ```
 
 Both commands work from any directory. `--root <public-checkout>` selects the
@@ -15,10 +29,10 @@ under `work/build-reports/`. Node.js is required. Existing production scripts al
 call these automatically after successful non-check canonical output writes:
 
 - `python app/eigo-no-e/build.py` refreshes the Pictpedia caption sidecar.
-- `python app/games/picture-words/build_catalog.py` refreshes the custom-level/reviewed-image
+- `python app/support/picture-words/build_catalog.py` refreshes the custom-level/reviewed-image
   selection when writing the normal `catalog.js` target.
 - The current production entry point
-  `python app/games/picture-words/refresh_reviewed_catalog.py` also refreshes both
+  `python app/support/picture-words/refresh_reviewed_catalog.py` also refreshes both
   sidecars after its normal output writes. `--game-only` refreshes only selection;
   custom game output directories do not rewrite the deployed sidecars.
 
@@ -58,3 +72,19 @@ the Pictpedia change, so the earlier change-only ZIP need not be applied separat
 The public base's existing PNG and thumbnail assets are intentionally not duplicated.
 Its manifest records included files and required unchanged published-input hashes.
 This local work does not publish or push anything.
+
+
+## Japanese dictionary direct-file data
+
+`app/japanese-dictionary.html` keeps HTTP JSON loading and uses generated classic-script
+sidecars only for direct `file://` viewing. After receiving updated public Japanese
+JSON, run `python app/support/ja-dict/build_local_data.py`, then the same command
+with `--check`. The canonical `app/data/ja/ja_index.json` and `ja_det/*.json` are
+read-only inputs; output is `app/data/ja/file/`. No source export, dictionary audit,
+fetch, or meaning changes are part of this command. The source-only
+`app/build_ja_dict.py` is not present in this distribution checkout.
+
+`tools/build_pages.py` regenerates these sidecars from staged JSON automatically.
+The loader, JSON and sidecars must accompany the entrance HTML. See
+[`support/ja-dict/README.md`](support/ja-dict/README.md) for update and test commands,
+including the distinction between unit tests and actual browser file-mode checks.

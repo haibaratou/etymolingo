@@ -14,9 +14,13 @@
   const theme=scale===7?stars:scale===5?[0,1,2,3,5,6][stars]:Math.max(1,Math.min(7,Math.ceil(stars*7/scale)));
   return {stars,scale,theme,label:label||'レア度',context,scheme:'existing-band',value:null};
  }
- const classes=model=>'er-surface er-t'+model.theme+' er-'+model.context;
- function title(m){return (m.scheme==='dictionary-r-v1'?(m.value===null?'レア度未確認':'レア度 '+m.value+'・'+m.label):'このゲームの既存レア度 '+m.stars+'/'+m.scale+'段階')+'。独自学習レベルとは別の指標です。';}
- function html(m){return '<span class="etymon-rarity '+classes(m)+'" data-rarity-scheme="'+m.scheme+'" data-rarity-scale="'+m.scale+'" data-rarity-stars="'+m.stars+'" role="img" aria-label="'+esc(title(m))+'" title="'+esc(title(m))+'"><span class="er-stars" aria-hidden="true">'+('★'.repeat(m.stars))+'</span><span class="er-label">'+esc(m.label)+'</span></span>';}
- function paint(el,m){if(!el)return;for(const c of [...el.classList])if(c==='er-surface'||/^er-(?:t\d|list|detail|game)$/.test(c))el.classList.remove(c);el.classList.add(...classes(m).split(' '));el.dataset.rarityScale=String(m.scale);el.dataset.rarityStars=String(m.stars);el.dataset.rarityScheme=m.scheme;el.title=title(m);}
- return {cuts,labels,numeric,band,html,paint,classes,title};
+ function learning(level,context='list'){
+  const m=band(level,10,'',context);
+  return {...m,scheme:'custom-learning-level-v1',label:m.stars?'':'独自レベル未分類'};
+ }
+ const classes=model=>'er-surface er-t'+model.theme+' er-'+model.context+(model.scheme==='custom-learning-level-v1'?' custom-level':'');
+ function title(m){if(m.scheme==='custom-learning-level-v1')return m.stars?'独自レベル '+m.stars+' / 10（暫定目安）':'独自レベル未分類';return (m.scheme==='dictionary-r-v1'?(m.value===null?'レア度未確認':'レア度 '+m.value+'・'+m.label):'このゲームの既存レア度 '+m.stars+'/'+m.scale+'段階')+'。独自学習レベルとは別の指標です。';}
+ function html(m){return '<span class="etymon-rarity '+classes(m)+'" data-rarity-scheme="'+m.scheme+'" data-rarity-scale="'+m.scale+'" data-rarity-stars="'+m.stars+'"'+(m.scheme==='custom-learning-level-v1'?' data-learning-level="'+m.stars+'"':'')+' role="img" aria-label="'+esc(title(m))+'" title="'+esc(title(m))+'"><span class="er-stars" aria-hidden="true">'+(m.scheme==='custom-learning-level-v1'?'<span class="er-star">★</span>'.repeat(m.stars):'★'.repeat(m.stars))+'</span><span class="er-label">'+esc(m.label)+'</span></span>';}
+ function paint(el,m){if(!el)return;for(const c of [...el.classList])if(c==='er-surface'||c==='custom-level'||/^er-(?:t\d|list|detail|game)$/.test(c))el.classList.remove(c);el.classList.add(...classes(m).split(' '));el.dataset.rarityScale=String(m.scale);el.dataset.rarityStars=String(m.stars);el.dataset.rarityScheme=m.scheme;if(m.scheme==='custom-learning-level-v1')el.dataset.learningLevel=String(m.stars);else delete el.dataset.learningLevel;el.title=title(m);}
+ return {cuts,labels,numeric,band,learning,html,paint,classes,title};
 });

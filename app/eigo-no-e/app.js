@@ -1,4 +1,4 @@
-/* Pictpedia — 英単語のイラスト辞典
+/* Pictlingo Dictionary — 英単語のイラスト辞典
    build.py の審査済み出力を、公開中の辞書・場面文・画像対応表で再照合する。 */
 (async () => {
 'use strict';
@@ -88,16 +88,13 @@ const usPronunciationByWord=new Map(usPronunciations.entries.map(e=>[e.w,e]));
 const basicById=new Map(dictionaryBasics.entries.map(e=>[e.dictionaryIndex,e]));
 const basicByKey=new Map();for(const e of dictionaryBasics.entries){const key=L.key(e.w,e.p);if(!basicByKey.has(key))basicByKey.set(key,[]);basicByKey.get(key).push(e);}
 function basicRecord(w){const match=e=>e&&L.key(e.w,e.p)===L.key(w.w,w.p)&&String(e.ja||'').split('、')[0]===String(w.ja||'').split('、')[0];const direct=basicById.get(w.dictionaryIndex);if(match(direct))return direct;const hits=(basicByKey.get(L.key(w.w,w.p))||[]).filter(match);return hits.length===1?hits[0]:null;}
-let paraphrases=null;try{paraphrases=window.EnglishParaphrases.create(window.ETYMON_ENGLISH_PARAPHRASES,dictionaryBasics);}catch(error){console.warn('English meaning data unavailable',error);}
 const customLevels=await window.EtymonCustomLearningLevels.decode(window.ETYMON_CUSTOM_LEARNING_LEVELS).catch(()=>null);
-const cefrLevels=window.EtymonLearningLevels?.create(window.ETYMON_LEARNING_LEVELS);
 const lexicalRows=dictionaryBasics.entries.map(e=>({...e,id:'dictionary:'+e.dictionaryIndex,dictionaryOnly:true}));
 const illustratedSpellings=new Set(W.filter(w=>w.w).map(w=>w.w.toLowerCase()));
 const termIndex=L.indexWords([...W,...lexicalRows.filter(e=>!illustratedSpellings.has(e.w.toLowerCase()))]);
 const wordProfile=w=>L.profile(w,lexicalProfiles);
 const tokenHTML=text=>L.linkedTokens(String(text||''),termIndex).map(t=>t.href?`<a class="sentence-word" href="${esc(t.href)}">${esc(t.text)}</a>`:esc(t.text)).join('');
-function rarityHTML(w,context='list'){return window.EtymonRarity?.html(window.EtymonRarity.numeric(w.r,context))||'';}
-function difficultyHTML(w){if(!w.w)return '';const d=customLevels?.lookup(w),official=cefrLevels?.lookup(String(w.w||''),w.pos||'');const label=d?'独自レベル '+d.level:'独自レベル未分類';const explanation=d?'暫定推定。'+(d.basis==='cefr_anchor_then_edited_auxiliary_split'?'CEFRの品詞一致区分＋編集済み補助指標。':'語形・項目単位の編集済み補助指標による低信頼推定。')+(d.targetPosStatus==='unresolved'?'対象品詞は未確定。':''):'対象語義・品詞・根拠の確認待ち。';return `<span class="difficulty-stars custom-learning-label" title="${esc(explanation+(official?' 既存CEFR-J参照: '+official.level:''))}" aria-label="${label}・推定">${label}<small>推定</small></span>`;}
+function learningHTML(w,context='list'){if(!w.w)return '';const level=customLevels?.lookup(w)?.level;return window.EtymonRarity?.html(window.EtymonRarity.learning(level,context))||'';}
 function imagePOS(w){const p=wordProfile(w);const name=p?.senses.find(s=>s.id===p.illustratedSense)?.pos;const fallback=L.splitPOS(w.pos);return name|| (fallback.length===1?fallback[0]:'');}
 function pronunciationHTML(w){const imported=usPronunciationByWord.get(w.w);
  if(imported?.status==='imported'&&imported.ipa.length===1)return `<div class="phonetics"><span lang="en">/${esc(imported.ipa[0])}/</span></div>`;
@@ -127,7 +124,7 @@ const hasCaption = w => w.description ? w.description.status==='reviewed'&&!!w.d
 const needsRevision = w => w.description?.status==='mismatch';
 const needsReview = w => w.description?.reason==='illustration_needs_review';
 const missingCaptionHTML = w => (needsRevision(w)||needsReview(w))?`<p class="caption-status" lang="ja">${needsReview(w)?'イラスト要確認':'イラスト要修正'}</p>${w.description?.detail?`<small class="caption-revision-reason">${esc(w.description.detail)}</small>`:''}`:'<p class="caption-status">解説未作成</p>';
-const tile = w => `<a class="tile" href="${href(w)}"><span class="pic"><img src="${esc(thumb(w))}" data-fallback="${esc(full(w))}" alt="${esc(w.w ? w.w+' のイラスト' : titleOf(w))}" loading="lazy" decoding="async" width="320" height="320">${difficultyHTML(w)}</span><span class="cap"><span class="w">${esc(titleOf(w))}</span>${w.ja?`<span class="j">${esc(firstJa(w))}</span>`:''}${rarityHTML(w)}${w.w&&!hasCaption(w)?`<small class="caption-status">${needsReview(w)?'イラスト要確認':needsRevision(w)?'イラスト要修正':'解説未作成'}</small>`:''}</span></a>`;
+const tile = w => `<a class="tile" href="${href(w)}"><span class="pic"><img src="${esc(thumb(w))}" data-fallback="${esc(full(w))}" alt="${esc(w.w ? w.w+' のイラスト' : titleOf(w))}" loading="lazy" decoding="async" width="320" height="320"></span><span class="cap"><span class="w">${esc(titleOf(w))}</span>${w.ja?`<span class="j">${esc(firstJa(w))}</span>`:''}${learningHTML(w)}${w.w&&!hasCaption(w)?`<small class="caption-status">${needsReview(w)?'イラスト要確認':needsRevision(w)?'イラスト要修正':'解説未作成'}</small>`:''}</span></a>`;
 const gridPages = new Map(); let gridSerial=0;
 const grid = list => {
   list=list.filter(w=>!w.unavailable);const token=String(++gridSerial),shown=Math.min(60,list.length);
@@ -140,7 +137,7 @@ function puzzleActions(w, imageReady){
   const reasons=[];
   const actions=['en'].map(lang=>{
     const a=w.availability?.[lang],label='英語パズル';
-    if(a?.playable&&a.answer&&imageReady)return `<a class="btn word-puzzle" href="games/picture-words.html?word=${encodeURIComponent(w.id)}&amp;lang=${lang}" target="_blank" rel="noopener">${label} ↗</a>`;
+    if(a?.playable&&a.answer&&imageReady)return `<a class="btn word-puzzle" href="pictlingo-game.html?word=${encodeURIComponent(w.id)}&amp;lang=${lang}" target="_blank" rel="noopener">${label} ↗</a>`;
     if(!a?.playable)reasons.push(reasonLabel(a?.reason));
     return `<button class="btn" type="button" disabled>${label}</button>`;
   }).join('');
@@ -256,7 +253,7 @@ function home() {
   side();
   const tries = [['s', 'book'], ['s', '本'], ['s', 'help'], ['t', '学校'], ['t', '木'], ['t', 'box']];
   view.innerHTML = `<div class="page fade">
-    <section class="pict-hero"><h1 class="hero-title">Pictpedia</h1><img class="hero-art" src="../assets/pictpedia/hero-carnival.png?v=e139fd54677d" width="1536" height="1024" alt="Pictpedia：空飛ぶ鉛筆とドラゴンに乗る二人と、にぎやかなことばの世界" fetchpriority="high"></section>
+    <section class="pict-hero"><h1 class="hero-title">Pictlingo Dictionary</h1><img class="hero-art" src="../assets/pictpedia/hero-carnival.png?v=e139fd54677d" width="1536" height="1024" alt="Pictlingo Dictionary：空飛ぶ鉛筆とドラゴンに乗る二人と、にぎやかなことばの世界" fetchpriority="high"></section>
     <div class="tryline">たとえば ${tries.map(([m, q]) => `<a class="${m === 't' ? 'text' : ''}" href="#/${m}/${encodeURIComponent(q)}" title="${m === 't' ? 'あいまい検索' : '単語検索'}">${esc(q)}</a>`).join('')}</div>
     <h2 class="h2" id="categories">カテゴリーからさがす<a href="#/all">${num(D.word_entry_count)}語・${num(D.total_art)}枚</a></h2>
     <div class="cats">${D.categories.map(c => {
@@ -268,7 +265,7 @@ function home() {
     <div id="pick">${grid(shuffle(W).slice(0, 18))}</div>
   </div>`;
   $('#reshuffle').onclick = e => { e.preventDefault(); $('#pick').innerHTML = grid(shuffle(W).slice(0, 18)); };
-  document.title = 'Pictpedia — 英単語のイラスト辞典';
+  document.title = 'Pictlingo Dictionary — 英単語のイラスト辞典';
 }
 
 function catPage(cid, sid) {
@@ -285,15 +282,14 @@ function catPage(cid, sid) {
     ${s ? `<div style="margin-top:18px">${grid(inSub.get(`${cid}/${sid}`) || [])}</div>`
         : subs.map(x => `<h2 class="h2">${esc(x.ja)}<small>${esc(x.en)}</small><a href="#/c/${cid}/${x.id}">${x.n} 枚すべて</a></h2>${grid((inSub.get(`${cid}/${x.id}`) || []).slice(0, 12))}`).join('')}
   </div>`;
-  document.title = `${s ? s.ja : c.ja}のイラスト — Pictpedia`;
+  document.title = `${s ? s.ja : c.ja}のイラスト — Pictlingo Dictionary`;
 }
 
 function dictionaryPage(id){
  if(!/^dictionary:\d+$/.test(String(id)))return notFound();
  const index=Number(String(id).slice('dictionary:'.length)),record=basicById.get(index);if(!record)return notFound();const w={...record,id};side();
- view.innerHTML=`<div class="page fade"><nav class="crumbs"><a href="#/">トップ</a>${chev}<span>${esc(w.w)}</span></nav><article class="dictionary-only"><div class="word-heading"><h1 class="word-title" lang="en">${esc(w.w)}</h1><button class="word-speak" id="speak" type="button" aria-label="単語の発音"><svg><use href="#i-sound"/></svg></button></div><div class="word-rarity">${rarityHTML(w,'detail')}</div>${pronunciationHTML(w)}${meaningsHTML(w)}<section id="wordParaphrase"></section></article></div>`;
- window.EnglishParaphrases.render($('#wordParaphrase'),w,paraphrases);
- $('#speak').onclick=()=>speak(w.w,'en-US',$('#speak'));document.title=w.w+' — Pictpedia';
+ view.innerHTML=`<div class="page fade"><nav class="crumbs"><a href="#/">トップ</a>${chev}<span>${esc(w.w)}</span></nav><article class="dictionary-only"><div class="word-heading"><h1 class="word-title" lang="en">${esc(w.w)}</h1><button class="word-speak" id="speak" type="button" aria-label="単語の発音"><svg><use href="#i-sound"/></svg></button></div><div class="word-learning">${learningHTML(w,'detail')}</div>${pronunciationHTML(w)}${meaningsHTML(w)}</article></div>`;
+ $('#speak').onclick=()=>speak(w.w,'en-US',$('#speak'));document.title=w.w+' — Pictlingo Dictionary';
 }
 function dictionaryChoices(word){const rows=lexicalRows.filter(e=>e.w.toLowerCase()===String(word).toLowerCase());if(!rows.length)return notFound();side();view.innerHTML=`<div class="page fade"><h1 class="h1">${esc(word)}</h1><ul class="dictionary-choices">${rows.map(w=>`<li><a href="#/w/${encodeURIComponent(w.id)}"><b lang="en">${esc(w.w)}</b> ${esc(w.ja)}</a></li>`).join('')}</ul></div>`;}
 
@@ -308,33 +304,32 @@ function wordPage(id) {
     <nav class="crumbs"><a href="#/">トップ</a>${sub ? `${chev}<a href="#/c/${sub.cat.id}">${esc(sub.cat.ja)}</a>${chev}<a href="#/c/${k}">${esc(sub.ja)}</a>` : ''}${chev}<span>${esc(titleOf(w))}</span></nav>
     <article class="word">
       <div class="word-art">
-        <div class="plate"><img src="${esc(full(w))}" alt="${esc(titleOf(w))}" width="1024" height="1024">${difficultyHTML(w)}</div>
+        <div class="plate"><img src="${esc(full(w))}" alt="${esc(titleOf(w))}" width="1024" height="1024"></div>
+        <div class="word-learning">${learningHTML(w,'detail')}</div>
       </div>
       <div class="word-info">
         <div class="word-heading"><h1 class="word-title${w.w?'':' pending-title'}"${w.w?' lang="en"':''}>${esc(titleOf(w))}</h1>${w.w?'<button class="word-speak" id="speak" type="button" aria-label="単語の発音" title="発音を聞く"><svg><use href="#i-sound"/></svg></button>':''}</div>
-        <div class="word-rarity">${rarityHTML(w,'detail')}</div>
         ${pronunciationHTML(w)}
-        ${meaningsHTML(w)}<section id="wordParaphrase"></section>
+        ${meaningsHTML(w)}
         <div class="box scene-description" id="sceneBox" aria-live="polite">${hasCaption(w)?'':((needsRevision(w)||needsReview(w))?missingCaptionHTML(w):'')}</div>
         <div class="word-categories"><div class="tags" aria-label="カテゴリー">${[...categoryTags].map(([url,label])=>`<a href="${esc(url)}">${esc(label)}</a>`).join('')}</div></div>
       </div>
     </article>
     ${related.length ? `<h2 class="h2">関連するイラスト${sub ? `<a href="#/c/${k}">${esc(sub.ja)}をすべて見る</a>` : ''}</h2>${grid(related.slice(0, 18))}` : ''}
   </div>`;
-  window.EnglishParaphrases.render($('#wordParaphrase'),w,paraphrases);
   const sceneBox=$('#sceneBox');
   verifyImage(w).then(ok=>{
     if(!sceneBox.isConnected)return;
     sceneBox.innerHTML=ok&&hasCaption(w)?captionHTML(w):((needsRevision(w)||needsReview(w))?missingCaptionHTML(w):'');
   });
   if($('#speak'))$('#speak').onclick = () => speak(w.w,'en-US',$('#speak'));
-  document.title = `${titleOf(w)}${w.ja?'('+firstJa(w)+')':''} — Pictpedia`;
+  document.title = `${titleOf(w)}${w.ja?'('+firstJa(w)+')':''} — Pictlingo Dictionary`;
 }
 
 function allPage(){
   side();
   view.innerHTML=`<div class="page fade"><nav class="crumbs"><a href="#/">トップ</a>${chev}<span>すべての画像</span></nav><h1 class="h1">すべての画像</h1><p class="lead">${num(D.word_entry_count)} 語・${num(D.total_art)} 枚</p>${grid(W)}</div>`;
-  document.title='すべての画像 — Pictpedia';
+  document.title='すべての画像 — Pictlingo Dictionary';
 }
 
 function resultPage(m, q) {
@@ -349,7 +344,7 @@ function resultPage(m, q) {
       <a href="#/${other}/${encodeURIComponent(q)}">${m === 't' ? '単語検索' : 'あいまい検索'}でためす</a></p>
     ${list.length ? grid(list) : `<div class="empty"><b>見つかりませんでした</b>${m === 't' ? 'キーワードを変えてお試しください。' : 'つづりを変えるか、「あいまい検索」をためしてみてください。'}<br>${num(D.total_art)} 枚を収録しています。</div>`}
   </div>`;
-  document.title = `「${q}」のイラスト — Pictpedia`;
+  document.title = `「${q}」のイラスト — Pictlingo Dictionary`;
 }
 function notFound() { side(); view.innerHTML = `<div class="page empty"><b>ページが見つかりませんでした</b><a href="#/">トップへ</a></div>`; }
 
@@ -387,7 +382,7 @@ function route() {
   else if (kind === 'c') catPage(a, b);
   else if (kind === 'w') wordPage(h.slice(2));
   else if (kind === 'd') dictionaryChoices(h.slice(2));
-  else if (kind === 'p') location.replace('games/picture-words.html?word='+encodeURIComponent(h.slice(2)));
+  else if (kind === 'p') location.replace('pictlingo-game.html?word='+encodeURIComponent(h.slice(2)));
   else if (kind === 's' || kind === 't') resultPage(kind, h.slice(2));
   else notFound();
   scrollTo(0, 0);

@@ -1,7 +1,7 @@
 /* Color-coded rarity and 10-step learning stars for Explorer.\n   Source metrics are shown only on tap; stored dictionary values are unchanged. */
 (() => {
   'use strict';
-  if (!/\/etymon-explorer\.html$/.test(location.pathname)) return;
+  if (!/\/vocabulary-master\.html$/.test(location.pathname)) return;
   if(window.__etyExplorerStarsInitialized)return;
   window.__etyExplorerStarsInitialized=true;
   const $=(sel,root=document)=>root.querySelector(sel);

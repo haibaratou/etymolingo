@@ -318,24 +318,7 @@ section{padding:66px 0}
 .drow .dj{flex:0 0 168px;min-width:0;font-size:15px;font-weight:900;line-height:1.6}
 .drow .dl{font-size:13.5px;font-weight:700;color:var(--ink2);flex:1;line-height:1.8}
 
-/* レア度(エティモン探索の r 値 1〜999)のピル。★の数=出会いにくさの5段階 */
-.rar{display:inline-flex;align-items:center;gap:6px;font-weight:900;font-size:12px;border-radius:999px;padding:2px 11px;color:#fff;background:#8fa39a;letter-spacing:.4px;white-space:nowrap}
-.rar .st{letter-spacing:1.5px}
-.rar.r1{background:#8fa39a}.rar.r2{background:#3ecfa5}.rar.r3{background:#4aa8ff}.rar.r4{background:#9a6ee0}
-.rar.r5{background:linear-gradient(115deg,#7b5cd6,#b06ee0,#e070c8,#8f7bef,#7b5cd6);background-size:300% 100%;animation:rainbowRar 9s linear infinite;text-shadow:0 1px 2px rgba(36,31,38,.35)}
-.rar.r6{background:linear-gradient(100deg,#ff5470,#ffb03e,#ffd23e,#3ecfa5,#4aa8ff,#9a6ee0,#ff5470);background-size:400% 100%;animation:rainbowRar 7s linear infinite;text-shadow:0 1px 2px rgba(36,31,38,.4)}
-.rar.r7{background:linear-gradient(100deg,#241f26,#6b4f1d,#241f26);background-size:300% 100%;animation:rainbowRar 6s linear infinite;color:#ffe9a8;text-shadow:0 1px 2px rgba(0,0,0,.5)}
-@keyframes rainbowRar{to{background-position:400% 0}}
-@media (prefers-reduced-motion:reduce){.rar.r5,.rar.r6,.rar.r7{animation:none}}
-.rar.big{font-size:15px;padding:4px 16px}
-.rar .off{color:#ffffff85}
-.rarNum{font-size:11px;font-weight:900;color:var(--ink2);margin-left:10px}
-.spk{border:none;background:none;font-family:inherit;font-size:19px;cursor:pointer;padding:2px 6px;vertical-align:middle;opacity:.75;transition:transform .1s,opacity .1s}
-.spk:hover{opacity:1;transform:scale(1.15)}
-.spk:active{transform:scale(.92)}
-.spk.sm{font-size:15px;padding:1px 4px}
-.entryHW .spk{font-size:30px}
-/* 派生語辞典: レア度の段ごとに畳む */
+/* 派生語辞典: 現在の独自レベルごとの見出し */
 .tierBox{border-bottom:2px dashed #e5dccb;border-left:6px solid var(--tc,transparent);background:color-mix(in srgb,var(--tc,#fff) 5%,#fff)}
 .tierBox.t1{--tc:#8fa39a}.tierBox.t2{--tc:#3ecfa5}.tierBox.t3{--tc:#4aa8ff}.tierBox.t4{--tc:#9a6ee0}.tierBox.t5{--tc:#b06ee0}
 .tierBox.t6{--tc:#ffb03e;background:linear-gradient(115deg,#fff2f3,#fffae9,#edfbf5,#edf5ff,#f7f1ff)}
@@ -390,6 +373,7 @@ footer b{color:var(--ink)}
   #heroArt,nav{display:none}
 }
 </style>
+<link rel="stylesheet" href="shared/rarity-presentation.css?v=fbc61c711f85">
 </head>
 <body>
 
@@ -424,6 +408,11 @@ footer b{color:var(--ink)}
 <div id="toast"></div>
 
 <script src="../assets/word/illustration-index.js?v=a1d65cc03e86"></script>
+<script src="shared/rarity-presentation.js?v=b2bf6d03d095"></script>
+<script src="shared/custom-learning-levels.js?v=6e4bce3f02ce"></script>
+<script src="data/generated-etymon/custom-learning-levels.js?v=f5cfb48d7e4b"></script>
+<script src="data/generated-etymon/dictionary-basics.js?v=0af8aa359283"></script>
+<script src="support/etymopedia/learning-levels.js?v=3fb424badd79"></script>
 <script>
 "use strict";
 /* ====== 埋め込みデータ(file://フォールバック用。http時はCSVが優先) ====== */
@@ -464,7 +453,7 @@ function imgURL(path){
 }
 
 /* ---- グローバル(CSVから構築) ---- */
-let UI={}, ROOTS={}, MORPHS={}, WORDS=[], LEXICON={}, SUBS={}, CONCEPTS={}, BRANCHES=[], byId={};
+let UI={}, ROOTS={}, MORPHS={}, WORDS=[], LEXICON={}, SUBS={}, CONCEPTS={}, BRANCHES=[], byId={}, LEVELS=null;
 let likes=JSON.parse(localStorage.getItem("etymo_likes3")||"{}");
 const $=s=>document.querySelector(s);
 function toast(m){const t=$("#toast");t.textContent=m;t.classList.add("show");clearTimeout(toast._t);toast._t=setTimeout(()=>t.classList.remove("show"),2200);}
@@ -609,10 +598,10 @@ async function loadAll(){
   morphs.forEach(m=>MORPHS[m.id]={t:m.text,m:m.meaning,root:m.root||null,icon:m.icon||""});
   WORDS=words.map(r=>({w:r.w,root:r.root,split:[r.split_a,r.split_b],
     morphs:(r.morphs||"").split("|").filter(Boolean),ipa:r.ipa,pos:r.pos,jp:r.jp,gloss:r.gloss,memo:r.memo,
-    region:r.region||"",rarity:+r.rarity||0,p:(r.p||"").split("+").filter(Boolean),
+    region:r.region||"",p:(r.p||"").split("+").filter(Boolean),
     ex:(r.ex_en||r.ex_ja)?{en:r.ex_en,ja:r.ex_ja}:null}));
   LEXICON={};
-  lex.forEach(r=>{(LEXICON[r.root]??=[]).push([r.w,r.via,r.jp,r.note,+r.r||0,(r.p||"").split("+").filter(Boolean)]);});
+  lex.forEach(r=>{(LEXICON[r.root]??=[]).push([r.w,r.via,r.jp,r.note,(r.p||"").split("+").filter(Boolean)]);});
   SUBS={};
   subs.forEach(r=>{(SUBS[r.word]??=[]).push({img:imgURL(r.img),by:r.by,game:r.game==="1"||r.game==="true",likes:+r.likes||0});});
   /* 箱庭の「アイテムおえかき」で上書きされた図版を最優先で反映(localStorage共有) */
@@ -622,12 +611,13 @@ async function loadAll(){
   }catch(e){}
   // byId(WORDS + 辞書のみの語も簡易ページ化)
   byId={};WORDS.forEach(w=>byId[w.w]=w);
-  Object.entries(LEXICON).forEach(([rootId,arr])=>arr.forEach(([w,via,jp,note,rar,pl])=>{
+  Object.entries(LEXICON).forEach(([rootId,arr])=>arr.forEach(([w,via,jp,note,pl])=>{
     if(byId[w])return;
     const morphs=inferLexMorphs(rootId,w,note);
     // note はエティモン探索の語源メモ(それ自体が完結した一文)なので、そのまま語源メモ欄へ
-    byId[w]={w,root:rootId,split:lexSplitFor(w,morphs),morphs,ipa:"",pos:"",jp,gloss:jp,memo:note||lexMemoFor(w,jp,note),region:via||"",rarity:rar,p:pl||[],lexOnly:true,ex:lexExampleOf(w)};
+    byId[w]={w,root:rootId,split:lexSplitFor(w,morphs),morphs,ipa:"",pos:"",jp,gloss:jp,memo:note||lexMemoFor(w,jp,note),region:via||"",p:pl||[],lexOnly:true,ex:lexExampleOf(w)};
   }));
+  try{LEVELS=await EtymopediaLearning.load();}catch(error){console.warn("Current word levels unavailable",error);}
 }
 
 /* ---- 形態素 ---- */
@@ -800,7 +790,7 @@ function renderWordGrid(q){
         ${top?`<img src="${top.img}">`:`<img src="${imgURL(PLACEHOLDER_ART)}" alt="">`}
         <div class="cardMorphs">${wordConceptKeys(w).filter(k=>(CONCEPTS[k]||{}).icon).map(k=>conceptChipHTML(k,true)).join("")}</div>
       </div>
-      <div class="body"><div class="stars">${rarPill(w.rarity)}</div><div class="hw">${splitHW(w)}</div><div class="jp">${w.jp}</div></div>
+      <div class="body"><div class="stars">${levelPill(wordLevel(w))}</div><div class="hw">${splitHW(w)}</div><div class="jp">${w.jp}</div></div>
     </div>`;
   }).join("");
 }
@@ -819,7 +809,7 @@ function renderWord(name){
         <div class="entryHW">${splitHW(w)}<button class="spk" data-say="${w.w}" title="発音を再生" onclick="event.stopPropagation();say(this.dataset.say)">🔊</button></div>
         ${w.ipa?`<div class="entryIPA">${w.ipa}</div>`:""}
         <div class="entryJP">${w.pos?`<span class="posTag">${w.pos}</span>`:""}${w.jp}</div>
-        <div class="entryStars">${rarPill(w.rarity,true)}<span class="rarNum">${rarTitle(w.rarity).replace("(未算出の激レア)","")}</span>${w.region&&viaCls(w.region)?`<span class="via ${viaCls(w.region)} entryVia" title="語派のはなしへ" onclick="location.hash='#/branches'">${regionLabel(w.region)}</span>`:""}</div>
+        <div class="entryStars">${levelPill(wordLevel(w),true)}${w.region&&viaCls(w.region)?`<span class="via ${viaCls(w.region)} entryVia" title="語派のはなしへ" onclick="location.hash='#/branches'">${regionLabel(w.region)}</span>`:""}</div>
         <div class="entryMorphRow">${conceptRowHTML(wordConceptKeys(w))}</div>
         ${w.ex?`<div class="exBox"><div class="en">${w.ex.en}</div><div class="ja">${w.ex.ja}</div></div>`:""}
         ${w.memo?`<div class="memo"><span class="mt">語源メモ</span><br>${w.memo}</div>`:""}
@@ -841,16 +831,9 @@ const REGION_NAMES={G:"ゲルマン",L:"ロマンス",Gr:"ギリシャ",S:"サ�
 function regionLabel(code){return REGION_NAMES[code]||code||"";}
 function regionCls(code){if(code==="S")code="Sa";return REGION_NAMES[code]?`reg-${code}`:"";}
 function viaCls(code){if(code==="S")code="Sa";return REGION_NAMES[code]?code:"";}
-/* ---- レア度。エティモン探索の r 値をそのまま持ち、
-   「ふだんの英語でどれくらい出会うか」の5段階(★)で見せる。
-   1000以上と未算出(空欄)は最上位「神レア」(七色)。 ---- */
-function rarTier(r){r=+r||0;if(!r)return 7;return r<400?1:r<600?2:r<800?3:r<1000?4:r<1400?5:r<1800?6:7;}
-function rarTitle(r){r=+r||0;return r?`レア度 ${r}`:"レア度 ???(未算出の激レア)";}
-function rarPill(r,big){
-  const t=rarTier(r);
-  return `<span class="rar r${t}${big?" big":""}" title="${rarTitle(r)}">`+
-    `<span class="st">${"★".repeat(t)}</span>${UI["rar_t"+t]||""}</span>`;
-}
+/* ---- 現在の独自レベル。確認できた値と同じ数の星を表示する。 ---- */
+function wordLevel(row){return LEVELS?.lookup(row)?.level??null;}
+function levelPill(level,big){return EtymonRarity.html(EtymonRarity.learning(level,big?'detail':'list'));}
 /* 発音の読み上げ(リストの行と単語ページの🔊) */
 function say(t){try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang="en-US";u.rate=.9;speechSynthesis.speak(u);}catch(e){}}
 
@@ -882,7 +865,7 @@ function renderRoot(id){
       <span class="wnImg"><img src="${img}" alt=""></span>
       <span class="wnW">${w.w}</span></button>`;
   };
-  const drowHTML=([w,via,jp,note,rar,pl])=>{
+  const drowHTML=([w,via,jp,note,pl])=>{
     const art=topArt(w,pl);
     const img=art?art.img:imgURL(`word/${w}.png`);
     const vc=viaCls(via);
@@ -891,12 +874,12 @@ function renderRoot(id){
       <span class="dw">${w}<button class="spk sm" data-say="${w}" title="発音を再生" onclick="event.stopPropagation();say(this.dataset.say)">🔊</button></span>${vc?`<span class="via ${vc}" title="語派のはなしへ" onclick="event.stopPropagation();location.hash='#/branches'">${regionLabel(via)}</span>`:`<span class="via none"></span>`}
       <span class="dj">${jp}</span><span class="dl">${note}</span></div>`;
   };
-  // レア度の段(★1〜★5)ごとの見出し。ぜんぶ開いた状態で出す(畳むのは任意)
-  const TIER_REP=[0,100,500,700,900,1100,1500,1900];   // 各段の代表r値(見出しピル用)
-  const dict=[1,2,3,4,5,6,7].map(t=>{
-    const arr=lex.filter(x=>rarTier(x[4])===t);
+  // 独自レベルの値ごとにまとめる。照合できない語は推測せず別枠に置く。
+  const dict=[...Array.from({length:10},(_,i)=>i+1),null].map(t=>{
+    const arr=lex.filter(([w,via,jp,note,p])=>wordLevel({w,jp,p})===t);
     if(!arr.length)return "";
-    return `<details class="tierBox t${t}" open><summary>${rarPill(TIER_REP[t])}<span class="tCount">${arr.length}語</span></summary>${arr.map(drowHTML).join("")}</details>`;
+    const theme=EtymonRarity.learning(t).theme;
+    return `<details class="tierBox t${theme}" open><summary>${levelPill(t)}<span class="tCount">${arr.length}語</span></summary>${arr.map(drowHTML).join("")}</details>`;
   }).join("");
   $("#view").innerHTML=`
     <span class="backLink" onclick="location.hash=''">← もどる</span>
@@ -912,7 +895,7 @@ function renderRoot(id){
     </div>
     <div class="rmMemo${r.concept?" hasSeal":""}"><span class="mt">語源メモ</span>${r.concept?`<span class="sealWrap"><img class="seal" src="${imgURL(r.concept)}" alt="" title="六千年前の「${r.jp}」のイメージ(古代概念)" onerror="this.closest('.sealWrap').remove()"><span class="sealRoot"><i>${r.r}</i></span></span>`:`<span class="rmRootNote"><i>${r.r}</i></span>`}<br>${r.note}</div>
     <div class="dictSec"><h3>派生語辞典(${lex.length}語)</h3>
-      <div class="dictLegend">${UI.rar_legend||""} <span class="brLink" onclick="location.hash='#/branches'">${UI.br_legend_link||"語派バッジのひみつ →"}</span></div>
+      <div class="dictLegend"><span class="brLink" onclick="location.hash='#/branches'">${UI.br_legend_link||"語派バッジのひみつ →"}</span></div>
       <div class="dictList">${dict||'<div class="drow"><span class="dl">(準備中)</span></div>'}</div></div>`;
   requestAnimationFrame(drawRootLines);
   setTimeout(drawRootLines,320);   // フォント確定後に引き直し

@@ -250,11 +250,9 @@ main{outline:none;min-width:0}
 .sentence-audio svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2}
 [aria-busy="true"].sentence-audio,#speak[aria-busy="true"]{outline:3px solid var(--accent-soft)}
 .plate,.tile .pic{position:relative}
-.difficulty-stars{position:absolute;right:12px;bottom:12px;display:inline-flex;align-items:center;gap:1px;padding:4px 7px;border-radius:999px;background:rgba(255,255,255,.94);box-shadow:0 1px 5px #0002;font:18px/1.15 Arial,sans-serif;white-space:nowrap;max-width:calc(100% - 20px)}
-.star{display:block;position:relative;color:#d7cfbd}.star.full{color:#d99900}
-.tile .difficulty-stars{right:7px;bottom:7px;font-size:12px;padding:3px 5px}.tile .difficulty-stars.compact{font-size:8px}
 @media(max-width:620px){.caption-line{gap:7px}.sentence-audio{padding:7px}.sentence-audio span{display:none}.dictionary-meanings li{gap:8px}.phonetics{font-size:17px}.word-sources{font-size:11px}}
 
 .dictionary-only{max-width:760px;margin:auto}.dictionary-choices{padding-left:20px}.dictionary-choices li{margin:12px 0}.dictionary-choices a{text-decoration:underline;text-underline-offset:3px}
 
-.custom-learning-label{font-size:12px!important;display:flex;gap:4px;align-items:center;background:rgba(255,255,255,.94);color:#365446;padding:4px 7px;border-radius:8px;max-width:95%}.custom-learning-label small{font-size:9px}.word-art .custom-learning-label{font-size:15px!important}
+
+.word-learning{margin:10px 0 12px;max-width:100%}.word-art .word-learning{text-align:center}.tile .cap .etymon-rarity{margin-top:8px}

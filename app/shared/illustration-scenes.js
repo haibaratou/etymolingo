@@ -10,7 +10,8 @@
   const firstEn = text => normalized(String(text || '').split(' / ')[0]);
   const identity = (w, p, art, origin) => JSON.stringify([w, p || [], art,...(origin?[origin]:[])]);
   const key = entry => identity(entry.w, entry.p, entry.art,entry.etymology_id);
-  const firstSenseMatches = (entry, word) => word && entry.w === word.w && (entry.etymology_id||'')===(word.etymology_id||'') && JSON.stringify(entry.p) === JSON.stringify(word.p || []) && firstJa(word.ja) === normalized(entry.sense.ja) && firstEn(word.en) === normalized(entry.sense.en);
+  // The dictionary's en paraphrase is independent of the illustrated meaning.
+  const firstSenseMatches = (entry, word) => word && entry.w === word.w && (entry.etymology_id||'')===(word.etymology_id||'') && JSON.stringify(entry.p) === JSON.stringify(word.p || []) && firstJa(word.ja) === normalized(entry.sense.ja);
   const loads = new Map();
   let importedScenes = [];
   const scriptBase = typeof document !== 'undefined' ? document.currentScript?.src : null;
@@ -18,7 +19,7 @@
   // canonical CSV imports as a script; preserve all existing identities.
   if (scriptBase && globalThis.location?.protocol === 'file:') {
     const script = document.createElement('script');
-    script.src = new URL('../data/generated-etymon/csv-illustration-scenes.js?v=127aafe7aa67', scriptBase).href;
+    script.src = new URL('../data/generated-etymon/csv-illustration-scenes.js?v=b9911cd388d1', scriptBase).href;
     script.onload = async () => {
       try {
         const envelope = globalThis.ETYMON_CSV_SCENES;
@@ -56,7 +57,7 @@
     if (base && imported?.review?.status === 'reviewed'
         && imported.supersedes_image_sha256 === base.image?.sha256
         && imported.image?.sha256 !== base.image?.sha256
-        && imported.sense?.sha256 === base.sense?.sha256) return imported;
+        && normalized(imported.sense?.ja) === normalized(base.sense?.ja)) return imported;
     return base || imported || null;
   }
   async function verify(entry, options = {}) {
@@ -107,7 +108,7 @@
 
 
 // Explorer-only optional panels start after the native dictionary has painted.
-if (typeof window !== 'undefined' && /\/etymon-explorer\.html$/.test(window.location.pathname)) {
+if (typeof window !== 'undefined' && /\/vocabulary-master\.html$/.test(window.location.pathname)) {
   const addScript = src => new Promise((resolve, reject) => {
     const el = document.createElement('script');
     el.src = src; el.async = true; el.fetchPriority = 'low';
@@ -118,7 +119,7 @@ if (typeof window !== 'undefined' && /\/etymon-explorer\.html$/.test(window.loca
   let started=false;
   const start=()=>{
     if(started)return;started=true;
-    addScript('data/generated-etymon/illustration-review-status.js?v=687a48cc3f12').then(()=>{
+    addScript('data/generated-etymon/illustration-review-status.js?v=b84a464a2cf4').then(()=>{
       window.dispatchEvent(new Event('etymon:review-ready'));
     }).catch(err=>console.warn('Illustration review status unavailable',err));
     const panels=Promise.all([
@@ -127,14 +128,14 @@ if (typeof window !== 'undefined' && /\/etymon-explorer\.html$/.test(window.loca
       addScript('data/generated-etymon/weblio-learning-levels.js?v=e6a41b9d8680'),
       addScript('data/generated-etymon/learning-levels.js?v=48bcf2f15474')
     ]).then(()=>Promise.all([
-      addScript('shared/explorer-inflections.js?v=1c848c89c842'),
-      addScript('shared/explorer-difficulty-v2.js?v=f1ddd89bb61b')
+      addScript('shared/explorer-inflections.js?v=65a568ed03bf'),
+      addScript('shared/explorer-difficulty-v2.js?v=ceaea3e331d6')
     ]));
     panels.then(()=>{
       document.documentElement.dataset.explorerPanelsReady='1';
       return Promise.all([
         addScript('data/generated-etymon/puzzle-eligibility.js?v=76cf845d0966'),
-        addScript('data/generated-etymon/puzzle-visual-scores.js?v=6d60b7ad32fb')
+        addScript('data/generated-etymon/puzzle-visual-scores.js?v=27826b8b5ce4')
       ]);
     }).then(()=>{
       document.documentElement.dataset.explorerVisualReady='1';
@@ -148,6 +149,8 @@ if (typeof window !== 'undefined' && /\/etymon-explorer\.html$/.test(window.loca
     });
   };
   const afterPaint=()=>{
+    // Background tabs may never deliver animation frames; do not leave panels unmounted.
+    setTimeout(start,1000);
     const idle=()=>window.requestIdleCallback?window.requestIdleCallback(start,{timeout:1000}):setTimeout(start,0);
     if(window.requestAnimationFrame)window.requestAnimationFrame(()=>window.requestAnimationFrame(idle));
     else setTimeout(idle,0);

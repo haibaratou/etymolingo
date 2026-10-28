@@ -12,7 +12,7 @@ const previewDir=process.env.PICTPEDIA_PREVIEW_DIR || require('node:os').tmpdir(
  await new Promise(r=>server.listen(0,'127.0.0.1',r));
  const browser=await chromium.launch({headless:true,channel:'msedge'});
  try{
-  for(const base of ['file:///'+root.replaceAll('\\','/')+'/app/eigo-no-e.html',`http://127.0.0.1:${server.address().port}/app/eigo-no-e.html`]){
+  for(const base of ['file:///'+root.replaceAll('\\','/')+'/app/pictlingo-dictionary.html',`http://127.0.0.1:${server.address().port}/app/pictlingo-dictionary.html`]){
    const page=await browser.newPage({viewport:{width:1280,height:900}}),errors=[];
    page.on('pageerror',e=>errors.push(e.message));
    await page.goto(base+'#/',{waitUntil:'domcontentloaded'});await page.locator('.cat-main').first().waitFor();
@@ -26,7 +26,7 @@ const previewDir=process.env.PICTPEDIA_PREVIEW_DIR || require('node:os').tmpdir(
    await page.goto(base+'#/',{waitUntil:'domcontentloaded'});const sub=page.locator('.cat ul a').first(),subHref=await sub.getAttribute('href');await sub.click();await page.waitForURL('**'+subHref);
    await page.goto(base+'#/w/mother');await page.locator('.word-puzzle').waitFor();
    const pending=page.waitForEvent('popup');await page.locator('.word-puzzle').click();const popup=await pending;
-   await popup.locator('#game[data-state="playing"]').waitFor();assert(popup.url().includes('/games/picture-words.html?word=mother'));assert(page.url().endsWith('#/w/mother'));
+   await popup.locator('#game[data-state="playing"]').waitFor();assert(popup.url().includes('/pictlingo-game.html?word=mother'));assert(page.url().endsWith('#/w/mother'));
    assert.equal(await popup.locator('#clueImage').getAttribute('data-scene-id'),'mother');
    assert.equal(await popup.locator('#launchScreen').evaluate(e=>e.open),false);
    await popup.screenshot({path:path.join(previewDir,'pictpedia-mother-game.png')});
@@ -41,11 +41,11 @@ const previewDir=process.env.PICTPEDIA_PREVIEW_DIR || require('node:os').tmpdir(
    await popup.locator('#advanceLabel').click();
    await popup.waitForFunction(()=>document.querySelector('#game').dataset.state==='playing' && document.querySelector('#clueImage').dataset.sceneId!=='mother');
    for(const id of ['book','got@x','to']){
-    await popup.goto(base.replace('eigo-no-e.html','games/picture-words.html')+'?word='+encodeURIComponent(id));
+    await popup.goto(base.replace('pictlingo-dictionary.html','pictlingo-game.html')+'?word='+encodeURIComponent(id));
     await popup.locator('#game[data-state="playing"]').waitFor();
     assert.equal(await popup.locator('#clueImage').getAttribute('data-scene-id'),id);
    }
-   await popup.goto(base.replace('eigo-no-e.html','games/picture-words.html')+'?word=missing-id');
+   await popup.goto(base.replace('pictlingo-dictionary.html','pictlingo-game.html')+'?word=missing-id');
    await popup.locator('#offlineStatus').filter({hasText:'この単語のパズルを読み込めませんでした'}).waitFor();
    await popup.close();
    for(const width of [390,320]){

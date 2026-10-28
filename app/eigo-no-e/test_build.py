@@ -41,17 +41,17 @@ class EligibilityTests(unittest.TestCase):
     def test_no_gloss_override(self):self.word['ja']='本、予約する';self.assertIsNone(self.reason());self.assertEqual(build.first_senses(self.word),('本','volume'))
     def test_complete_reproducible_build(self):
         gen=self.root/'app/data/generated-etymon';gen.mkdir(parents=True)
-        (gen/'words.json').write_text(json.dumps([self.word],ensure_ascii=False));(gen/'illustration-scenes.json').write_text(json.dumps({'schema':1,'entries':[self.entry]},ensure_ascii=False))
+        (gen/'words.json').write_text(json.dumps([self.word],ensure_ascii=False),encoding='utf-8');(gen/'illustration-scenes.json').write_text(json.dumps({'schema':1,'entries':[self.entry]},ensure_ascii=False),encoding='utf-8')
         (self.root/'assets/word/illustration-index.js').write_text('window.X={};')
         # Complete public-only fixture for the shared all-image producer.
-        game=self.root/'app/games/picture-words';game.mkdir(parents=True)
+        game=self.root/'app/support/picture-words';game.mkdir(parents=True)
         (game/'build_catalog.py').write_text('LEDGER_SENSE_ART=[]\nLEGACY_CHOICES=[]\n')
         (game/'updated-art.json').write_text('[]')
         (self.root/'app/data/generated-image-issues.json').write_text('{"issues":[]}')
         (self.root/'app/data/generated-image-legacy-ids.json').write_text('{"rows":[]}')
         (self.root/'app/data/puzzle-ja-answers.json').write_text('{"schema":1,"rows":[]}')
         actual=Path(build.__file__).resolve().parents[1]/'data'
-        for name in ['build_generated_image_catalog.py','generated_image_resolver.py','semantic_classifications.py']:
+        for name in ['build_generated_image_catalog.py','generated_image_resolver.py','semantic_classifications.py','image_content_evidence.py','inflection_policy.py']:
             (self.root/'app/data'/name).write_bytes((actual/name).read_bytes())
         manifest={'files':{key:{'sha256':build.sha256((gen/name).read_bytes())} for key,name in [('words','words.json'),('illustration_scenes','illustration-scenes.json')]}}
         semantic_raw=b'{"schema":1,"taxonomy":[],"entries":[]}'
@@ -60,15 +60,22 @@ class EligibilityTests(unittest.TestCase):
         (gen/'manifest.json').write_text(json.dumps(manifest))
 
         (self.root/'app/eigo-no-e.html').write_text('<script src="eigo-no-e/data.js?v=old"></script>')
-        (self.root/'app/pictpedia.html').write_text('<script src="eigo-no-e/data.js?v=old"></script>')
+        current_entry=(Path(build.__file__).resolve().parents[1]/'pictlingo-dictionary.html').read_text(encoding='utf-8')
+        (self.root/'app/pictlingo-dictionary.html').write_text(current_entry,encoding='utf-8')
         a,report=build.build(self.root);b,_=build.build(self.root)
         self.assertEqual(a,b);self.assertEqual(report['eligible'],1);self.assertEqual(report['schema'],2)
-        for entry in ['app/eigo-no-e.html','app/pictpedia.html']:
+        for entry in ['app/eigo-no-e.html','app/pictlingo-dictionary.html']:
             self.assertIn('eigo-no-e/data.js?v='+build.sha256(a['app/eigo-no-e/data.js'])[:12],a[entry].decode())
         (self.root/'app/eigo-no-e.html').unlink()
         renamed,_=build.build(self.root)
-        self.assertIn('app/pictpedia.html',renamed);self.assertNotIn('app/eigo-no-e.html',renamed)
-        self.assertEqual(renamed['app/pictpedia.html'],a['app/pictpedia.html'])
+        self.assertIn('app/pictlingo-dictionary.html',renamed);self.assertNotIn('app/eigo-no-e.html',renamed)
+        self.assertEqual(renamed['app/pictlingo-dictionary.html'],a['app/pictlingo-dictionary.html'])
+        rebuilt_entry=renamed['app/pictlingo-dictionary.html'].decode()
+        self.assertNotIn('english-paraphrases',rebuilt_entry)
+        self.assertNotIn('wordParaphrase',rebuilt_entry)
+        self.assertIn('dictionary-basics.js',rebuilt_entry)
+        self.assertIn('custom-learning-levels.js',rebuilt_entry)
+        self.assertEqual(rebuilt_entry.count('eigo-no-e/app.js'),1)
         text=a['app/eigo-no-e/data.js'].decode();self.assertNotIn('"d":',text);self.assertNotIn('"b":',text)
         data=json.loads(text[text.index('{'):text.rindex('}')+1]);row=data['words'][0]
         self.assertEqual(row['ja'],'本');self.assertEqual(row['k'],'ほん');self.assertIn('c',row)

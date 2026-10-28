@@ -14,11 +14,10 @@
 <script src="../assets/chara/brainrot/selection-sync.js?v=20261014"></script>
 <script src="../assets/chara/brainrot/library/library.js?v=20261019-notes42"></script>
 <script src="../assets/chara/brainrot/site-characters.js?v=20261019-notes42"></script>
-<script src="shared/rarity-presentation.js"></script>
-<script src="shared/wild-wordopia-details.js"></script>
+<script src="shared/rarity-presentation.js?v=b2bf6d03d095"></script>
+<script src="shared/wild-wordopia-details.js?v=cd54ff384252"></script>
 <script src="data/wild-wordopia-pictures.js"></script>
-<link rel="stylesheet" href="shared/rarity-presentation.css?v=wild-details-20261020">
-<link rel="stylesheet" href="shared/english-paraphrases.css">
+<link rel="stylesheet" href="shared/rarity-presentation.css?v=fbc61c711f85">
 <style>
 /* ===== tokens ===== */
 :root{
@@ -289,8 +288,6 @@ footer .logoS{-webkit-text-stroke:0;color:#fff;font-size:22px}
 .sib .ph{display:grid;place-items:center;background:color-mix(in srgb,var(--c) 22%,#fff);font-family:var(--f-head);font-size:28px}
 .sib b{font-family:var(--f-head);font-weight:400;font-size:16px;line-height:1.2;overflow-wrap:anywhere}
 .sib small{font-size:11.5px;color:var(--mute);line-height:1.35}
-.lvl{font-size:14px}
-.lvl small{display:block;color:var(--mute);font-size:12px;font-weight:500}
 @media(max-width:820px){.dTop{grid-template-columns:1fr}.plate{max-width:420px;width:100%;margin:0 auto}}
 
 /* branches page */
@@ -307,6 +304,7 @@ footer .logoS{-webkit-text-stroke:0;color:#fff;font-size:22px}
 @media(max-width:600px){.jacob{flex-direction:column;align-items:flex-start}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 </style>
+<script src="shared/manager-site-images.js"></script>
 </head>
 <body>
 <header class="top">
@@ -393,8 +391,8 @@ footer .logoS{-webkit-text-stroke:0;color:#fff;font-size:22px}
   <div class="wrap">
     <h2 class="h2" id="xh" style="font-size:clamp(20px,2.4vw,28px)">もっと奥へ</h2>
     <div class="exits">
-      <a class="exit" href="etymon-explorer.html"><b>語源データベース</b><span>1,436の祖先と、その子孫の英単語をすべて引ける。</span></a>
-      <a class="exit" href="pictpedia.html"><b>Pictpedia</b><span>英単語のイラスト辞典。絵からことばをさがせる。</span></a>
+      <a class="exit" href="vocabulary-master.html"><b>語源データベース</b><span>1,436の祖先と、その子孫の英単語をすべて引ける。</span></a>
+      <a class="exit" href="pictlingo-dictionary.html"><b>Pictlingo Dictionary</b><span>英単語のイラスト辞典。絵からことばをさがせる。</span></a>
       <a class="exit" href="etymopedia.html"><b>エティモペディア</b><span>祖先ごとの家系図と、絵つきの単語事典。</span></a>
       <a class="exit" href="index.html"><b>ゲーム</b><span>ワイルドたちと遊ぶゲームと単語パズル。</span></a>
     </div>
@@ -416,13 +414,13 @@ const EXTRA=window.WILDWORDOPIA_PICTURES||{branches:[],grimm:{pairs:[]}};
 let ALL=[],BY={};
 function loadChars(){ALL=((window.ETYMOPEDIA_BRAINROT&&window.ETYMOPEDIA_BRAINROT.characters)||[]).map((c,i)=>({...c,no:i+1}));BY={};ALL.forEach(c=>BY[c.id]=c);document.querySelectorAll(".nTotal").forEach(e=>e.textContent=ALL.length);}
 loadChars();
-const img=c=>ART+c.file;
+const img=c=>window.WILDWORDOPIA_MANAGER_IMAGE?.(c)||ART+c.file;
 const no=c=>"No."+String(c.no).padStart(3,"0");
 const lesson=c=>(c.candidates&&c.candidates[0]&&c.candidates[0].lessonSnapshot)||{};
 const meaning=c=>c.meaning||(c.rootCharacterName&&c.rootCharacterName.meaningJa)||c.meaningEn||"";
 
 /* ---------- dictionary (loaded async) ---------- */
-let D=null,FAM=new Map(),CHAR_BY_KEY=new Map();
+let D=null,wordLearning=null,FAM=new Map(),CHAR_BY_KEY=new Map();
 function family(c){if(!D)return null;const R=D.roots;return R[c.rootKey]||R[String(c.root||"").replace(/^\*/,"")]||R[D.aliases[c.id]]||null;}
 const famWords=c=>{const r=family(c);return r?FAM.get(r.key)||[]:[];};
 const famCount=c=>{const n=famWords(c).length;return n||c.descendantCount||0;};
@@ -430,7 +428,8 @@ const wildRarity=c=>{const n=famCount(c);return n>=150?1:n>=100?2:n>=75?3:n>=60?
 const starStr=c=>"★".repeat(wildRarity(c));
 function indexDict(){FAM=new Map();for(const w of D.rows)for(const p of w.p||[]){if(!FAM.has(p))FAM.set(p,[]);FAM.get(p).push(w);}
   CHAR_BY_KEY=new Map();ALL.forEach(c=>{const r=family(c);if(r&&!CHAR_BY_KEY.has(r.key))CHAR_BY_KEY.set(r.key,c);});}
-const byR=(a,b)=>(a.r>0?a.r:99999)-(b.r>0?b.r:99999)||a.w.localeCompare(b.w);
+const levelFor=row=>wordLearning?.lookup(row)?.level;
+const byLearning=(a,b)=>(levelFor(a)??999)-(levelFor(b)??999)||a.w.localeCompare(b.w);
 
 /* ---------- word pictures ---------- */
 function pic(row){const p=PICS[row.dictionaryIndex];return p&&p.w===row.w?p:null;}
@@ -478,7 +477,7 @@ function search(){
   if(!D){out.innerHTML=html+`<p class="loading">英単語の辞書を読み込んでいます…</p>`;return;}
   const ascii=/^[a-z' .-]+$/.test(q);
   let rows=ascii?D.rows.filter(r=>r.w.toLowerCase().startsWith(q)):D.rows.filter(r=>r.ja&&r.ja.includes(raw));
-  rows.sort((a,b)=>(b.w.toLowerCase()===q)-(a.w.toLowerCase()===q)||(!!CHAR_BY_KEY.size&&(b.p.some(k=>CHAR_BY_KEY.has(k))-a.p.some(k=>CHAR_BY_KEY.has(k))))||byR(a,b));
+  rows.sort((a,b)=>(b.w.toLowerCase()===q)-(a.w.toLowerCase()===q)||(!!CHAR_BY_KEY.size&&(b.p.some(k=>CHAR_BY_KEY.has(k))-a.p.some(k=>CHAR_BY_KEY.has(k))))||byLearning(a,b));
   const total=rows.length;rows=rows.slice(0,20);
   html+=rows.length?`<p class="rHead">英単語 ${total>20?`（${total}件中20件）`:`${total}件`}</p>${rows.map(r=>`<a class="rWord" href="${wordHref(r)}">${thumbHTML(r,"th",CHAR_BY_KEY.get(r.p[0]))}<div><span class="hw">${esc(r.w)}</span><span class="ja">${esc(r.ja)}</span>${ancHTML(r)}</div></a>`).join("")}`
     :(chars.length?"":`<p class="loading">「${esc(raw)}」はまだ収録されていません。綴りを短くするか、日本語の意味で試してください。</p>`);
@@ -523,7 +522,7 @@ function renderRoads(){$("#grimmPairs").innerHTML=grimmHTML();}
 function motifRows(c){const fam=famWords(c),out=[],seen=new Set();
   for(const m of c.motifs||[]){if(seen.has(m.word))continue;seen.add(m.word);const hits=fam.filter(w=>w.w===m.word);const row=hits.find(w=>pic(w))||hits[0];out.push(row?{row,m}:{row:null,m});}
   return out;}
-function mapWords(c){const ms=motifRows(c).slice(0,5);if(ms.length<4){const have=new Set(ms.map(x=>x.m.word));for(const w of famWords(c).filter(pic).sort(byR)){if(ms.length>=4)break;if(have.has(w.w))continue;have.add(w.w);ms.push({row:w,m:{word:w.w,ja:w.ja}});}}return ms;}
+function mapWords(c){const ms=motifRows(c).slice(0,5);if(ms.length<4){const have=new Set(ms.map(x=>x.m.word));for(const w of famWords(c).filter(pic).sort(byLearning)){if(ms.length>=4)break;if(have.has(w.w))continue;have.add(w.w);ms.push({row:w,m:{word:w.w,ja:w.ja}});}}return ms;}
 function nodeHTML(c,{row,m}){const p=row&&pic(row);const href=row?wordHref(row):"#/w/"+encodeURIComponent(c.id);
   return `<a class="wnode" href="${href}" style="--c:${esc(c.color)}">${p?`<span class="wi"><img src="${picURL(p)}" alt=""></span>`:`<span class="wi ph" aria-hidden="true">${esc(m.word.charAt(0))}</span>`}<b>${esc(m.word)}</b><small>${esc(row?row.ja:m.ja)}</small></a>`;}
 function highlightWords(text,words){let h=esc(text);[...new Set(words)].filter(w=>w&&w.length>1).sort((a,b)=>b.length-a.length).forEach(w=>{h=h.replace(new RegExp(`(^|[^A-Za-z])(${w.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")})(?![A-Za-z])`,"g"),"$1<mark>$2</mark>");});return h;}
@@ -582,7 +581,7 @@ function showChar(id){
   </section>
 
   <section class="sec" style="display:flex;flex-wrap:wrap;gap:10px">
-    <a class="btn" href="etymon-explorer.html#root:${encodeURIComponent((r&&r.key)||c.rootKey||"")}">語源データベースで見る</a>
+    <a class="btn" href="vocabulary-master.html#root:${encodeURIComponent((r&&r.key)||c.rootKey||"")}">語源データベースで見る</a>
     <a class="btn" href="#/w/${encodeURIComponent(next.id)}">次のワイルド: ${esc(next.kana)}</a>
   </section>
   </div>`,`${c.kana}（「${meaning(c)}」の祖先）`);
@@ -610,12 +609,12 @@ addEventListener("resize",drawLines);document.fonts&&document.fonts.ready.then(d
 document.addEventListener("load",e=>{if(e.target.closest&&e.target.closest(".rootMap"))drawLines();},true);
 
 function renderWL(){const c=wl.c,box=$("#wlist");if(!c||!box||!D)return;
-  const all=famWords(c).slice().sort(byR);
+  const all=famWords(c).slice().sort(byLearning);
   const rows=all.filter(w=>(!wl.g||w.g===wl.g||(w.gs||[]).includes(wl.g))&&(!wl.q||[w.w,w.ja,w.en,w.b].join(" ").toLowerCase().includes(wl.q)));
   $("#gFilter").innerHTML=wl.g?`<button type="button" class="chip" aria-pressed="true" id="gClear">${REGION[wl.g]}だけ ✕</button>`:"";
   const gc=$("#gClear");if(gc)gc.onclick=()=>{wl.g="";renderWL();};
   let tier=-1,html="";
-  for(const w of rows.slice(0,wl.limit)){const m=EtymonRarity.numeric(w.r,"list");if(m.stars!==tier){if(tier!==-1)html+="</div>";tier=m.stars;html+=`<div class="tierH">${EtymonRarity.html(m)}</div><div class="wl">`;}
+  for(const w of rows.slice(0,wl.limit)){const m=EtymonRarity.learning(levelFor(w),"list");if(m.stars!==tier){if(tier!==-1)html+="</div>";tier=m.stars;html+=`<div class="tierH">${EtymonRarity.html(m)}</div><div class="wl">`;}
     html+=`<a class="wrow" href="${wordHref(w)}" style="--c:${esc(c.color)}">${thumbHTML(w,"th",c)}<span class="hw">${esc(w.w)}${viaHTML(w)}</span><span class="txt"><span class="ja">${esc(w.ja)}</span>${w.b?`<span class="b">${esc(w.b)}</span>`:""}</span></a>`;}
   if(tier!==-1)html+="</div>";
   box.innerHTML=html||`<p class="loading">一致する単語はありません。</p>`;
@@ -624,12 +623,6 @@ function renderWL(){const c=wl.c,box=$("#wlist");if(!c||!box||!D)return;
 }
 
 /* ======================= word page ======================= */
-let svcP=null;
-function loadScript(src){return new Promise((res,rej)=>{if(document.querySelector(`script[data-src="${src}"]`))return res();const s=document.createElement("script");s.src=src;s.dataset.src=src;s.onload=res;s.onerror=()=>rej(Error("読み込めませんでした: "+src));document.head.append(s);});}
-let lvP=null;
-function learningSvc(){return lvP||(lvP=(async()=>{await Promise.all(["shared/custom-learning-levels.js","data/generated-etymon/custom-learning-levels.js"].map(loadScript));return EtymonCustomLearningLevels.decode(ETYMON_CUSTOM_LEARNING_LEVELS);})());}
-function paraSvc(){return svcP||(svcP=(async()=>{await Promise.all(["shared/english-paraphrases.js","data/generated-etymon/english-paraphrases.js","data/generated-etymon/dictionary-basics.js"].map(loadScript));
-  const basics=await EnglishParaphrases.decode(ETYMON_DICTIONARY_BASICS_GZIP);return EnglishParaphrases.create(ETYMON_ENGLISH_PARAPHRASES,basics);})());}
 
 function showWord(idx){
   if(!D){view(`<div class="wrap"><p class="loading" style="padding:60px 0">辞書を読み込んでいます…</p></div>`,"単語");return;}
@@ -638,8 +631,8 @@ function showWord(idx){
   const main=anc.find(a=>a.c&&a.c.id===lastChar)||anc.find(a=>a.c)||anc[0]||{};
   const col=(main.c&&main.c.color)||"#9ab";
   const p=pic(row);
-  const sib=(FAM.get(main.k)||[]).filter(w=>w.w!==row.w).sort((a,b)=>(!!pic(b))-(!!pic(a))||byR(a,b)).slice(0,12);
-  const rar=EtymonRarity.numeric(row.r,"detail");
+  const sib=(FAM.get(main.k)||[]).filter(w=>w.w!==row.w).sort((a,b)=>(!!pic(b))-(!!pic(a))||byLearning(a,b)).slice(0,12);
+  const level=EtymonRarity.learning(levelFor(row),"detail");
   view(`<div class="wrap" style="--c:${esc(col)}">
   <div class="crumb">${main.c?`<a href="#/w/${encodeURIComponent(main.c.id)}">← ${esc(main.c.kana)}の一族</a>`:`<a href="#find">← さがすにもどる</a>`}</div>
   <section class="dTop">
@@ -650,8 +643,7 @@ function showWord(idx){
       ${row.phonetic||row.k||row.kana?`<p class="ipa">${esc(String(row.phonetic||"").replace(/、$/,""))}${(row.k||row.kana)?` <span style="font-family:var(--f-body);color:var(--mute)">${row.phonetic?"／":""}${esc(row.k||row.kana)}</span>`:""}</p>`:""}
       <p class="dJa">${row.pos?`<span class="pos">${esc(row.pos)}</span>`:""}${esc(row.ja)}</p>
       ${row.en?`<p class="dEn" lang="en">${esc(row.en)}</p>`:""}
-      <div class="badges">${EtymonRarity.html(rar)}${viaHTML(row)}</div>
-      <p class="lvl" id="lvl"></p>
+      <div class="badges">${EtymonRarity.html(level)}${viaHTML(row)}</div>
       ${row.b?`<div class="memo" style="margin-top:18px"><h4>語源メモ</h4><p>${esc(row.b)}</p></div>`:""}
     </div>
   </section>
@@ -665,20 +657,16 @@ function showWord(idx){
     <div class="ancNotes">${anc.filter(a=>a.r&&(a.r.d||a.r.def)).map(a=>`<details><summary>*${esc(a.r.pie)}「${esc(a.r.ja)}」ってどんな祖先？</summary><p>${esc(a.r.d||a.r.def)}</p></details>`).join("")}</div>
   </section>`:`<section class="sec"><h3>この語の祖先</h3><p class="sub">この語の祖先は、まだデータベースで特定されていません。</p></section>`}
 
-  <section class="sec" id="paraSec"><div id="para"><p class="loading">英語での言い換えを読み込んでいます…</p></div></section>
-
   ${sib.length?`<section class="sec" aria-labelledby="sbH"><h3 id="sbH">同じ祖先の仲間</h3><p class="sub">${main.c?`${esc(main.c.kana)}`:`*${esc(main.r?main.r.pie:"")}`}「${esc(main.c?meaning(main.c):(main.r?main.r.ja:""))}」から生まれた別の英単語。</p>
     <div class="sibs">${sib.map(w=>`<a class="sib" href="${wordHref(w)}" style="--c:${esc(col)}">${pic(w)?`<img src="${picURL(pic(w),true)}" alt="" loading="lazy">`:`<span class="ph" aria-hidden="true">${esc(w.w.charAt(0))}</span>`}<b lang="en">${esc(w.w)}</b><small>${esc(w.ja)}</small></a>`).join("")}</div>
     ${main.c?`<p style="margin-top:18px"><a class="btn" href="#/w/${encodeURIComponent(main.c.id)}">${esc(main.c.kana)}の一族をぜんぶ見る</a></p>`:""}</section>`:""}
 
   <section class="sec" style="display:flex;flex-wrap:wrap;gap:10px">
-    <a class="btn" href="pictpedia.html#/w/dictionary:${row.dictionaryIndex}">Pictpediaで開く</a>
-    <a class="btn" href="etymon-explorer.html#root:${encodeURIComponent(main.k||"")}">語源データベースで見る</a>
+    <a class="btn" href="pictlingo-dictionary.html#/w/dictionary:${row.dictionaryIndex}">Pictlingo Dictionaryで開く</a>
+    <a class="btn" href="vocabulary-master.html#root:${encodeURIComponent(main.k||"")}">語源データベースで見る</a>
   </section>
   </div>`,`${row.w}（${row.ja}）`);
-  const here=()=>location.hash===`#/d/${idx}`;
-  learningSvc().then(L=>{if(!here())return;const lv=L.lookup(row);$("#lvl").innerHTML=lv?`学習の目安 Lv.${esc(lv.level)}${lv.basis!=="cefr_pos_match"?"（推定）":""}<small>10段階。レア度とは別の指標です。</small>`:"";}).catch(()=>{});
-  paraSvc().then(P=>{if(!here())return;EnglishParaphrases.render($("#para"),row,P,"pictpedia.html");}).catch(()=>{const el=$("#paraSec");if(el&&here())el.remove();});
+
 }
 
 /* ======================= branches page ======================= */
@@ -717,7 +705,7 @@ addEventListener("keydown",e=>{if($("#view").hidden||e.target.closest("input"))r
 function renderHome(){renderTries();renderTrivia();renderGrid();renderRoads();}
 window.addEventListener("wildwordopia-selection-changed",()=>{loadChars();if(D)indexDict();buildWorld();renderHome();route();});
 buildWorld();renderHome();route();
-WildWordDetails.loadDictionary().then(data=>{D={rows:data.rows,roots:data.roots,aliases:data.aliases};indexDict();document.body.dataset.familyData="ready";
+Promise.all([WildWordDetails.loadDictionary(),WildWordDetails.loadLearning().catch(()=>null)]).then(([data,learning])=>{wordLearning=learning;D={rows:data.rows,roots:data.roots,aliases:data.aliases};indexDict();document.body.dataset.familyData="ready";
   renderGrid();renderRoads();if($("#q").value)search();if(!$("#view").hidden)route();})
  .catch(e=>{document.body.dataset.familyData="failed";const n=document.createElement("p");n.className="loading";n.textContent="英単語の辞書を読み込めませんでした: "+e.message+"（http経由で開くと読み込めることがあります）";$("#results").before(n);});
 </script>

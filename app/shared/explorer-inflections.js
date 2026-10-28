@@ -3,7 +3,7 @@
    generic past form as a standalone illustrated word. */
 (function(root){
 'use strict';
-if(!root?.document||!/\/etymon-explorer\.html$/.test(root.location.pathname))return;
+if(!root?.document||!/\/vocabulary-master\.html$/.test(root.location.pathname))return;
 const doc=root.document;
 const morphologyScript=doc.createElement('script');morphologyScript.src='shared/nominal-adjective-inflections.js?v=3e8b9061212d';morphologyScript.onload=()=>schedule();doc.head.append(morphologyScript);
 const style=doc.createElement('style');
