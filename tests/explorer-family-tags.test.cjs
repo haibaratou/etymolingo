@@ -21,7 +21,7 @@ test('family whitelist handles source language codes beyond the three main famil
 test('exported composition uses component meanings rather than the complete word story',()=>{
  const parts=JSON.parse(fs.readFileSync(path.join(__dirname,'../app/data/generated-etymon/word-parts.json'),'utf8'));
  const entry=(w,p)=>parts[JSON.stringify([w,p])];
- assert.equal(entry('disorder','dwis-+ōrd-'),'dis（否定）＋order（秩序）');
+ assert.equal(entry('disorder','dwis-+ar-'),'dis（否定）＋order（秩序）');
  assert.equal(entry('discourse','dwis-+kers-2'),'dis（離れて）＋course（走る）');
  assert.equal(entry('unexpected','ne+eghs+spek-'),'un（否定）＋ex（十分に）＋pect（観察する）＋ed（〜した）');
 });

@@ -10,6 +10,14 @@ const between=(text,start,end)=>text.slice(text.indexOf(start),text.indexOf(end,
 const unpack=b64=>JSON.parse(zlib.gunzipSync(Buffer.from(b64,'base64')));
 const pack=data=>zlib.gzipSync(JSON.stringify(data)).toString('base64');
 
+test('root labels distinguish direct lemmas, uncertain reconstructions and legacy references',()=>{
+ const context={};vm.runInNewContext(html.match(/^function rootLabel\([^]*?^}/m)[0],context);
+ assert.equal(context.rootLabel({key:'arkhein',kind:'greek_lemma'}),'ギリシャ語 arkhein');
+ assert.equal(context.rootLabel({key:'merph-',kind:'unverified_reconstruction'}),'由来未確定 merph-');
+ assert.equal(context.rootLabel({key:'ōrd-',kind:'legacy_alias',display_form:'ōrd- → ar-'}),'旧参照 ōrd- → ar-');
+ assert.equal(context.rootLabel({key:'ar-'}),'*ar-');
+});
+
 test('root chips show uncertain relations without converting them into proven etymologies',()=>{
  const context={esc:s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))};
  vm.runInNewContext(html.match(/^function rootLabel\([^]*?^}/m)[0]+'\n'+between(html,'const ROOT_BY=new Map();','/* この語根がどの道'),context);

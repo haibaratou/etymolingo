@@ -4,15 +4,15 @@
   "files": {
     "roots": {
       "file": "roots.json",
-      "bytes": 893515,
+      "bytes": 891181,
       "count": 1436,
-      "sha256": "094ac3ee4adfe3d83b54ffede63d2b0f4fdccd8e6ac98b589d25c5389dc2d0a6"
+      "sha256": "0fb4340aae4b891087e48470d598cd7f8077bbf1616b79f618a1d11e869dbe6c"
     },
     "words": {
       "file": "words.json",
-      "bytes": 24630517,
+      "bytes": 24637279,
       "count": 49180,
-      "sha256": "647e4cda301be637c287c66dac3528d59d1a8ef9b46b5fdfd2582b19d8855dde"
+      "sha256": "dd4be3f4aba8ceaafb3dcca2b00c8c0d6a0595510d3b58efcbbd1cceed7a24b9"
     },
     "affixes": {
       "file": "affixes.json",
@@ -46,9 +46,9 @@
     },
     "word_parts": {
       "file": "word-parts.json",
-      "bytes": 189595,
+      "bytes": 189419,
       "count": 2169,
-      "sha256": "25717190800107f1f15c2da459bd4b2838cf0cfe596920d90e402b06a8e0eac5",
+      "sha256": "60c65f525acfb08acd290863b18406d9f1d5d3f9c53ee6f6764b16b4afcaec0e",
       "meaning_basis": "component-core-v2"
     },
     "multilingual_answers": {
@@ -59,9 +59,9 @@
     },
     "illustration_scenes": {
       "file": "illustration-scenes.json",
-      "bytes": 14003154,
+      "bytes": 14002962,
       "count": 11007,
-      "sha256": "126031ddd3c369379ce77fd05e7e8875747f55d79d7526cb5456757c5ae3392b"
+      "sha256": "7b5bf9f8005302232b947296e73032d232687ee0f6bcb992fcf588aa1286792c"
     },
     "illustration_review_status": {
       "file": "illustration-review-status.js",
@@ -71,9 +71,9 @@
     },
     "word_suika_words": {
       "file": "word-suika-words.json",
-      "bytes": 3907688,
+      "bytes": 3912150,
       "count": 15018,
-      "sha256": "d2fee810997d0c59793d0ff605e954ddd450bf1941e09c240db45881f3248756"
+      "sha256": "effbeb962e1f720942a9cdd36f683cdc74f88a0accf3a426b4c9e49e6b0bb97b"
     },
     "det": {
       "file": "det/*.json",
@@ -93,12 +93,12 @@
     },
     "offline_dictionary": {
       "file": "offline-dictionary.js",
-      "words_sha256": "21ccc9ed3311ecccf6929e218178ba89b19a2adcb2ed5dacf1936d39f8cde6ba",
+      "words_sha256": "7c21f13fffd0b78cec92a9dec6372266e6959e5b7761d36d7be79684dba251b4",
       "parts": [
         {
           "file": "offline-dictionary.js",
           "bytes": 1380,
-          "sha256": "86ad311f9ec30bf4f383c8667e1ffe66aecad8bdc5f52259377f721b49f91a3a"
+          "sha256": "8ba467ef5b825d4323e2373fd6049b9988211c16239a8a900dc5dd6fa09c7d7c"
         },
         {
           "file": "offline-dictionary-part-bd8809b373ac-00.js",
