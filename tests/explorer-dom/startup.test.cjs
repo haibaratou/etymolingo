@@ -17,6 +17,8 @@ test('root labels distinguish direct lemmas, uncertain reconstructions and legac
  assert.equal(context.rootLabel({key:'ōrd-',kind:'legacy_alias',display_form:'ōrd- → ar-'}),'旧参照 ōrd- → ar-');
  assert.equal(context.rootLabel({key:'ar-'}),'*ar-');
  assert.equal(context.rootLabel({key:'-tro-',kind:'pie_formative'}),'PIEの語形成 -tro-');
+ assert.equal(context.rootLabel({key:'snu-',kind:'germanic_sound_symbolism'}),'ゲルマン語の擬音的要素 snu-');
+ assert.equal(context.rootLabel({key:'Frankon-',kind:'germanic_lemma',display_form:'Franko'}),'ゲルマン語 Franko');
 });
 
 test('PIE formatives remain assigned PIE evidence for the dictionary filter',()=>{
@@ -27,6 +29,12 @@ test('PIE formatives remain assigned PIE evidence for the dictionary filter',()=
  assert.equal(context.hasPieRoot({p:['autos']}),false);
  assert.equal(context.hasPieRoot({p:['merph-']}),false);
  assert.equal(context.hasPieRoot({p:[]}),false);
+});
+
+test('Germanic sound symbolism is not counted as PIE ancestry',()=>{
+ const context={ROOT_BY:new Map([['snu-',{kind:'germanic_sound_symbolism'}]])};
+ vm.runInNewContext(html.match(/^function hasPieRoot\([^]*?^}/m)[0],context);
+ assert.equal(context.hasPieRoot({p:['snu-']}),false);
 });
 
 test('root chips show uncertain relations without converting them into proven etymologies',()=>{
