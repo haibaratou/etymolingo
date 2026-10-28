@@ -3362,7 +3362,6 @@ globalThis.ETYMON_WORD_ART = {
   "[\"autonomy\",\"nem-\"]": "autonomy",
   "[\"autopilot\",\"\"]": "autopilot",
   "[\"autopsy\",\"autos+okʷ-\"]": "autopsy",
-  "[\"autumn\",\"au-2+temə-1\"]": "autumn",
   "[\"auxiliary\",\"aug-\"]": "auxiliary",
   "[\"auxin\",\"aug-\"]": "auxin",
   "[\"avail\",\"ad-+wal-\"]": "avail",
@@ -10486,7 +10485,6 @@ globalThis.ETYMON_WORD_ART = {
   "[\"ministry\",\"mei-2\"]": "ministry",
   "[\"minor\",\"mei-2\"]": "minor",
   "[\"minority\",\"mei-2\"]": "minority",
-  "[\"mint\",\"mon-\"]": "mint",
   "[\"minus\",\"mei-2\"]": "minus",
   "[\"minutes\",\"\"]": "minutes",
   "[\"miracle\",\"smei-\"]": "miracle",
@@ -10599,8 +10597,6 @@ globalThis.ETYMON_WORD_ART = {
   "[\"monarchy\",\"men-4+arkhein\"]": "monarchy",
   "[\"monastery\",\"men-4\"]": "monastery",
   "[\"monastic\",\"men-4\"]": "monastic",
-  "[\"monetary\",\"mon-\"]": "monetary",
-  "[\"money\",\"mon-\"]": "money",
   "[\"monitor\",\"men-1\"]": "monitor",
   "[\"monk\",\"men-4\"]": "monk",
   "[\"monkey\",\"\"]": "monkey",
@@ -17507,5 +17503,9 @@ globalThis.ETYMON_WORD_ART = {
   "[\"infested\",\"\"]": "infested",
   "[\"manifest\",\"man-2\"]": "manifest",
   "[\"manifestation\",\"man-2\"]": "manifestation",
-  "[\"manifesto\",\"man-2\"]": "manifesto"
+  "[\"manifesto\",\"man-2\"]": "manifesto",
+  "[\"autumn\",\"\"]": "autumn",
+  "[\"mint\",\"\"]": "mint",
+  "[\"monetary\",\"\"]": "monetary",
+  "[\"money\",\"\"]": "money"
 };
