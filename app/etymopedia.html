@@ -409,10 +409,12 @@ footer b{color:var(--ink)}
 
 <script src="../assets/word/illustration-index.js?v=a1d65cc03e86"></script>
 <script src="shared/rarity-presentation.js?v=b2bf6d03d095"></script>
-<script src="shared/custom-learning-levels.js?v=6e4bce3f02ce"></script>
-<script src="data/generated-etymon/custom-learning-levels.js?v=f5cfb48d7e4b"></script>
-<script src="data/generated-etymon/dictionary-basics.js?v=0af8aa359283"></script>
-<script src="support/etymopedia/learning-levels.js?v=3fb424badd79"></script>
+<script src="data/generated-etymon/weblio-learning-levels.js?v=e6a41b9d8680"></script>
+<script src="data/generated-etymon/learning-levels.js?v=48bcf2f15474"></script>
+<script src="shared/explorer-difficulty-v2.js?v=9dc8fbefa448" data-api-only="true"></script>
+<script src="support/etymopedia/current-data.js?v=32f1f0accb5d"></script>
+<script src="support/etymopedia/learning-levels.js?v=f6f925982677"></script>
+<link rel="stylesheet" href="support/etymopedia/learning-levels.css?v=e43369502e71">
 <script>
 "use strict";
 /* ====== 埋め込みデータ(file://フォールバック用。http時はCSVが優先) ====== */
@@ -617,7 +619,18 @@ async function loadAll(){
     // note はエティモン探索の語源メモ(それ自体が完結した一文)なので、そのまま語源メモ欄へ
     byId[w]={w,root:rootId,split:lexSplitFor(w,morphs),morphs,ipa:"",pos:"",jp,gloss:jp,memo:note||lexMemoFor(w,jp,note),region:via||"",p:pl||[],lexOnly:true,ex:lexExampleOf(w)};
   }));
-  try{LEVELS=await EtymopediaLearning.load();}catch(error){console.warn("Current word levels unavailable",error);}
+  try{
+    LEVELS=await EtymopediaLearning.load();
+    LEVELS.apply(WORDS,LEXICON,ROOTS,byId);
+    window.etymopediaLevels=LEVELS;
+  }catch(error){console.warn("Current word data unavailable",error);}
+  window.etymopediaWord=(word,roots)=>{
+    const entry=byId[word];
+    if(entry&&JSON.stringify(entry.p||[])===JSON.stringify(roots))return entry;
+    for(const rows of Object.values(LEXICON))for(const [w,via,jp,note,p] of rows)if(w===word&&JSON.stringify(p||[])===JSON.stringify(roots))return {w,jp,p};
+    return null;
+  };
+  EtymopediaLearning.bind();
 }
 
 /* ---- 形態素 ---- */
@@ -790,7 +803,7 @@ function renderWordGrid(q){
         ${top?`<img src="${top.img}">`:`<img src="${imgURL(PLACEHOLDER_ART)}" alt="">`}
         <div class="cardMorphs">${wordConceptKeys(w).filter(k=>(CONCEPTS[k]||{}).icon).map(k=>conceptChipHTML(k,true)).join("")}</div>
       </div>
-      <div class="body"><div class="stars">${levelPill(wordLevel(w))}</div><div class="hw">${splitHW(w)}</div><div class="jp">${w.jp}</div></div>
+      <div class="body"><div class="stars">${levelPill(wordLevel(w),false,w)}</div><div class="hw">${splitHW(w)}</div><div class="jp">${w.jp}</div></div>
     </div>`;
   }).join("");
 }
@@ -807,9 +820,10 @@ function renderWord(name){
       ${etymonBgHTML(w)}
       <div class="entryMain" style="--rc:${r.c}">
         <div class="entryHW">${splitHW(w)}<button class="spk" data-say="${w.w}" title="発音を再生" onclick="event.stopPropagation();say(this.dataset.say)">🔊</button></div>
-        ${w.ipa?`<div class="entryIPA">${w.ipa}</div>`:""}
+        <div class="entryIPA" id="entryIPA">${w.ipa||""}</div>
         <div class="entryJP">${w.pos?`<span class="posTag">${w.pos}</span>`:""}${w.jp}</div>
-        <div class="entryStars">${levelPill(wordLevel(w),true)}${w.region&&viaCls(w.region)?`<span class="via ${viaCls(w.region)} entryVia" title="語派のはなしへ" onclick="location.hash='#/branches'">${regionLabel(w.region)}</span>`:""}</div>
+        <div class="entryStars">${levelPill(wordLevel(w),true,w)}${w.region&&viaCls(w.region)?`<span class="via ${viaCls(w.region)} entryVia" title="語派のはなしへ" onclick="location.hash='#/branches'">${regionLabel(w.region)}</span>`:""}</div>
+        ${w.canonicalStatus&&w.canonicalStatus!=="matched"?`<span class="canonical-hold">正本との照合が未完了のため更新保留。難易度をタップすると詳細を確認できます。</span>`:""}
         <div class="entryMorphRow">${conceptRowHTML(wordConceptKeys(w))}</div>
         ${w.ex?`<div class="exBox"><div class="en">${w.ex.en}</div><div class="ja">${w.ex.ja}</div></div>`:""}
         ${w.memo?`<div class="memo"><span class="mt">語源メモ</span><br>${w.memo}</div>`:""}
@@ -824,6 +838,8 @@ function renderWord(name){
     <div class="familyRow"><h3>${r.r} の仲間</h3>
       <div class="fwords">${family.map(f=>`<span class="fword" onclick="location.hash='#/word/${f.w}'">${f.w}</span>`).join("")}
         <span class="fword" style="background:${r.c};color:#fff;border-color:${r.c}" onclick="location.hash='#/root/${w.root}'">${r.r} の家系図へ →</span></div></div>`;
+  const currentHash=location.hash;
+  if(LEVELS?.status(w).status==="matched")LEVELS.phonetic(w).then(ipa=>{if(location.hash===currentHash&&$("#entryIPA"))$("#entryIPA").textContent=ipa;}).catch(error=>console.warn("Current phonetic unavailable",error));
 }
 
 /* ---- 語派(地域)ラベル。L=ロマンス(旧ラテン) ---- */
@@ -831,9 +847,9 @@ const REGION_NAMES={G:"ゲルマン",L:"ロマンス",Gr:"ギリシャ",S:"サ�
 function regionLabel(code){return REGION_NAMES[code]||code||"";}
 function regionCls(code){if(code==="S")code="Sa";return REGION_NAMES[code]?`reg-${code}`:"";}
 function viaCls(code){if(code==="S")code="Sa";return REGION_NAMES[code]?code:"";}
-/* ---- 現在の独自レベル。確認できた値と同じ数の星を表示する。 ---- */
+/* ---- 正本の独自10段階を維持し、星だけ半分・最大5個で表示する。 ---- */
 function wordLevel(row){return LEVELS?.lookup(row)?.level??null;}
-function levelPill(level,big){return EtymonRarity.html(EtymonRarity.learning(level,big?'detail':'list'));}
+function levelPill(level,big,word){return EtymopediaLearning.pill(level,big,word);}
 /* 発音の読み上げ(リストの行と単語ページの🔊) */
 function say(t){try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang="en-US";u.rate=.9;speechSynthesis.speak(u);}catch(e){}}
 
@@ -872,13 +888,13 @@ function renderRoot(id){
     return `<div class="drow" onclick="location.hash='#/word/${w}'">
       <span class="dthumb"><img src="${img}" alt="" loading="lazy" onerror="this.src='${imgURL(PLACEHOLDER_ART)}'"></span>
       <span class="dw">${w}<button class="spk sm" data-say="${w}" title="発音を再生" onclick="event.stopPropagation();say(this.dataset.say)">🔊</button></span>${vc?`<span class="via ${vc}" title="語派のはなしへ" onclick="event.stopPropagation();location.hash='#/branches'">${regionLabel(via)}</span>`:`<span class="via none"></span>`}
-      <span class="dj">${jp}</span><span class="dl">${note}</span></div>`;
+      <span class="dj">${jp}</span><span class="dl">${note}${LEVELS&&LEVELS.status({w,jp,p:pl}).status!=="matched"?`<small class="canonical-hold">正本との照合待ち・更新保留</small>`:""}</span></div>`;
   };
   // 独自レベルの値ごとにまとめる。照合できない語は推測せず別枠に置く。
   const dict=[...Array.from({length:10},(_,i)=>i+1),null].map(t=>{
     const arr=lex.filter(([w,via,jp,note,p])=>wordLevel({w,jp,p})===t);
     if(!arr.length)return "";
-    const theme=EtymonRarity.learning(t).theme;
+    const theme=EtymopediaLearning.theme(t);
     return `<details class="tierBox t${theme}" open><summary>${levelPill(t)}<span class="tCount">${arr.length}語</span></summary>${arr.map(drowHTML).join("")}</details>`;
   }).join("");
   $("#view").innerHTML=`
