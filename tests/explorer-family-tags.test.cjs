@@ -3,6 +3,8 @@ const assert=require('node:assert/strict');
 const {resolveFamilyTags}=require('../app/shared/explorer-difficulty-v2.js');
 const fs=require('node:fs');
 const path=require('node:path');
+const components=require('../app/shared/etymological-components.js');
+const componentsUI=require('../app/shared/vocabulary-components-ui.js');
 test('family rendering rejects memo prose, source labels and arbitrary fallback text',()=>{
  assert.deepEqual(resolveFamilyTags({g:'Wt',gs:[],b:'古英語 steam は熱い蒸気'},'G L'),[]);
  assert.deepEqual(resolveFamilyTags({g:'',gs:[]},'G L'),[]);
@@ -21,8 +23,8 @@ test('family whitelist handles source language codes beyond the three main famil
 test('exported composition uses component meanings rather than the complete word story',()=>{
  const parts=JSON.parse(fs.readFileSync(path.join(__dirname,'../app/data/generated-etymon/word-parts.json'),'utf8'));
  const entry=(w,p)=>parts[JSON.stringify([w,p])];
- assert.equal(entry('disorder','dwis-+ar-'),'dis（否定）＋order（秩序）');
- assert.equal(entry('discourse','dwis-+kers-2'),'dis（離れて）＋course（走る）');
+ assert.equal(entry('disorder','dwis-+ar-'),'英語での名詞形成：dis-（否定・逆転・分離）＋order（秩序・順序）');
+ assert.equal(entry('discourse','dwis-+kers-2'),'ラテン語段階の材料：dis-（離れて・否定（接頭辞））＋currere（走る）');
  assert.equal(entry('unexpected','ne+eghs+spek-'),'un（否定）＋ex（十分に）＋pect（観察する）＋ed（〜した）');
 });
 
@@ -60,8 +62,8 @@ test('a known direct-language decomposition remains visible with zero or one PIE
  const vm=require('node:vm');
  const code=html.match(/^function wordParts\([^]*?^}/m)[0];
  const context={WORD_PARTS:parts,esc:s=>String(s)};vm.createContext(context);vm.runInContext(code,context);
- assert.match(context.wordParts({w:'normal',p:[]},true),/norm（基準）＋al（〜に関する）/);
- assert.match(context.wordParts({w:'mission',p:[]}),/miss（送る）＋ion（こと）/);
+ assert.equal(context.wordParts({w:'normal',p:[]},true),'<div class="wordParts"><b>語源組み立て</b><span>ラテン語の形成材料：norma（基準・規則）＋-ālis（関係する形容詞を作る接尾辞）</span></div>');
+ assert.equal(context.wordParts({w:'mission',p:[]}),'<div class="wordParts"><span>ラテン語の名詞祖先：missiō（送ること・派遣）</span></div>');
  assert.match(context.wordParts({w:'transmit',p:['terə-2']}),/mit（送る）/);
  assert.equal(context.wordParts({w:'unreviewed-word',p:['a','b']}),'');
 });
@@ -87,7 +89,7 @@ test('the signum branch, away and inherited inspectorate roots use the corrected
  assert.deepEqual(word('away').p,['an-','wegh-']);
  assert.deepEqual(word('inspectorate').p,['en','spek-']);
  const parts=JSON.parse(fs.readFileSync(path.join(__dirname,'../app/data/generated-etymon/word-parts.json'),'utf8'));
- assert.match(parts[JSON.stringify(['important','en+per-2'])],/ant（〜している）/);
+ assert.equal(parts[JSON.stringify(['important','en+per-2'])],'中世ラテン語の現在分詞：importāre（意味する・重要である）＋-ns（現在分詞を作る語尾（〜している））');
 });
 
 test('contested add ancestry and templum meanings preserve the exact lexical records',()=>{
@@ -102,18 +104,21 @@ test('contested add ancestry and templum meanings preserve the exact lexical rec
  assert.equal(added.length,2);
  assert.ok(added.some(w=>w.p.length===0));
  assert.ok(added.some(w=>JSON.stringify(w.p)===JSON.stringify(['ad-'])));
- assert.equal(parts[JSON.stringify(['add','ad-'])],'ad（〜へ）＋d（置く）');
+ assert.equal(parts[JSON.stringify(['add','ad-'])],'ラテン語段階の材料：ad-（〜へ（接頭辞））＋-dere（置く（複合内の結合要素））');
  assert.equal(parts[JSON.stringify(['add','ad-+dō-'])],undefined);
- assert.match(parts[JSON.stringify(['contemplate','kom+temə-1'])],/templ（占いのための場所）/);
+ assert.equal(parts[JSON.stringify(['contemplate','kom+temə-1'])],'ラテン語段階の材料：com-（共に・一緒に（強意にも用いる接頭辞））＋templum（占兆のために区切った空間・聖域）');
  assert.doesNotMatch(parts[JSON.stringify(['contemplate','kom+temə-1'])],/場所を見る/);
 });
 
 test('attested Latin and Greek references are labelled consistently in titles and word chips',()=>{
  const roots=JSON.parse(fs.readFileSync(path.join(__dirname,'../app/data/generated-etymon/roots.json'),'utf8'));
  const html=fs.readFileSync(path.join(__dirname,'../app/vocabulary-master.html'),'utf8');
- const vm=require('node:vm');const context={ROOT_BY:new Map(roots.map(r=>[r.key,r])),esc:s=>String(s)};
+ const words=roots.map(r=>({w:r.key,p:[r.key]})),mixed={w:'mixed-fixture',p:['autos','men-1']},empty={w:'empty-fixture',p:[]};
+ const prepared=components.prepare({schema:1,entities:[],words:[],aliases:[]},roots);
+ const vm=require('node:vm');const context={ROOT_BY:new Map(roots.map(r=>[r.key,r])),esc:s=>String(s),window:{VocabularyComponentsUI:componentsUI},COMPONENTS:components.bind([...words,mixed,empty],prepared)};
  vm.createContext(context);
- for(const name of ['rootLabel','rootChip','eoTag','hasPieRoot']){
+ vm.runInContext(html.match(/^function componentCoverage\([^]*?^function hasPieRoot\([^]*?^}/m)[0],context);
+ for(const name of ['rootLabel','rootChip','eoTag']){
   vm.runInContext(html.match(new RegExp('^function '+name+'\\([^]*?^}','m'))[0],context);
  }
  for(const [key,label] of [['gerere','ラテン語'],['autos','ギリシャ語'],['servus','ラテン語'],['bassus','ラテン語'],['plumbum','ラテン語'],['angelos','ギリシャ語'],['ferrum','ラテン語'],['asinus','ラテン語'],['kannabis','ギリシャ語'],['philos','ギリシャ語']]){
@@ -122,11 +127,11 @@ test('attested Latin and Greek references are labelled consistently in titles an
   assert.ok(!context.rootChip(key).includes('*'+key));
   assert.match(context.rootChip(key),new RegExp(label+' '+key));
   assert.equal(context.eoTag({...r,eo:'different'}),'');
-  assert.equal(context.hasPieRoot({p:[key]}),false);
+  assert.equal(context.hasPieRoot(words.find(w=>w.w===key)),false);
  }
  assert.match(context.rootChip('gnō-'),/\*gnō-|\*gnō-/);
- assert.equal(context.hasPieRoot({p:['autos','men-1']}),true);
- assert.equal(context.hasPieRoot({p:[]}),false);
+ assert.equal(context.hasPieRoot(mixed),true);
+ assert.equal(context.hasPieRoot(empty),false);
  assert.match(html,/>語根・部品\$\{arrow\('p'\)\}/);
 });
 

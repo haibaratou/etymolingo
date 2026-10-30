@@ -8,6 +8,8 @@ const rootDir=path.resolve(__dirname,'../..');
 const overlay=fs.readFileSync(path.join(rootDir,'app/shared/explorer-difficulty-v2.js'),'utf8');
 const explorer=fs.readFileSync(path.join(rootDir,'app/vocabulary-master.html'),'utf8');
 const identity=require('../../app/shared/lexical-identity.js');
+const componentsUI=require('../../app/shared/vocabulary-components-ui.js');
+const origins=require('../../app/shared/etymology-origins.js');
 const tick=()=>new Promise(resolve=>setImmediate(resolve));
 
 function nativeTable(words,{extra=false,spaced=false,sheet=false}={}){
@@ -85,9 +87,9 @@ test('invalid family metadata clears stale prose only in the language cell',asyn
 
 test('native rendering uses only the source memo and marks absent memos',()=>{
  const body=explorer.slice(explorer.indexOf('function rowHTML(w){'),explorer.indexOf('function renderTable(){'));
- const context={window:{EtymonLexicalIdentity:identity},WORDS:[steam],memos:{},mode:'words',
+ const context={window:{EtymonLexicalIdentity:identity,VocabularyComponentsUI:componentsUI},COMPONENTS:null,REVIEW_NOTES:null,WORDS:[steam],memos:{},mode:'words',
   memoOf:()=>({}),esc:s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])),
-  wordImageHTML:()=>'',semanticLine:()=>'',rootChip:()=>'',wordParts:()=>'',langTags:()=>'',affixChips:()=>'',gameTagCell:()=>''};
+  wordImageHTML:()=>'',semanticLine:()=>'',rootChip:()=>'',wordParts:()=>'',langTags:()=>'',originLanguageTags:()=>'',affixChips:()=>'',gameTagCell:()=>''};
  vm.runInNewContext(body+';globalThis.renderRow=rowHTML;',context);
  const {document}=parseHTML('<table><tbody>'+context.renderRow({...steam,i:0,pre:'',suf:''})+context.renderRow({...steam,i:1,b:'',pre:'',suf:''})+'</tbody></table>');
  assert.equal(document.querySelectorAll('td.cDef')[0].textContent,steam.b);
@@ -140,10 +142,13 @@ test('CSV clearing one homograph preserves legacy history and another origin not
  assert.equal(memos.roach,legacy);
 });
 
-test('native family sorting and filters share the same whitelist and hybrid tags',()=>{
+test('native origins use explicit reviewed families and languages while legacy tags stay separate',()=>{
  const native=explorer.slice(explorer.indexOf('function wLangs(w){'),explorer.indexOf('/* 印欧祖語のチップ。'));
- const context={window:{EtymonLexicalIdentity:identity}};vm.runInNewContext(native,context);
- assert.deepEqual([...context.wLangs(television)],['Gr','L']);
+ const context={window:{EtymonOrigins:origins}};vm.runInNewContext(native,context);
+ const reviewed={...television,origin_families:['ギリシャ','ロマンス'],origin_languages:['古代ギリシャ語','ラテン語']};
+ assert.deepEqual([...context.wLangs(reviewed)],['ギリシャ','ロマンス']);
+ assert.deepEqual([...context.wOriginLanguages(reviewed)],['古代ギリシャ語','ラテン語']);
+ assert.deepEqual([...context.wLangs(television)],[],'legacy gs do not invent reviewed origin families');
  assert.deepEqual([...context.wLangs({...steam,g:'Wt',gs:['古英語']})],[]);
  assert.equal(identity.familyMatches(television,'L'),true);
  assert.equal(identity.familyMatches({...steam,g:'Wt',gs:['古英語']},'x'),false);

@@ -5,8 +5,22 @@ const root=path.resolve(__dirname,'../..');
 const html=fs.readFileSync(path.join(root,'app/vocabulary-master.html'),'utf8');
 const scenes=fs.readFileSync(path.join(root,'app/shared/illustration-scenes.js'),'utf8');
 const overlay=fs.readFileSync(path.join(root,'app/shared/explorer-difficulty-v2.js'),'utf8');
+const components=require('../../app/shared/etymological-components.js');
+const componentsUI=require('../../app/shared/vocabulary-components-ui.js');
+const search=require('../../app/shared/vocabulary-search.js');
+const sceneAPI=require('../../app/shared/illustration-scenes.js');
 const tick=()=>new Promise(resolve=>setImmediate(resolve));
-const between=(text,start,end)=>text.slice(text.indexOf(start),text.indexOf(end,text.indexOf(start)));
+const between=(text,start,end)=>{
+ const from=text.indexOf(start),to=text.indexOf(end,from);
+ assert.notEqual(from,-1,'missing fixture start: '+start);assert.notEqual(to,-1,'missing fixture end: '+end);
+ return text.slice(from,to);
+};
+function componentContext(roots,words){
+ const prepared=components.prepare({schema:1,entities:[],words:[],aliases:[]},roots);
+ const context={window:{VocabularyComponentsUI:componentsUI},COMPONENTS:components.bind(words,prepared)};
+ vm.runInNewContext(html.match(/^function componentCoverage\([^]*?^function hasPieRoot\([^]*?^}/m)[0],context);
+ return context;
+}
 const unpack=b64=>JSON.parse(zlib.gunzipSync(Buffer.from(b64,'base64')));
 const pack=data=>zlib.gzipSync(JSON.stringify(data)).toString('base64');
 
@@ -21,24 +35,26 @@ test('root labels distinguish direct lemmas, uncertain reconstructions and legac
  assert.equal(context.rootLabel({key:'Frankon-',kind:'germanic_lemma',display_form:'Franko'}),'ゲルマン語 Franko');
 });
 
-test('PIE formatives remain assigned PIE evidence for the dictionary filter',()=>{
- const context={ROOT_BY:new Map([['-tro-',{kind:'pie_formative'}],['autos',{kind:'greek_lemma'}],['merph-',{kind:'unverified_reconstruction'}]])};
- vm.runInNewContext(html.match(/^function hasPieRoot\([^]*?^}/m)[0],context);
- assert.equal(context.hasPieRoot({p:['-tro-']}),true);
- assert.equal(context.hasPieRoot({p:['ar-']}),true);
- assert.equal(context.hasPieRoot({p:['autos']}),false);
- assert.equal(context.hasPieRoot({p:['merph-']}),false);
- assert.equal(context.hasPieRoot({p:[]}),false);
+test('PIE formatives remain typed components without becoming lexical PIE roots in the filter',()=>{
+ const roots=[{key:'-tro-',kind:'pie_formative'},{key:'ar-'},{key:'autos',kind:'greek_lemma'},{key:'merph-',kind:'unverified_reconstruction'}];
+ const words=roots.map(r=>({w:r.key,p:[r.key]})).concat({w:'empty',p:[]});
+ const context=componentContext(roots,words);
+ assert.equal(context.COMPONENTS.coverage(words[0]).legacy_formative_ref_count,1);
+ assert.equal(context.hasPieRoot(words[0]),false);
+ assert.equal(context.hasPieRoot(words[1]),true);
+ assert.equal(context.hasPieRoot(words[2]),false);
+ assert.equal(context.hasPieRoot(words[3]),false);
+ assert.equal(context.hasPieRoot(words[4]),false);
 });
 
 test('Germanic sound symbolism is not counted as PIE ancestry',()=>{
- const context={ROOT_BY:new Map([['snu-',{kind:'germanic_sound_symbolism'}]])};
- vm.runInNewContext(html.match(/^function hasPieRoot\([^]*?^}/m)[0],context);
- assert.equal(context.hasPieRoot({p:['snu-']}),false);
+ const word={w:'sound-symbolic-fixture',p:['snu-']};
+ const context=componentContext([{key:'snu-',kind:'germanic_sound_symbolism'}],[word]);
+ assert.equal(context.hasPieRoot(word),false);
 });
 
 test('root chips show uncertain relations without converting them into proven etymologies',()=>{
- const context={esc:s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))};
+ const context={window:{VocabularyComponentsUI:componentsUI},COMPONENTS:null,esc:s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))};
  vm.runInNewContext(html.match(/^function rootLabel\([^]*?^}/m)[0]+'\n'+between(html,'const ROOT_BY=new Map();','/* この語根がどの道'),context);
  const marked=context.rootChip('gnō-',{root_relations:{'gnō-':{status:'uncertain',direct_form:'norma',direct_meaning:'直角定規・規則',note:'<img src=x onerror=bad()>'}}});
  const {document}=parseHTML('<div>'+marked+'</div>');
@@ -120,12 +136,16 @@ test('optional panels still mount when a background tab never paints',async()=>{
 test('lazy scene search deduplicates requests and never repaints obsolete query results',async()=>{
  let resolve,loads=0,renders=0;
  const pending=new Promise(r=>{resolve=r;});
- const context={q:'first',WORDS:[{}],document:{getElementById:()=>null},loadSidecar(){loads++;return pending;},window:{IllustrationScenes:{key:e=>e.w}},illustrationSceneIndex:new Map(),updateTableCount(){},renderTable(){renders++;}};
+ const words=[{w:'steam',p:[],ja:'蒸気',en:'vapor'}];
+ const SEARCH_INDEX=search.createIndex(words,{sceneKey:w=>sceneAPI.key({...w,art:w.w})});
+ const context={q:'first',WORDS:words,SEARCH_INDEX,document:{getElementById:()=>null},loadSidecar(){loads++;return pending;},window:{IllustrationScenes:sceneAPI},illustrationSceneIndex:new Map(),updateTableCount(){},renderTable(){renders++;}};
  vm.runInNewContext(between(html,'let illustrationSceneData;','const sceneObserver ='),context);
  assert.equal(loads,0);
  context.refreshSceneSearch('first');context.q='second';context.refreshSceneSearch('second');
  assert.equal(loads,1);
- resolve({entries:[{w:'steam',review:{status:'reviewed'}}]});await tick();
+ resolve({entries:[{w:'steam',p:[],art:'steam',sense:{ja:'蒸気',en:'vapor'},scene:{en:'a steam cloud',ja:'蒸気の雲'},review:{status:'reviewed'}}]});await tick();
+ assert.equal(SEARCH_INDEX.scenesReady,true);
+ assert.equal(SEARCH_INDEX.search('a steam cloud')[0],words[0]);
  assert.equal(renders,1,'only the current query repaints after lazy captions are ready');
  context.q='';context.refreshSceneSearch('');await tick();assert.equal(renders,1);
 });
@@ -145,22 +165,23 @@ test('late caption search repaint preserves an opened detail and the table scrol
 
 test('late scene-only matches update the real counter without rebuilding controls or closing details',async()=>{
  const names=['television','program','viewer','animation','delusion','unrestrained'];
- const words=names.map((w,i)=>({w,i,pos:i===5?'形':'名'}));
+ const words=names.map((w,i)=>({w,i,p:[],ja:'例',en:'sample',pos:i===5?'形':'名'}));
  const {document}=parseHTML('<html><body><div id="toolbar"><input id="draft" value="unfinished filter"><span id="tCount"><b>1</b> / 1語</span></div><div id="tableWrap"><table><tbody><tr data-i="0"><td>television</td></tr><tr class="detRow"><td><input id="note" value="still editing"></td></tr></tbody></table></div></body></html>');
  const wrap=document.getElementById('tableWrap'),counter=document.getElementById('tCount'),draft=document.getElementById('draft'),detail=wrap.querySelector('tr.detRow'),note=document.getElementById('note');
  let focused=draft;Object.defineProperty(document,'activeElement',{get:()=>focused});
  note.focus=()=>{focused=note;};note.selectionStart=2;note.selectionEnd=5;note.selectionDirection='forward';
  note.setSelectionRange=(start,end,direction)=>{note.selectionStart=start;note.selectionEnd=end;note.selectionDirection=direction;};
  let resolve;const pending=new Promise(r=>{resolve=r;});
- const F={min:'',max:'',lang:'',pos:'',comp:false,noroot:false,pic:'',tag:'',review:false,sortCol:'w',sortDir:-1,userSorted:true};
+ const F={originFamilies:[],originLanguages:[],pos:'',comp:false,noroot:false,rootType:'',pic:'',tag:'',review:false,reviewNotes:false,sortCol:'w',sortDir:-1,userSorted:true};
  const before=JSON.stringify(F),index=new Map();
- const context={document,F,q:'television',WORDS:words,illustrationSceneIndex:index,loadSidecar:()=>pending,window:{IllustrationScenes:{key:e=>e.w}},
-  baseWords:()=>index.size?words:[words[0]],applyFilters:base=>base.filter(w=>!F.pos||w.pos===F.pos).slice().sort((a,b)=>F.sortDir*a.w.localeCompare(b.w)),
+ const SEARCH_INDEX=search.createIndex(words,{sceneKey:w=>sceneAPI.key({...w,art:w.w})});
+ const context={document,F,q:'television',WORDS:words,SEARCH_INDEX,illustrationSceneIndex:index,loadSidecar:()=>pending,window:{IllustrationScenes:sceneAPI},
+  baseWords:()=>SEARCH_INDEX.search(context.q),applyFilters:base=>base.filter(w=>!F.pos||w.pos===F.pos).slice().sort((a,b)=>F.sortDir*a.w.localeCompare(b.w)),
   renderTable(){wrap.innerHTML='<table><tbody>'+context.applyFilters(context.baseWords()).map(w=>'<tr data-i="'+w.i+'"><td>'+w.w+'</td></tr>').join('')+'</tbody></table>';},
   renderToolbar(){throw Error('late count update must not rebuild active controls');},hydrateIllustrationScenes(){}};
  vm.runInNewContext(between(html,'function tableCountHTML(','function renderToolbar(){')+between(html,'let illustrationSceneData;','const sceneObserver ='),context);
  context.refreshSceneSearch('television');
- resolve({entries:names.map(w=>({w,review:{status:'reviewed'}}))});await tick();
+ resolve({entries:names.map(w=>({w,p:[],art:w,sense:{ja:'例',en:'sample'},scene:{en:'television scene',ja:'テレビの場面'},review:{status:'reviewed'}}))});await tick();
  assert.equal(wrap.querySelectorAll('tr[data-i]').length,6);assert.equal(counter.textContent,'6 / 6語');
  assert.equal(wrap.querySelector('tr.detRow'),detail);assert.equal(document.getElementById('draft'),draft);assert.equal(draft.value,'unfinished filter');
  assert.equal(draft.isConnected,true);assert.equal(document.activeElement,draft);assert.equal(JSON.stringify(F),before);
@@ -172,10 +193,10 @@ test('late scene-only matches update the real counter without rebuilding control
 
 test('initial and filtered toolbars use the same count format as a late search repaint',()=>{
  const {document}=parseHTML('<html><body><div id="toolbar"></div></body></html>');
- const F={min:'',max:'',lang:'',pos:'',comp:false,noroot:false,pic:'',tag:'',review:false};
+ const F={originFamilies:[],originLanguages:[],pos:'',comp:false,noroot:false,rootType:'',pic:'',tag:'',review:false,reviewNotes:false};
  const words=[{pos:'名'},{pos:'形'}];
- const context={document,F,$:s=>document.querySelector(s),baseWords:()=>words,applyFilters:base=>base.filter(w=>!F.pos||w.pos===F.pos),esc:String,langList:()=>[['','全語派']],tagPanelOpen:false};
- vm.runInNewContext(between(html,'const RAR_PRESETS=','/* ===== テーブル ===== */'),context);
+ const context={document,F,$:s=>document.querySelector(s),baseWords:()=>words,applyFilters:base=>base.filter(w=>!F.pos||w.pos===F.pos),esc:String,tagPanelOpen:false,originPanelOpen:false,originDataError:'',componentDataError:'',reviewDataError:'',REVIEW_NOTES:null,window:{VocabularyComponentsUI:componentsUI}};
+ vm.runInNewContext(between(html,'const POSES=','/* ===== テーブル ===== */'),context);
  context.renderToolbar();
  assert.equal(document.getElementById('tCount').textContent,'2 / 2語');assert.equal(document.getElementById('fReset'),null);
  F.pos='名';context.renderToolbar();
