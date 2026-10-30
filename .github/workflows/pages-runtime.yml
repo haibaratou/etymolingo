@@ -41,7 +41,7 @@ jobs:
           node --check _site/pages-assets.js
           node --check _site/app/eigo-no-e/app.js
           node --check _site/app/eigo-no-e/lexical-utils.js
-          node --check _site/app/games/picture-words/reviewed-scenes.js
+          node --check _site/app/support/picture-words/reviewed-scenes.js
           node --check _site/app/shared/explorer-difficulty-v2.js
       - uses: actions/upload-pages-artifact@v3
         with:

@@ -46,9 +46,9 @@
     },
     "word_parts": {
       "file": "word-parts.json",
-      "bytes": 359954,
+      "bytes": 405246,
       "count": 3338,
-      "sha256": "0ba1da6d22b9da6b757c60768f07dd78090997615a539a9378f273152824efa4",
+      "sha256": "1a833b9d852cba135bc27b42e1ea5de0a5c17b0541fa244030f614332670b219",
       "meaning_basis": "component-core-v2"
     },
     "multilingual_answers": {
@@ -155,25 +155,25 @@
     },
     "word_parts_supplement": {
       "file": "word-parts-supplement.js",
-      "bytes": 1111607,
+      "bytes": 2145477,
       "count": 1167,
-      "correction_count": 965,
-      "sha256": "06dc9dc20df4535ba279a39bb12ce5e135ef9b8bc4869622b9720a66326679ca"
+      "correction_count": 2103,
+      "sha256": "dac2cb3c0a7273e98a717682356abedd003afa823513883d8731caffac23a2ea"
     },
     "etymological_components": {
       "file": "etymological-components.js",
-      "bytes": 13914148,
-      "count": 1574,
-      "sha256": "7c40970d763a8f59df2e6feb89b99ca5c93fa324baf372471ba8424a16a38419",
-      "entity_count": 2262,
+      "bytes": 31915334,
+      "count": 2734,
+      "sha256": "ca8c9907e1062b4207dd66bc7d34e28fbedbdc543d0d66a6dd485ce99c9c1c11",
+      "entity_count": 3493,
       "context_hash_algorithm": "component-word-context-v1"
     },
     "word_review_notes": {
       "file": "word-review-notes.js",
-      "bytes": 7048103,
-      "sha256": "8af0d0e0523f2cb13ab2383b52765ef715210eaca81a749da381ea2c8f28c15b",
-      "count": 1509,
-      "word_note_count": 1509,
+      "bytes": 12408696,
+      "sha256": "46001437946eccc77e63357f5ea17a8b11ead95fe88cc8fe8b2dcc7da22d183f",
+      "count": 2519,
+      "word_note_count": 2519,
       "component_issue_count": 0,
       "pending_scope_count": 0
     }

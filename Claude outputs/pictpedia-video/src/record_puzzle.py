@@ -4,7 +4,7 @@ async def run(b, word, lang, answer, name):
     ctx=await b.new_context(viewport={'width':390,'height':760},device_scale_factor=2,record_video_dir='/tmp/claude-0/rec/'+name,record_video_size={'width':780,'height':1520},has_touch=False)
     pg=await ctx.new_page()
     await pg.route('**/fonts.googleapis.com/**', lambda r: r.fulfill(status=200, content_type='text/css', body=open('/tmp/claude-0/fonts.css').read()))
-    await pg.goto(f'file:///tmp/claude-0/pp/app/games/picture-words.html?word={word}&lang={lang}')
+    await pg.goto(f'file:///tmp/claude-0/pp/app/picture-words.html?word={word}&lang={lang}')
     await pg.wait_for_timeout(2600)
     letters=await pg.evaluate("[...document.querySelectorAll('#wheel .letter')].map(e=>{const r=e.getBoundingClientRect();return [e.textContent.trim(),r.x+r.width/2,r.y+r.height/2]})")
     print(name, letters)
