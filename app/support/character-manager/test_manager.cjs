@@ -25,7 +25,7 @@ class Element{
 function environment(hash=''){
   const elements=new Map(),events={},sent=[],writes=[],storage=new Map();
   const element=id=>{if(!elements.has(id))elements.set(id,new Element());return elements.get(id);};
-  const location={hash,protocol:'file:',port:'',href:'file:///D:/Projects/etymolingo/app/compare.html',replace(value){this.replaced=value;}};
+  const location={hash,protocol:'file:',port:'',href:'file:///D:/Projects/etymolingo/app/character-manager.html',replace(value){this.replaced=value;}};
   const context={console,Set,Map,URL,URLSearchParams,JSON,Number,String,Date,Error,Promise,queueMicrotask,location,opener:null,scrollTo:()=>{},fetch:async()=>{throw Error('Offline fixture');},parent:{postMessage:data=>sent.push(data)},localStorage:{get length(){return storage.size;},key:index=>[...storage.keys()][index],getItem:key=>storage.get(key)??null,setItem:(key,value)=>{storage.set(key,String(value));writes.push(key);},removeItem:key=>{storage.delete(key);writes.push(key);}},document:{getElementById:element,querySelector:element,querySelectorAll:()=>[],createElement:()=>new Element()},addEventListener(type,handler){(events[type]??=[]).push(handler);}};
   context.window=context;
   vm.createContext(context);
@@ -33,8 +33,11 @@ function environment(hash=''){
 }
 function testManager(){
   const e=environment(),instances={},channel='wildwordopia-character-manager';
-  e.context.WILDWORDOPIA_COMPARISON_MARKUP='<header>Comparison</header>';
-  e.context.WILDWORDOPIA_HISTORY_MARKUP='<header>History</header>';
+  e.run(path.join(support,'comparison-markup.js'));e.run(path.join(support,'history-markup.js'));
+  e.run(path.join(support,'../wildwordopia-history/wildwordopia-history-data.js'));
+  const comparisonMarkup=e.context.WILDWORDOPIA_COMPARISON_MARKUP;
+  const comparisonCount=[...comparisonMarkup.matchAll(/<article\b/g)].length;
+  const historyCount=e.context.WILDWORDOPIA_HISTORY.entries.length;
   e.context.createCharacterViewRuntime=(host,send)=>{
     const mode=host===e.element('view-comparison')?'comparison':'history';
     const runtime={host,send,messages:[],receive(data){this.messages.push(data);}};
@@ -42,17 +45,19 @@ function testManager(){
   };
   e.context.startCharacterComparison=runtime=>{
     runtime.starts=(runtime.starts||0)+1;
-    runtime.send({channel,type:'ready',count:669});
+    runtime.send({channel,type:'ready',count:comparisonCount});
     runtime.send({type:'wildwordopia-history-state',removed:['saved:v001'],rejected:['saved:v002']});
   };
   e.context.startCharacterHistory=runtime=>{
-    runtime.starts=(runtime.starts||0)+1;runtime.send({channel,type:'ready',count:2304});
+    runtime.starts=(runtime.starts||0)+1;runtime.send({channel,type:'ready',count:historyCount});
   };
   e.run(path.join(support,'manager.js'));
   const comparison=instances.comparison;assert.equal(comparison.starts,1);assert.equal(instances.history,undefined);
   e.element('tab-history').onclick();e.emit('hashchange');const history=instances.history;
   assert.equal(history.starts,1);assert.equal(e.element('panel-comparison').hidden,true);
-  assert.match(e.element('history-count').textContent,/2,304/);
+  assert.equal(e.element('history-count').textContent,`(${historyCount.toLocaleString('ja-JP')}件)`);
+  assert.equal(e.element('view-comparison').innerHTML,comparisonMarkup,'tab changes must keep every current comparison article');
+  assert.equal([...e.element('view-comparison').innerHTML.matchAll(/<article\b/g)].length,comparisonCount);
   assert(history.messages.some(m=>m.type==='wildwordopia-history-state'&&m.removed[0]==='saved:v001'));
   history.send({channel,type:'navigate',mode:'comparison',root:'weid'});e.emit('hashchange');
   assert.equal(e.context.location.hash,'#comparison?root=weid');assert.equal(comparison.starts,1);
@@ -66,6 +71,7 @@ async function testHistory(){
   const e=environment();
   e.run(path.join(support,'../wildwordopia-history/wildwordopia-history-data.js'));
   const entries=e.context.WILDWORDOPIA_HISTORY.entries,first=entries[0],second=entries[1],third=entries[2];
+  const unchangedEntries=JSON.stringify(entries);
   const selectionKey='wildwordopia.history-compare-selection.v1';
   const reviewKey='wildwordopia.root-candidate-review.v1';
   e.storage.set(selectionKey,JSON.stringify([first.id]));e.storage.set('wildwordopia.deleted-images.v1',JSON.stringify([second.id]));
@@ -93,20 +99,41 @@ async function testHistory(){
   const image=e.element('main').children[0];image.querySelector('.picture').onclick();assert.equal(e.element('#zoom').open,true);assert(e.element('#zoom img').src.startsWith('file:///'));
   image.querySelector('.card-actions').children[0].onclick();assert.equal(e.sent.at(-1).type,'navigate');assert.equal(e.sent.at(-1).root,first.rootId);
   assert.equal(e.storage.get(reviewKey),review);assert.equal(e.storage.get('wildwordopia.deleted-images.v1'),JSON.stringify([second.id]));
+  // Every current record, including removed/rejected/trial images, remains reachable.
+  e.element('#search').value='';e.element('#root').value='';e.element('#mode').value='all';e.trigger('#search','input');
+  const reachable=[],pages=Math.ceil(entries.length/60);
+  for(let page=0;page<pages;page++){
+    const shown=e.element('main').children.map(card=>card.dataset.entryId);
+    assert.deepEqual(shown,Array.from(entries.slice(page*60,(page+1)*60),row=>row.id));reachable.push(...shown);
+    assert.equal(e.element('#next').disabled,page===pages-1);
+    if(page<pages-1)e.element('#next').onclick();
+  }
+  assert.deepEqual(reachable,Array.from(entries,row=>row.id),'paging must keep every history ID in order');
+  assert.equal(new Set(reachable).size,entries.length,'history IDs must remain unique');
+  assert.equal(JSON.stringify(entries),unchangedEntries,'UI tests must not rewrite history records');
+  assert.equal(e.storage.get(reviewKey),review);assert.equal(e.storage.get('wildwordopia.deleted-images.v1'),JSON.stringify([second.id]));
+  console.log(`Verified all ${entries.length} history records across ${pages} pages; review/deletion state retained.`);
 }
 function testMarkupAndRuntime(){
   const root=path.resolve(support,'../../..');
   for(const file of ['app/compare.html','app/wildwordopia-history.html','app/キャラクター管理を開く.cmd'])assert.equal(fs.existsSync(path.join(root,file)),false,file+' must remain absent');
   const shell=fs.readFileSync(path.join(root,'app/character-manager.html'),'utf8');
   assert(!/<iframe\b/.test(shell));assert(!/(?:src|href)=["'](?:compare|wildwordopia-history)\.html/.test(shell));
-  for(const match of shell.matchAll(/(?:src|href)="([^"]+)"/g))assert(fs.existsSync(path.resolve(root,'app',match[1])),match[1]);
+  for(const match of shell.matchAll(/(?:src|href)="([^"]+)"/g))assert(fs.existsSync(path.resolve(root,'app',match[1].split(/[?#]/)[0])),match[1]);
   const e=environment();
   e.run(path.join(support,'comparison-markup.js'));e.run(path.join(support,'history-markup.js'));
   for(const mode of ['COMPARISON','HISTORY']){
     const fragment=e.context['WILDWORDOPIA_'+mode+'_MARKUP'];assert(fragment.includes('<header>'));
     assert(!/<(?:html|head|body|base|meta|script|iframe)\b/i.test(fragment));
   }
-  assert.equal([...e.context.WILDWORDOPIA_COMPARISON_MARKUP.matchAll(/<article\b/g)].length,669);
+  const articles=[...e.context.WILDWORDOPIA_COMPARISON_MARKUP.matchAll(/<article\b([^>]*)>/g)];
+  assert(articles.length>0,'current candidate collection must not be empty');
+  const identities=articles.map(([,attrs])=>{
+    const root=attrs.match(/data-root="([^"]+)"/)?.[1],image=attrs.match(/data-image-id="([^"]+)"/)?.[1];
+    assert(root&&image,'every current candidate needs its exact root and image ID');return root+':'+image;
+  });
+  assert.equal(new Set(identities).size,articles.length,'current comparison candidates must not be duplicated or dropped');
+  console.log(`Verified ${articles.length} current comparison candidates with unique root/image identities.`);
   const host=new Element();host.id='view-comparison';e.context.document.head=new Element();e.context.CSS={escape:value=>value};
   e.run(path.join(support,'runtime.js'));const sent=[];const runtime=e.context.createCharacterViewRuntime(host,message=>sent.push(message));
   assert.equal(runtime.document.body,host);assert.equal(runtime.localStorage,e.context.localStorage);

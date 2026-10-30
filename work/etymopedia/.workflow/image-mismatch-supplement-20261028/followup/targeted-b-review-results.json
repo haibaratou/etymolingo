@@ -1,0 +1,2884 @@
+{
+  "checked_at": "2026-10-28T13:56:46.118748+00:00",
+  "candidate_count": 357,
+  "contact_sheets_pixel_reviewed": [
+    "b-01.jpg",
+    "b-02.jpg",
+    "b-03.jpg",
+    "b-04.jpg",
+    "b-05.jpg",
+    "b-06.jpg",
+    "b-07.jpg",
+    "b-08.jpg",
+    "b-09.jpg",
+    "b-10.jpg",
+    "b-11.jpg",
+    "b-12.jpg",
+    "b-13.jpg",
+    "b-14.jpg",
+    "b-15.jpg",
+    "b-16.jpg",
+    "b-17.jpg",
+    "b-18.jpg"
+  ],
+  "scope": "Narrow recheck of Katakana/proper-name first meanings among original exclusions/holds whose current b supplies name/place/religious classification. This is not a second all-image audit. Full b read from candidate JSON, and apparent b/first-meaning tensions were checked against adopted detail records.",
+  "new_complete_mismatches_beyond_original_eleven": [],
+  "case_results": [
+    {
+      "case": 12,
+      "word": "Ada",
+      "filename": "Ada.png",
+      "current_first_ja": "エイダ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 21,
+      "word": "Anastasia",
+      "filename": "Anastasia.png",
+      "current_first_ja": "アナスタシア",
+      "result": "excluded_no_major_current_mismatch",
+      "reason": "Current b explicitly says a personal name. A woman reading is compatible with that entry. Resurrection is an independent English paraphrase/etymological origin, not the image target; no unique historical person is required."
+    },
+    {
+      "case": 76,
+      "word": "Carmen",
+      "filename": "Carmen.png",
+      "current_first_ja": "カルメン",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 116,
+      "word": "Coventry",
+      "filename": "Coventry.png",
+      "current_first_ja": "コベントリ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 123,
+      "word": "Dalton",
+      "filename": "Dalton.png",
+      "current_first_ja": "ダルトン",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 154,
+      "word": "Doppler",
+      "filename": "Doppler.png",
+      "current_first_ja": "ドップラー",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 201,
+      "word": "Flora",
+      "filename": "Flora_cap.png",
+      "current_first_ja": "フローラ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 442,
+      "word": "Rolf",
+      "filename": "Rolf.png",
+      "current_first_ja": "ロルフ",
+      "result": "excluded_no_major_current_mismatch",
+      "reason": "The current Japanese is ロルフ with noun POS; the adopted Wiktionary etymology identifies the personal name and Eijiro includes a male name. Current b instead discusses the Rolfing verb, matching the independent English verb field. That field mixture does not override the current Japanese name target. The male bicycle mechanic is not proved incompatible with the name; do not regenerate a massage scene just from b/English."
+    },
+    {
+      "case": 587,
+      "word": "Veronica",
+      "filename": "Veronica.png",
+      "current_first_ja": "ヴェロニカ",
+      "result": "additional_prompt_ready",
+      "reason": "Current b explicitly describes the female personal name; current flower specimen belongs to a different referent."
+    },
+    {
+      "case": 600,
+      "word": "York",
+      "filename": "York.png",
+      "current_first_ja": "ヨーク",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 100015,
+      "word": "Abigail",
+      "filename": "Abigail.png",
+      "current_first_ja": "アビゲイル",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 100118,
+      "word": "Adeline",
+      "filename": "Adeline.png",
+      "current_first_ja": "アデリーン",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 100181,
+      "word": "Agatha",
+      "filename": "Agatha.png",
+      "current_first_ja": "アガサ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 100215,
+      "word": "Alaric",
+      "filename": "Alaric.png",
+      "current_first_ja": "アラリック",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 100229,
+      "word": "Ali",
+      "filename": "Ali.png",
+      "current_first_ja": "アリ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 100239,
+      "word": "Allen",
+      "filename": "Allen.png",
+      "current_first_ja": "アレン",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 100253,
+      "word": "Alsace",
+      "filename": "Alsace.png",
+      "current_first_ja": "アルザス",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 100297,
+      "word": "Amritsar",
+      "filename": "Amritsar.png",
+      "current_first_ja": "アムリトサル",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 100298,
+      "word": "Amsterdam",
+      "filename": "Amsterdam.png",
+      "current_first_ja": "アムステルダム",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 100352,
+      "word": "Angola",
+      "filename": "Angola.png",
+      "current_first_ja": "アンゴラ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 100402,
+      "word": "Antigone",
+      "filename": "Antigone.png",
+      "current_first_ja": "アンティゴネー",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 100475,
+      "word": "Arcadia",
+      "filename": "Arcadia.png",
+      "current_first_ja": "アルカディア",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 100486,
+      "word": "Argentina",
+      "filename": "Argentina.png",
+      "current_first_ja": "アルゼンチン",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 100487,
+      "word": "Ariadne",
+      "filename": "Ariadne.png",
+      "current_first_ja": "アリアドネ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 100494,
+      "word": "Arlington",
+      "filename": "Arlington.png",
+      "current_first_ja": "アーリントン",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 100495,
+      "word": "Armenia",
+      "filename": "Armenia.png",
+      "current_first_ja": "アルメニア",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 100496,
+      "word": "Armorica",
+      "filename": "Armorica.png",
+      "current_first_ja": "アルモリカ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 100552,
+      "word": "Assyria",
+      "filename": "Assyria.png",
+      "current_first_ja": "アッシリア",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 100559,
+      "word": "Astrid",
+      "filename": "Astrid.png",
+      "current_first_ja": "アストリッド",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 100572,
+      "word": "Athens",
+      "filename": "Athens.png",
+      "current_first_ja": "アテネ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 100589,
+      "word": "Aubrey",
+      "filename": "Aubrey.png",
+      "current_first_ja": "オーブリー",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 100599,
+      "word": "Augusta",
+      "filename": "Augusta.png",
+      "current_first_ja": "オーガスタ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 100600,
+      "word": "Augustine",
+      "filename": "Augustine.png",
+      "current_first_ja": "アウグスティヌス",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 100655,
+      "word": "Babel",
+      "filename": "Babel.png",
+      "current_first_ja": "バベル",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 100667,
+      "word": "Bahamas",
+      "filename": "Bahamas.png",
+      "current_first_ja": "バハマ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 100679,
+      "word": "Ballard",
+      "filename": "Ballard.png",
+      "current_first_ja": "バラード",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 100683,
+      "word": "Baltimore",
+      "filename": "Baltimore.png",
+      "current_first_ja": "ボルティモア",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 100692,
+      "word": "Bangladesh",
+      "filename": "Bangladesh.png",
+      "current_first_ja": "バングラデシュ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 100703,
+      "word": "Barbara",
+      "filename": "Barbara.png",
+      "current_first_ja": "バーバラ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 100723,
+      "word": "Barry",
+      "filename": "Barry.png",
+      "current_first_ja": "バリー",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 100737,
+      "word": "Batavia",
+      "filename": "Batavia.png",
+      "current_first_ja": "バタビア",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 100745,
+      "word": "Bavaria",
+      "filename": "Bavaria.png",
+      "current_first_ja": "バイエルン",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 100761,
+      "word": "Beatrice",
+      "filename": "Beatrice.png",
+      "current_first_ja": "ベアトリーチェ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 100787,
+      "word": "Bel",
+      "filename": "Bel.png",
+      "current_first_ja": "ベル",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 100791,
+      "word": "Belgium",
+      "filename": "Belgium.png",
+      "current_first_ja": "ベルギー",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 100795,
+      "word": "Belize",
+      "filename": "Belize.png",
+      "current_first_ja": "ベリーズ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 100810,
+      "word": "Bengal",
+      "filename": "Bengal.png",
+      "current_first_ja": "ベンガル",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 100818,
+      "word": "Berenice",
+      "filename": "Berenice.png",
+      "current_first_ja": "ベレニケ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 100820,
+      "word": "Berkeley",
+      "filename": "Berkeley.png",
+      "current_first_ja": "バークリー",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 100821,
+      "word": "Bermuda",
+      "filename": "Bermuda.png",
+      "current_first_ja": "バミューダ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 100831,
+      "word": "Bethesda",
+      "filename": "Bethesda.png",
+      "current_first_ja": "ベテスダ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 100832,
+      "word": "Bethlehem",
+      "filename": "Bethlehem.png",
+      "current_first_ja": "ベスレヘム",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 100844,
+      "word": "Bianca",
+      "filename": "Bianca.png",
+      "current_first_ja": "ビアンカ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 100882,
+      "word": "Bismarck",
+      "filename": "Bismarck.png",
+      "current_first_ja": "ビズマーク",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 100898,
+      "word": "Blaise",
+      "filename": "Blaise.png",
+      "current_first_ja": "ブレーズ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 100901,
+      "word": "Blanche",
+      "filename": "Blanche.png",
+      "current_first_ja": "ブランチ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 100937,
+      "word": "Bob",
+      "filename": "Bob.png",
+      "current_first_ja": "ボブ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 100942,
+      "word": "Boeing",
+      "filename": "Boeing.png",
+      "current_first_ja": "ボーイング",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 100948,
+      "word": "Bologna",
+      "filename": "Bologna.png",
+      "current_first_ja": "ボローニャ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 100952,
+      "word": "Bonaparte",
+      "filename": "Bonaparte.png",
+      "current_first_ja": "ボナパルト",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 100971,
+      "word": "Bordeaux",
+      "filename": "Bordeaux.png",
+      "current_first_ja": "ボルドー",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 100987,
+      "word": "Botswana",
+      "filename": "Botswana.png",
+      "current_first_ja": "ボツワナ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 101028,
+      "word": "Brian",
+      "filename": "Brian.png",
+      "current_first_ja": "ブライアン",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 101042,
+      "word": "Brisbane",
+      "filename": "Brisbane.png",
+      "current_first_ja": "ブリスベン",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 101066,
+      "word": "Bruce",
+      "filename": "Bruce.png",
+      "current_first_ja": "ブルース",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 101117,
+      "word": "Burgundy",
+      "filename": "Burgundy.png",
+      "current_first_ja": "ブルゴーニュ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 101151,
+      "word": "cadmium",
+      "filename": "cadmium.png",
+      "current_first_ja": "カドミウム",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 101153,
+      "word": "Caesarea",
+      "filename": "Caesarea.png",
+      "current_first_ja": "カイサリア",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 101157,
+      "word": "Caitlin",
+      "filename": "Caitlin.png",
+      "current_first_ja": "ケイトリン",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 101167,
+      "word": "Caledonia",
+      "filename": "Caledonia.png",
+      "current_first_ja": "カレドニア",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 101169,
+      "word": "calico",
+      "filename": "calico.png",
+      "current_first_ja": "キャラコ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 101180,
+      "word": "Cameron",
+      "filename": "Cameron.png",
+      "current_first_ja": "キャメロン",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 101182,
+      "word": "Camilla",
+      "filename": "Camilla.png",
+      "current_first_ja": "カミラ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 101185,
+      "word": "Campbell",
+      "filename": "Campbell.png",
+      "current_first_ja": "キャンベル",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 101188,
+      "word": "Canaan",
+      "filename": "Canaan.png",
+      "current_first_ja": "カナン",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 101241,
+      "word": "Carlos",
+      "filename": "Carlos.png",
+      "current_first_ja": "カルロス",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 101274,
+      "word": "Castile",
+      "filename": "Castile.png",
+      "current_first_ja": "カスティーリャ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 101289,
+      "word": "Catherine",
+      "filename": "Catherine.png",
+      "current_first_ja": "キャサリン",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 101388,
+      "word": "Chernobyl",
+      "filename": "Chernobyl.png",
+      "current_first_ja": "チェルノブイリ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 101390,
+      "word": "Cheryl",
+      "filename": "Cheryl.png",
+      "current_first_ja": "シェリル",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 101407,
+      "word": "Chile",
+      "filename": "Chile.png",
+      "current_first_ja": "チリ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 101441,
+      "word": "Cindy",
+      "filename": "Cindy.png",
+      "current_first_ja": "シンディ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 101477,
+      "word": "Clark",
+      "filename": "Clark.png",
+      "current_first_ja": "クラーク",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 101483,
+      "word": "Claudius",
+      "filename": "Claudius.png",
+      "current_first_ja": "クラウディウス",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 101563,
+      "word": "Cohen",
+      "filename": "Cohen.png",
+      "current_first_ja": "コーエン",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 101573,
+      "word": "Colin",
+      "filename": "Colin.png",
+      "current_first_ja": "コリン",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 101581,
+      "word": "Colleen",
+      "filename": "Colleen.png",
+      "current_first_ja": "コリーン",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 101585,
+      "word": "Collins",
+      "filename": "Collins.png",
+      "current_first_ja": "コリンズ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 101591,
+      "word": "cologne",
+      "filename": "cologne.png",
+      "current_first_ja": "コロン",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 101798,
+      "word": "Coulomb",
+      "filename": "Coulomb.png",
+      "current_first_ja": "クーロン",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 101838,
+      "word": "Craig",
+      "filename": "Craig.png",
+      "current_first_ja": "クレイグ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 101911,
+      "word": "Cullen",
+      "filename": "Cullen.png",
+      "current_first_ja": "カレン",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 101980,
+      "word": "Danny",
+      "filename": "Danny.png",
+      "current_first_ja": "ダニー",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 101982,
+      "word": "Darby",
+      "filename": "Darby.png",
+      "current_first_ja": "ダービー",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 101988,
+      "word": "Dartmouth",
+      "filename": "Dartmouth.png",
+      "current_first_ja": "ダートマス",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 101996,
+      "word": "Davis",
+      "filename": "Davis.png",
+      "current_first_ja": "デイビス",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 102012,
+      "word": "Deborah",
+      "filename": "Deborah.png",
+      "current_first_ja": "デボラ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 102099,
+      "word": "Dempsey",
+      "filename": "Dempsey.png",
+      "current_first_ja": "デンプシー",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 102147,
+      "word": "Derry",
+      "filename": "Derry.png",
+      "current_first_ja": "デリー",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 102196,
+      "word": "Diana",
+      "filename": "Diana.png",
+      "current_first_ja": "ダイアナ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 102218,
+      "word": "Dietrich",
+      "filename": "Dietrich.png",
+      "current_first_ja": "ディートリッヒ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 102237,
+      "word": "Dinah",
+      "filename": "Dinah.png",
+      "current_first_ja": "ダイナ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 102388,
+      "word": "Douglas",
+      "filename": "Douglas.png",
+      "current_first_ja": "ダグラス",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 102420,
+      "word": "Dresden",
+      "filename": "Dresden.png",
+      "current_first_ja": "ドレスデン",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 102465,
+      "word": "Durga",
+      "filename": "Durga.png",
+      "current_first_ja": "ドゥルガー",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 102518,
+      "word": "Edna",
+      "filename": "Edna.png",
+      "current_first_ja": "エドナ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 102545,
+      "word": "Eileen",
+      "filename": "Eileen.png",
+      "current_first_ja": "アイリーン",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 102550,
+      "word": "El Paso",
+      "filename": "El_Paso.png",
+      "current_first_ja": "エルパソ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 102570,
+      "word": "Ellen",
+      "filename": "Ellen.png",
+      "current_first_ja": "エレン",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 102578,
+      "word": "Elsa",
+      "filename": "Elsa.png",
+      "current_first_ja": "エルサ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 102595,
+      "word": "Emil",
+      "filename": "Emil.png",
+      "current_first_ja": "エーミル",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 102596,
+      "word": "Emily",
+      "filename": "Emily.png",
+      "current_first_ja": "エミリー",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 102637,
+      "word": "Enid",
+      "filename": "Enid.png",
+      "current_first_ja": "イーニッド",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 102700,
+      "word": "Eritrea",
+      "filename": "Eritrea.png",
+      "current_first_ja": "エリトリア",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 102729,
+      "word": "Ethan",
+      "filename": "Ethan.png",
+      "current_first_ja": "イーサン",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 102731,
+      "word": "Ethel",
+      "filename": "Ethel.png",
+      "current_first_ja": "エセル",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 102741,
+      "word": "Eudora",
+      "filename": "Eudora.png",
+      "current_first_ja": "エウドラ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 102742,
+      "word": "Eugenia",
+      "filename": "Eugenia.png",
+      "current_first_ja": "ユージニア",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 102745,
+      "word": "Eumenides",
+      "filename": "Eumenides.png",
+      "current_first_ja": "エウメニデス",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 102862,
+      "word": "fan",
+      "filename": "fan@dhes.png",
+      "current_first_ja": "ファン",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 102875,
+      "word": "Farrell",
+      "filename": "Farrell.png",
+      "current_first_ja": "ファーレル",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 102905,
+      "word": "Felicia",
+      "filename": "Felicia.png",
+      "current_first_ja": "フェリシア",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 103003,
+      "word": "Flavius",
+      "filename": "Flavius.png",
+      "current_first_ja": "フラウィウス",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 103027,
+      "word": "Florence",
+      "filename": "Florence.png",
+      "current_first_ja": "フィレンツェ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 103103,
+      "word": "Fortuna",
+      "filename": "Fortuna.png",
+      "current_first_ja": "フォルトゥナ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 103121,
+      "word": "Frankenstein",
+      "filename": "Frankenstein.png",
+      "current_first_ja": "フランケンシュタイン",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 103139,
+      "word": "Freyja",
+      "filename": "Freyja.png",
+      "current_first_ja": "フレイヤ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 103209,
+      "word": "Galicia",
+      "filename": "Galicia.png",
+      "current_first_ja": "ガリチア",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 103212,
+      "word": "Galloway",
+      "filename": "Galloway.png",
+      "current_first_ja": "ギャロウェー",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 103231,
+      "word": "Gary",
+      "filename": "Gary.png",
+      "current_first_ja": "ゲアリー",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 103253,
+      "word": "Geneva",
+      "filename": "Geneva.png",
+      "current_first_ja": "ジュネーブ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 103254,
+      "word": "Genevieve",
+      "filename": "Genevieve.png",
+      "current_first_ja": "ジェネビーブ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 103266,
+      "word": "gentrification",
+      "filename": "gentrification.png",
+      "current_first_ja": "ジェントリフィケーション",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 103275,
+      "word": "Geraldine",
+      "filename": "Geraldine.png",
+      "current_first_ja": "ジェラルディン",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 103292,
+      "word": "Gibraltar",
+      "filename": "Gibraltar.png",
+      "current_first_ja": "ジブラルタル",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 103347,
+      "word": "Goa",
+      "filename": "Goa.png",
+      "current_first_ja": "ゴア",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 103365,
+      "word": "Gordon",
+      "filename": "Gordon.png",
+      "current_first_ja": "ゴードン",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 103383,
+      "word": "Grady",
+      "filename": "Grady.png",
+      "current_first_ja": "グラディ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 103384,
+      "word": "Graham",
+      "filename": "Graham.png",
+      "current_first_ja": "グラハム",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 103389,
+      "word": "Granada",
+      "filename": "Granada.png",
+      "current_first_ja": "グラナダ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 103415,
+      "word": "Greece",
+      "filename": "Greece.png",
+      "current_first_ja": "ギリシャ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 103421,
+      "word": "Greenwich",
+      "filename": "Greenwich.png",
+      "current_first_ja": "グリニッジ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 103455,
+      "word": "Guido",
+      "filename": "Guido.png",
+      "current_first_ja": "ギド",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 103460,
+      "word": "Guinness",
+      "filename": "Guinness.png",
+      "current_first_ja": "ギネス",
+      "result": "excluded_no_major_current_mismatch",
+      "reason": "Current b explicitly describes the surname. The current older man with script, movie camera and director chair is compatible with that surname/actor context. There is no evidence that this first Japanese entry selects beer or records. An authenticated portrait is not required."
+    },
+    {
+      "case": 103467,
+      "word": "Gunther",
+      "filename": "Gunther.png",
+      "current_first_ja": "ガンサー",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 103468,
+      "word": "Gupta",
+      "filename": "Gupta.png",
+      "current_first_ja": "グプタ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 103475,
+      "word": "Gwendolyn",
+      "filename": "Gwendolyn.png",
+      "current_first_ja": "グウェンドリン",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 103514,
+      "word": "Hamilton",
+      "filename": "Hamilton.png",
+      "current_first_ja": "ハミルトン",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 103538,
+      "word": "Hanoi",
+      "filename": "Hanoi.png",
+      "current_first_ja": "ハノイ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 103539,
+      "word": "Hans",
+      "filename": "Hans.png",
+      "current_first_ja": "ハンス",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 103561,
+      "word": "Harris",
+      "filename": "Harris.png",
+      "current_first_ja": "ハリス",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 103566,
+      "word": "Harvard",
+      "filename": "Harvard.png",
+      "current_first_ja": "ハーバード",
+      "result": "excluded_no_major_current_mismatch",
+      "reason": "Current first Japanese is unqualified ハーバード and b explicitly describes both the surname and the university named after John Harvard. Adopted Wiktionary supports the surname, Eijiro includes person/place as well as university, while Weblio focuses on the university. A generic male portrait can represent the surname entry; no canonical field explicitly selects the university alone. Source order is not evidence of sense priority. Excluded because complete incompatibility is not established; no invented specific-person likeness is required."
+    },
+    {
+      "case": 103576,
+      "word": "Havana",
+      "filename": "Havana.png",
+      "current_first_ja": "ハバナ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 103577,
+      "word": "Hayward",
+      "filename": "Hayward.png",
+      "current_first_ja": "ヘーワード",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 103615,
+      "word": "Helena",
+      "filename": "Helena.png",
+      "current_first_ja": "ヘレナ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 103626,
+      "word": "Henrietta",
+      "filename": "Henrietta.png",
+      "current_first_ja": "ヘンリエッタ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 103629,
+      "word": "Hera",
+      "filename": "Hera.png",
+      "current_first_ja": "ヘラ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 103643,
+      "word": "Herzegovina",
+      "filename": "Herzegovina.png",
+      "current_first_ja": "ヘルツェゴビナ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 103669,
+      "word": "Hilary",
+      "filename": "Hilary.png",
+      "current_first_ja": "ヒラリー",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 103671,
+      "word": "Himalaya",
+      "filename": "Himalaya.png",
+      "current_first_ja": "ヒマラヤ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 103681,
+      "word": "Hippolytus",
+      "filename": "Hippolytus.png",
+      "current_first_ja": "ヒッポリュトス",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 103683,
+      "word": "Hiram",
+      "filename": "Hiram.png",
+      "current_first_ja": "ハイラム",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 103722,
+      "word": "Honduras",
+      "filename": "Honduras.png",
+      "current_first_ja": "ホンジュラス",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 103760,
+      "word": "Howard",
+      "filename": "Howard.png",
+      "current_first_ja": "ハワード",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 103762,
+      "word": "Hubert",
+      "filename": "Hubert.png",
+      "current_first_ja": "ヒューバート",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 103764,
+      "word": "Hudson",
+      "filename": "Hudson.png",
+      "current_first_ja": "ハドソン",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 103784,
+      "word": "Hungary",
+      "filename": "Hungary.png",
+      "current_first_ja": "ハンガリー",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 103825,
+      "word": "Ian",
+      "filename": "Ian.png",
+      "current_first_ja": "イアン",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 103996,
+      "word": "Indiana",
+      "filename": "Indiana.png",
+      "current_first_ja": "インディアナ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 104010,
+      "word": "Indonesia",
+      "filename": "Indonesia.png",
+      "current_first_ja": "インドネシア",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 104197,
+      "word": "Iran",
+      "filename": "Iran.png",
+      "current_first_ja": "イラン",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 104198,
+      "word": "Iraq",
+      "filename": "Iraq.png",
+      "current_first_ja": "イラク",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 104203,
+      "word": "Iris",
+      "filename": "Iris_cap.png",
+      "current_first_ja": "イリス",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 104218,
+      "word": "Irwin",
+      "filename": "Irwin.png",
+      "current_first_ja": "アーウィン",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 104219,
+      "word": "Isaac",
+      "filename": "Isaac.png",
+      "current_first_ja": "アイザック",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 104223,
+      "word": "Isidore",
+      "filename": "Isidore.png",
+      "current_first_ja": "イシドールス",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 104250,
+      "word": "Jake",
+      "filename": "Jake.png",
+      "current_first_ja": "ジェイク",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 104251,
+      "word": "Jane",
+      "filename": "Jane.png",
+      "current_first_ja": "ジェイン",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 104261,
+      "word": "Jean",
+      "filename": "Jean.png",
+      "current_first_ja": "ジーン",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 104266,
+      "word": "Jennifer",
+      "filename": "Jennifer.png",
+      "current_first_ja": "ジェニファー",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 104267,
+      "word": "Jenny",
+      "filename": "Jenny.png",
+      "current_first_ja": "ジェニー",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 104269,
+      "word": "Jeremiah",
+      "filename": "Jeremiah.png",
+      "current_first_ja": "ジェレマイア",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 104272,
+      "word": "Jerry",
+      "filename": "Jerry.png",
+      "current_first_ja": "ジェリー",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 104275,
+      "word": "Jerusalem",
+      "filename": "Jerusalem.png",
+      "current_first_ja": "エルサレム",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 104277,
+      "word": "Jesse",
+      "filename": "Jesse.png",
+      "current_first_ja": "ジェシー",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 104278,
+      "word": "Jessica",
+      "filename": "Jessica.png",
+      "current_first_ja": "ジェシカ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 104284,
+      "word": "jihad",
+      "filename": "jihad.png",
+      "current_first_ja": "ジハード",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 104285,
+      "word": "Jim",
+      "filename": "Jim.png",
+      "current_first_ja": "ジム",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 104296,
+      "word": "Jordan",
+      "filename": "Jordan.png",
+      "current_first_ja": "ジョーダン",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 104297,
+      "word": "Jose",
+      "filename": "Jose.png",
+      "current_first_ja": "ホセ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 104298,
+      "word": "Joshua",
+      "filename": "Joshua.png",
+      "current_first_ja": "ヨシュア",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 104301,
+      "word": "Juan",
+      "filename": "Juan.png",
+      "current_first_ja": "ジュアン",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 104304,
+      "word": "Judea",
+      "filename": "Judea.png",
+      "current_first_ja": "ユダヤ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 104312,
+      "word": "Julie",
+      "filename": "Julie.png",
+      "current_first_ja": "ジュリー",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 104318,
+      "word": "Juno",
+      "filename": "Juno.png",
+      "current_first_ja": "ユノ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 104324,
+      "word": "Justin",
+      "filename": "Justin.png",
+      "current_first_ja": "ジャスティン",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 104337,
+      "word": "Kate",
+      "filename": "Kate.png",
+      "current_first_ja": "ケイト",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 104338,
+      "word": "Katie",
+      "filename": "Katie.png",
+      "current_first_ja": "ケイティ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 104342,
+      "word": "Keith",
+      "filename": "Keith.png",
+      "current_first_ja": "キース",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 104343,
+      "word": "Kellogg",
+      "filename": "Kellogg.png",
+      "current_first_ja": "ケロッグ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 104344,
+      "word": "Kelly",
+      "filename": "Kelly.png",
+      "current_first_ja": "ケリー",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 104346,
+      "word": "Kennedy",
+      "filename": "Kennedy.png",
+      "current_first_ja": "ケネディ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 104350,
+      "word": "Kenya",
+      "filename": "Kenya.png",
+      "current_first_ja": "ケニア",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 104357,
+      "word": "Kevin",
+      "filename": "Kevin.png",
+      "current_first_ja": "ケヴィン",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 104370,
+      "word": "Kimberly",
+      "filename": "Kimberly.png",
+      "current_first_ja": "キムバリー",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 104408,
+      "word": "Kremlin",
+      "filename": "Kremlin.png",
+      "current_first_ja": "クレムリン",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 104472,
+      "word": "Latvia",
+      "filename": "Latvia.png",
+      "current_first_ja": "ラトビア",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 104476,
+      "word": "Laura",
+      "filename": "Laura.png",
+      "current_first_ja": "ローラ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 104522,
+      "word": "Leila",
+      "filename": "Leila.png",
+      "current_first_ja": "リーラ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 104532,
+      "word": "Lennon",
+      "filename": "Lennon.png",
+      "current_first_ja": "レノン",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 104535,
+      "word": "Leo",
+      "filename": "Leo.png",
+      "current_first_ja": "レオ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 104551,
+      "word": "Levant",
+      "filename": "Levant.png",
+      "current_first_ja": "レヴァント",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 104554,
+      "word": "Lewis",
+      "filename": "Lewis.png",
+      "current_first_ja": "ルイス",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 104604,
+      "word": "limo",
+      "filename": "limo.png",
+      "current_first_ja": "リムジン",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 104635,
+      "word": "Lloyd",
+      "filename": "Lloyd.png",
+      "current_first_ja": "ロイド",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 104696,
+      "word": "Lucille",
+      "filename": "Lucille.png",
+      "current_first_ja": "ルシール",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 104698,
+      "word": "Lucy",
+      "filename": "Lucy.png",
+      "current_first_ja": "ルーシー",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 104733,
+      "word": "Macbeth",
+      "filename": "Macbeth.png",
+      "current_first_ja": "マクベス",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 104734,
+      "word": "Machiavelli",
+      "filename": "Machiavelli.png",
+      "current_first_ja": "マキアベッリ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 104742,
+      "word": "Madeira",
+      "filename": "Madeira.png",
+      "current_first_ja": "マデイラ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 104743,
+      "word": "Madeline",
+      "filename": "Madeline.png",
+      "current_first_ja": "マデレン",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 104769,
+      "word": "Maia",
+      "filename": "Maia.png",
+      "current_first_ja": "マイア",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 104783,
+      "word": "Malawi",
+      "filename": "Malawi.png",
+      "current_first_ja": "マラウイ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 104785,
+      "word": "Malaysia",
+      "filename": "Malaysia.png",
+      "current_first_ja": "マレーシア",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 104806,
+      "word": "Manchester",
+      "filename": "Manchester.png",
+      "current_first_ja": "マンチェスター",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 104839,
+      "word": "marathon",
+      "filename": "marathon.png",
+      "current_first_ja": "マラソン",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 104844,
+      "word": "Margaret",
+      "filename": "Margaret.png",
+      "current_first_ja": "マーガレット",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 104860,
+      "word": "Marley",
+      "filename": "Marley.png",
+      "current_first_ja": "マーリー",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 104892,
+      "word": "Matt",
+      "filename": "Matt.png",
+      "current_first_ja": "マット",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 104901,
+      "word": "Max",
+      "filename": "Max.png",
+      "current_first_ja": "マックス",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 104911,
+      "word": "McConnell",
+      "filename": "McConnell.png",
+      "current_first_ja": "マコーネル",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 104913,
+      "word": "McFarland",
+      "filename": "McFarland.png",
+      "current_first_ja": "マクファーランド",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 104915,
+      "word": "McMillan",
+      "filename": "McMillan.png",
+      "current_first_ja": "マクミラン",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 104936,
+      "word": "Medici",
+      "filename": "Medici.png",
+      "current_first_ja": "メディチ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 104967,
+      "word": "Mentor",
+      "filename": "Mentor_cap.png",
+      "current_first_ja": "メンター",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 104982,
+      "word": "Mesopotamia",
+      "filename": "Mesopotamia.png",
+      "current_first_ja": "メソポタミア",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 105041,
+      "word": "Milwaukee",
+      "filename": "Milwaukee.png",
+      "current_first_ja": "ミルウォーキー",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 105088,
+      "word": "Mitchell",
+      "filename": "Mitchell.png",
+      "current_first_ja": "ジョニ・ミッチェル",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 105093,
+      "word": "Mnemosyne",
+      "filename": "Mnemosyne.png",
+      "current_first_ja": "ムネモシュネ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 105104,
+      "word": "Moira",
+      "filename": "Moira.png",
+      "current_first_ja": "モイラ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 105108,
+      "word": "Moldova",
+      "filename": "Moldova.png",
+      "current_first_ja": "モルドバ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 105168,
+      "word": "Mortimer",
+      "filename": "Mortimer.png",
+      "current_first_ja": "モーティマー",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 105169,
+      "word": "Morton",
+      "filename": "Morton.png",
+      "current_first_ja": "ジェリー・ロール・モートン",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 105200,
+      "word": "Muhammad",
+      "filename": "Muhammad.png",
+      "current_first_ja": "ムハマド",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 105215,
+      "word": "Murray",
+      "filename": "Murray.png",
+      "current_first_ja": "マレー",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 105218,
+      "word": "Muse",
+      "filename": "Muse.png",
+      "current_first_ja": "ミューズ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 105249,
+      "word": "Namibia",
+      "filename": "Namibia.png",
+      "current_first_ja": "ナミビア",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 105271,
+      "word": "Navarre",
+      "filename": "Navarre.png",
+      "current_first_ja": "ナバール",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 105273,
+      "word": "Nazareth",
+      "filename": "Nazareth.png",
+      "current_first_ja": "ナザレス",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 105294,
+      "word": "Nehemiah",
+      "filename": "Nehemiah.png",
+      "current_first_ja": "ニーアマイア",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 105295,
+      "word": "Nehru",
+      "filename": "Nehru.png",
+      "current_first_ja": "ジャワハルラール・ネルー",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 105309,
+      "word": "Netherlands",
+      "filename": "Netherlands.png",
+      "current_first_ja": "オランダ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 105334,
+      "word": "Nigeria",
+      "filename": "Nigeria.png",
+      "current_first_ja": "ナイジェリア",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 105340,
+      "word": "Nike",
+      "filename": "Nike.png",
+      "current_first_ja": "ニケ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 105343,
+      "word": "Nineveh",
+      "filename": "Nineveh.png",
+      "current_first_ja": "ニネベ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 105348,
+      "word": "Noah",
+      "filename": "Noah.png",
+      "current_first_ja": "ノア",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 105388,
+      "word": "Norma",
+      "filename": "Norma.png",
+      "current_first_ja": "ノーマ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 105499,
+      "word": "Olaf",
+      "filename": "Olaf.png",
+      "current_first_ja": "オーラフ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 105505,
+      "word": "Olivia",
+      "filename": "Olivia.png",
+      "current_first_ja": "オリビア",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 105540,
+      "word": "Ophelia",
+      "filename": "Ophelia.png",
+      "current_first_ja": "オフィーリア",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 105575,
+      "word": "Orion",
+      "filename": "Orion.png",
+      "current_first_ja": "オリオン",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 105576,
+      "word": "Orleans",
+      "filename": "Orleans.png",
+      "current_first_ja": "オルレアン",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 105657,
+      "word": "Owen",
+      "filename": "Owen.png",
+      "current_first_ja": "オーウェン",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 105679,
+      "word": "Padua",
+      "filename": "Padua.png",
+      "current_first_ja": "パドア",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 105682,
+      "word": "pageant",
+      "filename": "pageant.png",
+      "current_first_ja": "ページェント",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 105683,
+      "word": "Paige",
+      "filename": "Paige.png",
+      "current_first_ja": "ペイジ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 105733,
+      "word": "Paraguay",
+      "filename": "Paraguay.png",
+      "current_first_ja": "パラグアイ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 105757,
+      "word": "Parker",
+      "filename": "Parker.png",
+      "current_first_ja": "パーカー",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 105808,
+      "word": "Pauline",
+      "filename": "Pauline.png",
+      "current_first_ja": "ポーリーン",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 105839,
+      "word": "Peirce",
+      "filename": "Peirce.png",
+      "current_first_ja": "パース",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 105844,
+      "word": "Peloponnesus",
+      "filename": "Peloponnesus.png",
+      "current_first_ja": "ペロポネソス",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 105914,
+      "word": "Perth",
+      "filename": "Perth.png",
+      "current_first_ja": "パース",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 105932,
+      "word": "Pete",
+      "filename": "Pete.png",
+      "current_first_ja": "ピート",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 105999,
+      "word": "Pierre",
+      "filename": "Pierre.png",
+      "current_first_ja": "ピエール",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 106019,
+      "word": "Pisa",
+      "filename": "Pisa.png",
+      "current_first_ja": "ピサ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 106095,
+      "word": "Poland",
+      "filename": "Poland.png",
+      "current_first_ja": "ポーランド",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 106163,
+      "word": "Portugal",
+      "filename": "Portugal.png",
+      "current_first_ja": "ポルトガル",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 106192,
+      "word": "Potsdam",
+      "filename": "Potsdam.png",
+      "current_first_ja": "ポツダム",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 106278,
+      "word": "Princeton",
+      "filename": "Princeton.png",
+      "current_first_ja": "プリンストン",
+      "result": "additional_prompt_ready",
+      "reason": "Local adopted dictionary detail labels a United States place; current b specifies the New Jersey town and then its university. Depict the town context with its university landmark, not a person."
+    },
+    {
+      "case": 106282,
+      "word": "Priscilla",
+      "filename": "Priscilla.png",
+      "current_first_ja": "プリシラ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 106355,
+      "word": "Protestant",
+      "filename": "Protestant.png",
+      "current_first_ja": "プロテスタント",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 106386,
+      "word": "Ptolemy",
+      "filename": "Ptolemy.png",
+      "current_first_ja": "プトレミー",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 106459,
+      "word": "Quentin",
+      "filename": "Quentin.png",
+      "current_first_ja": "クウェンティン",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 106513,
+      "word": "Raleigh",
+      "filename": "Raleigh.png",
+      "current_first_ja": "ローリー",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 106699,
+      "word": "Remington",
+      "filename": "Remington.png",
+      "current_first_ja": "レミングトン",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 106821,
+      "word": "Rhodes",
+      "filename": "Rhodes.png",
+      "current_first_ja": "セシル・ローズ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 106830,
+      "word": "Rico",
+      "filename": "Rico.png",
+      "current_first_ja": "リコ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 106863,
+      "word": "Rockefeller",
+      "filename": "Rockefeller.png",
+      "current_first_ja": "ロックフェラー",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 106886,
+      "word": "Roosevelt",
+      "filename": "Roosevelt.png",
+      "current_first_ja": "ルーズベルト",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 106892,
+      "word": "Ross",
+      "filename": "Ross.png",
+      "current_first_ja": "ロス",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 106897,
+      "word": "Rouen",
+      "filename": "Rouen.png",
+      "current_first_ja": "ルーアン",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 106905,
+      "word": "Roxy",
+      "filename": "Roxy.png",
+      "current_first_ja": "ロクシー",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 106920,
+      "word": "Rufus",
+      "filename": "Rufus.png",
+      "current_first_ja": "ルーファス",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 106935,
+      "word": "Rupert",
+      "filename": "Rupert.png",
+      "current_first_ja": "ルパート",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 106940,
+      "word": "Ryan",
+      "filename": "Ryan.png",
+      "current_first_ja": "ライアン",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 106958,
+      "word": "Saigon",
+      "filename": "Saigon.png",
+      "current_first_ja": "サイゴン",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 106963,
+      "word": "Salem",
+      "filename": "Salem.png",
+      "current_first_ja": "セーラム",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 106977,
+      "word": "Samaria",
+      "filename": "Samaria.png",
+      "current_first_ja": "サマリア",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 106999,
+      "word": "Sarajevo",
+      "filename": "Sarajevo.png",
+      "current_first_ja": "サラエボ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 107024,
+      "word": "Savoy",
+      "filename": "Savoy.png",
+      "current_first_ja": "サボイ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 107104,
+      "word": "Sebastian",
+      "filename": "Sebastian.png",
+      "current_first_ja": "セバスチャン",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 107167,
+      "word": "seminar",
+      "filename": "seminar.png",
+      "current_first_ja": "ゼミナール",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 107233,
+      "word": "Shakespeare",
+      "filename": "Shakespeare.png",
+      "current_first_ja": "シェークスピア",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 107262,
+      "word": "Shiloh",
+      "filename": "Shiloh.png",
+      "current_first_ja": "シロ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 107305,
+      "word": "Siena",
+      "filename": "Siena.png",
+      "current_first_ja": "シエナ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 107327,
+      "word": "Simon",
+      "filename": "Simon.png",
+      "current_first_ja": "シモン",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 107336,
+      "word": "Singh",
+      "filename": "Singh.png",
+      "current_first_ja": "シン",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 107471,
+      "word": "Somalia",
+      "filename": "Somalia.png",
+      "current_first_ja": "ソマリア",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 107479,
+      "word": "Sophie",
+      "filename": "Sophie.png",
+      "current_first_ja": "ソフィー",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 107485,
+      "word": "Sorbonne",
+      "filename": "Sorbonne.png",
+      "current_first_ja": "ソルボンヌ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 107527,
+      "word": "Sparta",
+      "filename": "Sparta.png",
+      "current_first_ja": "スパルタ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 107546,
+      "word": "Spencer",
+      "filename": "Spencer.png",
+      "current_first_ja": "スペンサー",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 107583,
+      "word": "Springfield",
+      "filename": "Springfield.png",
+      "current_first_ja": "スプリングフィールド",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 107622,
+      "word": "Stanford",
+      "filename": "Stanford.png",
+      "current_first_ja": "スタンフォード",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 107648,
+      "word": "Stella",
+      "filename": "Stella.png",
+      "current_first_ja": "ステラ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 107650,
+      "word": "stent",
+      "filename": "stent.png",
+      "current_first_ja": "ステント",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 107663,
+      "word": "Stewart",
+      "filename": "Stewart.png",
+      "current_first_ja": "スチュアート",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 107777,
+      "word": "Suffolk",
+      "filename": "Suffolk.png",
+      "current_first_ja": "サフォーク",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 107838,
+      "word": "Susanna",
+      "filename": "Susanna.png",
+      "current_first_ja": "スザンナ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 107856,
+      "word": "Sweden",
+      "filename": "Sweden.png",
+      "current_first_ja": "スウェーデン",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 107895,
+      "word": "Syracuse",
+      "filename": "Syracuse.png",
+      "current_first_ja": "シラキュース",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 107907,
+      "word": "Taft",
+      "filename": "Taft.png",
+      "current_first_ja": "タフト",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 107931,
+      "word": "tarmac",
+      "filename": "tarmac.png",
+      "current_first_ja": "タールマック",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 107987,
+      "word": "tequila",
+      "filename": "tequila.png",
+      "current_first_ja": "テキーラ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 108000,
+      "word": "Terry",
+      "filename": "Terry.png",
+      "current_first_ja": "テリー",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 108013,
+      "word": "Thailand",
+      "filename": "Thailand.png",
+      "current_first_ja": "タイ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 108018,
+      "word": "Thea",
+      "filename": "Thea.png",
+      "current_first_ja": "テア",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 108025,
+      "word": "Theodosia",
+      "filename": "Theodosia.png",
+      "current_first_ja": "テオドシア",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 108033,
+      "word": "Theresa",
+      "filename": "Theresa.png",
+      "current_first_ja": "テレサ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 108049,
+      "word": "Thrace",
+      "filename": "Thrace.png",
+      "current_first_ja": "トラキア",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 108073,
+      "word": "Tiberius",
+      "filename": "Tiberius.png",
+      "current_first_ja": "チベリウス",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 108086,
+      "word": "Timothy",
+      "filename": "Timothy.png",
+      "current_first_ja": "ティモシー",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 108088,
+      "word": "Tina",
+      "filename": "Tina.png",
+      "current_first_ja": "ティナ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 108113,
+      "word": "Toledo",
+      "filename": "Toledo.png",
+      "current_first_ja": "トレド",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 108116,
+      "word": "toluene",
+      "filename": "toluene.png",
+      "current_first_ja": "トルエン",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 108119,
+      "word": "Tommy",
+      "filename": "Tommy.png",
+      "current_first_ja": "トミー",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 108124,
+      "word": "Tony",
+      "filename": "Tony.png",
+      "current_first_ja": "トニー",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 108134,
+      "word": "Toronto",
+      "filename": "Toronto.png",
+      "current_first_ja": "トロント",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 108150,
+      "word": "Townsend",
+      "filename": "Townsend.png",
+      "current_first_ja": "タウンゼント",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 108266,
+      "word": "Truman",
+      "filename": "Truman.png",
+      "current_first_ja": "ハリー・トルーマン",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 108275,
+      "word": "Tucson",
+      "filename": "Tucson.png",
+      "current_first_ja": "トゥーソン",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 108295,
+      "word": "Turnbull",
+      "filename": "Turnbull.png",
+      "current_first_ja": "ターンブル",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 108323,
+      "word": "Tyrone",
+      "filename": "Tyrone.png",
+      "current_first_ja": "タイローン",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 108523,
+      "word": "urbanism",
+      "filename": "urbanism.png",
+      "current_first_ja": "アーバニズム",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 108564,
+      "word": "Vancouver",
+      "filename": "Vancouver.png",
+      "current_first_ja": "バンクーバー",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 108565,
+      "word": "Vanderbilt",
+      "filename": "Vanderbilt.png",
+      "current_first_ja": "バンダービルト",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 108567,
+      "word": "Vanessa",
+      "filename": "Vanessa.png",
+      "current_first_ja": "ヴァネッサ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 108576,
+      "word": "Vaughan",
+      "filename": "Vaughan.png",
+      "current_first_ja": "ボーガン",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 108611,
+      "word": "Versailles",
+      "filename": "Versailles.png",
+      "current_first_ja": "ベルサイユ",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 108638,
+      "word": "Victoria",
+      "filename": "Victoria.png",
+      "current_first_ja": "ビクトリア",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 108645,
+      "word": "Vienna",
+      "filename": "Vienna.png",
+      "current_first_ja": "ウイーン",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 108646,
+      "word": "Vietnam",
+      "filename": "Vietnam.png",
+      "current_first_ja": "ベトナム",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 108654,
+      "word": "Vincent",
+      "filename": "Vincent.png",
+      "current_first_ja": "ヴィンセント",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 108775,
+      "word": "Weber",
+      "filename": "Weber.png",
+      "current_first_ja": "ウェーバー",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 108784,
+      "word": "Weimar",
+      "filename": "Weimar.png",
+      "current_first_ja": "ヴァイマル",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 108915,
+      "word": "Yale",
+      "filename": "Yale.png",
+      "current_first_ja": "エール",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    },
+    {
+      "case": 108939,
+      "word": "Zambia",
+      "filename": "Zambia.png",
+      "current_first_ja": "ザンビア",
+      "result": "no_additional_complete_mismatch_from_b",
+      "reason": "Current depicted person/place/object remains compatible with the unqualified current first Japanese meaning. Etymological origin in b does not force a different image target."
+    }
+  ]
+}

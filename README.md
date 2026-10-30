@@ -3,21 +3,26 @@
 印欧語根(ことばの祖先)をテーマにした、辞典とゲームの公開サイト。
 ## 公開しているもの
 
+すべてのプロダクトの入口HTMLは **`app` 直下**です。アプリとゲームを分ける入口フォルダは作りません。JS・CSS・内部画面・補助データ・生成物・保守スクリプトは `app/support/`、共通辞書と共通コードは `app/data/` と `app/shared/` に置きます。
+
+今後の新規作成も [AGENTS.md](AGENTS.md) の共通配置ルールに従います。`app/games/` は廃止しました。
+
 入口は `app/index.html`。**すべて制作途中の開発データ**で、仕様を確かめるための試作。
 
 | | |
 |---|---|
 | [**エティモペディア**](app/etymopedia.html) | 英単語のはじまりを読む図鑑 |
-| [**語源データベース**](app/etymon-explorer.html) | 語根と英単語のデータ(開発用) |
+| [**語源データベース**](app/vocabulary-master.html) | 語根と英単語のデータ(開発用) |
 | [**エティモン・スラッシュ**](app/etymon-slash.html) | モンスターの下の英単語を、キーの上の字をなぞる か タップして書く |
 | [**ワードフォール**](app/etymon-quest.html) | 落下する文字をつないで、雑魚戦または文章ボス戦に挑む |
 | [**ワードスイカ**](app/word-suika.html) | 文字を好きな位置へ落とし、順不同で英単語を合体させる物理ワードパズル |
+| [**Pictlingo**](app/pictlingo-game.html) | 絵を見て、隣り合う文字をなぞる英日パズル |
 | [**ワードドロップ**](app/word-drop.html) | 降り積もった文字のボールをなぞってつなぎ、順不同で単語に。英語モードと日本語モード |
 | [**英単語スペリング遠征**](app/etymon-word-block-battle.html) | 3体のエティモンと遠征しながら、英単語のつづりを書く |
 | [**エティモリンゴ箱庭**](app/lexicopia-hakoniwa_IP360.html) | ことばの一族を育てる箱庭 |
 | [**ボス戦: 透明人間ミエタラヤラレール**](app/mietara-yararel-boss.html) | 英単語カードで戦う戦闘まわりの試作 |
 | [**ことば鍛成館**](app/etymon-word-forge.html) | 古代の概念を重ねて英単語カードをつくる試作 |
-| [**Wild Wordopia(旧作)**](app/old/index-caplog-legacy.html) | カピバラGO型の元になった試作。アリスの国を90日ぶん進む |
+| [**Wild Wordopia(旧作)**](app/wild-wordopia-legacy.html) | カピバラGO型の元になった試作。アリスの国を90日ぶん進む |
 
 ## 中身の置きかた
 

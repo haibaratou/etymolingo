@@ -55,7 +55,7 @@ test('shared root explanation connects the registered semantic branches',()=>{
 });
 
 test('a known direct-language decomposition remains visible with zero or one PIE root',()=>{
- const html=fs.readFileSync(path.join(__dirname,'../app/etymon-explorer.html'),'utf8');
+ const html=fs.readFileSync(path.join(__dirname,'../app/vocabulary-master.html'),'utf8');
  const parts=JSON.parse(fs.readFileSync(path.join(__dirname,'../app/data/generated-etymon/word-parts.json'),'utf8'));
  const vm=require('node:vm');
  const code=html.match(/^function wordParts\([^]*?^}/m)[0];
@@ -72,7 +72,7 @@ test('an attested Latin lemma is not presented as a reconstructed PIE root',()=>
  const lemma=roots.find(r=>r.key==='mittere');
  assert.equal(lemma.kind,'latin_lemma');assert.equal(lemma.all,0);
  assert.equal(words.filter(w=>w.p.includes('mittere')).length,0);
- const html=fs.readFileSync(path.join(__dirname,'../app/etymon-explorer.html'),'utf8');
+ const html=fs.readFileSync(path.join(__dirname,'../app/vocabulary-master.html'),'utf8');
  const code=html.match(/^function rootLabel\([^]*?^}/m)[0];
  const vm=require('node:vm');const context={};vm.createContext(context);vm.runInContext(code,context);
  assert.equal(context.rootLabel(lemma),'ラテン語 mittere');
@@ -110,7 +110,7 @@ test('contested add ancestry and templum meanings preserve the exact lexical rec
 
 test('attested Latin and Greek references are labelled consistently in titles and word chips',()=>{
  const roots=JSON.parse(fs.readFileSync(path.join(__dirname,'../app/data/generated-etymon/roots.json'),'utf8'));
- const html=fs.readFileSync(path.join(__dirname,'../app/etymon-explorer.html'),'utf8');
+ const html=fs.readFileSync(path.join(__dirname,'../app/vocabulary-master.html'),'utf8');
  const vm=require('node:vm');const context={ROOT_BY:new Map(roots.map(r=>[r.key,r])),esc:s=>String(s)};
  vm.createContext(context);
  for(const name of ['rootLabel','rootChip','eoTag','hasPieRoot']){

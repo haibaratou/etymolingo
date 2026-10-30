@@ -8,6 +8,15 @@ installer and verification commands are documented in
 [`support/character-manager/README.md`](support/character-manager/README.md).
 This integration does not require art, dictionary, gallery or history generation.
 
+After registering new character images, run
+`node app/support/character-manager/build-latest-site-images.cjs`.
+This refreshes the portable latest-image defaults read by `wild-wordopia.html`
+in every browser, with stable PNG content revisions. Explicit shared choices
+remain authoritative; unmarked old browser records do not hide current formal
+images. New explicit browser previews carry their own selection time. Use
+`--accept-choice-changes` after intentionally registering different candidate IDs
+or paths; `--check` never writes. It does not modify browser reviews or artwork.
+
 All product entrance HTML files stay directly in `app/`; runtime support and current
 builders live in `app/support/`. Apps and games follow the same layout; never recreate
 `app/games/`. Use the current commands below. Dated work patches and old repair

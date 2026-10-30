@@ -1,0 +1,19 @@
+﻿ファイル名,語義,対象語義,画像生成プロンプト,プロンプト準備状況,要確認理由,画風参照画像,単語,語根ID_JSON,第一英語義,語義SHA256,実行プロンプト,解説英語,解説日本語,制作状態,画像SHA256,画像GitBlobSHA,検品日時,検品メモ
+Phillip.png,フィリップ,フィリップ,"Subject: Phillip, target first meaning ""フィリップ"".
+
+Composition: An adult man with short sandy-brown hair stands beside a small hallway bench, wearing a teal sweater, brown trousers and plain shoes. He smiles and extends one open hand to greet an arriving visitor while holding a closed umbrella in his other hand. Use an ordinary friendly male character for the given name, without penguins, an island landscape or a claim to portray a historical individual.
+
+Style: Match the attached invidious.png style: thick rounded dark-brown outlines, rounded 2D shapes, smooth solid colors and restrained cartoon shading.
+
+Framing: One compact scene occupies 80-90% of the square. Keep the complete subjects and tools inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark or checkerboard.",作成済み,,references/invidious.png,Phillip,[],personal name,b7339763dbfadc231e4f273907599044108735f5b159afce50e41fb63ab7ef79,,,,prompt_ready,,,,
+Gregory.png,聖グレゴリウス（グレゴリー）,聖グレゴリウス(グレゴリー),"Subject: Gregory, target first meaning ""聖グレゴリウス(グレゴリー)"".
+
+Composition: Saint Gregory the Illuminator is represented symbolically as an elderly bearded early Christian bishop in a cream robe, burgundy cloak and narrow plain stole. A small simple halo marks the saint. Standing beside a plain stone cross, he holds a closed scripture book against his chest and extends his free open palm toward one attentive adult listener in a simple tunic. Keep the two figures and cross compact and fully visible, with no modern sweater, papal crown or claim of a documentary portrait.
+
+Style: Match the attached invidious.png style: thick rounded dark-brown outlines, rounded 2D shapes, smooth solid colors and restrained cartoon shading.
+
+Framing: One compact scene occupies 80-90% of the square. Keep the complete subjects and tools inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark or checkerboard.",作成済み,,references/invidious.png,Gregory,[],Armenian church founder,49edec4f89dc97ea13eb6082632e9063d51369a8963eab9fa896a773526b4cd0,,,,prompt_ready,,,,

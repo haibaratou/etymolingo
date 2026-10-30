@@ -1,0 +1,182 @@
+{
+  "path": "D:\\Projects\\dot-image-review\\ready_union_scopes_20261015.csv",
+  "exists": true,
+  "matches": [
+    {
+      "record": 310,
+      "filename": "hyphen.png",
+      "word": "hyphen",
+      "roots": "sem-1",
+      "status": "reviewed",
+      "generation_eligible": "True",
+      "hold": "",
+      "ja": "ハイフン",
+      "prompt": "Subject: hyphen, target meaning short dash (ハイフン). Composition: An editor considers two separate blank word cards that will form one caption-established compound expression. Caption identifies the joining punctuation, while the illustration contains no literal hyphen, letters or substitute glyph. Deliver one 512x512 PNG with genuine RGBA transparency outside all subjects and in all gaps. Use thick dark-brown rounded outlines, rounded simple 2D forms, restrained flat cel shading and clean neutral colors without a yellow cast. The whole subject group occupies 80-90% of the longest canvas dimension with clear safe margins, no cropped body parts or objects. No text, letters, numerals, labels, speech balloons, logos, watermarks, decorative icons, border, frame, pedestal or unrelated scenery."
+    },
+    {
+      "record": 386,
+      "filename": "cursive.png",
+      "word": "cursive",
+      "roots": "kers-2",
+      "status": "reviewed",
+      "generation_eligible": "True",
+      "hold": "",
+      "ja": "草書体の",
+      "prompt": "Subject: cursive, target meaning flowing (草書体の). Composition: A calligrapher demonstrates a flowing continuous pen motion above a blank practice sheet, with relaxed wrist and uncapped pen. Caption names cursive writing; no actual characters or pretend script. Deliver one 512x512 PNG with genuine RGBA transparency outside all subjects and in all gaps. Use thick dark-brown rounded outlines, rounded simple 2D forms, restrained flat cel shading and clean neutral colors without a yellow cast. The whole subject group occupies 80-90% of the longest canvas dimension with clear safe margins, no cropped body parts or objects. No text, letters, numerals, labels, speech balloons, logos, watermarks, decorative icons, border, frame, pedestal or unrelated scenery."
+    },
+    {
+      "record": 474,
+      "filename": "million.png",
+      "word": "million",
+      "roots": "gheslo-",
+      "status": "reviewed",
+      "generation_eligible": "True",
+      "hold": "",
+      "ja": "100万",
+      "prompt": "Subject: million, target meaning one million; a very large exact number (100万). Composition: A huge orderly warehouse stack of identical tiny wooden cubes rises behind one worker who holds a single cube for scale. The mass of cubes should communicate an enormous quantity without attempting countable individual units; do not draw a written number or money. Deliver one 512x512 PNG with genuine RGBA transparency outside all subjects and in all gaps. Use thick dark-brown rounded outlines, rounded simple 2D forms, restrained flat cel shading and clean neutral colors without a yellow cast. The whole subject group occupies 80-90% of the longest canvas dimension with clear safe margins, no cropped body parts or objects. No text, letters, numerals, labels, speech balloons, logos, watermarks, decorative icons, border, frame, pedestal or unrelated scenery."
+    },
+    {
+      "record": 1069,
+      "filename": "apostrophe.png",
+      "word": "apostrophe",
+      "roots": "apo-+streb(h)-",
+      "status": "reviewed",
+      "generation_eligible": "True",
+      "hold": "",
+      "ja": "アポストロフィ",
+      "prompt": "Subject: apostrophe, target meaning contraction (アポストロフィ). Composition: An editor points to the relevant place on a completely blank writing sheet while discussing a caption-provided contraction example. No literal apostrophe, written words or punctuation-shaped substitute. Deliver one 512x512 PNG with genuine RGBA transparency outside all subjects and in all gaps. Use thick dark-brown rounded outlines, rounded simple 2D forms, restrained flat cel shading and clean neutral colors without a yellow cast. The whole subject group occupies 80-90% of the longest canvas dimension with clear safe margins, no cropped body parts or objects. No text, letters, numerals, labels, speech balloons, logos, watermarks, decorative icons, border, frame, pedestal or unrelated scenery."
+    },
+    {
+      "record": 1295,
+      "filename": "circumflex.png",
+      "word": "circumflex",
+      "roots": "(s)ker-3",
+      "status": "reviewed",
+      "generation_eligible": "True",
+      "hold": "",
+      "ja": "曲折アクセント記号",
+      "prompt": "Subject: circumflex, target meaning circumflex accent mark (曲折アクセント記号). Composition: A language teacher discusses pronunciation with a learner beside a blank practice sheet and pen. Caption shows the accent example outside the illustration; no literal accent, letter or lookalike glyph. Deliver one 512x512 PNG with genuine RGBA transparency outside all subjects and in all gaps. Use thick dark-brown rounded outlines, rounded simple 2D forms, restrained flat cel shading and clean neutral colors without a yellow cast. The whole subject group occupies 80-90% of the longest canvas dimension with clear safe margins, no cropped body parts or objects. No text, letters, numerals, labels, speech balloons, logos, watermarks, decorative icons, border, frame, pedestal or unrelated scenery."
+    },
+    {
+      "record": 1397,
+      "filename": "anaphora.png",
+      "word": "anaphora",
+      "roots": "an-+bher-1",
+      "status": "reviewed",
+      "generation_eligible": "True",
+      "hold": "",
+      "ja": "首句反復",
+      "prompt": "Subject: anaphora; canonical first Japanese sense \"首句反復\".\n\nComposition: Three adults work together in one continuous vegetable bed: one plants a seedling, another waters a growing plant and another gathers ripe vegetables. The shared scene can support an external repeated-opening phrase example, while the image contains no words, lettering, separate panels or copies of one person at different times.\n\nStyle: Use attached references/invidious.png for style only: thick rounded dark-brown contours, simple rounded 2D forms and restrained cartoon shading. Do not copy its subject.\n\nFraming: One compact composition; whole subject about 80-90% of the square, safe margins, no cropping.\n\nOutput: 512x512 PNG, RGBA, genuine transparency outside subjects and through gaps. No text, numerals, labels, logos or watermark."
+    },
+    {
+      "record": 1422,
+      "filename": "digraph.png",
+      "word": "digraph",
+      "roots": "dwo-",
+      "status": "reviewed",
+      "generation_eligible": "True",
+      "hold": "",
+      "ja": "二重字",
+      "prompt": "Subject: digraph, target meaning two letters representing one sound (二重字). Composition: A language teacher brings two blank letter-card placeholders together beside one speaking learner. Caption supplies a two-letter one-sound example; no actual letters, numerals or punctuation. Deliver one 512x512 PNG with genuine RGBA transparency outside all subjects and in all gaps. Use thick dark-brown rounded outlines, rounded simple 2D forms, restrained flat cel shading and clean neutral colors without a yellow cast. The whole subject group occupies 80-90% of the longest canvas dimension with clear safe margins, no cropped body parts or objects. No text, letters, numerals, labels, speech balloons, logos, watermarks, decorative icons, border, frame, pedestal or unrelated scenery."
+    },
+    {
+      "record": 1609,
+      "filename": "metathesis.png",
+      "word": "metathesis",
+      "roots": "me-2+dhē-",
+      "status": "reviewed",
+      "generation_eligible": "True",
+      "hold": "",
+      "ja": "字位転換",
+      "prompt": "Subject: metathesis, target meaning transposition (字位転換). Composition: A teacher exchanges the positions of two plain colored speech-segment tokens while a learner practices the changed sequence. Caption supplies a genuine sound-order example, no literal letters. Deliver one 512x512 PNG with genuine RGBA transparency outside all subjects and in all gaps. Use thick dark-brown rounded outlines, rounded simple 2D forms, restrained flat cel shading and clean neutral colors without a yellow cast. The whole subject group occupies 80-90% of the longest canvas dimension with clear safe margins, no cropped body parts or objects. No text, letters, numerals, labels, speech balloons, logos, watermarks, decorative icons, border, frame, pedestal or unrelated scenery."
+    },
+    {
+      "record": 1740,
+      "filename": "diphthong.png",
+      "word": "diphthong",
+      "roots": "dwo-",
+      "status": "reviewed",
+      "generation_eligible": "True",
+      "hold": "",
+      "ja": "二重母音",
+      "prompt": "Subject: diphthong; canonical first Japanese sense \"二重母音\".\n\nComposition: One boy plays with a plain toy boat in a small tub, holding the complete boat above the water. These concrete subjects support an external pronunciation example using boy or toy; show one child and one present activity, with no mouth-position sequence, letters or sound notation.\n\nStyle: Use attached references/invidious.png for style only: thick rounded dark-brown contours, simple rounded 2D forms and restrained cartoon shading. Do not copy its subject.\n\nFraming: One compact composition; whole subject about 80-90% of the square, safe margins, no cropping.\n\nOutput: 512x512 PNG, RGBA, genuine transparency outside subjects and through gaps. No text, numerals, labels, logos or watermark."
+    },
+    {
+      "record": 1801,
+      "filename": "acrostic.png",
+      "word": "acrostic",
+      "roots": "ak-+steigh-",
+      "status": "reviewed",
+      "generation_eligible": "True",
+      "hold": "",
+      "ja": "アクロスティック",
+      "prompt": "Subject: acrostic, target meaning puzzle (アクロスティック). Composition: A puzzle editor aligns several blank word-card placeholders vertically while a learner traces their common leading edge. Caption supplies the acrostic example; no letters or substitute first-letter glyphs. Deliver one 512x512 PNG with genuine RGBA transparency outside all subjects and in all gaps. Use thick dark-brown rounded outlines, rounded simple 2D forms, restrained flat cel shading and clean neutral colors without a yellow cast. The whole subject group occupies 80-90% of the longest canvas dimension with clear safe margins, no cropped body parts or objects. No text, letters, numerals, labels, speech balloons, logos, watermarks, decorative icons, border, frame, pedestal or unrelated scenery."
+    },
+    {
+      "record": 1836,
+      "filename": "clef.png",
+      "word": "clef",
+      "roots": "klāu-",
+      "status": "reviewed",
+      "generation_eligible": "True",
+      "hold": "",
+      "ja": "音部記号",
+      "prompt": "Subject: clef, target meaning staff symbol establishing pitch reference (音部記号). Composition: A music teacher helps a learner connect piano keys to an unprinted physical five-string-like staff teaching model. Caption supplies the clef and pitch-reference context; no clef, note, letter or numeral glyphs. Deliver one 512x512 PNG with genuine RGBA transparency outside all subjects and in all gaps. Use thick dark-brown rounded outlines, rounded simple 2D forms, restrained flat cel shading and clean neutral colors without a yellow cast. The whole subject group occupies 80-90% of the longest canvas dimension with clear safe margins, no cropped body parts or objects. No text, letters, numerals, labels, speech balloons, logos, watermarks, decorative icons, border, frame, pedestal or unrelated scenery."
+    },
+    {
+      "record": 2013,
+      "filename": "palindrome.png",
+      "word": "palindrome",
+      "roots": "kʷel-1+der-1",
+      "status": "reviewed",
+      "generation_eligible": "True",
+      "hold": "",
+      "ja": "回文",
+      "prompt": "Subject: palindrome, target meaning wordplay (回文). Composition: A language teacher arranges blank word-card placeholders in a symmetric sequence and traces it from both ends. Caption supplies the genuine palindrome, no printed letters, numbers or directional arrows. Deliver one 512x512 PNG with genuine RGBA transparency outside all subjects and in all gaps. Use thick dark-brown rounded outlines, rounded simple 2D forms, restrained flat cel shading and clean neutral colors without a yellow cast. The whole subject group occupies 80-90% of the longest canvas dimension with clear safe margins, no cropped body parts or objects. No text, letters, numerals, labels, speech balloons, logos, watermarks, decorative icons, border, frame, pedestal or unrelated scenery."
+    },
+    {
+      "record": 2040,
+      "filename": "Devanagari.png",
+      "word": "Devanagari",
+      "roots": "dyeu-",
+      "status": "reviewed",
+      "generation_eligible": "True",
+      "hold": "",
+      "ja": "デーバナーガリー",
+      "prompt": "Subject: Devanagari, target meaning script (デーバナーガリー). Composition: A language teacher prepares a blank writing sheet and pen beside a learner studying a plain book. Caption identifies the Devanagari writing system; no actual or pseudo characters and no national stereotype. Deliver one 512x512 PNG with genuine RGBA transparency outside all subjects and in all gaps. Use thick dark-brown rounded outlines, rounded simple 2D forms, restrained flat cel shading and clean neutral colors without a yellow cast. The whole subject group occupies 80-90% of the longest canvas dimension with clear safe margins, no cropped body parts or objects. No text, letters, numerals, labels, speech balloons, logos, watermarks, decorative icons, border, frame, pedestal or unrelated scenery."
+    },
+    {
+      "record": 2079,
+      "filename": "Tetragrammaton.png",
+      "word": "Tetragrammaton",
+      "roots": "kʷetwer-+gerbh-",
+      "status": "reviewed",
+      "generation_eligible": "True",
+      "hold": "",
+      "ja": "神を表す4文字",
+      "prompt": "Subject: Tetragrammaton, target meaning divine name (神を表す4文字). Composition: A scholar respectfully examines a closed plain religious manuscript with another reader. Caption identifies the four-letter divine name, while the image contains no Hebrew, four placeholder marks or invented script. Deliver one 512x512 PNG with genuine RGBA transparency outside all subjects and in all gaps. Use thick dark-brown rounded outlines, rounded simple 2D forms, restrained flat cel shading and clean neutral colors without a yellow cast. The whole subject group occupies 80-90% of the longest canvas dimension with clear safe margins, no cropped body parts or objects. No text, letters, numerals, labels, speech balloons, logos, watermarks, decorative icons, border, frame, pedestal or unrelated scenery."
+    },
+    {
+      "record": 2109,
+      "filename": "eigenvector.png",
+      "word": "eigenvector",
+      "roots": "aik-1+wegh-",
+      "status": "reviewed",
+      "generation_eligible": "True",
+      "hold": "",
+      "ja": "固有ベクトル",
+      "prompt": "Subject: eigenvector; canonical first Japanese sense \"固有ベクトル\".\n\nComposition: One elastic-strip teaching model is uniformly stretched between two clamps, with a straight colored thread running along the stretching axis and distinct endpoints. Show one axis-aligned direction preserved under stretching, no duplicate strip, arrows or formula.\n\nStyle: Use attached references/invidious.png for style only: thick rounded dark-brown contours, simple rounded 2D shapes and restrained cartoon shading. Do not copy its subject.\n\nFraming: One compact composition; whole subject about 80-90% of the square, safe margins, no cropping.\n\nOutput: 512x512 PNG, RGBA, genuine transparency outside subjects and through gaps. No text, numerals, labels, logos or watermark."
+    },
+    {
+      "record": 2547,
+      "filename": "esotropia.png",
+      "word": "esotropia",
+      "roots": "en+trep-2+okʷ-+-ā-",
+      "status": "reviewed",
+      "generation_eligible": "True",
+      "hold": "",
+      "ja": "内斜視",
+      "prompt": "Subject: esotropia; canonical first Japanese sense \"内斜視\".\n\nComposition: One neutral adult face looks ahead with one eye turned inward toward the nose while the other looks forward. Keep anatomy natural, no joke, arrow or diagnostic cause label.\n\nStyle: Use attached references/invidious.png for style only: thick rounded dark-brown contours, simple rounded 2D shapes and restrained cartoon shading. Do not copy its subject.\n\nFraming: One compact scene; full subject about 80-90% of the square, safe margins, no cropping.\n\nOutput: 512x512 PNG, RGBA, genuine transparency outside subjects and through gaps. No text, numerals, labels, logos or watermark."
+    }
+  ]
+}

@@ -1,0 +1,3624 @@
+{
+  "rows": 149,
+  "selection": [
+    {
+      "case": 1,
+      "filename": "board.png",
+      "w": "board",
+      "p": [
+        "bherdh-"
+      ],
+      "first_ja": "板",
+      "current_image_sha256": "adece6a283806035153269aca35271e969c7bdf343cd165399498de66e6d2035",
+      "composition": "One long, flat rectangular wooden plank lies diagonally, viewed slightly from above. Show its broad grain-covered face, thin straight edge and squared end. No person or vehicle.",
+      "sources": [
+        {
+          "source": "generated-image-issues.json",
+          "record": 68,
+          "data": {
+            "w": "board",
+            "p": [
+              "bherdh-"
+            ],
+            "art": "board",
+            "imageSha256": "adece6a283806035153269aca35271e969c7bdf343cd165399498de66e6d2035",
+            "senseSha256": "aa07c5e5b49224cbec9ba7afeeee549234f95c574ea298d6af3a7cb6797354cb",
+            "codes": [
+              "image_first_sense_mismatch"
+            ],
+            "detail": "The exact PNG depicts a girl boarding a bus. The canonical entry is a noun with first 板 / plank; it does not include that boarding verb. No representative plank is shown.",
+            "status": "held"
+          }
+        },
+        {
+          "source": "generated-image-issues.json",
+          "record": 92,
+          "data": {
+            "w": "board",
+            "p": [
+              "bherdh-"
+            ],
+            "art": "board",
+            "imageSha256": "adece6a283806035153269aca35271e969c7bdf343cd165399498de66e6d2035",
+            "senseSha256": "aa07c5e5b49224cbec9ba7afeeee549234f95c574ea298d6af3a7cb6797354cb",
+            "codes": [
+              "image_first_sense_mismatch"
+            ],
+            "detail": "Shows board vehicle verb, absent from all listed noun glosses",
+            "status": "held"
+          }
+        },
+        {
+          "source": "word-art-todo.csv",
+          "record": 443,
+          "data": {
+            "単語": "board",
+            "語根": "bherdh-",
+            "語義": "板、委員会、食事",
+            "絵と語義の整合性": "目視判定: Shows board vehicle verb, absent from all listed noun glosses",
+            "目視所見": "Girl climbs onto bus through open door",
+            "品質判定根拠": "実PNG画素の目視とGit blob SHA照合済み。意味と画像は現公開版へ差分照合。旧ゲーム所見はreview_game_contextの時点指定に従う。 公開commit dcfb090c3b32a1dc2141d74f68d4a42aba812e65; asset SHA 2728169fac2bf4a28f6f629f785084352e4c93e3",
+            "具体的な改善案": "画像内に台詞・説明文を入れない。類義語候補だけで字選択クイズを不合格にしない。 Restore representative noun first and illustrate board/plank; retain boarding as separate verb/image"
+          }
+        }
+      ]
+    },
+    {
+      "case": 10,
+      "filename": "Acts.png",
+      "w": "Acts",
+      "p": [],
+      "first_ja": "使徒言行録",
+      "current_image_sha256": "a634ca0b75f6ac64e5c5b640e936ad7b1fb8e503b3058e8f5425d1070d772a9d",
+      "composition": "An open ancient scripture codex rests on a reading stand. Its illuminated page depicts the apostles gathered at Pentecost with small flames above them. Use unreadable manuscript strokes, not a lone modern man's portrait.",
+      "sources": [
+        {
+          "source": "prompt_review_pending.csv",
+          "record": 27,
+          "data": {
+            "ファイル名": "Acts.png",
+            "単語": "Acts",
+            "問題": "語義不一致／対象描写の不備。対象ID=Acts / 語根ID= / imagePath=assets/word/Acts.png / 画像Git blob=4ee1deb8119b407d168457afd31f082460f31bb7。個別目視理由：男性の肖像だけで使徒言行録という書名を推測できない。 同綴り別語義・語形の混同を確認し、代表語義に合う画像へ要修正。語根ID・正式ファイル名を保持。他の語義の画像へ上書きしない。原典語義の確認が必要な場合は親側で確認してから再生成（この作業ではpieへアクセスしない）。低得点のみを登録基準にしていない。",
+            "発見バッチ": "puzzle-visual-batch-005",
+            "状態": "要再生成（語義確認後）"
+          }
+        }
+      ]
+    },
+    {
+      "case": 20,
+      "filename": "amygdala.png",
+      "w": "amygdala",
+      "p": [],
+      "first_ja": "感情に関わる脳の扁桃体",
+      "current_image_sha256": "0ab8fcc64800a8d4a27cb552d18283d839ce05bebc4490c1a2eb4953daf84ef7",
+      "composition": "A pale cutaway left cerebral hemisphere reveals the small almond-shaped amygdala deep in its anterior medial temporal lobe, immediately anterior to the hippocampus. Highlight that nucleus gently; show no mouth or throat.",
+      "sources": [
+        {
+          "source": "prompt_review_pending.csv",
+          "record": 139,
+          "data": {
+            "ファイル名": "amygdala.png",
+            "単語": "amygdala",
+            "問題": "【語義・ID確認候補】画像は喉の左右の扁桃、日本語は「へんとう」、英語と語源説明は脳の扁桃体。器官と語義の対応を確認。 公開出力ja=へんとう; en=the one of the four basal ganglia in each cerebral hemisphere that is part of the limbic system and consists of an almond-shaped mass of gray matter in the anterior extremity of the temporal lobe —called also amygdaloid nucleus。wordId=amygdala; rootIds=[]; imagePath=assets/word/amygdala.png; local Git blob SHA=bc36b58d554c631297e82527e87d18404e45caf5。母艦の正式データと現在の公開画像SHAを親で照合後に判断。同綴異義語・別語根の画像を保護。自動再生成しない。",
+            "発見バッチ": "batch-023",
+            "状態": "要確認（語義・ID・画像対応）"
+          }
+        }
+      ]
+    },
+    {
+      "case": 23,
+      "filename": "Anglican.png",
+      "w": "Anglican",
+      "p": [],
+      "first_ja": "聖公会の信徒",
+      "current_image_sha256": "d2d3f5aef335afc65fa6a211e75fd134298be75cb19d788427a31887aeba4179",
+      "composition": "An Anglican parishioner kneels quietly at a prayer bench inside a modest English Anglican church, holding an open prayer book beside a simple communion table. Do not use a windmill or countryside scene.",
+      "sources": [
+        {
+          "source": "prompt_review_pending.csv",
+          "record": 117,
+          "data": {
+            "ファイル名": "Anglican.png",
+            "単語": "Anglican",
+            "問題": "明確な画像対応問題。画像は風車と田園景観で、日英語義の聖公会の信徒・聖公会との関係を示さない。正式語義とID、現在公開画像SHAを確認した後に再生成要否を決める。 公開日本語=聖公会の信徒、聖公会の / 公開英語=Anglican church member / relating to Anglican churches。対象ID=Anglican / 語根ID=公開出力で未設定。ローカル画像Git blob=2ab87d7a1fa99865f52b881107495aa7abea597f。保存先=assets/word/Anglican.png。親が正式資料と現在の公開画像SHAを照合するまで辞書・画像を変更しない。重要な他語義を消さず、同綴異義画像を上書き・改名しない。自動再生成の指示ではない。",
+            "発見バッチ": "puzzle-visual-review-20261019-batch-019",
+            "状態": "要再生成（語義・ID確認後）"
+          }
+        }
+      ]
+    },
+    {
+      "case": 26,
+      "filename": "arginine.png",
+      "w": "arginine",
+      "p": [
+        "arg-"
+      ],
+      "first_ja": "アルギニン",
+      "current_image_sha256": "5a09cba235dc02970de2711ef2d86196a55a57a862cafbbd6ad4c9bfb721c496",
+      "composition": "One accurate arginine structural formula reads HO–C(=O)–CH(NH2)–CH2–CH2–CH2–NH–C(=NH)–NH2. Draw three consecutive methylene units joined by single bonds. Only the carbonyl C=O and guanidino C=NH bonds are double bonds.",
+      "sources": [
+        {
+          "source": "prompt_review_pending.csv",
+          "record": 264,
+          "data": {
+            "ファイル名": "arginine.png",
+            "単語": "arginine",
+            "問題": "元画像の黒い炭素球は五個。アルギニンC6に必要な側鎖メチレンが一個足りず、グアニジノ基からアルファ炭素までの鎖が短い。 明確な画像の科学的内容の不一致。正式語義・IDと公開中の画像SHAを親側で照合してから対応する。 wordID=arginine; rootIDs=['arg-']; ja=アルギニン; en=amino acid; image=assets/word/arginine.png; GitBlobSHA=770fe8ed18001fe22d9595dfab3830d6661ee9ea",
+            "発見バッチ": "batch-030",
+            "状態": "要再生成（語義・ID確認後）"
+          }
+        }
+      ]
+    },
+    {
+      "case": 31,
+      "filename": "ate@x.png",
+      "w": "ate",
+      "p": [],
+      "first_ja": "eatの過去形",
+      "current_image_sha256": "d4688ccc33c55494179055ea1a4cd200f082cbf76030d1901406af4b394de8ae",
+      "composition": "A child has just finished eating a sandwich, still chewing the last bite with a few crumbs on an otherwise empty plate. Show a meal in progress toward completion, not a classical goddess.",
+      "sources": [
+        {
+          "source": "prompt_review_pending.csv",
+          "record": 29,
+          "data": {
+            "ファイル名": "ate@x.png",
+            "単語": "ate",
+            "問題": "語義不一致／対象描写の不備。対象ID=ate@x / 語根ID= / imagePath=assets/word/ate@x.png / 画像Git blob=0beef5925eccbabc25d1e149c21e331afdcb0dc4。個別目視理由：破片の横に立つ古代風の人物は食べたという動作を示していない。 同綴り別語義・語形の混同を確認し、代表語義に合う画像へ要修正。語根ID・正式ファイル名を保持。他の語義の画像へ上書きしない。原典語義の確認が必要な場合は親側で確認してから再生成（この作業ではpieへアクセスしない）。低得点のみを登録基準にしていない。",
+            "発見バッチ": "puzzle-visual-batch-005",
+            "状態": "要再生成（語義確認後）"
+          }
+        }
+      ]
+    },
+    {
+      "case": 32,
+      "filename": "Atlantis.png",
+      "w": "Atlantis",
+      "p": [],
+      "first_ja": "伝説の沈没した島アトランティス",
+      "current_image_sha256": "88b406972390afc1717ee9ab918986d6b41f0138b99ec25b9a635f86763da469",
+      "composition": "The legendary island of Atlantis is sinking beneath the sea: a small classical island city remains partly above the waves while submerged columns are visible through the surrounding clear water. No spacecraft.",
+      "sources": [
+        {
+          "source": "prompt_review_pending.csv",
+          "record": 273,
+          "data": {
+            "ファイル名": "Atlantis.png",
+            "単語": "Atlantis",
+            "問題": "画像はスペースシャトル。日本語はアトランティス号、英語先頭語義は水没した伝説の島。 語義・ID・画像対応の確認候補であり、低得点のみを根拠に再生成しない。公開中の画像SHAと正式辞書は親側で照合する。 wordID=Atlantis; rootIDs=[]; ja=アトランティス号; en=a fabled island in the Atlantic that according to legend sank beneath the sea; image=assets/word/Atlantis.png; GitBlobSHA=d9bf41612330ffc9b00ae324e89d454bde6b3c0b",
+            "発見バッチ": "batch-030",
+            "状態": "要確認（語義・ID・画像対応）"
+          }
+        }
+      ]
+    },
+    {
+      "case": 38,
+      "filename": "bar.png",
+      "w": "bar",
+      "p": [
+        "gʷerə-2"
+      ],
+      "first_ja": "棒",
+      "current_image_sha256": "eee8b12d972db0a212fb0f554bef8e644a3d27fa675dd880c9755360f885843d",
+      "composition": "One plain cylindrical metal rod lies diagonally across the frame, with a narrow round cross-section visible at its near end. Keep the straight solid shaft dominant; include no tavern, bottles or counter.",
+      "sources": [
+        {
+          "source": "generated-image-issues.json",
+          "record": 93,
+          "data": {
+            "w": "bar",
+            "p": [
+              "gʷerə-2"
+            ],
+            "art": "bar",
+            "imageSha256": "eee8b12d972db0a212fb0f554bef8e644a3d27fa675dd880c9755360f885843d",
+            "senseSha256": "97c28ad952a1fefaf4a16fc2f43a9ee09f5aeb0f78faf7ffc229b728e52ed9b5",
+            "codes": [
+              "image_first_sense_mismatch"
+            ],
+            "detail": "A drinking establishment is explicit; no isolated rod or courtroom is shown.",
+            "status": "held"
+          }
+        }
+      ]
+    },
+    {
+      "case": 48,
+      "filename": "Berlin.png",
+      "w": "Berlin",
+      "p": [],
+      "first_ja": "ベルリン",
+      "current_image_sha256": "1cbd7a0829839d8d9faca3941ca7a4b8db4164c0196aa839757b217e356f50c7",
+      "composition": "Berlin's Brandenburg Gate stands centrally with six pairs of Doric columns, five passageways and the recognizable horse-drawn quadriga on top. Use a compact architectural view, with no invented named person.",
+      "sources": [
+        {
+          "source": "prompt_review_pending.csv",
+          "record": 25,
+          "data": {
+            "ファイル名": "Berlin.png",
+            "単語": "Berlin",
+            "問題": "語義不一致／対象描写の不備。対象ID=Berlin / 語根ID= / imagePath=assets/word/Berlin.png / 画像Git blob=be7f33ce744f2a8dcae637f00ba09968a7f8ea29。個別目視理由：男性の顔だけで都市ベルリンを特定する根拠がない。 同綴り別語義・語形の混同を確認し、代表語義に合う画像へ要修正。語根ID・正式ファイル名を保持。他の語義の画像へ上書きしない。原典語義の確認が必要な場合は親側で確認してから再生成（この作業ではpieへアクセスしない）。低得点のみを登録基準にしていない。",
+            "発見バッチ": "puzzle-visual-batch-005",
+            "状態": "要再生成（語義確認後）"
+          }
+        }
+      ]
+    },
+    {
+      "case": 64,
+      "filename": "Brazil.png",
+      "w": "Brazil",
+      "p": [
+        "bhreuə-"
+      ],
+      "first_ja": "ブラジル",
+      "current_image_sha256": "1a6ee649612f0a1ad3cdf6c46b1806b92a84b07204ec9298ed8d7bfec2a1b951",
+      "composition": "A Brazilian national flag hangs in a soft fold from a short pole: green field, yellow diamond and blue central globe with small white stars. Omit lettering from the white band; no human portrait.",
+      "sources": [
+        {
+          "source": "prompt_review_pending.csv",
+          "record": 31,
+          "data": {
+            "ファイル名": "Brazil.png",
+            "単語": "Brazil",
+            "問題": "語義不一致／対象描写の不備。対象ID=Brazil / 語根ID=bhreuə- / imagePath=assets/word/Brazil.png / 画像Git blob=6a17aef5b59cde2ed875369799f83cff8f228cdf。個別目視理由：男性の肖像からブラジルという国を特定できない。 同綴り別語義・語形の混同を確認し、代表語義に合う画像へ要修正。語根ID・正式ファイル名を保持。他の語義の画像へ上書きしない。原典語義の確認が必要な場合は親側で確認してから再生成（この作業ではpieへアクセスしない）。低得点のみを登録基準にしていない。",
+            "発見バッチ": "puzzle-visual-batch-006",
+            "状態": "要再生成（語義確認後）"
+          }
+        }
+      ]
+    },
+    {
+      "case": 68,
+      "filename": "cab.png",
+      "w": "cab",
+      "p": [],
+      "first_ja": "タクシー",
+      "current_image_sha256": "92a75e33a31c0baf1dd5d81912d616a68f34c0de1196218564089bedf0d9b124",
+      "composition": "A clearly recognizable taxi car waits at a curb as a passenger opens its rear door. Use a small roof light and visible passenger seats without any written taxi label. No wine or grapes.",
+      "sources": [
+        {
+          "source": "generated-image-issues.json",
+          "record": 111,
+          "data": {
+            "w": "cab",
+            "p": [],
+            "art": "cab",
+            "imageSha256": "92a75e33a31c0baf1dd5d81912d616a68f34c0de1196218564089bedf0d9b124",
+            "senseSha256": "db22833f85d912cd355d1a8f2cdc580cb523a982ebaf909d84304b8a345d5a93",
+            "codes": [
+              "image_first_sense_mismatch"
+            ],
+            "detail": "Matches old Cabernet abbreviation, notタクシー/運転席",
+            "status": "held"
+          }
+        },
+        {
+          "source": "prompt_review_pending.csv",
+          "record": 70,
+          "data": {
+            "ファイル名": "cab.png",
+            "単語": "cab",
+            "問題": "語義・ID確認候補。公開先頭語義はタクシー・運転席だが画像は葡萄と赤ワイン。cabernetの略称として実在する語義との対応が考えられるため正式資料を確認する。整合する一般的な別義を確認できれば語義追加・先頭語義修正も検討し、タクシー等の重要な他語義を保持する。画像がワインだからという理由だけで新語義を作らない。 対象ID=cab / 語根ID=公開出力で未設定 / 公開語義=タクシー、運転席。目視所見=葡萄と赤ワインは見えるがタクシーはなくワイン品種略称か語義IDの確認が必要。 ローカル画像Git blob=f6df092d49c403de686b77417eaab1f20d051799。保存先=assets/word/cab.png。親が正式資料と現在の公開画像SHAを照合するまで辞書・画像を変更しない。他の同綴語義画像を上書き・改名しない。低スコアのみを理由とした登録ではない。",
+            "発見バッチ": "puzzle-visual-review-20261019-batch-012",
+            "状態": "要確認（語義整合・画像対応）"
+          }
+        }
+      ]
+    },
+    {
+      "case": 73,
+      "filename": "card.png",
+      "w": "card",
+      "p": [
+        "kars-"
+      ],
+      "first_ja": "すきぐし",
+      "current_image_sha256": "f5e9f74680aed1db2ad2a55d7d7c3c20e42f838a5d199189262cb4ed1c726be8",
+      "composition": "A broad wooden carding comb has a dense bed of long metal teeth. One hand draws loose wool fibers through the teeth, leaving aligned fibers along its edge. No postcard or payment card.",
+      "sources": [
+        {
+          "source": "generated-image-issues.json",
+          "record": 149,
+          "data": {
+            "w": "card",
+            "p": [
+              "kars-"
+            ],
+            "art": "card",
+            "imageSha256": "f5e9f74680aed1db2ad2a55d7d7c3c20e42f838a5d199189262cb4ed1c726be8",
+            "senseSha256": "e7a6af4b8eb98eba1846b5956b4374e6bdfc87c560cb8f07518667b101ac7b7e",
+            "codes": [
+              "image_first_sense_mismatch"
+            ],
+            "detail": "The image depicts a paper card, not the first sense すきぐし / wool comb.",
+            "status": "held",
+            "reviewed_at": "2026-10-04T21:57:22.089079+00:00",
+            "review_method": "Source and image checked for exact first-sense alignment."
+          }
+        },
+        {
+          "source": "prompt_review_pending.csv",
+          "record": 24,
+          "data": {
+            "ファイル名": "card.png",
+            "単語": "card",
+            "問題": "語義不一致／対象描写の不備。対象ID=card / 語根ID=kars- / imagePath=assets/word/card.png / 画像Git blob=7c5e10510154f1e72ea2b0a71540492c19fa6199。個別目視理由：カードの絵で、すきぐしというcardの語義は示されない。 同綴り別語義・語形の混同を確認し、代表語義に合う画像へ要修正。語根ID・正式ファイル名を保持。他の語義の画像へ上書きしない。原典語義の確認が必要な場合は親側で確認してから再生成（この作業ではpieへアクセスしない）。低得点のみを登録基準にしていない。",
+            "発見バッチ": "puzzle-visual-batch-004",
+            "状態": "要再生成（語義確認後）"
+          }
+        }
+      ]
+    },
+    {
+      "case": 83,
+      "filename": "checked.png",
+      "w": "checked",
+      "p": [],
+      "first_ja": "確認した",
+      "current_image_sha256": "91f00d3d696e130e2da3124f4214a15a4c5e80a94874da3840fd89877688453a",
+      "composition": "A careful worker has just checked the fastenings of a wooden stool, tightening the final screw and testing the seat with one steady hand. Show focused verification, not a patterned shirt.",
+      "sources": [
+        {
+          "source": "generated-image-issues.json",
+          "record": 99,
+          "data": {
+            "w": "checked",
+            "p": [],
+            "art": "checked",
+            "imageSha256": "91f00d3d696e130e2da3124f4214a15a4c5e80a94874da3840fd89877688453a",
+            "senseSha256": "44ccc974ada12b2352dbec39abc8dc58e48d7135291769aa5aea2b4251d760a0",
+            "codes": [
+              "image_first_sense_mismatch"
+            ],
+            "detail": "The repeated crossing color pattern directly shows checked fabric, not completed verification.",
+            "status": "held"
+          }
+        }
+      ]
+    },
+    {
+      "case": 107,
+      "filename": "contradiction.png",
+      "w": "contradiction",
+      "p": [
+        "kom",
+        "deik-"
+      ],
+      "first_ja": "矛盾",
+      "current_image_sha256": "8e523a604456e21aff9f8e3daff71d172341be6ed207ce61a3bcd46349d8f4e8",
+      "composition": "A single traffic signal incorrectly displays red and green lights simultaneously toward one driver, who pauses with a visibly puzzled expression. The conflicting stop-and-go directions are the subject; no falling block tower.",
+      "sources": [
+        {
+          "source": "prompt_review_pending.csv",
+          "record": 65,
+          "data": {
+            "ファイル名": "contradiction.png",
+            "単語": "contradiction",
+            "問題": "描写内容の確認候補。積み木が崩れる図で、両立しない二つの主張・状態という矛盾の関係が示されていない。崩壊・不安定さを描く画像との対応混同か親が確認する。 対象ID=contradiction / 語根ID=kom|deik- / 公開語義=矛盾。目視所見=積み木が崩れる図だけで相反する主張や状態の矛盾は示されない。 ローカル画像Git blob=84c4a75f8722514ec58a37b48d40efe3be6279f9。保存先=assets/word/contradiction.png。親が正式資料と現在の公開画像SHAを照合するまで辞書・画像を変更しない。他の同綴語義画像を上書き・改名しない。低スコアのみを理由とした登録ではない。実在する別語義で整合できる場合は資料確認後の語義追加・先頭語義修正と重要な他語義の保持も検討する。",
+            "発見バッチ": "puzzle-visual-review-20261019-batch-011",
+            "状態": "要確認（描写内容・画像対応）"
+          }
+        }
+      ]
+    },
+    {
+      "case": 109,
+      "filename": "cool.png",
+      "w": "cool",
+      "p": [
+        "gel-2"
+      ],
+      "first_ja": "涼しい",
+      "current_image_sha256": "8aa6f3c0a3e4492909555e3c63296c2d5af2297ba003efbc984f28a5fba0aa29",
+      "composition": "A relaxed child enjoys a cool breeze beside an open window, wearing a light shirt while a curtain gently billows inward. Show comfortable relief from warmth, without sunglasses or a fashionable pose.",
+      "sources": [
+        {
+          "source": "generated-image-issues.json",
+          "record": 95,
+          "data": {
+            "w": "cool",
+            "p": [
+              "gel-2"
+            ],
+            "art": "cool",
+            "imageSha256": "8aa6f3c0a3e4492909555e3c63296c2d5af2297ba003efbc984f28a5fba0aa29",
+            "senseSha256": "1e4465c9b5f8c0163603ef1a70e164ddf2f341db09667b9e3b1b2f57cbe9686c",
+            "codes": [
+              "image_first_sense_mismatch"
+            ],
+            "detail": "Sunglasses, pose and sparkles illustrate social/style coolness. There is no breeze, thermometer, fan or temperature cue supporting 涼しい.",
+            "status": "held"
+          }
+        }
+      ]
+    },
+    {
+      "case": 113,
+      "filename": "counter-.png",
+      "w": "counter-",
+      "p": [],
+      "first_ja": "反対の",
+      "current_image_sha256": "3247f3a59c5f0086d665725177956cb3ab4095aa21ce80265c78a39ed19ed92b",
+      "composition": "Two people face opposite directions while holding the same taut rope, each leaning away from the center. Make their opposing pulls clear within one physical scene; include no shop checkout counter.",
+      "sources": [
+        {
+          "source": "prompt_review_pending.csv",
+          "record": 60,
+          "data": {
+            "ファイル名": "counter-.png",
+            "単語": "counter-",
+            "問題": "語義・ID確認候補。接頭辞counter-の対象なのに公開和訳と画像が店の名詞counterになっている。名詞counterの実在語義に画像を対応させる可能性と、接頭辞の別IDへの分離を正式資料で親が確認する。画像不良と即断せず主要な反対・逆の接頭辞語義も保持する。 対象ID=counter- / 語根ID=公開出力で未設定 / 公開語義=カウンター。目視所見=店のカウンターを描き接頭辞counter-の意味は示していない。公開和訳とのID対応も確認が必要。 ローカル画像Git blob=57573264b38662ac76a338754fe388fc103bac4f。保存先=assets/word/counter-.png。親が正式資料と現在の公開画像SHAを照合するまで辞書・画像を変更しない。他の同綴語義画像を上書き・改名しない。低スコアのみを理由とした登録ではない。",
+            "発見バッチ": "puzzle-visual-review-20261019-batch-010",
+            "状態": "要確認（語義・ID対応）"
+          }
+        }
+      ]
+    },
+    {
+      "case": 117,
+      "filename": "creatinine.png",
+      "w": "creatinine",
+      "p": [],
+      "first_ja": "クレアチニン",
+      "current_image_sha256": "3d1872c0b61b30300ca6aadb2b93c81e0bfb33a98e94d37f9d0cba21281283f9",
+      "composition": "A single accurate creatinine structural formula is centered: the five-membered ring has the connectivity CH3–N1–CH2–C(=O)–N=C1–NH2. Show four carbons, three nitrogens and one oxygen, with the methyl group attached to ring nitrogen. Use clear atom/group symbols and chemically correct single and double bonds; omit decorative laboratory props.",
+      "sources": [
+        {
+          "source": "prompt_review_pending.csv",
+          "record": 141,
+          "data": {
+            "ファイル名": "creatinine.png",
+            "単語": "creatinine",
+            "問題": "【明確な画像表記不整合】環の右側炭素に二つの二重結合と一つの単結合が集まり結合次数が五。原寸で確認。結合・原子表記を化学的に検証して修正。 公開出力ja=クレアチニン; en=a white crystalline strongly basic compound C4H7N3O formed from creatine and found especially in muscle, blood, and urine。wordId=creatinine; rootIds=[]; imagePath=assets/word/creatinine.png; local Git blob SHA=5718c7a37add89fa379fa3e3b3b8dc5fd082d6ec。母艦の正式データと現在の公開画像SHAを親で照合後に判断。同綴異義語・別語根の画像を保護。自動再生成しない。",
+            "発見バッチ": "batch-023",
+            "状態": "要再生成（語義・ID確認後）"
+          }
+        }
+      ]
+    },
+    {
+      "case": 140,
+      "filename": "deliverance.png",
+      "w": "deliverance",
+      "p": [],
+      "first_ja": "救出",
+      "current_image_sha256": "92e00c854bbc69427208b5dc5719b3ef41285225909633a1f60deeb45ebedafa",
+      "composition": "A rescuer pulls a stranded child up from a shallow rocky ravine using a secure rescue rope, while the child reaches for the rescuer's hand. Show rescue from danger, not childbirth.",
+      "sources": [
+        {
+          "source": "prompt_review_pending.csv",
+          "record": 118,
+          "data": {
+            "ファイル名": "deliverance.png",
+            "単語": "deliverance",
+            "問題": "語義・ID確認候補。画像は出産直後の母子で日本語の出産と対応するが、英語と説明文は解放・救済を中心にする。歴史的な出産の意味と現在の中心語義の優先順を確認する。 公開日本語=出産、発話 / 公開英語=the act of delivering someone or something : the state of being delivered; especially : liberation, rescue。対象ID=deliverance / 語根ID=公開出力で未設定。ローカル画像Git blob=f4a73109063ad7509d6fbbbdac85c4775cc6e5fd。保存先=assets/word/deliverance.png。親が正式資料と現在の公開画像SHAを照合するまで辞書・画像を変更しない。重要な他語義を消さず、同綴異義画像を上書き・改名しない。自動再生成の指示ではない。",
+            "発見バッチ": "puzzle-visual-review-20261019-batch-019",
+            "状態": "要確認（語義・ID・画像対応）"
+          }
+        }
+      ]
+    },
+    {
+      "case": 151,
+      "filename": "domestic.png",
+      "w": "domestic",
+      "p": [
+        "dem-"
+      ],
+      "first_ja": "家庭の",
+      "current_image_sha256": "6fe10a4dd5314be6d2cab54e0f9a236829712347f0004faa1287cb7fc4e1eea7",
+      "composition": "A family performs ordinary household tasks inside their home: one adult folds clean laundry while another sets the supper table and a child puts toys away. No national map or transport network.",
+      "sources": [
+        {
+          "source": "generated-image-issues.json",
+          "record": 82,
+          "data": {
+            "w": "domestic",
+            "p": [
+              "dem-"
+            ],
+            "art": "domestic",
+            "imageSha256": "6fe10a4dd5314be6d2cab54e0f9a236829712347f0004faa1287cb7fc4e1eea7",
+            "senseSha256": "1aa6f2f5a81bff85d274cde5f2c873590c2f4bec492bec2e5e01bfe029d3401b",
+            "codes": [
+              "image_first_sense_mismatch"
+            ],
+            "detail": "The map links settlements by airplane and truck, depicting travel or transport within one country. This supports later 国内の / national, not first 家庭の / household.",
+            "status": "held"
+          }
+        },
+        {
+          "source": "generated-image-issues.json",
+          "record": 102,
+          "data": {
+            "w": "domestic",
+            "p": [
+              "dem-"
+            ],
+            "art": "domestic",
+            "imageSha256": "6fe10a4dd5314be6d2cab54e0f9a236829712347f0004faa1287cb7fc4e1eea7",
+            "senseSha256": "1aa6f2f5a81bff85d274cde5f2c873590c2f4bec492bec2e5e01bfe029d3401b",
+            "codes": [
+              "image_first_sense_mismatch"
+            ],
+            "detail": "Internal transportation within a country-like outline supports 国内の, not the first listed 家庭の.",
+            "status": "held"
+          }
+        },
+        {
+          "source": "word-art-todo.csv",
+          "record": 562,
+          "data": {
+            "単語": "domestic",
+            "語根": "dem-",
+            "語義": "家庭の、国内の",
+            "絵と語義の整合性": "目視判定: Internal transportation within a country-like outline supports 国内の, not the first listed 家庭の.",
+            "目視所見": "Green outlined land area contains several city icons, red location pins and dotted routes for a plane and delivery truck; all routes remain inside the outline.",
+            "品質判定根拠": "実PNG画素の目視とGit blob SHA照合済み。意味と画像は現公開版へ差分照合。旧ゲーム所見はreview_game_contextの時点指定に従う。 公開commit dcfb090c3b32a1dc2141d74f68d4a42aba812e65; asset SHA 20cdab64ae25ed80c42d90dcca50e0faf6ae5d28",
+            "具体的な改善案": "画像内に台詞・説明文を入れない。類義語候補だけで字選択クイズを不合格にしない。 If 家庭の remains canonical first, illustrate a clearly domestic household scene. Preserve this map only for the separately keyed 国内の sense; do not promote that sense simply to retain the picture."
+          }
+        }
+      ]
+    },
+    {
+      "case": 157,
+      "filename": "draw.png",
+      "w": "draw",
+      "p": [
+        "dhragh-"
+      ],
+      "first_ja": "引く",
+      "current_image_sha256": "947d415ed4dafc651ab7dac157b25e8cc8406fde3a202ae2d38a0330e9f352a3",
+      "composition": "A child firmly pulls a small loaded wagon by its handle, leaning forward as the wheels roll behind. Show the taut connection and direction of movement; no drawing pad or crayons.",
+      "sources": [
+        {
+          "source": "generated-image-issues.json",
+          "record": 89,
+          "data": {
+            "w": "draw",
+            "p": [
+              "dhragh-"
+            ],
+            "art": "draw",
+            "imageSha256": "947d415ed4dafc651ab7dac157b25e8cc8406fde3a202ae2d38a0330e9f352a3",
+            "senseSha256": "330872c4f6bbbd497800f6c8b82abe954f3e35246e5dacb4464e24f7b9515049",
+            "codes": [
+              "image_first_sense_mismatch"
+            ],
+            "detail": "The girl is making a picture with a pencil, supporting later 描く / sketch. Nothing visibly depicts first 引く / pull; describing the pencil as pulled across paper would force a mechanical paraphrase of the drawing action.",
+            "status": "held"
+          }
+        },
+        {
+          "source": "word-art-todo.csv",
+          "record": 651,
+          "data": {
+            "単語": "draw",
+            "語根": "dhragh-",
+            "語義": "引く、描く、引き分け",
+            "絵と語義の整合性": "目視判定: Drawing a picture is explicit. Pulling and a tied game are absent.",
+            "目視所見": "Girl uses a pencil to draw colored flowers and a sun on paper at a desk with colored pencils.",
+            "品質判定根拠": "実PNG画素の目視とGit blob SHA照合済み。意味と画像は現公開版へ差分照合。旧ゲーム所見はreview_game_contextの時点指定に従う。 公開commit dcfb090c3b32a1dc2141d74f68d4a42aba812e65; asset SHA 5faf2d909e6a8edf27f63a74de0ddf363e324c2a",
+            "具体的な改善案": "画像内に台詞・説明文を入れない。類義語候補だけで字選択クイズを不合格にしない。 If 引く remains independently chosen as the representative first sense, regenerate a clear pulling action and retain ひく. Keep sketching as its own secondary-sense image. Do not reorder meanings merely to keep this drawing asset."
+          }
+        }
+      ]
+    },
+    {
+      "case": 160,
+      "filename": "drinking.png",
+      "w": "drinking",
+      "p": [],
+      "first_ja": "飲酒",
+      "current_image_sha256": "6bfd410606c1484ea1e97659464331ea9085d96c82c5a3e33ac51211db6d69e0",
+      "composition": "An adult drinks a small glass of wine during dinner, with an uncorked unbranded wine bottle beside the plate. Make it clearly moderate alcohol drinking by an adult, not a child drinking water.",
+      "sources": [
+        {
+          "source": "word-art-todo.csv",
+          "record": 997,
+          "data": {
+            "単語": "drinking",
+            "語根": "",
+            "語義": "飲酒、飲んでいる",
+            "絵と語義の整合性": "目視判定: The physical drinking action is explicit. Nothing establishes alcohol, and the water-like presentation does not support the first gloss 飲酒.",
+            "目視所見": "Person drinks a clear blue-tinted liquid from a plain tumbler.",
+            "品質判定根拠": "実PNG画素の目視とGit blob SHA照合済み。意味と画像は現公開版へ差分照合。旧ゲーム所見はreview_game_contextの時点指定に従う。 公開commit dcfb090c3b32a1dc2141d74f68d4a42aba812e65; asset SHA f67f620c0c8cfe00a422dfa8e5d47cec50d64ced",
+            "具体的な改善案": "画像内に台詞・説明文を入れない。類義語候補だけで字選択クイズを不合格にしない。 Independently review drinking as a noun/participle and representative order. If 飲酒 remains first, use an unmistakable adult alcohol-drinking context; preserve this water scene for the general drinking sense."
+          }
+        }
+      ]
+    },
+    {
+      "case": 161,
+      "filename": "drop.png",
+      "w": "drop",
+      "p": [
+        "dhreu-"
+      ],
+      "first_ja": "しずく",
+      "current_image_sha256": "24650b9f49de7b174705d07e2f4442e3920bfc5339c3192e1d6563efa264de96",
+      "composition": "A single clear water droplet hangs from a fresh leaf tip above a tiny rippled puddle. Make its rounded liquid body and narrow attachment visible. No falling keys or dropped objects.",
+      "sources": [
+        {
+          "source": "generated-image-issues.json",
+          "record": 144,
+          "data": {
+            "w": "drop",
+            "p": [
+              "dhreu-"
+            ],
+            "art": "drop",
+            "imageSha256": "24650b9f49de7b174705d07e2f4442e3920bfc5339c3192e1d6563efa264de96",
+            "senseSha256": "7e8c4e3328f0377a8240f0953c0f0712bf8b5d37d3851ff73b48469802da2c7e",
+            "codes": [
+              "image_first_sense_mismatch"
+            ],
+            "detail": "The image shows keys falling from a hand, not the liquid noun しずく / drip.",
+            "status": "held"
+          }
+        },
+        {
+          "source": "prompt_review_pending.csv",
+          "record": 15,
+          "data": {
+            "ファイル名": "drop.png",
+            "単語": "drop",
+            "問題": "語義不一致／対象描写の不備。対象ID=drop / 語根ID=dhreu- / imagePath=assets/word/drop.png / 画像Git blob=fb3b90716e47cee85f33bce50d681b8ad5110682。個別目視理由：鍵を落とす動作で、しずくというdropの語義は示されない。 同綴り別語義・語形の混同を確認し、代表語義に合う画像へ要修正。語根ID・正式ファイル名を保持。他の語義の画像へ上書きしない。原典語義の確認が必要な場合は親側で確認してから再生成（この作業ではpieへアクセスしない）。低得点のみを登録基準にしていない。",
+            "発見バッチ": "puzzle-visual-batch-003",
+            "状態": "要再生成（語義確認後）"
+          }
+        }
+      ]
+    },
+    {
+      "case": 162,
+      "filename": "dry.png",
+      "w": "dry",
+      "p": [
+        "dreug-"
+      ],
+      "first_ja": "乾いた",
+      "current_image_sha256": "de31409e381a8996be146a0a0cff79a76da281a4cbfaa1fc9537517697ea63dd",
+      "composition": "A completely dry cotton shirt lies folded beside crisp dry towels. A hand lifts one lightweight sleeve, showing loose dry fabric with no drips, damp patches or washing basin.",
+      "sources": [
+        {
+          "source": "generated-image-issues.json",
+          "record": 79,
+          "data": {
+            "w": "dry",
+            "p": [
+              "dreug-"
+            ],
+            "art": "dry",
+            "imageSha256": "de31409e381a8996be146a0a0cff79a76da281a4cbfaa1fc9537517697ea63dd",
+            "senseSha256": "62d2fb4710a929ef802c8f790cabcc705e7cacf9cf8797991064c5d66fce4248",
+            "codes": [
+              "image_first_sense_mismatch"
+            ],
+            "detail": "The first pair 乾いた / dry and POS 形 describe an already dry state, but the shirt visibly drips while being hung on a line. A caption about drying would substitute the verb or an unrealized future result.",
+            "status": "held"
+          }
+        },
+        {
+          "source": "generated-image-issues.json",
+          "record": 104,
+          "data": {
+            "w": "dry",
+            "p": [
+              "dreug-"
+            ],
+            "art": "dry",
+            "imageSha256": "de31409e381a8996be146a0a0cff79a76da281a4cbfaa1fc9537517697ea63dd",
+            "senseSha256": "62d2fb4710a929ef802c8f790cabcc705e7cacf9cf8797991064c5d66fce4248",
+            "codes": [
+              "image_first_sense_mismatch"
+            ],
+            "detail": "This illustrates the action of drying wet laundry, not the listed adjective 乾いた. Visible water drops actively contradict the completed dry state. It does not show 辛口の.",
+            "status": "held"
+          }
+        },
+        {
+          "source": "word-art-todo.csv",
+          "record": 533,
+          "data": {
+            "単語": "dry",
+            "語根": "dreug-",
+            "語義": "乾いた、辛口の",
+            "絵と語義の整合性": "目視判定: This illustrates the action of drying wet laundry, not the listed adjective 乾いた. Visible water drops actively contradict the completed dry state. It does not show 辛口の.",
+            "目視所見": "Woman hangs a shirt and socks on a clothesline under a sun; multiple large blue water drops are still falling from the shirt.",
+            "品質判定根拠": "実PNG画素の目視とGit blob SHA照合済み。意味と画像は現公開版へ差分照合。旧ゲーム所見はreview_game_contextの時点指定に従う。 公開commit dcfb090c3b32a1dc2141d74f68d4a42aba812e65; asset SHA be2119fe3fb2d2d43ebedf5cd29fa2c195432a45",
+            "具体的な改善案": "画像内に台詞・説明文を入れない。類義語候補だけで字選択クイズを不合格にしない。 For 乾いた first, show fully dry laundry with no drops, preferably contrasted with a wet item and with the dry item clearly targeted. Keep verb drying in its own sense if desired; do not reorder the adjective entry to accommodate the present picture."
+          }
+        }
+      ]
+    },
+    {
+      "case": 177,
+      "filename": "escalate.png",
+      "w": "escalate",
+      "p": [],
+      "first_ja": "増大する",
+      "current_image_sha256": "a527949de2b464329637d3c475122f4ff773cfcd9b73f454958f264a5eb21d95",
+      "composition": "A hand steadily inflates one balloon with a pump; its taut expanding body dwarfs the pump cylinder as more air enters. Emphasize increasing size, with no escalator or staircase.",
+      "sources": [
+        {
+          "source": "prompt_review_pending.csv",
+          "record": 194,
+          "data": {
+            "ファイル名": "escalate.png",
+            "単語": "escalate",
+            "問題": "jaはエスカレーターで上がる、enは量・強度・範囲が増大する。画像は文字通りエスカレーターで上がる人。語義と品詞を確認。 語ID=escalate; 語根ID=[]; image=assets/word/escalate.png; Git blob SHA=982e45dd56cca733b9941819207df5debab4940a。親が正式辞書の英日語義・IDと現行公開画像SHAを照合してから判断。同綴異義語と@付き画像を保護。低得点だけでの再生成・自動再生成は禁止。",
+            "発見バッチ": "batch-027",
+            "状態": "要確認（語義・ID・画像対応）"
+          }
+        }
+      ]
+    },
+    {
+      "case": 179,
+      "filename": "Europa.png",
+      "w": "Europa",
+      "p": [],
+      "first_ja": "ゼウスにさらわれたフェニキアの王女エウロペ",
+      "current_image_sha256": "d0faf7e50ca769873cce546673c974418748620cbb9a0fdc758995b4dc92ee30",
+      "composition": "Europa, the Phoenician princess of Greek myth, sits fully clothed on a calm white bull as it carries her across the sea. Show her holding the bull's shoulder for balance; no isolated island.",
+      "sources": [
+        {
+          "source": "prompt_review_pending.csv",
+          "record": 230,
+          "data": {
+            "ファイル名": "Europa.png",
+            "単語": "Europa",
+            "問題": "jaはユーローパ島、enはフェニキアの王女エウロペ。画像は熱帯の潟を囲む島で地理側。Europaの多義とIDを確認。 語ID=Europa; 語根ID=[]; image=assets/word/Europa.png; Git blob SHA=1dbfc9a8359a1018d17188c7d5a57b50c0d2f813。親が正式辞書の英日語義・IDと現行公開画像SHAを照合してから判断。同綴異義語と@付き画像を保護。低得点だけでの再生成・自動再生成は禁止。",
+            "発見バッチ": "batch-028",
+            "状態": "要確認（語義・ID・画像対応）"
+          }
+        }
+      ]
+    },
+    {
+      "case": 181,
+      "filename": "ex-.png",
+      "w": "ex-",
+      "p": [],
+      "first_ja": "元〜",
+      "current_image_sha256": "e2a57d2bc9fd848248810c0a526a73e3e9730a2dfc766e9bdd3d6b0404823f2f",
+      "composition": "A former ruler in plain clothing hands the royal crown to a successor seated on the throne, then steps aside. Show the visible transfer of the previous role, not a bird leaving a cage.",
+      "sources": [
+        {
+          "source": "prompt_review_pending.csv",
+          "record": 49,
+          "data": {
+            "ファイル名": "ex-.png",
+            "単語": "ex-",
+            "問題": "接頭辞の語義混同。元・前に対して外へ出る図になっている。 対象ID=ex- / 語根ID=公開出力で未設定 / 公開語義=元〜、前〜。目視所見=かごを出る鳥は外へを示すが元という対象語義は弱い。 ローカル画像Git blob=ff582f0d35f4912a91ccd9eb67735bceeb7e5990。対象保存先=assets/word/ex-.png。親が正式な第一語義と現在の公開ハッシュを確認してから、このファイルだけを修正する。他の同綴語義画像は上書き・改名しない。抽象語の低得点だけを理由とした登録ではない。 外へはex-の実在する別の接頭辞語義なので、語義の追加・先頭語義の修正で整合できる可能性を親が資料確認する。元・前の重要語義も保持する。",
+            "発見バッチ": "puzzle-visual-review-20261019-batch-008",
+            "状態": "要確認（語義整合・画像対応）"
+          }
+        }
+      ]
+    },
+    {
+      "case": 195,
+      "filename": "finest.png",
+      "w": "finest",
+      "p": [],
+      "first_ja": "最上の",
+      "current_image_sha256": "f6f3cf18a64469d518f2ccb4b9b01e8ce3e7ea9e34d7851c2f9ab521ca55bb5b",
+      "composition": "An exceptionally well-crafted wooden violin has smooth matched grain, precise fittings and a flawless polished body, presented carefully by its proud maker. Show outstanding workmanship, not a police officer.",
+      "sources": [
+        {
+          "source": "word-art-todo.csv",
+          "record": 3366,
+          "data": {
+            "単語": "finest",
+            "語根": "",
+            "語義": "最上の、最高級の",
+            "絵と語義の整合性": "目視判定: Collins independently verifies finest as an informal noun for police. That valid sense is absent from the source’s best/highest-quality superlative gloss; a police uniform does not establish highest quality.",
+            "目視所見": "Uniformed police officer salutes beside a marked patrol car.",
+            "品質判定根拠": "実PNG画素の目視とGit blob SHA照合済み。意味と画像は現公開版へ差分照合。旧ゲーム所見はreview_game_contextの時点指定に従う。 公開commit dcfb090c3b32a1dc2141d74f68d4a42aba812e65; asset SHA 9eae3b92c5bbcdb829311c8e8b383c04321ea8bb",
+            "具体的な改善案": "画像内に台詞・説明文を入れない。類義語候補だけで字選択クイズを不合格にしない。 Retain the superlative first sense and regenerate a clear best-quality comparison or award context. Keep the police illustration only for an explicitly defined informal noun sense, without promoting it to first merely to match the asset."
+          }
+        }
+      ]
+    },
+    {
+      "case": 197,
+      "filename": "fit.png",
+      "w": "fit",
+      "p": [],
+      "first_ja": "適当な",
+      "current_image_sha256": "e25b4d9b92ea47b528202f222df348aa3db97094d70f7a9899ddb5116e0df290",
+      "composition": "A wooden lid fits its matching round container exactly, with its rim seated flush and no gaps. A hand settles it neatly into place, making suitability clear without a muscular fitness pose.",
+      "sources": [
+        {
+          "source": "generated-image-issues.json",
+          "record": 71,
+          "data": {
+            "w": "fit",
+            "p": [],
+            "art": "fit",
+            "imageSha256": "e25b4d9b92ea47b528202f222df348aa3db97094d70f7a9899ddb5116e0df290",
+            "senseSha256": "1a72886c95b8f0722fcac89625016e86411110c729c729769ef0599e2c499900",
+            "codes": [
+              "visual_or_caption_ambiguity"
+            ],
+            "detail": "The PNG shows a boy lifting or tugging a blue shirt and exposing his belly. It does not establish suitability (first 適当な / suitable); a sizing or physical-fitness caption could also rely on a different fit sense or an unshown comparison.",
+            "status": "held"
+          }
+        }
+      ]
+    },
+    {
+      "case": 198,
+      "filename": "flag.png",
+      "w": "flag",
+      "p": [
+        "plāk-1"
+      ],
+      "first_ja": "板石",
+      "current_image_sha256": "c29ac25cfb4c5a1cfdeac1e0605c3fefe3d525af9cbb52c2768d6534de5cab9d",
+      "composition": "One broad flat stone paving slab rests beside a partly paved path, with a hand positioning its straight edge against the neighboring slab. Show a stone flag, not a fabric flag.",
+      "sources": [
+        {
+          "source": "prompt_review_pending.csv",
+          "record": 47,
+          "data": {
+            "ファイル名": "flag.png",
+            "単語": "flag",
+            "問題": "同綴異義の混同。板石に対して旗を描いている。 対象ID=flag / 語根ID=plāk-1 / 公開語義=板石。目視所見=赤い旗の絵で板石という対象語義は示されない。 ローカル画像Git blob=d5974c31a785616122c810206a7a90dc9dd69797。対象保存先=assets/word/flag.png。親が正式な第一語義と現在の公開ハッシュを確認してから、このファイルだけを修正する。他の同綴語義画像は上書き・改名しない。抽象語の低得点だけを理由とした登録ではない。 旗はflagの実在する一般的な別語義なので、画像不良と断定せず、対象の語根・同綴異義IDの区別を保った語義の追加・先頭語義の修正で整合できる可能性を親が資料確認する。板石の語義も保持する。",
+            "発見バッチ": "puzzle-visual-review-20261019-batch-008",
+            "状態": "要確認（語義整合・画像対応）"
+          }
+        }
+      ]
+    },
+    {
+      "case": 207,
+      "filename": "forty.png",
+      "w": "forty",
+      "p": [
+        "kʷetwer-"
+      ],
+      "first_ja": "40",
+      "current_image_sha256": "190f7f944a8a6d04e96fdf9e17af5d4624cae0251713825cda4dbeab18152f4d",
+      "composition": "Exactly forty small red cars stand in four straight rows of ten, all facing the same direction. Keep equal spacing, no overlap, and a small gap between each complete car so every vehicle can be counted. Omit extra detached cars, people and written numbers.",
+      "sources": [
+        {
+          "source": "generated-image-issues.json",
+          "record": 156,
+          "data": {
+            "w": "forty",
+            "p": [
+              "kʷetwer-"
+            ],
+            "art": "forty",
+            "imageSha256": "190f7f944a8a6d04e96fdf9e17af5d4624cae0251713825cda4dbeab18152f4d",
+            "senseSha256": "eab2dc6f9db97705856b3d37397f6495c82e61c71a4dcb2e914a679f1c6ea27f",
+            "codes": [
+              "image_first_sense_mismatch"
+            ],
+            "detail": "The image contains 39 cars rather than 40, with no other representation of forty.",
+            "status": "held",
+            "reviewed_at": "2026-10-04T22:30:19.733706+00:00",
+            "review_method": "Source and image checked for exact first-sense alignment."
+          }
+        },
+        {
+          "source": "illustration-review-status.js",
+          "record": 6,
+          "data": {
+            "w": "forty",
+            "p": [
+              "kʷetwer-"
+            ],
+            "art": "forty",
+            "status": "mismatch",
+            "sense": {
+              "index": 0,
+              "ja": "40",
+              "en": "40",
+              "sha256": "eab2dc6f9db97705856b3d37397f6495c82e61c71a4dcb2e914a679f1c6ea27f"
+            },
+            "image": {
+              "path": "assets/word/forty.png",
+              "sha256": "190f7f944a8a6d04e96fdf9e17af5d4624cae0251713825cda4dbeab18152f4d",
+              "git_blob_sha": "d3172d0bdd870c34b3c1296c209de328a9e58117"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case": 209,
+      "filename": "Frank_cap.png",
+      "w": "Frank",
+      "p": [
+        "Frankon-"
+      ],
+      "first_ja": "フランク人",
+      "current_image_sha256": "9b28091357bc85b596f59960eb0615302e495f4b2614533cc2b7e722e108edb4",
+      "composition": "An early medieval Frankish warrior stands beside a round wooden shield, holding a short curved francisca throwing axe downward. Use a plain wool tunic and leather belt; avoid invented facial ethnic traits or modern conversation.",
+      "sources": [
+        {
+          "source": "generated-image-issues.json",
+          "record": 164,
+          "data": {
+            "w": "Frank",
+            "p": [
+              "Frankon-"
+            ],
+            "art": "Frank_cap",
+            "imageSha256": "9b28091357bc85b596f59960eb0615302e495f4b2614533cc2b7e722e108edb4",
+            "senseSha256": "fcff3b72e5c87d33ced1ee2ca4042e6609c5f1613fe941cd32c0a30e6a272710",
+            "codes": [
+              "canonical_source_mismatch"
+            ],
+            "detail": "The noun Frank is paired with Japanese adjective 率直な and English Westerner; the first-sense pairing needs source review.",
+            "status": "held",
+            "reviewed_at": "2026-10-04T22:44:00Z",
+            "review_method": "Source and image checked for exact first-sense alignment."
+          }
+        }
+      ]
+    },
+    {
+      "case": 211,
+      "filename": "freer.png",
+      "w": "freer",
+      "p": [],
+      "first_ja": "解放する人",
+      "current_image_sha256": "3eb4d133b10a9b7751a4ba54ece4a5d41048ad023a39428005b6350f86760866",
+      "composition": "A liberator opens a barred cage door and helps a captive adult step freely into daylight. The open lock and welcoming helping hand make the release visible; no museum visitor merely studying a statue.",
+      "sources": [
+        {
+          "source": "prompt_review_pending.csv",
+          "record": 321,
+          "data": {
+            "ファイル名": "freer.png",
+            "単語": "freer",
+            "問題": "画像は美術鑑賞者。日本語はフリーアという人名らしい表記、英語は解放する人。小文字IDの人名・比較級との対応を確認。 語義・ID・画像対応の確認候補であり、低得点のみを根拠に再生成しない。公開中の画像SHAと正式辞書は親側で照合する。 wordID=freer; rootIDs=[]; ja=フリーア; en=one who frees someone or something; image=assets/word/freer.png; GitBlobSHA=b6e68aac5dea0cd893932e712d9494cf84019f78",
+            "発見バッチ": "batch-031",
+            "状態": "要確認（語義・ID・画像対応）"
+          }
+        }
+      ]
+    },
+    {
+      "case": 215,
+      "filename": "futures.png",
+      "w": "futures",
+      "p": [],
+      "first_ja": "先物",
+      "current_image_sha256": "9d5a82cc92d8649239234ce22d4bc33abee3e6b47eecf74c54ee14e75672b90f",
+      "composition": "A grain farmer and buyer agree to a future delivery across a desk with a grain sample, sealed contract and calendar marking a later date; unharvested wheat grows outside. Show a future goods contract, not planting a dream tree.",
+      "sources": [
+        {
+          "source": "word-art-todo.csv",
+          "record": 4183,
+          "data": {
+            "単語": "futures",
+            "語根": "",
+            "語義": "先物、将来",
+            "絵と語義の整合性": "目視判定: Future growth/prospects secondary sense; financial futures first meaning absent.",
+            "目視所見": "Child plants seed while thought bubble shows mature tree and bench.",
+            "品質判定根拠": "実PNG画素の目視とGit blob SHA照合済み。意味と画像は現公開版へ差分照合。旧ゲーム所見はreview_game_contextの時点指定に従う。 公開commit dcfb090c3b32a1dc2141d74f68d4a42aba812e65; asset SHA a6aa335fe798083efa3597af53a475d3f0569be0",
+            "具体的な改善案": "画像内に台詞・説明文を入れない。類義語候補だけで字選択クイズを不合格にしない。 Choose first financial meaning independently and redesign; do not add dialogue or explanatory text."
+          }
+        }
+      ]
+    },
+    {
+      "case": 221,
+      "filename": "gig.png",
+      "w": "gig",
+      "p": [],
+      "first_ja": "演奏",
+      "current_image_sha256": "7f43851ef565478417f0bdd13b9e4a27f315d61f3b9bd6264efd106ca420d0e3",
+      "composition": "A guitarist and singer perform a small live gig on a low cafe stage, with two listeners seated nearby. Make the musical performance and instruments central; no spear fishing.",
+      "sources": [
+        {
+          "source": "prompt_review_pending.csv",
+          "record": 104,
+          "data": {
+            "ファイル名": "gig.png",
+            "単語": "gig",
+            "問題": "語義・ID確認候補。画像は多叉の槍で魚を突く場面だが、公開語義は演奏・仕事。魚突き道具として実在するgigの語義・同綴異義IDを正式資料で確認し、演奏や仕事の意味も保持する。 公開日本語=演奏、仕事 / 公開英語=performance / job。対象ID=gig / 語根ID=公開出力で未設定。ローカル画像Git blob=98a19bc125abf5bbcd5d51f2b8d6fb6fdbc92cc4。保存先=assets/word/gig.png。親が正式資料と現在の公開画像SHAを照合するまで辞書・画像を変更しない。実在する一般的な意味の追加や第一語義修正を検討しても、重要な他語義を消さない。同綴異義語の画像を上書き・改名しない。低点だけを理由とした登録でも、自動再生成指示でもない。",
+            "発見バッチ": "puzzle-visual-review-20261019-batch-018",
+            "状態": "要確認（語義・ID・画像対応）"
+          }
+        }
+      ]
+    },
+    {
+      "case": 227,
+      "filename": "grounds.png",
+      "w": "grounds",
+      "p": [],
+      "first_ja": "根拠",
+      "current_image_sha256": "d75c1e1e0f2f0d0c0178a385cd11038a34b46207f7ff3e2fa04a83c1f4618a73",
+      "composition": "An investigator lays a suspect's muddy boot beside its matching footprint at a broken window, pointing out the matching sole pattern as the basis for a conclusion. No house-and-garden property scene.",
+      "sources": [
+        {
+          "source": "generated-image-issues.json",
+          "record": 98,
+          "data": {
+            "w": "grounds",
+            "p": [],
+            "art": "grounds",
+            "imageSha256": "d75c1e1e0f2f0d0c0178a385cd11038a34b46207f7ff3e2fa04a83c1f4618a73",
+            "senseSha256": "24b0f6c89598b82262c253bd292798053ce582ebbf78007587c261179efee6e9",
+            "codes": [
+              "image_first_sense_mismatch"
+            ],
+            "detail": "The bounded land around a building is a direct grounds/property illustration. No reason or evidence supporting a claim is visible.",
+            "status": "held"
+          }
+        }
+      ]
+    },
+    {
+      "case": 234,
+      "filename": "heard@x.png",
+      "w": "heard",
+      "p": [],
+      "first_ja": "hearの過去形・過去分詞",
+      "current_image_sha256": "763dcd2bdc516b349d31246d6793980312d3d1c616562e6d819925fc28545ff0",
+      "composition": "A child has just heard a bell and turns toward it with one hand cupped behind an ear, while the bell still vibrates. Show a completed hearing response; no volcanic island.",
+      "sources": [
+        {
+          "source": "generated-image-issues.json",
+          "record": 130,
+          "data": {
+            "w": "heard",
+            "p": [],
+            "art": "heard@x",
+            "imageSha256": "763dcd2bdc516b349d31246d6793980312d3d1c616562e6d819925fc28545ff0",
+            "senseSha256": "761ff03f8920e34b2747a3c8b33b33d2aac35256ab4c315a7721cc623cba3e9e",
+            "codes": [
+              "image_first_sense_mismatch"
+            ],
+            "detail": "The image depicts a snowy volcanic island with a plume and ocean waves. It does not depict listening or auditory perception required by the current past/participle-of-hear sense. No place-name identification is asserted.",
+            "status": "held",
+            "reviewed_at": "2026-10-04T17:36:32.898154+00:00",
+            "review_method": "Independent current original-PNG and exact canonical first-sense inspection; source distinctions separately checked against primary dictionaries where applicable"
+          }
+        }
+      ]
+    },
+    {
+      "case": 239,
+      "filename": "Hiroshima.png",
+      "w": "Hiroshima",
+      "p": [],
+      "first_ja": "広島",
+      "current_image_sha256": "57871b7cd69afdbe6750bad6efc7aac06bc3bc275ba1cb928f5faf6846dca924",
+      "composition": "Hiroshima's riverside cityscape centers on the preserved Genbaku Dome, with its exposed metal dome, damaged historic walls, river and modern urban buildings nearby. Show the city and memorial landscape, not a standalone bomb.",
+      "sources": [
+        {
+          "source": "prompt_review_pending.csv",
+          "record": 245,
+          "data": {
+            "ファイル名": "Hiroshima.png",
+            "単語": "Hiroshima",
+            "問題": "画像は原子爆弾。日本語は広島型爆弾、英語は広島市。 語義・ID・画像対応の確認候補であり、低得点のみを根拠に再生成しない。公開中の画像SHAと正式辞書は親側で照合する。 wordID=Hiroshima; rootIDs=[]; ja=広島級の原子爆弾、広島に投下されたものと同じ威力の原子爆弾; en=city and port on the Inland Sea in southwestern Honshu, Japan; image=assets/word/Hiroshima.png; GitBlobSHA=c58a949c41e28c809e4df85f7702f32d1ea812f5",
+            "発見バッチ": "batch-029",
+            "状態": "要確認（語義・ID・画像対応）"
+          }
+        }
+      ]
+    },
+    {
+      "case": 250,
+      "filename": "hung@x.png",
+      "w": "hung",
+      "p": [],
+      "first_ja": "結論の出ない",
+      "current_image_sha256": "c775900a78674145138c3543a33f56dce28eafd2b53cd76d450ca8083b0d102f",
+      "composition": "A jury remains unable to reach a verdict around a deliberation table: equal groups favor opposing decisions with contrasting voting tokens, while the foreperson's verdict sheet remains blank. No suspended crate or hanging object.",
+      "sources": [
+        {
+          "source": "generated-image-issues.json",
+          "record": 150,
+          "data": {
+            "w": "hung",
+            "p": [],
+            "art": "hung@x",
+            "imageSha256": "c775900a78674145138c3543a33f56dce28eafd2b53cd76d450ca8083b0d102f",
+            "senseSha256": "3cf42985a5eb98886b4c89d566e0988e9a20f1fb86d2729ea47a3339dc602ae0",
+            "codes": [
+              "image_first_sense_mismatch"
+            ],
+            "detail": "The image shows a suspended crate, not the first sense 結論の出ない / unable to reach a decision.",
+            "status": "held",
+            "reviewed_at": "2026-10-04T21:57:22.089091+00:00",
+            "review_method": "Source and image checked for exact first-sense alignment."
+          }
+        }
+      ]
+    },
+    {
+      "case": 272,
+      "filename": "inter-.png",
+      "w": "inter-",
+      "p": [],
+      "first_ja": "間の",
+      "current_image_sha256": "d2ef1ea538690449a0f93d777d45b6378eec419dc78cd708b9ad8ab847dffc88",
+      "composition": "One small red wooden block stands directly between two taller blue blocks, touching neither side. Make the central gap and the flanking objects clear in one physical arrangement; no burial or digging.",
+      "sources": [
+        {
+          "source": "prompt_review_pending.csv",
+          "record": 55,
+          "data": {
+            "ファイル名": "inter-.png",
+            "単語": "inter-",
+            "問題": "接頭辞と動詞の混同。間・相互に対して埋葬する動詞interの絵になっている。 対象ID=inter- / 語根ID=公開出力で未設定 / 公開語義=間の、相互の。目視所見=土中へ箱を埋める動作であり間や相互という接頭辞の意味を示していない。 ローカル画像Git blob=d83181456685bf75f3666a84946b32c6859d81fb。対象保存先=assets/word/inter-.png。親が正式な第一語義と現在の公開ハッシュを確認してから、このファイルだけを修正する。他の同綴語義画像は上書き・改名しない。抽象語の低得点だけを理由とした登録ではない。 埋葬する動詞interは実在するが接頭辞inter-とは別語である。別IDとの画像対応を親が確認する。",
+            "発見バッチ": "puzzle-visual-review-20261019-batch-008",
+            "状態": "要確認（語義整合・画像対応）"
+          }
+        }
+      ]
+    },
+    {
+      "case": 273,
+      "filename": "intrinsic.png",
+      "w": "intrinsic",
+      "p": [
+        "en",
+        "sekʷ-1"
+      ],
+      "first_ja": "本質的な",
+      "current_image_sha256": "1ddde354182c765755e11b33f848f0d537e0b00cd6a513c4afec4d8fb86c8afc",
+      "composition": "A natural lodestone attracts iron nails by its own magnetism while nearby wooden chips remain untouched. Show the stone's inherent magnetic property without batteries, added machinery or a person winding string.",
+      "sources": [
+        {
+          "source": "prompt_review_pending.csv",
+          "record": 51,
+          "data": {
+            "ファイル名": "intrinsic.png",
+            "単語": "intrinsic",
+            "問題": "無関係な物体への置換。本質的な性質に対して糸巻きのみを描いている。 対象ID=intrinsic / 語根ID=en|sekʷ-1 / 公開語義=本質的な。目視所見=糸巻きと糸だけで本質的という意味は示されない。 ローカル画像Git blob=e489a8cabad2dd4bb500a5a6a83b112f14315bee。対象保存先=assets/word/intrinsic.png。親が正式な第一語義と現在の公開ハッシュを確認してから、このファイルだけを修正する。他の同綴語義画像は上書き・改名しない。抽象語の低得点だけを理由とした登録ではない。",
+            "発見バッチ": "puzzle-visual-review-20261019-batch-008",
+            "状態": "要再生成（語義確認後）"
+          }
+        }
+      ]
+    },
+    {
+      "case": 280,
+      "filename": "Isis.png",
+      "w": "Isis",
+      "p": [],
+      "first_ja": "エジプトの女神イシス",
+      "current_image_sha256": "fdd7b8e1a98a1d87c9ff924d7e34412ef06cc51a34bee4e16a2d75cb677f7b68",
+      "composition": "The Egyptian goddess Isis stands in a modest ancient sheath gown with her characteristic throne-shaped crown, holding an ankh beside one protective outstretched wing. Use the attested divine attributes, not a river rowing scene.",
+      "sources": [
+        {
+          "source": "prompt_review_pending.csv",
+          "record": 147,
+          "data": {
+            "ファイル名": "Isis.png",
+            "単語": "Isis",
+            "問題": "【語義・ID確認候補】画像はオックスフォード風の川での漕艇で日本語のアイシス川に沿う。一方、英語はエジプトの女神。地名と神名のID対応を確認。 公開出力ja=アイシス川; en=an Egyptian nature goddess and wife and sister of Osiris。wordId=Isis; rootIds=[]; imagePath=assets/word/Isis.png; local Git blob SHA=c17bb4b12b7ddaffad2ab7831ca8c16f7eb0b994。母艦の正式データと現在の公開画像SHAを親で照合後に判断。同綴異義語・別語根の画像を保護。自動再生成しない。",
+            "発見バッチ": "batch-024",
+            "状態": "要確認（語義・ID・画像対応）"
+          }
+        }
+      ]
+    },
+    {
+      "case": 290,
+      "filename": "ketamine.png",
+      "w": "ketamine",
+      "p": [],
+      "first_ja": "ケタミン",
+      "current_image_sha256": "697b0ec29b95c552d8adbc05e8daf88700a49a0608c75ede24cca624a238aa13",
+      "composition": "One accurate ketamine structural formula shows a saturated six-carbon cyclohexanone ring, with a carbonyl at position one and both a methylamino group and an ortho-chlorophenyl ring attached at position two. Keep alternating aromatic bonds only in the phenyl ring; show no carbon-carbon double bonds in the cyclohexanone ring.",
+      "sources": [
+        {
+          "source": "prompt_review_pending.csv",
+          "record": 294,
+          "data": {
+            "ファイル名": "ketamine.png",
+            "単語": "ketamine",
+            "問題": "黒い炭素球十四個でケタミンC13より一個過剰。環の外へ余分なアミノ置換炭素が入り、カルボニル炭素が三つのCへ結合している。元画像で環骨格と原子数を確認。 明確な画像の科学的内容の不一致。正式語義・IDと公開中の画像SHAを親側で照合してから対応する。 wordID=ketamine; rootIDs=[]; ja=ケタミン; en=a general anesthetic that is administered intravenously and intramuscularly in the form of its hydrochloride C13H16ClNO·HCl and that is used illicitly usually by being inhaled in powdered form especially for the dreamlike or hallucinogenic state it produces; image=assets/word/ketamine.png; GitBlobSHA=c33b119682152d662fd5bec2161e752dcd56fe66",
+            "発見バッチ": "batch-031",
+            "状態": "要再生成（語義・ID確認後）"
+          }
+        }
+      ]
+    },
+    {
+      "case": 302,
+      "filename": "leasing.png",
+      "w": "leasing",
+      "p": [
+        "leu-"
+      ],
+      "first_ja": "嘘をつく事",
+      "current_image_sha256": "a16c476f6b9e65f56e27777597b765c3eb91b3130f6f88881a31a523e79dbad4",
+      "composition": "A child secretly hides a broken cup behind his back while confidently pointing toward an innocent dog. The parent holds the matching cup handle and looks doubtful; the concealed pieces contradict the child's gesture.",
+      "sources": [
+        {
+          "source": "prompt_review_pending.csv",
+          "record": 186,
+          "data": {
+            "ファイル名": "leasing.png",
+            "単語": "leasing",
+            "問題": "語根ID leu-、英日語義とも嘘をつくことだが、画像は不動産の鍵と代金を交換する現代の賃貸leasing。同綴別語の語根・語義と画像の対応を確認。 語ID=leasing; 語根ID=leu-; image=assets/word/leasing.png; Git blob SHA=71a72671a87a9269dabe11cda4a0c8bb3b209e43。親が正式辞書の英日語義・IDと現行公開画像SHAを照合してから判断。同綴異義語と@付き画像を保護。低得点だけでの再生成・自動再生成は禁止。",
+            "発見バッチ": "batch-027",
+            "状態": "要確認（語義・ID・画像対応）"
+          }
+        }
+      ]
+    },
+    {
+      "case": 305,
+      "filename": "letter.png",
+      "w": "letter",
+      "p": [
+        "deph-"
+      ],
+      "first_ja": "文字",
+      "current_image_sha256": "083fd2a3419c92e9960d1c3b687dd39a5f41d0f11dd0504c6a9ecb63e65a120b",
+      "composition": "A large uppercase A and lowercase a stand side by side as two clear written characters on one small writing card. Focus on the visible letter forms themselves, without an envelope, message or decorative sentence.",
+      "sources": [
+        {
+          "source": "generated-image-issues.json",
+          "record": 50,
+          "data": {
+            "w": "letter",
+            "p": [
+              "deph-"
+            ],
+            "art": "letter",
+            "imageSha256": "083fd2a3419c92e9960d1c3b687dd39a5f41d0f11dd0504c6a9ecb63e65a120b",
+            "senseSha256": "27564e8484e7efe2690f58b27ab0299d1fd6becc4ca536eaccc78ef08fdc802c",
+            "codes": [
+              "image_first_sense_mismatch"
+            ],
+            "detail": "The PNG shows an open envelope and a heart-decorated letter with wavy writing lines. It clearly illustrates correspondence, the later 手紙 sense, and supplies no identifiable individual alphabetic character for first 文字 / character.",
+            "status": "held"
+          }
+        }
+      ]
+    },
+    {
+      "case": 306,
+      "filename": "lighting.png",
+      "w": "lighting",
+      "p": [],
+      "first_ja": "点火",
+      "current_image_sha256": "0bef44104df4b63a7b74ec39eb74c1db2c63f50b4f68943d31a29d31da020065",
+      "composition": "A camper holds one burning match against dry kindling inside a stone fire ring. The first small flame catches the thin wood, with a tiny curl of smoke; the camper watches the ignition closely.",
+      "sources": [
+        {
+          "source": "prompt_review_pending.csv",
+          "record": 50,
+          "data": {
+            "ファイル名": "lighting.png",
+            "単語": "lighting",
+            "問題": "語義混同。点火に対して室内照明を描いている。 対象ID=lighting / 語根ID=公開出力で未設定 / 公開語義=点火。目視所見=点灯した室内灯は照明であり点火の動作を示さない。 ローカル画像Git blob=92623536bc5911a11aae0df2fa799847ee67d383。対象保存先=assets/word/lighting.png。親が正式な第一語義と現在の公開ハッシュを確認してから、このファイルだけを修正する。他の同綴語義画像は上書き・改名しない。抽象語の低得点だけを理由とした登録ではない。 照明はlightingの実在する一般的な語義なので、画像不良と断定せず、辞書資料確認後に語義の追加・先頭語義の修正と重要な他語義の保持で整合できる可能性も検討する。",
+            "発見バッチ": "puzzle-visual-review-20261019-batch-008",
+            "状態": "要確認（語義整合・画像対応）"
+          }
+        }
+      ]
+    },
+    {
+      "case": 311,
+      "filename": "LXX.png",
+      "w": "LXX",
+      "p": [],
+      "first_ja": "70",
+      "current_image_sha256": "aed12bfe6b8f292f0e8d4770bc190a58881c755024a1dc1b44d77da9f28888fe",
+      "composition": "Exactly seven tied bundles of ten wooden rods stand on one shallow tray. Arrange each bundle's exposed circular ends in two tidy rows of five, all ten ends plainly visible. Keep bundles separate and show exactly seventy rods in total, without written numbers or extra loose rods.",
+      "sources": [
+        {
+          "source": "prompt_review_pending.csv",
+          "record": 132,
+          "data": {
+            "ファイル名": "LXX.png",
+            "単語": "LXX",
+            "問題": "明確な数の対応問題。公開語義は70で、画像は七束の棒だが、拡大した一束の断面は十二本で十本ではない。七十を表す十本束×七の構成として成立しない。元画像と拡大監査画像を保存。正式語義・IDと現在公開SHAの確認後に再生成要否を判断する。 公開日本語=70 / 公開英語=。対象ID=LXX / 語根ID=公開出力で未設定。ローカル画像Git blob=705047870922d7068969038415b4dc09b073d1b1。保存先=assets/word/LXX.png。親が正式資料と現在の公開画像SHAを照合するまで辞書・画像を変更しない。重要な他語義を消さず、同綴異義画像を上書き・改名しない。低点だけを理由とした登録でも、自動再生成指示でもない。",
+            "発見バッチ": "puzzle-visual-review-20261019-batch-022",
+            "状態": "要再生成（語義・ID確認後）"
+          }
+        }
+      ]
+    },
+    {
+      "case": 335,
+      "filename": "moving.png",
+      "w": "moving",
+      "p": [
+        "meuə-"
+      ],
+      "first_ja": "感動的な",
+      "current_image_sha256": "9494aa08fc03b989616ffd3004bc9dd771b36de58c1ed80ca68af4ac72e20c48",
+      "composition": "An elderly parent tearfully embraces an adult child who has just returned home. A travel bag rests beside them; both smile through tears, with their affectionate reunion as the emotional focus.",
+      "sources": [
+        {
+          "source": "generated-image-issues.json",
+          "record": 51,
+          "data": {
+            "w": "moving",
+            "p": [
+              "meuə-"
+            ],
+            "art": "moving",
+            "imageSha256": "9494aa08fc03b989616ffd3004bc9dd771b36de58c1ed80ca68af4ac72e20c48",
+            "senseSha256": "099fcd5505f143f598faef0728821ea044b5f4204f55c8e3a372d73b8e28a354",
+            "codes": [
+              "image_first_sense_mismatch"
+            ],
+            "detail": "A red wind-up toy car has wheel and speed marks. This depicts physical motion, the later 動いている / in motion sense, not first 感動的な / touching.",
+            "status": "held"
+          }
+        }
+      ]
+    },
+    {
+      "case": 340,
+      "filename": "NATO.png",
+      "w": "NATO",
+      "p": [],
+      "first_ja": "北大西洋条約機構",
+      "current_image_sha256": "7790159623475edb6bca1aad8dc5224ce8a069187fda25663306a9eb7e66c45c",
+      "composition": "Several allied civilian delegates sit equally around a round conference table, cooperatively sheltering a small globe beneath one shared shield emblem. A plain circular compass star appears on the meeting backdrop; no member names or written acronyms.",
+      "sources": [
+        {
+          "source": "prompt_review_pending.csv",
+          "record": 73,
+          "data": {
+            "ファイル名": "NATO.png",
+            "単語": "NATO",
+            "問題": "描写対象・画像対応確認候補。複数の子の作業を一人が制止する図で、防衛同盟や加盟国の連携を示す対象が描かれていない。画像IDや生成時の別語との対応を正式資料で確認する。 対象ID=NATO / 語根ID=公開出力で未設定 / 公開日本語=北大西洋条約機構 / 公開英語=defense alliance。目視所見=子供の作業を止める男性が描かれるだけでNATOという同盟組織の特徴がない。 ローカル画像Git blob=22a090e11dc46892218a42a28217f3d53be3a868。保存先=assets/word/NATO.png。親が正式資料と現在の公開画像SHAを照合するまで辞書・画像を変更しない。他の同綴語義画像を上書き・改名しない。低スコアのみを理由とした登録ではない。",
+            "発見バッチ": "puzzle-visual-review-20261019-batch-013",
+            "状態": "要確認（描写内容・画像対応）"
+          }
+        }
+      ]
+    },
+    {
+      "case": 363,
+      "filename": "overcoat.png",
+      "w": "overcoat",
+      "p": [],
+      "first_ja": "上塗り",
+      "current_image_sha256": "2558b2df9c9ae8f8120ea5c9979785327e4e21fc6894678c6a9bc413f8d2504e",
+      "composition": "A gloved worker brushes a clear protective finishing layer over an already painted blue wooden panel. The broad brush leaves a visible smooth glossy strip over the existing paint; an open varnish tin sits nearby.",
+      "sources": [
+        {
+          "source": "prompt_review_pending.csv",
+          "record": 236,
+          "data": {
+            "ファイル名": "overcoat.png",
+            "単語": "overcoat",
+            "問題": "画像は厚手の上着。英語の衣服語義に合うが日本語は上塗り・保護膜。 語義・ID・画像対応の確認候補であり、低得点のみを根拠に再生成しない。公開中の画像SHAと正式辞書は親側で照合する。 wordID=overcoat; rootIDs=[]; ja=上塗り、保護膜; en=a warm coat worn over indoor clothing; image=assets/word/overcoat.png; GitBlobSHA=115905c30b274d89457ee96d43b7806b55c6ed2c",
+            "発見バッチ": "batch-029",
+            "状態": "要確認（語義・ID・画像対応）"
+          }
+        },
+        {
+          "source": "word-art-todo.csv",
+          "record": 10457,
+          "data": {
+            "単語": "overcoat",
+            "語根": "",
+            "語義": "上塗り、保護膜",
+            "絵と語義の整合性": "目視判定: Ordinary garment English meaning shown; Japanese surface-coating gloss mismatched.",
+            "目視所見": "Long warm coat with lapels and pockets.",
+            "品質判定根拠": "実PNG画素の目視とGit blob SHA照合済み。意味と画像は現公開版へ差分照合。旧ゲーム所見はreview_game_contextの時点指定に従う。 公開commit dcfb090c3b32a1dc2141d74f68d4a42aba812e65; asset SHA 115905c30b274d89457ee96d43b7806b55c6ed2c",
+            "具体的な改善案": "画像内に台詞・説明文を入れない。類義語候補だけで字選択クイズを不合格にしない。 Correct Japanese first garment sense to appropriate natural term, retaining coating sense separately if attested."
+          }
+        }
+      ]
+    },
+    {
+      "case": 369,
+      "filename": "Panama.png",
+      "w": "Panama",
+      "p": [],
+      "first_ja": "パナマ",
+      "current_image_sha256": "6096745934fac12f7eae3c8815125068ad286ca359e8c2469c032ff92e17ae38",
+      "composition": "A compact map-shaped cutout of Panama's narrow curved isthmus separates two blue coastal waters. A small ship passes through stepped canal locks across the narrow land; show the country and canal, without a hat.",
+      "sources": [
+        {
+          "source": "prompt_review_pending.csv",
+          "record": 110,
+          "data": {
+            "ファイル名": "Panama.png",
+            "単語": "Panama",
+            "問題": "語義・ID確認候補。画像はパナマ帽だが公開英語はcountry。国Panamaと帽子panamaの実在する語義・大小文字・語IDを正式資料で確認する。帽子の画像を国の画像へ変更する前に意味を整理する。 公開日本語=パナマ / 公開英語=country。対象ID=Panama / 語根ID=公開出力で未設定。ローカル画像Git blob=2d8ec9929e0e7c72ba575e35226707443a42c8d1。保存先=assets/word/Panama.png。親が正式資料と現在の公開画像SHAを照合するまで辞書・画像を変更しない。実在する一般的な意味の追加や第一語義修正を検討しても、重要な他語義を消さない。同綴異義語の画像を上書き・改名しない。低点だけを理由とした登録でも、自動再生成指示でもない。",
+            "発見バッチ": "puzzle-visual-review-20261019-batch-018",
+            "状態": "要確認（語義・ID・画像対応）"
+          }
+        }
+      ]
+    },
+    {
+      "case": 370,
+      "filename": "Parmesan.png",
+      "w": "Parmesan",
+      "p": [],
+      "first_ja": "硬いイタリア風チーズ",
+      "current_image_sha256": "cccc0c818c9e75427c027a6ef75dbe0581cf81a8738a02a6272e9e81e6a5cd6b",
+      "composition": "A large hard golden Parmesan cheese wheel has one wedge removed, exposing its granular interior. A hand uses a small grater to scatter pale cheese shavings onto plain pasta beside the wedge.",
+      "sources": [
+        {
+          "source": "prompt_review_pending.csv",
+          "record": 220,
+          "data": {
+            "ファイル名": "Parmesan.png",
+            "単語": "Parmesan",
+            "問題": "jaはパルマの、enはチーズ。画像はパルマの宗教建築で都市側。Parmesanの形容詞・食品名とIDを確認。 語ID=Parmesan; 語根ID=[]; image=assets/word/Parmesan.png; Git blob SHA=65833595388ebca1b7156fb82fb2cd7efa052dcc。親が正式辞書の英日語義・IDと現行公開画像SHAを照合してから判断。同綴異義語と@付き画像を保護。低得点だけでの再生成・自動再生成は禁止。",
+            "発見バッチ": "batch-028",
+            "状態": "要確認（語義・ID・画像対応）"
+          }
+        }
+      ]
+    },
+    {
+      "case": 378,
+      "filename": "pence.png",
+      "w": "pence",
+      "p": [],
+      "first_ja": "ペニーの複数形",
+      "current_image_sha256": "12a6b75c02e9689889331afca8e86c9fb18c9318582fa39d1ff6d38b6da35286",
+      "composition": "Three small copper penny coins lie on a counter beside an open coin purse. Their raised rim and simple monarch profile identify money; keep all inscriptions and denominations unreadable, with no politician or podium.",
+      "sources": [
+        {
+          "source": "prompt_review_pending.csv",
+          "record": 248,
+          "data": {
+            "ファイル名": "pence.png",
+            "単語": "pence",
+            "問題": "画像は演説する白髪の政治家。英語はMike Pence、日本語のペンスが人名か貨幣単位か要確認。 語義・ID・画像対応の確認候補であり、低得点のみを根拠に再生成しない。公開中の画像SHAと正式辞書は親側で照合する。 wordID=pence; rootIDs=[]; ja=ペンス; en=Mike 1959— Michael Richard Pence American politician; vice president of the U.S. (2017—21); image=assets/word/pence.png; GitBlobSHA=24f4834c21f63b895be9d6065b99b3a51a942ceb",
+            "発見バッチ": "batch-029",
+            "状態": "要確認（語義・ID・画像対応）"
+          }
+        }
+      ]
+    },
+    {
+      "case": 384,
+      "filename": "PhD.png",
+      "w": "PhD",
+      "p": [],
+      "first_ja": "博士号",
+      "current_image_sha256": "a1a0574c1e0c97197d0964d6afe32a57231d13fbf30c31fe2c2c981a616409af",
+      "composition": "A newly graduated researcher in a doctoral gown and soft academic cap receives a rolled diploma from a university professor. A simple laboratory notebook rests beside the ceremony; emphasize the awarded academic qualification.",
+      "sources": [
+        {
+          "source": "prompt_review_pending.csv",
+          "record": 43,
+          "data": {
+            "ファイル名": "PhD.png",
+            "単語": "PhD",
+            "問題": "語義不一致／対象描写の不備。対象ID=PhD / 語根ID= / imagePath=assets/word/PhD.png / 画像Git blob=a60c615f84fbf6bf739cca4549baf406e4fd2cae。個別目視理由：タンパク質と分子の図で博士号という対象語義は示されない。 同綴り別語義・語形の混同を確認し、代表語義に合う画像へ要修正。語根ID・正式ファイル名を保持。他の語義の画像へ上書きしない。原典語義の確認が必要な場合は親側で確認してから再生成（この作業ではpieへアクセスしない）。低得点のみを登録基準にしていない。",
+            "発見バッチ": "puzzle-visual-batch-007",
+            "状態": "要再生成（語義確認後）"
+          }
+        }
+      ]
+    },
+    {
+      "case": 389,
+      "filename": "pipes.png",
+      "w": "pipes",
+      "p": [],
+      "first_ja": "パイプ",
+      "current_image_sha256": "95aaecc44a202ef0feff036af30270dbdb5016d27610500e632c1fc6509354b5",
+      "composition": "Three hollow plumbing pipes of different diameters lie beside a curved elbow fitting. Their open circular ends clearly reveal empty interiors; use plain metal surfaces, without molecules, musicians or smoking equipment.",
+      "sources": [
+        {
+          "source": "generated-image-issues.json",
+          "record": 113,
+          "data": {
+            "w": "pipes",
+            "p": [],
+            "art": "pipes",
+            "imageSha256": "95aaecc44a202ef0feff036af30270dbdb5016d27610500e632c1fc6509354b5",
+            "senseSha256": "e128019070408501ae5e1f5f4292e64b920a0f47eeb3b8f72c52caf5a502db9f",
+            "codes": [
+              "image_first_sense_mismatch"
+            ],
+            "detail": "Matches chemical abbreviation-like prior gloss, notパイプ/管",
+            "status": "held"
+          }
+        },
+        {
+          "source": "prompt_review_pending.csv",
+          "record": 68,
+          "data": {
+            "ファイル名": "pipes.png",
+            "単語": "pipes",
+            "問題": "描写対象と画像対応の確認候補。公開語義はパイプ・管だが現在画像は無記名の六員環分子模型で管がない。分子名や略称など別IDとの混同の有無を正式資料で確認し、通常の管の語義を保持して画像対応を判断する。 対象ID=pipes / 語根ID=公開出力で未設定 / 公開語義=パイプ、管。目視所見=六員環の分子模型だけであり管や笛など通常のpipesの物体が見えない。 ローカル画像Git blob=56cc8f3ad79579730015b5c765d543185b1ab490。保存先=assets/word/pipes.png。親が正式資料と現在の公開画像SHAを照合するまで辞書・画像を変更しない。他の同綴語義画像を上書き・改名しない。低スコアのみを理由とした登録ではない。",
+            "発見バッチ": "puzzle-visual-review-20261019-batch-012",
+            "状態": "要確認（語義・ID・画像対応）"
+          }
+        }
+      ]
+    },
+    {
+      "case": 399,
+      "filename": "pointless.png",
+      "w": "pointless",
+      "p": [],
+      "first_ja": "無意味な",
+      "current_image_sha256": "4d90a2caaf7025e6bfd45108d553f269084b2b7f32514d2728ed50ba6a0faa5b",
+      "composition": "A worker pours water into a bucket whose entire bottom is missing. Water falls straight through onto the ground while the worker stares at the empty bucket, showing an effort with no useful result.",
+      "sources": [
+        {
+          "source": "prompt_review_pending.csv",
+          "record": 121,
+          "data": {
+            "ファイル名": "pointless.png",
+            "単語": "pointless",
+            "問題": "語義・ID確認候補。画像は尖った先のない鉛筆で文字どおりのpointlessに対応し、説明文にもその用法があるが、日英の短い語義は無意味・無目的のみ。実在する文字どおりの意味の追加・優先順を確認し、無意味の重要な意味も保持する。 公開日本語=無意味な、目的のない / 公開英語=purposeless / futile。対象ID=pointless / 語根ID=公開出力で未設定。ローカル画像Git blob=e0c34f3739738b80779f8de895113faf471dcb14。保存先=assets/word/pointless.png。親が正式資料と現在の公開画像SHAを照合するまで辞書・画像を変更しない。重要な他語義を消さず、同綴異義画像を上書き・改名しない。低点だけを理由とした登録でも、自動再生成指示でもない。",
+            "発見バッチ": "puzzle-visual-review-20261019-batch-020",
+            "状態": "要確認（語義・ID・画像対応）"
+          }
+        }
+      ]
+    },
+    {
+      "case": 417,
+      "filename": "rather.png",
+      "w": "rather",
+      "p": [
+        "kret-1"
+      ],
+      "first_ja": "むしろ",
+      "current_image_sha256": "e5d2cd8843dff4111f20e2a46c58bb419380f1514f3f1bce67cf13766c085dec",
+      "composition": "A child firmly chooses a juicy apple from a fruit bowl while gently sliding an untouched sweet cake aside. The pointing hand and satisfied expression emphasize preferring this alternative, rather than a gauge of intensity.",
+      "sources": [
+        {
+          "source": "generated-image-issues.json",
+          "record": 117,
+          "data": {
+            "w": "rather",
+            "p": [
+              "kret-1"
+            ],
+            "art": "rather",
+            "imageSha256": "e5d2cd8843dff4111f20e2a46c58bb419380f1514f3f1bce67cf13766c085dec",
+            "senseSha256": "ea5db3ad39f753fbf621d8d3c6b8626d3b2813da40949d68974ea4cf8cac7996",
+            "codes": [
+              "image_first_sense_mismatch"
+            ],
+            "detail": "An unlabelled gauge has a green-to-yellow-to-orange-to-red segmented arc; its needle points near the red/high end. The positive visual content is degree/intensity, which corresponds to the alternate かなり / fairly usage. The first sense むしろ / instead concerns preference or substitution, and the image contains no alternative or selection.",
+            "status": "held",
+            "reviewed_at": "2026-10-04T17:36:32.898154+00:00",
+            "review_method": "Independent current original-PNG and exact canonical first-sense inspection; source distinctions separately checked against primary dictionaries where applicable"
+          }
+        }
+      ]
+    },
+    {
+      "case": 418,
+      "filename": "Reading.png",
+      "w": "Reading",
+      "p": [],
+      "first_ja": "読むこと",
+      "current_image_sha256": "0eb70520d8e6bffaa5117dad22f78dbe31d4b456a2ebf7a2655971a65437be8e",
+      "composition": "A child sits in an armchair with an open storybook held in both hands, eyes carefully following its page lines. Show unreadable lines and one small story illustration, without presenting a named person's portrait.",
+      "sources": [
+        {
+          "source": "generated-image-issues.json",
+          "record": 167,
+          "data": {
+            "w": "Reading",
+            "p": [],
+            "art": "reading",
+            "imageSha256": "0eb70520d8e6bffaa5117dad22f78dbe31d4b456a2ebf7a2655971a65437be8e",
+            "senseSha256": "d5e404ea945bb1e67a2e41eee16bcf2e7c5cf445eeb0c98d453df89dda31a8a7",
+            "codes": [
+              "image_first_sense_mismatch"
+            ],
+            "detail": "The image depicts a woman portrait without a book or reading action, not 読むこと / the act of reading.",
+            "status": "held"
+          }
+        }
+      ]
+    },
+    {
+      "case": 433,
+      "filename": "reticulum.png",
+      "w": "reticulum",
+      "p": [],
+      "first_ja": "反芻動物の第二胃",
+      "current_image_sha256": "d74fc4833d0a085b87fa2bed734201e40fef553ee855af92065a3409de9d0b49",
+      "composition": "A simple educational cutaway of a cow's multi-chambered stomach highlights the small reticulum beside the larger rumen. Enlarge its interior honeycomb folds in one connected inset; other chambers remain muted and unlabelled.",
+      "sources": [
+        {
+          "source": "prompt_review_pending.csv",
+          "record": 162,
+          "data": {
+            "ファイル名": "reticulum.png",
+            "単語": "reticulum",
+            "問題": "jaは網状組織・細網、en先頭は反芻動物の第二胃。画像は網状細胞組織でja側。 語ID=reticulum; 語根ID=[]; image=assets/word/reticulum.png; Git blob SHA=e6950fa1b2014e65cd023e4fa7df6f34f332a664。親が正式辞書の英日語義・IDと現行公開画像SHAを確認してから判断。同綴異義語と@付きファイルを保護。低得点のみでの再生成・自動再生成は禁止。",
+            "発見バッチ": "batch-026",
+            "状態": "要確認（語義・ID・画像対応）"
+          }
+        }
+      ]
+    },
+    {
+      "case": 440,
+      "filename": "RNA.png",
+      "w": "RNA",
+      "p": [],
+      "first_ja": "リボ核酸",
+      "current_image_sha256": "86e090dcd7059bffd8c30f8563838e125db6923d2de1d45f6c1e977638482227",
+      "composition": "One single-stranded RNA chain curls into a loose hairpin. Show a repeating ribose-phosphate backbone and individual attached bases; only the intrinsic base symbols A, U, G and C may appear, with no double helix or human portrait.",
+      "sources": [
+        {
+          "source": "prompt_review_pending.csv",
+          "record": 32,
+          "data": {
+            "ファイル名": "RNA.png",
+            "単語": "RNA",
+            "問題": "語義不一致／対象描写の不備。対象ID=RNA / 語根ID= / imagePath=assets/word/RNA.png / 画像Git blob=33d756c0f20078d82bb2a84795596aefeb08a534。個別目視理由：男性の肖像はリボ核酸の構造を示していない。 同綴り別語義・語形の混同を確認し、代表語義に合う画像へ要修正。語根ID・正式ファイル名を保持。他の語義の画像へ上書きしない。原典語義の確認が必要な場合は親側で確認してから再生成（この作業ではpieへアクセスしない）。低得点のみを登録基準にしていない。",
+            "発見バッチ": "puzzle-visual-batch-006",
+            "状態": "要再生成（語義確認後）"
+          }
+        }
+      ]
+    },
+    {
+      "case": 443,
+      "filename": "Rome.png",
+      "w": "Rome",
+      "p": [],
+      "first_ja": "ローマ",
+      "current_image_sha256": "b9bd0d4eb2ca26b0c0b2923398dabf1ddb84a56c1a22e0df3943d38230b1cee6",
+      "composition": "Rome's Colosseum with its recognizable tiered arches stands beside a short section of ancient Roman forum columns. A tiny visitor supplies scale; focus on the city landmarks rather than a person named Rome.",
+      "sources": [
+        {
+          "source": "prompt_review_pending.csv",
+          "record": 22,
+          "data": {
+            "ファイル名": "Rome.png",
+            "単語": "Rome",
+            "問題": "語義不一致／対象描写の不備。対象ID=Rome / 語根ID= / imagePath=assets/word/Rome.png / 画像Git blob=beb7a8810bc8948c486e651dfa9c308cebec6786。個別目視理由：男性の顔だけで都市Romeは示されない。 同綴り別語義・語形の混同を確認し、代表語義に合う画像へ要修正。語根ID・正式ファイル名を保持。他の語義の画像へ上書きしない。原典語義の確認が必要な場合は親側で確認してから再生成（この作業ではpieへアクセスしない）。低得点のみを登録基準にしていない。",
+            "発見バッチ": "puzzle-visual-batch-004",
+            "状態": "要再生成（語義確認後）"
+          }
+        }
+      ]
+    },
+    {
+      "case": 452,
+      "filename": "sandy.png",
+      "w": "sandy",
+      "p": [],
+      "first_ja": "砂の",
+      "current_image_sha256": "005ff39d006a96b17b56e4637d22a3bda9d2bcc45a6499a7c06887592b152816",
+      "composition": "Wind lifts a thin layer of pale sand across a small dune and a partly buried beach sandal. Grainy sand covers the foreground, with one low dune behind; no portrait or personal-name scene.",
+      "sources": [
+        {
+          "source": "prompt_review_pending.csv",
+          "record": 76,
+          "data": {
+            "ファイル名": "sandy.png",
+            "単語": "sandy",
+            "問題": "語義・ID確認候補。現在画像は女性の肖像で公開語義は砂の・砂っぽい。実在する人名Sandyとの混同を正式資料で確認する。人名を保持する場合も砂質という重要な形容詞義を失わないよう別義・別IDを整理し、必要なら資料に基づく語義追加や先頭語義修正を検討する。 対象ID=sandy / 語根ID=公開出力で未設定 / 公開日本語=砂の、砂っぽい / 公開英語=sandy / gritty。目視所見=普通の女性の肖像だけでサンディという人名か砂質かを特定できない。 ローカル画像Git blob=21fd116be84bf6ea98f6bb4e825d0ae3ebb458f9。保存先=assets/word/sandy.png。親が正式資料と現在の公開画像SHAを照合するまで辞書・画像を変更しない。他の同綴語義画像を上書き・改名しない。低スコアのみを理由とした登録ではない。",
+            "発見バッチ": "puzzle-visual-review-20261019-batch-013",
+            "状態": "要確認（人名・語義・ID）"
+          }
+        }
+      ]
+    },
+    {
+      "case": 455,
+      "filename": "Saturn.png",
+      "w": "Saturn",
+      "p": [],
+      "first_ja": "土星",
+      "current_image_sha256": "b8e03e2e22730531c827dec20bbe806968e1c8849e77f49ba322e6d34e5b7241",
+      "composition": "The planet Saturn floats alone with its broad, flat rings visibly encircling the equator at a gentle tilt. Show a cream-and-gold banded sphere, dark gap between ring bands and no mythological deity.",
+      "sources": [
+        {
+          "source": "prompt_review_pending.csv",
+          "record": 111,
+          "data": {
+            "ファイル名": "Saturn.png",
+            "単語": "Saturn",
+            "問題": "語義・ID確認候補。画像は鎌と穀物を持つ古代の農耕神でSaturn神の意味に合うが、公開語義は土星・planet。神名と惑星名の実在する意味を保持して正式な語ID・第一語義を確認する。 公開日本語=土星 / 公開英語=planet。対象ID=Saturn / 語根ID=公開出力で未設定。ローカル画像Git blob=e320ec6aa4cf57beb6fa21b72952d9e7bdc29740。保存先=assets/word/Saturn.png。親が正式資料と現在の公開画像SHAを照合するまで辞書・画像を変更しない。実在する一般的な意味の追加や第一語義修正を検討しても、重要な他語義を消さない。同綴異義語の画像を上書き・改名しない。低点だけを理由とした登録でも、自動再生成指示でもない。",
+            "発見バッチ": "puzzle-visual-review-20261019-batch-018",
+            "状態": "要確認（語義・ID・画像対応）"
+          }
+        }
+      ]
+    },
+    {
+      "case": 460,
+      "filename": "Scotland.png",
+      "w": "Scotland",
+      "p": [
+        "lendh-2"
+      ],
+      "first_ja": "スコットランド",
+      "current_image_sha256": "5fffebdcbc63e512e11d2afc227c1643a2c9ab1b5413997afd4fb49936581196",
+      "composition": "A compact view of Scotland shows a stone Highland castle beside a dark loch, backed by rounded green hills. A small tartan cloth and thistle sit at the foreground edge; no generic human portrait.",
+      "sources": [
+        {
+          "source": "prompt_review_pending.csv",
+          "record": 33,
+          "data": {
+            "ファイル名": "Scotland.png",
+            "単語": "Scotland",
+            "問題": "語義不一致／対象描写の不備。対象ID=Scotland / 語根ID=lendh-2 / imagePath=assets/word/Scotland.png / 画像Git blob=68586082af2f89c85bdbdfa70290cd00b6433676。個別目視理由：男性の肖像にスコットランド固有の要素がない。 同綴り別語義・語形の混同を確認し、代表語義に合う画像へ要修正。語根ID・正式ファイル名を保持。他の語義の画像へ上書きしない。原典語義の確認が必要な場合は親側で確認してから再生成（この作業ではpieへアクセスしない）。低得点のみを登録基準にしていない。",
+            "発見バッチ": "puzzle-visual-batch-006",
+            "状態": "要再生成（語義確認後）"
+          }
+        }
+      ]
+    },
+    {
+      "case": 468,
+      "filename": "sepsis.png",
+      "w": "sepsis",
+      "p": [],
+      "first_ja": "敗血症",
+      "current_image_sha256": "adea958d6867a3734db5e5ed2f6b088a0b1ff45bc4914c728d8045a4f5dbb798",
+      "composition": "A hospital clinician urgently treats a visibly ill adult lying in bed, with an intravenous line and close monitoring. A small circular cutaway shows bacteria within a blood vessel and the body's widespread inflammatory response; no spoiled food.",
+      "sources": [
+        {
+          "source": "prompt_review_pending.csv",
+          "record": 115,
+          "data": {
+            "ファイル名": "sepsis.png",
+            "単語": "sepsis",
+            "問題": "語義・ID確認候補。画像は腐敗した林檎。日本語は敗血症と腐敗を並記するが英語と説明文は現在の医学用語としての敗血症を示す。古い腐敗の意味と現行医学語義の優先順・IDを正式資料で確認する。 公開日本語=敗血症、腐敗 / 公開英語=a potentially life-threatening, systemic response of the immune system that results from the spread of pathogenic agents (such as bacteria or viruses) and their toxins to the bloodstream from a localized infection (as of the lungs), that involves both inflammatory and immunosuppressive activity, that is marked especially by fever, chills, rapid heart rate and breathing, fatigue, confusion, increased blood coagulation, hypotension, impaired microcirculation, and organ dysfunction, and that may progress to septic shock。対象ID=sepsis / 語根ID=公開出力で未設定。ローカル画像Git blob=2bdef767889842881b56c7636c46088ec75db03b。保存先=assets/word/sepsis.png。親が正式資料と現在の公開画像SHAを照合するまで辞書・画像を変更しない。重要な他語義を消さず、同綴異義画像を上書き・改名しない。自動再生成の指示ではない。",
+            "発見バッチ": "puzzle-visual-review-20261019-batch-019",
+            "状態": "要確認（語義・ID・画像対応）"
+          }
+        }
+      ]
+    },
+    {
+      "case": 485,
+      "filename": "sixteen.png",
+      "w": "sixteen",
+      "p": [
+        "s(w)eks",
+        "dekm̥"
+      ],
+      "first_ja": "16",
+      "current_image_sha256": "119fe2dcb16a8cd30c11d96ad5f354bb8131cc44e812a1314c6c8faa7dcad947",
+      "composition": "Exactly sixteen identical red cherries, each with one short green stem, rest on a plain shallow plate in a clear four-by-four grid. Leave distinct gaps so all sixteen cherries can be individually counted.",
+      "sources": [
+        {
+          "source": "prompt_review_pending.csv",
+          "record": 56,
+          "data": {
+            "ファイル名": "sixteen.png",
+            "単語": "sixteen",
+            "問題": "描写の明確な数の誤り。サクランボは三行四列の12個で16ではない。正しい16個の配置にする候補。 対象ID=sixteen / 語根ID=s(w)eks|dekm̥ / 公開語義=16。目視所見=皿のサクランボは三行四列の12個で16を示していない。 ローカル画像Git blob=47be7a56898a774d947b8459215d39978343cb38。保存先=assets/word/sixteen.png。親が正式資料と現在の公開画像SHAを照合するまで辞書・画像を変更しない。他の同綴語義画像を上書き・改名しない。低スコアのみを理由とした登録ではない。",
+            "発見バッチ": "puzzle-visual-review-20261019-batch-009",
+            "状態": "要再生成（数の描写確認後）"
+          }
+        },
+        {
+          "source": "illustration-review-status.js",
+          "record": 9,
+          "data": {
+            "w": "sixteen",
+            "p": [
+              "s(w)eks",
+              "dekm̥"
+            ],
+            "art": "sixteen",
+            "status": "mismatch",
+            "sense": {
+              "index": 0,
+              "ja": "16",
+              "en": "16",
+              "sha256": "3e7d4e460b3465dbd63a72b58e62051b64bde81fd0726d899e2c048961100a18"
+            },
+            "image": {
+              "path": "assets/word/sixteen.png",
+              "sha256": "119fe2dcb16a8cd30c11d96ad5f354bb8131cc44e812a1314c6c8faa7dcad947",
+              "git_blob_sha": "47be7a56898a774d947b8459215d39978343cb38"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "case": 489,
+      "filename": "smitten.png",
+      "w": "smitten",
+      "p": [],
+      "first_ja": "心を奪われた",
+      "current_image_sha256": "3952738cc27096a3bb84df1fffc419d3d757908132b01b4e7f1c9e4765de62a6",
+      "composition": "A shy young adult gazes at a smiling classmate with flushed cheeks and an enchanted expression, holding a forgotten book loosely. A few small hearts near the admirer convey being captivated; no boxing or physical blows.",
+      "sources": [
+        {
+          "source": "prompt_review_pending.csv",
+          "record": 193,
+          "data": {
+            "ファイル名": "smitten.png",
+            "単語": "smitten",
+            "問題": "jaは打ちのめされた・殴られた、en先頭は恋慕に深く心を動かされた。画像はボクシングの一打を受ける場面でja側。 語ID=smitten; 語根ID=[]; image=assets/word/smitten.png; Git blob SHA=2c09bff28e1ccfe7a45f66b97769d2088bb6a08f。親が正式辞書の英日語義・IDと現行公開画像SHAを照合してから判断。同綴異義語と@付き画像を保護。低得点だけでの再生成・自動再生成は禁止。",
+            "発見バッチ": "batch-027",
+            "状態": "要確認（語義・ID・画像対応）"
+          }
+        }
+      ]
+    },
+    {
+      "case": 498,
+      "filename": "spark.png",
+      "w": "spark",
+      "p": [],
+      "first_ja": "火花",
+      "current_image_sha256": "5a00f0cdb99388afcaa04ad70565a191dd90fa024062e67b2f3375439494b33f",
+      "composition": "Two rough stones strike together above a small metal tray, producing several tiny bright orange sparks at the contact point. Show a few fading sparks in midair and no established flame or romantic couple.",
+      "sources": [
+        {
+          "source": "generated-image-issues.json",
+          "record": 112,
+          "data": {
+            "w": "spark",
+            "p": [],
+            "art": "spark",
+            "imageSha256": "5a00f0cdb99388afcaa04ad70565a191dd90fa024062e67b2f3375439494b33f",
+            "senseSha256": "e1fa2745e7df5fb162956285fd091b84d952379254cd59cdeef956e3b85fc506",
+            "codes": [
+              "image_first_sense_mismatch"
+            ],
+            "detail": "Matches old courting/flirting sense, not literal火花 first",
+            "status": "held"
+          }
+        }
+      ]
+    },
+    {
+      "case": 500,
+      "filename": "speaker.png",
+      "w": "speaker",
+      "p": [
+        "spreg-1"
+      ],
+      "first_ja": "話し手",
+      "current_image_sha256": "a88d094fb7c1047210429d63885265ec96cd331dcafe0a0e6742445690a8dc4c",
+      "composition": "A person stands at a small lectern, mouth open and one hand raised naturally while speaking to three attentive seated listeners. The listeners face the human speaker; omit loudspeaker boxes and written speech.",
+      "sources": [
+        {
+          "source": "generated-image-issues.json",
+          "record": 108,
+          "data": {
+            "w": "speaker",
+            "p": [
+              "spreg-1"
+            ],
+            "art": "speaker",
+            "imageSha256": "a88d094fb7c1047210429d63885265ec96cd331dcafe0a0e6742445690a8dc4c",
+            "senseSha256": "bdf3bbe7515220262988ad7b83c0b8d9fa4632c6eab468c5c1d7894a90baf1a2",
+            "codes": [
+              "image_first_sense_mismatch"
+            ],
+            "detail": "Matchesスピーカー third sense, not話し手 first",
+            "status": "held"
+          }
+        }
+      ]
+    },
+    {
+      "case": 501,
+      "filename": "spell.png",
+      "w": "spell",
+      "p": [
+        "spel-2"
+      ],
+      "first_ja": "つづる",
+      "current_image_sha256": "f3ed3abb788378bc1cb3357fc493626ac64160895e17f1b84f5c5f0488655340",
+      "composition": "A child carefully arranges three separate wooden letter tiles C, A and T in that left-to-right order beside a small picture of a cat. One hand places the final tile; the letters themselves are the spelling task.",
+      "sources": [
+        {
+          "source": "prompt_review_pending.csv",
+          "record": 41,
+          "data": {
+            "ファイル名": "spell.png",
+            "単語": "spell",
+            "問題": "語義不一致／対象描写の不備。対象ID=spell / 語根ID=spel-2 / imagePath=assets/word/spell.png / 画像Git blob=d54496db54be0152df6d82fdc380fc4fd80bc0ec。個別目視理由：図形カードを指す姿に文字をつづる手掛かりがない。 同綴り別語義・語形の混同を確認し、代表語義に合う画像へ要修正。語根ID・正式ファイル名を保持。他の語義の画像へ上書きしない。原典語義の確認が必要な場合は親側で確認してから再生成（この作業ではpieへアクセスしない）。低得点のみを登録基準にしていない。",
+            "発見バッチ": "puzzle-visual-batch-007",
+            "状態": "要再生成（語義確認後）"
+          }
+        }
+      ]
+    },
+    {
+      "case": 503,
+      "filename": "spot.png",
+      "w": "spot",
+      "p": [],
+      "first_ja": "場所",
+      "current_image_sha256": "c4ce24d3ceb0106f48874667a66bcdcfaa15affc855c110f8beee8dbe553e31b",
+      "composition": "A hiker points directly to one small flat resting place beside a stream, where a picnic blanket is already spread. A companion starts to lower a backpack onto that particular spot; no stains or blemishes.",
+      "sources": [
+        {
+          "source": "generated-image-issues.json",
+          "record": 137,
+          "data": {
+            "w": "spot",
+            "p": [],
+            "art": "spot",
+            "imageSha256": "c4ce24d3ceb0106f48874667a66bcdcfaa15affc855c110f8beee8dbe553e31b",
+            "senseSha256": "9a3e0f97f9ec98aebb62f1ea23850e189306c22e97b51f2d5b7db35faff10eec",
+            "codes": [
+              "image_first_sense_mismatch"
+            ],
+            "detail": "The image depicts a stain or mark on cloth, not the first sense 場所 / place.",
+            "status": "held",
+            "reviewed_at": "2026-10-04T18:30:48.965914+00:00",
+            "review_method": "Source and image checked for exact first-sense alignment."
+          }
+        }
+      ]
+    },
+    {
+      "case": 508,
+      "filename": "stare.png",
+      "w": "stare",
+      "p": [
+        "ster-1"
+      ],
+      "first_ja": "じっと見つめる",
+      "current_image_sha256": "5dae63892156900fc2af83153892809c94cbc0bfba404164de3b13a24869ea47",
+      "composition": "A child stands completely still, eyes wide and fixed on a tiny butterfly resting on a nearby flower. The face and uninterrupted line of sight dominate the scene; no foot or isolated body part.",
+      "sources": [
+        {
+          "source": "prompt_review_pending.csv",
+          "record": 36,
+          "data": {
+            "ファイル名": "stare.png",
+            "単語": "stare",
+            "問題": "語義不一致／対象描写の不備。対象ID=stare / 語根ID=ster-1 / imagePath=assets/word/stare.png / 画像Git blob=0c5c6ee3d10bd592926473b66c6608ac3fd19188。個別目視理由：爪付きの指だけが描かれ見つめる動作を示していない。 同綴り別語義・語形の混同を確認し、代表語義に合う画像へ要修正。語根ID・正式ファイル名を保持。他の語義の画像へ上書きしない。原典語義の確認が必要な場合は親側で確認してから再生成（この作業ではpieへアクセスしない）。低得点のみを登録基準にしていない。",
+            "発見バッチ": "puzzle-visual-batch-006",
+            "状態": "要再生成（語義確認後）"
+          }
+        }
+      ]
+    },
+    {
+      "case": 512,
+      "filename": "stick.png",
+      "w": "stick",
+      "p": [
+        "steig-"
+      ],
+      "first_ja": "棒",
+      "current_image_sha256": "2539abc56be41573cf263059cfcab6991eab7adb7bbd2db2f877efc3c4134429",
+      "composition": "One straight wooden stick lies diagonally, with rough bark along one edge and a small snapped twig stub. Show both solid ends clearly; no adhesive tube, paper collage or gluing action.",
+      "sources": [
+        {
+          "source": "generated-image-issues.json",
+          "record": 97,
+          "data": {
+            "w": "stick",
+            "p": [
+              "steig-"
+            ],
+            "art": "stick",
+            "imageSha256": "2539abc56be41573cf263059cfcab6991eab7adb7bbd2db2f877efc3c4134429",
+            "senseSha256": "f54c9799ded847117499de3c696dcc5af4004ee377252673e653c5ed040f1118",
+            "codes": [
+              "image_first_sense_mismatch"
+            ],
+            "detail": "The dominant action is gluing or making something adhere, a valid later stick sense. A glue-stick object is visible, but it is not an illustration of the generic rod meaning 棒.",
+            "status": "held"
+          }
+        }
+      ]
+    },
+    {
+      "case": 521,
+      "filename": "super-.png",
+      "w": "super-",
+      "p": [],
+      "first_ja": "超〜",
+      "current_image_sha256": "1b442085349445be6e1d50791738ab925c3e4d6258ac8d2cca3353748dd954c5",
+      "composition": "A remarkably strong fictional athlete lifts an enormous boulder overhead while an ordinary companion struggles to lift a much smaller stone. The contrast conveys power beyond the ordinary; no building caretaker or keys.",
+      "sources": [
+        {
+          "source": "prompt_review_pending.csv",
+          "record": 77,
+          "data": {
+            "ファイル名": "super-.png",
+            "単語": "super-",
+            "問題": "語義・ID確認候補。公開語義は超・上位の接頭辞だが画像は鍵束と工具を持つ集合住宅管理者。superというsuperintendentの実在する略称との対応を正式資料で確認する。語義追加・先頭語義修正を検討する場合も接頭辞の意味と別IDを保護し、画像に合わせた新語義は作らない。 対象ID=super- / 語根ID=公開出力で未設定 / 公開日本語=超〜、上位の / 公開英語=above / super。目視所見=鍵束と工具を持つ集合住宅の管理者でsuperの略称の可能性はあるが接頭辞は不明。 ローカル画像Git blob=4f7b694943a395bfc685e8c80dbb9a0bf4c20fca。保存先=assets/word/super-.png。親が正式資料と現在の公開画像SHAを照合するまで辞書・画像を変更しない。他の同綴語義画像を上書き・改名しない。低スコアのみを理由とした登録ではない。",
+            "発見バッチ": "puzzle-visual-review-20261019-batch-013",
+            "状態": "要確認（略語・接頭辞・ID）"
+          }
+        }
+      ]
+    },
+    {
+      "case": 528,
+      "filename": "Switzerland.png",
+      "w": "Switzerland",
+      "p": [
+        "lendh-2"
+      ],
+      "first_ja": "スイス",
+      "current_image_sha256": "4e534d2b4ed6b3a96e63c2cb9ddb75badc5a4c644c3baaf0d532284465c895ce",
+      "composition": "A compact Swiss Alpine scene shows a steep mountain resembling the Matterhorn, a timber chalet and a turquoise lake. A small plain Swiss flag with its white cross anchors the location; no generic woman's portrait.",
+      "sources": [
+        {
+          "source": "prompt_review_pending.csv",
+          "record": 30,
+          "data": {
+            "ファイル名": "Switzerland.png",
+            "単語": "Switzerland",
+            "問題": "語義不一致／対象描写の不備。対象ID=Switzerland / 語根ID=lendh-2 / imagePath=assets/word/Switzerland.png / 画像Git blob=701a5c4dbf29d67cb911cef49c7f2524c3e57af0。個別目視理由：女性の肖像からスイスという国を特定できない。 同綴り別語義・語形の混同を確認し、代表語義に合う画像へ要修正。語根ID・正式ファイル名を保持。他の語義の画像へ上書きしない。原典語義の確認が必要な場合は親側で確認してから再生成（この作業ではpieへアクセスしない）。低得点のみを登録基準にしていない。",
+            "発見バッチ": "puzzle-visual-batch-006",
+            "状態": "要再生成（語義確認後）"
+          }
+        }
+      ]
+    },
+    {
+      "case": 532,
+      "filename": "tally.png",
+      "w": "tally",
+      "p": [],
+      "first_ja": "割り符",
+      "current_image_sha256": "2f0a9f8ef4d26d554f9b7de5db864e49d649ce7a88dd1ea32b823666a4826e4e",
+      "composition": "A split wooden tally stick is held as two matching halves, each bearing exactly the same sequence of cut notches across the joined edge. Show the halves separated slightly to reveal their unique matching grain and marks.",
+      "sources": [
+        {
+          "source": "prompt_review_pending.csv",
+          "record": 223,
+          "data": {
+            "ファイル名": "tally.png",
+            "単語": "tally",
+            "問題": "jaは割り符、en先頭は集計・勘定。画像は玉を集めて数える操作でen側。 語ID=tally; 語根ID=[]; image=assets/word/tally.png; Git blob SHA=3d0d16f5c16be2a65418a195e786f22b7fbb2b50。親が正式辞書の英日語義・IDと現行公開画像SHAを照合してから判断。同綴異義語と@付き画像を保護。低得点だけでの再生成・自動再生成は禁止。",
+            "発見バッチ": "batch-028",
+            "状態": "要確認（語義・ID・画像対応）"
+          }
+        }
+      ]
+    },
+    {
+      "case": 536,
+      "filename": "techno.png",
+      "w": "techno",
+      "p": [],
+      "first_ja": "テクノ音楽",
+      "current_image_sha256": "0e106c103e237e059a95acd06de95804c67416bd2d24d60810c37f7f957b60c5",
+      "composition": "A techno musician uses a drum machine, sequencer and synthesizer at a compact electronic music setup. Repeating illuminated pads and the performer's rhythmic posture suggest a steady electronic dance beat; no blueprints or written sound effects.",
+      "sources": [
+        {
+          "source": "prompt_review_pending.csv",
+          "record": 210,
+          "data": {
+            "ファイル名": "techno.png",
+            "単語": "techno",
+            "問題": "enは電子ダンス音楽、jaはテクノのという曖昧な形。画像は発想・技術の図案説明で音楽要素がない。techno/techno-の語義・IDを確認してから画像対応を判断。 語ID=techno; 語根ID=[]; image=assets/word/techno.png; Git blob SHA=c4b765af61c0a39812c0204358c16bec7f35550f。親が正式辞書の英日語義・IDと現行公開画像SHAを照合してから判断。同綴異義語と@付き画像を保護。低得点だけでの再生成・自動再生成は禁止。",
+            "発見バッチ": "batch-028",
+            "状態": "要確認（語義・ID・画像対応）"
+          }
+        }
+      ]
+    },
+    {
+      "case": 538,
+      "filename": "tempered.png",
+      "w": "tempered",
+      "p": [],
+      "first_ja": "焼き戻した",
+      "current_image_sha256": "3f657eadaae5dcbdbec758cf9b702188b8d1b9c7466e6b732848f2196b1e1394",
+      "composition": "A blacksmith uses long tongs to heat a previously hardened steel blade gently over a small controlled forge, its surface showing a restrained straw-colored tempering tint. Emphasize controlled reheating, with no angry child or assembly blocks.",
+      "sources": [
+        {
+          "source": "prompt_review_pending.csv",
+          "record": 98,
+          "data": {
+            "ファイル名": "tempered.png",
+            "単語": "tempered",
+            "問題": "語義・ID確認候補。画像は積木で遊ぶ冷静な子と怒る子で、日本語の気質のに対応する可能性があるが、英語は熱処理・強化ガラスの限定義。複合語内の気質と焼戻しの意味を保持して日英説明・語IDを確認する。 公開日本語=気質の / 公開英語=treated by tempering; especially, of glass : treated so as to impart increased strength and the property of shattering into pellets when broken。対象ID=tempered / 語根ID=公開出力で未設定。ローカル画像Git blob=f3075926dbadeaad9df4836846cd4cc2163deaff。保存先=assets/word/tempered.png。親が正式資料と現在の公開画像SHAを照合するまで辞書・画像を変更しない。画像に合わせた架空語義を作らず、実在する一般的な語義の追加・第一語義の整理を検討する場合も重要な他語義を保持する。同綴異義語の画像を上書き・改名しない。低点のみを理由とした登録でも、自動再生成指示でもない。",
+            "発見バッチ": "puzzle-visual-review-20261019-batch-017",
+            "状態": "要確認（語義・ID・画像対応）"
+          }
+        }
+      ]
+    },
+    {
+      "case": 548,
+      "filename": "tied.png",
+      "w": "tied",
+      "p": [],
+      "first_ja": "結ばれた",
+      "current_image_sha256": "8f431e4a3c239237d87db2f3e28d55a53a61a0e5e669895a5a890440a47ce55c",
+      "composition": "Two thick rope ends are firmly tied together in one clearly visible knot. The free tails extend on opposite sides, and slight tension makes the joined connection clear; no scoreboards or tied sporting results.",
+      "sources": [
+        {
+          "source": "generated-image-issues.json",
+          "record": 100,
+          "data": {
+            "w": "tied",
+            "p": [],
+            "art": "tied",
+            "imageSha256": "8f431e4a3c239237d87db2f3e28d55a53a61a0e5e669895a5a890440a47ce55c",
+            "senseSha256": "7c3808676f13e518ee160d182e8ee01be0c09d21e934b432d40c5f1ccb11a9be",
+            "codes": [
+              "image_first_sense_mismatch"
+            ],
+            "detail": "Balanced token totals and referee gesture suggest a draw or equal score. No knots, ropes or tying action is visible.",
+            "status": "held"
+          }
+        }
+      ]
+    },
+    {
+      "case": 549,
+      "filename": "tissue.png",
+      "w": "tissue",
+      "p": [
+        "teks-"
+      ],
+      "first_ja": "組織",
+      "current_image_sha256": "0054985877aea08b6e828febef72d4cae41c633c78faf550645b3f43e706d5cc",
+      "composition": "A small intact patch of living skin tissue appears in a clean educational cutaway, with several connected layers of cells above soft underlying tissue. The cells form one continuous organized sheet; no disposable paper box.",
+      "sources": [
+        {
+          "source": "generated-image-issues.json",
+          "record": 81,
+          "data": {
+            "w": "tissue",
+            "p": [
+              "teks-"
+            ],
+            "art": "tissue",
+            "imageSha256": "0054985877aea08b6e828febef72d4cae41c633c78faf550645b3f43e706d5cc",
+            "senseSha256": "b0314697702c8fdceb2071e7e8d5e364b683b80856cb214a2bbcb4be8884df3e",
+            "codes": [
+              "image_first_sense_mismatch"
+            ],
+            "detail": "The image is a box of facial tissue paper, matching later ティッシュペーパー / tissue paper, while the fixed first Japanese gloss 組織 means biological tissue in this pairing.",
+            "status": "held"
+          }
+        },
+        {
+          "source": "generated-image-issues.json",
+          "record": 94,
+          "data": {
+            "w": "tissue",
+            "p": [
+              "teks-"
+            ],
+            "art": "tissue",
+            "imageSha256": "0054985877aea08b6e828febef72d4cae41c633c78faf550645b3f43e706d5cc",
+            "senseSha256": "b0314697702c8fdceb2071e7e8d5e364b683b80856cb214a2bbcb4be8884df3e",
+            "codes": [
+              "image_first_sense_mismatch"
+            ],
+            "detail": "This is unmistakably paper tissue, not biological tissue (組織), the first listed sense.",
+            "status": "held"
+          }
+        }
+      ]
+    },
+    {
+      "case": 553,
+      "filename": "topical.png",
+      "w": "topical",
+      "p": [],
+      "first_ja": "時事の",
+      "current_image_sha256": "f408708dad4b33b4495362dbac0eb5572d8ce4d43d11e687ceeb1b115d4253ba",
+      "composition": "Two people discuss the same fresh newspaper while a nearby television shows matching pictorial footage of a newly opened bridge. Their attention follows the current event across both media; keep all print unreadable and avoid medicine.",
+      "sources": [
+        {
+          "source": "word-art-todo.csv",
+          "record": 4449,
+          "data": {
+            "単語": "topical",
+            "語根": "",
+            "語義": "時事の、局所用の",
+            "絵と語義の整合性": "目視判定: Topical local-use secondary sense; current-affairs first gloss absent.",
+            "目視所見": "Gloved finger applies ointment to localized forearm rash.",
+            "品質判定根拠": "実PNG画素の目視とGit blob SHA照合済み。意味と画像は現公開版へ差分照合。旧ゲーム所見はreview_game_contextの時点指定に従う。 公開commit dcfb090c3b32a1dc2141d74f68d4a42aba812e65; asset SHA ae8ee89b98b5fd5320a6080d3280dce082127797",
+            "具体的な改善案": "画像内に台詞・説明文を入れない。類義語候補だけで字選択クイズを不合格にしない。 Depict independently selected first sense or separately bind topical-medicine meaning."
+          }
+        }
+      ]
+    },
+    {
+      "case": 555,
+      "filename": "tops.png",
+      "w": "tops",
+      "p": [],
+      "first_ja": "最上の",
+      "current_image_sha256": "bc3437d03998da913caa0fbaeebf7a0710c1d3aa43af668e7620105a5832f0ea",
+      "composition": "A winning runner stands on the highest central podium block, clearly above two lower competitors, holding a trophy with a pleased smile. The vertical ranking conveys the very best; no spacecraft or planet.",
+      "sources": [
+        {
+          "source": "prompt_review_pending.csv",
+          "record": 74,
+          "data": {
+            "ファイル名": "tops.png",
+            "単語": "tops",
+            "問題": "語義・ID確認候補。画像は木星に近い宇宙探査機だが公開語義は最上・最高。別の略称・固有名への画像対応かを正式資料で確認し、実在する一般的別義なら語義追加・先頭語義修正も検討する。最高の意味など重要な他語義は保持し、画像に合わせた架空語義を作らない。 対象ID=tops / 語根ID=公開出力で未設定 / 公開日本語=最上の、最高の / 公開英語=best / topmost。目視所見=木星近くの宇宙探査機であり頂上や最高を示す手掛かりはない。 ローカル画像Git blob=1368105d7e70b8bec7a0f1201aaa4b23cb6b5e0f。保存先=assets/word/tops.png。親が正式資料と現在の公開画像SHAを照合するまで辞書・画像を変更しない。他の同綴語義画像を上書き・改名しない。低スコアのみを理由とした登録ではない。",
+            "発見バッチ": "puzzle-visual-review-20261019-batch-013",
+            "状態": "要確認（語義・ID・画像対応）"
+          }
+        }
+      ]
+    },
+    {
+      "case": 558,
+      "filename": "trailer.png",
+      "w": "trailer",
+      "p": [],
+      "first_ja": "予告編",
+      "current_image_sha256": "f456370c160edbb7da9745a0f1da164295b8475515f757bd194479e17c71127a",
+      "composition": "A cinema audience watches a screen showing a short montage of three cinematic preview shots framed as one filmstrip: a chase, a mysterious doorway and a hero close-up. A closed curtain edge suggests the main film is still to come.",
+      "sources": [
+        {
+          "source": "word-art-todo.csv",
+          "record": 4373,
+          "data": {
+            "単語": "trailer",
+            "語根": "",
+            "語義": "予告編、トレーラー",
+            "絵と語義の整合性": "目視判定: Physical trailer secondary sense; movie preview first sense absent.",
+            "目視所見": "Car tows open cargo trailer loaded with boxes.",
+            "品質判定根拠": "実PNG画素の目視とGit blob SHA照合済み。意味と画像は現公開版へ差分照合。旧ゲーム所見はreview_game_contextの時点指定に従う。 公開commit dcfb090c3b32a1dc2141d74f68d4a42aba812e65; asset SHA db6b0653542c8dfb3913f5743a0f656bc00bfac6",
+            "具体的な改善案": "画像内に台詞・説明文を入れない。類義語候補だけで字選択クイズを不合格にしない。 Use independently chosen preview sense scene or separately bind vehicle sense; no meaning reorder merely to preserve picture."
+          }
+        }
+      ]
+    },
+    {
+      "case": 561,
+      "filename": "trimming.png",
+      "w": "trimming",
+      "p": [],
+      "first_ja": "整頓",
+      "current_image_sha256": "a2037380a22cdd9ba38d49b8d5393f2423aa22c61de4c12c4db779a306a7ed79",
+      "composition": "A person tidies a cluttered workbench, putting scattered pencils into one cup and aligning a small stack of blank sheets beside a closed toolbox. The remaining tools sit in neat rows within arm's reach. Emphasize making the workspace orderly, without soup garnish or food decoration.",
+      "sources": [
+        {
+          "source": "prompt_review_pending.csv",
+          "record": 261,
+          "data": {
+            "ファイル名": "trimming.png",
+            "単語": "trimming",
+            "問題": "画像は料理への香草の飾り付け。英語は追加のgarnishing、日本語は整頓。 語義・ID・画像対応の確認候補であり、低得点のみを根拠に再生成しない。公開中の画像SHAと正式辞書は親側で照合する。 wordID=trimming; rootIDs=[]; ja=整頓; en=an additional garnishing; image=assets/word/trimming.png; GitBlobSHA=0eb7325b996e5564153e2ca5d3ab013246790bc8",
+            "発見バッチ": "batch-029",
+            "状態": "要確認（語義・ID・画像対応）"
+          }
+        }
+      ]
+    },
+    {
+      "case": 562,
+      "filename": "Tripoli.png",
+      "w": "Tripoli",
+      "p": [],
+      "first_ja": "リビアの首都トリポリ",
+      "current_image_sha256": "71be280311e1557acdbaf02d235331c2451267848db1e99732c0671c59c5a9c1",
+      "composition": "Tripoli's old Red Castle waterfront complex stands beside the harbor, with low pale historic walls, arched openings and small fishing boats. Keep the composition focused on the Libyan capital's built waterfront; no abrasive mineral powder.",
+      "sources": [
+        {
+          "source": "prompt_review_pending.csv",
+          "record": 308,
+          "data": {
+            "ファイル名": "Tripoli.png",
+            "単語": "Tripoli",
+            "問題": "画像は研磨用の珪質土。Tripoliという大文字IDと日本語トリポリが都市名か鉱物か確認。英語は珪質の土。 語義・ID・画像対応の確認候補であり、低得点のみを根拠に再生成しない。公開中の画像SHAと正式辞書は親側で照合する。 wordID=Tripoli; rootIDs=[]; ja=トリポリ; en=an earth consisting of very friable soft schistose deposits of silica and including diatomite and kieselguhr; image=assets/word/Tripoli.png; GitBlobSHA=f1ca9d2e070b5bf988adeeb57bd7ba2cb73547d7",
+            "発見バッチ": "batch-031",
+            "状態": "要確認（語義・ID・画像対応）"
+          }
+        }
+      ]
+    },
+    {
+      "case": 567,
+      "filename": "turnover.png",
+      "w": "turnover",
+      "p": [],
+      "first_ja": "売上高",
+      "current_image_sha256": "7c3ea024413d3cc1b14db2a775c7f3fcd32db01f7f4dd37467c366f954415d41",
+      "composition": "A busy shopkeeper completes several purchases, placing received coins into a till while customers carry purchased goods away. A row of sold items and the accumulating takings make sales revenue the focus; no overturned boat.",
+      "sources": [
+        {
+          "source": "prompt_review_pending.csv",
+          "record": 71,
+          "data": {
+            "ファイル名": "turnover.png",
+            "単語": "turnover",
+            "問題": "語義・ID確認候補。公開語義は売上高・入れ替わりだが画像は裏返った舟。turn overの動詞と名詞turnoverの語義・品詞・画像ID対応を正式資料で確認する。実在して一般に使われる転覆・反転の語義と整合するなら語義追加・先頭語義修正も検討し、売上高等の重要な他語義を保持する。画像に合わせた架空語義は追加しない。 対象ID=turnover / 語根ID=公開出力で未設定 / 公開語義=売上高、入れ替わり。目視所見=舟が裏返って浮く姿で転覆は見えるが名詞turnoverの対象語義は確認が要る。 ローカル画像Git blob=54593c0954f92e6aae8e911b6547c14c96c685d5。保存先=assets/word/turnover.png。親が正式資料と現在の公開画像SHAを照合するまで辞書・画像を変更しない。他の同綴語義画像を上書き・改名しない。低スコアのみを理由とした登録ではない。",
+            "発見バッチ": "puzzle-visual-review-20261019-batch-012",
+            "状態": "要確認（語義・品詞・ID）"
+          }
+        }
+      ]
+    },
+    {
+      "case": 576,
+      "filename": "unqualified.png",
+      "w": "unqualified",
+      "p": [],
+      "first_ja": "制限のない",
+      "current_image_sha256": "9215a9960fd8a75f1aef5ffee90ce307a4e04629b8f35395dbbcd45044aeff18",
+      "composition": "A parent welcomes a muddy child into a full embrace without hesitation, despite the dirty clothes and spilled toy bag. The open arms and unreserved warmth convey affection offered without conditions; no competence test.",
+      "sources": [
+        {
+          "source": "prompt_review_pending.csv",
+          "record": 266,
+          "data": {
+            "ファイル名": "unqualified.png",
+            "単語": "unqualified",
+            "問題": "画像は工作失敗を無条件に慰める姿。日本語は無条件、英語先頭語義は能力や資格がない。 語義・ID・画像対応の確認候補であり、低得点のみを根拠に再生成しない。公開中の画像SHAと正式辞書は親側で照合する。 wordID=unqualified; rootIDs=[]; ja=制限のない、無条件の; en=not fit : not having requisite qualifications; image=assets/word/unqualified.png; GitBlobSHA=4c88f65f4d6b2e2b55739889267ad2b4a1e734da",
+            "発見バッチ": "batch-030",
+            "状態": "要確認（語義・ID・画像対応）"
+          }
+        }
+      ]
+    },
+    {
+      "case": 581,
+      "filename": "upgrade.png",
+      "w": "upgrade",
+      "p": [],
+      "first_ja": "改良",
+      "current_image_sha256": "63372011f1bae0da5a83ab6ab35bdda981f041f77cd443bb686f69693aa4e55b",
+      "composition": "A technician replaces an old laptop's small memory module with a visibly larger-capacity new module, then shows the improved machine running smoothly. The removed component lies beside the laptop; no uphill bicycle road.",
+      "sources": [
+        {
+          "source": "prompt_review_pending.csv",
+          "record": 112,
+          "data": {
+            "ファイル名": "upgrade.png",
+            "単語": "upgrade",
+            "問題": "語義・ID確認候補。画像は自転車で上り坂を進む場面だが公開語義は改良・更新。上り勾配・上り坂としての実在するupgradeの語義と、機能向上の意味を正式資料で確認し、両義と名詞・動詞の語IDを整理する。 公開日本語=改良、更新 / 公開英語=improvement / update。対象ID=upgrade / 語根ID=公開出力で未設定。ローカル画像Git blob=44fd283cfa25c19b91d5f18faa33ce714d7d9434。保存先=assets/word/upgrade.png。親が正式資料と現在の公開画像SHAを照合するまで辞書・画像を変更しない。実在する一般的な意味の追加や第一語義修正を検討しても、重要な他語義を消さない。同綴異義語の画像を上書き・改名しない。低点だけを理由とした登録でも、自動再生成指示でもない。",
+            "発見バッチ": "puzzle-visual-review-20261019-batch-018",
+            "状態": "要確認（語義・ID・画像対応）"
+          }
+        }
+      ]
+    },
+    {
+      "case": 584,
+      "filename": "ut.png",
+      "w": "ut",
+      "p": [],
+      "first_ja": "ドの旧称",
+      "current_image_sha256": "bfbff84fd7a196a75b6a41a91cace4c3c3b2a82009dbe5f33d0f2b9392a4160f",
+      "composition": "On a short five-line musical staff, one clearly positioned note marks middle C with its necessary small ledger line below the staff. A matching piano key is gently pressed by one fingertip; no world map or clocks.",
+      "sources": [
+        {
+          "source": "prompt_review_pending.csv",
+          "record": 160,
+          "data": {
+            "ファイル名": "ut.png",
+            "単語": "ut",
+            "問題": "jaは世界時、enは階名doの旧称ut。画像は地球儀・時計・天文台でja側。大文字UTと小文字utのID対応を確認。 語ID=ut; 語根ID=[]; image=assets/word/ut.png; Git blob SHA=89af5394c79e38c23b790b4b1a9a7bf180504106。親が正式辞書の英日語義・IDと現行公開画像SHAを確認してから判断。同綴異義語と@付きファイルを保護。低得点のみでの再生成・自動再生成は禁止。",
+            "発見バッチ": "batch-026",
+            "状態": "要確認（語義・ID・画像対応）"
+          }
+        }
+      ]
+    },
+    {
+      "case": 589,
+      "filename": "Virginia.png",
+      "w": "Virginia",
+      "p": [],
+      "first_ja": "バージニア州",
+      "current_image_sha256": "42e7489fcded1280b9b26209cb67bfbf547f5dc977162479421d1f4de32faa5f",
+      "composition": "A map-shaped cutout of Virginia contains the Blue Ridge Mountains at its western edge and a small Chesapeake Bay inlet at the eastern edge. A modest state-capitol building sits centrally; no portrait of a woman named Virginia.",
+      "sources": [
+        {
+          "source": "prompt_review_pending.csv",
+          "record": 26,
+          "data": {
+            "ファイル名": "Virginia.png",
+            "単語": "Virginia",
+            "問題": "語義不一致／対象描写の不備。対象ID=Virginia / 語根ID= / imagePath=assets/word/Virginia.png / 画像Git blob=cea441ee13a60b060c67356e6c7c8c380d10b1e2。個別目視理由：女性の肖像だけで州名バージニアを識別する根拠がない。 同綴り別語義・語形の混同を確認し、代表語義に合う画像へ要修正。語根ID・正式ファイル名を保持。他の語義の画像へ上書きしない。原典語義の確認が必要な場合は親側で確認してから再生成（この作業ではpieへアクセスしない）。低得点のみを登録基準にしていない。",
+            "発見バッチ": "puzzle-visual-batch-005",
+            "状態": "要再生成（語義確認後）"
+          }
+        }
+      ]
+    },
+    {
+      "case": 590,
+      "filename": "virtual.png",
+      "w": "virtual",
+      "p": [
+        "wī̆-ro-"
+      ],
+      "first_ja": "事実上の",
+      "current_image_sha256": "22ac896f6a3506f7fcff9c6924f67674bbe2373b6478a56df1fd3f6fd88228e1",
+      "composition": "An assistant quietly directs every action in a small office while the nominal manager sits aside disengaged. Colleagues naturally follow the assistant's pointing hand and decisions, showing someone who functions as the leader in practice; no virtual-reality headset.",
+      "sources": [
+        {
+          "source": "generated-image-issues.json",
+          "record": 101,
+          "data": {
+            "w": "virtual",
+            "p": [
+              "wī̆-ro-"
+            ],
+            "art": "virtual",
+            "imageSha256": "22ac896f6a3506f7fcff9c6924f67674bbe2373b6478a56df1fd3f6fd88228e1",
+            "senseSha256": "6f27fd2e8b7513521c0c3f966e95263df8f79d86941aafff4fd8bf48d480f8ac",
+            "codes": [
+              "image_first_sense_mismatch"
+            ],
+            "detail": "Headset and simulated object clearly support a computer-generated virtual environment. They do not show an effective/de facto state.",
+            "status": "held"
+          }
+        }
+      ]
+    },
+    {
+      "case": 591,
+      "filename": "web.png",
+      "w": "web",
+      "p": [
+        "webh-"
+      ],
+      "first_ja": "クモの巣",
+      "current_image_sha256": "db0747b1d09278ab0a2dce8eec56082f812ff816e1b015ed66838295c5878a5b",
+      "composition": "An orb-weaver spider sits on the radial center of a delicate circular silk web stretched between two twigs. Clearly show radial spokes and concentric spiral threads, with a tiny dew drop; no globe or computer network.",
+      "sources": [
+        {
+          "source": "generated-image-issues.json",
+          "record": 96,
+          "data": {
+            "w": "web",
+            "p": [
+              "webh-"
+            ],
+            "art": "web",
+            "imageSha256": "db0747b1d09278ab0a2dce8eec56082f812ff816e1b015ed66838295c5878a5b",
+            "senseSha256": "484e75ee9fee7a729fd0b7fd7a537799d13e439dc30a2b22da73d3b9ec8ab5da",
+            "codes": [
+              "image_first_sense_mismatch"
+            ],
+            "detail": "The global network graphic conventionally depicts the internet/web, not a spider’s silk web.",
+            "status": "held"
+          }
+        }
+      ]
+    },
+    {
+      "case": 597,
+      "filename": "woke@x.png",
+      "w": "woke",
+      "p": [],
+      "first_ja": "wakeの過去形",
+      "current_image_sha256": "5f438294a4dba56ea794b01efc8808533ce233f2abd72c024e48cb052311a52f",
+      "composition": "A child has just woken in bed and sits upright with sleepy eyes, one hand rubbing an eye while morning light enters through the window. The blanket has fallen from the shoulders; no political argument.",
+      "sources": [
+        {
+          "source": "prompt_review_pending.csv",
+          "record": 35,
+          "data": {
+            "ファイル名": "woke@x.png",
+            "単語": "woke",
+            "問題": "語義不一致／対象描写の不備。対象ID=woke@x / 語根ID= / imagePath=assets/word/woke@x.png / 画像Git blob=4949c9db804092125509f4d29555ebf1c83d6f91。個別目視理由：言い争いを止める場面は目覚めたという対象語義を示していない。 同綴り別語義・語形の混同を確認し、代表語義に合う画像へ要修正。語根ID・正式ファイル名を保持。他の語義の画像へ上書きしない。原典語義の確認が必要な場合は親側で確認してから再生成（この作業ではpieへアクセスしない）。低得点のみを登録基準にしていない。",
+            "発見バッチ": "puzzle-visual-batch-006",
+            "状態": "要再生成（語義確認後）"
+          }
+        }
+      ]
+    },
+    {
+      "case": 601,
+      "filename": "zombie.png",
+      "w": "zombie",
+      "p": [],
+      "first_ja": "ゾンビ",
+      "current_image_sha256": "349208e72955da09fdcaf845045bc027c9d73f523db70e7455924a375fd0bc4a",
+      "composition": "A fictional undead zombie shambles forward with a vacant expression, pale greenish skin, stiff outstretched arms and harmlessly tattered clothes. Keep the image playful and non-gory, with no snake shrine or worshipper.",
+      "sources": [
+        {
+          "source": "prompt_review_pending.csv",
+          "record": 137,
+          "data": {
+            "ファイル名": "zombie.png",
+            "単語": "zombie",
+            "問題": "【語義・ID確認候補】画像は祈られる蛇神で日本語「ヘビ神」に沿う一方、英語は死後よみがえった人。異なる語義の対応を確認。 公開出力ja=ヘビ神; en=a will-less and speechless human (as in voodoo belief and in fictional stories) held to have died and been supernaturally reanimated。wordId=zombie; rootIds=[]; imagePath=assets/word/zombie.png; local Git blob SHA=b51f498b40b0e4e27c7c597b76df416a93a6942d。母艦の正式データと現在の公開画像SHAを親で照合後に判断。同綴異義語・別語根の画像を保護。自動再生成しない。",
+            "発見バッチ": "batch-023",
+            "状態": "要確認（語義・ID・画像対応）"
+          }
+        }
+      ]
+    },
+    {
+      "case": 100051,
+      "filename": "AC.png",
+      "w": "AC",
+      "p": [],
+      "first_ja": "ad- の異形",
+      "current_image_sha256": "e14c1b6b2a404b8092e65d975624ea9155752cee9b318b62919f303951c39160",
+      "composition": "A small linguistic diagram shows the prefix ad- joining a root beginning with c, with its final d visibly changing into c to form ac-. Use only those intrinsic letter groups, a joining arrow and a color highlight on the assimilated consonant; no air conditioner.",
+      "sources": [
+        {
+          "source": "independent_current_pixel_review",
+          "record": 51,
+          "data": {
+            "method": "unreviewed contact sheet, current first Japanese meaning and exact image hash"
+          }
+        }
+      ]
+    },
+    {
+      "case": 100097,
+      "filename": "acrostic.png",
+      "w": "acrostic",
+      "p": [
+        "ak-",
+        "steigh-"
+      ],
+      "first_ja": "アクロスティック",
+      "current_image_sha256": "2818fccafd674d71a6befa7a0dc3ee7ef98a62e0d7fe64f6e0c5cf94d0f785c4",
+      "composition": "A child follows a short acrostic on one upright poem card. Its four lines read 'Birds sing.' / 'In trees.' / 'Resting wings.' / 'Dawn comes.' Align and color the initial B, I, R and D so they spell BIRD vertically. Add one small bird beside the card, without explanatory captions.",
+      "sources": [
+        {
+          "source": "independent_current_pixel_review",
+          "record": 97,
+          "data": {
+            "method": "unreviewed contact sheet, current first Japanese meaning and exact image hash"
+          }
+        }
+      ]
+    },
+    {
+      "case": 100316,
+      "filename": "anaphora.png",
+      "w": "anaphora",
+      "p": [
+        "an-",
+        "bher-1"
+      ],
+      "first_ja": "首句反復",
+      "current_image_sha256": "81f8ee33f72f5491fcde5f156685721abd46608c7f7dbe9e45ae3880c7a751f3",
+      "composition": "An orator addresses a small audience with three short clauses on an adjacent lectern scroll: 'We will learn. We will build. We will help.' Highlight only the repeated opening 'We will' in matching colors and align the three clauses vertically. The repeated beginnings, rather than farm work, are the central visual relationship.",
+      "sources": [
+        {
+          "source": "independent_current_pixel_review",
+          "record": 316,
+          "data": {
+            "method": "unreviewed contact sheet, current first Japanese meaning and exact image hash"
+          }
+        }
+      ]
+    },
+    {
+      "case": 100418,
+      "filename": "AP.png",
+      "w": "AP",
+      "p": [],
+      "first_ja": "ad- の異形",
+      "current_image_sha256": "94da7d783739152b388b657ef87c6c5a77d2631a3e5265154e465ce355b3ec0a",
+      "composition": "A small linguistic diagram shows ad- joining a root beginning with p, with the d visibly changing into p to form ap-. Use only those intrinsic prefix letters, a joining arrow and a highlight on the assimilated consonant; no electrical plug.",
+      "sources": [
+        {
+          "source": "independent_current_pixel_review",
+          "record": 418,
+          "data": {
+            "method": "unreviewed contact sheet, current first Japanese meaning and exact image hash"
+          }
+        }
+      ]
+    },
+    {
+      "case": 100441,
+      "filename": "apostrophe.png",
+      "w": "apostrophe",
+      "p": [
+        "apo-",
+        "streb(h)-"
+      ],
+      "first_ja": "アポストロフィ",
+      "current_image_sha256": "153b6383df6d8ef3d9b8da94deb8139a99450581ab4b948a6679d27b56cfa4aa",
+      "composition": "A large, clearly shaped apostrophe appears between the n and t in the intrinsic example don't on a small language card. An adult teacher points directly to that raised punctuation mark with a pencil. Enlarge the mark and its exact placement; include no explanatory sentence or other symbols.",
+      "sources": [
+        {
+          "source": "independent_current_pixel_review",
+          "record": 441,
+          "data": {
+            "method": "unreviewed contact sheet, current first Japanese meaning and exact image hash"
+          }
+        }
+      ]
+    },
+    {
+      "case": 100468,
+      "filename": "Arabic.png",
+      "w": "Arabic",
+      "p": [],
+      "first_ja": "アラビア語の",
+      "current_image_sha256": "55f1a63dc1579fe2e87934a214159fc7d1e247eb9c99d97de991e29ef28336a0",
+      "composition": "An open Arabic-language book shows a few authentic connected Arabic letter forms written right to left, with one hand following that direction along the line. Keep the lettering brief and non-explanatory, with no mosque, costume or portrait as the main subject.",
+      "sources": [
+        {
+          "source": "independent_current_pixel_review",
+          "record": 468,
+          "data": {
+            "method": "unreviewed contact sheet, current first Japanese meaning and exact image hash"
+          }
+        }
+      ]
+    },
+    {
+      "case": 100560,
+      "filename": "astringent.png",
+      "w": "astringent",
+      "p": [
+        "ad-",
+        "streig-"
+      ],
+      "first_ja": "厳しい",
+      "current_image_sha256": "4c62201cb97034781b690f35ee88f80429edcdbc34e72bcf59142e8bf733f99b",
+      "composition": "A stern supervisor faces a worker beside a visibly crooked wooden frame, brows lowered and finger firmly indicating the faulty joint. The worker stops and listens attentively; the supervisor's demanding manner is the focus, without sour fruit.",
+      "sources": [
+        {
+          "source": "independent_current_pixel_review",
+          "record": 560,
+          "data": {
+            "method": "unreviewed contact sheet, current first Japanese meaning and exact image hash"
+          }
+        }
+      ]
+    },
+    {
+      "case": 100811,
+      "filename": "Benin.png",
+      "w": "Benin",
+      "p": [],
+      "first_ja": "ベナン",
+      "current_image_sha256": "7a53d9a7d16f208c8a2a8593030aaa97e8295cc7a2dbd6b301cfbe527a2322fb",
+      "composition": "A compact geographically accurate map of Benin has its broad northern portion tapering into a narrow southern strip reaching the Gulf of Guinea. Mark the southern coastline with a small blue wave and the northern interior with a simple tree. Show no broad river delta and no Bangladesh-shaped outline.",
+      "sources": [
+        {
+          "source": "independent_current_pixel_review",
+          "record": 811,
+          "data": {
+            "method": "unreviewed contact sheet, current first Japanese meaning and exact image hash"
+          }
+        }
+      ]
+    },
+    {
+      "case": 100886,
+      "filename": "biting.png",
+      "w": "biting",
+      "p": [],
+      "first_ja": "辛辣な",
+      "current_image_sha256": "fce8728fcd4970af7cee3570a27280e7ff221d20671edba7e0ef0b9d79e56d92",
+      "composition": "A stern critic sharply gestures at a performer's crumpled sketch, mouth open and eyebrows cutting downward. The performer recoils with a hurt expression and lowered shoulders; the scene conveys caustic criticism, without cold wind or written insults.",
+      "sources": [
+        {
+          "source": "independent_current_pixel_review",
+          "record": 886,
+          "data": {
+            "method": "unreviewed contact sheet, current first Japanese meaning and exact image hash"
+          }
+        }
+      ]
+    },
+    {
+      "case": 100896,
+      "filename": "blade.png",
+      "w": "blade",
+      "p": [
+        "bhel-3"
+      ],
+      "first_ja": "刃",
+      "current_image_sha256": "2cf493eae723e42283a58f1e6009b0091bcebe94157ffbe01841567316323380",
+      "composition": "One sharp steel knife blade lies beside its simple wooden handle, with the cutting edge catching a narrow highlight. Show its tapered point and continuous keen edge clearly; no leaf, plant or shoulder bone.",
+      "sources": [
+        {
+          "source": "independent_current_pixel_review",
+          "record": 896,
+          "data": {
+            "method": "unreviewed contact sheet, current first Japanese meaning and exact image hash"
+          }
+        }
+      ]
+    },
+    {
+      "case": 101150,
+      "filename": "Cadillac.png",
+      "w": "Cadillac",
+      "p": [],
+      "first_ja": "高級自動車ブランドのキャデラック",
+      "current_image_sha256": "fb64ee9600c0f5881c564996a0af103d14f3af8ad72e030f5de37ff53d13cb9d",
+      "composition": "A polished Cadillac luxury sedan stands in three-quarter view, with its broad vertical grille and distinctive vertical running lights. Keep its four wheels, enclosed passenger cabin and long elegant body fully visible. Emphasize the recognizable automobile design, without a historical explorer, written badge, crest or slogan.",
+      "sources": [
+        {
+          "source": "independent_current_pixel_review",
+          "record": 1150,
+          "data": {
+            "method": "unreviewed contact sheet, current first Japanese meaning and exact image hash"
+          }
+        }
+      ]
+    },
+    {
+      "case": 101449,
+      "filename": "circumflex.png",
+      "w": "circumflex",
+      "p": [
+        "(s)ker-3"
+      ],
+      "first_ja": "曲折アクセント記号",
+      "current_image_sha256": "3aa40c11951bcb00ffb6f649f1287c87e595cca569a1f03a12082dcf2bbd2ba9",
+      "composition": "An adult teacher points to the circumflex above a lowercase a, forming â on one large white language card. The inverted-V accent is centered directly above the letter, dark and unmistakable; one learner traces the same form on a small slate. Avoid a blank card or a speaking-mouth demonstration.",
+      "sources": [
+        {
+          "source": "independent_current_pixel_review",
+          "record": 1449,
+          "data": {
+            "method": "unreviewed contact sheet, current first Japanese meaning and exact image hash"
+          }
+        }
+      ]
+    },
+    {
+      "case": 101493,
+      "filename": "clef.png",
+      "w": "clef",
+      "p": [
+        "klāu-"
+      ],
+      "first_ja": "音部記号",
+      "current_image_sha256": "07682cc47de66b48240761108c7e340e396fa75f19efb3e68895ec04789f9296",
+      "composition": "One large, accurate treble clef curls around the second line of a short five-line musical staff. The clef itself is the subject, clearly drawn and unobscured; no empty staff, pianist or other written notation.",
+      "sources": [
+        {
+          "source": "independent_current_pixel_review",
+          "record": 1493,
+          "data": {
+            "method": "unreviewed contact sheet, current first Japanese meaning and exact image hash"
+          }
+        }
+      ]
+    },
+    {
+      "case": 101611,
+      "filename": "commandment.png",
+      "w": "commandment",
+      "p": [],
+      "first_ja": "戒律",
+      "current_image_sha256": "af30dd07c61dd3b093b86024710aef6d1973d21acf6964e6c1e13310f7436693",
+      "composition": "A monk in a plain robe pauses before a glass of wine and gently declines it with an open palm, while holding a small religious rule book close to his chest. A simple prayer room with a modest altar establishes observance of a religious precept, without a construction foreman's work instructions.",
+      "sources": [
+        {
+          "source": "independent_current_pixel_review",
+          "record": 1611,
+          "data": {
+            "method": "unreviewed contact sheet, current first Japanese meaning and exact image hash"
+          }
+        }
+      ]
+    },
+    {
+      "case": 101781,
+      "filename": "correspondence.png",
+      "w": "correspondence",
+      "p": [],
+      "first_ja": "通信",
+      "current_image_sha256": "12c244c6b20e2c0280fc56d15d2cd73217b4028cd51e2a73181c5b83eeb44c2c",
+      "composition": "Two distant friends exchange handwritten letters: one person seals an envelope beside a newly received envelope, while a small inset shows the other person reading the reply. Keep all handwriting unreadable; the connected exchange of correspondence is the focus.",
+      "sources": [
+        {
+          "source": "independent_current_pixel_review",
+          "record": 1781,
+          "data": {
+            "method": "unreviewed contact sheet, current first Japanese meaning and exact image hash"
+          }
+        }
+      ]
+    },
+    {
+      "case": 101834,
+      "filename": "craft.png",
+      "w": "craft",
+      "p": [],
+      "first_ja": "工芸",
+      "current_image_sha256": "9a841b2439ea89454f4b5a8a0e759f40d82f80eeeaf1fc635db3ad4a967c439f",
+      "composition": "A craftsperson patiently carves a small wooden bowl at a workbench, with curled shavings, a hand chisel and a partly finished woven basket nearby. Emphasize practical handmade craft work, without any boat or sailing scene.",
+      "sources": [
+        {
+          "source": "independent_current_pixel_review",
+          "record": 1834,
+          "data": {
+            "method": "unreviewed contact sheet, current first Japanese meaning and exact image hash"
+          }
+        }
+      ]
+    },
+    {
+      "case": 101933,
+      "filename": "cursive.png",
+      "w": "cursive",
+      "p": [
+        "kers-2"
+      ],
+      "first_ja": "草書体の",
+      "current_image_sha256": "d62463ad9bee3070270928639032d6f13a687131863f4e85e6ee785934d283d5",
+      "composition": "A hand uses a fountain pen to write the single intrinsic sample hello in flowing joined lowercase cursive on lined paper. Every letter connects naturally to the next; a small ink bottle sits beside the page. Enlarge the continuous pen strokes, with no printed block letters or explanatory captions.",
+      "sources": [
+        {
+          "source": "independent_current_pixel_review",
+          "record": 1933,
+          "data": {
+            "method": "unreviewed contact sheet, current first Japanese meaning and exact image hash"
+          }
+        }
+      ]
+    },
+    {
+      "case": 102080,
+      "filename": "Delhi.png",
+      "w": "Delhi",
+      "p": [],
+      "first_ja": "デリー",
+      "current_image_sha256": "eda1b6daba33acfbea7cd7440b236e7664859af4c680ccce10d7687a49282055",
+      "composition": "A compact Delhi city scene shows the Red Fort's red-sandstone gateway beside a short stretch of bustling street, with a cycle rickshaw and distant minarets. The recognizable Indian capital landmarks dominate; no male portrait.",
+      "sources": [
+        {
+          "source": "independent_current_pixel_review",
+          "record": 2080,
+          "data": {
+            "method": "unreviewed contact sheet, current first Japanese meaning and exact image hash"
+          }
+        }
+      ]
+    },
+    {
+      "case": 102181,
+      "filename": "Devanagari.png",
+      "w": "Devanagari",
+      "p": [
+        "dyeu-"
+      ],
+      "first_ja": "デーバナーガリー",
+      "current_image_sha256": "dda89b5a8a8083e69af002dd625db29916a810c76db842519c45b2b35edeea1f",
+      "composition": "A learner copies the authentic Devanagari characters अ and क from an open writing primer onto a small slate. Make the letters' correct shapes and horizontal headline clear. A teacher points at the source characters; keep the script itself central, with no Latin or Arabic substitute writing.",
+      "sources": [
+        {
+          "source": "independent_current_pixel_review",
+          "record": 2181,
+          "data": {
+            "method": "unreviewed contact sheet, current first Japanese meaning and exact image hash"
+          }
+        }
+      ]
+    },
+    {
+      "case": 102225,
+      "filename": "digraph.png",
+      "w": "digraph",
+      "p": [
+        "dwo-"
+      ],
+      "first_ja": "二重字",
+      "current_image_sha256": "885ee8ba0fe4c0ad34448947558bddeba0017a17cf1c1c9b87d0bdbd956268e7",
+      "composition": "A teacher holds two adjacent letter tiles s and h together as the digraph sh. Beside them, one child demonstrates a quiet shushing mouth with a finger near the lips. The two letters visibly form one combined sound; omit blank tiles and explanatory sentences.",
+      "sources": [
+        {
+          "source": "independent_current_pixel_review",
+          "record": 2225,
+          "data": {
+            "method": "unreviewed contact sheet, current first Japanese meaning and exact image hash"
+          }
+        }
+      ]
+    },
+    {
+      "case": 102248,
+      "filename": "diphthong.png",
+      "w": "diphthong",
+      "p": [
+        "dwo-"
+      ],
+      "first_ja": "二重母音",
+      "current_image_sha256": "e2be5c8c5aa1103c19e5eec9d33769633aacb289540826e3c6115a4cf3b5e6ce",
+      "composition": "A teacher demonstrates a diphthong by smoothly changing her mouth from an open vowel shape toward a rounded closing shape, shown as two linked close-up mouth positions. A learner imitates the continuous transition; no dipping a boat into water.",
+      "sources": [
+        {
+          "source": "independent_current_pixel_review",
+          "record": 2248,
+          "data": {
+            "method": "unreviewed contact sheet, current first Japanese meaning and exact image hash"
+          }
+        }
+      ]
+    },
+    {
+      "case": 102303,
+      "filename": "dislocation.png",
+      "w": "dislocation",
+      "p": [],
+      "first_ja": "脱臼",
+      "current_image_sha256": "13f39e317772205abb4f25d38a6110c23c1d87f88077acc5e1b8b52101ff7c7d",
+      "composition": "A clean educational cutaway shows a shoulder joint with the rounded humeral head displaced clearly outside its shallow socket. Add a small intact shoulder beside it for comparison, without crystal lattices, gore or written labels.",
+      "sources": [
+        {
+          "source": "independent_current_pixel_review",
+          "record": 2303,
+          "data": {
+            "method": "unreviewed contact sheet, current first Japanese meaning and exact image hash"
+          }
+        }
+      ]
+    },
+    {
+      "case": 102354,
+      "filename": "dodecagon.png",
+      "w": "dodecagon",
+      "p": [
+        "dwo-",
+        "dekm̥",
+        "genu-1"
+      ],
+      "first_ja": "12辺形",
+      "current_image_sha256": "1ab592b2d39d06eb8f30b5580339ffa94e27276e4a7fe617ab43d8f8f30a30cf",
+      "composition": "A single flat blue regular dodecagon lies face-on at the center. Draw exactly twelve equal straight edges and twelve distinct corners, evenly spaced around the perimeter, with no rounded sides, extra corners or perspective distortion. A small ruler sits below without touching the polygon; include no text or numbers.",
+      "sources": [
+        {
+          "source": "independent_current_pixel_review",
+          "record": 2354,
+          "data": {
+            "method": "unreviewed contact sheet, current first Japanese meaning and exact image hash"
+          }
+        }
+      ]
+    },
+    {
+      "case": 102541,
+      "filename": "eigenvector.png",
+      "w": "eigenvector",
+      "p": [
+        "aik-1",
+        "wegh-"
+      ],
+      "first_ja": "固有ベクトル",
+      "current_image_sha256": "acaf058d50d96c72132ead3916f91724f35bc1e9232dee1cfbc2b8a34fd067eb",
+      "composition": "A coordinate plane shows a blue vector arrow from the origin and a second longer arrow on exactly the same ray after a linear transformation. A small transformed grid stretches along that direction; the vector keeps its direction, with no exercise weights.",
+      "sources": [
+        {
+          "source": "independent_current_pixel_review",
+          "record": 2541,
+          "data": {
+            "method": "unreviewed contact sheet, current first Japanese meaning and exact image hash"
+          }
+        }
+      ]
+    },
+    {
+      "case": 102547,
+      "filename": "ejaculate.png",
+      "w": "ejaculate",
+      "p": [
+        "eghs",
+        "yē-"
+      ],
+      "first_ja": "射精する",
+      "current_image_sha256": "78359eef6fe95a71f75e2994bceec43bf30b7bc78bf33832948b45a8de5534ef",
+      "composition": "A calm medical teaching diagram uses a simplified sagittal cutaway of an adult male reproductive system. Highlight the path of semen from the ejaculatory ducts into the urethra and out through the penis with one clear directional arrow. Keep it strictly clinical, non-aroused and detached from any sexual scene; include no people performing sexual acts.",
+      "sources": [
+        {
+          "source": "independent_current_pixel_review",
+          "record": 2547,
+          "data": {
+            "method": "unreviewed contact sheet, current first Japanese meaning and exact image hash"
+          }
+        }
+      ]
+    },
+    {
+      "case": 102716,
+      "filename": "esotropia.png",
+      "w": "esotropia",
+      "p": [
+        "en",
+        "trep-2",
+        "okʷ-",
+        "-ā-"
+      ],
+      "first_ja": "内斜視",
+      "current_image_sha256": "b772c5fd9712ecc8d10d972cdf05751e782e2e6acaecebea17358006e051e915",
+      "composition": "A straight-on clinical portrait shows an adult with both eyes open, while one iris turns distinctly inward toward the bridge of the nose. The other eye remains directed straight ahead, making the convergent misalignment easy to see. Keep the head level and use a neutral expression, without a decorative pedestal.",
+      "sources": [
+        {
+          "source": "independent_current_pixel_review",
+          "record": 2716,
+          "data": {
+            "method": "unreviewed contact sheet, current first Japanese meaning and exact image hash"
+          }
+        }
+      ]
+    },
+    {
+      "case": 103163,
+      "filename": "fuck.png",
+      "w": "fuck",
+      "p": [
+        "peuk-"
+      ],
+      "first_ja": "性交する",
+      "current_image_sha256": "f28fb0fd00cc430eca96455755fa04ef4d0016f7f0b80d9406f444b63c738160",
+      "composition": "Two consenting adults embrace closely in a bed, with their bodies completely concealed beneath one plain opaque blanket up to the shoulders. Their relaxed faces and mutual affectionate contact imply private sexual intimacy. Use a simple bedside lamp and closed door; show no nudity, genitals, sexual mechanics or angry computer-breaking scene.",
+      "sources": [
+        {
+          "source": "independent_current_pixel_review",
+          "record": 3163,
+          "data": {
+            "method": "unreviewed contact sheet, current first Japanese meaning and exact image hash"
+          }
+        }
+      ]
+    },
+    {
+      "case": 103428,
+      "filename": "grief.png",
+      "w": "grief",
+      "p": [
+        "gʷerə-2"
+      ],
+      "first_ja": "深い悲しみ",
+      "current_image_sha256": "5db6651a975c5697e91eb6ad657d0918c48d66740b848286645ca2c5b7c89de0",
+      "composition": "A bereaved adult sits beside a small memorial photograph and a white flower, shoulders slumped and face wet with tears. A friend sits close in quiet support; the deep personal sadness dominates, without a well or pit.",
+      "sources": [
+        {
+          "source": "independent_current_pixel_review",
+          "record": 3428,
+          "data": {
+            "method": "unreviewed contact sheet, current first Japanese meaning and exact image hash"
+          }
+        }
+      ]
+    },
+    {
+      "case": 103522,
+      "filename": "handball.png",
+      "w": "handball",
+      "p": [],
+      "first_ja": "壁打ちハンドボール",
+      "current_image_sha256": "f980ddb72730f54320a20309be88739205af1404e33292dee682c701c779e0f3",
+      "composition": "Two players play wall handball in a simple three-sided court. One open palm strikes a small rubber ball toward the high front wall while the other player waits for its rebound; no football-style goal or throwing into a net.",
+      "sources": [
+        {
+          "source": "independent_current_pixel_review",
+          "record": 3522,
+          "data": {
+            "method": "unreviewed contact sheet, current first Japanese meaning and exact image hash"
+          }
+        }
+      ]
+    },
+    {
+      "case": 103601,
+      "filename": "Hebrew.png",
+      "w": "Hebrew",
+      "p": [],
+      "first_ja": "ヘブライ語",
+      "current_image_sha256": "cef4d576818a98a6e396d63e4d0be00ecb820ab61f2562f666bdb0994b15a6f5",
+      "composition": "An open Hebrew reading book presents a short row of authentic Hebrew letter forms. A learner follows the line from right to left with a fingertip while a teacher watches; focus on the written language, without invented personal identity or a generic man's portrait.",
+      "sources": [
+        {
+          "source": "independent_current_pixel_review",
+          "record": 3601,
+          "data": {
+            "method": "unreviewed contact sheet, current first Japanese meaning and exact image hash"
+          }
+        }
+      ]
+    },
+    {
+      "case": 103815,
+      "filename": "hyphen.png",
+      "w": "hyphen",
+      "p": [
+        "sem-1"
+      ],
+      "first_ja": "ハイフン",
+      "current_image_sha256": "ba2cb7f9680e571c809f59f85aba9bea745277c0fc13d477b612c41181ba4cf1",
+      "composition": "Two small word cards read well and known, joined by one short horizontal hyphen to form well-known. An adult's fingertip points exactly to the centered punctuation mark. Enlarge the mark while keeping it midway up the lowercase letters, clearly different from a low underscore or a blank card.",
+      "sources": [
+        {
+          "source": "independent_current_pixel_review",
+          "record": 3815,
+          "data": {
+            "method": "unreviewed contact sheet, current first Japanese meaning and exact image hash"
+          }
+        }
+      ]
+    },
+    {
+      "case": 104141,
+      "filename": "interjection.png",
+      "w": "interjection",
+      "p": [
+        "en",
+        "yē-"
+      ],
+      "first_ja": "投入",
+      "current_image_sha256": "565e7c58689c25fca47ad28149838b04fb7a36e0cef5793f3c5110bcad189729",
+      "composition": "A worker places one small parcel into the open intake of a sorting machine while another parcel waits beside it. The hand and parcel visibly cross the intake opening, showing the act of putting something in; no conversational interruption.",
+      "sources": [
+        {
+          "source": "independent_current_pixel_review",
+          "record": 4141,
+          "data": {
+            "method": "unreviewed contact sheet, current first Japanese meaning and exact image hash"
+          }
+        }
+      ]
+    },
+    {
+      "case": 104145,
+      "filename": "internalize.png",
+      "w": "internalize",
+      "p": [],
+      "first_ja": "内面化する",
+      "current_image_sha256": "48a4bdfb4d4a8f21f227cc078eb2eaae4205d21fc269e0defb30df478865cb8c",
+      "composition": "A child who has learned to tidy up now independently puts away scattered toys, while the parent watches quietly from a distance without prompting. A small inset recalls the earlier shared demonstration; the learned practice has become the child's own habit.",
+      "sources": [
+        {
+          "source": "independent_current_pixel_review",
+          "record": 4145,
+          "data": {
+            "method": "unreviewed contact sheet, current first Japanese meaning and exact image hash"
+          }
+        }
+      ]
+    },
+    {
+      "case": 104224,
+      "filename": "Islam.png",
+      "w": "Islam",
+      "p": [],
+      "first_ja": "イスラム教",
+      "current_image_sha256": "3d036f048934893e714f98d605ed134e364497d5db296db5552e7dabe8e614c8",
+      "composition": "A peaceful Islamic worship scene shows a mosque prayer space, prayer rugs aligned toward a simple mihrab and a worshipper quietly praying. Include a closed Qur'an on a wooden stand; no readable sacred text or human portrait standing alone.",
+      "sources": [
+        {
+          "source": "independent_current_pixel_review",
+          "record": 4224,
+          "data": {
+            "method": "unreviewed contact sheet, current first Japanese meaning and exact image hash"
+          }
+        }
+      ]
+    },
+    {
+      "case": 104311,
+      "filename": "Julian.png",
+      "w": "Julian",
+      "p": [],
+      "first_ja": "ローマ皇帝ユリアヌス",
+      "current_image_sha256": "834ee337cc53b1b06716b681c798d3e47355ab4ba0935e7f66dbf8e3b50ceef0",
+      "composition": "The Roman emperor Julian stands in a late Roman imperial tunic and military cloak beside a simple throne, holding a rolled document. A restrained diadem marks his office; avoid invented facial likeness, modern casual clothing or unverified historical events.",
+      "sources": [
+        {
+          "source": "independent_current_pixel_review",
+          "record": 4311,
+          "data": {
+            "method": "unreviewed contact sheet, current first Japanese meaning and exact image hash"
+          }
+        }
+      ]
+    },
+    {
+      "case": 104421,
+      "filename": "lactate.png",
+      "w": "lactate",
+      "p": [
+        "melg-"
+      ],
+      "first_ja": "乳酸",
+      "current_image_sha256": "65a6f828ce54c81e2176994d926af404c96ad2341b3a5a517debf2ab605a4bf6",
+      "composition": "The current Japanese target is lactic acid: center its accurate neutral formula CH3–CH(OH)–C(=O)–OH. Use single bonds along the three-carbon chain, one hydroxyl on the middle carbon and one carbonyl double bond. Show the terminal hydroxyl's H, no negative charge, no carbon-carbon double bond and no extra oxygen.",
+      "sources": [
+        {
+          "source": "independent_current_pixel_review",
+          "record": 4421,
+          "data": {
+            "method": "unreviewed contact sheet, current first Japanese meaning and exact image hash"
+          }
+        }
+      ]
+    },
+    {
+      "case": 104744,
+      "filename": "Madison.png",
+      "w": "Madison",
+      "p": [],
+      "first_ja": "ドリー・マディソン",
+      "current_image_sha256": "9e9d5d7fb563fd23900f29455da839bf9d0fa00c9dec9ffd0e16a4b6bb942d80",
+      "composition": "Dolley Madison appears as an early nineteenth-century American First Lady in a modest high-waisted formal gown, gloves and a period turban-style headdress. She stands beside a simple reception table in the presidential residence; avoid inventing a modern celebrity likeness or using jeans.",
+      "sources": [
+        {
+          "source": "independent_current_pixel_review",
+          "record": 4744,
+          "data": {
+            "method": "unreviewed contact sheet, current first Japanese meaning and exact image hash"
+          }
+        }
+      ]
+    },
+    {
+      "case": 104991,
+      "filename": "metathesis.png",
+      "w": "metathesis",
+      "p": [
+        "me-2",
+        "dhē-"
+      ],
+      "first_ja": "字位転換",
+      "current_image_sha256": "7b6cc8b8cbef772ea33092c610149c9245f0097268633f2eba429d856b5e4370",
+      "composition": "Two letter tiles switch places inside the intrinsic pair form → from. Show the middle o and r exchanging positions along two short crossing curved arrows; the f and m stay fixed at the ends. An attentive learner watches the transposition. Include no generic colored counters or unrelated medical scene.",
+      "sources": [
+        {
+          "source": "independent_current_pixel_review",
+          "record": 4991,
+          "data": {
+            "method": "unreviewed contact sheet, current first Japanese meaning and exact image hash"
+          }
+        }
+      ]
+    },
+    {
+      "case": 105038,
+      "filename": "million.png",
+      "w": "million",
+      "p": [
+        "gheslo-"
+      ],
+      "first_ja": "100万",
+      "current_image_sha256": "27b4587a3b7f8177f5263ecb55ad298a87f4ee67ee6b9656cd01eb90684cc518",
+      "composition": "A large mechanical counter displays exactly 1,000,000, with a child turning its side crank as the final wheel clicks into place. Make all seven digits and both separators clearly legible on one integrated display. A small filled counting tray sits below; do not substitute a small cube stack without its scale.",
+      "sources": [
+        {
+          "source": "independent_current_pixel_review",
+          "record": 5038,
+          "data": {
+            "method": "unreviewed contact sheet, current first Japanese meaning and exact image hash"
+          }
+        }
+      ]
+    },
+    {
+      "case": 105331,
+      "filename": "nickel.png",
+      "w": "nickel",
+      "p": [],
+      "first_ja": "5セント白銅貨",
+      "current_image_sha256": "5379e9fb4de673a3e932cc6dc6a3c3773c68ff1b23ca07f324288a3adc13a41f",
+      "composition": "Two United States five-cent nickel coins lie on a small felt pad: one shows Jefferson's portrait, the other Monticello and the intrinsic denomination FIVE CENTS. Keep their silvery surfaces, circular rims and coin relief clear. Include no metal ingots, unrelated currency or explanatory labels.",
+      "sources": [
+        {
+          "source": "independent_current_pixel_review",
+          "record": 5331,
+          "data": {
+            "method": "unreviewed contact sheet, current first Japanese meaning and exact image hash"
+          }
+        }
+      ]
+    },
+    {
+      "case": 105346,
+      "filename": "nitrate.png",
+      "w": "nitrate",
+      "p": [],
+      "first_ja": "硝酸塩",
+      "current_image_sha256": "d0a80fd63651d77ace089ce87c6f60fb2f8e8b4780f116144f57bc996da4f853",
+      "composition": "An accurate sodium nitrate formula shows a separate Na⁺ ion beside one bracketed NO3⁻ group. The trigonal-planar nitrate has central N⁺ bonded to exactly three O atoms: one N=O and two N–O⁻ bonds, giving the group an overall minus charge. Show no methyl group or carbon atom.",
+      "sources": [
+        {
+          "source": "independent_current_pixel_review",
+          "record": 5346,
+          "data": {
+            "method": "unreviewed contact sheet, current first Japanese meaning and exact image hash"
+          }
+        }
+      ]
+    },
+    {
+      "case": 105387,
+      "filename": "norepinephrine.png",
+      "w": "norepinephrine",
+      "p": [],
+      "first_ja": "ノルエピネフリン",
+      "current_image_sha256": "d97b3f56af6e7dabbf1c90561a92b6b7ca74888dc6d95c648c4d6385dc8ef42e",
+      "composition": "An accurate norepinephrine structural formula shows a benzene ring with adjacent hydroxyl groups and the side chain –CH(OH)–CH2–NH2. Keep the side chain attached at the correct catechol-ring position and use only single bonds throughout that side chain. Show the naturally occurring R configuration at the hydroxyl-bearing carbon; omit extra carbon atoms and side-chain double bonds.",
+      "sources": [
+        {
+          "source": "independent_current_pixel_review",
+          "record": 5387,
+          "data": {
+            "method": "unreviewed contact sheet, current first Japanese meaning and exact image hash"
+          }
+        }
+      ]
+    },
+    {
+      "case": 105700,
+      "filename": "palindrome.png",
+      "w": "palindrome",
+      "p": [
+        "kʷel-1",
+        "der-1"
+      ],
+      "first_ja": "回文",
+      "current_image_sha256": "f202ac93e52994a2c750d716fa253e7867895a117ab0ffb12ac60e5ee49f5feb",
+      "composition": "Five letter tiles form the intrinsic palindrome LEVEL in one straight row. A child traces a short arrow from the first L to the last L while another traces back from the last L; the same ordered letters remain visible from either reading direction. Use no blank tiles or unrelated decorative words.",
+      "sources": [
+        {
+          "source": "independent_current_pixel_review",
+          "record": 5700,
+          "data": {
+            "method": "unreviewed contact sheet, current first Japanese meaning and exact image hash"
+          }
+        }
+      ]
+    },
+    {
+      "case": 106094,
+      "filename": "poker.png",
+      "w": "poker",
+      "p": [],
+      "first_ja": "火かき棒",
+      "current_image_sha256": "1afd736e1fbc4850e352d0a1882c01b49bf038972aed0c3b74d3037a51cfdcc5",
+      "composition": "A hand grips the insulated wooden handle of a long iron fireplace poker, using its small hooked tip to move one glowing log safely inside a stone hearth. Show the whole metal tool and its fire-tending function, without a finger poking fabric.",
+      "sources": [
+        {
+          "source": "independent_current_pixel_review",
+          "record": 6094,
+          "data": {
+            "method": "unreviewed contact sheet, current first Japanese meaning and exact image hash"
+          }
+        }
+      ]
+    },
+    {
+      "case": 107334,
+      "filename": "Singapore.png",
+      "w": "Singapore",
+      "p": [
+        "pelə-3"
+      ],
+      "first_ja": "シンガポール",
+      "current_image_sha256": "90804bf661f0c8c1aa48d110de2f0b6a74a8331d9aecda1006c97480b5b24769",
+      "composition": "A compact Singapore waterfront scene shows the Merlion fountain in the foreground, backed by Marina Bay Sands' three towers and connecting rooftop deck. Include a small harbor boat for scale; focus on recognizable city landmarks, without a man's portrait.",
+      "sources": [
+        {
+          "source": "independent_current_pixel_review",
+          "record": 7334,
+          "data": {
+            "method": "unreviewed contact sheet, current first Japanese meaning and exact image hash"
+          }
+        }
+      ]
+    },
+    {
+      "case": 107532,
+      "filename": "spec.png",
+      "w": "spec",
+      "p": [],
+      "first_ja": "仕様",
+      "current_image_sha256": "2370ada7a27398406f49f8cd593711eb9658bb2aa9e71a3bf73d8135ca6b2580",
+      "composition": "An engineer compares a small metal bracket with its matching technical drawing. The drawing clearly depicts the same two holes and right-angle bend; calipers measure the real bracket's width. Keep the object, measurable features and specification sheet together, without stock-market charts or money.",
+      "sources": [
+        {
+          "source": "independent_current_pixel_review",
+          "record": 7532,
+          "data": {
+            "method": "unreviewed contact sheet, current first Japanese meaning and exact image hash"
+          }
+        }
+      ]
+    },
+    {
+      "case": 107558,
+      "filename": "spit@spei.png",
+      "w": "spit",
+      "p": [
+        "spei-"
+      ],
+      "first_ja": "つばを吐く",
+      "current_image_sha256": "56da59180a7e9dffd7aeb6886f0da8933f671c9c92e215bec868d4854a5a025d",
+      "composition": "An adult leans over a washbasin, lips pursed and cheeks relaxing as one small clear saliva droplet leaves the mouth toward the drain. One hand rests on the basin edge. Show the droplet's short outward trajectory clearly; omit food, roasting rods and graphic bodily detail.",
+      "sources": [
+        {
+          "source": "independent_current_pixel_review",
+          "record": 7558,
+          "data": {
+            "method": "unreviewed contact sheet, current first Japanese meaning and exact image hash"
+          }
+        }
+      ]
+    },
+    {
+      "case": 107578,
+      "filename": "sprang@x.png",
+      "w": "sprang",
+      "p": [],
+      "first_ja": "springの過去形",
+      "current_image_sha256": "27bd1864a0c1e96c343457f350b5c161342a750b42072e0303c7a406f0388b11",
+      "composition": "A boy has just sprung across a narrow puddle: his bent legs are airborne above the water, his arms lift for balance, and two small launch marks remain beside the starting footprint. His surprised, energetic expression and curved motion arc emphasize the completed leap, without woven fabric.",
+      "sources": [
+        {
+          "source": "independent_current_pixel_review",
+          "record": 7578,
+          "data": {
+            "method": "unreviewed contact sheet, current first Japanese meaning and exact image hash"
+          }
+        }
+      ]
+    },
+    {
+      "case": 107657,
+      "filename": "sterile.png",
+      "w": "sterile",
+      "p": [
+        "ster-4"
+      ],
+      "first_ja": "不妊の",
+      "current_image_sha256": "f3cd048caf1d8e18785bc772471fc9a3dea1ef8888d5b95b0b2ae4299c9f1b77",
+      "composition": "A clinician and an adult patient examine a simple reproductive-fertility model on a desk. A magnified inset shows an ovum and several sperm with a barrier preventing their union; no embryo forms. Use a calm clinical setting, fully clothed people and neutral expressions, without an operating-room sterilization scene.",
+      "sources": [
+        {
+          "source": "independent_current_pixel_review",
+          "record": 7657,
+          "data": {
+            "method": "unreviewed contact sheet, current first Japanese meaning and exact image hash"
+          }
+        }
+      ]
+    },
+    {
+      "case": 107700,
+      "filename": "strand.png",
+      "w": "strand",
+      "p": [],
+      "first_ja": "より糸",
+      "current_image_sha256": "017f5704844b63ee729f4fde09ca2a4f95cb18a884ef8f5634da58657086227f",
+      "composition": "One short length of twisted cord lies diagonally across the square. At the near end, three thinner yarns separate into loose visible fibers; the rest coils tightly into a single strand. Enlarge the fiber texture and twisting direction. Include no boat, beach or stranded person.",
+      "sources": [
+        {
+          "source": "independent_current_pixel_review",
+          "record": 7700,
+          "data": {
+            "method": "unreviewed contact sheet, current first Japanese meaning and exact image hash"
+          }
+        }
+      ]
+    },
+    {
+      "case": 107726,
+      "filename": "Stuart.png",
+      "w": "Stuart",
+      "p": [],
+      "first_ja": "ステュアート王家",
+      "current_image_sha256": "ac9d4eb66926f1091d98c48ac49876bd30054d12cc7cbcf406ab5efd1d8e215f",
+      "composition": "A compact seventeenth-century royal family portrait depicts the Stuart royal house: a crowned king with long curled hair, a broad lace collar and a dark ceremonial cloak sits beside two younger princes in period doublets. Place a Scottish thistle and English rose below the portrait frame; omit modern clothing and generic businessmen.",
+      "sources": [
+        {
+          "source": "independent_current_pixel_review",
+          "record": 7726,
+          "data": {
+            "method": "unreviewed contact sheet, current first Japanese meaning and exact image hash"
+          }
+        }
+      ]
+    },
+    {
+      "case": 107897,
+      "filename": "Syriac.png",
+      "w": "Syriac",
+      "p": [],
+      "first_ja": "シリア語",
+      "current_image_sha256": "dd8516a8607a50df3f4a8665c1398a607327f0122cf4615d7462e648a3826133",
+      "composition": "A learner reads a Syriac alphabet primer displaying the authentic Syriac letters ܐ and ܒ prominently. A teacher points at the first two letterforms while the learner copies them onto a small slate. Keep their precise Syriac shapes clear, without Arabic substitutes, Latin transliteration or explanatory captions.",
+      "sources": [
+        {
+          "source": "independent_current_pixel_review",
+          "record": 7897,
+          "data": {
+            "method": "unreviewed contact sheet, current first Japanese meaning and exact image hash"
+          }
+        }
+      ]
+    },
+    {
+      "case": 107921,
+      "filename": "Tamil.png",
+      "w": "Tamil",
+      "p": [],
+      "first_ja": "タミル語",
+      "current_image_sha256": "a59bcb446dd3b1ec1de460a5175c528e2ec93ef459025ba2c28daac616312014",
+      "composition": "A Tamil-language teacher sits beside an adult learner, pointing to the authentic Tamil letters அ and ஆ on an open primer. The learner traces the same two forms with a pencil. Make these intrinsic language specimens prominent, without explanatory sentences or a temple-and-costume portrait.",
+      "sources": [
+        {
+          "source": "independent_current_pixel_review",
+          "record": 7921,
+          "data": {
+            "method": "unreviewed contact sheet, current first Japanese meaning and exact image hash"
+          }
+        }
+      ]
+    },
+    {
+      "case": 108004,
+      "filename": "Tetragrammaton.png",
+      "w": "Tetragrammaton",
+      "p": [
+        "kʷetwer-",
+        "gerbh-"
+      ],
+      "first_ja": "神を表す4文字",
+      "current_image_sha256": "060b84db35fa99b5d3ea9f7f94590d4474cec03f0866a18309ff6e8c8073e5a4",
+      "composition": "An open ancient Hebrew manuscript displays the four-letter divine name יהוה as its prominent intrinsic text, correctly ordered right to left. A reader holds the book open while pointing to the four letters without obscuring them. Keep the rest of the page plain, without a human depiction of God or explanatory captions.",
+      "sources": [
+        {
+          "source": "independent_current_pixel_review",
+          "record": 8004,
+          "data": {
+            "method": "unreviewed contact sheet, current first Japanese meaning and exact image hash"
+          }
+        }
+      ]
+    },
+    {
+      "case": 108097,
+      "filename": "tire.png",
+      "w": "tire",
+      "p": [
+        "deu-1"
+      ],
+      "first_ja": "疲れさせる",
+      "current_image_sha256": "37b9683137aaac26af3bc1d7ed16b6301de25664ad9dd8c9120c593be738cc5c",
+      "composition": "A coach makes an adult runner exhausted by having them carry two weighted bags up a short flight of stairs. The runner's shoulders sag, knees bend and forehead sweats; the coach indicates the remaining step. Show the tiring exertion clearly, without any automobile tire.",
+      "sources": [
+        {
+          "source": "independent_current_pixel_review",
+          "record": 8097,
+          "data": {
+            "method": "unreviewed contact sheet, current first Japanese meaning and exact image hash"
+          }
+        }
+      ]
+    },
+    {
+      "case": 108291,
+      "filename": "Turkey.png",
+      "w": "Turkey",
+      "p": [],
+      "first_ja": "トルコ",
+      "current_image_sha256": "ede82cfd3d0c23383d07e1b56f20417b0479963e06d14a2bd6716fa765523493",
+      "composition": "A compact map of Turkey spans Anatolia with the narrow western connection to eastern Thrace. Show the Bosporus strait dividing the two portions, a small Istanbul domed skyline near the strait and Cappadocia's rock formations inland. Focus on the country and its geography rather than a man's portrait.",
+      "sources": [
+        {
+          "source": "independent_current_pixel_review",
+          "record": 8291,
+          "data": {
+            "method": "unreviewed contact sheet, current first Japanese meaning and exact image hash"
+          }
+        }
+      ]
+    }
+  ]
+}

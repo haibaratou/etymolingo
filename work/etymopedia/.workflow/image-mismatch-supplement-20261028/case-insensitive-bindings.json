@@ -1,0 +1,74 @@
+[
+  {
+    "key": "[\"walker\",[\"wel-3\"],\"\"]",
+    "word": {
+      "w": "walker",
+      "p": [
+        "wel-3"
+      ],
+      "ja": "歩行者",
+      "en": "pedestrian",
+      "pos": "名",
+      "g": "G",
+      "r": 860,
+      "pre": "",
+      "suf": "-er(1)",
+      "v": true,
+      "k": "ウォカァ",
+      "b": "昔の walker は、布を足で踏んで仕上げる職人のことだった。",
+      "gs": [
+        "G"
+      ],
+      "pic": false,
+      "ja_readings": [
+        {
+          "gloss": "歩行者",
+          "kana": "ほこうしゃ",
+          "status": "candidate",
+          "source": "sudachi:0.7.0/core:20260723.1"
+        }
+      ],
+      "ja_kana": "ほこうしゃ",
+      "origin_families": [
+        "ゲルマン"
+      ],
+      "origin_languages": []
+    },
+    "runtime_filename": "walker.png",
+    "actual_filename": "Walker.png"
+  },
+  {
+    "key": "[\"Reading\",[],\"\"]",
+    "word": {
+      "w": "Reading",
+      "p": [],
+      "ja": "読むこと",
+      "en": "interpreting written words",
+      "pos": "名",
+      "g": "",
+      "r": 522,
+      "pre": "",
+      "suf": "",
+      "v": false,
+      "src": "etymonline",
+      "b": "古英語 rǣdinge から続く語で、read「読む」に名詞を作る -ing が付いた形。",
+      "gs": [],
+      "pic": true,
+      "pica": "reading",
+      "ja_readings": [
+        {
+          "gloss": "読むこと",
+          "kana": "よむこと",
+          "status": "needs_review",
+          "source": "sudachi:0.7.0/core:20260723.1",
+          "note": "proper_name_entry"
+        }
+      ],
+      "ja_kana": "よむこと",
+      "origin_families": [],
+      "origin_languages": []
+    },
+    "runtime_filename": "reading.png",
+    "actual_filename": "Reading.png"
+  }
+]

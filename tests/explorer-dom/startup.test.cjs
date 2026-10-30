@@ -2,7 +2,7 @@ const test=require('node:test'),assert=require('node:assert/strict');
 const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),zlib=require('node:zlib');
 const {parseHTML}=require('linkedom');
 const root=path.resolve(__dirname,'../..');
-const html=fs.readFileSync(path.join(root,'app/etymon-explorer.html'),'utf8');
+const html=fs.readFileSync(path.join(root,'app/vocabulary-master.html'),'utf8');
 const scenes=fs.readFileSync(path.join(root,'app/shared/illustration-scenes.js'),'utf8');
 const overlay=fs.readFileSync(path.join(root,'app/shared/explorer-difficulty-v2.js'),'utf8');
 const tick=()=>new Promise(resolve=>setImmediate(resolve));
@@ -91,7 +91,7 @@ test('failed sidecar request uses staged fallback and preserves snapshot provena
 test('optional scoring and band scripts wait until first native render and two animation frames',async()=>{
  const scripts=[],frames=[],idles=[],listeners=new Map(),dispatched=[],dataset={};
  const document={documentElement:{dataset},createElement:()=>({}),head:{append(el){scripts.push({src:el.src,panelsReady:dataset.explorerPanelsReady});queueMicrotask(()=>el.onload());}}};
- const window={document,location:{pathname:'/etymon-explorer.html'},addEventListener:(type,fn)=>listeners.set(type,fn),dispatchEvent:e=>dispatched.push(e.type),requestAnimationFrame:fn=>frames.push(fn),requestIdleCallback:fn=>idles.push(fn)};
+ const window={document,location:{pathname:'/vocabulary-master.html'},addEventListener:(type,fn)=>listeners.set(type,fn),dispatchEvent:e=>dispatched.push(e.type),requestAnimationFrame:fn=>frames.push(fn),requestIdleCallback:fn=>idles.push(fn)};
  vm.runInNewContext(scenes.slice(scenes.indexOf('// Explorer-only optional panels')),{window,document,Event,queueMicrotask,setTimeout,console});
  assert.equal(scripts.length,0);assert.equal(frames.length,0);
  listeners.get('etymon:ready')();assert.equal(scripts.length,0);
@@ -104,6 +104,17 @@ test('optional scoring and band scripts wait until first native render and two a
  assert.deepEqual(dispatched,['etymon:review-ready','etymon:visual-ready']);
  listeners.get('etymon:ready')();while(frames.length)frames.shift()();while(idles.length)idles.shift()();await tick();
  assert.equal(scripts.length,9,'duplicate ready signals never reload scripts');
+});
+
+test('optional panels still mount when a background tab never paints',async()=>{
+ const scripts=[],timers=[],listeners=new Map(),dataset={};
+ const document={documentElement:{dataset},createElement:()=>({}),head:{append(el){scripts.push(el.src);queueMicrotask(()=>el.onload());}}};
+ const window={document,location:{pathname:'/app/vocabulary-master.html'},addEventListener:(type,fn)=>listeners.set(type,fn),dispatchEvent(){},requestAnimationFrame(){},requestIdleCallback(){}};
+ vm.runInNewContext(scenes.slice(scenes.indexOf('// Explorer-only optional panels')),{window,document,Event,queueMicrotask,setTimeout:(fn,ms)=>timers.push({fn,ms}),console});
+ assert.equal(scripts.length,0);listeners.get('etymon:ready')();assert.equal(scripts.length,0);
+ assert.equal(timers.length,1);assert.equal(timers[0].ms,1000);
+ timers[0].fn();await tick();await tick();assert.equal(dataset.explorerPanelsReady,'1');assert.equal(scripts.length,9);
+ timers[0].fn();await tick();assert.equal(scripts.length,9,'a late frame or timer must not reload panels');
 });
 
 test('lazy scene search deduplicates requests and never repaints obsolete query results',async()=>{
@@ -181,7 +192,7 @@ test('compact list warnings verify only mismatches and reject changed images or 
  const entry={...words[1],art:'repair',status:'mismatch',sense:{ja:'例',en:'sample'},image:{sha256:hash}};
  const observed=[];let fetches=0;
  const oldFetch=global.fetch;global.fetch=async()=>{fetches++;return {ok:true,arrayBuffer:async()=>bytes};};t.after(()=>{global.fetch=oldFetch;});
- const context={document,WORDS:words,URL,location:{protocol:'https:',href:'https://example.test/app/etymon-explorer.html'},safeWordAssetName:w=>w,wordImageURL:w=>'https://example.test/assets/word/'+w.pica+'.png',
+ const context={document,WORDS:words,URL,location:{protocol:'https:',href:'https://example.test/app/vocabulary-master.html'},safeWordAssetName:w=>w,wordImageURL:w=>'https://example.test/assets/word/'+w.pica+'.png',
   IntersectionObserver:class{observe(row){observed.push(row);}unobserve(){}},
   window:{IllustrationScenes:api,ETYMON_ILLUSTRATION_REVIEW_STATUS:{schema:1,entries:[entry,{...entry,w:'normal',art:'normal',status:'reviewed'}]},addEventListener(){}}};
  vm.runInNewContext(between(html,'let illustrationReviewIndex;','const sceneSearchText='),context);
@@ -197,7 +208,11 @@ test('compact list warnings verify only mismatches and reject changed images or 
  assert.equal(markers[1].dataset.reviewStatus,'stale_image');assert.equal(image.classList.contains('illustration-needs-revision'),false);
  context.WORDS[1]={...words[1],en:'different meaning'};
  await context.fillIllustrationReview(markers[1]);
- assert.equal(fetches,2);assert.equal(markers[1].dataset.reviewStatus,'stale_sense');
+ assert.equal(fetches,3);assert.equal(markers[1].dataset.reviewStatus,'stale_image');
+ // An independent English paraphrase does not change the image's Japanese target.
+ context.WORDS[1]={...words[1],ja:'別の語義'};
+ await context.fillIllustrationReview(markers[1]);
+ assert.equal(fetches,3);assert.equal(markers[1].dataset.reviewStatus,'stale_sense');
 });
 
 test('hidden list markers cannot request scene data or PNG verification',async()=>{
@@ -211,7 +226,7 @@ test('hidden list markers cannot request scene data or PNG verification',async()
 
 test('list and detail warnings match pinned Pages media URLs and ignore another displayed asset',async()=>{
  const api=require('../../app/shared/illustration-scenes.js');
- const location={protocol:'https:',href:'https://haibaratou.github.io/etymolingo/app/etymon-explorer.html'};
+ const location={protocol:'https:',href:'https://haibaratou.github.io/etymolingo/app/vocabulary-master.html'};
  const routed=url=>new URL(url,location.href).href.replace('https://haibaratou.github.io/etymolingo/','https://raw.githubusercontent.com/haibaratou/etymolingo/pinned-commit/');
  for(const kind of ['list','detail']){
   const expected=routed('../assets/word/repair.png?v=fixture'),other=routed('../assets/word/another.png?v=fixture');
@@ -245,7 +260,7 @@ test('opening the local page does not decode the large offline dictionary merely
 });
 
 test('late visual data repaints existing scores after the lightweight panel already mounted',async(t)=>{
- const {window}=parseHTML('<html><head><base href="https://example.test/app/etymon-explorer.html"></head><body><div id="tableWrap"><table><thead><tr><th class="cW">単語</th><th class="cK">カナ</th><th class="cR">レア度</th><th class="cLang">語派</th><th class="cPos">品詞</th></tr></thead><tbody><tr data-i="0"><td class="cW">steam<button class="spk" data-say="steam">🔊</button></td><td class="cK"></td><td class="cR">30</td><td class="cLang">G</td><td class="cPos">名</td><td class="cPic"><img src="https://example.test/assets/word/steam.png"></td></tr></tbody></table></div></body></html>');
+ const {window}=parseHTML('<html><head><base href="https://example.test/app/vocabulary-master.html"></head><body><div id="tableWrap"><table><thead><tr><th class="cW">単語</th><th class="cK">カナ</th><th class="cR">レア度</th><th class="cLang">語派</th><th class="cPos">品詞</th></tr></thead><tbody><tr data-i="0"><td class="cW">steam<button class="spk" data-say="steam">🔊</button></td><td class="cK"></td><td class="cR">30</td><td class="cLang">G</td><td class="cPos">名</td><td class="cPic"><img src="https://example.test/assets/word/steam.png"></td></tr></tbody></table></div></body></html>');
  const listeners=new Map(),observers=[];
  const Observer=class extends window.MutationObserver{constructor(fn){super(fn);observers.push(this);}};
  t.after(()=>observers.forEach(o=>o.disconnect()));

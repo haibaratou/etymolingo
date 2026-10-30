@@ -1,0 +1,57 @@
+[
+  {
+    "case": 453,
+    "w": "Santa",
+    "p": [],
+    "filename": "Santa.png",
+    "reason": "Current b explicitly identifies Santa Claus; current river landscape is unrelated.",
+    "composition": "Santa Claus, with a long white beard, red fur-trimmed coat and cap, and black boots, bends slightly to place one wrapped gift beside a Christmas stocking. A sack of presents rests over his other shoulder. Keep his cheerful face, whole body and gift clearly visible; omit mountains and rivers.",
+    "current_first_ja": "サンタ",
+    "current_image_sha256": "0cc591d15ed38e28e06f5b9268cd4f6e4e88b877b652d2d56a743cb47550d0ba",
+    "new_CSV_record": 151
+  },
+  {
+    "case": 587,
+    "w": "Veronica",
+    "p": [],
+    "filename": "Veronica.png",
+    "reason": "Current b explicitly describes the female personal name; current flower specimen belongs to a different referent.",
+    "composition": "An adult woman with shoulder-length dark hair stands beside an armchair, holding one closed blue book against her chest and smiling toward a visitor. She wears a mustard cardigan and a plain skirt. Use the friendly standard cast without claiming a real person's likeness; include no flower specimen.",
+    "current_first_ja": "ヴェロニカ",
+    "current_image_sha256": "7e98c89ba9a08d2f0ccaf725cdf2375afbf773a7910a7530c9c4576477bbb581",
+    "new_CSV_record": 152
+  },
+  {
+    "case": 106278,
+    "w": "Princeton",
+    "p": [],
+    "filename": "Princeton.png",
+    "reason": "Local adopted dictionary detail labels a United States place; current b specifies the New Jersey town and then its university. Depict the town context with its university landmark, not a person.",
+    "composition": "A compact street scene depicts Princeton, New Jersey: two brick shopfronts and leafy sidewalk trees face an iron campus gate, with historic Nassau Hall visible beyond it. One pedestrian walks along the foreground sidewalk for scale. The town's built setting is the main subject, without a man's portrait or readable signs.",
+    "current_first_ja": "プリンストン",
+    "current_image_sha256": "6c2795d264c565545ca39f125536fade17283ff807b213d432042f866a8ea6bf",
+    "new_CSV_record": 153
+  },
+  {
+    "case": 385,
+    "w": "Phillip",
+    "p": [],
+    "filename": "Phillip.png",
+    "reason": "The adopted Wiktionary record identifies a spelling of Philip and the adopted Weblio record says noun = Philip. The current personal-name entry is not Phillip Island; the current three penguins depict that different referent. No authentic individual portrait is required.",
+    "composition": "An adult man with short sandy-brown hair stands beside a small hallway bench, wearing a teal sweater, brown trousers and plain shoes. He smiles and extends one open hand to greet an arriving visitor while holding a closed umbrella in his other hand. Use an ordinary friendly male character for the given name, without penguins, an island landscape or a claim to portray a historical individual.",
+    "current_first_ja": "フィリップ",
+    "current_image_sha256": "dac06cc333f36590ffa6a5ab43a5f1c99ad82681a7fdbcae4915eea8b3a04de7",
+    "new_CSV_record": 154
+  },
+  {
+    "case": 103423,
+    "w": "Gregory",
+    "p": [],
+    "filename": "Gregory.png",
+    "reason": "The current first Japanese meaning explicitly names Saint Gregory, whereas the current image is a modern boy thinking in a sweater. The Armenian-church wording helps locate the Illuminator in the official church history; it is corroboration, not a paraphrase-change regeneration trigger. Use symbolic saint iconography without claiming an authenticated likeness.",
+    "composition": "Saint Gregory the Illuminator is represented symbolically as an elderly bearded early Christian bishop in a cream robe, burgundy cloak and narrow plain stole. A small simple halo marks the saint. Standing beside a plain stone cross, he holds a closed scripture book against his chest and extends his free open palm toward one attentive adult listener in a simple tunic. Keep the two figures and cross compact and fully visible, with no modern sweater, papal crown or claim of a documentary portrait.",
+    "current_first_ja": "聖グレゴリウス(グレゴリー)",
+    "current_image_sha256": "1309673fb634fe24363440fab53e552c6776470883b3c7d782e0c8b3e5c72dbc",
+    "new_CSV_record": 155
+  }
+]

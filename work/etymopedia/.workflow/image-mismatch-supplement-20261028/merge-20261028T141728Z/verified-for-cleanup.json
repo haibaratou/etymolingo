@@ -1,0 +1,56 @@
+{
+  "verified_at": "2026-10-28T14:22:05.392687+00:00",
+  "output_path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_rows_image_mismatch_supplement_20261028.csv",
+  "rows": 158,
+  "sha256": "f7549722ce8bda184e3a53905d0ab18a39c70985aa16eca46277d354c0def716",
+  "input_rows": [
+    152,
+    2,
+    4
+  ],
+  "already_fixed_exclusions": 0,
+  "original_149_content_and_order": "byte-prefix exact",
+  "all_rows_formal_parser_19_columns_5_sections": true,
+  "all158_current_ID_first_meaning_digest_image_sha_and_filename_owner": "passed",
+  "active_2000_CSV_read_only_snapshot_sha256": "8f3dc572087e12b4f45af194528b34b650bf13e36d2d20525cddf4334542923a",
+  "active_2000_CSV_rows": 2000,
+  "active_2000_overlap_by_word_root_ID": [],
+  "active_2000_overlap_by_save_name": [],
+  "active_2000_CSV_owner_outputs_processes": "untouched",
+  "prompt_review_pending": "untouched; historical failure/revision ledger consumed by review workflow; not a generation queue",
+  "audit_moved": {
+    "from": "D:\\Projects\\etymolingo\\work\\etymopedia\\image_mismatch_decisions_20261028.csv",
+    "to": "D:\\Projects\\etymolingo\\work\\etymopedia\\.workflow\\image-mismatch-supplement-20261028\\image_mismatch_decisions_20261028.csv",
+    "sha256": "ad93dc1cb42133238c856c4f03b7615da6c0f5753642de2d8c951ee269b7acde",
+    "followup_corrections": "D:\\Projects\\etymolingo\\work\\etymopedia\\.workflow\\image-mismatch-supplement-20261028\\followup\\decision-corrections.csv"
+  },
+  "trash": [
+    {
+      "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_rows_image_mismatch_followup_20261028.csv",
+      "sha256": "7937d5ac88fd5b99d5300a8f14d3fc67ba595e16d49530b4e98682f5903f8028",
+      "rows": 2,
+      "backup": "D:\\Projects\\etymolingo\\work\\etymopedia\\.workflow\\image-mismatch-supplement-20261028\\merge-20261028T141728Z\\inputs\\prompt_rows_image_mismatch_followup_20261028.csv"
+    },
+    {
+      "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_rows_image_meaning_fixes_20261027.csv",
+      "sha256": "dda1be8416b4d2ae41f9fa20116e0218e85437bcd61a3116956857c6c2f2b3af",
+      "rows": 4,
+      "backup": "D:\\Projects\\etymolingo\\work\\etymopedia\\.workflow\\image-mismatch-supplement-20261028\\merge-20261028T141728Z\\inputs\\prompt_rows_image_meaning_fixes_20261027.csv"
+    },
+    {
+      "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_rows_image_mismatch_supplement_20261028.csv.stage-tmp",
+      "sha256": "1f0790a3b778020ea0268fa59ca0687d4ee087a2339287b9f462b590fa62c1a0",
+      "rows": 154,
+      "backup": "D:\\Projects\\etymolingo\\work\\etymopedia\\.workflow\\image-mismatch-supplement-20261028\\merge-20261028T141728Z\\inputs\\prior-unapplied-154.csv",
+      "reason": "Failed earlier temporary 154-row version is fully represented in the verified 158-row output."
+    }
+  ],
+  "epithet": "not included; waiting for confirmed corrected first meaning",
+  "not_performed": [
+    "image generation/replacement",
+    "canonical/mother/shared-ledger edits",
+    "Git mutations",
+    "movement or editing of any active 2000 CSV, owner, output or process",
+    "changes to other historical generation CSVs"
+  ]
+}

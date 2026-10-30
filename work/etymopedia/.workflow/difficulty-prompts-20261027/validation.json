@@ -1,0 +1,4096 @@
+{
+  "schema": 1,
+  "checked_at": "2026-10-27T12:07:03.557025+00:00",
+  "status": "passed",
+  "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_rows_difficulty_low_missing_20261027.csv",
+  "sha256": "cc869576f4554f3e0011a9577ab87613cd05d517dcdd7c0f85dc7a992c8d90ce",
+  "rows": 2000,
+  "columns": [
+    "ファイル名",
+    "語義",
+    "対象語義",
+    "画像生成プロンプト",
+    "プロンプト準備状況",
+    "要確認理由",
+    "画風参照画像",
+    "単語",
+    "語根ID_JSON",
+    "第一英語義",
+    "語義SHA256",
+    "実行プロンプト",
+    "解説英語",
+    "解説日本語",
+    "制作状態",
+    "画像SHA256",
+    "画像GitBlobSHA",
+    "検品日時",
+    "検品メモ"
+  ],
+  "encoding": "UTF-8 BOM; CRLF CSV record terminators; quoted multiline prompt fields",
+  "formal_parser": "workflow_io.read_csv + check_rows + view: all 2000 rows accepted",
+  "difficulty_distribution": {
+    "1": 49,
+    "2": 39,
+    "3": 27,
+    "4": 33,
+    "5": 61,
+    "6": 203,
+    "7": 793,
+    "8": 795
+  },
+  "difficulty_basis_distribution": {
+    "weblio_30_to_10": 1993,
+    "edited_r_fallback": 3,
+    "cefr_j_fallback": 4
+  },
+  "rated_eligible_candidates": 23841,
+  "unclassified_excluded": 32,
+  "reviewed_candidate_count": 2350,
+  "manually_held": 350,
+  "initial_exclusions": {
+    "official_PNG_exists": 21546,
+    "existing_generation_CSV_record": 404,
+    "ambiguous_or_explicit_origin_not_representable_in_formal_19_columns": 25,
+    "missing_first_Japanese_meaning": 3331,
+    "Windows_filename_collision": 1
+  },
+  "composition_word_count": {
+    "min": 14,
+    "max": 23,
+    "mean": 18.6075
+  },
+  "prompt_word_count": {
+    "min": 88,
+    "max": 114
+  },
+  "unique_compositions": 2000,
+  "formal_png_filenames_now": 22658,
+  "staging_png_filenames_now": 4282,
+  "runtime_words_source": {
+    "path": "D:\\Projects\\etymolingo\\app\\data\\generated-etymon\\words.json",
+    "sha256": "3a039b85620ae5ad768e374a5b8658ae3c92ac89623f1771991ee76e1e9a5ee3",
+    "records": 49180
+  },
+  "literal_filename_source": {
+    "path": "D:\\Projects\\etymon-source\\tools\\word-art-todo.csv",
+    "sha256": "a90b2ab926b4076a71c68bf8d730c91f421b82feea513450731cffe1ed4becb8",
+    "use": "literal filenames only; no old meanings or rarity used"
+  },
+  "difficulty_sources": [
+    {
+      "path": "app/shared/explorer-difficulty-v2.js",
+      "sha256": "f1ddd89bb61b67cc9127f99203cd6d0437cec8c934f3cea480b5384ec30725bf"
+    },
+    {
+      "path": "app/data/generated-etymon/weblio-learning-levels.js",
+      "sha256": "e6a41b9d8680d201a3a061eeb6a63b7b6a11edb41b5507487dd79cba3f3ba46e"
+    },
+    {
+      "path": "app/data/generated-etymon/learning-levels.js",
+      "sha256": "48bcf2f154741d43abf3340c01e4de4e449e7f01d50d90f91b171f202a34c832"
+    }
+  ],
+  "queue_checks": [
+    {
+      "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_rows_1000_with_priority_fixes_20261026.csv",
+      "sha256_at_selection": "069b74b64a3a7c57ff80aa3fefb7e0d4914a8c5f7f599b97057c9c90fff74b61",
+      "sha256_now": "069b74b64a3a7c57ff80aa3fefb7e0d4914a8c5f7f599b97057c9c90fff74b61",
+      "records_now": 1013
+    },
+    {
+      "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_rows_image_meaning_fixes_20261027.csv",
+      "sha256_at_selection": "dda1be8416b4d2ae41f9fa20116e0218e85437bcd61a3116956857c6c2f2b3af",
+      "sha256_now": "dda1be8416b4d2ae41f9fa20116e0218e85437bcd61a3116956857c6c2f2b3af",
+      "records_now": 4
+    },
+    {
+      "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_rows_weblio_missing_low500_redone_20261024_v3.csv",
+      "sha256_at_selection": "ac66ff35d0b5bf1216e9346effc6f429322fc346392e8a5a19722b70617f9db5",
+      "sha256_now": "ac66ff35d0b5bf1216e9346effc6f429322fc346392e8a5a19722b70617f9db5",
+      "records_now": 500
+    },
+    {
+      "path": "D:\\Projects\\dot-image-review\\ready_union_scopes_20261015.csv",
+      "sha256_at_selection": "780583a744bf63afe671e68b75456ac21af50d21f74e114eaf5b8b68b90d3a6c",
+      "sha256_now": "780583a744bf63afe671e68b75456ac21af50d21f74e114eaf5b8b68b90d3a6c",
+      "records_now": 2552
+    },
+    {
+      "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\old\\prompt_rows_001.csv",
+      "sha256_at_selection": "71962a56ca37731359ea8cb6fe7fb65252983b426fda961ef394e2a74545bc37",
+      "sha256_now": "71962a56ca37731359ea8cb6fe7fb65252983b426fda961ef394e2a74545bc37",
+      "records_now": 500
+    },
+    {
+      "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\old\\prompt_rows_002.csv",
+      "sha256_at_selection": "85a71590488b229c9b8eaeee26ade4bcf3a8c67391030d683f90a634579dbbb6",
+      "sha256_now": "85a71590488b229c9b8eaeee26ade4bcf3a8c67391030d683f90a634579dbbb6",
+      "records_now": 86
+    },
+    {
+      "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\old\\prompt_rows_003.csv",
+      "sha256_at_selection": "1d5ad26dcf43a04dfe4b62d6c459fba4671fa4a0264fb729e165b323ff29e196",
+      "sha256_now": "1d5ad26dcf43a04dfe4b62d6c459fba4671fa4a0264fb729e165b323ff29e196",
+      "records_now": 500
+    },
+    {
+      "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\old\\prompt_rows_004.csv",
+      "sha256_at_selection": "7bd2f9905aa4305d4038dc603fa45989584a4df37106a7c5f96567e17861378b",
+      "sha256_now": "7bd2f9905aa4305d4038dc603fa45989584a4df37106a7c5f96567e17861378b",
+      "records_now": 500
+    },
+    {
+      "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\old\\prompt_rows_005.csv",
+      "sha256_at_selection": "574b322c5576d2382e8c05fb14eef013d6d1b214731131a135dc848f1e411a44",
+      "sha256_now": "574b322c5576d2382e8c05fb14eef013d6d1b214731131a135dc848f1e411a44",
+      "records_now": 500
+    },
+    {
+      "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\old\\prompt_rows_006.csv",
+      "sha256_at_selection": "f59f4187469746affbffa28f02df41eb21da38aeb1c8bbc556045ffbebe41274",
+      "sha256_now": "f59f4187469746affbffa28f02df41eb21da38aeb1c8bbc556045ffbebe41274",
+      "records_now": 500
+    },
+    {
+      "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\old\\codex\\prompt_rows_007.csv",
+      "sha256_at_selection": "c8a3a24d231694985a38330be7cb6206c31c3e1393ebc8d5ad76dbafb56c4c80",
+      "sha256_now": "c8a3a24d231694985a38330be7cb6206c31c3e1393ebc8d5ad76dbafb56c4c80",
+      "records_now": 500
+    },
+    {
+      "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\old\\codex\\prompt_rows_008.csv",
+      "sha256_at_selection": "c6f1cf7683eb8d12f616c1fed7b5a7fa00a4ce9fefe4f83f5c4dece84c06e219",
+      "sha256_now": "c6f1cf7683eb8d12f616c1fed7b5a7fa00a4ce9fefe4f83f5c4dece84c06e219",
+      "records_now": 241
+    },
+    {
+      "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\old\\codex\\prompt_rows_010.csv",
+      "sha256_at_selection": "249ae44228f18250724f3410611cb242377dc6bf104457a7eeb84ba57db381b3",
+      "sha256_now": "249ae44228f18250724f3410611cb242377dc6bf104457a7eeb84ba57db381b3",
+      "records_now": 500
+    },
+    {
+      "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\old\\codex\\prompt_rows_012.csv",
+      "sha256_at_selection": "633880c3d373b449d95f99d3425ff827b46bd2d3c15594761e9fe7da3bedf97b",
+      "sha256_now": "633880c3d373b449d95f99d3425ff827b46bd2d3c15594761e9fe7da3bedf97b",
+      "records_now": 500
+    },
+    {
+      "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\old\\codex\\prompt_rows_013.csv",
+      "sha256_at_selection": "20e547c25129bc04ac7dad9a2c5ee078e509802f2058509d8827ebacd6bca528",
+      "sha256_now": "20e547c25129bc04ac7dad9a2c5ee078e509802f2058509d8827ebacd6bca528",
+      "records_now": 500
+    },
+    {
+      "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\old\\codex\\prompt_rows_014.csv",
+      "sha256_at_selection": "27565e1326f318b7dd11fb2a15c40613eb082d87f131e59517205cbe9f7b0403",
+      "sha256_now": "27565e1326f318b7dd11fb2a15c40613eb082d87f131e59517205cbe9f7b0403",
+      "records_now": 500
+    },
+    {
+      "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\old\\codex\\prompt_rows_015.csv",
+      "sha256_at_selection": "1f72fe19981787410256e79420368f6e1ae644fa83baa1bffe582f02baca39cb",
+      "sha256_now": "1f72fe19981787410256e79420368f6e1ae644fa83baa1bffe582f02baca39cb",
+      "records_now": 500
+    },
+    {
+      "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\old\\codex\\prompt_rows_016.csv",
+      "sha256_at_selection": "f5795cff9ad683488b8f7ed70811b62af80c45b571d29694c591dbb2f0be0cbb",
+      "sha256_now": "f5795cff9ad683488b8f7ed70811b62af80c45b571d29694c591dbb2f0be0cbb",
+      "records_now": 500
+    },
+    {
+      "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\old\\codex\\prompt_rows_017.csv",
+      "sha256_at_selection": "8677988062300c0371d77b74a98f8bea53652adc4a016d5ee782750a8c8f8280",
+      "sha256_now": "8677988062300c0371d77b74a98f8bea53652adc4a016d5ee782750a8c8f8280",
+      "records_now": 500
+    },
+    {
+      "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\old\\codex\\prompt_rows_018.csv",
+      "sha256_at_selection": "1d9a68de2a859c4b597e43812fff48252cd4bb9e0ed7b0806ecb45318e1f3c9b",
+      "sha256_now": "1d9a68de2a859c4b597e43812fff48252cd4bb9e0ed7b0806ecb45318e1f3c9b",
+      "records_now": 500
+    },
+    {
+      "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\old\\codex\\prompt_rows_019.csv",
+      "sha256_at_selection": "26af9ca92baff164afda9e8127a50b2b6ed9d5e7ae4061296e444e7f0c191d57",
+      "sha256_now": "26af9ca92baff164afda9e8127a50b2b6ed9d5e7ae4061296e444e7f0c191d57",
+      "records_now": 500
+    },
+    {
+      "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\old\\codex\\prompt_rows_020.csv",
+      "sha256_at_selection": "f52ff15b4dc69e9402b6537f8a8b2dcd5fd2b828f1ffd0ce772661655db0a26b",
+      "sha256_now": "f52ff15b4dc69e9402b6537f8a8b2dcd5fd2b828f1ffd0ce772661655db0a26b",
+      "records_now": 500
+    },
+    {
+      "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\old\\codex\\prompt_rows_021.csv",
+      "sha256_at_selection": "bdc71a7b2c6945cf8f0a0219b629614e48be33e14717e529870ed9edc5e118d5",
+      "sha256_now": "bdc71a7b2c6945cf8f0a0219b629614e48be33e14717e529870ed9edc5e118d5",
+      "records_now": 500
+    },
+    {
+      "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\old\\codex\\prompt_rows_022.csv",
+      "sha256_at_selection": "7bc6eca7ae7ea8c3f06edf07a34cc73193fb8ab2b224550983686701fa93dd97",
+      "sha256_now": "7bc6eca7ae7ea8c3f06edf07a34cc73193fb8ab2b224550983686701fa93dd97",
+      "records_now": 500
+    },
+    {
+      "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\old\\codex\\prompt_rows_023.csv",
+      "sha256_at_selection": "1abc11117bd222a46871729a9395f945fcee22cb5ed533431feabbae8b778e09",
+      "sha256_now": "1abc11117bd222a46871729a9395f945fcee22cb5ed533431feabbae8b778e09",
+      "records_now": 500
+    },
+    {
+      "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\old\\codex\\prompt_rows_024.csv",
+      "sha256_at_selection": "24e91e887c7e39f49010c16a9539309adba5ae554db465c0dd924af90fc6ce22",
+      "sha256_now": "24e91e887c7e39f49010c16a9539309adba5ae554db465c0dd924af90fc6ce22",
+      "records_now": 500
+    },
+    {
+      "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\old\\codex\\prompt_rows_025.csv",
+      "sha256_at_selection": "84dd088c68b00fb6f664b73a2785fd9b23cb213bcef33b39017099e73fd52d8b",
+      "sha256_now": "84dd088c68b00fb6f664b73a2785fd9b23cb213bcef33b39017099e73fd52d8b",
+      "records_now": 500
+    },
+    {
+      "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\old\\codex\\prompt_rows_026.csv",
+      "sha256_at_selection": "5bd11dc0e6ad21985df7b3626cac1c29b5eccc62f4e6a394b837a48daa0bf31d",
+      "sha256_now": "5bd11dc0e6ad21985df7b3626cac1c29b5eccc62f4e6a394b837a48daa0bf31d",
+      "records_now": 500
+    },
+    {
+      "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\old\\codex\\prompt_rows_027.csv",
+      "sha256_at_selection": "9c3ce7002fa73d29be1f3a2cad11b1b00d0491487c28cd5303d788e5795e8196",
+      "sha256_now": "9c3ce7002fa73d29be1f3a2cad11b1b00d0491487c28cd5303d788e5795e8196",
+      "records_now": 500
+    },
+    {
+      "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\old\\codex2\\prompt_rows_009.csv",
+      "sha256_at_selection": "4482f56160890d3b2fa3bee6b36e5348ff6611cef4e842f3257aca12d895bc14",
+      "sha256_now": "4482f56160890d3b2fa3bee6b36e5348ff6611cef4e842f3257aca12d895bc14",
+      "records_now": 500
+    },
+    {
+      "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\old\\codex2\\prompt_rows_011.csv",
+      "sha256_at_selection": "86568b59fc2d1e103ed32eb29aaf224ca28363978debde7f8ae49982353280bd",
+      "sha256_now": "86568b59fc2d1e103ed32eb29aaf224ca28363978debde7f8ae49982353280bd",
+      "records_now": 500
+    },
+    {
+      "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\old\\codex2\\prompt_rows_028.csv",
+      "sha256_at_selection": "5ff5926b81a58c37fdc2978d74cb1fe4062a95e17d9067a36e20a9d8c3d65436",
+      "sha256_now": "5ff5926b81a58c37fdc2978d74cb1fe4062a95e17d9067a36e20a9d8c3d65436",
+      "records_now": 500
+    },
+    {
+      "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\old\\codex2\\prompt_rows_029.csv",
+      "sha256_at_selection": "2a8a37ecedbff557b307dbe746c1716d75ed589f0e7c59390e3609facc27808d",
+      "sha256_now": "2a8a37ecedbff557b307dbe746c1716d75ed589f0e7c59390e3609facc27808d",
+      "records_now": 500
+    },
+    {
+      "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\old\\codex2\\prompt_rows_030.csv",
+      "sha256_at_selection": "c091b7fc3f3adf52747f60a3fbd11eac6c444ed8e9fb83e56b949750da05917d",
+      "sha256_now": "c091b7fc3f3adf52747f60a3fbd11eac6c444ed8e9fb83e56b949750da05917d",
+      "records_now": 500
+    },
+    {
+      "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\old\\codex2\\prompt_rows_031.csv",
+      "sha256_at_selection": "4ff23572d810af2071f5236601943c14cbe2441a11ce2d971a387dd975aa0bd2",
+      "sha256_now": "4ff23572d810af2071f5236601943c14cbe2441a11ce2d971a387dd975aa0bd2",
+      "records_now": 500
+    },
+    {
+      "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\old\\codex2\\prompt_rows_032.csv",
+      "sha256_at_selection": "8465d3647e146408fa167d75bc08fa114d2947b4d50cc61103c714399a8c1c39",
+      "sha256_now": "8465d3647e146408fa167d75bc08fa114d2947b4d50cc61103c714399a8c1c39",
+      "records_now": 500
+    },
+    {
+      "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\old\\codex2\\prompt_rows_033.csv",
+      "sha256_at_selection": "e3d20402368cffc019181afb6ada794bf860ce4494253c28d1921169d6f01f8c",
+      "sha256_now": "e3d20402368cffc019181afb6ada794bf860ce4494253c28d1921169d6f01f8c",
+      "records_now": 500
+    },
+    {
+      "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\old\\codex2\\prompt_rows_034.csv",
+      "sha256_at_selection": "e174439429938cd1de02508eaa815cfb54965c9d2bd90baa36ddf5cc8b46bcd0",
+      "sha256_now": "e174439429938cd1de02508eaa815cfb54965c9d2bd90baa36ddf5cc8b46bcd0",
+      "records_now": 500
+    },
+    {
+      "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\old\\codex2\\prompt_rows_035.csv",
+      "sha256_at_selection": "1f31db02f0cdd33e2052686283989890c51f836884e07c303cb0322f5b4d2cef",
+      "sha256_now": "1f31db02f0cdd33e2052686283989890c51f836884e07c303cb0322f5b4d2cef",
+      "records_now": 500
+    },
+    {
+      "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\old\\codex2\\prompt_rows_036.csv",
+      "sha256_at_selection": "2766c0b04c71d3b5deb5510d0463a6508c61f076f1b7bc3f127684e134c2dcb0",
+      "sha256_now": "2766c0b04c71d3b5deb5510d0463a6508c61f076f1b7bc3f127684e134c2dcb0",
+      "records_now": 500
+    },
+    {
+      "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\old\\codex2\\prompt_rows_037.csv",
+      "sha256_at_selection": "ce0841ac9caf20c041de9d2e78209a95651d7d800133248708a94561cee18a48",
+      "sha256_now": "ce0841ac9caf20c041de9d2e78209a95651d7d800133248708a94561cee18a48",
+      "records_now": 398
+    }
+  ],
+  "notation_exceptions": [
+    {
+      "row": 51,
+      "rank": 54,
+      "word": "are",
+      "allowed": "Output: 512x512 PNG, RGBA, genuine transparent background. Allow only the essential dimension marking \"10 m\" on each of the two measuring tapes. No other text, labels, logos or watermark."
+    },
+    {
+      "row": 127,
+      "rank": 134,
+      "word": "kilo",
+      "allowed": "Output: 512x512 PNG, RGBA, genuine transparent background. Allow only the essential mass marking \"1 kg\" on the kilogram weight. No other text, labels, logos or watermark."
+    },
+    {
+      "row": 128,
+      "rank": 135,
+      "word": "kilo-",
+      "allowed": "Output: 512x512 PNG, RGBA, genuine transparent background. Allow only the essential count \"1000\" in the mechanical counter. No other text, labels, logos or watermark."
+    },
+    {
+      "row": 214,
+      "rank": 225,
+      "word": "ampersand",
+      "allowed": "Output: 512x512 PNG, RGBA, genuine transparent background. Allow only the ampersand symbol \"&\", which is the subject itself. No other text, numerals, labels, logos or watermark."
+    },
+    {
+      "row": 297,
+      "rank": 310,
+      "word": "italic",
+      "allowed": "Output: 512x512 PNG, RGBA, genuine transparent background. Allow only the sample letters \"abc\" in italic type, since the lettering itself is the subject. No other text, labels, logos or watermark."
+    },
+    {
+      "row": 324,
+      "rank": 338,
+      "word": "millionth",
+      "allowed": "Output: 512x512 PNG, RGBA, genuine transparent background. Allow only the essential serial numerals \"999998\", \"999999\" and \"1000000\" on the tickets. No other text, labels, logos or watermark."
+    },
+    {
+      "row": 360,
+      "rank": 377,
+      "word": "radium",
+      "allowed": "Output: 512x512 PNG, RGBA, genuine transparent background. Allow only the essential chemical symbol \"Ra\" on the sealed specimen case. No other text, numerals, labels, logos or watermark."
+    },
+    {
+      "row": 387,
+      "rank": 408,
+      "word": "thousandth",
+      "allowed": "Output: 512x512 PNG, RGBA, genuine transparent background. Allow only the essential ticket serials \"998\", \"999\" and \"1000\". No other text, labels, logos or watermark."
+    },
+    {
+      "row": 428,
+      "rank": 450,
+      "word": "alphabetically",
+      "allowed": "Output: 512x512 PNG, RGBA, genuine transparent background. Allow only the letters \"A\", \"B\" and \"C\" needed to show alphabetical order. No other text, numerals, labels, logos or watermark."
+    },
+    {
+      "row": 432,
+      "rank": 454,
+      "word": "amino-",
+      "allowed": "Output: 512x512 PNG, RGBA, genuine transparent background. Allow only the essential chemical formula \"NH2\" for the amino group. No other text, labels, logos or watermark."
+    },
+    {
+      "row": 470,
+      "rank": 495,
+      "word": "bimonthly",
+      "allowed": "Output: 512x512 PNG, RGBA, genuine transparent background. Allow only month numerals 1 through 12 on the calendar, which are essential to the timing concept. No other text, labels, logos or watermark."
+    },
+    {
+      "row": 471,
+      "rank": 496,
+      "word": "bingo",
+      "allowed": "Output: 512x512 PNG, RGBA, genuine transparent background. Allow only essential game numerals on the bingo card. Do not print the word bingo or any other text, logos or watermark."
+    },
+    {
+      "row": 474,
+      "rank": 499,
+      "word": "birth-rate",
+      "allowed": "Output: 512x512 PNG, RGBA, genuine transparent background. Allow only the essential statistical values \"1000\" and \"12\" beside the population and birth pictograms. No other text, labels, logos or watermark."
+    },
+    {
+      "row": 486,
+      "rank": 511,
+      "word": "Braille",
+      "allowed": "Output: 512x512 PNG, RGBA, genuine transparent background. Allow only the raised Braille dot patterns, since that writing system itself is the subject. No other text, labels, logos or watermark."
+    },
+    {
+      "row": 508,
+      "rank": 537,
+      "word": "cesium",
+      "allowed": "Output: 512x512 PNG, RGBA, genuine transparent background. Allow only the essential chemical symbol \"Cs\" on the sealed specimen case. No other text, numerals, labels, logos or watermark."
+    },
+    {
+      "row": 609,
+      "rank": 648,
+      "word": "Euro",
+      "allowed": "Output: 512x512 PNG, RGBA, genuine transparent background. Allow only the euro currency symbol € on the euro coins and banknote. No other text, numerals, labels, logos or watermark."
+    },
+    {
+      "row": 721,
+      "rank": 764,
+      "word": "HTML",
+      "allowed": "Output: 512x512 PNG, RGBA, genuine transparent background. Allow only the minimal HTML source <h1>Hi</h1> and its rendered content Hi; no interface labels. No other text, numerals, labels, logos or watermark."
+    },
+    {
+      "row": 755,
+      "rank": 803,
+      "word": "iridium",
+      "allowed": "Output: 512x512 PNG, RGBA, genuine transparent background. Allow only the chemical symbol Ir on the iridium specimen holder. No other text, numerals, labels, logos or watermark."
+    },
+    {
+      "row": 914,
+      "rank": 996,
+      "word": "phi",
+      "allowed": "Output: 512x512 PNG, RGBA, genuine transparent background. Allow only the lowercase Greek letter φ, which is the subject itself. No other text, numerals, labels, logos or watermark."
+    },
+    {
+      "row": 924,
+      "rank": 1008,
+      "word": "plutonium",
+      "allowed": "Output: 512x512 PNG, RGBA, genuine transparent background. Allow only the chemical symbol Pu on the protected plutonium specimen holder. No other text, numerals, labels, logos or watermark."
+    },
+    {
+      "row": 1167,
+      "rank": 1291,
+      "word": "URL",
+      "allowed": "Output: 512x512 PNG, RGBA, genuine transparent background. Allow only the example address https://example.org/ in the browser address bar, because the address notation itself is the subject. No other text, numerals, labels, logos or watermark."
+    },
+    {
+      "row": 1657,
+      "rank": 1910,
+      "word": "Cyrillic",
+      "allowed": "Output: 512x512 PNG, RGBA, genuine transparent background. Allow only the Cyrillic letters Ж, Д and Я, which are the subject itself. No other text, numerals, labels, logos or watermark."
+    },
+    {
+      "row": 1663,
+      "rank": 1918,
+      "word": "dateline",
+      "allowed": "Output: 512x512 PNG, RGBA, genuine transparent background. Allow only the adjacent calendar dates 1 Jan and 2 Jan beside the international date line. No other text, numerals, labels, logos or watermark."
+    },
+    {
+      "row": 1804,
+      "rank": 2088,
+      "word": "em-",
+      "allowed": "Output: 512x512 PNG, RGBA, genuine transparent background. Allow only the uppercase letter M, which is the subject itself. No other text, numerals, labels, logos or watermark."
+    },
+    {
+      "row": 1828,
+      "rank": 2117,
+      "word": "epsilon",
+      "allowed": "Output: 512x512 PNG, RGBA, genuine transparent background. Allow only the lowercase Greek letter ε, which is the subject itself. No other text, numerals, labels, logos or watermark."
+    },
+    {
+      "row": 1833,
+      "rank": 2127,
+      "word": "eta",
+      "allowed": "Output: 512x512 PNG, RGBA, genuine transparent background. Allow only the lowercase Greek letter η, which is the subject itself. No other text, numerals, labels, logos or watermark."
+    },
+    {
+      "row": 1875,
+      "rank": 2179,
+      "word": "FAQ",
+      "allowed": "Output: 512x512 PNG, RGBA, genuine transparent background. Allow only question-mark symbols and reply-bubble pictograms only; no prose, titles or answers. No other text, numerals, labels, logos or watermark."
+    }
+  ],
+  "homograph_checks": [
+    {
+      "candidate_rank": 1,
+      "word": "added",
+      "ordered_roots": [],
+      "filename": "added@x.png",
+      "difficulty": {
+        "level": 1,
+        "basis": "weblio_30_to_10",
+        "web": 1,
+        "raw": 1011,
+        "official": [],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "追加の",
+      "source_record": 48838,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 1,
+      "part_of_speech": "形",
+      "sense_sha256": "8425c1bd4b02c962bc2f930db87504c881cfe9cc1b9d418fd67c8efdc9d3f42a",
+      "composition": "A woman slides one extra blue chair up to a round dining table where three yellow chairs are already occupied.",
+      "image_checks": {
+        "literal_filename": "added@x.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 2,
+      "word": "base",
+      "ordered_roots": [
+        "bassus"
+      ],
+      "filename": "base@bassus.png",
+      "difficulty": {
+        "level": 1,
+        "basis": "weblio_30_to_10",
+        "web": 1,
+        "raw": 1141,
+        "official": [
+          {
+            "pos": "noun",
+            "level": "A2"
+          },
+          {
+            "pos": "verb",
+            "level": "B1"
+          }
+        ],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "卑劣な",
+      "source_record": 1494,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 2,
+      "part_of_speech": "形",
+      "sense_sha256": "532a0417ee0b1e025987db5c877ba758685b0dd58b3435f6a0d40671a816d3a2",
+      "composition": "A boy deliberately sticks out his foot to trip a classmate carrying a carefully finished clay pot, grinning at the harm.",
+      "image_checks": {
+        "literal_filename": "base@bassus.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 6,
+      "word": "came",
+      "ordered_roots": [],
+      "filename": "came@x.png",
+      "difficulty": {
+        "level": 1,
+        "basis": "weblio_30_to_10",
+        "web": 1,
+        "raw": 1392,
+        "official": [],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "ステンドグラスを留める鉛桟",
+      "source_record": 20895,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 6,
+      "part_of_speech": "名",
+      "sense_sha256": "85177ecf5aed79fe2072546168922f4b9d1d638078b21c6d236592f68108876b",
+      "composition": "A gray lead came joins two colored stained-glass panes, with its channel-shaped edge clearly cradling the glass.",
+      "image_checks": {
+        "literal_filename": "came@x.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 10,
+      "word": "egg",
+      "ordered_roots": [
+        "ak-"
+      ],
+      "filename": "egg@ak.png",
+      "difficulty": {
+        "level": 1,
+        "basis": "weblio_30_to_10",
+        "web": 1,
+        "raw": 1266,
+        "official": [
+          {
+            "pos": "noun",
+            "level": "A1"
+          }
+        ],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "そそのかす",
+      "source_record": 5001,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 10,
+      "part_of_speech": "動",
+      "sense_sha256": "41b87eea327e5a128fe46b86a0b5447a6248060d7b8f0ac23705cff43c7d8070",
+      "composition": "One child mischievously urges another toward a muddy puddle, pointing eagerly while the hesitant child raises one foot.",
+      "image_checks": {
+        "literal_filename": "egg@ak.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 11,
+      "word": "fell",
+      "ordered_roots": [
+        "pel-4"
+      ],
+      "filename": "fell@pel4.png",
+      "difficulty": {
+        "level": 1,
+        "basis": "weblio_30_to_10",
+        "web": 1,
+        "raw": 1385,
+        "official": [],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "毛皮",
+      "source_record": 5959,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 11,
+      "part_of_speech": "名",
+      "sense_sha256": "3a48496a3e6c8469b6f356de03beefd936cb1be3a712efffb628f4c227a02d32",
+      "composition": "A soft animal pelt lies fur-side upward over a low wooden stool, with its supple leather underside folded into view.",
+      "image_checks": {
+        "literal_filename": "fell@pel4.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 12,
+      "word": "fell",
+      "ordered_roots": [
+        "pel(i)s-"
+      ],
+      "filename": "fell@pelis.png",
+      "difficulty": {
+        "level": 1,
+        "basis": "weblio_30_to_10",
+        "web": 1,
+        "raw": 1085,
+        "official": [],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "丘",
+      "source_record": 5960,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 12,
+      "part_of_speech": "名",
+      "sense_sha256": "27e909e4ad8fd6924e7262060bc0e59d66261586fb4329e2a9e6df93722d7f1a",
+      "composition": "A small rounded grassy hill rises above a winding footpath, with a walker near its base showing its modest height.",
+      "image_checks": {
+        "literal_filename": "fell@pelis.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 16,
+      "word": "full",
+      "ordered_roots": [
+        "bhel-2"
+      ],
+      "filename": "full@bhel2.png",
+      "difficulty": {
+        "level": 1,
+        "basis": "weblio_30_to_10",
+        "web": 1,
+        "raw": 1454,
+        "official": [
+          {
+            "pos": "adjective",
+            "level": "A1"
+          }
+        ],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "縮絨する",
+      "source_record": 6502,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 16,
+      "part_of_speech": "動",
+      "sense_sha256": "d1a04a1b6437d0ddf081c215fa1a872f91571adf14555ab3cbcb56391725e7dd",
+      "composition": "A worker kneads thick wet woolen cloth in a wooden tub, pressing and rubbing the fibers together during fulling.",
+      "image_checks": {
+        "literal_filename": "full@bhel2.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 21,
+      "word": "housing",
+      "ordered_roots": [
+        "kel-2"
+      ],
+      "filename": "housing@kel2.png",
+      "difficulty": {
+        "level": 1,
+        "basis": "weblio_30_to_10",
+        "web": 1,
+        "raw": 1225,
+        "official": [],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "馬衣",
+      "source_record": 7558,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 21,
+      "part_of_speech": "名",
+      "sense_sha256": "510d33ddc9e3962e3b9a62225f6f82feef967f3bd6f75e48730e226ca37beed6",
+      "composition": "A colorful horse cloth drapes over a saddled horse's back and flanks, its fabric edges hanging clearly below the saddle.",
+      "image_checks": {
+        "literal_filename": "housing@kel2.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 25,
+      "word": "list",
+      "ordered_roots": [
+        "kleu-"
+      ],
+      "filename": "list@kleu.png",
+      "difficulty": {
+        "level": 1,
+        "basis": "weblio_30_to_10",
+        "web": 1,
+        "raw": 693,
+        "official": [
+          {
+            "pos": "noun",
+            "level": "A1"
+          },
+          {
+            "pos": "verb",
+            "level": "B2"
+          }
+        ],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "聞く",
+      "source_record": 9063,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 24,
+      "part_of_speech": "動",
+      "sense_sha256": "ebcb8324322f73e56fd4b7818d21c15f27b9390eeccf9400cac0f9a8be4f62c6",
+      "composition": "A child cups one hand behind an ear and listens closely to a nearby violinist drawing a bow across the strings.",
+      "image_checks": {
+        "literal_filename": "list@kleu.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 26,
+      "word": "list",
+      "ordered_roots": [
+        "las-"
+      ],
+      "filename": "list@las.png",
+      "difficulty": {
+        "level": 1,
+        "basis": "weblio_30_to_10",
+        "web": 1,
+        "raw": 1079,
+        "official": [
+          {
+            "pos": "noun",
+            "level": "A1"
+          },
+          {
+            "pos": "verb",
+            "level": "B2"
+          }
+        ],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "望む",
+      "source_record": 9064,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 25,
+      "part_of_speech": "名/動",
+      "sense_sha256": "90dd2fd68fec59af9bc4215603a61f0e018bb24f2bc5c61da055fbfc8e5c471e",
+      "composition": "A child gazes longingly at a ripe peach behind a shop window, hands clasped against the chest.",
+      "image_checks": {
+        "literal_filename": "list@las.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 27,
+      "word": "low",
+      "ordered_roots": [
+        "kelə-2"
+      ],
+      "filename": "low@kele2.png",
+      "difficulty": {
+        "level": 1,
+        "basis": "weblio_30_to_10",
+        "web": 1,
+        "raw": 1355,
+        "official": [
+          {
+            "pos": "adjective",
+            "level": "A2"
+          },
+          {
+            "pos": "adverb",
+            "level": "A2"
+          }
+        ],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "モーと鳴く",
+      "source_record": 9173,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 26,
+      "part_of_speech": "動",
+      "sense_sha256": "35a0e9c8ad9519101328260dc6ec8a2abafee45c90b30c73b9c04bab039720dd",
+      "composition": "A cow stretches its neck and opens its mouth in a deep lowing call while a calf stands beside it.",
+      "image_checks": {
+        "literal_filename": "low@kele2.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 28,
+      "word": "may",
+      "ordered_roots": [
+        "maghu-"
+      ],
+      "filename": "may@maghu.png",
+      "difficulty": {
+        "level": 1,
+        "basis": "weblio_30_to_10",
+        "web": 1,
+        "raw": 1051,
+        "official": [
+          {
+            "pos": "modal auxiliary",
+            "level": "A1"
+          }
+        ],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "少女",
+      "source_record": 9554,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 27,
+      "part_of_speech": "名",
+      "sense_sha256": "ecd8f6df320272a1cd5055c8aa76e10fd71b090c1519851e046554f7f94f1ac8",
+      "composition": "A teenage girl in everyday clothes carries a basket through a garden, shown as an ordinary young person without name labels.",
+      "image_checks": {
+        "literal_filename": "may@maghu.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 30,
+      "word": "must",
+      "ordered_roots": [
+        "mūs-"
+      ],
+      "filename": "must@mus.png",
+      "difficulty": {
+        "level": 1,
+        "basis": "weblio_30_to_10",
+        "web": 1,
+        "raw": 1075,
+        "official": [
+          {
+            "pos": "modal auxiliary",
+            "level": "A1"
+          }
+        ],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "じゃこう",
+      "source_record": 10196,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 29,
+      "part_of_speech": "名",
+      "sense_sha256": "dd8f297c3065bbd75720c07965d05d528ac71377fbcf5fcab030ce2c826bc293",
+      "composition": "A small open glass container holds brown musk granules beside a tiny perfume vial and a narrow wooden scoop.",
+      "image_checks": {
+        "literal_filename": "must@mus.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 33,
+      "word": "plane",
+      "ordered_roots": [
+        "plat-"
+      ],
+      "filename": "plane@plat.png",
+      "difficulty": {
+        "level": 1,
+        "basis": "weblio_30_to_10",
+        "web": 1,
+        "raw": 1028,
+        "official": [
+          {
+            "pos": "noun",
+            "level": "A1"
+          }
+        ],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "プラタナス",
+      "source_record": 11909,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 30,
+      "part_of_speech": "名",
+      "sense_sha256": "3ce7d12753708bdba3d7aa1877bac99d30a4355f17cda5c4b1c081ac4cdd1d01",
+      "composition": "A plane tree has a broad trunk, peeling mottled bark, large lobed leaves and several round hanging seed balls.",
+      "image_checks": {
+        "literal_filename": "plane@plat.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 40,
+      "word": "rode",
+      "ordered_roots": [],
+      "filename": "rode@x.png",
+      "difficulty": {
+        "level": 1,
+        "basis": "weblio_30_to_10",
+        "web": 1,
+        "raw": 1262,
+        "official": [],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "錨綱(錨と船をつなぐ綱や鎖)",
+      "source_record": 22744,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 37,
+      "part_of_speech": "名",
+      "sense_sha256": "304537888e81886dfb0f0687a115c80ea204f2e15a3dd73cb0bd8846390da84d",
+      "composition": "A stout anchor rode connects a small boat's bow to its anchor on the seabed, visible through clear shallow water.",
+      "image_checks": {
+        "literal_filename": "rode@x.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 42,
+      "word": "saw",
+      "ordered_roots": [
+        "sekʷ-3"
+      ],
+      "filename": "saw@sekw3.png",
+      "difficulty": {
+        "level": 1,
+        "basis": "weblio_30_to_10",
+        "web": 1,
+        "raw": 1225,
+        "official": [
+          {
+            "pos": "noun",
+            "level": "A1"
+          },
+          {
+            "pos": "verb",
+            "level": "B2"
+          }
+        ],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "ことわざ",
+      "source_record": 13976,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 39,
+      "part_of_speech": "名",
+      "sense_sha256": "9dae1fbbdba9f5eb50b937f1cce087394513ec03afd5f06bdc8627d9fe8e21e1",
+      "composition": "An elder offers thoughtful advice to a listening child while pointing to a steadily walking tortoise passing a resting hare nearby.",
+      "image_checks": {
+        "literal_filename": "saw@sekw3.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 52,
+      "word": "wood",
+      "ordered_roots": [
+        "wet-1"
+      ],
+      "filename": "wood@wet1.png",
+      "difficulty": {
+        "level": 1,
+        "basis": "weblio_30_to_10",
+        "web": 1,
+        "raw": 1066,
+        "official": [
+          {
+            "pos": "noun",
+            "level": "A2"
+          }
+        ],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "気が狂った",
+      "source_record": 17320,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 49,
+      "part_of_speech": "形",
+      "sense_sha256": "f4140ce0063bd404482aaa13b5452aef8d1cddf1c5d41dd7919883ea295e6d67",
+      "composition": "A furious man crumples papers beside an overturned chair, with a tense face and disordered desk showing uncontrolled agitation.",
+      "image_checks": {
+        "literal_filename": "wood@wet1.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 54,
+      "word": "are",
+      "ordered_roots": [
+        "as-"
+      ],
+      "filename": "are@as.png",
+      "difficulty": {
+        "level": 2,
+        "basis": "weblio_30_to_10",
+        "web": 2,
+        "raw": 1142,
+        "official": [
+          {
+            "pos": "be-verb",
+            "level": "A1"
+          }
+        ],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "アール",
+      "source_record": 1024,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 51,
+      "part_of_speech": "名",
+      "sense_sha256": "13968e00d0b80d90ce8d93f4a1fa0e12dbbb78d09a1005bb3b0315a7d11e3632",
+      "composition": "A square garden plot measures ten meters along each side, with two measuring tapes showing only the essential markings “10 m”.",
+      "image_checks": {
+        "literal_filename": "are@as.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 56,
+      "word": "blow",
+      "ordered_roots": [
+        "bhel-3"
+      ],
+      "filename": "blow@bhel3.png",
+      "difficulty": {
+        "level": 2,
+        "basis": "weblio_30_to_10",
+        "web": 2,
+        "raw": 1097,
+        "official": [
+          {
+            "pos": "noun",
+            "level": "A2"
+          },
+          {
+            "pos": "verb",
+            "level": "A1"
+          }
+        ],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "咲く",
+      "source_record": 1827,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 53,
+      "part_of_speech": "名/動",
+      "sense_sha256": "859717a5da10fe3796c5f2eec5c2a95c4c7813d8bf0f31b39c2996c0bc27a33b",
+      "composition": "A flowering branch carries one opening blossom whose petals unfold around the center, with tightly closed buds on the same stem.",
+      "image_checks": {
+        "literal_filename": "blow@bhel3.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 59,
+      "word": "dug",
+      "ordered_roots": [],
+      "filename": "dug@x.png",
+      "difficulty": {
+        "level": 2,
+        "basis": "weblio_30_to_10",
+        "web": 2,
+        "raw": 1069,
+        "official": [],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "乳房(家畜の)",
+      "source_record": 21707,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 56,
+      "part_of_speech": "名",
+      "sense_sha256": "2f4823eec01127de55e1834f28f6f5f7a2233d353f08e5fd3275a6a03e2b118b",
+      "composition": "A dairy cow stands side-on while its full udder is clearly visible beneath the hindquarters and a calf rests nearby.",
+      "image_checks": {
+        "literal_filename": "dug@x.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 60,
+      "word": "earn",
+      "ordered_roots": [
+        "gher-5"
+      ],
+      "filename": "earn@gher5.png",
+      "difficulty": {
+        "level": 2,
+        "basis": "weblio_30_to_10",
+        "web": 2,
+        "raw": 1321,
+        "official": [
+          {
+            "pos": "verb",
+            "level": "A2"
+          }
+        ],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "嘆く",
+      "source_record": 4888,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 57,
+      "part_of_speech": "動",
+      "sense_sha256": "5100ab35c484f460a9793c7268792b7afea6a2bc76ca06d6ccefcc84f14c621e",
+      "composition": "A woman mourns a broken clay vase, bending toward the pieces with tears on her cheeks while a friend gently supports her shoulder.",
+      "image_checks": {
+        "literal_filename": "earn@gher5.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 70,
+      "word": "inform",
+      "ordered_roots": [
+        "ne",
+        "merph-"
+      ],
+      "filename": "inform@ne-merph.png",
+      "difficulty": {
+        "level": 2,
+        "basis": "weblio_30_to_10",
+        "web": 2,
+        "raw": 1473,
+        "official": [
+          {
+            "pos": "verb",
+            "level": "B1"
+          }
+        ],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "形のない",
+      "source_record": 8104,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 67,
+      "part_of_speech": "形",
+      "sense_sha256": "02f99e7c9d954663d6051d125bdb2ae21229921242c65c65832d4201c27a5e92",
+      "composition": "A shapeless lump of soft clay slumps across a work board, with uneven edges and no clear geometric outline.",
+      "image_checks": {
+        "literal_filename": "inform@ne-merph.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 74,
+      "word": "plain",
+      "ordered_roots": [
+        "plāk-2"
+      ],
+      "filename": "plain@plak2.png",
+      "difficulty": {
+        "level": 2,
+        "basis": "weblio_30_to_10",
+        "web": 2,
+        "raw": 1089,
+        "official": [
+          {
+            "pos": "adjective",
+            "level": "B1"
+          }
+        ],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "嘆く",
+      "source_record": 11899,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 70,
+      "part_of_speech": "動",
+      "sense_sha256": "3c643c33cd9a97da902623bc43c4e53debb6e9922378883afddecdaf390d7d64",
+      "composition": "A musician laments a badly broken violin, holding the damaged instrument while a companion listens sympathetically.",
+      "image_checks": {
+        "literal_filename": "plain@plak2.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 76,
+      "word": "pound",
+      "ordered_roots": [
+        "bend-"
+      ],
+      "filename": "pound@bend.png",
+      "difficulty": {
+        "level": 2,
+        "basis": "weblio_30_to_10",
+        "web": 2,
+        "raw": 1190,
+        "official": [
+          {
+            "pos": "noun",
+            "level": "B1"
+          },
+          {
+            "pos": "verb",
+            "level": "B2"
+          }
+        ],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "動物の囲い",
+      "source_record": 12224,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 71,
+      "part_of_speech": "名/動",
+      "sense_sha256": "1041ceaa8ba9176db613f8ad4548c9d5bce535ed06cc01af81003855c4dfdd06",
+      "composition": "A sturdy fenced animal pound contains two stray dogs, a water bowl and a keeper opening the enclosure gate.",
+      "image_checks": {
+        "literal_filename": "pound@bend.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 77,
+      "word": "press",
+      "ordered_roots": [
+        "per1",
+        "ghes-"
+      ],
+      "filename": "press@per1-ghes.png",
+      "difficulty": {
+        "level": 2,
+        "basis": "weblio_30_to_10",
+        "web": 2,
+        "raw": 1157,
+        "official": [
+          {
+            "pos": "noun",
+            "level": "B1"
+          },
+          {
+            "pos": "verb",
+            "level": "B1"
+          }
+        ],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "強制徴募する",
+      "source_record": 12355,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 72,
+      "part_of_speech": "名/動",
+      "sense_sha256": "8061c8ba7692faf16bd57d4efaeab042ccdd91d0dcf7208dcee3ed390c7aa84e",
+      "composition": "Two historical naval recruiters firmly escort an unwilling man up a ship's gangplank while he pulls back toward the dock.",
+      "image_checks": {
+        "literal_filename": "press@per1-ghes.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 78,
+      "word": "prize",
+      "ordered_roots": [
+        "per1",
+        "ghend-"
+      ],
+      "filename": "prize@per1-ghend.png",
+      "difficulty": {
+        "level": 2,
+        "basis": "weblio_30_to_10",
+        "web": 2,
+        "raw": 1212,
+        "official": [
+          {
+            "pos": "noun",
+            "level": "B1"
+          }
+        ],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "捕獲",
+      "source_record": 12435,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 73,
+      "part_of_speech": "名/動",
+      "sense_sha256": "94dcb458ced082374a9a67c3a201ef69198059e0459a88910f9029a55843f1a7",
+      "composition": "A fisher lifts a securely closed landing net containing one freshly captured fish above the side of a small boat.",
+      "image_checks": {
+        "literal_filename": "prize@per1-ghend.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 101,
+      "word": "gram",
+      "ordered_roots": [
+        "gr̥ə-no-"
+      ],
+      "filename": "gram@greno.png",
+      "difficulty": {
+        "level": 3,
+        "basis": "weblio_30_to_10",
+        "web": 3,
+        "raw": 1226,
+        "official": [
+          {
+            "pos": "noun",
+            "level": "A2"
+          }
+        ],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "ヒヨコマメ",
+      "source_record": 6924,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 95,
+      "part_of_speech": "名",
+      "sense_sha256": "c4c263bbf15365c3f38584cb02e3a507e9c60e09c40a908737d52ac291d0256e",
+      "composition": "A shallow wooden bowl holds round beige chickpeas, with several loose chickpeas and one split pod beside it.",
+      "image_checks": {
+        "literal_filename": "gram@greno.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 106,
+      "word": "mere",
+      "ordered_roots": [
+        "mei-3"
+      ],
+      "filename": "mere@mei3.png",
+      "difficulty": {
+        "level": 3,
+        "basis": "weblio_30_to_10",
+        "web": 3,
+        "raw": 1496,
+        "official": [
+          {
+            "pos": "adjective",
+            "level": "B1"
+          }
+        ],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "境界",
+      "source_record": 9695,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 100,
+      "part_of_speech": "名",
+      "sense_sha256": "032dbd2f32ed81470c1e24eac0b5b4c03746dc3015a2cf76b5a86a67c24c94ad",
+      "composition": "A low line of boundary stones separates a cultivated field from a neighboring meadow, with a gate at one end.",
+      "image_checks": {
+        "literal_filename": "mere@mei3.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 110,
+      "word": "pie",
+      "ordered_roots": [
+        "(s)peik-"
+      ],
+      "filename": "pie@speik.png",
+      "difficulty": {
+        "level": 3,
+        "basis": "weblio_30_to_10",
+        "web": 3,
+        "raw": 1227,
+        "official": [
+          {
+            "pos": "noun",
+            "level": "B1"
+          }
+        ],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "カササギ",
+      "source_record": 11791,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 103,
+      "part_of_speech": "名",
+      "sense_sha256": "cd3d2e2d9e6c72b5798f371ff97c58221145e9fe8a8fabae240ec30bc4c5c6e4",
+      "composition": "A black-and-white magpie perches on a branch, displaying its long tail and contrasting white shoulder patches.",
+      "image_checks": {
+        "literal_filename": "pie@speik.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 124,
+      "word": "bull",
+      "ordered_roots": [
+        "beu-"
+      ],
+      "filename": "bull@beu.png",
+      "difficulty": {
+        "level": 4,
+        "basis": "weblio_30_to_10",
+        "web": 4,
+        "raw": 1106,
+        "official": [
+          {
+            "pos": "noun",
+            "level": "B1"
+          }
+        ],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "教皇の教書",
+      "source_record": 2079,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 117,
+      "part_of_speech": "名",
+      "sense_sha256": "57f85ad265cc5dd302f66b71dd02510d0f34bf0d89c9e3076c3b2afc33dc0103",
+      "composition": "A rolled papal document lies partly open beside a heavy lead seal suspended from its cord; use no readable writing.",
+      "image_checks": {
+        "literal_filename": "bull@beu.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 142,
+      "word": "scout",
+      "ordered_roots": [
+        "aus-4",
+        "klei-"
+      ],
+      "filename": "scout@aus4-klei.png",
+      "difficulty": {
+        "level": 4,
+        "basis": "weblio_30_to_10",
+        "web": 4,
+        "raw": 987,
+        "official": [],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "偵察する",
+      "source_record": 14102,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 135,
+      "part_of_speech": "動",
+      "sense_sha256": "2a4aa5d116bde2363fb8e38a0edd2d2fed6e8355fc1fff66fc320103f637b8fb",
+      "composition": "A scout crouches behind a bush and studies a distant campsite through binoculars before moving closer.",
+      "image_checks": {
+        "literal_filename": "scout@aus4-klei.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 143,
+      "word": "scout",
+      "ordered_roots": [
+        "skeud-"
+      ],
+      "filename": "scout@skeud.png",
+      "difficulty": {
+        "level": 4,
+        "basis": "weblio_30_to_10",
+        "web": 4,
+        "raw": 1737,
+        "official": [],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "ばかにする",
+      "source_record": 14103,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 136,
+      "part_of_speech": "動",
+      "sense_sha256": "4f498a7e071952cbe818ef1eaa18ecc3db52fb49c4ac8093b9b497a6ec262255",
+      "composition": "A dismissive critic scoffs at a student's proposal, waving one hand aside while the student holds a simple model.",
+      "image_checks": {
+        "literal_filename": "scout@skeud.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 147,
+      "word": "spill",
+      "ordered_roots": [
+        "spel-1"
+      ],
+      "filename": "spill@spel1.png",
+      "difficulty": {
+        "level": 4,
+        "basis": "weblio_30_to_10",
+        "web": 4,
+        "raw": 702,
+        "official": [
+          {
+            "pos": "verb",
+            "level": "A2"
+          }
+        ],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "こぼす",
+      "source_record": 14894,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 140,
+      "part_of_speech": "名/動",
+      "sense_sha256": "c1dcd35ec8815dddf8de439733e035a931b272e3afa461f35324672504a87de5",
+      "composition": "A tipped jug spills water across a table edge, and a surprised child reaches for a cloth.",
+      "image_checks": {
+        "literal_filename": "spill@spel1.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 154,
+      "word": "wax",
+      "ordered_roots": [
+        "aug-"
+      ],
+      "filename": "wax@aug.png",
+      "difficulty": {
+        "level": 4,
+        "basis": "weblio_30_to_10",
+        "web": 4,
+        "raw": 986,
+        "official": [
+          {
+            "pos": "noun",
+            "level": "B1"
+          },
+          {
+            "pos": "verb",
+            "level": "B1"
+          }
+        ],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "増大する",
+      "source_record": 17105,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 146,
+      "part_of_speech": "動",
+      "sense_sha256": "1becac501fe091340a80bb353e71388446d6c7194006e1b352f7462ac1b7eed9",
+      "composition": "A growing crescent moon hangs above a quiet rooftop, with its brightly illuminated curved portion clearly visible.",
+      "image_checks": {
+        "literal_filename": "wax@aug.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 163,
+      "word": "blaze",
+      "ordered_roots": [
+        "bhlē-2"
+      ],
+      "filename": "blaze@bhle2.png",
+      "difficulty": {
+        "level": 5,
+        "basis": "weblio_30_to_10",
+        "web": 5,
+        "raw": 1009,
+        "official": [
+          {
+            "pos": "noun",
+            "level": "B2"
+          },
+          {
+            "pos": "verb",
+            "level": "B2"
+          }
+        ],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "大々的に報じる",
+      "source_record": 1797,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 154,
+      "part_of_speech": "動",
+      "sense_sha256": "e0fc51ad6e6e8e30b0cb4e5f85c903b584e865fbf9ccf22bf972ab856a232af6",
+      "composition": "A news editor enthusiastically presents a newly printed front page with a large central photograph, keeping all lettering unreadable.",
+      "image_checks": {
+        "literal_filename": "blaze@bhle2.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 169,
+      "word": "con",
+      "ordered_roots": [
+        "gnō-"
+      ],
+      "filename": "con_word@gno.png",
+      "difficulty": {
+        "level": 5,
+        "basis": "weblio_30_to_10",
+        "web": 6,
+        "raw": 1157,
+        "official": [],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "熟読する",
+      "source_record": 3117,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 160,
+      "part_of_speech": "動",
+      "sense_sha256": "1a72561aa21ad4f68347922f7e8e312da350e1bc8d5771bc54f55119b88673b3",
+      "composition": "A student studies an open book closely beneath a desk lamp, following a line with one finger and taking careful notes.",
+      "image_checks": {
+        "literal_filename": "con_word@gno.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 170,
+      "word": "con",
+      "ordered_roots": [
+        "kom",
+        "deuk-"
+      ],
+      "filename": "con_word@kom-deuk.png",
+      "difficulty": {
+        "level": 5,
+        "basis": "weblio_30_to_10",
+        "web": 6,
+        "raw": 1218,
+        "official": [],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "操舵を指揮する",
+      "source_record": 3118,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 161,
+      "part_of_speech": "名/動",
+      "sense_sha256": "ce1c0672d8cd19599912ce1935e542672c0c2c38dab0ad8b3da729b7adeba2c8",
+      "composition": "A ship's officer directs the helmsman from the bridge, pointing toward a safe gap between two distant buoys.",
+      "image_checks": {
+        "literal_filename": "con_word@kom-deuk.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 177,
+      "word": "foil",
+      "ordered_roots": [
+        "pū̆-2"
+      ],
+      "filename": "foil@pu2.png",
+      "difficulty": {
+        "level": 5,
+        "basis": "weblio_30_to_10",
+        "web": 6,
+        "raw": 1136,
+        "official": [],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "阻む",
+      "source_record": 6236,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 167,
+      "part_of_speech": "動",
+      "sense_sha256": "143eca7899d4b424f0d1194d5ab48a81af543cfed6e38e3cb65b80866adfc6e2",
+      "composition": "A quick goalkeeper foils a close shot by catching the ball firmly before it can enter the net.",
+      "image_checks": {
+        "literal_filename": "foil@pu2.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 180,
+      "word": "hind",
+      "ordered_roots": [
+        "kei-1"
+      ],
+      "filename": "hind@kei1.png",
+      "difficulty": {
+        "level": 5,
+        "basis": "weblio_30_to_10",
+        "web": 5,
+        "raw": 1283,
+        "official": [],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "作男",
+      "source_record": 7415,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 170,
+      "part_of_speech": "名",
+      "sense_sha256": "c732450c1e26f7b5bce3e56baf4be586271ede55b6fa10a2d0fef1e9da97d0c3",
+      "composition": "A hired farm laborer carries a heavy feed sack from a barn toward a waiting farmer and livestock trough.",
+      "image_checks": {
+        "literal_filename": "hind@kei1.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 181,
+      "word": "impress",
+      "ordered_roots": [
+        "en",
+        "per1",
+        "ghes-"
+      ],
+      "filename": "impress@en-per1-ghes.png",
+      "difficulty": {
+        "level": 5,
+        "basis": "weblio_30_to_10",
+        "web": 5,
+        "raw": 1454,
+        "official": [
+          {
+            "pos": "verb",
+            "level": "A2"
+          }
+        ],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "強制徴募する",
+      "source_record": 7863,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 171,
+      "part_of_speech": "名/動",
+      "sense_sha256": "1603dfb84a70f64b40eb9a26de7b75c9793c0079ac301a3d1aebf2e1453f3601",
+      "composition": "Historical naval officers forcibly lead an unwilling civilian away from a dockside crowd toward a waiting ship.",
+      "image_checks": {
+        "literal_filename": "impress@en-per1-ghes.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 183,
+      "word": "irony",
+      "ordered_roots": [
+        "eis-"
+      ],
+      "filename": "irony@eis.png",
+      "difficulty": {
+        "level": 5,
+        "basis": "weblio_30_to_10",
+        "web": 5,
+        "raw": 1577,
+        "official": [],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "鉄の",
+      "source_record": 8428,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 173,
+      "part_of_speech": "形",
+      "sense_sha256": "3bb54fedbcee472d26eb098e34fb4926eb0f6b42a37925ee402b8da8215114a6",
+      "composition": "A forged iron gate has thick dark bars, a strong latch and rough hammered hinges attached to stone posts.",
+      "image_checks": {
+        "literal_filename": "irony@eis.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 193,
+      "word": "pregnant",
+      "ordered_roots": [
+        "per-4"
+      ],
+      "filename": "pregnant@per4.png",
+      "difficulty": {
+        "level": 5,
+        "basis": "weblio_30_to_10",
+        "web": 5,
+        "raw": 1103,
+        "official": [
+          {
+            "pos": "adjective",
+            "level": "B1"
+          }
+        ],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "説得力のある",
+      "source_record": 12297,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 182,
+      "part_of_speech": "形",
+      "sense_sha256": "68203a431cea754d4354f2e80170286f9c36bbab4e7f9ddba88b9bb45e8cb6df",
+      "composition": "A speaker presents a strong practical argument by showing a model bridge safely holding a heavy weight to an attentive audience.",
+      "image_checks": {
+        "literal_filename": "pregnant@per4.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 197,
+      "word": "repent",
+      "ordered_roots": [
+        "rēp-1"
+      ],
+      "filename": "repent@rep1.png",
+      "difficulty": {
+        "level": 5,
+        "basis": "weblio_30_to_10",
+        "web": 6,
+        "raw": 1325,
+        "official": [],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "匍匐性の",
+      "source_record": 13371,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 186,
+      "part_of_speech": "形",
+      "sense_sha256": "5c7d47568b7bceed62f71ca1d37d2629868e5b6edd284852abb874a49da81596",
+      "composition": "A creeping plant sends low stems along the soil, rooting at several nodes beneath a line of fresh leaves.",
+      "image_checks": {
+        "literal_filename": "repent@rep1.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 198,
+      "word": "riddle",
+      "ordered_roots": [
+        "krei-",
+        "-tro-"
+      ],
+      "filename": "riddle@krei-tro.png",
+      "difficulty": {
+        "level": 5,
+        "basis": "weblio_30_to_10",
+        "web": 5,
+        "raw": 1283,
+        "official": [
+          {
+            "pos": "noun",
+            "level": "B2"
+          },
+          {
+            "pos": "verb",
+            "level": "B1"
+          }
+        ],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "あら目のふるい",
+      "source_record": 13620,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 187,
+      "part_of_speech": "名/動",
+      "sense_sha256": "ee764fefd6754fc14a0cfbc94abeb9332a299fbbcb54a18de657fd96d0a034be",
+      "composition": "A gardener shakes soil through a broad coarse-mesh riddle while larger stones remain on its wooden frame.",
+      "image_checks": {
+        "literal_filename": "riddle@krei-tro.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 214,
+      "word": "tick",
+      "ordered_roots": [
+        "dhē-"
+      ],
+      "filename": "tick@dhe.png",
+      "difficulty": {
+        "level": 5,
+        "basis": "weblio_30_to_10",
+        "web": 5,
+        "raw": 1375,
+        "official": [
+          {
+            "pos": "noun",
+            "level": "B1"
+          },
+          {
+            "pos": "verb",
+            "level": "B1"
+          }
+        ],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "ふとんのカバー",
+      "source_record": 15991,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 203,
+      "part_of_speech": "名",
+      "sense_sha256": "c2683357ce7d623f6aa90ae0c043adcb44547ad33ad8237e13a913e0c4b35587",
+      "composition": "A sturdy striped mattress tick lies partly open, revealing soft filling enclosed by the protective fabric cover.",
+      "image_checks": {
+        "literal_filename": "tick@dhe.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 215,
+      "word": "twig",
+      "ordered_roots": [
+        "to-",
+        "euk-"
+      ],
+      "filename": "twig@to-euk.png",
+      "difficulty": {
+        "level": 5,
+        "basis": "weblio_30_to_10",
+        "web": 6,
+        "raw": 1384,
+        "official": [],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "気づく",
+      "source_record": 16410,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 204,
+      "part_of_speech": "動",
+      "sense_sha256": "a2c990f3d1a8e1600c01421a6824cd3bbdb7c941a1a6095b35791cf167cf2df4",
+      "composition": "A girl suddenly notices her missing mitten beneath a chair, widening her eyes and pointing toward it.",
+      "image_checks": {
+        "literal_filename": "twig@to-euk.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 235,
+      "word": "boon",
+      "ordered_roots": [
+        "deu-2"
+      ],
+      "filename": "boon@deu2.png",
+      "difficulty": {
+        "level": 6,
+        "basis": "weblio_30_to_10",
+        "web": 9,
+        "raw": 1420,
+        "official": [],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "愉快な",
+      "source_record": 1880,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 224,
+      "part_of_speech": "形",
+      "sense_sha256": "bbafaa2721a7573893532d45f3c3eb85282d6129a478b6646ba843f6f5d93a6d",
+      "composition": "A cheerful group of friends shares a relaxed outdoor meal, laughing together around a simple picnic table.",
+      "image_checks": {
+        "literal_filename": "boon@deu2.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 239,
+      "word": "bully",
+      "ordered_roots": [
+        "bhrāter-"
+      ],
+      "filename": "bully@bhrater.png",
+      "difficulty": {
+        "level": 6,
+        "basis": "weblio_30_to_10",
+        "web": 7,
+        "raw": 769,
+        "official": [
+          {
+            "pos": "verb",
+            "level": "B2"
+          }
+        ],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "いじめっ子",
+      "source_record": 2086,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 228,
+      "part_of_speech": "名/動",
+      "sense_sha256": "62e1d6bf4676bf92852d3a45cc045139783a7660bc3e76b9815f8446cdf0f47a",
+      "composition": "A bully snatches a smaller child's school bag while two classmates look concerned and move to help.",
+      "image_checks": {
+        "literal_filename": "bully@bhrater.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 284,
+      "word": "genial",
+      "ordered_roots": [
+        "genu-2"
+      ],
+      "filename": "genial@genu2.png",
+      "difficulty": {
+        "level": 6,
+        "basis": "weblio_30_to_10",
+        "web": 7,
+        "raw": 1622,
+        "official": [],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "あごの",
+      "source_record": 6691,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 272,
+      "part_of_speech": "形",
+      "sense_sha256": "9f5e32df3493645a1c48d6171ba5d8d51728ee1a297bf34134664fe5f988b003",
+      "composition": "A person points to the chin directly below the lower lip, with the chin region gently highlighted in teal.",
+      "image_checks": {
+        "literal_filename": "genial@genu2.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 291,
+      "word": "gust",
+      "ordered_roots": [
+        "geus-"
+      ],
+      "filename": "gust@geus.png",
+      "difficulty": {
+        "level": 6,
+        "basis": "weblio_30_to_10",
+        "web": 9,
+        "raw": 1560,
+        "official": [],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "楽しみ",
+      "source_record": 7081,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 279,
+      "part_of_speech": "名",
+      "sense_sha256": "de9dccf8b9e24ed358a8bf4028b0b851166828f18a7911b9c87395167f591e88",
+      "composition": "A delighted diner savors a warm fruit tart, eyes closed in enjoyment and a small fork poised above the plate.",
+      "image_checks": {
+        "literal_filename": "gust@geus.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 307,
+      "word": "incorporate",
+      "ordered_roots": [
+        "ne",
+        "kʷrep-"
+      ],
+      "filename": "incorporate@ne-kwrep.png",
+      "difficulty": {
+        "level": 6,
+        "basis": "weblio_30_to_10",
+        "web": 7,
+        "raw": 1430,
+        "official": [],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "実体のない",
+      "source_record": 7958,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 294,
+      "part_of_speech": "形",
+      "sense_sha256": "db75e2d94362cfdcbbd59125e54c469fae2436f0c7641d19ad486fa2f7b707d1",
+      "composition": "A translucent incorporeal spirit floats above the floor, with the room's chair and curtain visible through its body.",
+      "image_checks": {
+        "literal_filename": "incorporate@ne-kwrep.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 315,
+      "word": "keel",
+      "ordered_roots": [
+        "gel-2"
+      ],
+      "filename": "keel@gel2.png",
+      "difficulty": {
+        "level": 6,
+        "basis": "weblio_30_to_10",
+        "web": 7,
+        "raw": 1247,
+        "official": [],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "冷やす",
+      "source_record": 8586,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 302,
+      "part_of_speech": "動",
+      "sense_sha256": "75033b360a4c7200f25eb3712030388dace84439923027fb0ead67f45dbfc6d0",
+      "composition": "A cook cools a steaming bowl of soup by resting it inside a wider basin of cold water and stirring gently.",
+      "image_checks": {
+        "literal_filename": "keel@gel2.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 330,
+      "word": "mare",
+      "ordered_roots": [
+        "mer-2"
+      ],
+      "filename": "mare@mer2.png",
+      "difficulty": {
+        "level": 6,
+        "basis": "weblio_30_to_10",
+        "web": 8,
+        "raw": 1366,
+        "official": [],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "夢魔",
+      "source_record": 9448,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 317,
+      "part_of_speech": "名",
+      "sense_sha256": "b144c60baf6ec92518f22e3b7e8b306c0f8601fdcea335e14cc893be3e96d3cf",
+      "composition": "A shadowy nightmare spirit crouches above a sleeping adult, whose tense expression and clenched blanket show a frightening dream.",
+      "image_checks": {
+        "literal_filename": "mare@mer2.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 342,
+      "word": "mole",
+      "ordered_roots": [
+        "mō-"
+      ],
+      "filename": "mole@mo.png",
+      "difficulty": {
+        "level": 6,
+        "basis": "weblio_30_to_10",
+        "web": 9,
+        "raw": 1169,
+        "official": [],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "防波堤",
+      "source_record": 9973,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 327,
+      "part_of_speech": "名",
+      "sense_sha256": "cbfc771b0268b107bc2f7b468dfa5ee4a89597b9d5a79550e03f4477752a3bc6",
+      "composition": "A long stone mole extends from a harbor shore into the sea, sheltering small boats behind its solid wall.",
+      "image_checks": {
+        "literal_filename": "mole@mo.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 364,
+      "word": "plank",
+      "ordered_roots": [
+        "plat-"
+      ],
+      "filename": "plank@plat.png",
+      "difficulty": {
+        "level": 6,
+        "basis": "weblio_30_to_10",
+        "web": 9,
+        "raw": 1381,
+        "official": [],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "隠す",
+      "source_record": 11916,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 348,
+      "part_of_speech": "動",
+      "sense_sha256": "b15f75687a65b0ed293d394da301a12567b4c0224cd854ef98cb733431854fb1",
+      "composition": "A person hides a small money pouch beneath a loose floor plank, carefully lowering the board back into place.",
+      "image_checks": {
+        "literal_filename": "plank@plat.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 370,
+      "word": "prune",
+      "ordered_roots": [
+        "ongʷ-"
+      ],
+      "filename": "prune@ongw.png",
+      "difficulty": {
+        "level": 6,
+        "basis": "weblio_30_to_10",
+        "web": 8,
+        "raw": 1036,
+        "official": [],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "羽づくろいする",
+      "source_record": 12663,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 353,
+      "part_of_speech": "動",
+      "sense_sha256": "e4b276064bc0e87313875e8b1ad9bd353b9dc9f40f6047f3191ac57b789efb5b",
+      "composition": "A bird prunes its feathers by drawing a wing feather gently through its beak while perched on a branch.",
+      "image_checks": {
+        "literal_filename": "prune@ongw.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 371,
+      "word": "pug",
+      "ordered_roots": [
+        "peuk-"
+      ],
+      "filename": "pug@peuk.png",
+      "difficulty": {
+        "level": 6,
+        "basis": "weblio_30_to_10",
+        "web": 7,
+        "raw": 1083,
+        "official": [],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "プロボクサー",
+      "source_record": 12710,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 354,
+      "part_of_speech": "名",
+      "sense_sha256": "324bc0f1bb1b509e53562e5bd3fe2f44788dfd944d06d3e29a22e699b982c77a",
+      "composition": "A professional boxer trains inside a boxing ring, punching a coach's raised mitts while wearing padded gloves.",
+      "image_checks": {
+        "literal_filename": "pug@peuk.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 378,
+      "word": "ramp",
+      "ordered_roots": [
+        "(s)kerb-"
+      ],
+      "filename": "ramp@skerb.png",
+      "difficulty": {
+        "level": 6,
+        "basis": "weblio_30_to_10",
+        "web": 8,
+        "raw": 1045,
+        "official": [
+          {
+            "pos": "noun",
+            "level": "B2"
+          }
+        ],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "後脚で立つ",
+      "source_record": 12966,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 361,
+      "part_of_speech": "動",
+      "sense_sha256": "319c1a0862a419cc06342106ba6f81ada2d4624153bec2017e31c0294262b9ee",
+      "composition": "A horse ramps onto its hind legs with forelegs raised, while the handler stays safely to one side holding the lead.",
+      "image_checks": {
+        "literal_filename": "ramp@skerb.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 394,
+      "word": "sewer",
+      "ordered_roots": [
+        "ad-",
+        "sed-"
+      ],
+      "filename": "sewer@ad-sed.png",
+      "difficulty": {
+        "level": 6,
+        "basis": "weblio_30_to_10",
+        "web": 9,
+        "raw": 1438,
+        "official": [],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "給仕長",
+      "source_record": 14371,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 375,
+      "part_of_speech": "名",
+      "sense_sha256": "6fe40fa90897de8a1758e8bef39888954ad829f43d93759ed2c226fdd09115a5",
+      "composition": "A chief dining steward directs two servers carrying covered platters toward a formally laid long dining table.",
+      "image_checks": {
+        "literal_filename": "sewer@ad-sed.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 420,
+      "word": "utterance",
+      "ordered_roots": [
+        "ud-",
+        "al-1"
+      ],
+      "filename": "utterance@ud-al1.png",
+      "difficulty": {
+        "level": 6,
+        "basis": "weblio_30_to_10",
+        "web": 8,
+        "raw": 1458,
+        "official": [],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "最後",
+      "source_record": 16644,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 399,
+      "part_of_speech": "名",
+      "sense_sha256": "41d8b643a1debd81bcc82ab0bbbd69c3916aa9328ac87da487145c4ac1853e3f",
+      "composition": "The last visitor leaves a theater as the attendant closes the doors behind the now-empty rows of seats.",
+      "image_checks": {
+        "literal_filename": "utterance@ud-al1.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 472,
+      "word": "aural",
+      "ordered_roots": [
+        "wer-2"
+      ],
+      "filename": "aural@wer2.png",
+      "difficulty": {
+        "level": 7,
+        "basis": "weblio_30_to_10",
+        "web": 13,
+        "raw": 1517,
+        "official": [],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "オーラの",
+      "source_record": 1277,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 448,
+      "part_of_speech": "形",
+      "sense_sha256": "a2b481b708569388cc0b0ef366a57bef6cc99311659a6cee97177fa1de83dd08",
+      "composition": "A calm fantasy figure has a soft luminous aura surrounding the body, with the glow remaining close to the silhouette.",
+      "image_checks": {
+        "literal_filename": "aural@wer2.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 476,
+      "word": "bale",
+      "ordered_roots": [
+        "bhel-u-"
+      ],
+      "filename": "bale@bhelu.png",
+      "difficulty": {
+        "level": 7,
+        "basis": "weblio_30_to_10",
+        "web": 11,
+        "raw": 1417,
+        "official": [],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "災い",
+      "source_record": 1409,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 452,
+      "part_of_speech": "名",
+      "sense_sha256": "b3becbb1e4a591d2e1476724692bde8a41b767deef0b010ecb34caacbce3240a",
+      "composition": "A flood brings calamity to a village street, with damaged carts and residents carrying belongings toward higher ground.",
+      "image_checks": {
+        "literal_filename": "bale@bhelu.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 483,
+      "word": "barrow",
+      "ordered_roots": [
+        "bhergh-2"
+      ],
+      "filename": "barrow@bhergh2.png",
+      "difficulty": {
+        "level": 7,
+        "basis": "weblio_30_to_10",
+        "web": 11,
+        "raw": 1290,
+        "official": [],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "古墳",
+      "source_record": 1485,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 458,
+      "part_of_speech": "名",
+      "sense_sha256": "3becbc8393a07ad45fb28f87548905d95e77580f2b7ec1c1fba4b5c18ba56d56",
+      "composition": "A low ancient burial mound has a stone-lined entrance and grassy sides rising above the surrounding field.",
+      "image_checks": {
+        "literal_filename": "barrow@bhergh2.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 487,
+      "word": "beck",
+      "ordered_roots": [
+        "bhegʷ-"
+      ],
+      "filename": "beck@bhegw.png",
+      "difficulty": {
+        "level": 7,
+        "basis": "weblio_30_to_10",
+        "web": 12,
+        "raw": 1010,
+        "official": [],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "小川",
+      "source_record": 1552,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 462,
+      "part_of_speech": "名",
+      "sense_sha256": "5b4b31ec1278bb8a95a702fa2e305fd65bece63eeeb96e125bc9c4ee4feb4f06",
+      "composition": "A clear shallow beck winds between mossy stones beneath a small wooden footbridge in a meadow.",
+      "image_checks": {
+        "literal_filename": "beck@bhegw.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 509,
+      "word": "bower",
+      "ordered_roots": [
+        "bheug-3"
+      ],
+      "filename": "bower@bheug3.png",
+      "difficulty": {
+        "level": 7,
+        "basis": "weblio_30_to_10",
+        "web": 11,
+        "raw": 978,
+        "official": [],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "大錨",
+      "source_record": 1930,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 484,
+      "part_of_speech": "名",
+      "sense_sha256": "799dbe2dc9bc94d098874dfd1955da074eecf368a6dff08e0a2b572dfca142f4",
+      "composition": "A large bower anchor rests on a ship's bow roller, with a heavy chain attached through its ring.",
+      "image_checks": {
+        "literal_filename": "bower@bheug3.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 516,
+      "word": "brazier",
+      "ordered_roots": [
+        "bhreuə-"
+      ],
+      "filename": "brazier@bhreue.png",
+      "difficulty": {
+        "level": 7,
+        "basis": "weblio_30_to_10",
+        "web": 13,
+        "raw": 1066,
+        "official": [],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "火ばち",
+      "source_record": 1972,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 491,
+      "part_of_speech": "名",
+      "sense_sha256": "d7618356eff83e923ed52e46cd93ea62583b7cfe20f1113175e1a56c22e6b4fe",
+      "composition": "A metal brazier holds glowing coals on short legs, with a kettle warming safely above the rim.",
+      "image_checks": {
+        "literal_filename": "brazier@bhreue.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 548,
+      "word": "cleave",
+      "ordered_roots": [
+        "gleibh-"
+      ],
+      "filename": "cleave@gleibh.png",
+      "difficulty": {
+        "level": 7,
+        "basis": "weblio_30_to_10",
+        "web": 11,
+        "raw": 1226,
+        "official": [],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "くっつく",
+      "source_record": 2813,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 519,
+      "part_of_speech": "動",
+      "sense_sha256": "3bb6412407ce6f562a990e65d20e3e841b690df453d4f291cd9ba00718ec0438",
+      "composition": "A climbing vine cleaves firmly to a stone wall, with small attaching roots holding the stems close to the surface.",
+      "image_checks": {
+        "literal_filename": "cleave@gleibh.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 618,
+      "word": "dole",
+      "ordered_roots": [
+        "dail-"
+      ],
+      "filename": "dole@dail.png",
+      "difficulty": {
+        "level": 7,
+        "basis": "weblio_30_to_10",
+        "web": 12,
+        "raw": 1078,
+        "official": [],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "施し物",
+      "source_record": 4661,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 582,
+      "part_of_speech": "名",
+      "sense_sha256": "668fa0b47ffbe84ca452588a1cb4558b7dd9bce93d7d28432c88814ae922dec0",
+      "composition": "A volunteer places a loaf of bread into an impoverished adult's outstretched hands beside a modest food stall.",
+      "image_checks": {
+        "literal_filename": "dole@dail.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 619,
+      "word": "dole",
+      "ordered_roots": [
+        "del(ə)-"
+      ],
+      "filename": "dole@dele.png",
+      "difficulty": {
+        "level": 7,
+        "basis": "weblio_30_to_10",
+        "web": 12,
+        "raw": 1009,
+        "official": [],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "悲しみ",
+      "source_record": 4662,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 583,
+      "part_of_speech": "名/動",
+      "sense_sha256": "db6c117ab3cdf90e3142322865ff4769cdb80482a86e225877cc2cba878637c9",
+      "composition": "A grieving adult sits alone beside a wilted bouquet, shoulders hunched and tears falling onto clasped hands.",
+      "image_checks": {
+        "literal_filename": "dole@dele.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 663,
+      "word": "fawn",
+      "ordered_roots": [
+        "dhē(i)-"
+      ],
+      "filename": "fawn@dhei.png",
+      "difficulty": {
+        "level": 7,
+        "basis": "weblio_30_to_10",
+        "web": 11,
+        "raw": 1030,
+        "official": [],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "子鹿",
+      "source_record": 5922,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 624,
+      "part_of_speech": "名",
+      "sense_sha256": "948b7cd9b06a45a300be4a5015a3825fdca15e5b079388eb7d6211891fe86ba6",
+      "composition": "A spotted fawn stands on slender legs beside a fern, its large ears upright and its mother nearby.",
+      "image_checks": {
+        "literal_filename": "fawn@dhei.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 664,
+      "word": "fawn",
+      "ordered_roots": [
+        "pek-1"
+      ],
+      "filename": "fawn@pek1.png",
+      "difficulty": {
+        "level": 7,
+        "basis": "weblio_30_to_10",
+        "web": 11,
+        "raw": 1141,
+        "official": [],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "こびへつらう",
+      "source_record": 5921,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 625,
+      "part_of_speech": "動",
+      "sense_sha256": "b98042fa2c8f053ec7e618369a91cd9ecb9ca066924d6b22da5778fbd078de60",
+      "composition": "An employee bends eagerly toward a supervisor, polishing the supervisor's shoes while offering a flattering ingratiating smile.",
+      "image_checks": {
+        "literal_filename": "fawn@pek1.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 667,
+      "word": "ferret",
+      "ordered_roots": [
+        "bhel-3"
+      ],
+      "filename": "ferret@bhel3.png",
+      "difficulty": {
+        "level": 7,
+        "basis": "weblio_30_to_10",
+        "web": 10,
+        "raw": 1034,
+        "official": [],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "細幅リボン",
+      "source_record": 5991,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 628,
+      "part_of_speech": "名",
+      "sense_sha256": "e54839025b11b9159575451858037d1c4eee16bc66ff6448ab3e87d7fa92da7c",
+      "composition": "A narrow woven ribbon winds off a small spool, its slim flat strip looping across a sewing table.",
+      "image_checks": {
+        "literal_filename": "ferret@bhel3.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 668,
+      "word": "feud",
+      "ordered_roots": [
+        "peku-"
+      ],
+      "filename": "feud@peku.png",
+      "difficulty": {
+        "level": 7,
+        "basis": "weblio_30_to_10",
+        "web": 11,
+        "raw": 1483,
+        "official": [],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "封土",
+      "source_record": 6019,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 629,
+      "part_of_speech": "名",
+      "sense_sha256": "b738ba80222344482f1b6200a51d7d1fba14b30bdf68ceca3474c724aa8a05ca",
+      "composition": "A medieval lord grants a kneeling vassal a folded land deed, with the granted fields and manor visible behind them.",
+      "image_checks": {
+        "literal_filename": "feud@peku.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 682,
+      "word": "flounder",
+      "ordered_roots": [
+        "bhudh-"
+      ],
+      "filename": "flounder@bhudh.png",
+      "difficulty": {
+        "level": 7,
+        "basis": "weblio_30_to_10",
+        "web": 11,
+        "raw": 1032,
+        "official": [],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "もがく",
+      "source_record": 6198,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 642,
+      "part_of_speech": "名/動",
+      "sense_sha256": "cec0fc87694327ecfbd01ac9537c3b72bb5f88aba19eafd80903cc7efa1d8217",
+      "composition": "A person struggles knee-deep in sticky mud, pulling one trapped boot while spreading both arms for balance.",
+      "image_checks": {
+        "literal_filename": "flounder@bhudh.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 684,
+      "word": "font",
+      "ordered_roots": [
+        "dhen-1"
+      ],
+      "filename": "font@dhen1.png",
+      "difficulty": {
+        "level": 7,
+        "basis": "weblio_30_to_10",
+        "web": 11,
+        "raw": 1064,
+        "official": [],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "洗礼盤",
+      "source_record": 6255,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 644,
+      "part_of_speech": "名",
+      "sense_sha256": "8716e4d456673d23030ffc54bf14d0de627e248b7a71d06025eba920d39cd0c9",
+      "composition": "A stone baptismal font stands inside a simple church, its broad shallow basin filled with clear water.",
+      "image_checks": {
+        "literal_filename": "font@dhen1.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 734,
+      "word": "hale",
+      "ordered_roots": [
+        "kailo-"
+      ],
+      "filename": "hale@kailo.png",
+      "difficulty": {
+        "level": 7,
+        "basis": "weblio_30_to_10",
+        "web": 11,
+        "raw": 1186,
+        "official": [],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "強健な",
+      "source_record": 7128,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 693,
+      "part_of_speech": "形",
+      "sense_sha256": "7f57020e40cfaa3b03e2a6e72431f71053bc8165461e8fb47b685c2f833a08f1",
+      "composition": "A hale older adult carries two full watering cans steadily across a garden, standing upright with an energetic smile.",
+      "image_checks": {
+        "literal_filename": "hale@kailo.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 735,
+      "word": "hale",
+      "ordered_roots": [
+        "kelə-2"
+      ],
+      "filename": "hale@kele2.png",
+      "difficulty": {
+        "level": 7,
+        "basis": "weblio_30_to_10",
+        "web": 11,
+        "raw": 1287,
+        "official": [],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "引きずる",
+      "source_record": 7129,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 694,
+      "part_of_speech": "動",
+      "sense_sha256": "001ec03a4244a41c36a7f331b423801d1854e750d7c971b677cea86b58b36b78",
+      "composition": "A worker drags a heavy sack across a rough floor, leaning backward and gripping its tied mouth tightly.",
+      "image_checks": {
+        "literal_filename": "hale@kele2.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 755,
+      "word": "helm",
+      "ordered_roots": [
+        "kel-2"
+      ],
+      "filename": "helm@kel2.png",
+      "difficulty": {
+        "level": 7,
+        "basis": "weblio_30_to_10",
+        "web": 10,
+        "raw": 1252,
+        "official": [],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "かぶと",
+      "source_record": 7300,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 713,
+      "part_of_speech": "名",
+      "sense_sha256": "ac54aaeaa6da09a7e4c58f3080ac62c9410b72f023d00e72b4c19dcf41597ba1",
+      "composition": "A medieval helmet rests on a wooden bench, showing its rounded metal shell, nose guard and leather chin strap.",
+      "image_checks": {
+        "literal_filename": "helm@kel2.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 791,
+      "word": "installment",
+      "ordered_roots": [
+        "en",
+        "stel-"
+      ],
+      "filename": "installment@en-stel.png",
+      "difficulty": {
+        "level": 7,
+        "basis": "weblio_30_to_10",
+        "web": 10,
+        "raw": 1360,
+        "official": [],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "取付け",
+      "source_record": 8219,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 744,
+      "part_of_speech": "名",
+      "sense_sha256": "96dcc6a852257377bd32e197f5c26e607804dc86869e40e3edb2157064ebabdc",
+      "composition": "A technician installs a wall-mounted lamp, securing its base above a workbench with the power disconnected.",
+      "image_checks": {
+        "literal_filename": "installment@en-stel.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 878,
+      "word": "mead",
+      "ordered_roots": [
+        "mē-4"
+      ],
+      "filename": "mead@me4.png",
+      "difficulty": {
+        "level": 7,
+        "basis": "weblio_30_to_10",
+        "web": 13,
+        "raw": 1426,
+        "official": [],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "牧草地",
+      "source_record": 9563,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 819,
+      "part_of_speech": "名",
+      "sense_sha256": "899bc77b7653cfa98320d965f0702657befb99ab81395ceccf860ef02d1b7b6e",
+      "composition": "A lush meadow contains tall pasture grass and small wildflowers, with a grazing cow near a low fence.",
+      "image_checks": {
+        "literal_filename": "mead@me4.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 903,
+      "word": "moot",
+      "ordered_roots": [
+        "mōd-"
+      ],
+      "filename": "moot@mod.png",
+      "difficulty": {
+        "level": 7,
+        "basis": "weblio_30_to_10",
+        "web": 12,
+        "raw": 990,
+        "official": [],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "論じる",
+      "source_record": 10055,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 839,
+      "part_of_speech": "名/動",
+      "sense_sha256": "150db5b48d808fc63bcca39e856f6adb12f1fa6826b6ca87e0331390be6f997a",
+      "composition": "Two committee members discuss a proposed bridge model, pointing to different routes while colleagues consider their arguments.",
+      "image_checks": {
+        "literal_filename": "moot@mod.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 922,
+      "word": "nave",
+      "ordered_roots": [
+        "nobh-"
+      ],
+      "filename": "nave@nobh.png",
+      "difficulty": {
+        "level": 7,
+        "basis": "weblio_30_to_10",
+        "web": 11,
+        "raw": 1310,
+        "official": [],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "こしき",
+      "source_record": 10303,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 855,
+      "part_of_speech": "名",
+      "sense_sha256": "be0e35714fb399de0ee28a3b38b8aa20cc047f190b2a71b7117dc615849b9964",
+      "composition": "A wooden wagon wheel is shown close up, with spokes radiating into a thick central hub around the axle.",
+      "image_checks": {
+        "literal_filename": "nave@nobh.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 948,
+      "word": "ooze",
+      "ordered_roots": [
+        "weis-"
+      ],
+      "filename": "ooze@weis.png",
+      "difficulty": {
+        "level": 7,
+        "basis": "weblio_30_to_10",
+        "web": 11,
+        "raw": 1063,
+        "official": [],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "軟泥",
+      "source_record": 10834,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 873,
+      "part_of_speech": "名",
+      "sense_sha256": "eb8b55ddc25a98f7e1828a9b05ab9eac016316115ea3aaa9cd7c15036a856a79",
+      "composition": "A boot sinks into soft wet ooze at a river margin, with thick mud bulging around its sole.",
+      "image_checks": {
+        "literal_filename": "ooze@weis.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 968,
+      "word": "palsy",
+      "ordered_roots": [
+        "bhrāter-"
+      ],
+      "filename": "palsy@bhrater.png",
+      "difficulty": {
+        "level": 7,
+        "basis": "weblio_30_to_10",
+        "web": 13,
+        "raw": 1328,
+        "official": [],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "仲がよい",
+      "source_record": 11176,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 890,
+      "part_of_speech": "形",
+      "sense_sha256": "9668581d0d9af3d131b6a61bdc642141e605fd576030e678e5c06540d3d9f880",
+      "composition": "Two close friends walk with arms around each other's shoulders, sharing a cheerful private joke on a park path.",
+      "image_checks": {
+        "literal_filename": "palsy@bhrater.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 987,
+      "word": "pelt",
+      "ordered_roots": [
+        "pel-4"
+      ],
+      "filename": "pelt@pel4.png",
+      "difficulty": {
+        "level": 7,
+        "basis": "weblio_30_to_10",
+        "web": 11,
+        "raw": 977,
+        "official": [],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "生皮",
+      "source_record": 11471,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 906,
+      "part_of_speech": "名/動",
+      "sense_sha256": "23337c823ff554cf8245cb3d7fc11744f6f88466527b2c09e86786171cded097",
+      "composition": "An unprocessed animal hide lies flat on a worktable, showing the hair side folded back over the raw underside.",
+      "image_checks": {
+        "literal_filename": "pelt@pel4.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 988,
+      "word": "pelt",
+      "ordered_roots": [
+        "pel-6"
+      ],
+      "filename": "pelt@pel6.png",
+      "difficulty": {
+        "level": 7,
+        "basis": "weblio_30_to_10",
+        "web": 11,
+        "raw": 1127,
+        "official": [],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "投げつける",
+      "source_record": 11472,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 907,
+      "part_of_speech": "名/動",
+      "sense_sha256": "2c03d43481bdc9da2756d8ea7cd3dc2d80a4862ac4b875ca4d23caa87ca692a6",
+      "composition": "A child pelts a sturdy wooden target with soft snowballs, one arm swinging forward beside a small ammunition pile.",
+      "image_checks": {
+        "literal_filename": "pelt@pel6.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 1019,
+      "word": "pounce",
+      "ordered_roots": [
+        "(s)poi-mo-"
+      ],
+      "filename": "pounce@spoimo.png",
+      "difficulty": {
+        "level": 7,
+        "basis": "weblio_30_to_10",
+        "web": 11,
+        "raw": 1661,
+        "official": [],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "にじみ止め粉",
+      "source_record": 12222,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 931,
+      "part_of_speech": "名/動",
+      "sense_sha256": "5c6c1b1d8cd7c000ade01193d871d775d992f8b5464b31fa5e3b6a5ea526f39c",
+      "composition": "An artisan dusts a freshly written parchment with fine pounce powder, shaking it from a small perforated container.",
+      "image_checks": {
+        "literal_filename": "pounce@spoimo.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 1040,
+      "word": "quash",
+      "ordered_roots": [
+        "kes-2"
+      ],
+      "filename": "quash@kes2.png",
+      "difficulty": {
+        "level": 7,
+        "basis": "weblio_30_to_10",
+        "web": 11,
+        "raw": 1049,
+        "official": [],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "無効にする",
+      "source_record": 12853,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 948,
+      "part_of_speech": "動",
+      "sense_sha256": "0d025a01e194eef3e1c70d4692a8377e557ec5f7c8d767a18753a4101f10e1fe",
+      "composition": "A judge renders a permit invalid by cutting its official ribbon, while an unused blank replacement remains aside.",
+      "image_checks": {
+        "literal_filename": "quash@kes2.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 1041,
+      "word": "quash",
+      "ordered_roots": [
+        "kwēt-"
+      ],
+      "filename": "quash@kwet.png",
+      "difficulty": {
+        "level": 7,
+        "basis": "weblio_30_to_10",
+        "web": 11,
+        "raw": 1349,
+        "official": [],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "鎮圧する",
+      "source_record": 12854,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 949,
+      "part_of_speech": "動",
+      "sense_sha256": "7cf4f1286a54a9214a1cb2e2857eb43bae40fb97da1aaf1883e16d0789e093c3",
+      "composition": "Police contain a violent street disturbance behind shields, separating opposing groups without striking anyone or showing injuries.",
+      "image_checks": {
+        "literal_filename": "quash@kwet.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 1046,
+      "word": "quid",
+      "ordered_roots": [
+        "gʷet-1"
+      ],
+      "filename": "quid@gwet1.png",
+      "difficulty": {
+        "level": 7,
+        "basis": "weblio_30_to_10",
+        "web": 10,
+        "raw": 1206,
+        "official": [],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "かみタバコのひとかみ分",
+      "source_record": 12878,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 954,
+      "part_of_speech": "名",
+      "sense_sha256": "25c8ec0f7086ce1ede10736576df55c91940878c19f7d5e53101cbb32c66f2f2",
+      "composition": "A small folded plug of chewing tobacco rests beside its open unbranded pouch, with no person consuming it.",
+      "image_checks": {
+        "literal_filename": "quid@gwet1.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 1060,
+      "word": "raven",
+      "ordered_roots": [
+        "rep-"
+      ],
+      "filename": "raven@rep.png",
+      "difficulty": {
+        "level": 7,
+        "basis": "weblio_30_to_10",
+        "web": 10,
+        "raw": 1489,
+        "official": [],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "略奪する",
+      "source_record": 13032,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 964,
+      "part_of_speech": "動",
+      "sense_sha256": "9dab2539cb6d7d8a257421f258bb6def34a64fb85773dd8b21433c37d1686141",
+      "composition": "A marauder seizes a basket of food from a market stall, fleeing while the stallholder reaches after it.",
+      "image_checks": {
+        "literal_filename": "raven@rep.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 1100,
+      "word": "roe",
+      "ordered_roots": [
+        "rei-2"
+      ],
+      "filename": "roe@rei2.png",
+      "difficulty": {
+        "level": 7,
+        "basis": "weblio_30_to_10",
+        "web": 13,
+        "raw": 1454,
+        "official": [],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "ノロジカ",
+      "source_record": 13695,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 997,
+      "part_of_speech": "名",
+      "sense_sha256": "8a4dd601aed883c1751f23a580aa627258905a4d55fa65535c041ecda16b0ce3",
+      "composition": "A roe deer stands at a woodland margin, showing its small slender body, short tail and white rump patch.",
+      "image_checks": {
+        "literal_filename": "roe@rei2.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 1104,
+      "word": "rote",
+      "ordered_roots": [
+        "reu-"
+      ],
+      "filename": "rote@reu.png",
+      "difficulty": {
+        "level": 7,
+        "basis": "weblio_30_to_10",
+        "web": 12,
+        "raw": 1075,
+        "official": [],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "岸に砕ける波の音",
+      "source_record": 13730,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 1000,
+      "part_of_speech": "名",
+      "sense_sha256": "c5a5573507c76664f7829d1e88871f266f983310990db9d423bd82ddc7e8b446",
+      "composition": "Waves break rhythmically against a rocky shore, with curling foam and small sound vibration marks beside the impact.",
+      "image_checks": {
+        "literal_filename": "rote@reu.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 1105,
+      "word": "rout",
+      "ordered_roots": [
+        "reu-"
+      ],
+      "filename": "rout@reu.png",
+      "difficulty": {
+        "level": 7,
+        "basis": "weblio_30_to_10",
+        "web": 11,
+        "raw": 1456,
+        "official": [],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "牛がモーと鳴く",
+      "source_record": 13749,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 1001,
+      "part_of_speech": "動",
+      "sense_sha256": "7c09fe9e1b289f3ed81ea0c895826433d570df76ab6a860e48f512096e2f6d2c",
+      "composition": "A cow opens its mouth to moo beside a field gate, stretching its neck toward the waiting farmer.",
+      "image_checks": {
+        "literal_filename": "rout@reu.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 1106,
+      "word": "rout",
+      "ordered_roots": [
+        "reup-"
+      ],
+      "filename": "rout@reup.png",
+      "difficulty": {
+        "level": 7,
+        "basis": "weblio_30_to_10",
+        "web": 11,
+        "raw": 971,
+        "official": [],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "大敗北",
+      "source_record": 13747,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 1002,
+      "part_of_speech": "名",
+      "sense_sha256": "82e5da1789afe30c80cd74541125141a7fec539330a66d8b22f65e6c70983c0e",
+      "composition": "A defeated team trudges away from a game, with collapsed shoulders while the opposing team celebrates an overwhelming victory.",
+      "image_checks": {
+        "literal_filename": "rout@reup.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 1107,
+      "word": "rout",
+      "ordered_roots": [
+        "wrōd-"
+      ],
+      "filename": "rout@wrod.png",
+      "difficulty": {
+        "level": 7,
+        "basis": "weblio_30_to_10",
+        "web": 11,
+        "raw": 1156,
+        "official": [],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "鼻先で地面を掘る",
+      "source_record": 13748,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 1003,
+      "part_of_speech": "動",
+      "sense_sha256": "d53e7c4b05e212d8d53f8c158dd204389fb4868c025eecc970c21f3180295665",
+      "composition": "A pig roots into soft ground with its snout, pushing a small mound of earth aside beneath its nose.",
+      "image_checks": {
+        "literal_filename": "rout@wrod.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 1118,
+      "word": "scour",
+      "ordered_roots": [
+        "kēw-(e)ro-"
+      ],
+      "filename": "scour@kewero.png",
+      "difficulty": {
+        "level": 7,
+        "basis": "weblio_30_to_10",
+        "web": 11,
+        "raw": 1014,
+        "official": [],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "捜し回る",
+      "source_record": 14100,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 1012,
+      "part_of_speech": "動",
+      "sense_sha256": "28861c30080cc46ce71eb36113431a28b0203141700f0fd25f3f56b660ca189e",
+      "composition": "Two people scour a room for a missing key, lifting cushions and looking beneath a small cabinet.",
+      "image_checks": {
+        "literal_filename": "scour@kewero.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 1126,
+      "word": "sear",
+      "ordered_roots": [
+        "saus-"
+      ],
+      "filename": "sear@saus.png",
+      "difficulty": {
+        "level": 7,
+        "basis": "weblio_30_to_10",
+        "web": 10,
+        "raw": 1125,
+        "official": [],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "焼く",
+      "source_record": 14151,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 1020,
+      "part_of_speech": "動",
+      "sense_sha256": "8ea8e20c2c08284c10fff866a418acffed362e82396379cf1e62b91bba3d26bf",
+      "composition": "A cook sears a steak in a hot skillet, revealing a deeply browned surface while turning it with tongs.",
+      "image_checks": {
+        "literal_filename": "sear@saus.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 1127,
+      "word": "sear",
+      "ordered_roots": [
+        "ser-3"
+      ],
+      "filename": "sear@ser3.png",
+      "difficulty": {
+        "level": 7,
+        "basis": "weblio_30_to_10",
+        "web": 10,
+        "raw": 1166,
+        "official": [],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "逆鉤",
+      "source_record": 14152,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 1021,
+      "part_of_speech": "名",
+      "sense_sha256": "272d5398655c7418cdf1b034fc481ef040f2a2b32893fcd1d2149193c79d0499",
+      "composition": "A large fishing hook is shown close up, with its small backward-facing barb clearly projecting beside the pointed tip.",
+      "image_checks": {
+        "literal_filename": "sear@ser3.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 1149,
+      "word": "sic",
+      "ordered_roots": [
+        "sāg-"
+      ],
+      "filename": "sic@sag.png",
+      "difficulty": {
+        "level": 7,
+        "basis": "weblio_30_to_10",
+        "web": 13,
+        "raw": 1348,
+        "official": [],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "けしかける",
+      "source_record": 14482,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 1039,
+      "part_of_speech": "動",
+      "sense_sha256": "d513b9c51346ffd02304ce6f72a0888fc6a5d0de4133ad435362313a5461c567",
+      "composition": "A mischievous owner urges a barking dog toward a trespasser, pointing forward while the dog strains against its lead.",
+      "image_checks": {
+        "literal_filename": "sic@sag.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 1172,
+      "word": "spar",
+      "ordered_roots": [
+        "sper-1"
+      ],
+      "filename": "spar@sper1.png",
+      "difficulty": {
+        "level": 7,
+        "basis": "weblio_30_to_10",
+        "web": 12,
+        "raw": 1006,
+        "official": [],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "円材",
+      "source_record": 14838,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 1061,
+      "part_of_speech": "名",
+      "sense_sha256": "c1a597ac87923ebba4e90390e801264df99b6df0df80f65f6f62be448a1026e6",
+      "composition": "A long round wooden spar lies beside a sailing boat, with tapered ends and rigging rope attached around it.",
+      "image_checks": {
+        "literal_filename": "spar@sper1.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 1180,
+      "word": "spire",
+      "ordered_roots": [
+        "sper-2"
+      ],
+      "filename": "spire@sper2.png",
+      "difficulty": {
+        "level": 7,
+        "basis": "weblio_30_to_10",
+        "web": 10,
+        "raw": 1365,
+        "official": [],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "らせん",
+      "source_record": 14906,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 1068,
+      "part_of_speech": "名",
+      "sense_sha256": "5e160a7c79f90fcb119505b54b9a766c09df6c3d9ce016e5bdb8b07e1addeea6",
+      "composition": "A single coiled wire forms a clean rising spiral, with each turn evenly spaced around the central axis.",
+      "image_checks": {
+        "literal_filename": "spire@sper2.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 1257,
+      "word": "tusk",
+      "ordered_roots": [
+        "dent-"
+      ],
+      "filename": "tusk@dent.png",
+      "difficulty": {
+        "level": 7,
+        "basis": "weblio_30_to_10",
+        "web": 13,
+        "raw": 1068,
+        "official": [],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "牙",
+      "source_record": 16392,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 1137,
+      "part_of_speech": "名",
+      "sense_sha256": "b8ebe0b1d13d2c0c88387806b7fe453902a61750e68d758bf775f8a6e5eb8562",
+      "composition": "An elephant's head is shown in profile, emphasizing one long curved ivory tusk projecting beside the trunk.",
+      "image_checks": {
+        "literal_filename": "tusk@dent.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 1641,
+      "word": "broil",
+      "ordered_roots": [
+        "bhreuə-"
+      ],
+      "filename": "broil@bhreue.png",
+      "difficulty": {
+        "level": 8,
+        "basis": "weblio_30_to_10",
+        "web": 14,
+        "raw": 1534,
+        "official": [],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "けんか",
+      "source_record": 2024,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 1443,
+      "part_of_speech": "名/動",
+      "sense_sha256": "7f9afa6b98f0b7ab2287baa3deae9529411ece3d511920875d1dfbe8f9866438",
+      "composition": "Two adults quarrel face to face over a damaged fence, gesturing angrily while remaining physically separated.",
+      "image_checks": {
+        "literal_filename": "broil@bhreue.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 1642,
+      "word": "broil",
+      "ordered_roots": [
+        "eus-"
+      ],
+      "filename": "broil@eus.png",
+      "difficulty": {
+        "level": 8,
+        "basis": "weblio_30_to_10",
+        "web": 14,
+        "raw": 1084,
+        "official": [],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "直火で焼く",
+      "source_record": 2023,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 1444,
+      "part_of_speech": "名/動",
+      "sense_sha256": "c285de8422210c84f68bab24e76e182b0e0751ef9adedbfea751673b5fa13502",
+      "composition": "A cook broils fish beneath a direct overhead heating element, with its top surface browning above a shallow drip tray.",
+      "image_checks": {
+        "literal_filename": "broil@eus.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 2082,
+      "word": "eke",
+      "ordered_roots": [
+        "aug-"
+      ],
+      "filename": "eke@aug.png",
+      "difficulty": {
+        "level": 8,
+        "basis": "weblio_30_to_10",
+        "web": 17,
+        "raw": 1069,
+        "official": [],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "補う",
+      "source_record": 5029,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 1798,
+      "part_of_speech": "動",
+      "sense_sha256": "39b0c70bfbf1a3443db2def750ade5509a95a9c76ae85b44af5f7f66fb6cf539",
+      "composition": "An adult supplements a small soup portion by adding beans from another bowl, making the meal visibly more substantial.",
+      "image_checks": {
+        "literal_filename": "eke@aug.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    },
+    {
+      "candidate_rank": 2262,
+      "word": "forbear",
+      "ordered_roots": [
+        "per1"
+      ],
+      "filename": "forbear@per1.png",
+      "difficulty": {
+        "level": 8,
+        "basis": "weblio_30_to_10",
+        "web": 14,
+        "raw": 1374,
+        "official": [],
+        "confidence": "provisional",
+        "note": "Weblio Lvを主指標にした独自10段階への対応。CEFR-J・Ngramとの単純平均は行わない。"
+      },
+      "first_ja": "先祖",
+      "source_record": 6277,
+      "specificity_review": "Individually authored concrete subject, action or physical properties and spatial relationship; Japanese target read alongside composition.",
+      "csv_record": 1944,
+      "part_of_speech": "名",
+      "sense_sha256": "965030cfb3a2250dad458715de90eef0f1a1de8491f57109a22e4b4374c56d33",
+      "composition": "A family examines a portrait of a distant ancestor, with several older generations connected through an illustrated family-tree arrangement.",
+      "image_checks": {
+        "literal_filename": "forbear@per1.png",
+        "runtime_mapped_art": null,
+        "runtime_pica": null,
+        "official_absent": true,
+        "staging_absent": true
+      }
+    }
+  ],
+  "git": {
+    "etymolingo": {
+      "head": "aa3c52819f28b88642b2ce9aa5647ae11cb1ffb4",
+      "status": [
+        " M app/data/generated-etymon/csv-illustration-scenes.js",
+        " M app/data/generated-etymon/illustration-review-status.js",
+        " M app/data/generated-etymon/illustration-scenes.json",
+        " M app/data/generated-etymon/manifest.json",
+        " M app/etymon-explorer.html",
+        " M app/shared/illustration-scenes.js",
+        " M app/shared/illustration-scenes.test.cjs",
+        " M assets/word/illustration-index.js",
+        " M work/etymopedia/prompt_review_pending.csv",
+        " M work/etymopedia/test_workflow_io.py",
+        " M work/etymopedia/workflow_io.py",
+        "?? work/etymopedia/.workflow/audit_caption_import_20261027.py",
+        "?? work/etymopedia/.workflow/caption-import-20261027/",
+        "?? work/etymopedia/.workflow/difficulty-prompts-20261027/",
+        "?? work/etymopedia/.workflow/select_difficulty_prompts_20261027.py",
+        "?? work/etymopedia/prompt_rows_difficulty_low_missing_20261027.csv",
+        "?? work/etymopedia/prompt_rows_image_meaning_fixes_20261027.csv"
+      ],
+      "stash_count": 5
+    },
+    "etymon-source": {
+      "head": "38f7f8c74e35593e1951fe28c345a721a4b7c05c",
+      "status": [
+        " M app/data/csv-illustration-scenes.json",
+        " M tools/dictionary-audit-20261026/metadata-exceptions.csv",
+        " M tools/dictionary-audit-20261026/metadata-summary.json",
+        " M tools/illustration_scenes.py",
+        " M tools/import_reviewed_csv_scenes.py",
+        " M tools/test_illustration_scenes.py",
+        "?? app/data/.~lock.weblio_words_extended.csv#",
+        "?? docs/english_dictionary_audit_20261026.md",
+        "?? tools/reconcile_reviewed_csv_scenes.py",
+        "?? tools/test_reconcile_reviewed_csv_scenes.py",
+        "?? work/complete_language_review_20261026.py",
+        "?? work/metadata-audit-before-20261026/",
+        "?? work/paraphrase_length_before_20261026.json",
+        "?? work/paraphrase_length_expected_after_20261026.json",
+        "?? work/paraphrase_length_review_20261026.csv",
+        "?? work/paraphrase_length_review_before_20261026.csv",
+        "?? work/paraphrase_words_baseline_20261026.json",
+        "?? work/write_language_review_20261026.py",
+        "?? work/write_paraphrase_fixes_20261026.py"
+      ],
+      "stash_count": 3
+    }
+  },
+  "issues": [],
+  "scope": {
+    "image_generation": 0,
+    "PNG_copy_or_replacement": 0,
+    "commit": 0,
+    "push": 0,
+    "pull": 0,
+    "meaning_or_paraphrase_edits": 0
+  }
+}

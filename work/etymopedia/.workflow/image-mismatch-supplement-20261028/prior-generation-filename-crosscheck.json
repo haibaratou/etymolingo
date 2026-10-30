@@ -1,0 +1,706 @@
+[
+  {
+    "path": "work\\etymopedia\\prompt_review_pending.csv",
+    "record": 16,
+    "row": {
+      "ファイル名": "drop.png",
+      "単語": "drop",
+      "問題": "語義不一致／対象描写の不備。対象ID=drop / 語根ID=dhreu- / imagePath=assets/word/drop.png / 画像Git blob=fb3b90716e47cee85f33bce50d681b8ad5110682。個別目視理由：鍵を落とす動作で、しずくというdropの語義は示されない。 同綴り別語義・語形の混同を確認し、代表語義に合う画像へ要修正。語根ID・正式ファイル名を保持。他の語義の画像へ上書きしない。原典語義の確認が必要な場合は親側で確認してから再生成（この作業ではpieへアクセスしない）。低得点のみを登録基準にしていない。",
+      "発見バッチ": "puzzle-visual-batch-003",
+      "状態": "要再生成（語義確認後）"
+    }
+  },
+  {
+    "path": "work\\etymopedia\\prompt_review_pending.csv",
+    "record": 23,
+    "row": {
+      "ファイル名": "Rome.png",
+      "単語": "Rome",
+      "問題": "語義不一致／対象描写の不備。対象ID=Rome / 語根ID= / imagePath=assets/word/Rome.png / 画像Git blob=beb7a8810bc8948c486e651dfa9c308cebec6786。個別目視理由：男性の顔だけで都市Romeは示されない。 同綴り別語義・語形の混同を確認し、代表語義に合う画像へ要修正。語根ID・正式ファイル名を保持。他の語義の画像へ上書きしない。原典語義の確認が必要な場合は親側で確認してから再生成（この作業ではpieへアクセスしない）。低得点のみを登録基準にしていない。",
+      "発見バッチ": "puzzle-visual-batch-004",
+      "状態": "要再生成（語義確認後）"
+    }
+  },
+  {
+    "path": "work\\etymopedia\\prompt_review_pending.csv",
+    "record": 25,
+    "row": {
+      "ファイル名": "card.png",
+      "単語": "card",
+      "問題": "語義不一致／対象描写の不備。対象ID=card / 語根ID=kars- / imagePath=assets/word/card.png / 画像Git blob=7c5e10510154f1e72ea2b0a71540492c19fa6199。個別目視理由：カードの絵で、すきぐしというcardの語義は示されない。 同綴り別語義・語形の混同を確認し、代表語義に合う画像へ要修正。語根ID・正式ファイル名を保持。他の語義の画像へ上書きしない。原典語義の確認が必要な場合は親側で確認してから再生成（この作業ではpieへアクセスしない）。低得点のみを登録基準にしていない。",
+      "発見バッチ": "puzzle-visual-batch-004",
+      "状態": "要再生成（語義確認後）"
+    }
+  },
+  {
+    "path": "work\\etymopedia\\prompt_review_pending.csv",
+    "record": 26,
+    "row": {
+      "ファイル名": "Berlin.png",
+      "単語": "Berlin",
+      "問題": "語義不一致／対象描写の不備。対象ID=Berlin / 語根ID= / imagePath=assets/word/Berlin.png / 画像Git blob=be7f33ce744f2a8dcae637f00ba09968a7f8ea29。個別目視理由：男性の顔だけで都市ベルリンを特定する根拠がない。 同綴り別語義・語形の混同を確認し、代表語義に合う画像へ要修正。語根ID・正式ファイル名を保持。他の語義の画像へ上書きしない。原典語義の確認が必要な場合は親側で確認してから再生成（この作業ではpieへアクセスしない）。低得点のみを登録基準にしていない。",
+      "発見バッチ": "puzzle-visual-batch-005",
+      "状態": "要再生成（語義確認後）"
+    }
+  },
+  {
+    "path": "work\\etymopedia\\prompt_review_pending.csv",
+    "record": 27,
+    "row": {
+      "ファイル名": "Virginia.png",
+      "単語": "Virginia",
+      "問題": "語義不一致／対象描写の不備。対象ID=Virginia / 語根ID= / imagePath=assets/word/Virginia.png / 画像Git blob=cea441ee13a60b060c67356e6c7c8c380d10b1e2。個別目視理由：女性の肖像だけで州名バージニアを識別する根拠がない。 同綴り別語義・語形の混同を確認し、代表語義に合う画像へ要修正。語根ID・正式ファイル名を保持。他の語義の画像へ上書きしない。原典語義の確認が必要な場合は親側で確認してから再生成（この作業ではpieへアクセスしない）。低得点のみを登録基準にしていない。",
+      "発見バッチ": "puzzle-visual-batch-005",
+      "状態": "要再生成（語義確認後）"
+    }
+  },
+  {
+    "path": "work\\etymopedia\\prompt_review_pending.csv",
+    "record": 28,
+    "row": {
+      "ファイル名": "Acts.png",
+      "単語": "Acts",
+      "問題": "語義不一致／対象描写の不備。対象ID=Acts / 語根ID= / imagePath=assets/word/Acts.png / 画像Git blob=4ee1deb8119b407d168457afd31f082460f31bb7。個別目視理由：男性の肖像だけで使徒言行録という書名を推測できない。 同綴り別語義・語形の混同を確認し、代表語義に合う画像へ要修正。語根ID・正式ファイル名を保持。他の語義の画像へ上書きしない。原典語義の確認が必要な場合は親側で確認してから再生成（この作業ではpieへアクセスしない）。低得点のみを登録基準にしていない。",
+      "発見バッチ": "puzzle-visual-batch-005",
+      "状態": "要再生成（語義確認後）"
+    }
+  },
+  {
+    "path": "work\\etymopedia\\prompt_review_pending.csv",
+    "record": 30,
+    "row": {
+      "ファイル名": "ate@x.png",
+      "単語": "ate",
+      "問題": "語義不一致／対象描写の不備。対象ID=ate@x / 語根ID= / imagePath=assets/word/ate@x.png / 画像Git blob=0beef5925eccbabc25d1e149c21e331afdcb0dc4。個別目視理由：破片の横に立つ古代風の人物は食べたという動作を示していない。 同綴り別語義・語形の混同を確認し、代表語義に合う画像へ要修正。語根ID・正式ファイル名を保持。他の語義の画像へ上書きしない。原典語義の確認が必要な場合は親側で確認してから再生成（この作業ではpieへアクセスしない）。低得点のみを登録基準にしていない。",
+      "発見バッチ": "puzzle-visual-batch-005",
+      "状態": "要再生成（語義確認後）"
+    }
+  },
+  {
+    "path": "work\\etymopedia\\prompt_review_pending.csv",
+    "record": 31,
+    "row": {
+      "ファイル名": "Switzerland.png",
+      "単語": "Switzerland",
+      "問題": "語義不一致／対象描写の不備。対象ID=Switzerland / 語根ID=lendh-2 / imagePath=assets/word/Switzerland.png / 画像Git blob=701a5c4dbf29d67cb911cef49c7f2524c3e57af0。個別目視理由：女性の肖像からスイスという国を特定できない。 同綴り別語義・語形の混同を確認し、代表語義に合う画像へ要修正。語根ID・正式ファイル名を保持。他の語義の画像へ上書きしない。原典語義の確認が必要な場合は親側で確認してから再生成（この作業ではpieへアクセスしない）。低得点のみを登録基準にしていない。",
+      "発見バッチ": "puzzle-visual-batch-006",
+      "状態": "要再生成（語義確認後）"
+    }
+  },
+  {
+    "path": "work\\etymopedia\\prompt_review_pending.csv",
+    "record": 32,
+    "row": {
+      "ファイル名": "Brazil.png",
+      "単語": "Brazil",
+      "問題": "語義不一致／対象描写の不備。対象ID=Brazil / 語根ID=bhreuə- / imagePath=assets/word/Brazil.png / 画像Git blob=6a17aef5b59cde2ed875369799f83cff8f228cdf。個別目視理由：男性の肖像からブラジルという国を特定できない。 同綴り別語義・語形の混同を確認し、代表語義に合う画像へ要修正。語根ID・正式ファイル名を保持。他の語義の画像へ上書きしない。原典語義の確認が必要な場合は親側で確認してから再生成（この作業ではpieへアクセスしない）。低得点のみを登録基準にしていない。",
+      "発見バッチ": "puzzle-visual-batch-006",
+      "状態": "要再生成（語義確認後）"
+    }
+  },
+  {
+    "path": "work\\etymopedia\\prompt_review_pending.csv",
+    "record": 33,
+    "row": {
+      "ファイル名": "RNA.png",
+      "単語": "RNA",
+      "問題": "語義不一致／対象描写の不備。対象ID=RNA / 語根ID= / imagePath=assets/word/RNA.png / 画像Git blob=33d756c0f20078d82bb2a84795596aefeb08a534。個別目視理由：男性の肖像はリボ核酸の構造を示していない。 同綴り別語義・語形の混同を確認し、代表語義に合う画像へ要修正。語根ID・正式ファイル名を保持。他の語義の画像へ上書きしない。原典語義の確認が必要な場合は親側で確認してから再生成（この作業ではpieへアクセスしない）。低得点のみを登録基準にしていない。",
+      "発見バッチ": "puzzle-visual-batch-006",
+      "状態": "要再生成（語義確認後）"
+    }
+  },
+  {
+    "path": "work\\etymopedia\\prompt_review_pending.csv",
+    "record": 34,
+    "row": {
+      "ファイル名": "Scotland.png",
+      "単語": "Scotland",
+      "問題": "語義不一致／対象描写の不備。対象ID=Scotland / 語根ID=lendh-2 / imagePath=assets/word/Scotland.png / 画像Git blob=68586082af2f89c85bdbdfa70290cd00b6433676。個別目視理由：男性の肖像にスコットランド固有の要素がない。 同綴り別語義・語形の混同を確認し、代表語義に合う画像へ要修正。語根ID・正式ファイル名を保持。他の語義の画像へ上書きしない。原典語義の確認が必要な場合は親側で確認してから再生成（この作業ではpieへアクセスしない）。低得点のみを登録基準にしていない。",
+      "発見バッチ": "puzzle-visual-batch-006",
+      "状態": "要再生成（語義確認後）"
+    }
+  },
+  {
+    "path": "work\\etymopedia\\prompt_review_pending.csv",
+    "record": 35,
+    "row": {
+      "ファイル名": "Reading.png",
+      "単語": "Reading",
+      "問題": "語義不一致／対象描写の不備。対象ID=Reading / 語根ID= / imagePath=assets/word/Reading.png / 画像Git blob=517bd1b5836586c05cddc81731f2037dff459794。個別目視理由：女性の肖像で読むことという対象語義は示されていない。 同綴り別語義・語形の混同を確認し、代表語義に合う画像へ要修正。語根ID・正式ファイル名を保持。他の語義の画像へ上書きしない。原典語義の確認が必要な場合は親側で確認してから再生成（この作業ではpieへアクセスしない）。低得点のみを登録基準にしていない。",
+      "発見バッチ": "puzzle-visual-batch-006",
+      "状態": "要再生成（語義確認後）"
+    }
+  },
+  {
+    "path": "work\\etymopedia\\prompt_review_pending.csv",
+    "record": 36,
+    "row": {
+      "ファイル名": "woke@x.png",
+      "単語": "woke",
+      "問題": "語義不一致／対象描写の不備。対象ID=woke@x / 語根ID= / imagePath=assets/word/woke@x.png / 画像Git blob=4949c9db804092125509f4d29555ebf1c83d6f91。個別目視理由：言い争いを止める場面は目覚めたという対象語義を示していない。 同綴り別語義・語形の混同を確認し、代表語義に合う画像へ要修正。語根ID・正式ファイル名を保持。他の語義の画像へ上書きしない。原典語義の確認が必要な場合は親側で確認してから再生成（この作業ではpieへアクセスしない）。低得点のみを登録基準にしていない。",
+      "発見バッチ": "puzzle-visual-batch-006",
+      "状態": "要再生成（語義確認後）"
+    }
+  },
+  {
+    "path": "work\\etymopedia\\prompt_review_pending.csv",
+    "record": 37,
+    "row": {
+      "ファイル名": "stare.png",
+      "単語": "stare",
+      "問題": "語義不一致／対象描写の不備。対象ID=stare / 語根ID=ster-1 / imagePath=assets/word/stare.png / 画像Git blob=0c5c6ee3d10bd592926473b66c6608ac3fd19188。個別目視理由：爪付きの指だけが描かれ見つめる動作を示していない。 同綴り別語義・語形の混同を確認し、代表語義に合う画像へ要修正。語根ID・正式ファイル名を保持。他の語義の画像へ上書きしない。原典語義の確認が必要な場合は親側で確認してから再生成（この作業ではpieへアクセスしない）。低得点のみを登録基準にしていない。",
+      "発見バッチ": "puzzle-visual-batch-006",
+      "状態": "要再生成（語義確認後）"
+    }
+  },
+  {
+    "path": "work\\etymopedia\\prompt_review_pending.csv",
+    "record": 42,
+    "row": {
+      "ファイル名": "spell.png",
+      "単語": "spell",
+      "問題": "語義不一致／対象描写の不備。対象ID=spell / 語根ID=spel-2 / imagePath=assets/word/spell.png / 画像Git blob=d54496db54be0152df6d82fdc380fc4fd80bc0ec。個別目視理由：図形カードを指す姿に文字をつづる手掛かりがない。 同綴り別語義・語形の混同を確認し、代表語義に合う画像へ要修正。語根ID・正式ファイル名を保持。他の語義の画像へ上書きしない。原典語義の確認が必要な場合は親側で確認してから再生成（この作業ではpieへアクセスしない）。低得点のみを登録基準にしていない。",
+      "発見バッチ": "puzzle-visual-batch-007",
+      "状態": "要再生成（語義確認後）"
+    }
+  },
+  {
+    "path": "work\\etymopedia\\prompt_review_pending.csv",
+    "record": 44,
+    "row": {
+      "ファイル名": "PhD.png",
+      "単語": "PhD",
+      "問題": "語義不一致／対象描写の不備。対象ID=PhD / 語根ID= / imagePath=assets/word/PhD.png / 画像Git blob=a60c615f84fbf6bf739cca4549baf406e4fd2cae。個別目視理由：タンパク質と分子の図で博士号という対象語義は示されない。 同綴り別語義・語形の混同を確認し、代表語義に合う画像へ要修正。語根ID・正式ファイル名を保持。他の語義の画像へ上書きしない。原典語義の確認が必要な場合は親側で確認してから再生成（この作業ではpieへアクセスしない）。低得点のみを登録基準にしていない。",
+      "発見バッチ": "puzzle-visual-batch-007",
+      "状態": "要再生成（語義確認後）"
+    }
+  },
+  {
+    "path": "work\\etymopedia\\prompt_review_pending.csv",
+    "record": 48,
+    "row": {
+      "ファイル名": "flag.png",
+      "単語": "flag",
+      "問題": "同綴異義の混同。板石に対して旗を描いている。 対象ID=flag / 語根ID=plāk-1 / 公開語義=板石。目視所見=赤い旗の絵で板石という対象語義は示されない。 ローカル画像Git blob=d5974c31a785616122c810206a7a90dc9dd69797。対象保存先=assets/word/flag.png。親が正式な第一語義と現在の公開ハッシュを確認してから、このファイルだけを修正する。他の同綴語義画像は上書き・改名しない。抽象語の低得点だけを理由とした登録ではない。 旗はflagの実在する一般的な別語義なので、画像不良と断定せず、対象の語根・同綴異義IDの区別を保った語義の追加・先頭語義の修正で整合できる可能性を親が資料確認する。板石の語義も保持する。",
+      "発見バッチ": "puzzle-visual-review-20261019-batch-008",
+      "状態": "要確認（語義整合・画像対応）"
+    }
+  },
+  {
+    "path": "work\\etymopedia\\prompt_review_pending.csv",
+    "record": 50,
+    "row": {
+      "ファイル名": "ex-.png",
+      "単語": "ex-",
+      "問題": "接頭辞の語義混同。元・前に対して外へ出る図になっている。 対象ID=ex- / 語根ID=公開出力で未設定 / 公開語義=元〜、前〜。目視所見=かごを出る鳥は外へを示すが元という対象語義は弱い。 ローカル画像Git blob=ff582f0d35f4912a91ccd9eb67735bceeb7e5990。対象保存先=assets/word/ex-.png。親が正式な第一語義と現在の公開ハッシュを確認してから、このファイルだけを修正する。他の同綴語義画像は上書き・改名しない。抽象語の低得点だけを理由とした登録ではない。 外へはex-の実在する別の接頭辞語義なので、語義の追加・先頭語義の修正で整合できる可能性を親が資料確認する。元・前の重要語義も保持する。",
+      "発見バッチ": "puzzle-visual-review-20261019-batch-008",
+      "状態": "要確認（語義整合・画像対応）"
+    }
+  },
+  {
+    "path": "work\\etymopedia\\prompt_review_pending.csv",
+    "record": 51,
+    "row": {
+      "ファイル名": "lighting.png",
+      "単語": "lighting",
+      "問題": "語義混同。点火に対して室内照明を描いている。 対象ID=lighting / 語根ID=公開出力で未設定 / 公開語義=点火。目視所見=点灯した室内灯は照明であり点火の動作を示さない。 ローカル画像Git blob=92623536bc5911a11aae0df2fa799847ee67d383。対象保存先=assets/word/lighting.png。親が正式な第一語義と現在の公開ハッシュを確認してから、このファイルだけを修正する。他の同綴語義画像は上書き・改名しない。抽象語の低得点だけを理由とした登録ではない。 照明はlightingの実在する一般的な語義なので、画像不良と断定せず、辞書資料確認後に語義の追加・先頭語義の修正と重要な他語義の保持で整合できる可能性も検討する。",
+      "発見バッチ": "puzzle-visual-review-20261019-batch-008",
+      "状態": "要確認（語義整合・画像対応）"
+    }
+  },
+  {
+    "path": "work\\etymopedia\\prompt_review_pending.csv",
+    "record": 52,
+    "row": {
+      "ファイル名": "intrinsic.png",
+      "単語": "intrinsic",
+      "問題": "無関係な物体への置換。本質的な性質に対して糸巻きのみを描いている。 対象ID=intrinsic / 語根ID=en|sekʷ-1 / 公開語義=本質的な。目視所見=糸巻きと糸だけで本質的という意味は示されない。 ローカル画像Git blob=e489a8cabad2dd4bb500a5a6a83b112f14315bee。対象保存先=assets/word/intrinsic.png。親が正式な第一語義と現在の公開ハッシュを確認してから、このファイルだけを修正する。他の同綴語義画像は上書き・改名しない。抽象語の低得点だけを理由とした登録ではない。",
+      "発見バッチ": "puzzle-visual-review-20261019-batch-008",
+      "状態": "要再生成（語義確認後）"
+    }
+  },
+  {
+    "path": "work\\etymopedia\\prompt_review_pending.csv",
+    "record": 56,
+    "row": {
+      "ファイル名": "inter-.png",
+      "単語": "inter-",
+      "問題": "接頭辞と動詞の混同。間・相互に対して埋葬する動詞interの絵になっている。 対象ID=inter- / 語根ID=公開出力で未設定 / 公開語義=間の、相互の。目視所見=土中へ箱を埋める動作であり間や相互という接頭辞の意味を示していない。 ローカル画像Git blob=d83181456685bf75f3666a84946b32c6859d81fb。対象保存先=assets/word/inter-.png。親が正式な第一語義と現在の公開ハッシュを確認してから、このファイルだけを修正する。他の同綴語義画像は上書き・改名しない。抽象語の低得点だけを理由とした登録ではない。 埋葬する動詞interは実在するが接頭辞inter-とは別語である。別IDとの画像対応を親が確認する。",
+      "発見バッチ": "puzzle-visual-review-20261019-batch-008",
+      "状態": "要確認（語義整合・画像対応）"
+    }
+  },
+  {
+    "path": "work\\etymopedia\\prompt_review_pending.csv",
+    "record": 57,
+    "row": {
+      "ファイル名": "sixteen.png",
+      "単語": "sixteen",
+      "問題": "描写の明確な数の誤り。サクランボは三行四列の12個で16ではない。正しい16個の配置にする候補。 対象ID=sixteen / 語根ID=s(w)eks|dekm̥ / 公開語義=16。目視所見=皿のサクランボは三行四列の12個で16を示していない。 ローカル画像Git blob=47be7a56898a774d947b8459215d39978343cb38。保存先=assets/word/sixteen.png。親が正式資料と現在の公開画像SHAを照合するまで辞書・画像を変更しない。他の同綴語義画像を上書き・改名しない。低スコアのみを理由とした登録ではない。",
+      "発見バッチ": "puzzle-visual-review-20261019-batch-009",
+      "状態": "要再生成（数の描写確認後）"
+    }
+  },
+  {
+    "path": "work\\etymopedia\\prompt_review_pending.csv",
+    "record": 61,
+    "row": {
+      "ファイル名": "counter-.png",
+      "単語": "counter-",
+      "問題": "語義・ID確認候補。接頭辞counter-の対象なのに公開和訳と画像が店の名詞counterになっている。名詞counterの実在語義に画像を対応させる可能性と、接頭辞の別IDへの分離を正式資料で親が確認する。画像不良と即断せず主要な反対・逆の接頭辞語義も保持する。 対象ID=counter- / 語根ID=公開出力で未設定 / 公開語義=カウンター。目視所見=店のカウンターを描き接頭辞counter-の意味は示していない。公開和訳とのID対応も確認が必要。 ローカル画像Git blob=57573264b38662ac76a338754fe388fc103bac4f。保存先=assets/word/counter-.png。親が正式資料と現在の公開画像SHAを照合するまで辞書・画像を変更しない。他の同綴語義画像を上書き・改名しない。低スコアのみを理由とした登録ではない。",
+      "発見バッチ": "puzzle-visual-review-20261019-batch-010",
+      "状態": "要確認（語義・ID対応）"
+    }
+  },
+  {
+    "path": "work\\etymopedia\\prompt_review_pending.csv",
+    "record": 66,
+    "row": {
+      "ファイル名": "contradiction.png",
+      "単語": "contradiction",
+      "問題": "描写内容の確認候補。積み木が崩れる図で、両立しない二つの主張・状態という矛盾の関係が示されていない。崩壊・不安定さを描く画像との対応混同か親が確認する。 対象ID=contradiction / 語根ID=kom|deik- / 公開語義=矛盾。目視所見=積み木が崩れる図だけで相反する主張や状態の矛盾は示されない。 ローカル画像Git blob=84c4a75f8722514ec58a37b48d40efe3be6279f9。保存先=assets/word/contradiction.png。親が正式資料と現在の公開画像SHAを照合するまで辞書・画像を変更しない。他の同綴語義画像を上書き・改名しない。低スコアのみを理由とした登録ではない。実在する別語義で整合できる場合は資料確認後の語義追加・先頭語義修正と重要な他語義の保持も検討する。",
+      "発見バッチ": "puzzle-visual-review-20261019-batch-011",
+      "状態": "要確認（描写内容・画像対応）"
+    }
+  },
+  {
+    "path": "work\\etymopedia\\prompt_review_pending.csv",
+    "record": 69,
+    "row": {
+      "ファイル名": "pipes.png",
+      "単語": "pipes",
+      "問題": "描写対象と画像対応の確認候補。公開語義はパイプ・管だが現在画像は無記名の六員環分子模型で管がない。分子名や略称など別IDとの混同の有無を正式資料で確認し、通常の管の語義を保持して画像対応を判断する。 対象ID=pipes / 語根ID=公開出力で未設定 / 公開語義=パイプ、管。目視所見=六員環の分子模型だけであり管や笛など通常のpipesの物体が見えない。 ローカル画像Git blob=56cc8f3ad79579730015b5c765d543185b1ab490。保存先=assets/word/pipes.png。親が正式資料と現在の公開画像SHAを照合するまで辞書・画像を変更しない。他の同綴語義画像を上書き・改名しない。低スコアのみを理由とした登録ではない。",
+      "発見バッチ": "puzzle-visual-review-20261019-batch-012",
+      "状態": "要確認（語義・ID・画像対応）"
+    }
+  },
+  {
+    "path": "work\\etymopedia\\prompt_review_pending.csv",
+    "record": 71,
+    "row": {
+      "ファイル名": "cab.png",
+      "単語": "cab",
+      "問題": "語義・ID確認候補。公開先頭語義はタクシー・運転席だが画像は葡萄と赤ワイン。cabernetの略称として実在する語義との対応が考えられるため正式資料を確認する。整合する一般的な別義を確認できれば語義追加・先頭語義修正も検討し、タクシー等の重要な他語義を保持する。画像がワインだからという理由だけで新語義を作らない。 対象ID=cab / 語根ID=公開出力で未設定 / 公開語義=タクシー、運転席。目視所見=葡萄と赤ワインは見えるがタクシーはなくワイン品種略称か語義IDの確認が必要。 ローカル画像Git blob=f6df092d49c403de686b77417eaab1f20d051799。保存先=assets/word/cab.png。親が正式資料と現在の公開画像SHAを照合するまで辞書・画像を変更しない。他の同綴語義画像を上書き・改名しない。低スコアのみを理由とした登録ではない。",
+      "発見バッチ": "puzzle-visual-review-20261019-batch-012",
+      "状態": "要確認（語義整合・画像対応）"
+    }
+  },
+  {
+    "path": "work\\etymopedia\\prompt_review_pending.csv",
+    "record": 72,
+    "row": {
+      "ファイル名": "turnover.png",
+      "単語": "turnover",
+      "問題": "語義・ID確認候補。公開語義は売上高・入れ替わりだが画像は裏返った舟。turn overの動詞と名詞turnoverの語義・品詞・画像ID対応を正式資料で確認する。実在して一般に使われる転覆・反転の語義と整合するなら語義追加・先頭語義修正も検討し、売上高等の重要な他語義を保持する。画像に合わせた架空語義は追加しない。 対象ID=turnover / 語根ID=公開出力で未設定 / 公開語義=売上高、入れ替わり。目視所見=舟が裏返って浮く姿で転覆は見えるが名詞turnoverの対象語義は確認が要る。 ローカル画像Git blob=54593c0954f92e6aae8e911b6547c14c96c685d5。保存先=assets/word/turnover.png。親が正式資料と現在の公開画像SHAを照合するまで辞書・画像を変更しない。他の同綴語義画像を上書き・改名しない。低スコアのみを理由とした登録ではない。",
+      "発見バッチ": "puzzle-visual-review-20261019-batch-012",
+      "状態": "要確認（語義・品詞・ID）"
+    }
+  },
+  {
+    "path": "work\\etymopedia\\prompt_review_pending.csv",
+    "record": 74,
+    "row": {
+      "ファイル名": "NATO.png",
+      "単語": "NATO",
+      "問題": "描写対象・画像対応確認候補。複数の子の作業を一人が制止する図で、防衛同盟や加盟国の連携を示す対象が描かれていない。画像IDや生成時の別語との対応を正式資料で確認する。 対象ID=NATO / 語根ID=公開出力で未設定 / 公開日本語=北大西洋条約機構 / 公開英語=defense alliance。目視所見=子供の作業を止める男性が描かれるだけでNATOという同盟組織の特徴がない。 ローカル画像Git blob=22a090e11dc46892218a42a28217f3d53be3a868。保存先=assets/word/NATO.png。親が正式資料と現在の公開画像SHAを照合するまで辞書・画像を変更しない。他の同綴語義画像を上書き・改名しない。低スコアのみを理由とした登録ではない。",
+      "発見バッチ": "puzzle-visual-review-20261019-batch-013",
+      "状態": "要確認（描写内容・画像対応）"
+    }
+  },
+  {
+    "path": "work\\etymopedia\\prompt_review_pending.csv",
+    "record": 75,
+    "row": {
+      "ファイル名": "tops.png",
+      "単語": "tops",
+      "問題": "語義・ID確認候補。画像は木星に近い宇宙探査機だが公開語義は最上・最高。別の略称・固有名への画像対応かを正式資料で確認し、実在する一般的別義なら語義追加・先頭語義修正も検討する。最高の意味など重要な他語義は保持し、画像に合わせた架空語義を作らない。 対象ID=tops / 語根ID=公開出力で未設定 / 公開日本語=最上の、最高の / 公開英語=best / topmost。目視所見=木星近くの宇宙探査機であり頂上や最高を示す手掛かりはない。 ローカル画像Git blob=1368105d7e70b8bec7a0f1201aaa4b23cb6b5e0f。保存先=assets/word/tops.png。親が正式資料と現在の公開画像SHAを照合するまで辞書・画像を変更しない。他の同綴語義画像を上書き・改名しない。低スコアのみを理由とした登録ではない。",
+      "発見バッチ": "puzzle-visual-review-20261019-batch-013",
+      "状態": "要確認（語義・ID・画像対応）"
+    }
+  },
+  {
+    "path": "work\\etymopedia\\prompt_review_pending.csv",
+    "record": 77,
+    "row": {
+      "ファイル名": "sandy.png",
+      "単語": "sandy",
+      "問題": "語義・ID確認候補。現在画像は女性の肖像で公開語義は砂の・砂っぽい。実在する人名Sandyとの混同を正式資料で確認する。人名を保持する場合も砂質という重要な形容詞義を失わないよう別義・別IDを整理し、必要なら資料に基づく語義追加や先頭語義修正を検討する。 対象ID=sandy / 語根ID=公開出力で未設定 / 公開日本語=砂の、砂っぽい / 公開英語=sandy / gritty。目視所見=普通の女性の肖像だけでサンディという人名か砂質かを特定できない。 ローカル画像Git blob=21fd116be84bf6ea98f6bb4e825d0ae3ebb458f9。保存先=assets/word/sandy.png。親が正式資料と現在の公開画像SHAを照合するまで辞書・画像を変更しない。他の同綴語義画像を上書き・改名しない。低スコアのみを理由とした登録ではない。",
+      "発見バッチ": "puzzle-visual-review-20261019-batch-013",
+      "状態": "要確認（人名・語義・ID）"
+    }
+  },
+  {
+    "path": "work\\etymopedia\\prompt_review_pending.csv",
+    "record": 78,
+    "row": {
+      "ファイル名": "super-.png",
+      "単語": "super-",
+      "問題": "語義・ID確認候補。公開語義は超・上位の接頭辞だが画像は鍵束と工具を持つ集合住宅管理者。superというsuperintendentの実在する略称との対応を正式資料で確認する。語義追加・先頭語義修正を検討する場合も接頭辞の意味と別IDを保護し、画像に合わせた新語義は作らない。 対象ID=super- / 語根ID=公開出力で未設定 / 公開日本語=超〜、上位の / 公開英語=above / super。目視所見=鍵束と工具を持つ集合住宅の管理者でsuperの略称の可能性はあるが接頭辞は不明。 ローカル画像Git blob=4f7b694943a395bfc685e8c80dbb9a0bf4c20fca。保存先=assets/word/super-.png。親が正式資料と現在の公開画像SHAを照合するまで辞書・画像を変更しない。他の同綴語義画像を上書き・改名しない。低スコアのみを理由とした登録ではない。",
+      "発見バッチ": "puzzle-visual-review-20261019-batch-013",
+      "状態": "要確認（略語・接頭辞・ID）"
+    }
+  },
+  {
+    "path": "work\\etymopedia\\prompt_review_pending.csv",
+    "record": 99,
+    "row": {
+      "ファイル名": "tempered.png",
+      "単語": "tempered",
+      "問題": "語義・ID確認候補。画像は積木で遊ぶ冷静な子と怒る子で、日本語の気質のに対応する可能性があるが、英語は熱処理・強化ガラスの限定義。複合語内の気質と焼戻しの意味を保持して日英説明・語IDを確認する。 公開日本語=気質の / 公開英語=treated by tempering; especially, of glass : treated so as to impart increased strength and the property of shattering into pellets when broken。対象ID=tempered / 語根ID=公開出力で未設定。ローカル画像Git blob=f3075926dbadeaad9df4836846cd4cc2163deaff。保存先=assets/word/tempered.png。親が正式資料と現在の公開画像SHAを照合するまで辞書・画像を変更しない。画像に合わせた架空語義を作らず、実在する一般的な語義の追加・第一語義の整理を検討する場合も重要な他語義を保持する。同綴異義語の画像を上書き・改名しない。低点のみを理由とした登録でも、自動再生成指示でもない。",
+      "発見バッチ": "puzzle-visual-review-20261019-batch-017",
+      "状態": "要確認（語義・ID・画像対応）"
+    }
+  },
+  {
+    "path": "work\\etymopedia\\prompt_review_pending.csv",
+    "record": 105,
+    "row": {
+      "ファイル名": "gig.png",
+      "単語": "gig",
+      "問題": "語義・ID確認候補。画像は多叉の槍で魚を突く場面だが、公開語義は演奏・仕事。魚突き道具として実在するgigの語義・同綴異義IDを正式資料で確認し、演奏や仕事の意味も保持する。 公開日本語=演奏、仕事 / 公開英語=performance / job。対象ID=gig / 語根ID=公開出力で未設定。ローカル画像Git blob=98a19bc125abf5bbcd5d51f2b8d6fb6fdbc92cc4。保存先=assets/word/gig.png。親が正式資料と現在の公開画像SHAを照合するまで辞書・画像を変更しない。実在する一般的な意味の追加や第一語義修正を検討しても、重要な他語義を消さない。同綴異義語の画像を上書き・改名しない。低点だけを理由とした登録でも、自動再生成指示でもない。",
+      "発見バッチ": "puzzle-visual-review-20261019-batch-018",
+      "状態": "要確認（語義・ID・画像対応）"
+    }
+  },
+  {
+    "path": "work\\etymopedia\\prompt_review_pending.csv",
+    "record": 111,
+    "row": {
+      "ファイル名": "Panama.png",
+      "単語": "Panama",
+      "問題": "語義・ID確認候補。画像はパナマ帽だが公開英語はcountry。国Panamaと帽子panamaの実在する語義・大小文字・語IDを正式資料で確認する。帽子の画像を国の画像へ変更する前に意味を整理する。 公開日本語=パナマ / 公開英語=country。対象ID=Panama / 語根ID=公開出力で未設定。ローカル画像Git blob=2d8ec9929e0e7c72ba575e35226707443a42c8d1。保存先=assets/word/Panama.png。親が正式資料と現在の公開画像SHAを照合するまで辞書・画像を変更しない。実在する一般的な意味の追加や第一語義修正を検討しても、重要な他語義を消さない。同綴異義語の画像を上書き・改名しない。低点だけを理由とした登録でも、自動再生成指示でもない。",
+      "発見バッチ": "puzzle-visual-review-20261019-batch-018",
+      "状態": "要確認（語義・ID・画像対応）"
+    }
+  },
+  {
+    "path": "work\\etymopedia\\prompt_review_pending.csv",
+    "record": 112,
+    "row": {
+      "ファイル名": "Saturn.png",
+      "単語": "Saturn",
+      "問題": "語義・ID確認候補。画像は鎌と穀物を持つ古代の農耕神でSaturn神の意味に合うが、公開語義は土星・planet。神名と惑星名の実在する意味を保持して正式な語ID・第一語義を確認する。 公開日本語=土星 / 公開英語=planet。対象ID=Saturn / 語根ID=公開出力で未設定。ローカル画像Git blob=e320ec6aa4cf57beb6fa21b72952d9e7bdc29740。保存先=assets/word/Saturn.png。親が正式資料と現在の公開画像SHAを照合するまで辞書・画像を変更しない。実在する一般的な意味の追加や第一語義修正を検討しても、重要な他語義を消さない。同綴異義語の画像を上書き・改名しない。低点だけを理由とした登録でも、自動再生成指示でもない。",
+      "発見バッチ": "puzzle-visual-review-20261019-batch-018",
+      "状態": "要確認（語義・ID・画像対応）"
+    }
+  },
+  {
+    "path": "work\\etymopedia\\prompt_review_pending.csv",
+    "record": 113,
+    "row": {
+      "ファイル名": "upgrade.png",
+      "単語": "upgrade",
+      "問題": "語義・ID確認候補。画像は自転車で上り坂を進む場面だが公開語義は改良・更新。上り勾配・上り坂としての実在するupgradeの語義と、機能向上の意味を正式資料で確認し、両義と名詞・動詞の語IDを整理する。 公開日本語=改良、更新 / 公開英語=improvement / update。対象ID=upgrade / 語根ID=公開出力で未設定。ローカル画像Git blob=44fd283cfa25c19b91d5f18faa33ce714d7d9434。保存先=assets/word/upgrade.png。親が正式資料と現在の公開画像SHAを照合するまで辞書・画像を変更しない。実在する一般的な意味の追加や第一語義修正を検討しても、重要な他語義を消さない。同綴異義語の画像を上書き・改名しない。低点だけを理由とした登録でも、自動再生成指示でもない。",
+      "発見バッチ": "puzzle-visual-review-20261019-batch-018",
+      "状態": "要確認（語義・ID・画像対応）"
+    }
+  },
+  {
+    "path": "work\\etymopedia\\prompt_review_pending.csv",
+    "record": 116,
+    "row": {
+      "ファイル名": "sepsis.png",
+      "単語": "sepsis",
+      "問題": "語義・ID確認候補。画像は腐敗した林檎。日本語は敗血症と腐敗を並記するが英語と説明文は現在の医学用語としての敗血症を示す。古い腐敗の意味と現行医学語義の優先順・IDを正式資料で確認する。 公開日本語=敗血症、腐敗 / 公開英語=a potentially life-threatening, systemic response of the immune system that results from the spread of pathogenic agents (such as bacteria or viruses) and their toxins to the bloodstream from a localized infection (as of the lungs), that involves both inflammatory and immunosuppressive activity, that is marked especially by fever, chills, rapid heart rate and breathing, fatigue, confusion, increased blood coagulation, hypotension, impaired microcirculation, and organ dysfunction, and that may progress to septic shock。対象ID=sepsis / 語根ID=公開出力で未設定。ローカル画像Git blob=2bdef767889842881b56c7636c46088ec75db03b。保存先=assets/word/sepsis.png。親が正式資料と現在の公開画像SHAを照合するまで辞書・画像を変更しない。重要な他語義を消さず、同綴異義画像を上書き・改名しない。自動再生成の指示ではない。",
+      "発見バッチ": "puzzle-visual-review-20261019-batch-019",
+      "状態": "要確認（語義・ID・画像対応）"
+    }
+  },
+  {
+    "path": "work\\etymopedia\\prompt_review_pending.csv",
+    "record": 118,
+    "row": {
+      "ファイル名": "Anglican.png",
+      "単語": "Anglican",
+      "問題": "明確な画像対応問題。画像は風車と田園景観で、日英語義の聖公会の信徒・聖公会との関係を示さない。正式語義とID、現在公開画像SHAを確認した後に再生成要否を決める。 公開日本語=聖公会の信徒、聖公会の / 公開英語=Anglican church member / relating to Anglican churches。対象ID=Anglican / 語根ID=公開出力で未設定。ローカル画像Git blob=2ab87d7a1fa99865f52b881107495aa7abea597f。保存先=assets/word/Anglican.png。親が正式資料と現在の公開画像SHAを照合するまで辞書・画像を変更しない。重要な他語義を消さず、同綴異義画像を上書き・改名しない。自動再生成の指示ではない。",
+      "発見バッチ": "puzzle-visual-review-20261019-batch-019",
+      "状態": "要再生成（語義・ID確認後）"
+    }
+  },
+  {
+    "path": "work\\etymopedia\\prompt_review_pending.csv",
+    "record": 119,
+    "row": {
+      "ファイル名": "deliverance.png",
+      "単語": "deliverance",
+      "問題": "語義・ID確認候補。画像は出産直後の母子で日本語の出産と対応するが、英語と説明文は解放・救済を中心にする。歴史的な出産の意味と現在の中心語義の優先順を確認する。 公開日本語=出産、発話 / 公開英語=the act of delivering someone or something : the state of being delivered; especially : liberation, rescue。対象ID=deliverance / 語根ID=公開出力で未設定。ローカル画像Git blob=f4a73109063ad7509d6fbbbdac85c4775cc6e5fd。保存先=assets/word/deliverance.png。親が正式資料と現在の公開画像SHAを照合するまで辞書・画像を変更しない。重要な他語義を消さず、同綴異義画像を上書き・改名しない。自動再生成の指示ではない。",
+      "発見バッチ": "puzzle-visual-review-20261019-batch-019",
+      "状態": "要確認（語義・ID・画像対応）"
+    }
+  },
+  {
+    "path": "work\\etymopedia\\prompt_review_pending.csv",
+    "record": 122,
+    "row": {
+      "ファイル名": "pointless.png",
+      "単語": "pointless",
+      "問題": "語義・ID確認候補。画像は尖った先のない鉛筆で文字どおりのpointlessに対応し、説明文にもその用法があるが、日英の短い語義は無意味・無目的のみ。実在する文字どおりの意味の追加・優先順を確認し、無意味の重要な意味も保持する。 公開日本語=無意味な、目的のない / 公開英語=purposeless / futile。対象ID=pointless / 語根ID=公開出力で未設定。ローカル画像Git blob=e0c34f3739738b80779f8de895113faf471dcb14。保存先=assets/word/pointless.png。親が正式資料と現在の公開画像SHAを照合するまで辞書・画像を変更しない。重要な他語義を消さず、同綴異義画像を上書き・改名しない。低点だけを理由とした登録でも、自動再生成指示でもない。",
+      "発見バッチ": "puzzle-visual-review-20261019-batch-020",
+      "状態": "要確認（語義・ID・画像対応）"
+    }
+  },
+  {
+    "path": "work\\etymopedia\\prompt_review_pending.csv",
+    "record": 133,
+    "row": {
+      "ファイル名": "LXX.png",
+      "単語": "LXX",
+      "問題": "明確な数の対応問題。公開語義は70で、画像は七束の棒だが、拡大した一束の断面は十二本で十本ではない。七十を表す十本束×七の構成として成立しない。元画像と拡大監査画像を保存。正式語義・IDと現在公開SHAの確認後に再生成要否を判断する。 公開日本語=70 / 公開英語=。対象ID=LXX / 語根ID=公開出力で未設定。ローカル画像Git blob=705047870922d7068969038415b4dc09b073d1b1。保存先=assets/word/LXX.png。親が正式資料と現在の公開画像SHAを照合するまで辞書・画像を変更しない。重要な他語義を消さず、同綴異義画像を上書き・改名しない。低点だけを理由とした登録でも、自動再生成指示でもない。",
+      "発見バッチ": "puzzle-visual-review-20261019-batch-022",
+      "状態": "要再生成（語義・ID確認後）"
+    }
+  },
+  {
+    "path": "work\\etymopedia\\prompt_review_pending.csv",
+    "record": 138,
+    "row": {
+      "ファイル名": "zombie.png",
+      "単語": "zombie",
+      "問題": "【語義・ID確認候補】画像は祈られる蛇神で日本語「ヘビ神」に沿う一方、英語は死後よみがえった人。異なる語義の対応を確認。 公開出力ja=ヘビ神; en=a will-less and speechless human (as in voodoo belief and in fictional stories) held to have died and been supernaturally reanimated。wordId=zombie; rootIds=[]; imagePath=assets/word/zombie.png; local Git blob SHA=b51f498b40b0e4e27c7c597b76df416a93a6942d。母艦の正式データと現在の公開画像SHAを親で照合後に判断。同綴異義語・別語根の画像を保護。自動再生成しない。",
+      "発見バッチ": "batch-023",
+      "状態": "要確認（語義・ID・画像対応）"
+    }
+  },
+  {
+    "path": "work\\etymopedia\\prompt_review_pending.csv",
+    "record": 140,
+    "row": {
+      "ファイル名": "amygdala.png",
+      "単語": "amygdala",
+      "問題": "【語義・ID確認候補】画像は喉の左右の扁桃、日本語は「へんとう」、英語と語源説明は脳の扁桃体。器官と語義の対応を確認。 公開出力ja=へんとう; en=the one of the four basal ganglia in each cerebral hemisphere that is part of the limbic system and consists of an almond-shaped mass of gray matter in the anterior extremity of the temporal lobe —called also amygdaloid nucleus。wordId=amygdala; rootIds=[]; imagePath=assets/word/amygdala.png; local Git blob SHA=bc36b58d554c631297e82527e87d18404e45caf5。母艦の正式データと現在の公開画像SHAを親で照合後に判断。同綴異義語・別語根の画像を保護。自動再生成しない。",
+      "発見バッチ": "batch-023",
+      "状態": "要確認（語義・ID・画像対応）"
+    }
+  },
+  {
+    "path": "work\\etymopedia\\prompt_review_pending.csv",
+    "record": 142,
+    "row": {
+      "ファイル名": "creatinine.png",
+      "単語": "creatinine",
+      "問題": "【明確な画像表記不整合】環の右側炭素に二つの二重結合と一つの単結合が集まり結合次数が五。原寸で確認。結合・原子表記を化学的に検証して修正。 公開出力ja=クレアチニン; en=a white crystalline strongly basic compound C4H7N3O formed from creatine and found especially in muscle, blood, and urine。wordId=creatinine; rootIds=[]; imagePath=assets/word/creatinine.png; local Git blob SHA=5718c7a37add89fa379fa3e3b3b8dc5fd082d6ec。母艦の正式データと現在の公開画像SHAを親で照合後に判断。同綴異義語・別語根の画像を保護。自動再生成しない。",
+      "発見バッチ": "batch-023",
+      "状態": "要再生成（語義・ID確認後）"
+    }
+  },
+  {
+    "path": "work\\etymopedia\\prompt_review_pending.csv",
+    "record": 148,
+    "row": {
+      "ファイル名": "Isis.png",
+      "単語": "Isis",
+      "問題": "【語義・ID確認候補】画像はオックスフォード風の川での漕艇で日本語のアイシス川に沿う。一方、英語はエジプトの女神。地名と神名のID対応を確認。 公開出力ja=アイシス川; en=an Egyptian nature goddess and wife and sister of Osiris。wordId=Isis; rootIds=[]; imagePath=assets/word/Isis.png; local Git blob SHA=c17bb4b12b7ddaffad2ab7831ca8c16f7eb0b994。母艦の正式データと現在の公開画像SHAを親で照合後に判断。同綴異義語・別語根の画像を保護。自動再生成しない。",
+      "発見バッチ": "batch-024",
+      "状態": "要確認（語義・ID・画像対応）"
+    }
+  },
+  {
+    "path": "work\\etymopedia\\prompt_review_pending.csv",
+    "record": 161,
+    "row": {
+      "ファイル名": "ut.png",
+      "単語": "ut",
+      "問題": "jaは世界時、enは階名doの旧称ut。画像は地球儀・時計・天文台でja側。大文字UTと小文字utのID対応を確認。 語ID=ut; 語根ID=[]; image=assets/word/ut.png; Git blob SHA=89af5394c79e38c23b790b4b1a9a7bf180504106。親が正式辞書の英日語義・IDと現行公開画像SHAを確認してから判断。同綴異義語と@付きファイルを保護。低得点のみでの再生成・自動再生成は禁止。",
+      "発見バッチ": "batch-026",
+      "状態": "要確認（語義・ID・画像対応）"
+    }
+  },
+  {
+    "path": "work\\etymopedia\\prompt_review_pending.csv",
+    "record": 163,
+    "row": {
+      "ファイル名": "reticulum.png",
+      "単語": "reticulum",
+      "問題": "jaは網状組織・細網、en先頭は反芻動物の第二胃。画像は網状細胞組織でja側。 語ID=reticulum; 語根ID=[]; image=assets/word/reticulum.png; Git blob SHA=e6950fa1b2014e65cd023e4fa7df6f34f332a664。親が正式辞書の英日語義・IDと現行公開画像SHAを確認してから判断。同綴異義語と@付きファイルを保護。低得点のみでの再生成・自動再生成は禁止。",
+      "発見バッチ": "batch-026",
+      "状態": "要確認（語義・ID・画像対応）"
+    }
+  },
+  {
+    "path": "work\\etymopedia\\prompt_review_pending.csv",
+    "record": 187,
+    "row": {
+      "ファイル名": "leasing.png",
+      "単語": "leasing",
+      "問題": "語根ID leu-、英日語義とも嘘をつくことだが、画像は不動産の鍵と代金を交換する現代の賃貸leasing。同綴別語の語根・語義と画像の対応を確認。 語ID=leasing; 語根ID=leu-; image=assets/word/leasing.png; Git blob SHA=71a72671a87a9269dabe11cda4a0c8bb3b209e43。親が正式辞書の英日語義・IDと現行公開画像SHAを照合してから判断。同綴異義語と@付き画像を保護。低得点だけでの再生成・自動再生成は禁止。",
+      "発見バッチ": "batch-027",
+      "状態": "要確認（語義・ID・画像対応）"
+    }
+  },
+  {
+    "path": "work\\etymopedia\\prompt_review_pending.csv",
+    "record": 194,
+    "row": {
+      "ファイル名": "smitten.png",
+      "単語": "smitten",
+      "問題": "jaは打ちのめされた・殴られた、en先頭は恋慕に深く心を動かされた。画像はボクシングの一打を受ける場面でja側。 語ID=smitten; 語根ID=[]; image=assets/word/smitten.png; Git blob SHA=2c09bff28e1ccfe7a45f66b97769d2088bb6a08f。親が正式辞書の英日語義・IDと現行公開画像SHAを照合してから判断。同綴異義語と@付き画像を保護。低得点だけでの再生成・自動再生成は禁止。",
+      "発見バッチ": "batch-027",
+      "状態": "要確認（語義・ID・画像対応）"
+    }
+  },
+  {
+    "path": "work\\etymopedia\\prompt_review_pending.csv",
+    "record": 195,
+    "row": {
+      "ファイル名": "escalate.png",
+      "単語": "escalate",
+      "問題": "jaはエスカレーターで上がる、enは量・強度・範囲が増大する。画像は文字通りエスカレーターで上がる人。語義と品詞を確認。 語ID=escalate; 語根ID=[]; image=assets/word/escalate.png; Git blob SHA=982e45dd56cca733b9941819207df5debab4940a。親が正式辞書の英日語義・IDと現行公開画像SHAを照合してから判断。同綴異義語と@付き画像を保護。低得点だけでの再生成・自動再生成は禁止。",
+      "発見バッチ": "batch-027",
+      "状態": "要確認（語義・ID・画像対応）"
+    }
+  },
+  {
+    "path": "work\\etymopedia\\prompt_review_pending.csv",
+    "record": 211,
+    "row": {
+      "ファイル名": "techno.png",
+      "単語": "techno",
+      "問題": "enは電子ダンス音楽、jaはテクノのという曖昧な形。画像は発想・技術の図案説明で音楽要素がない。techno/techno-の語義・IDを確認してから画像対応を判断。 語ID=techno; 語根ID=[]; image=assets/word/techno.png; Git blob SHA=c4b765af61c0a39812c0204358c16bec7f35550f。親が正式辞書の英日語義・IDと現行公開画像SHAを照合してから判断。同綴異義語と@付き画像を保護。低得点だけでの再生成・自動再生成は禁止。",
+      "発見バッチ": "batch-028",
+      "状態": "要確認（語義・ID・画像対応）"
+    }
+  },
+  {
+    "path": "work\\etymopedia\\prompt_review_pending.csv",
+    "record": 221,
+    "row": {
+      "ファイル名": "Parmesan.png",
+      "単語": "Parmesan",
+      "問題": "jaはパルマの、enはチーズ。画像はパルマの宗教建築で都市側。Parmesanの形容詞・食品名とIDを確認。 語ID=Parmesan; 語根ID=[]; image=assets/word/Parmesan.png; Git blob SHA=65833595388ebca1b7156fb82fb2cd7efa052dcc。親が正式辞書の英日語義・IDと現行公開画像SHAを照合してから判断。同綴異義語と@付き画像を保護。低得点だけでの再生成・自動再生成は禁止。",
+      "発見バッチ": "batch-028",
+      "状態": "要確認（語義・ID・画像対応）"
+    }
+  },
+  {
+    "path": "work\\etymopedia\\prompt_review_pending.csv",
+    "record": 224,
+    "row": {
+      "ファイル名": "tally.png",
+      "単語": "tally",
+      "問題": "jaは割り符、en先頭は集計・勘定。画像は玉を集めて数える操作でen側。 語ID=tally; 語根ID=[]; image=assets/word/tally.png; Git blob SHA=3d0d16f5c16be2a65418a195e786f22b7fbb2b50。親が正式辞書の英日語義・IDと現行公開画像SHAを照合してから判断。同綴異義語と@付き画像を保護。低得点だけでの再生成・自動再生成は禁止。",
+      "発見バッチ": "batch-028",
+      "状態": "要確認（語義・ID・画像対応）"
+    }
+  },
+  {
+    "path": "work\\etymopedia\\prompt_review_pending.csv",
+    "record": 231,
+    "row": {
+      "ファイル名": "Europa.png",
+      "単語": "Europa",
+      "問題": "jaはユーローパ島、enはフェニキアの王女エウロペ。画像は熱帯の潟を囲む島で地理側。Europaの多義とIDを確認。 語ID=Europa; 語根ID=[]; image=assets/word/Europa.png; Git blob SHA=1dbfc9a8359a1018d17188c7d5a57b50c0d2f813。親が正式辞書の英日語義・IDと現行公開画像SHAを照合してから判断。同綴異義語と@付き画像を保護。低得点だけでの再生成・自動再生成は禁止。",
+      "発見バッチ": "batch-028",
+      "状態": "要確認（語義・ID・画像対応）"
+    }
+  },
+  {
+    "path": "work\\etymopedia\\prompt_review_pending.csv",
+    "record": 237,
+    "row": {
+      "ファイル名": "overcoat.png",
+      "単語": "overcoat",
+      "問題": "画像は厚手の上着。英語の衣服語義に合うが日本語は上塗り・保護膜。 語義・ID・画像対応の確認候補であり、低得点のみを根拠に再生成しない。公開中の画像SHAと正式辞書は親側で照合する。 wordID=overcoat; rootIDs=[]; ja=上塗り、保護膜; en=a warm coat worn over indoor clothing; image=assets/word/overcoat.png; GitBlobSHA=115905c30b274d89457ee96d43b7806b55c6ed2c",
+      "発見バッチ": "batch-029",
+      "状態": "要確認（語義・ID・画像対応）"
+    }
+  },
+  {
+    "path": "work\\etymopedia\\prompt_review_pending.csv",
+    "record": 246,
+    "row": {
+      "ファイル名": "Hiroshima.png",
+      "単語": "Hiroshima",
+      "問題": "画像は原子爆弾。日本語は広島型爆弾、英語は広島市。 語義・ID・画像対応の確認候補であり、低得点のみを根拠に再生成しない。公開中の画像SHAと正式辞書は親側で照合する。 wordID=Hiroshima; rootIDs=[]; ja=広島級の原子爆弾、広島に投下されたものと同じ威力の原子爆弾; en=city and port on the Inland Sea in southwestern Honshu, Japan; image=assets/word/Hiroshima.png; GitBlobSHA=c58a949c41e28c809e4df85f7702f32d1ea812f5",
+      "発見バッチ": "batch-029",
+      "状態": "要確認（語義・ID・画像対応）"
+    }
+  },
+  {
+    "path": "work\\etymopedia\\prompt_review_pending.csv",
+    "record": 249,
+    "row": {
+      "ファイル名": "pence.png",
+      "単語": "pence",
+      "問題": "画像は演説する白髪の政治家。英語はMike Pence、日本語のペンスが人名か貨幣単位か要確認。 語義・ID・画像対応の確認候補であり、低得点のみを根拠に再生成しない。公開中の画像SHAと正式辞書は親側で照合する。 wordID=pence; rootIDs=[]; ja=ペンス; en=Mike 1959— Michael Richard Pence American politician; vice president of the U.S. (2017—21); image=assets/word/pence.png; GitBlobSHA=24f4834c21f63b895be9d6065b99b3a51a942ceb",
+      "発見バッチ": "batch-029",
+      "状態": "要確認（語義・ID・画像対応）"
+    }
+  },
+  {
+    "path": "work\\etymopedia\\prompt_review_pending.csv",
+    "record": 262,
+    "row": {
+      "ファイル名": "trimming.png",
+      "単語": "trimming",
+      "問題": "画像は料理への香草の飾り付け。英語は追加のgarnishing、日本語は整頓。 語義・ID・画像対応の確認候補であり、低得点のみを根拠に再生成しない。公開中の画像SHAと正式辞書は親側で照合する。 wordID=trimming; rootIDs=[]; ja=整頓; en=an additional garnishing; image=assets/word/trimming.png; GitBlobSHA=0eb7325b996e5564153e2ca5d3ab013246790bc8",
+      "発見バッチ": "batch-029",
+      "状態": "要確認（語義・ID・画像対応）"
+    }
+  },
+  {
+    "path": "work\\etymopedia\\prompt_review_pending.csv",
+    "record": 265,
+    "row": {
+      "ファイル名": "arginine.png",
+      "単語": "arginine",
+      "問題": "元画像の黒い炭素球は五個。アルギニンC6に必要な側鎖メチレンが一個足りず、グアニジノ基からアルファ炭素までの鎖が短い。 明確な画像の科学的内容の不一致。正式語義・IDと公開中の画像SHAを親側で照合してから対応する。 wordID=arginine; rootIDs=['arg-']; ja=アルギニン; en=amino acid; image=assets/word/arginine.png; GitBlobSHA=770fe8ed18001fe22d9595dfab3830d6661ee9ea",
+      "発見バッチ": "batch-030",
+      "状態": "要再生成（語義・ID確認後）"
+    }
+  },
+  {
+    "path": "work\\etymopedia\\prompt_review_pending.csv",
+    "record": 267,
+    "row": {
+      "ファイル名": "unqualified.png",
+      "単語": "unqualified",
+      "問題": "画像は工作失敗を無条件に慰める姿。日本語は無条件、英語先頭語義は能力や資格がない。 語義・ID・画像対応の確認候補であり、低得点のみを根拠に再生成しない。公開中の画像SHAと正式辞書は親側で照合する。 wordID=unqualified; rootIDs=[]; ja=制限のない、無条件の; en=not fit : not having requisite qualifications; image=assets/word/unqualified.png; GitBlobSHA=4c88f65f4d6b2e2b55739889267ad2b4a1e734da",
+      "発見バッチ": "batch-030",
+      "状態": "要確認（語義・ID・画像対応）"
+    }
+  },
+  {
+    "path": "work\\etymopedia\\prompt_review_pending.csv",
+    "record": 274,
+    "row": {
+      "ファイル名": "Atlantis.png",
+      "単語": "Atlantis",
+      "問題": "画像はスペースシャトル。日本語はアトランティス号、英語先頭語義は水没した伝説の島。 語義・ID・画像対応の確認候補であり、低得点のみを根拠に再生成しない。公開中の画像SHAと正式辞書は親側で照合する。 wordID=Atlantis; rootIDs=[]; ja=アトランティス号; en=a fabled island in the Atlantic that according to legend sank beneath the sea; image=assets/word/Atlantis.png; GitBlobSHA=d9bf41612330ffc9b00ae324e89d454bde6b3c0b",
+      "発見バッチ": "batch-030",
+      "状態": "要確認（語義・ID・画像対応）"
+    }
+  },
+  {
+    "path": "work\\etymopedia\\prompt_review_pending.csv",
+    "record": 295,
+    "row": {
+      "ファイル名": "ketamine.png",
+      "単語": "ketamine",
+      "問題": "黒い炭素球十四個でケタミンC13より一個過剰。環の外へ余分なアミノ置換炭素が入り、カルボニル炭素が三つのCへ結合している。元画像で環骨格と原子数を確認。 明確な画像の科学的内容の不一致。正式語義・IDと公開中の画像SHAを親側で照合してから対応する。 wordID=ketamine; rootIDs=[]; ja=ケタミン; en=a general anesthetic that is administered intravenously and intramuscularly in the form of its hydrochloride C13H16ClNO·HCl and that is used illicitly usually by being inhaled in powdered form especially for the dreamlike or hallucinogenic state it produces; image=assets/word/ketamine.png; GitBlobSHA=c33b119682152d662fd5bec2161e752dcd56fe66",
+      "発見バッチ": "batch-031",
+      "状態": "要再生成（語義・ID確認後）"
+    }
+  },
+  {
+    "path": "work\\etymopedia\\prompt_review_pending.csv",
+    "record": 309,
+    "row": {
+      "ファイル名": "Tripoli.png",
+      "単語": "Tripoli",
+      "問題": "画像は研磨用の珪質土。Tripoliという大文字IDと日本語トリポリが都市名か鉱物か確認。英語は珪質の土。 語義・ID・画像対応の確認候補であり、低得点のみを根拠に再生成しない。公開中の画像SHAと正式辞書は親側で照合する。 wordID=Tripoli; rootIDs=[]; ja=トリポリ; en=an earth consisting of very friable soft schistose deposits of silica and including diatomite and kieselguhr; image=assets/word/Tripoli.png; GitBlobSHA=f1ca9d2e070b5bf988adeeb57bd7ba2cb73547d7",
+      "発見バッチ": "batch-031",
+      "状態": "要確認（語義・ID・画像対応）"
+    }
+  },
+  {
+    "path": "work\\etymopedia\\prompt_review_pending.csv",
+    "record": 322,
+    "row": {
+      "ファイル名": "freer.png",
+      "単語": "freer",
+      "問題": "画像は美術鑑賞者。日本語はフリーアという人名らしい表記、英語は解放する人。小文字IDの人名・比較級との対応を確認。 語義・ID・画像対応の確認候補であり、低得点のみを根拠に再生成しない。公開中の画像SHAと正式辞書は親側で照合する。 wordID=freer; rootIDs=[]; ja=フリーア; en=one who frees someone or something; image=assets/word/freer.png; GitBlobSHA=b6e68aac5dea0cd893932e712d9494cf84019f78",
+      "発見バッチ": "batch-031",
+      "状態": "要確認（語義・ID・画像対応）"
+    }
+  }
+]

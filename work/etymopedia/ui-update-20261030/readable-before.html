@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>エティモペディア | 描ける英語語源辞典</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&family=Shippori+Mincho:wght@800&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   エティモペディア — 共創型・英語語源辞典(映像サンプル用モック)
+
+   ■ すべての文言・画像は site/data/*.csv で編集できます
+       ui.csv          … サイト全体の文言
+       roots.csv       … 語根(祖先)。art列に画像パス
+       morphs.csv      … 単語分解の断片(接頭辞など)
+       words.csv       … 図版つき単語ページ本体
+       lexicon.csv     … 派生語辞典(via列=地域タグ)
+       submissions.csv … 各単語の応募図版(複数)。img列に画像パス
+     ※ http 経由で開くとCSVを読み込みます(python -m http.server 等)。
+       ファイルを直接ダブルクリック(file://)した場合は、
+       埋め込みデータで表示されます。
+   ============================================================ */
+:root{
+  --ink:#241f26; --ink2:#5c5462;
+  --paper:#fffdf8; --paper2:#fff6ea;
+  --coral:#ff5470; --yellow:#ffd23e; --mint:#3ecfa5; --sky:#4aa8ff;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:"Zen Maru Gothic","Hiragino Maru Gothic ProN",sans-serif;color:var(--ink);background:var(--paper);background-image:radial-gradient(#00000009 1.5px, transparent 1.5px);background-size:26px 26px;overflow-x:hidden}
+img{-webkit-user-drag:none}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+.sticker{display:inline-block;background:var(--ink);color:#fff;font-weight:900;padding:6px 16px;border-radius:999px;font-size:14px;letter-spacing:.06em;transform:rotate(-2deg)}
+.btn{display:inline-flex;align-items:center;gap:8px;font-family:inherit;font-weight:900;font-size:17px;color:var(--ink);background:#fff;border:3px solid var(--ink);border-radius:999px;padding:13px 28px;cursor:pointer;box-shadow:4px 4px 0 var(--ink);transition:transform .12s, box-shadow .12s}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}
+.btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+.btn.coral{background:var(--coral);color:#fff}
+.btn.yellow{background:var(--yellow)}
+.rootChip{display:inline-flex;align-items:center;gap:6px;font-weight:900;color:#fff;border-radius:999px;padding:4px 14px;font-size:15px;cursor:pointer}
+.rootChip i{font-style:italic;font-family:"Shippori Mincho",serif}
+
+.morphIcons{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.morphIcon{display:flex;flex-direction:column;align-items:center;gap:2px;cursor:pointer;transition:transform .12s}
+.morphIcon:hover{transform:translateY(-4px)}
+.morphIcon .mi{width:54px;height:54px;border-radius:50%;border:3px solid var(--ink);background:#fff;display:flex;align-items:center;justify-content:center;overflow:hidden;box-shadow:2.5px 2.5px 0 var(--ink)}
+.morphIcon .mi img{width:86%;height:86%;object-fit:contain}
+.morphIcon small{font-size:10.5px;font-weight:900;color:var(--ink2)}
+.morphIcon.sm .mi{width:34px;height:34px;border-width:2.5px;box-shadow:2px 2px 0 var(--ink)}
+.morphIcon.sm small{display:none}
+
+header{position:sticky;top:0;z-index:100;background:#fffdf8ee;backdrop-filter:blur(6px);border-bottom:3px solid var(--ink)}
+header .bar{display:flex;align-items:center;gap:22px;height:70px}
+#logo{display:flex;align-items:baseline;gap:10px;cursor:pointer}
+#logo b{font-size:26px;font-weight:900}
+#logo b span{color:var(--coral)}
+#logo small{font-size:12px;color:var(--ink2);font-weight:700}
+nav{display:flex;gap:20px;font-weight:900;font-size:15px;margin-left:auto}
+nav a{padding:6px 4px;border-bottom:3px solid transparent}
+nav a:hover{border-color:var(--coral)}
+#searchBox{display:flex;align-items:center;gap:8px;background:#fff;border:3px solid var(--ink);border-radius:999px;padding:7px 16px;width:250px}
+#searchBox input{border:none;outline:none;font-family:inherit;font-size:15px;font-weight:700;width:100%;background:none}
+
+#hero{position:relative;padding:72px 0 40px;overflow:hidden}
+#hero h1{font-size:clamp(44px,6.4vw,84px);font-weight:900;line-height:1.24}
+#hero h1 .draw{color:var(--coral);position:relative;white-space:nowrap}
+#hero h1 .draw::after{content:"";position:absolute;left:0;right:0;bottom:4px;height:14px;background:var(--yellow);z-index:-1;transform:rotate(-1deg)}
+#hero .lead{font-size:19px;font-weight:700;color:var(--ink2);margin-top:22px;line-height:2}
+#hero .lead b{color:var(--ink)}
+#heroCtas{display:flex;gap:16px;margin-top:30px;flex-wrap:wrap}
+#stats{display:flex;gap:34px;margin-top:38px;flex-wrap:wrap}
+#stats .st{font-weight:900}
+#stats .st .n{font-size:38px}
+#stats .st .n em{font-style:normal;color:var(--coral)}
+#stats .st .l{font-size:13px;color:var(--ink2)}
+#heroArt{position:absolute;right:-10px;top:50px;width:430px;pointer-events:none}
+.heroCard{position:absolute;background:#fff;border:3px solid var(--ink);border-radius:22px;padding:12px;box-shadow:6px 6px 0 var(--ink);text-align:center;animation:floaty 5s ease-in-out infinite}
+.heroCard img{width:100%;height:auto;display:block}
+.heroCard .cap{font-weight:900;font-size:15px;margin-top:6px}
+.heroCard .by{font-size:11px;color:var(--ink2);font-weight:700}
+@keyframes floaty{0%,100%{transform:translateY(0) rotate(var(--rot,0deg))}50%{transform:translateY(-12px) rotate(var(--rot,0deg))}}
+#ticker{border-top:3px solid var(--ink);border-bottom:3px solid var(--ink);background:var(--yellow);overflow:hidden;white-space:nowrap;padding:14px 0}
+#ticker .track{display:inline-block;animation:mar 90s linear infinite}
+#ticker .track:hover{animation-play-state:paused}
+@keyframes mar{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+#ticker .rc{display:inline-flex;align-items:center;gap:12px;margin:0 26px;cursor:pointer;vertical-align:middle;transition:transform .12s}
+#ticker .rc:hover{transform:translateY(-3px)}
+#ticker .rc .ic{width:52px;height:52px;border-radius:50%;border:3px solid var(--ink);background:#fff;display:flex;align-items:center;justify-content:center;overflow:hidden;box-shadow:2.5px 2.5px 0 var(--ink);flex:0 0 auto}
+#ticker .rc .ic img{width:88%;height:88%;object-fit:contain}
+#ticker .rc .tx b{font-family:"Shippori Mincho",serif;font-style:italic;font-size:20px;font-weight:800;display:block;line-height:1.1}
+#ticker .rc .tx span{font-size:15px;font-weight:900}
+@media (prefers-reduced-motion:reduce){#ticker .track{animation:none}.heroCard{animation:none}}
+
+section{padding:66px 0}
+.secHead{display:flex;align-items:baseline;gap:16px;margin-bottom:30px;flex-wrap:wrap}
+.secHead h2{font-size:36px;font-weight:900}
+.secHead p{color:var(--ink2);font-weight:700}
+
+#rootStrip{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.rootCard{background:#fff;border:3px solid var(--ink);border-radius:24px;padding:18px 14px 14px;text-align:center;cursor:pointer;box-shadow:5px 5px 0 var(--ink);transition:transform .14s;position:relative;overflow:hidden}
+.rootCard:hover{transform:translateY(-6px) rotate(-1deg)}
+.rootCard::before{content:"";position:absolute;inset:0 0 auto;height:10px;background:var(--rc)}
+.rootCard img{width:110px;height:110px;object-fit:contain}
+.rootCard .rr{font-weight:900;font-size:23px;margin-top:6px}
+.rootCard .rm{font-weight:900;font-size:16px}
+.rootCard .rn{font-size:12px;color:var(--ink2);font-weight:700;margin-top:2px}
+
+/* 単語ずかん(図版ギャラリー統合) */
+#wordGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.wcard{background:#fff;border:3px solid var(--ink);border-radius:22px;overflow:hidden;cursor:pointer;box-shadow:5px 5px 0 var(--ink);transition:transform .14s;display:flex;flex-direction:column}
+.wcard:hover{transform:translateY(-6px)}
+.wcard .thumb{height:150px;display:flex;align-items:center;justify-content:center;background:var(--paper2);border-bottom:3px solid var(--ink);position:relative}
+.wcard .thumb img{max-height:88%;max-width:88%;object-fit:contain}
+.wcard .thumb .want{font-size:13px;font-weight:900;color:var(--ink2);text-align:center;border:2.5px dashed #c9bfae;border-radius:14px;padding:12px 18px;background:#fff}
+.wcard .thumb .cardMorphs{position:absolute;right:8px;bottom:8px;display:flex;gap:6px}
+.wcard .thumb .by{position:absolute;left:8px;bottom:8px;font-size:11px;font-weight:900;color:#fff;background:#241f26bb;border-radius:999px;padding:2px 10px}
+.wcard .body{padding:12px 14px 14px;flex:1}
+.wcard .stars{font-size:12px;letter-spacing:1.5px;color:#f2c14e;margin-bottom:2px}
+.wcard .stars .off,.entryStars .off{color:#e5dccb}
+.entryStars{font-size:18px;letter-spacing:2px;color:#f2c14e;margin-top:8px}
+.wcard .hw{font-size:24px;font-weight:900}
+.wcard .jp{font-size:14px;font-weight:700;color:var(--ink2);margin-top:2px}
+.wcard .fm{font-size:13px;font-weight:900;margin-top:8px;line-height:1.9}
+.wcard .fm .p{border:2px solid var(--ink);border-radius:8px;padding:0 7px;background:#fff;white-space:nowrap}
+
+#view{min-height:400px;padding:44px 0 70px}
+.entryTop{display:flex;gap:44px;align-items:flex-start;margin-top:10px;position:relative;isolation:isolate}
+.entryBgEtymons{position:absolute;inset:-18px 0 0;z-index:0;display:flex;align-items:center;justify-content:center;gap:34px;pointer-events:none;overflow:hidden;opacity:.72;filter:saturate(1)}
+.entryBgEtymons img{width:min(36vw,430px);max-height:92%;object-fit:contain;opacity:.70;transform:rotate(var(--rot,0deg)) translateY(var(--dy,0));filter:drop-shadow(8px 12px 0 rgba(36,31,38,.08))}
+.entryBgEtymons.multi img{width:min(24vw,300px);opacity:.70}
+.entryBgEtymons img:nth-child(2){--rot:5deg;--dy:22px}
+.entryBgEtymons img:nth-child(3){--rot:-4deg;--dy:-18px}
+.entryBgEtymons img:nth-child(4){--rot:3deg;--dy:10px}
+.entryMain{flex:1;min-width:0;position:relative;z-index:1}
+.entryHW{font-size:clamp(56px,8vw,104px);font-weight:900;line-height:1.05}
+.entryHW .rootpart{color:var(--rc)}
+.entryIPA{font-size:20px;color:var(--ink2);font-weight:700;margin-top:6px}
+.posTag{display:inline-block;background:var(--ink);color:#fff;font-size:14px;font-weight:900;border-radius:8px;padding:2px 12px;margin-right:10px;vertical-align:middle}
+.entryJP{font-size:26px;font-weight:900;margin-top:14px}
+.entryMorphRow{margin-top:22px}
+.formula{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:24px;font-weight:900;font-size:21px}
+.formula .part{border:3px solid var(--ink);border-radius:14px;padding:6px 16px;background:#fff;box-shadow:3px 3px 0 var(--ink)}
+.formula .part small{display:block;font-size:12px;color:var(--ink2);text-align:center}
+.formula .part.root{background:var(--rc);color:#fff}
+.formula .part.root small{color:#ffffffcc}
+.gloss{margin-top:18px;font-size:24px;font-weight:900;color:var(--coral);display:inline-block}
+.gloss::before{content:"➡ "}
+.exBox{margin-top:26px;border-left:6px solid var(--yellow);padding:6px 0 6px 18px}
+.exBox .en{font-size:20px;font-weight:900}
+.exBox .en mark{background:none;color:var(--coral)}
+.exBox .ja{font-size:15px;color:var(--ink2);font-weight:700;margin-top:4px}
+.memo{margin-top:26px;background:var(--paper2);border:3px solid var(--ink);border-radius:18px;padding:16px 20px;font-size:16px;font-weight:700;line-height:2}
+.memo .mt{display:inline-block;background:var(--coral);color:#fff;font-size:13px;font-weight:900;border-radius:8px;padding:2px 12px;margin-bottom:6px;transform:rotate(-2deg)}
+
+.plateCol{width:420px;flex:0 0 auto;position:relative;z-index:1}
+.plateCard{background:#fff;border:3px solid var(--ink);border-radius:26px;box-shadow:7px 7px 0 var(--ink);overflow:hidden;transform:rotate(1.2deg)}
+.plateCard .pimg{height:320px;display:flex;align-items:center;justify-content:center;background:var(--paper2);border-bottom:3px solid var(--ink);padding:14px;position:relative}
+.plateCard .pimg img{max-width:100%;max-height:100%;object-fit:contain}
+.plateCard .pimg .want{border:3px dashed #c9bfae;border-radius:18px;padding:34px 24px;text-align:center;font-weight:900;color:var(--ink2);line-height:2;background:#fff}
+.plateCard .pmeta{display:flex;align-items:center;gap:10px;padding:12px 16px}
+.plateCard .pmeta .by{font-weight:900;font-size:15px;flex:1}
+.likeBtn{border:2.5px solid var(--ink);background:#fff;border-radius:999px;font-family:inherit;font-weight:900;font-size:15px;padding:5px 14px;cursor:pointer}
+.likeBtn:active{transform:scale(.9)}
+.subsWrap{margin-top:18px}
+.subsRow{display:flex;gap:12px;overflow-x:auto;padding:6px 2px 12px}
+.subCard{flex:0 0 148px;background:#fff;border:3px solid var(--ink);border-radius:16px;overflow:hidden;box-shadow:3px 3px 0 var(--ink)}
+.subCard .si{height:110px;display:flex;align-items:center;justify-content:center;background:var(--paper2);border-bottom:3px solid var(--ink)}
+.subCard .si img{max-width:88%;max-height:88%;object-fit:contain}
+.subCard .sb{padding:7px 10px;font-size:11px;font-weight:900}
+.subCard .sb .a{color:var(--ink2);display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.subCard .sb .lk{display:flex;justify-content:flex-end;align-items:center;margin-top:3px}
+.subCard .lk button{border:2px solid var(--ink);border-radius:999px;background:#fff;font-family:inherit;font-weight:900;font-size:11px;padding:1px 8px;cursor:pointer}
+
+.familyRow{margin-top:44px}
+.familyRow h3{font-size:20px;font-weight:900;margin-bottom:12px}
+.fwords{display:flex;gap:10px;flex-wrap:wrap}
+.fword{border:3px solid var(--ink);background:#fff;border-radius:999px;padding:7px 18px;font-weight:900;cursor:pointer;font-size:16px}
+.fword:hover{background:var(--yellow)}
+.backLink{display:inline-block;margin-bottom:14px;font-weight:900;color:var(--ink2);cursor:pointer}
+.backLink:hover{color:var(--coral)}
+
+/* 語根ページ:キャラ中心の放射状マップ(左右バランス配置・4個以内) */
+.rmLead{font-size:22px;font-weight:900;margin:4px 0 2px}
+.rootMap{position:relative;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:26px;margin:20px 0}
+.rmLines{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:visible}
+.rmSide{display:flex;flex-direction:column;justify-content:center;gap:22px;z-index:1}
+.rmSide.left{align-items:flex-end}
+.rmSide.right{align-items:flex-start}
+.rmCenter{position:relative;z-index:1;text-align:center;display:flex;flex-direction:column;align-items:center;gap:8px}
+.rmConcept{font-size:clamp(28px,4vw,38px);font-weight:900;color:var(--rc)}
+.rmCharWrap{width:230px;height:230px;border-radius:50%;border:none;display:flex;align-items:center;justify-content:center;overflow:visible;
+  background:var(--paper2);
+  background:radial-gradient(circle at 50% 40%, #fff 8%, color-mix(in srgb, var(--rc) 22%, #fff) 100%);
+  box-shadow:0 14px 30px rgba(36,31,38,.12)}
+.rmChar{width:112%;height:112%;object-fit:contain;filter:drop-shadow(0 6px 8px rgba(36,31,38,.16))}
+.rmRoot{font-family:"Shippori Mincho",serif;font-style:italic;font-weight:800;font-size:18px;color:var(--ink2)}
+/* 見出し4語は「絵+英語+リンク」だけのシンプル表示(枠・和訳・語派バッジなし。
+   詳細は下の辞典リストにあるので重複させない) */
+.wnode{font-family:inherit;display:flex;flex-direction:column;align-items:center;gap:7px;background:transparent;border:none;padding:6px;cursor:pointer;transition:transform .12s;width:172px;max-width:100%}
+.wnode:hover{transform:translateY(-4px) rotate(-.5deg)}
+.wnImg{width:96px;height:96px;flex:0 0 auto;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.wnImg img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(2.5px 3px 0 #00000022)}
+.wnW{font-size:22px;font-weight:900;line-height:1.1;display:block;color:var(--ink)}
+.reg-G{background:#7a8b99}.reg-L{background:#c0693c}.reg-Gr{background:#3f7fae}
+/* 古代概念チップ(語根構成)。個別ページ=大 / 辞典の行=小。
+   アイコン未整備のキーはテキストピルで正式表記だけ出す */
+.cchips{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.cchips .cplus{font-weight:900;color:var(--ink2)}
+.cchip{display:flex;flex-direction:column;align-items:center;gap:2px;cursor:pointer;transition:transform .12s}
+.cchip:hover{transform:translateY(-3px)}
+.cchip .ci{width:84px;height:84px;border-radius:50%;border:3px solid var(--ink);background:#fff;display:flex;align-items:center;justify-content:center;overflow:hidden;box-shadow:3px 3px 0 var(--ink)}
+.cchip .ci img{width:100%;height:100%;object-fit:contain}
+.cchip small{font-size:13px;font-weight:900;color:var(--ink2);margin-top:2px}
+.cchip.txt{border:2.5px solid var(--ink2);border-radius:999px;padding:4px 12px;font-size:13px;font-weight:900;color:var(--ink2);background:#fff}
+.cchip.sm .ci{width:46px;height:46px;border-width:2.5px;box-shadow:2px 2px 0 var(--ink)}
+.cchip.sm small{display:none}
+.cchip.txt.sm{padding:1px 8px;font-size:10px}
+.cchips.sm{gap:4px;flex:0 0 auto}
+.cchips.sm .cplus{font-size:10px}
+/* 語派のはなしページ */
+.drow .via{cursor:pointer}
+.drow .via:hover{filter:brightness(1.12)}
+.brLink{color:var(--coral);font-weight:900;cursor:pointer;white-space:nowrap}
+.entryVia{font-size:12.5px;font-weight:900;color:#fff;border-radius:999px;padding:3px 15px;cursor:pointer;margin-left:10px;vertical-align:2px}
+.entryVia:hover{filter:brightness(1.12)}
+.grimmBox{background:var(--paper2);border:3px solid var(--ink);border-radius:18px;padding:16px 20px;margin:18px 0 26px;font-size:15px;font-weight:700;line-height:2}
+.grimmBox.hasImg{position:relative;padding-left:158px}
+.grimmWrap{position:absolute;left:22px;top:50%;transform:translateY(-50%);width:112px;text-align:center}
+.grimmImg{display:block;width:112px;height:112px;object-fit:contain;filter:drop-shadow(2px 3px 0 rgba(36,31,38,.15))}
+.grimmCap{display:block;margin-top:4px;font-size:11px;font-weight:900;color:var(--ink2)}
+@media (max-width:640px){.grimmBox.hasImg{padding-left:20px;padding-bottom:140px}.grimmWrap{top:auto;bottom:12px;left:14px;transform:none}}
+.grimmBox .gt{display:inline-block;background:var(--ink);color:#fff;font-size:13px;font-weight:900;border-radius:8px;padding:2px 12px;margin-bottom:6px;transform:rotate(-2deg)}
+.grimmPairs{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.gp{background:#fff;border:2.5px solid var(--ink);border-radius:14px;padding:8px 14px;display:flex;align-items:center;gap:9px;font-weight:900;box-shadow:2.5px 2.5px 0 var(--ink)}
+.gp b{color:var(--ink2)}
+.gpr{font-size:12px;color:var(--ink2)}
+.gpw{font-size:12px;font-weight:900;color:#fff;border-radius:999px;padding:3px 12px;cursor:pointer}
+.gpw:hover{filter:brightness(1.12)}
+.gpw.plain{cursor:default}
+.gpw.plain:hover{filter:none}
+.fword.plain{cursor:default}
+.brCard{background:#fff;border:3px solid var(--ink);border-radius:18px;box-shadow:4px 4px 0 var(--ink);padding:18px 22px;margin-bottom:18px;border-left:10px solid var(--bc)}
+.brHero{margin:4px 0 22px}
+.brKick{display:inline-block;background:var(--ink);color:#fff;font-size:13px;font-weight:900;border-radius:999px;padding:3px 16px;transform:rotate(-2deg);margin-bottom:10px}
+.brTitle{font-size:clamp(26px,4.4vw,40px);margin-bottom:8px}
+.brMinorHead{font-weight:900;font-size:20px;margin:30px 0 12px}
+.brMinorGrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:14px;align-items:start}
+.brCard.mini{padding:14px 18px;margin-bottom:0}
+.brCard.mini .brBody{font-size:13.5px;line-height:1.9;margin-top:8px}
+.brCard.mini .brHead .via{font-size:12px;padding:3px 12px}
+.brCard.mini .brCatch{font-size:14px}
+.brHead{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.brHead .via{font-size:14px;font-weight:900;color:#fff;border-radius:999px;padding:4px 16px}
+.brCatch{font-weight:900;font-size:16px}
+.brBody{margin-top:10px;font-size:15px;font-weight:700;line-height:2}
+.brSound{margin-top:10px;background:var(--paper2);border-radius:12px;padding:10px 14px;font-size:13.5px;font-weight:700;line-height:1.9}
+.brSound b{color:var(--coral);margin-right:8px}
+.brEx{margin-top:12px;display:flex;gap:8px;flex-wrap:wrap}
+/* 未登録エティモンのページ */
+.etySub{font-size:14.5px;font-weight:700;color:var(--ink2);margin:6px 0 20px;line-height:1.9}
+.etyGrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px}
+.etyCard{background:#fff;border:3px solid var(--ink);border-radius:16px;box-shadow:3px 3px 0 var(--ink);padding:14px 10px;text-align:center}
+.etyCard .ci{width:64px;height:64px;margin:0 auto 8px;border-radius:50%;background:var(--paper2);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.etyCard .ci img{width:100%;height:100%;object-fit:contain}
+.etyCard .ci b{font-size:26px;color:var(--ink2)}
+.etyCard .ed{font-weight:900;font-size:15px;word-break:break-all}
+.etyCard .ej{font-size:12px;font-weight:700;color:var(--ink2);margin-top:2px}
+.etyCard.hl{outline:4px solid var(--coral);outline-offset:3px}
+.rmMemo{margin-top:28px;background:var(--paper2);border:3px solid var(--ink);border-radius:18px;padding:16px 20px;font-size:16px;font-weight:700;line-height:2}
+.rmMemo .mt{display:inline-block;background:var(--coral);color:#fff;font-size:13px;font-weight:900;border-radius:8px;padding:2px 12px;margin-bottom:6px;transform:rotate(-2deg)}
+@media (max-width:820px){
+  .rootMap{grid-template-columns:1fr;min-height:0;gap:16px}
+  .rmSide{align-items:stretch}
+  .wnode,.rmSide.left .wnode,.rmSide.right .wnode{flex-direction:row;gap:14px;width:100%;justify-content:flex-start}
+  .wnImg{width:64px;height:64px}
+  .rmCenter{order:-1;margin-bottom:4px}
+  .rmLines{display:none}
+}
+
+/* 語根ページ:祖先→各単語(縦一列。単語どうしは絶対つなげない) */
+.rootHero{display:flex;gap:36px;align-items:center;margin-top:8px}
+.rootHero img{width:200px;height:200px;object-fit:contain;filter:drop-shadow(5px 5px 0 rgba(36,31,38,.18))}
+.rootHero .rTitle{font-family:"Shippori Mincho",serif;font-style:italic;font-size:60px;font-weight:800}
+.rootHero .rMean{font-size:28px;font-weight:900;margin-top:2px}
+.rootHero .rNote{font-size:16px;font-weight:700;color:var(--ink2);line-height:1.9;margin-top:12px;max-width:640px}
+.tree{margin-top:40px;--tw:4px}
+.treeSeed{display:inline-flex;align-items:baseline;gap:10px;background:var(--rc);color:#fff;border:3px solid var(--ink);border-radius:20px;padding:12px 24px;box-shadow:5px 5px 0 var(--ink);font-family:"Shippori Mincho",serif;font-style:italic;font-size:28px;font-weight:800}
+.treeSeed small{font-family:"Zen Maru Gothic",sans-serif;font-style:normal;font-size:15px;font-weight:900}
+.branches{position:relative;margin-left:34px;padding-left:38px;margin-top:0}
+/* 縦の幹:seed直下から最後の葉まで1本 */
+.branches::before{content:"";position:absolute;left:0;top:-8px;bottom:32px;width:var(--tw);background:var(--ink);border-radius:99px}
+/* 各葉は縦に積む。葉どうしは連結しない */
+.leafRow{display:block;margin:14px 0}
+.leaf{position:relative;display:inline-flex;align-items:center;gap:14px;background:#fff;border:3px solid var(--ink);border-radius:16px;padding:9px 18px;cursor:pointer;box-shadow:4px 4px 0 var(--ink);transition:transform .12s;max-width:440px;vertical-align:middle}
+.leaf::before{content:"";position:absolute;left:-38px;top:50%;width:38px;height:var(--tw);background:var(--ink);transform:translateY(-50%)}
+.leaf:hover{transform:translateX(5px)}
+.leaf .lw{font-size:22px;font-weight:900}
+.leaf .lw .rootpart{color:var(--rc)}
+.leaf .lj{font-size:13px;font-weight:700;color:var(--ink2)}
+.leaf .art{width:42px;height:42px;flex:0 0 auto}
+.leaf .art img{width:100%;height:100%;object-fit:contain}
+.leaf .noart{font-size:10px;color:#c9bfae;font-weight:900;border:2px dashed #c9bfae;border-radius:8px;padding:2px 5px}
+/* 派生語辞典(地域タグ via はここに残す) */
+.dictSec{margin-top:56px}
+.dictSec h3{font-size:24px;font-weight:900;margin-bottom:14px}
+.dictList{background:#fff;border:3px solid var(--ink);border-radius:20px;overflow:hidden}
+.drow{display:flex;align-items:center;gap:14px;padding:13px 22px;border-bottom:2px dashed #e5dccb;cursor:pointer}
+.drow:last-child{border-bottom:none}
+.drow:hover{background:var(--paper2)}
+.drow .dthumb{width:46px;height:46px;flex:0 0 auto}
+.drow .dthumb img{width:100%;height:100%;object-fit:contain}
+.drow .dw{flex:0 0 205px;min-width:0;font-size:21px;font-weight:900;overflow-wrap:anywhere;line-height:1.3}
+.drow .via{font-size:11px;font-weight:900;color:#fff;border-radius:999px;padding:2px 4px;flex:0 0 88px;text-align:center}
+.drow .via.none{visibility:hidden}
+.via.G{background:#7a8b99}.via.L{background:#c0693c}.via.Gr{background:#3f7fae}
+.drow .dj{flex:0 0 168px;min-width:0;font-size:15px;font-weight:900;line-height:1.6}
+.drow .dl{font-size:13.5px;font-weight:700;color:var(--ink2);flex:1;line-height:1.8}
+
+/* 派生語辞典: 現在の独自レベルごとの見出し */
+.tierBox{border-bottom:2px dashed #e5dccb;border-left:6px solid var(--tc,transparent);background:color-mix(in srgb,var(--tc,#fff) 5%,#fff)}
+.tierBox.t1{--tc:#8fa39a}.tierBox.t2{--tc:#3ecfa5}.tierBox.t3{--tc:#4aa8ff}.tierBox.t4{--tc:#9a6ee0}.tierBox.t5{--tc:#b06ee0}
+.tierBox.t6{--tc:#ffb03e;background:linear-gradient(115deg,#fff2f3,#fffae9,#edfbf5,#edf5ff,#f7f1ff)}
+.tierBox.t7{--tc:#6b4f1d;background:color-mix(in srgb,#6b4f1d 7%,#fff)}
+.tierBox:last-child{border-bottom:none}
+.tierBox>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:12px;padding:13px 22px;font-weight:900}
+.tierBox>summary::-webkit-details-marker{display:none}
+.tierBox>summary .tCount{color:var(--ink2);font-size:13px}
+.tierBox>summary::after{content:"▸";margin-left:auto;color:var(--ink2);transition:transform .15s}
+.tierBox[open]>summary::after{transform:rotate(90deg)}
+.tierBox[open]>summary{border-bottom:2px dashed #e5dccb}
+.dictLegend{font-size:13px;font-weight:700;color:var(--ink2);margin:-8px 0 14px}
+.featChip{display:inline-block;vertical-align:3px;font-size:10.5px;font-weight:900;border:2px solid;border-radius:999px;padding:0 8px;margin-left:8px}
+/* 古代概念アイコン=六千年前の意味を表す「印章」。キャラ(いまのマスコット)とは役割を分ける */
+.rmMemo.hasSeal{position:relative;padding-left:178px}
+.rmMemo .sealWrap{position:absolute;left:24px;top:50%;transform:translateY(-50%);width:128px;text-align:center}
+.rmMemo .seal{display:block;width:128px;height:128px;padding:14px;box-sizing:border-box;border-radius:50%;border:3px solid var(--ink);background:#fff;box-shadow:3px 3px 0 var(--ink);object-fit:contain}
+.rmMemo .sealRoot{display:block;margin-top:6px;font-family:"Shippori Mincho",serif;font-style:italic;font-weight:800;font-size:18px;color:var(--ink)}
+.rmMemo .rmRootNote{float:right;font-family:"Shippori Mincho",serif;font-style:italic;font-weight:800;font-size:16px;color:var(--ink2)}
+.rootCard .rrSeal{width:46px;height:46px;padding:5px;box-sizing:border-box;border-radius:50%;border:2.5px solid var(--ink);background:#fff;box-shadow:2px 2px 0 var(--ink);object-fit:contain;vertical-align:-14px;margin-right:10px}
+@media (max-width:980px){.rmMemo.hasSeal{padding-left:20px;padding-bottom:170px}.rmMemo .sealWrap{top:auto;bottom:14px;left:16px;transform:none}}
+.via.Sa{background:#a0722d}.via.Ce{background:#4e8f6b}.via.Sl{background:#8a67c9}.via.Ir{background:#b0577a}
+.reg-Sa{background:#a0722d}.reg-Ce{background:#4e8f6b}.reg-Sl{background:#8a67c9}.reg-Ir{background:#b0577a}
+@media (max-width:980px){.drow{flex-wrap:wrap}.drow .dl{flex-basis:100%}.drow .dw{flex:0 1 auto}.drow .dj{flex:1 1 auto}.drow .via{flex:0 0 auto;padding:2px 10px}.drow .via.none{display:none}}
+
+#join{background:var(--ink);color:#fff}
+#join h2{color:#fff}
+#join .secHead p{color:#ffffffb0}
+#steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:8px}
+.step{background:#fffdf8;color:var(--ink);border-radius:22px;padding:24px;border:3px solid #fff;position:relative}
+.step .no{position:absolute;top:-18px;left:-10px;width:52px;height:52px;border-radius:50%;background:var(--coral);color:#fff;font-weight:900;font-size:24px;display:flex;align-items:center;justify-content:center;border:3px solid var(--ink);transform:rotate(-8deg)}
+.step h3{font-size:21px;font-weight:900;margin-bottom:8px}
+.step p{font-size:14.5px;font-weight:700;color:var(--ink2);line-height:1.9}
+#wanted{margin-top:34px}
+#wanted h3{font-size:20px;font-weight:900;margin-bottom:14px}
+#wanted .chips{display:flex;gap:10px;flex-wrap:wrap}
+#wanted .chips .fword{border-color:#fff;color:#fff;background:transparent}
+#wanted .chips .fword:hover{background:var(--coral)}
+
+footer{padding:36px 0 46px;text-align:center;font-weight:700;color:var(--ink2);font-size:13.5px;line-height:2}
+footer b{color:var(--ink)}
+#toast{position:fixed;bottom:30px;left:50%;transform:translate(-50%,120px);background:var(--ink);color:#fff;font-weight:900;padding:14px 30px;border-radius:999px;transition:transform .3s cubic-bezier(.34,1.4,.5,1);z-index:200;font-size:15px}
+#toast.show{transform:translate(-50%,0)}
+@media (max-width:980px){
+  #rootStrip,#wordGrid{grid-template-columns:repeat(2,1fr)}
+  #steps{grid-template-columns:1fr}
+  .entryTop{flex-direction:column}
+  .entryBgEtymons{align-items:flex-start;justify-content:center;padding-top:42px;opacity:1}
+  .entryBgEtymons img{width:min(66vw,340px)}
+  .entryBgEtymons.multi img{width:min(38vw,220px)}
+  .plateCol{width:100%}
+  #heroArt,nav{display:none}
+}
+</style>
+<link rel="stylesheet" href="shared/rarity-presentation.css?v=fbc61c711f85">
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <div id="logo" onclick="location.hash=''"><b>エティモ<span>ペディア</span></b><small id="logoSub"></small></div>
+    <div id="searchBox">🔍 <input id="searchInput"></div>
+    <nav id="nav"></nav>
+  </div>
+</header>
+
+<div id="home">
+  <div id="hero"><div class="wrap" style="position:relative" id="heroInner"></div></div>
+  <div id="ticker"><div class="track" id="tickerTrack"></div></div>
+  <section id="roots"><div class="wrap">
+    <div class="secHead"><h2 id="rootsHead"></h2><p id="rootsSub"></p></div>
+    <div id="rootStrip"></div>
+  </div></section>
+  <section id="words" style="background:#fff;border-top:3px solid var(--ink);border-bottom:3px solid var(--ink)"><div class="wrap">
+    <div class="secHead"><h2 id="wordsHead"></h2><p id="wordCount"></p></div>
+    <div id="wordGrid"></div>
+  </div></section>
+  <section id="join"><div class="wrap">
+    <div class="secHead"><h2 id="joinHead"></h2><p id="joinSub"></p></div>
+    <div id="steps"></div>
+    <div id="wanted"><h3 id="wantedHead"></h3><div class="chips" id="wantedChips"></div></div>
+  </div></section>
+</div>
+
+<section id="viewSec" style="display:none;padding:0"><div class="wrap" id="view"></div></section>
+<footer id="footer"></footer>
+<div id="toast"></div>
+
+<script src="../assets/word/illustration-index.js?v=a1d65cc03e86"></script>
+<script src="shared/rarity-presentation.js?v=b2bf6d03d095"></script>
+<script src="shared/custom-learning-levels.js?v=6e4bce3f02ce"></script>
+<script src="data/generated-etymon/custom-learning-levels.js?v=f5cfb48d7e4b"></script>
+<script src="data/generated-etymon/dictionary-basics.js?v=0af8aa359283"></script>
+<script src="support/etymopedia/learning-levels.js?v=3fb424badd79"></script>
+<script>
+"use strict";
+/* ====== 埋め込みデータ(file://フォールバック用。http時はCSVが優先) ====== */
+/* embedded data preserved */
+/* embedded data preserved */
+const ASSET_BASE = "../assets/";
+const ASSET_VERSION = String(Date.now());
+const DATA_BASE = "data/";
+
+/* ---- CSV ---- */
+function parseCSV(text){
+  const rows=[];let row=[],cur="",q=false;
+  text=text.replace(/^\uFEFF/,"");
+  for(let i=0;i<text.length;i++){const c=text[i];
+    if(q){if(c==='"'){if(text[i+1]==='"'){cur+='"';i++;}else q=false;}else cur+=c;}
+    else{if(c==='"')q=true;else if(c===','){row.push(cur);cur="";}
+      else if(c==='\n'||c==='\r'){if(c==='\r'&&text[i+1]==='\n')i++;row.push(cur);cur="";if(row.length>1||row[0]!=="")rows.push(row);row=[];}
+      else cur+=c;}}
+  if(cur!==""||row.length){row.push(cur);rows.push(row);}
+  const head=rows.shift()||[];
+  return rows.map(r=>Object.fromEntries(head.map((h,i)=>[h.trim(),(r[i]??"").trim()])));
+}
+async function loadCSV(name){
+  try{
+    const res=await fetch(DATA_BASE+name,{cache:"no-store"});
+    if(res.ok) return parseCSV(await res.text());
+  }catch(e){}
+  if(EMB_CSV[name]) return parseCSV(EMB_CSV[name]);
+  return [];
+}
+/* 画像パス→表示可能URL。配信中の assets を正本にする。
+   EMB_IMG は単体HTMLを配る場合だけのフォールバックであり、ここで優先すると
+   assets/word の差し替えが画面へ反映されなくなる。 */
+function imgURL(path){
+  if(!path) return "";
+  if(path.startsWith("data:")||path.startsWith("http")) return path;
+  return ASSET_BASE+encodeURI(path)+"?v="+ASSET_VERSION;
+}
+
+/* ---- グローバル(CSVから構築) ---- */
+let UI={}, ROOTS={}, MORPHS={}, WORDS=[], LEXICON={}, SUBS={}, CONCEPTS={}, BRANCHES=[], byId={}, LEVELS=null;
+let likes=JSON.parse(localStorage.getItem("etymo_likes3")||"{}");
+const $=s=>document.querySelector(s);
+function toast(m){const t=$("#toast");t.textContent=m;t.classList.add("show");clearTimeout(toast._t);toast._t=setTimeout(()=>t.classList.remove("show"),2200);}
+
+const LEX_EXAMPLES=Object.fromEntries([
+  ["head",["My <mark>head</mark> hurts.","頭が痛い。"]],
+  ["chief",["She is the <mark>chief</mark> editor.","彼女は編集長だ。"]],
+  ["chapter",["Read the next <mark>chapter</mark>.","次の章を読もう。"]],
+  ["achieve",["They <mark>achieved</mark> their goal.","彼らは目標を成し遂げた。"]],
+  ["cattle",["The farm keeps <mark>cattle</mark>.","その農場は牛を飼っている。"]],
+  ["cadet",["The <mark>cadet</mark> trained every morning.","士官候補生は毎朝訓練した。"]],
+  ["mischief",["The child made <mark>mischief</mark>.","その子はいたずらをした。"]],
+  ["decapitate",["The old story says the monster was <mark>decapitated</mark>.","古い物語では怪物の首がはねられた。"]],
+  ["kappa",["I wore a <mark>kappa</mark> in the rain.","雨の中で合羽を着た。"]],
+  ["magnanimous",["Her <mark>magnanimous</mark> choice surprised us.","彼女の寛大な選択に驚いた。"]],
+  ["equanimity",["He kept his <mark>equanimity</mark>.","彼は平静を保った。"]],
+  ["animosity",["There was no <mark>animosity</mark> between them.","彼らの間に敵意はなかった。"]],
+  ["prophecy",["The old <mark>prophecy</mark> came true.","古い予言が実現した。"]],
+  ["symphony",["The orchestra played a <mark>symphony</mark>.","オーケストラは交響曲を演奏した。"]],
+  ["phonics",["Children learn sounds with <mark>phonics</mark>.","子どもはフォニックスで音を学ぶ。"]],
+  ["confess",["He decided to <mark>confess</mark> the truth.","彼は真実を告白することにした。"]],
+  ["preface",["The <mark>preface</mark> explains the book.","序文が本の内容を説明している。"]],
+  ["infamous",["The pirate became <mark>infamous</mark>.","その海賊は悪名高くなった。"]],
+  ["revive",["Water can <mark>revive</mark> a dry plant.","水は乾いた植物をよみがえらせる。"]],
+  ["vitamin",["This fruit has a lot of <mark>vitamin</mark> C.","この果物にはビタミンCが多い。"]],
+  ["vital",["Sleep is <mark>vital</mark> for health.","睡眠は健康に不可欠だ。"]],
+  ["biology",["She studies <mark>biology</mark>.","彼女は生物学を学んでいる。"]],
+  ["antibiotic",["The doctor gave him an <mark>antibiotic</mark>.","医師は彼に抗生物質を出した。"]],
+  ["convivial",["The dinner was warm and <mark>convivial</mark>.","夕食は楽しく和やかだった。"]],
+  ["only",["This is the <mark>only</mark> key.","これが唯一の鍵だ。"]],
+  ["once",["I visited the island <mark>once</mark>.","その島を一度訪れた。"]],
+  ["universe",["Stars fill the <mark>universe</mark>.","宇宙には星が満ちている。"]],
+  ["uniform",["The team wore a blue <mark>uniform</mark>.","チームは青い制服を着た。"]],
+  ["onion",["Cut the <mark>onion</mark> carefully.","タマネギを慎重に切ろう。"]],
+  ["correct",["Your answer is <mark>correct</mark>.","あなたの答えは正しい。"]],
+  ["region",["This <mark>region</mark> is famous for apples.","この地域はリンゴで有名だ。"]],
+  ["regular",["She keeps a <mark>regular</mark> schedule.","彼女は規則的な予定を守っている。"]],
+  ["royal",["The <mark>royal</mark> crown shone brightly.","王の冠が明るく輝いた。"]],
+  ["reign",["The queen began her <mark>reign</mark>.","女王の治世が始まった。"]],
+  ["rich",["The soil is <mark>rich</mark> and dark.","土は豊かで黒い。"]],
+  ["erect",["The tower stood <mark>erect</mark>.","塔はまっすぐ立っていた。"]],
+  ["view",["The hill has a fine <mark>view</mark>.","丘からの眺めはよい。"]],
+  ["vision",["She has a clear <mark>vision</mark> for the project.","彼女には計画の明確な展望がある。"]],
+  ["evident",["The answer was <mark>evident</mark>.","答えは明白だった。"]],
+  ["advice",["He gave useful <mark>advice</mark>.","彼は役立つ助言をくれた。"]],
+  ["guide",["A map will <mark>guide</mark> us.","地図が私たちを案内してくれる。"]],
+  ["idol",["The statue became an <mark>idol</mark>.","その像は偶像になった。"]],
+  ["kaleidoscope",["A <mark>kaleidoscope</mark> changes every time.","万華鏡は見るたびに変わる。"]],
+  ["reject",["Do not <mark>reject</mark> the idea too quickly.","その案をすぐ拒否しないで。"]],
+  ["eject",["Press the button to <mark>eject</mark> the disk.","ボタンを押してディスクを取り出す。"]],
+  ["object",["Place the <mark>object</mark> on the table.","物体を机の上に置いて。"]],
+  ["adjective",["Blue is an <mark>adjective</mark> in this phrase.","この句では blue は形容詞だ。"]],
+  ["injection",["The <mark>injection</mark> was quick.","注射はすぐ終わった。"]],
+  ["trajectory",["The ball followed a high <mark>trajectory</mark>.","ボールは高い軌道を描いた。"]],
+  ["conjecture",["That idea is only a <mark>conjecture</mark>.","その考えはただの推測だ。"]],
+  ["marine",["<mark>Marine</mark> animals live in the sea.","海の動物は海に住む。"]],
+  ["submarine",["The <mark>submarine</mark> moved under the waves.","潜水艦は波の下を進んだ。"]],
+  ["aquamarine",["She wore an <mark>aquamarine</mark> ring.","彼女はアクアマリンの指輪をしていた。"]],
+  ["marinade",["The fish rested in the <mark>marinade</mark>.","魚はマリネ液に漬けられた。"]],
+  ["mermaid",["A <mark>mermaid</mark> appeared in the tale.","物語に人魚が現れた。"]],
+  ["mind",["Keep the word in your <mark>mind</mark>.","その単語を心に留めておこう。"]],
+  ["monster",["A <mark>monster</mark> appeared as a warning.","怪物は警告として現れた。"]],
+  ["comment",["Leave a short <mark>comment</mark>.","短いコメントを残して。"]],
+  ["monument",["The stone <mark>monument</mark> remembers the battle.","石碑はその戦いを記憶に残している。"]],
+  ["remember",["I <mark>remember</mark> that story.","その話を覚えている。"]],
+  ["mantra",["He repeated a quiet <mark>mantra</mark>.","彼は静かなマントラを繰り返した。"]],
+  ["dowry",["The old tale mentions a <mark>dowry</mark>.","古い物語には持参金が出てくる。"]],
+  ["endow",["The gift will <mark>endow</mark> a new library.","その寄付は新しい図書館を支える。"]],
+  ["render",["Please <mark>render</mark> your thanks.","感謝を示してください。"]],
+  ["surrender",["The knight chose to <mark>surrender</mark>.","騎士は降伏を選んだ。"]],
+  ["dose",["Take one <mark>dose</mark> after dinner.","夕食後に一回分を飲んで。"]],
+  ["polygon",["Draw a <mark>polygon</mark> with many corners.","たくさんの角を持つ多角形を描こう。"]],
+  ["diagonal",["Draw a <mark>diagonal</mark> line across the square.","四角形に対角線を引こう。"]],
+  ["pentagon",["A <mark>pentagon</mark> has five corners.","五角形には五つの角がある。"]],
+  ["knee",["Bend your <mark>knee</mark> slowly.","ひざをゆっくり曲げよう。"]],
+  ["hexagon",["A honeycomb has a <mark>hexagon</mark> shape.","ハチの巣には六角形がある。"]],
+  ["octagon",["The sign is an <mark>octagon</mark>.","その標識は八角形だ。"]],
+  ["trigonometry",["<mark>Trigonometry</mark> measures triangles.","三角法は三角形を測る。"]],
+  ["orthogonal",["The two lines are <mark>orthogonal</mark>.","二本の線は直交している。"]]
+]);
+
+function lexExampleOf(word){const ex=LEX_EXAMPLES[word];return ex?{en:ex[0],ja:ex[1]}:null;}
+function firstSentence(text){return ((text||"").split("。")[0]||text||"").trim();}
+function lexMemoFor(word,jp,note){
+  const parts=(note||"").split("。").map(s=>s.trim()).filter(Boolean);
+  const rest=parts.slice(1).join("。");
+  return rest?`${word} は「${jp}」のことば。${rest}。`:`${word} は「${jp}」のことば。語根のイメージが、今の意味に形を変えて残っている。`;
+}
+function inferLexMorphs(rootId,word,note){
+  const lower=(word||"").toLowerCase();
+  const text=(note||"").toLowerCase();
+  const notedParts=parseLexMorphNote(rootId,note);
+  if(notedParts.length)return notedParts;
+  const roots=Object.entries(MORPHS)
+    .filter(([,m])=>m.root===rootId)
+    .sort((a,b)=>b[1].t.length-a[1].t.length);
+  const direct=roots.find(([id,m])=>lower===id||lower.startsWith(id)||lower.startsWith((m.t||"").toLowerCase()));
+  if(direct)return [direct[0]];
+  const noted=roots.find(([,m])=>text.includes(`${(m.t||"").toLowerCase()}(`)||text.includes(`${(m.t||"").toLowerCase()}（`));
+  if(noted)return [noted[0]];
+  const fallback={kaput:"cap",ane:"anim",bha:"phon",gwei:"viv",oino:"one",reg:"rect",weid:"vid",ye:"ject",mori:"",men:"mon",do:"don",genu:"gon"}[rootId];
+  return fallback&&MORPHS[fallback]?[fallback]:[];
+}
+function parseLexMorphNote(rootId,note){
+  if(!note||!note.includes("+"))return [];
+  return note.split("+").map(raw=>{
+    const m=raw.trim().match(/^([A-Za-z0-9_-]+)\s*[\(（]([^）)]*)[\)）]/);
+    if(!m)return "";
+    return morphIdForLexToken(rootId,m[1],m[2]);
+  }).filter(Boolean);
+}
+function morphIdForLexToken(rootId,token,meaning){
+  const t=(token||"").toLowerCase().replace(/[^a-z0-9_-]/g,"");
+  if(t==="in"&&/(否定|not|negative|無|非)/i.test(meaning||""))return MORPHS.in_neg?"in_neg":"in";
+  if(MORPHS[t])return t;
+  const exact=Object.entries(MORPHS).find(([,mo])=>(mo.t||"").toLowerCase()===t);
+  if(exact)return exact[0];
+  const sameRoot=Object.entries(MORPHS).find(([,mo])=>mo.root===rootId&&((mo.t||"").toLowerCase().startsWith(t)||t.startsWith((mo.t||"").toLowerCase())));
+  if(sameRoot)return sameRoot[0];
+  return "";
+}
+function lexSplitFor(word,morphs){
+  if(!morphs||!morphs.length)return [word,""];
+  const mo=morphOf(morphs[0]);
+  const t=(mo.t||"").toLowerCase();
+  const lower=(word||"").toLowerCase();
+  if(morphs.length>1&&!morphIsRoot(morphs[0])&&t&&lower.startsWith(t)){
+    return [word.slice(0,t.length),word.slice(t.length)];
+  }
+  if(t&&lower.startsWith(t))return [word.slice(0,t.length),word.slice(t.length)];
+  return [word,""];
+}
+
+async function loadAll(){
+  const [ui,roots,morphs,words,lex,subs,concepts,branches]=await Promise.all(
+    ["ui.csv","roots.csv","morphs.csv","words.csv","lexicon.csv","submissions.csv","concepts.csv","branches.csv"].map(loadCSV));
+  ui.forEach(r=>UI[r.key]=r.value);
+  roots.forEach(r=>ROOTS[r.id]={r:r.root,jp:r.jp,c:r.color,art:r.art,note:r.note,concept:r.concept||"",pie:r.pie||""});
+  /* 語根構成の台帳(concepts.csv)。key=エティモン探索の正式キー */
+  concepts.forEach(c=>CONCEPTS[c.key]={disp:c.disp,jp:c.jp,en:c.en||"",icon:c.icon,reg:c.reg});
+  BRANCHES=branches;
+  morphs.forEach(m=>MORPHS[m.id]={t:m.text,m:m.meaning,root:m.root||null,icon:m.icon||""});
+  WORDS=words.map(r=>({w:r.w,root:r.root,split:[r.split_a,r.split_b],
+    morphs:(r.morphs||"").split("|").filter(Boolean),ipa:r.ipa,pos:r.pos,jp:r.jp,gloss:r.gloss,memo:r.memo,
+    region:r.region||"",p:(r.p||"").split("+").filter(Boolean),
+    ex:(r.ex_en||r.ex_ja)?{en:r.ex_en,ja:r.ex_ja}:null}));
+  LEXICON={};
+  lex.forEach(r=>{(LEXICON[r.root]??=[]).push([r.w,r.via,r.jp,r.note,(r.p||"").split("+").filter(Boolean)]);});
+  SUBS={};
+  subs.forEach(r=>{(SUBS[r.word]??=[]).push({img:imgURL(r.img),by:r.by,game:r.game==="1"||r.game==="true",likes:+r.likes||0});});
+  /* 箱庭の「アイテムおえかき」で上書きされた図版を最優先で反映(localStorage共有) */
+  try{
+    const ca=JSON.parse(localStorage.getItem("lexi_item_art")||"{}");
+    Object.entries(ca).forEach(([w,img])=>{(SUBS[w]??=[]).unshift({img,by:"あなた",game:true,likes:99999});});
+  }catch(e){}
+  // byId(WORDS + 辞書のみの語も簡易ページ化)
+  byId={};WORDS.forEach(w=>byId[w.w]=w);
+  Object.entries(LEXICON).forEach(([rootId,arr])=>arr.forEach(([w,via,jp,note,pl])=>{
+    if(byId[w])return;
+    const morphs=inferLexMorphs(rootId,w,note);
+    // note はエティモン探索の語源メモ(それ自体が完結した一文)なので、そのまま語源メモ欄へ
+    byId[w]={w,root:rootId,split:lexSplitFor(w,morphs),morphs,ipa:"",pos:"",jp,gloss:jp,memo:note||lexMemoFor(w,jp,note),region:via||"",p:pl||[],lexOnly:true,ex:lexExampleOf(w)};
+  }));
+  try{LEVELS=await EtymopediaLearning.load();}catch(error){console.warn("Current word levels unavailable",error);}
+}
+
+/* ---- 形態素 ---- */
+function morphOf(id){return MORPHS[id]||{t:id,m:"",icon:"?"};}
+function morphIsRoot(id){return !!morphOf(id).root;}
+function morphIconInner(id){
+  const mo=morphOf(id);
+  if(mo.root&&ROOTS[mo.root]&&ROOTS[mo.root].art) return `<img src="${imgURL(ROOTS[mo.root].art)}" alt="">`;
+  if(mo.icon&&/\.(png|jpg|jpeg|webp|svg|gif)$/i.test(mo.icon)) return `<img src="${imgURL(mo.icon)}" alt="">`;
+  const col=mo.root&&ROOTS[mo.root]?ROOTS[mo.root].c:"var(--ink2)";
+  return `<span style="font-size:22px;font-weight:900;color:${col}">${mo.icon||mo.t[0]}</span>`;
+}
+function morphIconsHTML(w,small){
+  return `<div class="morphIcons">`+w.morphs.map(id=>{
+    const mo=morphOf(id);
+    const onclk=mo.root?`location.hash='#/root/${mo.root}'`:`event.stopPropagation()`;
+    const bc=mo.root&&ROOTS[mo.root]?`border-color:${ROOTS[mo.root].c}`:'';
+    return `<div class="morphIcon ${small?'sm':''}" onclick="event.stopPropagation();${onclk}" title="${mo.t}-「${mo.m}」${mo.root?' ← 語根':''}">
+      <div class="mi" style="${bc}">${morphIconInner(id)}</div><small>${mo.t}</small></div>`;
+  }).join("")+`</div>`;
+}
+function splitHW(w){
+  const [a,b]=w.split;const c=ROOTS[w.root].c;
+  if(!a&&!b) return `<span class="rootpart" style="--rc:${c};color:${c}">${w.w}</span>`;   // 分解式未記入の語は全体を語根色で
+  const rootFirst=w.morphs.length?morphIsRoot(w.morphs[0]):true;
+  return rootFirst?`<span class="rootpart" style="--rc:${c};color:${c}">${a}</span>${b}`
+                  :`${a}<span class="rootpart" style="--rc:${c};color:${c}">${b}</span>`;
+}
+function formulaHTML(w,small){
+  const c=ROOTS[w.root].c;
+  return w.morphs.map(id=>{const mo=morphOf(id);const isR=!!mo.root;
+    return small?`<span class="p" style="${isR?`background:${c};color:#fff;border-color:${c}`:""}">${mo.t}</span>`
+      :`<span class="part ${isR?'root':''}" style="--rc:${c}">${mo.t}<small>${mo.m}</small></span>`;
+  }).join(small?`<b>＋</b>`:`<span style="font-size:24px">＋</span>`);
+}
+function wordRootIds(w){
+  const ids=[w.root];
+  (w.morphs||[]).forEach(id=>{
+    const mo=morphOf(id);
+    if(mo.root) ids.push(mo.root);
+  });
+  return [...new Set(ids.filter(id=>ROOTS[id]&&ROOTS[id].art))];
+}
+function etymonBgHTML(w){
+  const ids=wordRootIds(w);
+  if(!ids.length) return "";
+  return `<div class="entryBgEtymons ${ids.length>1?'multi':''}" aria-hidden="true">`+
+    ids.map((id,i)=>`<img src="${imgURL(ROOTS[id].art)}" alt="" style="--rot:${(i%2?1:-1)*(2+i*1.6)}deg;--dy:${i%2?18:-10}px">`).join("")+
+  `</div>`;
+}
+/* ---- 古代概念チップ(正式な語根構成) ----
+   単語の p 列(エティモン探索の語根キーの '+' 連結)をそのまま読み、
+   キーごとに古代概念イメージ+正式表記(*men-1 等)を出す。
+   タップ: 掲載済みの12語根 → その語根ページ / それ以外 → 未登録エティモンのページ */
+function conceptChipHTML(key,small){
+  const c=CONCEPTS[key]||{disp:"*"+key,jp:"",icon:"",reg:""};
+  const go=c.reg?`#/root/${c.reg}`:`#/etymons/${encodeURIComponent(key)}`;
+  const t=`${c.disp}「${c.jp}」${c.reg?"":"(未登録のエティモン)"}`;
+  if(c.icon) return `<div class="cchip${small?" sm":""}" onclick="event.stopPropagation();location.hash='${go}'" title="${t}">
+    <span class="ci"><img src="${imgURL(c.icon)}" alt="" onerror="this.remove()"></span><small>${small?c.disp:(c.en||c.disp)}</small></div>`;
+  return `<div class="cchip txt${small?" sm":""}" onclick="event.stopPropagation();location.hash='${go}'" title="${t}"><b>${c.disp}</b></div>`;
+}
+function conceptRowHTML(keys,small){
+  if(!keys||!keys.length) return "";
+  return `<div class="cchips${small?" sm":""}">${keys.map(k=>conceptChipHTML(k,small)).join(`<span class="cplus">＋</span>`)}</div>`;
+}
+function wordConceptKeys(w){
+  if(w.p&&w.p.length) return w.p;
+  const pk=ROOTS[w.root]&&ROOTS[w.root].pie;   // 独自エントリはせめて語根の概念を出す
+  return pk?[pk]:[];
+}
+
+/* ---- 応募 ---- */
+function subList(word){
+  const arr=(SUBS[word]||[]).map((s,i)=>({...s,_key:word+"#"+i}));
+  arr.sort((x,y)=>subLikes(y)-subLikes(x));
+  return arr;
+}
+function subLikes(s){return (s.likes||0)+(likes[s._key]||0);}
+// Approved additions are matched by spelling AND the complete root set.
+// 辞典の主図版は assets/word の無印を正本にする。投稿altは主図版の代替にしない。
+const wordArtSenseKey=(word,roots)=>JSON.stringify([word,[...roots].sort().join("+")]);
+const approvedWordArt=new Map(Object.entries(globalThis.ETYMON_WORD_ART||{}).map(([key,stem])=>{
+  const [word,roots]=JSON.parse(key);
+  return [wordArtSenseKey(word,roots.split("+").filter(Boolean)),stem];
+}));
+/* 図版がまだ無い単語に出す仮画像。差し替えるときは assets/word/_placeholder.png を
+   置き換えるだけでよい。ここを cabbage.png にしてはいけない(本物の単語と
+   混ざって、キャベツの絵が別の語に出てしまう)。 */
+const PLACEHOLDER_ART = "word/_placeholder.png";
+function topArt(word,roots){
+  const p=roots===undefined?(byId[word]?.p||[]):roots;
+  const stem=approvedWordArt.get(wordArtSenseKey(word,p));
+  if(stem)return {img:imgURL("word/"+stem+".png"),by:"制作済み",likes:0,_key:word+"#approved:"+p.join("+")};
+  const a=subList(word);
+  return a.length?a[0]:null;
+}
+window.likeSub=function(key,btn){
+  likes[key]=(likes[key]||0)+1;
+  localStorage.setItem("etymo_likes3",JSON.stringify(likes));
+  btn.textContent="♥ "+(+btn.textContent.replace(/\D/g,"")+1);
+  btn.style.background="var(--coral)";btn.style.color="#fff";btn.style.borderColor="var(--coral)";
+};
+
+/* ---- ホーム ---- */
+function renderHome(){
+  $("#logoSub").textContent=UI.site_sub||"";
+  $("#searchInput").placeholder=UI.search_placeholder||"";
+  $("#nav").innerHTML=`<a href="#roots">${UI.nav_roots||""}</a><a href="#words">${UI.nav_words||""}</a><a href="#join" style="color:var(--coral)">${UI.nav_join||""}</a>`;
+  $("#heroInner").innerHTML=`
+    <span class="sticker">${UI.hero_badge||""}</span>
+    <h1>${UI.hero_h1_a||""}<br>${UI.hero_h1_b||""}</h1>
+    <p class="lead">${UI.hero_lead||""}</p>
+    <div id="heroCtas">
+      <button class="btn coral" onclick="location.hash='#join'">${UI.hero_cta1||""}</button>
+      <button class="btn yellow" onclick="toast('ゲーム開発中!')">${UI.hero_cta2||""}</button>
+    </div>
+    <div id="stats">
+      <div class="st"><div class="n">${Object.keys(ROOTS).length}</div><div class="l">${UI.stat_roots_label||""}</div></div>
+      <div class="st"><div class="n">${Object.values(LEXICON).reduce((s,a)=>s+a.length,0)||WORDS.length}</div><div class="l">${UI.stat_words_label||""}</div></div>
+      <div class="st"><div class="n"><em>${Object.values(SUBS).reduce((s,a)=>s+a.length,0)}</em></div><div class="l">${UI.stat_arts_label||""}</div></div>
+    </div>
+    <div id="heroArt"></div>`;
+  const withArt=WORDS.filter(w=>topArt(w.w)).slice(0,3);
+  $("#heroArt").innerHTML=withArt.map((w,i)=>{
+    const t=topArt(w.w);const pos=[["0px","0px","-4deg",210],["190px","150px","3deg",200],["30px","300px","-2deg",180]][i];
+    return `<div class="heroCard" style="left:${pos[0]};top:${pos[1]};--rot:${pos[2]};width:${pos[3]}px;animation-delay:${i*.7}s">
+      <img src="${t.img}"><div class="cap">${w.w}</div></div>`;
+  }).join("");
+  const rcs=Object.entries(ROOTS).map(([id,r])=>`<span class="rc" onclick="location.hash='#/root/${id}'">
+    <span class="ic" style="border-color:${r.c}"><img src="${imgURL(r.art)}" alt=""></span>
+    <span class="tx"><b style="color:${r.c}">${r.r}</b><span>「${r.jp}」</span></span></span>`).join("");
+  const half=rcs.repeat(3);            // 半周分を十分な幅に(-50%ループ用)
+  $("#tickerTrack").innerHTML=half+half;
+  $("#rootsHead").textContent=UI.roots_head||"";$("#rootsSub").textContent=UI.roots_sub||"";
+  $("#rootStrip").innerHTML=Object.entries(ROOTS).map(([id,r])=>{
+    const seal=r.concept?`<img class="rrSeal" src="${imgURL(r.concept)}" alt="" title="六千年前の「${r.jp}」のイメージ" onerror="this.remove()">`:"";
+    return `<div class="rootCard" style="--rc:${r.c}" onclick="location.hash='#/root/${id}'">
+      <img src="${imgURL(r.art)}" alt="">
+      <div class="rr" style="color:${r.c}">${seal}「${r.jp}」</div></div>`;
+  }).join("");
+  $("#wordsHead").textContent=UI.words_head||"";
+  renderWordGrid("");
+  // 参加
+  $("#joinHead").textContent=UI.join_head||"";$("#joinSub").textContent=UI.join_sub||"";
+  $("#steps").innerHTML=[1,2,3].map(i=>`<div class="step"><div class="no">${i}</div><h3>${UI["join_step"+i+"_t"]||""}</h3><p>${UI["join_step"+i+"_b"]||""}</p></div>`).join("");
+  $("#wantedHead").textContent=UI.wanted_head||"";
+  $("#wantedChips").innerHTML=WORDS.filter(w=>!topArt(w.w)).slice(0,14).map(w=>`<span class="fword" onclick="location.hash='#/word/${w.w}'">${w.w}「${w.jp.split("、")[0]}」</span>`).join("")||`<span style="color:#ffffff99">(サンプルでは多くの単語に図版があります)</span>`;
+  $("#footer").innerHTML=UI.footer||"";
+}
+let gridPick=null;   // 図版のある語から40語をランダム抽選(ページを開くたびに変わる)
+function renderWordGrid(q){
+  q=(q||"").trim().toLowerCase();
+  let list;
+  if(q){
+    list=WORDS.filter(w=>w.w.includes(q)||w.jp.includes(q)||ROOTS[w.root].r.includes(q)||ROOTS[w.root].jp.includes(q));
+  }else{
+    if(!gridPick){
+      const pool=Object.values(byId).filter(w=>topArt(w.w,w.p)&&ROOTS[w.root]);
+      for(let i=pool.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[pool[i],pool[j]]=[pool[j],pool[i]];}
+      gridPick=pool.slice(0,40);
+    }
+    list=gridPick;
+  }
+  $("#wordCount").textContent=q?`「${q}」の検索結果 ${list.length}語`:(UI.words_sub||"");
+  $("#wordGrid").innerHTML=list.map(w=>{
+    const top=topArt(w.w);
+    return `<div class="wcard" onclick="location.hash='#/word/${w.w}'">
+      <div class="thumb">
+        ${top?`<img src="${top.img}">`:`<img src="${imgURL(PLACEHOLDER_ART)}" alt="">`}
+        <div class="cardMorphs">${wordConceptKeys(w).filter(k=>(CONCEPTS[k]||{}).icon).map(k=>conceptChipHTML(k,true)).join("")}</div>
+      </div>
+      <div class="body"><div class="stars">${levelPill(wordLevel(w))}</div><div class="hw">${splitHW(w)}</div><div class="jp">${w.jp}</div></div>
+    </div>`;
+  }).join("");
+}
+
+/* ---- 単語ページ ---- */
+function renderWord(name){
+  const w=byId[name];if(!w){location.hash="";return;}
+  const r=ROOTS[w.root];const top=topArt(w.w);const subs=subList(w.w);
+  const family=WORDS.filter(x=>x.root===w.root&&x.w!==w.w);
+  $("#view").innerHTML=`
+    <span class="backLink" onclick="location.hash=''">← もどる</span>
+    <div><span class="rootChip" style="background:${r.c}" onclick="location.hash='#/root/${w.root}'"><i>${r.r}</i>「${r.jp}」</span></div>
+    <div class="entryTop">
+      ${etymonBgHTML(w)}
+      <div class="entryMain" style="--rc:${r.c}">
+        <div class="entryHW">${splitHW(w)}<button class="spk" data-say="${w.w}" title="発音を再生" onclick="event.stopPropagation();say(this.dataset.say)">🔊</button></div>
+        ${w.ipa?`<div class="entryIPA">${w.ipa}</div>`:""}
+        <div class="entryJP">${w.pos?`<span class="posTag">${w.pos}</span>`:""}${w.jp}</div>
+        <div class="entryStars">${levelPill(wordLevel(w),true)}${w.region&&viaCls(w.region)?`<span class="via ${viaCls(w.region)} entryVia" title="語派のはなしへ" onclick="location.hash='#/branches'">${regionLabel(w.region)}</span>`:""}</div>
+        <div class="entryMorphRow">${conceptRowHTML(wordConceptKeys(w))}</div>
+        ${w.ex?`<div class="exBox"><div class="en">${w.ex.en}</div><div class="ja">${w.ex.ja}</div></div>`:""}
+        ${w.memo?`<div class="memo"><span class="mt">語源メモ</span><br>${w.memo}</div>`:""}
+      </div>
+      <div class="plateCol">
+        <div class="plateCard">
+          <div class="pimg">${top?`<img src="${top.img}">`:`<img src="${imgURL(PLACEHOLDER_ART)}" alt="">`}</div>
+          ${top?`<div class="pmeta"><button class="likeBtn" onclick="likeSub('${top._key}',this)">♥ ${subLikes(top)}</button></div>`:""}
+        </div>
+      </div>
+    </div>
+    <div class="familyRow"><h3>${r.r} の仲間</h3>
+      <div class="fwords">${family.map(f=>`<span class="fword" onclick="location.hash='#/word/${f.w}'">${f.w}</span>`).join("")}
+        <span class="fword" style="background:${r.c};color:#fff;border-color:${r.c}" onclick="location.hash='#/root/${w.root}'">${r.r} の家系図へ →</span></div></div>`;
+}
+
+/* ---- 語派(地域)ラベル。L=ロマンス(旧ラテン) ---- */
+const REGION_NAMES={G:"ゲルマン",L:"ロマンス",Gr:"ギリシャ",S:"サンスクリット",Sa:"サンスクリット",Ce:"ケルト",Sl:"スラヴ",Ir:"ペルシャ"};
+function regionLabel(code){return REGION_NAMES[code]||code||"";}
+function regionCls(code){if(code==="S")code="Sa";return REGION_NAMES[code]?`reg-${code}`:"";}
+function viaCls(code){if(code==="S")code="Sa";return REGION_NAMES[code]?code:"";}
+/* ---- 現在の独自レベル。確認できた値と同じ数の星を表示する。 ---- */
+function wordLevel(row){return LEVELS?.lookup(row)?.level??null;}
+function levelPill(level,big){return EtymonRarity.html(EtymonRarity.learning(level,big?'detail':'list'));}
+/* 発音の読み上げ(リストの行と単語ページの🔊) */
+function say(t){try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang="en-US";u.rate=.9;speechSynthesis.speak(u);}catch(e){}}
+
+/* ---- 語根ページ:キャラ中心の放射状マップ ---- */
+function renderRoot(id){
+  const r=ROOTS[id];if(!r){location.hash="";return;}
+  const lex=LEXICON[id]||[];
+  const seen=new Set();
+  const candidates=[
+    ...WORDS.filter(w=>w.root===id),
+    ...lex.map(([w])=>byId[w]).filter(Boolean)
+  ].filter(w=>{
+    if(!w||seen.has(w.w))return false;
+    seen.add(w.w);
+    return true;
+  });
+  // 代表4語は words.csv の先頭4語(= data/featured.csv。差し替えは featured.csv を
+  // 編集して python3 app/build_etymopedia_from_pie.py を再実行)
+  const mainWords=candidates;
+  const list=mainWords.slice(0,4);   // キャラ周りは4語以内
+  // 左右へ交互に振り分けてバランスよく配置
+  const left=[],right=[];
+  list.forEach((w,i)=>(i%2===0?right:left).push(w));
+  const nodeHTML=w=>{
+    const top=topArt(w.w);
+    const img=top?top.img:imgURL(PLACEHOLDER_ART);   // 図版が無い単語の仮画像は PLACEHOLDER_ART(語根キャラは紛らわしいので使わない)
+    // 見出しは絵+英語のみ(和訳・語派は下の辞典リストにあるので重ねない)
+    return `<button class="wnode" style="--rc:${r.c}" onclick="location.hash='#/word/${w.w}'">
+      <span class="wnImg"><img src="${img}" alt=""></span>
+      <span class="wnW">${w.w}</span></button>`;
+  };
+  const drowHTML=([w,via,jp,note,pl])=>{
+    const art=topArt(w,pl);
+    const img=art?art.img:imgURL(`word/${w}.png`);
+    const vc=viaCls(via);
+    return `<div class="drow" onclick="location.hash='#/word/${w}'">
+      <span class="dthumb"><img src="${img}" alt="" loading="lazy" onerror="this.src='${imgURL(PLACEHOLDER_ART)}'"></span>
+      <span class="dw">${w}<button class="spk sm" data-say="${w}" title="発音を再生" onclick="event.stopPropagation();say(this.dataset.say)">🔊</button></span>${vc?`<span class="via ${vc}" title="語派のはなしへ" onclick="event.stopPropagation();location.hash='#/branches'">${regionLabel(via)}</span>`:`<span class="via none"></span>`}
+      <span class="dj">${jp}</span><span class="dl">${note}</span></div>`;
+  };
+  // 独自レベルの値ごとにまとめる。照合できない語は推測せず別枠に置く。
+  const dict=[...Array.from({length:10},(_,i)=>i+1),null].map(t=>{
+    const arr=lex.filter(([w,via,jp,note,p])=>wordLevel({w,jp,p})===t);
+    if(!arr.length)return "";
+    const theme=EtymonRarity.learning(t).theme;
+    return `<details class="tierBox t${theme}" open><summary>${levelPill(t)}<span class="tCount">${arr.length}語</span></summary>${arr.map(drowHTML).join("")}</details>`;
+  }).join("");
+  $("#view").innerHTML=`
+    <span class="backLink" onclick="location.hash=''">← もどる</span>
+    <div class="rmLead">「<b style="color:${r.c}">${r.jp}</b>」から生まれた英単語たち</div>
+    <div class="rootMap" style="--rc:${r.c}">
+      <svg class="rmLines" aria-hidden="true"></svg>
+      <div class="rmSide left">${left.map(nodeHTML).join("")}</div>
+      <div class="rmCenter">
+        <div class="rmConcept">${r.jp}</div>
+        <div class="rmCharWrap"><img class="rmChar" src="${imgURL(r.art)}" alt=""></div>
+      </div>
+      <div class="rmSide right">${right.map(nodeHTML).join("")}</div>
+    </div>
+    <div class="rmMemo${r.concept?" hasSeal":""}"><span class="mt">語源メモ</span>${r.concept?`<span class="sealWrap"><img class="seal" src="${imgURL(r.concept)}" alt="" title="六千年前の「${r.jp}」のイメージ(古代概念)" onerror="this.closest('.sealWrap').remove()"><span class="sealRoot"><i>${r.r}</i></span></span>`:`<span class="rmRootNote"><i>${r.r}</i></span>`}<br>${r.note}</div>
+    <div class="dictSec"><h3>派生語辞典(${lex.length}語)</h3>
+      <div class="dictLegend"><span class="brLink" onclick="location.hash='#/branches'">${UI.br_legend_link||"語派バッジのひみつ →"}</span></div>
+      <div class="dictList">${dict||'<div class="drow"><span class="dl">(準備中)</span></div>'}</div></div>`;
+  requestAnimationFrame(drawRootLines);
+  setTimeout(drawRootLines,320);   // フォント確定後に引き直し
+}
+
+/* キャラ中心から各単語へ放射状の連結線をSVGで描く(単語どうしはつながない) */
+function drawRootLines(){
+  const map=$(".rootMap");if(!map)return;
+  const svg=map.querySelector(".rmLines");if(!svg)return;
+  if(!window.matchMedia("(min-width:821px)").matches){svg.innerHTML="";return;}
+  const mr=map.getBoundingClientRect();
+  const cw=map.querySelector(".rmCharWrap");if(!cw)return;
+  const cb=cw.getBoundingClientRect();
+  const cx=cb.left+cb.width/2-mr.left, cy=cb.top+cb.height/2-mr.top;
+  const cr=cb.width/2-6;   // 円のふちから線を出す
+  svg.setAttribute("viewBox",`0 0 ${mr.width} ${mr.height}`);
+  svg.style.width=mr.width+"px";svg.style.height=mr.height+"px";
+  let p="";
+  map.querySelectorAll(".wnode").forEach(node=>{
+    const b=(node.querySelector('.wnImg')||node).getBoundingClientRect();
+    const onLeft=node.closest(".rmSide").classList.contains("left");
+    const ex=(onLeft?b.right:b.left)-mr.left, ey=b.top+b.height/2-mr.top;
+    const dx=ex-cx, dy=ey-cy, len=Math.hypot(dx,dy)||1;
+    const sx=cx+dx/len*cr, sy=cy+dy/len*cr;   // 円周上の起点
+    const mx=(sx+ex)/2;
+    p+=`<path d="M ${sx} ${sy} C ${mx} ${sy}, ${mx} ${ey}, ${ex} ${ey}" fill="none" stroke="#241f26" stroke-width="2.5" stroke-linecap="round"/>`;
+    p+=`<circle cx="${ex}" cy="${ey}" r="4" fill="#241f26"/>`;
+  });
+  svg.innerHTML=p;
+}
+addEventListener("resize",()=>{if($(".rootMap"))drawRootLines();});
+addEventListener("load",()=>{if($(".rootMap"))drawRootLines();});
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(()=>{if($(".rootMap"))drawRootLines();});
+// Image/font/layout changes must keep the connector attached to the visible node.
+const rootLineObserver=new ResizeObserver(()=>{if($(".rootMap"))drawRootLines();});
+rootLineObserver.observe($("#view"));
+document.addEventListener('load',e=>{if(e.target.matches?.('.rmChar,.wnImg img'))drawRootLines();},true);
+
+/* ---- 未登録エティモンのページ ----
+   12体のエティモン以外の祖先(語根・接辞)はここに集まる。
+   辞典・個別ページの古代概念チップをタップすると該当カードへスクロール */
+function etyCardId(k){return "ety-"+[...k].map(c=>/[a-z0-9]/i.test(c)?c:"_"+c.codePointAt(0)).join("");}
+function renderEtymons(hl){
+  const list=Object.entries(CONCEPTS).filter(([,c])=>!c.reg);
+  list.sort((a,b)=>((b[1].icon?1:0)-(a[1].icon?1:0))||a[1].disp.localeCompare(b[1].disp));
+  $("#view").innerHTML=`
+    <span class="backLink" onclick="location.hash=''">← もどる</span>
+    <div class="rmLead">まだ登録されていない<b>祖先</b>たち</div>
+    <div class="etySub">単語の分解に姿を見せる語根・接辞のうち、エティモンとしてまだ迎えていない祖先たち(全${list.length})。いまは六千年前の「古代概念」のイメージだけが届いている。</div>
+    <div class="etyGrid">${list.map(([k,c])=>`
+      <div class="etyCard${k===hl?" hl":""}" id="${etyCardId(k)}" title="${c.disp}「${c.jp}」">
+        <span class="ci">${c.icon?`<img src="${imgURL(c.icon)}" alt="" loading="lazy" onerror="this.remove()">`:`<b>?</b>`}</span>
+        <div class="ed">${c.disp}</div><div class="ej">${c.jp}</div>
+      </div>`).join("")}</div>`;
+  if(hl){const el=document.getElementById(etyCardId(hl));if(el)setTimeout(()=>el.scrollIntoView({block:"center",behavior:"smooth"}),120);}
+}
+
+/* ---- 語派のはなし(バッジ→蘊蓄ページ。グリムの法則など音の変化の解説) ---- */
+const BR_COLORS={G:"#7a8b99",L:"#c0693c",Gr:"#3f7fae",Sa:"#a0722d",Ce:"#4e8f6b",Sl:"#8a67c9",Ir:"#b0577a"};
+function wordChip(w){
+  // 収録語はリンク付き。未収録でも例として見せる(語派ページはサイトの
+  // 収録語に縛られず、いちばんわかりやすい定番例を出す方針)
+  if(byId[w])return `<span class="fword" onclick="location.hash='#/word/${w}'">${w}</span>`;
+  return `<span class="fword plain">${w}</span>`;
+}
+function renderBranches(){
+  const pairs=(UI.br_grimm_pairs||"").split(";").filter(Boolean).map(x=>x.split("|"));
+  const pairHTML=([lab,a,b])=>{
+    const va=byId[a]?byId[a].region||"L":"L", vb=byId[b]?byId[b].region||"G":"G";
+    const go=w=>byId[w]?` onclick="location.hash='#/word/${w}'"`:"";
+    return `<div class="gp"><span class="gpr">${lab}</span>
+      <span class="gpw via ${viaCls(va)}${byId[a]?"":" plain"}"${go(a)}>${a}</span><b>⇄</b>
+      <span class="gpw via ${viaCls(vb)}${byId[b]?"":" plain"}"${go(b)}>${b}</span></div>`;
+  };
+  const card=(br,mini)=>`
+    <div class="brCard${mini?" mini":""}" style="--bc:${BR_COLORS[br.code]||"#888"}">
+      <div class="brHead"><span class="via ${br.code}">${br.name}</span><span class="brCatch">${br.catch}</span></div>
+      <div class="brBody">${br.body}</div>
+      ${br.sound?`<div class="brSound"><b>音の見どころ</b>${br.sound}</div>`:""}
+      <div class="brEx">${br.ex.split("|").map(wordChip).join("")}</div>
+    </div>`;
+  const MAJOR=["G","L","Gr"];
+  const majors=BRANCHES.filter(b=>MAJOR.includes(b.code)).map(b=>card(b,false)).join("");
+  const minors=BRANCHES.filter(b=>!MAJOR.includes(b.code)).map(b=>card(b,true)).join("");
+  $("#view").innerHTML=`
+    <span class="backLink" onclick="location.hash=''">← もどる</span>
+    <div class="brHero">
+      <span class="brKick">${UI.br_kick||"語派のはなし"}</span>
+      <div class="rmLead brTitle">${UI.br_head||"同じ祖先、べつの道"}</div>
+      <div class="etySub">${UI.br_sub||""}</div>
+    </div>
+    ${majors}
+    <div class="grimmBox hasImg"><span class="grimmWrap"><img class="grimmImg" src="${imgURL(UI.br_grimm_img||PLACEHOLDER_ART)}" alt="" onerror="this.closest('.grimmWrap').remove()"><span class="grimmCap">${UI.br_grimm_cap||"グリム兄弟"}</span></span><span class="gt">${UI.br_grimm_t||"グリムの法則"}</span>
+      <div>${UI.br_grimm_b||""}</div>
+      <div class="grimmPairs">${pairs.map(pairHTML).join("")}</div></div>
+    <div class="brMinorHead">${UI.br_minor_head||"もっと遠くの親戚たち"}</div>
+    <div class="brMinorGrid">${minors}</div>`;
+}
+
+/* ---- ルーター ---- */
+function route(){
+  const h=location.hash;const mW=h.match(/^#\/word\/(.+)$/),mR=h.match(/^#\/root\/(.+)$/),mE=h.match(/^#\/etymons(?:\/(.+))?$/),mB=h.match(/^#\/branches(?:\/(.+))?$/);
+  if(mW||mR||mE||mB){$("#home").style.display="none";$("#viewSec").style.display="block";
+    if(mW)renderWord(decodeURIComponent(mW[1]));
+    else if(mR)renderRoot(decodeURIComponent(mR[1]));
+    else if(mE)renderEtymons(mE[1]?decodeURIComponent(mE[1]):"");
+    else renderBranches();
+    try{scrollTo({top:0})}catch(e){}}
+  else{$("#viewSec").style.display="none";$("#home").style.display="block";}
+}
+addEventListener("hashchange",route);
+
+/* ---- 起動 ---- */
+(async()=>{
+  await loadAll();
+  $("#searchInput").addEventListener("input",e=>{
+    if(location.hash.startsWith("#/"))location.hash="";
+    renderWordGrid(e.target.value);
+    document.getElementById("words").scrollIntoView({behavior:"smooth"});
+  });
+  renderHome();
+  route();
+})();
+</script>
+</body>
+</html>

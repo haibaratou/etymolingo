@@ -110,7 +110,7 @@ git push origin HEAD:claude/etymoringo-spec-n5g38o   # 指定ブランチも同�
 | ファイル | 本物 | 注意 |
 |---|---|---|
 | `app/etymopedia.html` | **配信先** | 作業用の版は古い。配信先から持ってくる |
-| `app/etymon-explorer.html` | 3つとも同じに保つ | |
+| `app/vocabulary-master.html` | 3つとも同じに保つ | |
 | `app/data/pie/*` | **母艦** | 配信先には出さない |
 | `app/data/generated-etymon/*` | **配信先** | 母艦の export スクリプトが作る |
 
@@ -135,7 +135,7 @@ git push origin HEAD:claude/etymoringo-spec-n5g38o   # 指定ブランチも同�
 ### ★ 消してよいかの判断は `app/index.html` が決める
 
 **入口ページからリンクされているものが、消してはいけないもの。** それが定義。
-リンクされていないファイルは試作・残骸なので、消してよい。
+直接リンクされていなくても、入口が読むJS/CSS/データ/manifest/画像や内部iframeなどの依存ファイルは保護する。リンクされていないことだけで不要と判断しない。試作の保管・削除は、入口とその依存関係を確認したうえで、その作業のユーザー指示に従う。
 
 消す前に必ず入口を見ること:
 
@@ -201,7 +201,7 @@ python3 app/check_format.py    # 語義の書式
 | `ja_words.txt` | 見出しだけの一覧。取得スクリプトが食う | `fetch_ja_refs.py` |
 | `ja_refs_kotobank.json` | コトバンクの記述**そのまま**(辞書名つき) | 母艦。画面には出さない |
 | `ja_dict.json` | 上を組んだ本体 | 母艦 |
-| `ja_index.json` | 画面が起動時に読む索引(軽い) | `app/ja-dict.html` |
+| `ja_index.json` | 画面が起動時に読む索引(軽い) | `app/japanese-dictionary.html` |
 | `ja_det/<五十音行>.json` | 開いた語のぶんだけ取りにいく本文。10分割 | 同上 |
 
 ### 作る順番
@@ -286,18 +286,20 @@ JMdict の英訳から作る。**文は切らない。**
 
 ## 5. 画面
 
+全プロダクトの入口HTMLは `app` 直下、補助ファイルは `app/support/`。アプリとゲームを分けず、`app/games/` を作らない。新規作成・生成・更新も `AGENTS.md` の「全プロダクト共通の必須フォルダ構成」に従う。辞書・画像・解説を複製・再生成して配置差を隠さない。
+
 | ファイル | 何 |
 |---|---|
-| `app/ja-dict.html` | 日本語辞書。左に一覧、右に本文の二面 |
-| `app/etymon-explorer.html` | 英語の語源データベース閲覧 |
+| `app/japanese-dictionary.html` | 日本語辞書。左に一覧、右に本文の二面 |
+| `app/vocabulary-master.html` | 英語の語源データベース閲覧 |
 | `app/etymopedia.html` | 公開用の語源辞典(モック) |
-| `app/lexicopia-hakoniwa.html` | ゲーム本体。**勝手に上書きしない**(Codex修正版が正) |
+| `app/lexicopia-hakoniwa_IP360.html` | ゲーム本体。**勝手に上書きしない**(Codex修正版が正) |
 
 確かめかた。
 
 ```bash
 cd <配信先クローン> && python3 -m http.server 8781 &
-# → http://localhost:8781/app/ja-dict.html
+# → http://localhost:8781/app/japanese-dictionary.html
 ```
 
 Playwright は入っている(`/opt/pw-browsers/chromium`)。ESM から使うときは

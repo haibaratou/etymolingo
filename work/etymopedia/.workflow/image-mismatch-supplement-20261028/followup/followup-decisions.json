@@ -1,0 +1,317 @@
+{
+  "checked_at": "2026-10-28T13:56:46.104750+00:00",
+  "principle": "Current Japanese first meaning is the image target; b clarifies a referent but etymological origins and independent English paraphrases cannot replace that target. Multiple valid dictionary senses alone do not prove the current image completely wrong.",
+  "cases": [
+    {
+      "case": 21,
+      "word": "Anastasia",
+      "ordered_root_ids": [
+        "stā-",
+        "an-"
+      ],
+      "etymology_id": "",
+      "current_first_ja": "アナスタシア",
+      "current_POS": "名",
+      "current_English_independent_field": "resurrection",
+      "current_b": "人名。ギリシャ語の「復活」から。文字どおりには「立ち上がること」。",
+      "current_src": "etymonline",
+      "current_filename": "Anastasia.png",
+      "current_image_sha256": "e391e8a0c71bae8b10f09ff7f95d132847afc6f2801c479f355c13cb4c2c1114",
+      "retained_exact_current_reviewed_caption": [],
+      "decision": "excluded_no_major_current_mismatch",
+      "reason": "Current b explicitly says a personal name. A woman reading is compatible with that entry. Resurrection is an independent English paraphrase/etymological origin, not the image target; no unique historical person is required.",
+      "adopted_evidence": null,
+      "external_sources": []
+    },
+    {
+      "case": 176,
+      "word": "epithet",
+      "ordered_root_ids": [
+        "epi",
+        "dhē-"
+      ],
+      "etymology_id": "",
+      "current_first_ja": "形容詞",
+      "current_POS": "動",
+      "current_English_independent_field": "descriptive name",
+      "current_b": "原義は「付け加えたもの」。名に添える呼び名を指した。",
+      "current_src": null,
+      "current_filename": "epithet.png",
+      "current_image_sha256": "fa19947c35044923a7c4c33b389182c8cd8de76c57258c2847b63c97fb390798",
+      "retained_exact_current_reviewed_caption": [],
+      "decision": "hold_conflicting_current_meaning_and_adopted_definitions",
+      "reason": "Current Japanese is 形容詞 and current POS is 動. Current b says 名に添える呼び名; adopted Eijiro and Weblio define 形容辞/添え名/あだ名. Greek adjective appears inside the etymology, not as an adopted modern English first definition. The comic-reading scene does not resolve which incompatible target is intended. The dictionary maintainer must decide whether to retain grammatical adjective or select descriptive appellation, and settle POS. No meaning data was changed.",
+      "adopted_evidence": {
+        "public_detail_file": "D:\\Projects\\etymolingo\\app\\data\\generated-etymon\\det\\e.json",
+        "detail_record_id": "5383",
+        "file_sha256": "c20f840cdbedd1612b4627e18fcdb4cb58a64f89e8a224a39123a13cf3e98801",
+        "adopted_wiktionary_etymology": "etymology 1: From Middle French épithète, from Latin epithetum, epitheton, from Ancient Greek ἐπίθετον (epítheton, “epithet, adjective”), the neuter of ἐπίθετος (epíthetos, “additional”), from ἐπιτίθημι (epitíthēmi, “to add on”), from ἐπι- (epi-, “in addition”) +‎ τίθημι (títhēmi, “to put”) (suf. possibly related to title in the sense of \"ascribed appellation\") (from Proto-Indo-European *dʰeh₁- (“to put, to do”)).",
+        "MW_summary": "Latin epitheton , from Greek, from neuter of epithetos added, from epitithenai to put on, add, from epi- + tithenai to put  — more at do",
+        "Eijiro_definition": "《言語学》〔人名などに付ける〕形容辞、添え名◆可算《言語学》〔人などを表す〕あだ名、通り名悪口、口汚い言葉、軽蔑の言葉《生物》〔分類名の中の〕小名◆【同】specific epithet",
+        "Weblio_definition": "(性質・属性を表わす)形容辞、あだ名、通り名、軽蔑の言葉、悪口"
+      },
+      "external_sources": [
+        "https://ahdictionary.com/word/search.html?q=epithet",
+        "https://en.wiktionary.org/wiki/epithet"
+      ]
+    },
+    {
+      "case": 385,
+      "word": "Phillip",
+      "ordered_root_ids": [],
+      "etymology_id": "",
+      "current_first_ja": "フィリップ",
+      "current_POS": "名",
+      "current_English_independent_field": "personal name",
+      "current_b": null,
+      "current_src": "wiktionary",
+      "current_filename": "Phillip.png",
+      "current_image_sha256": "dac06cc333f36590ffa6a5ab43a5f1c99ad82681a7fdbcae4915eea8b3a04de7",
+      "retained_exact_current_reviewed_caption": [],
+      "decision": "additional_prompt_ready",
+      "reason": "The adopted Wiktionary record identifies a spelling of Philip and the adopted Weblio record says noun = Philip. The current personal-name entry is not Phillip Island; the current three penguins depict that different referent. No authentic individual portrait is required.",
+      "adopted_evidence": {
+        "public_detail_file": "D:\\Projects\\etymolingo\\app\\data\\generated-etymon\\det\\p.json",
+        "detail_record_id": "19946",
+        "file_sha256": "196ef68ac9b9d9a39d3f8d8f67eb4b3b7e17dbf537f39a3fa567f35ac8ba1c37",
+        "adopted_wiktionary_etymology": "Wiktionary: A less common spelling of Philip.",
+        "MW_summary": "",
+        "Eijiro_definition": "【地名】フィリップ島",
+        "Weblio_definition": "Phillipの意味や使い方 音節Phil･lip発音記号&#x0066;&#x026A;&#x0301;&#x006C;&#x026A;&#x0070;名詞=Philip - 約506万語ある英和辞典・和英辞典。発音・イディオムも分かる英語辞書。"
+      },
+      "external_sources": [
+        "https://en.wiktionary.org/wiki/Phillip"
+      ]
+    },
+    {
+      "case": 453,
+      "word": "Santa",
+      "ordered_root_ids": [],
+      "etymology_id": "",
+      "current_first_ja": "サンタ",
+      "current_POS": "名",
+      "current_English_independent_field": "proper name",
+      "current_b": "Santa Claus を短くした呼び方。Santa Claus はオランダ語の Sante Klaas を経て、「聖ニコラウス」を表す名にさかのぼる。",
+      "current_src": "wiktionary",
+      "current_filename": "Santa.png",
+      "current_image_sha256": "0cc591d15ed38e28e06f5b9268cd4f6e4e88b877b652d2d56a743cb47550d0ba",
+      "retained_exact_current_reviewed_caption": [],
+      "decision": "additional_prompt_ready",
+      "reason": "Current b explicitly identifies Santa Claus; current river landscape is unrelated.",
+      "adopted_evidence": null,
+      "external_sources": []
+    },
+    {
+      "case": 587,
+      "word": "Veronica",
+      "ordered_root_ids": [],
+      "etymology_id": "",
+      "current_first_ja": "ヴェロニカ",
+      "current_POS": "名",
+      "current_English_independent_field": "personal name",
+      "current_b": "女性名Veronicaは、ギリシャ語の女性名Berenikeの変形に由来する。「真の像」を意味するラテン語veraとギリシャ語eikonからの説明は、後世の民間語源。",
+      "current_src": "wiktionary",
+      "current_filename": "Veronica.png",
+      "current_image_sha256": "7e98c89ba9a08d2f0ccaf725cdf2375afbf773a7910a7530c9c4576477bbb581",
+      "retained_exact_current_reviewed_caption": [
+        {
+          "en": "Veronica stems bear small blue flowers and toothed green leaves.",
+          "ja": "ヴェロニカの茎に小さな青い花と鋸歯のある緑の葉が付いている。"
+        }
+      ],
+      "decision": "additional_prompt_ready",
+      "reason": "Current b explicitly describes the female personal name; current flower specimen belongs to a different referent.",
+      "adopted_evidence": null,
+      "external_sources": []
+    },
+    {
+      "case": 592,
+      "word": "Wellington",
+      "ordered_root_ids": [],
+      "etymology_id": "",
+      "current_first_ja": "ウェリントン",
+      "current_POS": "名",
+      "current_English_independent_field": "proper name",
+      "current_b": null,
+      "current_src": "wiktionary",
+      "current_filename": "Wellington.png",
+      "current_image_sha256": "2cf55941bef3cbd05894a7e3a77d698b34a4422d4409b1cce0e8763da616828f",
+      "retained_exact_current_reviewed_caption": [
+        {
+          "en": "A pair of green Wellington boots has thick soles.",
+          "ja": "緑のウェリントンブーツに厚い靴底が付いている。"
+        }
+      ],
+      "decision": "excluded_no_major_current_mismatch",
+      "reason": "The current first Japanese meaning is the unqualified ウェリントン, POS 名, and b is absent. Adopted Eijiro explicitly includes Wellington boots, while MW/Weblio refer to the Duke and Wiktionary also has places. The exact current PNG already has a retained reviewed caption describing green Wellington boots; adopted Wiktionary also separately attests Wellington = Wellington boot. No field selects a city or Duke over that valid boot sense. proper name in the independent English field cannot alone invalidate this image. Excluded from complete-mismatch regeneration; the dictionary can clarify sense priority separately.",
+      "adopted_evidence": {
+        "public_detail_file": "D:\\Projects\\etymolingo\\app\\data\\generated-etymon\\det\\w.json",
+        "detail_record_id": "21337",
+        "file_sha256": "6cf7411893286d14f7be37da317615065b6ac915e7a143e2152017da4d5ac99d",
+        "adopted_wiktionary_etymology": "Wiktionary: From earlier Wēolingtūn, from:\n# For the place in Shropshire, England: Partly uncertain. The second element from Old English tūn (“estate”), while the first element could come either from *wœling (“ridge, bank”), or else from *wēoling (“device, artefact”).\n# For the place in Somerset, England: Partly obscure. The last element from Old English tūn (“estate”), while the first element could come from either the personal name *Wēola + ing, or else *wēoling (“trap”).\n# Many places with this name are named after Arthur Wellesley, 1st Duke of Wellington, British soldier and statesman.",
+        "MW_summary": "Arthur Wellesley, 1st Duke of Wellington",
+        "Eijiro_definition": "【名】＝ Wellington bootsWellington【人名】ウェリントン【地名】ウェリントン◆ニュージーランドの首都ウェリントン◆米国オハイオ州にある町Wellington boots〈英〉〔ゴム製の〕ウェリントン・ブーツ◆19世紀に初代ウェリントン侯爵アーサー・ウェルズリー(Arthur Wellesley)がヘッセン・ブーツを基に作らせて広めた、子牛の皮で作った膝丈の戦闘用のブーツを起源とするもの。1852年にはゴムで防水性のものが作られて一般に広まり、イギリスだけでなくカナダでも使われている。◆wellington bootsとも表記◆【同】wellie〔革製の〕ウェリントン・ブーツ◆前が膝丈で、後ろが低くカットされている革製ブーツ。◆wellington bootsとも表記。wellingtonia＝ sequoiapair of Wellingtons《a ～》ウェリントンブーツ1足",
+        "Weblio_definition": "ウェリントン、ウェリントン公(爵) 《1769‐1852; Waterloo で Napoleon 1 世を破った英国の将軍・政治家; 本名 Arthur Wellesley 》"
+      },
+      "external_sources": [
+        "https://en.wiktionary.org/wiki/Wellington#Etymology_2"
+      ]
+    },
+    {
+      "case": 103423,
+      "word": "Gregory",
+      "ordered_root_ids": [],
+      "etymology_id": "",
+      "current_first_ja": "聖グレゴリウス(グレゴリー)",
+      "current_POS": "名",
+      "current_English_independent_field": "Armenian church founder",
+      "current_b": "後期ラテン語Gregoriusを経て、ギリシャ語gregoriosに由来する人名。「目覚めている、用心深い」を意味する語から作られた。",
+      "current_src": "wiktionary",
+      "current_filename": "Gregory.png",
+      "current_image_sha256": "1309673fb634fe24363440fab53e552c6776470883b3c7d782e0c8b3e5c72dbc",
+      "retained_exact_current_reviewed_caption": [],
+      "decision": "additional_prompt_ready",
+      "reason": "The current first Japanese meaning explicitly names Saint Gregory, whereas the current image is a modern boy thinking in a sweater. The Armenian-church wording helps locate the Illuminator in the official church history; it is corroboration, not a paraphrase-change regeneration trigger. Use symbolic saint iconography without claiming an authenticated likeness.",
+      "adopted_evidence": {
+        "public_detail_file": "D:\\Projects\\etymolingo\\app\\data\\generated-etymon\\det\\g.json",
+        "detail_record_id": "21283",
+        "file_sha256": "43a03b798ced20ae26c51ba4b365e23f9a1d89f8f5f33339a4b5d0b845472356",
+        "adopted_wiktionary_etymology": "Wiktionary: Via Latin Grēgorius, from post-classical Ancient Greek Γρηγόριος (Grēgórios, “watchful, vigilant”), from Ancient Greek ἐγείρω (egeírō, “awaken, arouse”).",
+        "MW_summary": "",
+        "Eijiro_definition": "【人名】グレゴリ、グレゴリー、グレゴリイ、グレガリー◆ファーストネームまたはファミリーネーム◆【愛称】Greg（グレグ）◆【語源】ギリシャ語で「注意深く見守る」。◆【例】Gregory Peck（俳優）",
+        "Weblio_definition": "グレゴリー"
+      },
+      "external_sources": [
+        "https://armenianchurch.us/the-illuminators-final-years-3/",
+        "https://armenianchurch.ge/hy/component/content/article/122-stgregorytheilluminators"
+      ]
+    },
+    {
+      "case": 103460,
+      "word": "Guinness",
+      "ordered_root_ids": [],
+      "etymology_id": "",
+      "current_first_ja": "ギネス",
+      "current_POS": "名",
+      "current_English_independent_field": "Sir Alec 1914—2000 British actor",
+      "current_b": "姓Guinnessは、アイルランドの姓Mag AonghusaまたはMag Aonghuisに由来する。",
+      "current_src": "wiktionary",
+      "current_filename": "Guinness.png",
+      "current_image_sha256": "5a171da7a4f22b95f81352f65d26d6517dd3ab89dc382ebecbbee51d81802846",
+      "retained_exact_current_reviewed_caption": [],
+      "decision": "excluded_no_major_current_mismatch",
+      "reason": "Current b explicitly describes the surname. The current older man with script, movie camera and director chair is compatible with that surname/actor context. There is no evidence that this first Japanese entry selects beer or records. An authenticated portrait is not required.",
+      "adopted_evidence": {
+        "public_detail_file": "D:\\Projects\\etymolingo\\app\\data\\generated-etymon\\det\\g.json",
+        "detail_record_id": "31339",
+        "file_sha256": "43a03b798ced20ae26c51ba4b365e23f9a1d89f8f5f33339a4b5d0b845472356",
+        "adopted_wiktionary_etymology": "Wiktionary: An Anglicization of Irish Mac Aonghusa (literally “son of Angus”).",
+        "MW_summary": "",
+        "Eijiro_definition": "【名】ギネス◆アイルランド産の黒ビール。1759年にアーサー・ギネスがギネス醸造を開始した。【人名】ギネス",
+        "Weblio_definition": "ギネス"
+      },
+      "external_sources": []
+    },
+    {
+      "case": 103566,
+      "word": "Harvard",
+      "ordered_root_ids": [],
+      "etymology_id": "",
+      "current_first_ja": "ハーバード",
+      "current_POS": "名",
+      "current_English_independent_field": "proper name",
+      "current_b": "姓は「軍の守り手」を表す古英語hereweardと同系。大学名は財産や蔵書を遺贈したJohn Harvardにちなむ。",
+      "current_src": "wiktionary",
+      "current_filename": "Harvard.png",
+      "current_image_sha256": "c908a6ff62d15be893fc55fb54bae4a0432b37de5b59709cb44c521c35fc2e25",
+      "retained_exact_current_reviewed_caption": [],
+      "decision": "excluded_no_major_current_mismatch",
+      "reason": "Current first Japanese is unqualified ハーバード and b explicitly describes both the surname and the university named after John Harvard. Adopted Wiktionary supports the surname, Eijiro includes person/place as well as university, while Weblio focuses on the university. A generic male portrait can represent the surname entry; no canonical field explicitly selects the university alone. Source order is not evidence of sense priority. Excluded because complete incompatibility is not established; no invented specific-person likeness is required.",
+      "adopted_evidence": {
+        "public_detail_file": "D:\\Projects\\etymolingo\\app\\data\\generated-etymon\\det\\h.json",
+        "detail_record_id": "19191",
+        "file_sha256": "b925404381d79e244a1e1f3b288937dd5784b31f3ba49f0269951138131468ff",
+        "adopted_wiktionary_etymology": "Wiktionary: A variant of Harward reflecting the merger of /v/ and /w/ in the dialects of southeastern England; thus from Middle English Herward, Herreward, itself from Old English Hereweard and a doublet of Harward and Hereward. Compare German Herwarth.",
+        "MW_summary": "",
+        "Eijiro_definition": "【名】ハーバード大学【人名】ハーバード【地名】ハーバード◆米国ハーヴァード、ハーヴァード山",
+        "Weblio_definition": "ハーバード大学"
+      },
+      "external_sources": [
+        "https://en.wiktionary.org/wiki/Harvard#Proper_noun"
+      ]
+    },
+    {
+      "case": 105172,
+      "word": "Moses",
+      "ordered_root_ids": [],
+      "etymology_id": "",
+      "current_first_ja": "モーセ",
+      "current_POS": "名",
+      "current_English_independent_field": "personal name",
+      "current_b": "ラテン語・ギリシャ語を経て、ヘブライ語 Mosheh に由来する名。さらにエジプト語 mes・mesu「子」に結びつける説があるが、正確な起源は不明。",
+      "current_src": "wiktionary",
+      "current_filename": "Moses.png",
+      "current_image_sha256": "449177fcaafb1cd2a78aeedb87e32a10daa6fa455e81c3e0f2d0829a13a8e757",
+      "retained_exact_current_reviewed_caption": [],
+      "decision": "excluded_no_major_current_mismatch",
+      "reason": "Current b describes the personal name. The current grey-haired bearded man in a robe is compatible with Moses. Absence of tablets or another unique identifying attribute is not proof of a completely wrong first meaning.",
+      "adopted_evidence": null,
+      "external_sources": []
+    },
+    {
+      "case": 106278,
+      "word": "Princeton",
+      "ordered_root_ids": [],
+      "etymology_id": "",
+      "current_first_ja": "プリンストン",
+      "current_POS": "名",
+      "current_English_independent_field": "proper name",
+      "current_b": "ニュージャージーの町は、後の英国王ジョージ2世となる王子 George にちなみ1724年に改名された。大学もこの町名を取り、1896年に Princeton University となった。",
+      "current_src": "wiktionary",
+      "current_filename": "Princeton.png",
+      "current_image_sha256": "6c2795d264c565545ca39f125536fade17283ff807b213d432042f866a8ea6bf",
+      "retained_exact_current_reviewed_caption": [],
+      "decision": "additional_prompt_ready",
+      "reason": "Local adopted dictionary detail labels a United States place; current b specifies the New Jersey town and then its university. Depict the town context with its university landmark, not a person.",
+      "adopted_evidence": {
+        "public_detail_file": "D:\\Projects\\etymolingo\\app\\data\\generated-etymon\\det\\p.json",
+        "detail_record_id": "21270",
+        "file_sha256": "196ef68ac9b9d9a39d3f8d8f67eb4b3b7e17dbf537f39a3fa567f35ac8ba1c37",
+        "adopted_wiktionary_etymology": "Wiktionary: From prince + -ton (“town”), originally in honor of crown princes or princes of the British Empire but later chiefly in honor of others with the name Prince or locations named Princeton. Doublet of Princetown. Cf. Princes Town, Princeville, Kingston, Kingstone, Coniston, Kingstown, Queenston, and Queenstown.\nIn particular, the British Columbian town is named for Edward VII, who was known as Albert, Prince of Wales, during the reign of his mother Queen Victoria. The New Jersey borough is named for William III—who became king of England through marriage to Mary II—in honor of his own separate Dutch title of Prince of Orange. The North Carolina town and Nebraska and Ontario communities are named for the New Jersey borough; the Missouri city is named for the Battle of Princeton which occurred there in the American Revolution; and the Illinois city and Florida CDP are named for the university named for its location in the borough. The given name derives from the prestigious university.\nThe Massachusetts town is named for clergyman Thomas Prince, and the Wisconsin city and town are named for the Massachusetts town. The Minnesota city is named for its founder John S. Prince, and the Idaho CDP is named after the Minnosota city. The Indiana city is named for politician William Prince, and the Kansas city is named for the Indiana city. The Texas city is named for landowner Prince Dowlin. The Kentucky city is named for landowner William Prince.",
+        "MW_summary": "",
+        "Eijiro_definition": "【地名】プリンストン◆米国",
+        "Weblio_definition": "Princetonの意味や使い方 プリンストン - 約506万語ある英和辞典・和英辞典。発音・イディオムも分かる英語辞書。"
+      },
+      "external_sources": [
+        "https://www.princetonnj.gov/",
+        "https://princetonhistory.org/building-princeton-america-250-edition/nassau-hall-2/"
+      ]
+    },
+    {
+      "case": 442,
+      "word": "Rolf",
+      "ordered_root_ids": [],
+      "etymology_id": "",
+      "current_first_ja": "ロルフ",
+      "current_POS": "名",
+      "current_English_independent_field": "to practice Rolfing on",
+      "current_b": "動詞のRolfは、施術法Rolfingを考案したIda P. Rolfの姓に由来する。",
+      "current_src": "wiktionary",
+      "current_filename": "Rolf.png",
+      "current_image_sha256": "e2f945ef68bfed2ea0b353a60b3c093499000abc94534516ecdd55a17712c01f",
+      "retained_exact_current_reviewed_caption": [],
+      "decision": "excluded_no_major_current_mismatch",
+      "reason": "The current Japanese is ロルフ with noun POS; the adopted Wiktionary etymology identifies the personal name and Eijiro includes a male name. Current b instead discusses the Rolfing verb, matching the independent English verb field. That field mixture does not override the current Japanese name target. The male bicycle mechanic is not proved incompatible with the name; do not regenerate a massage scene just from b/English.",
+      "adopted_evidence": {
+        "public_detail_file": "D:\\Projects\\etymolingo\\app\\data\\generated-etymon\\det\\r.json",
+        "detail_record_id": "22077",
+        "file_sha256": "4eba84ee00c387575c9b9ddb176ed947f3c7dfe1ea34c80f079033f667f8f16c",
+        "adopted_wiktionary_etymology": "Wiktionary: From Old Norse Hrólfr, and from its Old French equivalent, cognates of Rudolph. Brought to England by the Normans, survived in surnames and was revived in the 19th century, partly due to its modern Scandinavian cognate.",
+        "MW_summary": "",
+        "Eijiro_definition": "【他動】〔食べた物を〕吐く、あげる、戻す◆【同】vomitRolf【人名】ロルフ◆男Rolfe【人名】ロルフRolfes【人名】ロルフェスrolfing【名】ロルフィング◆アメリカの物理療法士Ida P. Rolfが考案したマッサージ法Rolfing session《a ～》ロルフィングセッション◆【参考】rolfing",
+        "Weblio_definition": "Rolfの意味や使い方 遠隔操作長壁法採炭 - 約506万語ある英和辞典・和英辞典。発音・イディオムも分かる英語辞書。"
+      },
+      "external_sources": []
+    }
+  ]
+}

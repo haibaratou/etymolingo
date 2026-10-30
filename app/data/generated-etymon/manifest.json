@@ -10,9 +10,9 @@
     },
     "words": {
       "file": "words.json",
-      "bytes": 27226479,
+      "bytes": 27262667,
       "count": 49180,
-      "sha256": "eb08b4a563f3b58a255ed24932fc5d0b658a6b4fd15f0495c6f93d59556c03a5"
+      "sha256": "022c9e5b4e78968ec2612cd76223a9d40faf6f261bb3e17bdbef86205420b85b"
     },
     "affixes": {
       "file": "affixes.json",
@@ -46,9 +46,9 @@
     },
     "word_parts": {
       "file": "word-parts.json",
-      "bytes": 247587,
-      "count": 2882,
-      "sha256": "92478f42808fa4fed4fbfc00276d9a563d7923a84f47fc1983c29c90946b0abd",
+      "bytes": 359954,
+      "count": 3338,
+      "sha256": "0ba1da6d22b9da6b757c60768f07dd78090997615a539a9378f273152824efa4",
       "meaning_basis": "component-core-v2"
     },
     "multilingual_answers": {
@@ -149,23 +149,33 @@
     },
     "etymology_origins": {
       "file": "etymology-origins.js",
-      "bytes": 12051030,
+      "bytes": 12109258,
       "count": 49180,
-      "sha256": "ed9290c0337c1d5c26d9e86b9969c73455d8943c37aa4031e42109eafa316092"
+      "sha256": "4fd044e07a94a061e8ad15df04e921ba6766cfc443b29714330662662bd9c0d8"
     },
     "word_parts_supplement": {
       "file": "word-parts-supplement.js",
-      "bytes": 128962,
-      "count": 711,
-      "sha256": "f81c75234d00f1f110396aeaa208842c4fb58142cf354e4f1833be0b0cb3d6b8"
+      "bytes": 1111607,
+      "count": 1167,
+      "correction_count": 965,
+      "sha256": "06dc9dc20df4535ba279a39bb12ce5e135ef9b8bc4869622b9720a66326679ca"
     },
     "etymological_components": {
       "file": "etymological-components.js",
-      "bytes": 468160,
-      "count": 96,
-      "sha256": "b901f18392cf83d456adf9f7554b481861078833fbe4163d210fff3a68c8d813",
-      "entity_count": 152,
+      "bytes": 13914148,
+      "count": 1574,
+      "sha256": "7c40970d763a8f59df2e6feb89b99ca5c93fa324baf372471ba8424a16a38419",
+      "entity_count": 2262,
       "context_hash_algorithm": "component-word-context-v1"
+    },
+    "word_review_notes": {
+      "file": "word-review-notes.js",
+      "bytes": 7048103,
+      "sha256": "8af0d0e0523f2cb13ab2383b52765ef715210eaca81a749da381ea2c8f28c15b",
+      "count": 1509,
+      "word_note_count": 1509,
+      "component_issue_count": 0,
+      "pending_scope_count": 0
     }
   }
 }

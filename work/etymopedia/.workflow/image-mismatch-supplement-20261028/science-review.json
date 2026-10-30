@@ -1,0 +1,22 @@
+{
+ "26":{
+  "filename":"arginine.png",
+  "image_sha256":"5a09cba235dc02970de2711ef2d86196a55a57a862cafbbd6ad4c9bfb721c496",
+  "inspection":"Opened the full 512px current PNG. It now has six carbon balls and four nitrogen balls, so the older missing-carbon criticism does not apply to these bytes. However, the middle of the carbon side chain is drawn with a double bond. Arginine requires three saturated CH2 units there; the only non-carboxyl double bond belongs to its guanidino group.",
+  "decision":"regenerate_for_current_bond_structure_error_not_for_old_carbon_count",
+  "reference":"https://pubchem.ncbi.nlm.nih.gov/compound/L-Arginine",
+  "expected_structural_formula":"HO–C(=O)–CH(NH2)–CH2–CH2–CH2–NH–C(=NH)–NH2"
+ },
+ "20":{
+  "reference":"https://www.ncbi.nlm.nih.gov/books/NBK537102/",
+  "verified_point":"The amygdala is an almond-shaped structure deep in the temporal lobe beneath the uncus, at the anterior end of the hippocampal formation. Oral tonsils are a different anatomical structure."
+ },
+ "209":{
+  "reference":"https://www.britishmuseum.org/collection/object/H_1856-0701-1416",
+  "verified_point":"Use an attested francisca throwing-axe form as a historical material-culture cue; do not invent ethnic facial characteristics."
+ },
+ "280":{
+  "reference":"https://www.metmuseum.org/art/collection/search/548310",
+  "verified_point":"The throne hieroglyph on Isis's head is an attested identifying attribute."
+ }
+}

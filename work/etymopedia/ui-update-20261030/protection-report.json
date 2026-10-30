@@ -1,0 +1,36 @@
+{
+  "EMB_IMG": {
+    "sha256": "99cdd1620f502e8610d399815b31b23f63aa668fe24e8cf4b034e94155beda01",
+    "bytes": 22632063,
+    "unchanged": true
+  },
+  "EMB_CSV": {
+    "sha256": "6ce051b353a7f347269b77eab325c59ee639abd30f59c6a15d1098505c357902",
+    "bytes": 248469,
+    "unchanged": true
+  },
+  "imgURL": {
+    "unchanged": true,
+    "sha256": "6f62f75f4d9e61c995799a6ca53b7e2ebffb25f86bfc6e2ed4ece4b79d84d133"
+  },
+  "topArt": {
+    "unchanged": true,
+    "sha256": "93ae19c0ab552017c85de1d7c210d1fb3b5ec81efcc7476c2abd73e13ac2e3fd"
+  },
+  "subList": {
+    "unchanged": true,
+    "sha256": "bc3a221360c7593ae1c90b6c8f884ac0f522a9af5930a3bbcc62ad436499dedb"
+  },
+  "wordArtSenseKey": {
+    "unchanged": true,
+    "sha256": "7be15e5d06e206095dfd052eb9a1d7ec6b3f4692fc8277125412e39032aeb94c"
+  },
+  "storage": {
+    "unchanged": true,
+    "sha256": "27eb72f11e5b2ffb80d143a6e6c5f6460d8808d6f6e2ce5753e9dd1fe508c2ae"
+  },
+  "difficultyCalculation": {
+    "unchanged": true,
+    "onlyChange": "API-only mounting gate"
+  }
+}

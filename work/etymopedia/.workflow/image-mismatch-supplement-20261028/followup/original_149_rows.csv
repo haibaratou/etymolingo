@@ -1,0 +1,1342 @@
+﻿ファイル名,語義,対象語義,画像生成プロンプト,プロンプト準備状況,要確認理由,画風参照画像,単語,語根ID_JSON,第一英語義,語義SHA256,実行プロンプト,解説英語,解説日本語,制作状態,画像SHA256,画像GitBlobSHA,検品日時,検品メモ
+board.png,板、委員会、食事、掲示板、盤、回路基板、乗り込む、食事を提供する、下宿する、板でふさぐ,板,"Subject: board, target first meaning ""板"".
+
+Composition: One long, flat rectangular wooden plank lies diagonally, viewed slightly from above. Show its broad grain-covered face, thin straight edge and squared end. No person or vehicle.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,board,"[""bherdh-""]",plank,aa07c5e5b49224cbec9ba7afeeee549234f95c574ea298d6af3a7cb6797354cb,,,,prompt_ready,,,,
+Acts.png,使徒言行録,使徒言行録,"Subject: Acts, target first meaning ""使徒言行録"".
+
+Composition: An open ancient scripture codex rests on a reading stand. Its illuminated page depicts the apostles gathered at Pentecost with small flames above them. Use unreadable manuscript strokes, not a lone modern man's portrait.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,Acts,[],New Testament book,7c6bea3030dac777c2d56d44f969274c1b6ce3247d8163b39eedb2ce69e1adee,,,,prompt_ready,,,,
+amygdala.png,感情に関わる脳の扁桃体,感情に関わる脳の扁桃体,"Subject: amygdala, target first meaning ""感情に関わる脳の扁桃体"".
+
+Composition: A pale cutaway left cerebral hemisphere reveals the small almond-shaped amygdala deep in its anterior medial temporal lobe, immediately anterior to the hippocampus. Highlight that nucleus gently; show no mouth or throat.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,amygdala,[],almond-shaped brain structure involved in emotion,1b37be3b1d098c05eb826c529d35eec79709ec4282c35abf926e53c783a38f9c,,,,prompt_ready,,,,
+Anglican.png,聖公会の信徒、聖公会の,聖公会の信徒,"Subject: Anglican, target first meaning ""聖公会の信徒"".
+
+Composition: An Anglican parishioner kneels quietly at a prayer bench inside a modest English Anglican church, holding an open prayer book beside a simple communion table. Do not use a windmill or countryside scene.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,Anglican,[],Anglican church member,c93c491002dd961ae3836f6f2fa24852291fc268da1a0a0e24fbe5e5568cc733,,,,prompt_ready,,,,
+arginine.png,アルギニン,アルギニン,"Subject: arginine, target first meaning ""アルギニン"".
+
+Composition: One accurate arginine structural formula reads HO–C(=O)–CH(NH2)–CH2–CH2–CH2–NH–C(=NH)–NH2. Draw three consecutive methylene units joined by single bonds. Only the carbonyl C=O and guanidino C=NH bonds are double bonds.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. Allow only the essential chemical atom/group symbols and bond notation in the structural formula itself. No caption, compound name, other text, logo or watermark.",作成済み,,references/invidious.png,arginine,"[""arg-""]",amino acid,34aacb2baaa90ec38446cd6b547916be9a45b89a26520115039b61227e7b017d,,,,prompt_ready,,,,
+ate@x.png,eatの過去形,eatの過去形,"Subject: ate, target first meaning ""eatの過去形"".
+
+Composition: A child has just finished eating a sandwich, still chewing the last bite with a few crumbs on an otherwise empty plate. Show a meal in progress toward completion, not a classical goddess.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,ate,[],past of eat,d1ab696a8616059d9c8dad7e896fd0c6c981771aa8efaba852641f1f59a527da,,,,prompt_ready,,,,
+Atlantis.png,伝説の沈没した島アトランティス,伝説の沈没した島アトランティス,"Subject: Atlantis, target first meaning ""伝説の沈没した島アトランティス"".
+
+Composition: The legendary island of Atlantis is sinking beneath the sea: a small classical island city remains partly above the waves while submerged columns are visible through the surrounding clear water. No spacecraft.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,Atlantis,[],legendary island lost beneath the Atlantic,70dca61ec41688e2083c981c4f4c57514bfe269f0f9ae2a08f870809bd8719eb,,,,prompt_ready,,,,
+bar.png,棒、酒場、法廷,棒,"Subject: bar, target first meaning ""棒"".
+
+Composition: One plain cylindrical metal rod lies diagonally across the frame, with a narrow round cross-section visible at its near end. Keep the straight solid shaft dominant; include no tavern, bottles or counter.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,bar,"[""gʷerə-2""]",rod,97c28ad952a1fefaf4a16fc2f43a9ee09f5aeb0f78faf7ffc229b728e52ed9b5,,,,prompt_ready,,,,
+Berlin.png,ベルリン,ベルリン,"Subject: Berlin, target first meaning ""ベルリン"".
+
+Composition: Berlin's Brandenburg Gate stands centrally with six pairs of Doric columns, five passageways and the recognizable horse-drawn quadriga on top. Use a compact architectural view, with no invented named person.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,Berlin,[],Berlin,07b991de94fc38dcfe0dc56d4abb2fa7380aa61dbaf0b49cee56c075ab87aadd,,,,prompt_ready,,,,
+Brazil.png,ブラジル,ブラジル,"Subject: Brazil, target first meaning ""ブラジル"".
+
+Composition: A Brazilian national flag hangs in a soft fold from a short pole: green field, yellow diamond and blue central globe with small white stars. Omit lettering from the white band; no human portrait.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,Brazil,"[""bhreuə-""]",South American country,8a90a8177929a7a9871ac8d2def91fde4ed9a44ecc816134ba52f7d57c3402fa,,,,prompt_ready,,,,
+cab.png,タクシー、運転席,タクシー,"Subject: cab, target first meaning ""タクシー"".
+
+Composition: A clearly recognizable taxi car waits at a curb as a passenger opens its rear door. Use a small roof light and visible passenger seats without any written taxi label. No wine or grapes.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,cab,[],taxi,db22833f85d912cd355d1a8f2cdc580cb523a982ebaf909d84304b8a345d5a93,,,,prompt_ready,,,,
+card.png,すきぐし,すきぐし,"Subject: card, target first meaning ""すきぐし"".
+
+Composition: A broad wooden carding comb has a dense bed of long metal teeth. One hand draws loose wool fibers through the teeth, leaving aligned fibers along its edge. No postcard or payment card.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,card,"[""kars-""]",wool comb,e7a6af4b8eb98eba1846b5956b4374e6bdfc87c560cb8f07518667b101ac7b7e,,,,prompt_ready,,,,
+checked.png,確認した、チェック柄の,確認した,"Subject: checked, target first meaning ""確認した"".
+
+Composition: A careful worker has just checked the fastenings of a wooden stool, tightening the final screw and testing the seat with one steady hand. Show focused verification, not a patterned shirt.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,checked,[],verified,44ccc974ada12b2352dbec39abc8dc58e48d7135291769aa5aea2b4251d760a0,,,,prompt_ready,,,,
+contradiction.png,矛盾,矛盾,"Subject: contradiction, target first meaning ""矛盾"".
+
+Composition: A single traffic signal incorrectly displays red and green lights simultaneously toward one driver, who pauses with a visibly puzzled expression. The conflicting stop-and-go directions are the subject; no falling block tower.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,contradiction,"[""kom"",""deik-""]",inconsistency,5867cabb7d78e0702518d0777ab9f6a93e4022e19194de4e581cf76326413b91,,,,prompt_ready,,,,
+cool.png,涼しい、かっこいい,涼しい,"Subject: cool, target first meaning ""涼しい"".
+
+Composition: A relaxed child enjoys a cool breeze beside an open window, wearing a light shirt while a curtain gently billows inward. Show comfortable relief from warmth, without sunglasses or a fashionable pose.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,cool,"[""gel-2""]",cool,1e4465c9b5f8c0163603ef1a70e164ddf2f341db09667b9e3b1b2f57cbe9686c,,,,prompt_ready,,,,
+counter-.png,反対の、対抗して,反対の,"Subject: counter-, target first meaning ""反対の"".
+
+Composition: Two people face opposite directions while holding the same taut rope, each leaning away from the center. Make their opposing pulls clear within one physical scene; include no shop checkout counter.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,counter-,[],opposite,566ec18ce1ac59ff5447b16db7153458dfbf82aa15857706710cf60bf88c28a9,,,,prompt_ready,,,,
+creatinine.png,クレアチニン,クレアチニン,"Subject: creatinine, target first meaning ""クレアチニン"".
+
+Composition: A single accurate creatinine structural formula is centered: the five-membered ring has the connectivity CH3–N1–CH2–C(=O)–N=C1–NH2. Show four carbons, three nitrogens and one oxygen, with the methyl group attached to ring nitrogen. Use clear atom/group symbols and chemically correct single and double bonds; omit decorative laboratory props.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. Allow only the essential chemical atom/group symbols and bond notation in the structural formula itself. No caption, compound name, other text, logo or watermark.",作成済み,,references/invidious.png,creatinine,[],creatine-breakdown product found in blood and urine,12347820682695df7f11e6668ce3410dd60016c0cb7ddb3d0b97457042775bab,,,,prompt_ready,,,,
+deliverance.png,救出、解放,救出,"Subject: deliverance, target first meaning ""救出"".
+
+Composition: A rescuer pulls a stranded child up from a shallow rocky ravine using a secure rescue rope, while the child reaches for the rescuer's hand. Show rescue from danger, not childbirth.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,deliverance,[],rescue,641851983930cb71238cbaeacc42c518f0d132c1b9ab1b0081e899d92886d610,,,,prompt_ready,,,,
+domestic.png,家庭の、国内の,家庭の,"Subject: domestic, target first meaning ""家庭の"".
+
+Composition: A family performs ordinary household tasks inside their home: one adult folds clean laundry while another sets the supper table and a child puts toys away. No national map or transport network.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,domestic,"[""dem-""]",household,1aa6f2f5a81bff85d274cde5f2c873590c2f4bec492bec2e5e01bfe029d3401b,,,,prompt_ready,,,,
+draw.png,引く、描く、引き分け、引きつける、取り出す、預金を引き出す、くじで選ぶ、結論を導く、徐々に進む、抽選、呼び物,引く,"Subject: draw, target first meaning ""引く"".
+
+Composition: A child firmly pulls a small loaded wagon by its handle, leaning forward as the wheels roll behind. Show the taut connection and direction of movement; no drawing pad or crayons.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,draw,"[""dhragh-""]",pull,330872c4f6bbbd497800f6c8b82abe954f3e35246e5dacb4464e24f7b9515049,,,,prompt_ready,,,,
+drinking.png,飲酒、飲んでいる,飲酒,"Subject: drinking, target first meaning ""飲酒"".
+
+Composition: An adult drinks a small glass of wine during dinner, with an uncorked unbranded wine bottle beside the plate. Make it clearly moderate alcohol drinking by an adult, not a child drinking water.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,drinking,[],alcohol use,be9045e5480a0f55ed15f83fa42fa70f4dbb6aeea12f620e2dfb156072049157,,,,prompt_ready,,,,
+drop.png,しずく、秘密の受け渡し場所,しずく,"Subject: drop, target first meaning ""しずく"".
+
+Composition: A single clear water droplet hangs from a fresh leaf tip above a tiny rippled puddle. Make its rounded liquid body and narrow attachment visible. No falling keys or dropped objects.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,drop,"[""dhreu-""]",drip,7e8c4e3328f0377a8240f0953c0f0712bf8b5d37d3851ff73b48469802da2c7e,,,,prompt_ready,,,,
+dry.png,乾いた、辛口の、感情を見せない、つまらない,乾いた,"Subject: dry, target first meaning ""乾いた"".
+
+Composition: A completely dry cotton shirt lies folded beside crisp dry towels. A hand lifts one lightweight sleeve, showing loose dry fabric with no drips, damp patches or washing basin.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,dry,"[""dreug-""]",dry,62d2fb4710a929ef802c8f790cabcc705e7cacf9cf8797991064c5d66fce4248,,,,prompt_ready,,,,
+escalate.png,増大する、激化する,増大する,"Subject: escalate, target first meaning ""増大する"".
+
+Composition: A hand steadily inflates one balloon with a pump; its taut expanding body dwarfs the pump cylinder as more air enters. Emphasize increasing size, with no escalator or staircase.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,escalate,[],increase in scale or intensity,d8f90638fdcaf057c910fad2dc98dd4d71a28764ad01a66db14d1f9d7b18da0e,,,,prompt_ready,,,,
+Europa.png,ゼウスにさらわれたフェニキアの王女エウロペ,ゼウスにさらわれたフェニキアの王女エウロペ,"Subject: Europa, target first meaning ""ゼウスにさらわれたフェニキアの王女エウロペ"".
+
+Composition: Europa, the Phoenician princess of Greek myth, sits fully clothed on a calm white bull as it carries her across the sea. Show her holding the bull's shoulder for balance; no isolated island.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,Europa,[],Phoenician princess abducted by Zeus,cb11294dfce89c7bdd137b4c7f068e5c6266bc7291de6c6b0c3326b42654d1ec,,,,prompt_ready,,,,
+ex-.png,元〜、前〜,元〜,"Subject: ex-, target first meaning ""元〜"".
+
+Composition: A former ruler in plain clothing hands the royal crown to a successor seated on the throne, then steps aside. Show the visible transfer of the previous role, not a bird leaving a cage.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,ex-,[],former,58abe9ed8ee8145a1c4274596adc3417758ddcb4f5eca0c2e60a5f3da144bcee,,,,prompt_ready,,,,
+finest.png,最上の、最高級の,最上の,"Subject: finest, target first meaning ""最上の"".
+
+Composition: An exceptionally well-crafted wooden violin has smooth matched grain, precise fittings and a flawless polished body, presented carefully by its proud maker. Show outstanding workmanship, not a police officer.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,finest,[],best,0810e5e829e59ba1791bb47f5b9489e4f0bdf4043462ae23e2b9e52d1405aba2,,,,prompt_ready,,,,
+fit.png,適当な、合う、健康な、取り付ける、合わせて調整する、装備を整える、合い具合,適当な,"Subject: fit, target first meaning ""適当な"".
+
+Composition: A wooden lid fits its matching round container exactly, with its rim seated flush and no gaps. A hand settles it neatly into place, making suitability clear without a muscular fitness pose.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,fit,[],suitable,1a72886c95b8f0722fcac89625016e86411110c729c729769ef0599e2c499900,,,,prompt_ready,,,,
+flag.png,板石,板石,"Subject: flag, target first meaning ""板石"".
+
+Composition: One broad flat stone paving slab rests beside a partly paved path, with a hand positioning its straight edge against the neighboring slab. Show a stone flag, not a fabric flag.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,flag,"[""plāk-1""]",paving stone,b9aa15abca382232377654a933484d0e3418be1e20fde99000b6d86c2d654bfc,,,,prompt_ready,,,,
+forty.png,40,40,"Subject: forty, target first meaning ""40"".
+
+Composition: Exactly forty small red cars stand in four straight rows of ten, all facing the same direction. Keep equal spacing, no overlap, and a small gap between each complete car so every vehicle can be counted. Omit extra detached cars, people and written numbers.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,forty,"[""kʷetwer-""]",40,eab2dc6f9db97705856b3d37397f6495c82e61c71a4dcb2e914a679f1c6ea27f,,,,prompt_ready,,,,
+Frank_cap.png,フランク人、西洋人,フランク人,"Subject: Frank, target first meaning ""フランク人"".
+
+Composition: An early medieval Frankish warrior stands beside a round wooden shield, holding a short curved francisca throwing axe downward. Use a plain wool tunic and leather belt; avoid invented facial ethnic traits or modern conversation.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,Frank,"[""Frankon-""]",Frankish person,856f161a20ea798c87e5b15c3913b0b5702eef7d9ea13476a3d3072f41019875,,,,prompt_ready,,,,
+freer.png,解放する人,解放する人,"Subject: freer, target first meaning ""解放する人"".
+
+Composition: A liberator opens a barred cage door and helps a captive adult step freely into daylight. The open lock and welcoming helping hand make the release visible; no museum visitor merely studying a statue.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,freer,[],person releasing someone or something,e59511defc62b4050848c3400354895bfcf3b7f86c04d1cdc1b7ef5848158742,,,,prompt_ready,,,,
+futures.png,先物、将来,先物,"Subject: futures, target first meaning ""先物"".
+
+Composition: A grain farmer and buyer agree to a future delivery across a desk with a grain sample, sealed contract and calendar marking a later date; unharvested wheat grows outside. Show a future goods contract, not planting a dream tree.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,futures,[],futures,2236420d906ade4f6194e4ca9b3dca80954648e18b02926baca8b2b0f6820298,,,,prompt_ready,,,,
+gig.png,演奏、仕事,演奏,"Subject: gig, target first meaning ""演奏"".
+
+Composition: A guitarist and singer perform a small live gig on a low cafe stage, with two listeners seated nearby. Make the musical performance and instruments central; no spear fishing.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,gig,[],performance,7f1d6d34599d425fda3a7deaf6d9056e1df928556a085577ec7f8be4e3435709,,,,prompt_ready,,,,
+grounds.png,根拠、敷地,根拠,"Subject: grounds, target first meaning ""根拠"".
+
+Composition: An investigator lays a suspect's muddy boot beside its matching footprint at a broken window, pointing out the matching sole pattern as the basis for a conclusion. No house-and-garden property scene.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,grounds,[],reasons,24b0f6c89598b82262c253bd292798053ce582ebbf78007587c261179efee6e9,,,,prompt_ready,,,,
+heard@x.png,hearの過去形・過去分詞,hearの過去形・過去分詞,"Subject: heard, target first meaning ""hearの過去形・過去分詞"".
+
+Composition: A child has just heard a bell and turns toward it with one hand cupped behind an ear, while the bell still vibrates. Show a completed hearing response; no volcanic island.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,heard,[],past and past participle of hear,761ff03f8920e34b2747a3c8b33b33d2aac35256ab4c315a7721cc623cba3e9e,,,,prompt_ready,,,,
+Hiroshima.png,広島、1945年に原爆で被災した日本の都市,広島,"Subject: Hiroshima, target first meaning ""広島"".
+
+Composition: Hiroshima's riverside cityscape centers on the preserved Genbaku Dome, with its exposed metal dome, damaged historic walls, river and modern urban buildings nearby. Show the city and memorial landscape, not a standalone bomb.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,Hiroshima,[],Japanese city devastated by an atomic bomb in 1945,c12f2aaccce0864cb779f563fdc79e00f8eded6573b86f65e902a086bd28413e,,,,prompt_ready,,,,
+hung@x.png,結論の出ない、宙づりの,結論の出ない,"Subject: hung, target first meaning ""結論の出ない"".
+
+Composition: A jury remains unable to reach a verdict around a deliberation table: equal groups favor opposing decisions with contrasting voting tokens, while the foreperson's verdict sheet remains blank. No suspended crate or hanging object.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,hung,[],undecided,43c2a9c0a05a49b715ecaf1a9e29a9a5267c5d2732d8c7f564782e7d6f179442,,,,prompt_ready,,,,
+inter-.png,間の、相互の,間の,"Subject: inter-, target first meaning ""間の"".
+
+Composition: One small red wooden block stands directly between two taller blue blocks, touching neither side. Make the central gap and the flanking objects clear in one physical arrangement; no burial or digging.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,inter-,[],between,b7b3ab23e55e18c88895ff9a87e8abd47bcd3c521e033c80b2a677ac6aa40e31,,,,prompt_ready,,,,
+intrinsic.png,本質的な,本質的な,"Subject: intrinsic, target first meaning ""本質的な"".
+
+Composition: A natural lodestone attracts iron nails by its own magnetism while nearby wooden chips remain untouched. Show the stone's inherent magnetic property without batteries, added machinery or a person winding string.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,intrinsic,"[""en"",""sekʷ-1""]",inherent,21f439489c7f4d61df78389a60b6cbec847aa92d4451b3dc518795bc8d775904,,,,prompt_ready,,,,
+Isis.png,エジプトの女神イシス,エジプトの女神イシス,"Subject: Isis, target first meaning ""エジプトの女神イシス"".
+
+Composition: The Egyptian goddess Isis stands in a modest ancient sheath gown with her characteristic throne-shaped crown, holding an ankh beside one protective outstretched wing. Use the attested divine attributes, not a river rowing scene.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,Isis,[],Egyptian goddess and wife of Osiris,57f37b6da9c3e8db72316f22c9b88e6918421ca36ba500ae5071f45aabb8c8b1,,,,prompt_ready,,,,
+ketamine.png,ケタミン,ケタミン,"Subject: ketamine, target first meaning ""ケタミン"".
+
+Composition: One accurate ketamine structural formula shows a saturated six-carbon cyclohexanone ring, with a carbonyl at position one and both a methylamino group and an ortho-chlorophenyl ring attached at position two. Keep alternating aromatic bonds only in the phenyl ring; show no carbon-carbon double bonds in the cyclohexanone ring.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. Allow only the essential chemical atom/group symbols and bond notation in the structural formula itself. No caption, compound name, other text, logo or watermark.",作成済み,,references/invidious.png,ketamine,[],dissociative anesthetic also used illicitly,2f575480b60bd381eec2d58a829d1a2cdb5b34139a227c890fad9d212c041508,,,,prompt_ready,,,,
+leasing.png,嘘をつく事,嘘をつく事,"Subject: leasing, target first meaning ""嘘をつく事"".
+
+Composition: A child secretly hides a broken cup behind his back while confidently pointing toward an innocent dog. The parent holds the matching cup handle and looks doubtful; the concealed pieces contradict the child's gesture.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,leasing,"[""leu-""]",lying,482127ca7c218769201264526696a0ec02892510fe87bd401e30da5314a70113,,,,prompt_ready,,,,
+letter.png,文字、手紙,文字,"Subject: letter, target first meaning ""文字"".
+
+Composition: A large uppercase A and lowercase a stand side by side as two clear written characters on one small writing card. Focus on the visible letter forms themselves, without an envelope, message or decorative sentence.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. Allow only the intrinsic notation explicitly specified in Composition. No explanatory caption, other text, logo or watermark.",作成済み,,references/invidious.png,letter,"[""deph-""]",character,27564e8484e7efe2690f58b27ab0299d1fd6becc4ca536eaccc78ef08fdc802c,,,,prompt_ready,,,,
+lighting.png,点火,点火,"Subject: lighting, target first meaning ""点火"".
+
+Composition: A camper holds one burning match against dry kindling inside a stone fire ring. The first small flame catches the thin wood, with a tiny curl of smoke; the camper watches the ignition closely.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,lighting,[],illumination,99af20c6f9390f818418ffcba51ea8237be6277a9c43db1f966fc53186954c0c,,,,prompt_ready,,,,
+LXX.png,70,70,"Subject: LXX, target first meaning ""70"".
+
+Composition: Exactly seven tied bundles of ten wooden rods stand on one shallow tray. Arrange each bundle's exposed circular ends in two tidy rows of five, all ten ends plainly visible. Keep bundles separate and show exactly seventy rods in total, without written numbers or extra loose rods.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,LXX,[],,99be3acd04c3e361402c1ac57a32269bdc5324ed4ed0dae496ac8d819c0aba46,,,,prompt_ready,,,,
+moving.png,感動的な、動いている,感動的な,"Subject: moving, target first meaning ""感動的な"".
+
+Composition: An elderly parent tearfully embraces an adult child who has just returned home. A travel bag rests beside them; both smile through tears, with their affectionate reunion as the emotional focus.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,moving,"[""meuə-""]",touching,099fcd5505f143f598faef0728821ea044b5f4204f55c8e3a372d73b8e28a354,,,,prompt_ready,,,,
+NATO.png,北大西洋条約機構,北大西洋条約機構,"Subject: NATO, target first meaning ""北大西洋条約機構"".
+
+Composition: Several allied civilian delegates sit equally around a round conference table, cooperatively sheltering a small globe beneath one shared shield emblem. A plain circular compass star appears on the meeting backdrop; no member names or written acronyms.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,NATO,[],defense alliance,a9e219160233d623877dd1f835eb2bcf97aff00594d30fb5f57707a761c654e6,,,,prompt_ready,,,,
+overcoat.png,上塗り、保護膜,上塗り,"Subject: overcoat, target first meaning ""上塗り"".
+
+Composition: A gloved worker brushes a clear protective finishing layer over an already painted blue wooden panel. The broad brush leaves a visible smooth glossy strip over the existing paint; an open varnish tin sits nearby.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,overcoat,[],a warm coat worn over indoor clothing,1adca1f30a89b9b4cb6d030019fee06e15303652df36b0a00de31daa7c7fa81f,,,,prompt_ready,,,,
+Panama.png,パナマ,パナマ,"Subject: Panama, target first meaning ""パナマ"".
+
+Composition: A compact map-shaped cutout of Panama's narrow curved isthmus separates two blue coastal waters. A small ship passes through stepped canal locks across the narrow land; show the country and canal, without a hat.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,Panama,[],country,d6250bd6c9f96dcd7e3bf01c358ee904b6777e6341c75ae7fd5b295b8ce966c6,,,,prompt_ready,,,,
+Parmesan.png,硬いイタリア風チーズ、パルマの,硬いイタリア風チーズ,"Subject: Parmesan, target first meaning ""硬いイタリア風チーズ"".
+
+Composition: A large hard golden Parmesan cheese wheel has one wedge removed, exposing its granular interior. A hand uses a small grater to scatter pale cheese shavings onto plain pasta beside the wedge.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,Parmesan,[],hard Italian-style grating cheese,b51a2d9ff9d6f90768ca98c5f585b5294bf4fe7d595c068db5e5bb91bd0333e3,,,,prompt_ready,,,,
+pence.png,ペニーの複数形、ペンス,ペニーの複数形,"Subject: pence, target first meaning ""ペニーの複数形"".
+
+Composition: Three small copper penny coins lie on a counter beside an open coin purse. Their raised rim and simple monarch profile identify money; keep all inscriptions and denominations unreadable, with no politician or podium.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,pence,[],plural of penny,2f4c58b7ad403a07d0fb1b6a3bc248ea4c917a58d8b364a09a69fff3faf7d71d,,,,prompt_ready,,,,
+PhD.png,博士号,博士号,"Subject: PhD, target first meaning ""博士号"".
+
+Composition: A newly graduated researcher in a doctoral gown and soft academic cap receives a rolled diploma from a university professor. A simple laboratory notebook rests beside the ceremony; emphasize the awarded academic qualification.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,PhD,[],doctorate,fb11860e2279d1be28e55d5d77836499efc58881105148fd11f7c1fbd9b82493,,,,prompt_ready,,,,
+pipes.png,パイプ、管,パイプ,"Subject: pipes, target first meaning ""パイプ"".
+
+Composition: Three hollow plumbing pipes of different diameters lie beside a curved elbow fitting. Their open circular ends clearly reveal empty interiors; use plain metal surfaces, without molecules, musicians or smoking equipment.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,pipes,[],pipes,e128019070408501ae5e1f5f4292e64b920a0f47eeb3b8f72c52caf5a502db9f,,,,prompt_ready,,,,
+pointless.png,無意味な、目的のない,無意味な,"Subject: pointless, target first meaning ""無意味な"".
+
+Composition: A worker pours water into a bucket whose entire bottom is missing. Water falls straight through onto the ground while the worker stares at the empty bucket, showing an effort with no useful result.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,pointless,[],purposeless,889dea76b6e59b536c94e6f8342edd674c2e0ddca0729918a214690966ef3111,,,,prompt_ready,,,,
+rather.png,むしろ、かなり,むしろ,"Subject: rather, target first meaning ""むしろ"".
+
+Composition: A child firmly chooses a juicy apple from a fruit bowl while gently sliding an untouched sweet cake aside. The pointing hand and satisfied expression emphasize preferring this alternative, rather than a gauge of intensity.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,rather,"[""kret-1""]",instead,ea5db3ad39f753fbf621d8d3c6b8626d3b2813da40949d68974ea4cf8cac7996,,,,prompt_ready,,,,
+Reading.png,読むこと,読むこと,"Subject: Reading, target first meaning ""読むこと"".
+
+Composition: A child sits in an armchair with an open storybook held in both hands, eyes carefully following its page lines. Show unreadable lines and one small story illustration, without presenting a named person's portrait.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,Reading,[],interpreting written words,655fbc35e30a10f1cc97ce3f436b23b826014b023478b55ca406475c184dfa6f,,,,prompt_ready,,,,
+reticulum.png,反芻動物の第二胃,反芻動物の第二胃,"Subject: reticulum, target first meaning ""反芻動物の第二胃"".
+
+Composition: A simple educational cutaway of a cow's multi-chambered stomach highlights the small reticulum beside the larger rumen. Enlarge its interior honeycomb folds in one connected inset; other chambers remain muted and unlabelled.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,reticulum,[],second stomach compartment of a ruminant,8f1650751328ae7176795705ab7a876e4c913542e051491c91f4b49676f7401e,,,,prompt_ready,,,,
+RNA.png,リボ核酸,リボ核酸,"Subject: RNA, target first meaning ""リボ核酸"".
+
+Composition: One single-stranded RNA chain curls into a loose hairpin. Show a repeating ribose-phosphate backbone and individual attached bases; only the intrinsic base symbols A, U, G and C may appear, with no double helix or human portrait.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. Allow only the intrinsic notation explicitly specified in Composition. No explanatory caption, other text, logo or watermark.",作成済み,,references/invidious.png,RNA,[],ribonucleic acid,13d1feb7bb402399c83461a72f9a1d9501fa849ccdbce648878a09c7d2129f31,,,,prompt_ready,,,,
+Rome.png,ローマ,ローマ,"Subject: Rome, target first meaning ""ローマ"".
+
+Composition: Rome's Colosseum with its recognizable tiered arches stands beside a short section of ancient Roman forum columns. A tiny visitor supplies scale; focus on the city landmarks rather than a person named Rome.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,Rome,[],Rome,1a095b54a6561a99e079cfd4dc4bdc0d19463388765ddeb83d5ec01ba5f02161,,,,prompt_ready,,,,
+sandy.png,砂の、砂っぽい,砂の,"Subject: sandy, target first meaning ""砂の"".
+
+Composition: Wind lifts a thin layer of pale sand across a small dune and a partly buried beach sandal. Grainy sand covers the foreground, with one low dune behind; no portrait or personal-name scene.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,sandy,[],sandy,d1da9761df4985af13ba463ab2250b32c955b8515066299f2872efadc65f898e,,,,prompt_ready,,,,
+Saturn.png,土星,土星,"Subject: Saturn, target first meaning ""土星"".
+
+Composition: The planet Saturn floats alone with its broad, flat rings visibly encircling the equator at a gentle tilt. Show a cream-and-gold banded sphere, dark gap between ring bands and no mythological deity.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,Saturn,[],planet,d140cbfcaa679f0f28aed98d52a9d5ed82c5cf0167d38fc9dc5f181d0af14d65,,,,prompt_ready,,,,
+Scotland.png,スコットランド,スコットランド,"Subject: Scotland, target first meaning ""スコットランド"".
+
+Composition: A compact view of Scotland shows a stone Highland castle beside a dark loch, backed by rounded green hills. A small tartan cloth and thistle sit at the foreground edge; no generic human portrait.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,Scotland,"[""lendh-2""]",Caledonia,4b4ec74ca8f6979a434d5d2ec0e781397aa37d2087f373d2d81331f3f075ae98,,,,prompt_ready,,,,
+sepsis.png,敗血症、腐敗,敗血症,"Subject: sepsis, target first meaning ""敗血症"".
+
+Composition: A hospital clinician urgently treats a visibly ill adult lying in bed, with an intravenous line and close monitoring. A small circular cutaway shows bacteria within a blood vessel and the body's widespread inflammatory response; no spoiled food.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,sepsis,[],dangerous systemic response to infection,51c7284caf7ffce44e3c02440349fe5b9640359def5581102c62fcffa5c4084b,,,,prompt_ready,,,,
+sixteen.png,16,16,"Subject: sixteen, target first meaning ""16"".
+
+Composition: Exactly sixteen identical red cherries, each with one short green stem, rest on a plain shallow plate in a clear four-by-four grid. Leave distinct gaps so all sixteen cherries can be individually counted.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,sixteen,"[""s(w)eks"",""dekm̥""]",16,3e7d4e460b3465dbd63a72b58e62051b64bde81fd0726d899e2c048961100a18,,,,prompt_ready,,,,
+smitten.png,心を奪われた、smiteの過去分詞,心を奪われた,"Subject: smitten, target first meaning ""心を奪われた"".
+
+Composition: A shy young adult gazes at a smiling classmate with flushed cheeks and an enchanted expression, holding a forgotten book loosely. A few small hearts near the admirer convey being captivated; no boxing or physical blows.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,smitten,[],deeply infatuated,fd41d75322cc1e59c4609eca9608fc953e7c7f061821cd3f886a48c74453b691,,,,prompt_ready,,,,
+spark.png,火花、きっかけ,火花,"Subject: spark, target first meaning ""火花"".
+
+Composition: Two rough stones strike together above a small metal tray, producing several tiny bright orange sparks at the contact point. Show a few fading sparks in midair and no established flame or romantic couple.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,spark,[],spark,e1fa2745e7df5fb162956285fd091b84d952379254cd59cdeef956e3b85fc506,,,,prompt_ready,,,,
+speaker.png,話し手、議長、スピーカー,話し手,"Subject: speaker, target first meaning ""話し手"".
+
+Composition: A person stands at a small lectern, mouth open and one hand raised naturally while speaking to three attentive seated listeners. The listeners face the human speaker; omit loudspeaker boxes and written speech.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,speaker,"[""spreg-1""]",speaker,bdf3bbe7515220262988ad7b83c0b8d9fa4632c6eab468c5c1d7894a90baf1a2,,,,prompt_ready,,,,
+spell.png,つづる,つづる,"Subject: spell, target first meaning ""つづる"".
+
+Composition: A child carefully arranges three separate wooden letter tiles C, A and T in that left-to-right order beside a small picture of a cat. One hand places the final tile; the letters themselves are the spelling task.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. Allow only the intrinsic notation explicitly specified in Composition. No explanatory caption, other text, logo or watermark.",作成済み,,references/invidious.png,spell,"[""spel-2""]",write letters,5ee740b07489857af0c8f959452acc166e7a93e64b7111644a5db37de3ee7583,,,,prompt_ready,,,,
+spot.png,場所、点,場所,"Subject: spot, target first meaning ""場所"".
+
+Composition: A hiker points directly to one small flat resting place beside a stream, where a picnic blanket is already spread. A companion starts to lower a backpack onto that particular spot; no stains or blemishes.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,spot,[],place,9a3e0f97f9ec98aebb62f1ea23850e189306c22e97b51f2d5b7db35faff10eec,,,,prompt_ready,,,,
+stare.png,じっと見つめる,じっと見つめる,"Subject: stare, target first meaning ""じっと見つめる"".
+
+Composition: A child stands completely still, eyes wide and fixed on a tiny butterfly resting on a nearby flower. The face and uninterrupted line of sight dominate the scene; no foot or isolated body part.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,stare,"[""ster-1""]",gaze,4f536f2dc53b4ed42314c3a97139324cdd11be67f0ee128a676c78d94a42dcde,,,,prompt_ready,,,,
+stick.png,棒、突き刺す、くっつく,棒,"Subject: stick, target first meaning ""棒"".
+
+Composition: One straight wooden stick lies diagonally, with rough bark along one edge and a small snapped twig stub. Show both solid ends clearly; no adhesive tube, paper collage or gluing action.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,stick,"[""steig-""]",rod,f54c9799ded847117499de3c696dcc5af4004ee377252673e653c5ed040f1118,,,,prompt_ready,,,,
+super-.png,超〜、上位の,超〜,"Subject: super-, target first meaning ""超〜"".
+
+Composition: A remarkably strong fictional athlete lifts an enormous boulder overhead while an ordinary companion struggles to lift a much smaller stone. The contrast conveys power beyond the ordinary; no building caretaker or keys.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,super-,[],above,2b24d21e2cd3ec43a9549d6a773ecc8f4e3b4e65e941d3f02775968ef676901e,,,,prompt_ready,,,,
+Switzerland.png,スイス,スイス,"Subject: Switzerland, target first meaning ""スイス"".
+
+Composition: A compact Swiss Alpine scene shows a steep mountain resembling the Matterhorn, a timber chalet and a turquoise lake. A small plain Swiss flag with its white cross anchors the location; no generic woman's portrait.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,Switzerland,"[""lendh-2""]",Helvetia,1b098eb23b854fa23a155e9909d06074d0ea8e77660ba6b74377cdbfcbd07da8,,,,prompt_ready,,,,
+tally.png,割り符、刻み棒,割り符,"Subject: tally, target first meaning ""割り符"".
+
+Composition: A split wooden tally stick is held as two matching halves, each bearing exactly the same sequence of cut notches across the joined edge. Show the halves separated slightly to reveal their unique matching grain and marks.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,tally,[],notched counting stick,09b4c39e5998470b2e71a62425aa58b6f71b5527a98164c85026907d6cfb051f,,,,prompt_ready,,,,
+techno.png,テクノ音楽,テクノ音楽,"Subject: techno, target first meaning ""テクノ音楽"".
+
+Composition: A techno musician uses a drum machine, sequencer and synthesizer at a compact electronic music setup. Repeating illuminated pads and the performer's rhythmic posture suggest a steady electronic dance beat; no blueprints or written sound effects.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,techno,[],fast electronic dance music,94c34faef761ac9a4872bda513c320285a450207389aae1e57df7ae376b2be27,,,,prompt_ready,,,,
+tempered.png,焼き戻した、強化した,焼き戻した,"Subject: tempered, target first meaning ""焼き戻した"".
+
+Composition: A blacksmith uses long tongs to heat a previously hardened steel blade gently over a small controlled forge, its surface showing a restrained straw-colored tempering tint. Emphasize controlled reheating, with no angry child or assembly blocks.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,tempered,[],heat-treated,e0b2d04fc364dfeccf23fcf4ff340db55be455fabd3439b5a38c46e1ea0210bb,,,,prompt_ready,,,,
+tied.png,結ばれた、同点の,結ばれた,"Subject: tied, target first meaning ""結ばれた"".
+
+Composition: Two thick rope ends are firmly tied together in one clearly visible knot. The free tails extend on opposite sides, and slight tension makes the joined connection clear; no scoreboards or tied sporting results.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,tied,[],bound,7c3808676f13e518ee160d182e8ee01be0c09d21e934b432d40c5f1ccb11a9be,,,,prompt_ready,,,,
+tissue.png,組織、ティッシュペーパー,組織,"Subject: tissue, target first meaning ""組織"".
+
+Composition: A small intact patch of living skin tissue appears in a clean educational cutaway, with several connected layers of cells above soft underlying tissue. The cells form one continuous organized sheet; no disposable paper box.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,tissue,"[""teks-""]",tissue,b0314697702c8fdceb2071e7e8d5e364b683b80856cb214a2bbcb4be8884df3e,,,,prompt_ready,,,,
+topical.png,時事の、局所用の,時事の,"Subject: topical, target first meaning ""時事の"".
+
+Composition: Two people discuss the same fresh newspaper while a nearby television shows matching pictorial footage of a newly opened bridge. Their attention follows the current event across both media; keep all print unreadable and avoid medicine.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,topical,[],current,5f8a0994b946baa47b3e99d87ac7e8f85afa93f851bab1aae86128b139283af9,,,,prompt_ready,,,,
+tops.png,最上の、最高の,最上の,"Subject: tops, target first meaning ""最上の"".
+
+Composition: A winning runner stands on the highest central podium block, clearly above two lower competitors, holding a trophy with a pleased smile. The vertical ranking conveys the very best; no spacecraft or planet.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,tops,[],best,a9b30af3a7eabc1e4291d76def23fb0adf5908a7637cdfa867e51281bb3709d9,,,,prompt_ready,,,,
+trailer.png,予告編、トレーラー,予告編,"Subject: trailer, target first meaning ""予告編"".
+
+Composition: A cinema audience watches a screen showing a short montage of three cinematic preview shots framed as one filmstrip: a chase, a mysterious doorway and a hero close-up. A closed curtain edge suggests the main film is still to come.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,trailer,[],trailer,046e2f880363fb329213a40b2787530e0d306a75dd56bb0aa1ed2fc05c9d3f92,,,,prompt_ready,,,,
+trimming.png,整頓,整頓,"Subject: trimming, target first meaning ""整頓"".
+
+Composition: A person tidies a cluttered workbench, putting scattered pencils into one cup and aligning a small stack of blank sheets beside a closed toolbox. The remaining tools sit in neat rows within arm's reach. Emphasize making the workspace orderly, without soup garnish or food decoration.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,trimming,[],an additional garnishing,2d0ad66b9391c248837517737161cd138b39acab23aec6a31964523fe3aac2ae,,,,prompt_ready,,,,
+Tripoli.png,リビアの首都トリポリ,リビアの首都トリポリ,"Subject: Tripoli, target first meaning ""リビアの首都トリポリ"".
+
+Composition: Tripoli's old Red Castle waterfront complex stands beside the harbor, with low pale historic walls, arched openings and small fishing boats. Keep the composition focused on the Libyan capital's built waterfront; no abrasive mineral powder.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,Tripoli,[],capital of Libya,01cdd35a0de5933fd3792de2596d619eeb6fd3eb9cb9e51684e92efd087b506e,,,,prompt_ready,,,,
+turnover.png,売上高、入れ替わり,売上高,"Subject: turnover, target first meaning ""売上高"".
+
+Composition: A busy shopkeeper completes several purchases, placing received coins into a till while customers carry purchased goods away. A row of sold items and the accumulating takings make sales revenue the focus; no overturned boat.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,turnover,[],revenue,09fdde5bb6014374da6b934e30e7d1a5bcd879a5f0395f651e745e93e49bc900,,,,prompt_ready,,,,
+unqualified.png,制限のない、無条件の,制限のない,"Subject: unqualified, target first meaning ""制限のない"".
+
+Composition: A parent welcomes a muddy child into a full embrace without hesitation, despite the dirty clothes and spilled toy bag. The open arms and unreserved warmth convey affection offered without conditions; no competence test.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,unqualified,[],not fit : not having requisite qualifications,50b030e52ed045523cdb8a6a821d2046d3ad133ea3c1cd370deb06a9c28aab7d,,,,prompt_ready,,,,
+upgrade.png,改良、更新,改良,"Subject: upgrade, target first meaning ""改良"".
+
+Composition: A technician replaces an old laptop's small memory module with a visibly larger-capacity new module, then shows the improved machine running smoothly. The removed component lies beside the laptop; no uphill bicycle road.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,upgrade,[],improvement,22cb16e0bd2c4af887c73befe5fc549a6cc49b7af29f3e0dba541019f16eef64,,,,prompt_ready,,,,
+ut.png,ドの旧称,ドの旧称,"Subject: ut, target first meaning ""ドの旧称"".
+
+Composition: On a short five-line musical staff, one clearly positioned note marks middle C with its necessary small ledger line below the staff. A matching piano key is gently pressed by one fingertip; no world map or clocks.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. Allow only the intrinsic notation explicitly specified in Composition. No explanatory caption, other text, logo or watermark.",作成済み,,references/invidious.png,ut,[],former name of the musical note do,d79449e023243c4228a408819f6d871dd2b4b8a1fd1b958723d61546adf7e2d5,,,,prompt_ready,,,,
+Virginia.png,バージニア州,バージニア州,"Subject: Virginia, target first meaning ""バージニア州"".
+
+Composition: A map-shaped cutout of Virginia contains the Blue Ridge Mountains at its western edge and a small Chesapeake Bay inlet at the eastern edge. A modest state-capitol building sits centrally; no portrait of a woman named Virginia.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,Virginia,[],Virginia,87a0e9d910b6a4a47769a9c4ce7418f6a035f8cf20d3cf2f709033e75bb87dc5,,,,prompt_ready,,,,
+virtual.png,事実上の、仮想の,事実上の,"Subject: virtual, target first meaning ""事実上の"".
+
+Composition: An assistant quietly directs every action in a small office while the nominal manager sits aside disengaged. Colleagues naturally follow the assistant's pointing hand and decisions, showing someone who functions as the leader in practice; no virtual-reality headset.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,virtual,"[""wī̆-ro-""]",effective,6f27fd2e8b7513521c0c3f966e95263df8f79d86941aafff4fd8bf48d480f8ac,,,,prompt_ready,,,,
+web.png,クモの巣、ウェブ,クモの巣,"Subject: web, target first meaning ""クモの巣"".
+
+Composition: An orb-weaver spider sits on the radial center of a delicate circular silk web stretched between two twigs. Clearly show radial spokes and concentric spiral threads, with a tiny dew drop; no globe or computer network.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,web,"[""webh-""]",web,484e75ee9fee7a729fd0b7fd7a537799d13e439dc30a2b22da73d3b9ec8ab5da,,,,prompt_ready,,,,
+woke@x.png,wakeの過去形,wakeの過去形,"Subject: woke, target first meaning ""wakeの過去形"".
+
+Composition: A child has just woken in bed and sits upright with sleepy eyes, one hand rubbing an eye while morning light enters through the window. The blanket has fallen from the shoulders; no political argument.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,woke,[],past of wake,f767fdd3683b27f9c593a2de770c5a770aee685929d372bdbdb710929685d1f3,,,,prompt_ready,,,,
+zombie.png,ゾンビ、蘇った死体,ゾンビ,"Subject: zombie, target first meaning ""ゾンビ"".
+
+Composition: A fictional undead zombie shambles forward with a vacant expression, pale greenish skin, stiff outstretched arms and harmlessly tattered clothes. Keep the image playful and non-gory, with no snake shrine or worshipper.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,zombie,[],supernaturally reanimated corpse,ab1570c30df760ca3c93e4fd4683fdb826aec092df72367a2dd06a2e858a621f,,,,prompt_ready,,,,
+AC.png,ad‐ の異形,ad- の異形,"Subject: AC, target first meaning ""ad- の異形"".
+
+Composition: A small linguistic diagram shows the prefix ad- joining a root beginning with c, with its final d visibly changing into c to form ac-. Use only those intrinsic letter groups, a joining arrow and a color highlight on the assimilated consonant; no air conditioner.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. Allow only the intrinsic notation explicitly specified in Composition. No explanatory caption, other text, logo or watermark.",作成済み,,references/invidious.png,AC,[],account,dfceae6c9f4360e2bdb8db63d5b8f4b424b8ef6f463070f362e1ed9097f95b41,,,,prompt_ready,,,,
+acrostic.png,アクロスティック,アクロスティック,"Subject: acrostic, target first meaning ""アクロスティック"".
+
+Composition: A child follows a short acrostic on one upright poem card. Its four lines read 'Birds sing.' / 'In trees.' / 'Resting wings.' / 'Dawn comes.' Align and color the initial B, I, R and D so they spell BIRD vertically. Add one small bird beside the card, without explanatory captions.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. Allow only the intrinsic notation explicitly specified in Composition. No explanatory caption, other text, logo or watermark.",作成済み,,references/invidious.png,acrostic,"[""ak-"",""steigh-""]",puzzle,675fe4a2ed4f1175ca3e0209141e46ca53f546b118fae9802fa017a3f88cdc2a,,,,prompt_ready,,,,
+anaphora.png,首句反復,首句反復,"Subject: anaphora, target first meaning ""首句反復"".
+
+Composition: An orator addresses a small audience with three short clauses on an adjacent lectern scroll: 'We will learn. We will build. We will help.' Highlight only the repeated opening 'We will' in matching colors and align the three clauses vertically. The repeated beginnings, rather than farm work, are the central visual relationship.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. Allow only the intrinsic notation explicitly specified in Composition. No explanatory caption, other text, logo or watermark.",作成済み,,references/invidious.png,anaphora,"[""an-"",""bher-1""]",repetition,2221e323885e04180cb4bd21ecda2ba75eb83d911d1905b1c0df2ff668bdcf59,,,,prompt_ready,,,,
+AP.png,ad‐ の異形,ad- の異形,"Subject: AP, target first meaning ""ad- の異形"".
+
+Composition: A small linguistic diagram shows ad- joining a root beginning with p, with the d visibly changing into p to form ap-. Use only those intrinsic prefix letters, a joining arrow and a highlight on the assimilated consonant; no electrical plug.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. Allow only the intrinsic notation explicitly specified in Composition. No explanatory caption, other text, logo or watermark.",作成済み,,references/invidious.png,AP,[],apostle,e958e836546e5840d83338d957386f99c879735a4db8441159ba30caf74cc6e7,,,,prompt_ready,,,,
+apostrophe.png,アポストロフィ,アポストロフィ,"Subject: apostrophe, target first meaning ""アポストロフィ"".
+
+Composition: A large, clearly shaped apostrophe appears between the n and t in the intrinsic example don't on a small language card. An adult teacher points directly to that raised punctuation mark with a pencil. Enlarge the mark and its exact placement; include no explanatory sentence or other symbols.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. Allow only the intrinsic notation explicitly specified in Composition. No explanatory caption, other text, logo or watermark.",作成済み,,references/invidious.png,apostrophe,"[""apo-"",""streb(h)-""]",contraction,1d9e9f0c18394fcec40fb7b7739b0fa1935c4231f24cfdce888fac9d32810e73,,,,prompt_ready,,,,
+Arabic.png,アラビア語の、アラブの,アラビア語の,"Subject: Arabic, target first meaning ""アラビア語の"".
+
+Composition: An open Arabic-language book shows a few authentic connected Arabic letter forms written right to left, with one hand following that direction along the line. Keep the lettering brief and non-explanatory, with no mosque, costume or portrait as the main subject.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. Allow only the intrinsic notation explicitly specified in Composition. No explanatory caption, other text, logo or watermark.",作成済み,,references/invidious.png,Arabic,[],Arabic-language,f0a546fcd083660fb10ee0d6de7884c117791182f4ec872e004cacb0c6bd1e9a,,,,prompt_ready,,,,
+astringent.png,厳しい,厳しい,"Subject: astringent, target first meaning ""厳しい"".
+
+Composition: A stern supervisor faces a worker beside a visibly crooked wooden frame, brows lowered and finger firmly indicating the faulty joint. The worker stops and listens attentively; the supervisor's demanding manner is the focus, without sour fruit.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,astringent,"[""ad-"",""streig-""]",strict,34c3d82622fb99497893a466cf384e5355999897d3668b0dd49b2cf26e9f884a,,,,prompt_ready,,,,
+Benin.png,ベナン,ベナン,"Subject: Benin, target first meaning ""ベナン"".
+
+Composition: A compact geographically accurate map of Benin has its broad northern portion tapering into a narrow southern strip reaching the Gulf of Guinea. Mark the southern coastline with a small blue wave and the northern interior with a simple tree. Show no broad river delta and no Bangladesh-shaped outline.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,Benin,[],West African country,b124c75ab81a6c0eeba630013675ac1ce11260d2c4e34777a014c0cee352bd60,,,,prompt_ready,,,,
+biting.png,辛辣な、身を切るような,辛辣な,"Subject: biting, target first meaning ""辛辣な"".
+
+Composition: A stern critic sharply gestures at a performer's crumpled sketch, mouth open and eyebrows cutting downward. The performer recoils with a hurt expression and lowered shoulders; the scene conveys caustic criticism, without cold wind or written insults.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,biting,[],sharp,b6b6176e6e3a5d2d5bb6cf057e4b3b283f1a0c81f84269099902377c0ae43271,,,,prompt_ready,,,,
+blade.png,刃、葉、肩甲骨,刃,"Subject: blade, target first meaning ""刃"".
+
+Composition: One sharp steel knife blade lies beside its simple wooden handle, with the cutting edge catching a narrow highlight. Show its tapered point and continuous keen edge clearly; no leaf, plant or shoulder bone.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,blade,"[""bhel-3""]",cutting edge,9147e1f002bdee8b3ce345dc13b1fdda4c89815d4db0f01b1207b1442b0e6904,,,,prompt_ready,,,,
+Cadillac.png,高級自動車ブランドのキャデラック,高級自動車ブランドのキャデラック,"Subject: Cadillac, target first meaning ""高級自動車ブランドのキャデラック"".
+
+Composition: A polished Cadillac luxury sedan stands in three-quarter view, with its broad vertical grille and distinctive vertical running lights. Keep its four wheels, enclosed passenger cabin and long elegant body fully visible. Emphasize the recognizable automobile design, without a historical explorer, written badge, crest or slogan.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,Cadillac,[],American luxury automobile brand,4fff2181dd8102fb6bf547c2e6ca3187fdcea59b4d5fbe9f1d25edfd8c0ff57f,,,,prompt_ready,,,,
+circumflex.png,曲折アクセント記号,曲折アクセント記号,"Subject: circumflex, target first meaning ""曲折アクセント記号"".
+
+Composition: An adult teacher points to the circumflex above a lowercase a, forming â on one large white language card. The inverted-V accent is centered directly above the letter, dark and unmistakable; one learner traces the same form on a small slate. Avoid a blank card or a speaking-mouth demonstration.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. Allow only the intrinsic notation explicitly specified in Composition. No explanatory caption, other text, logo or watermark.",作成済み,,references/invidious.png,circumflex,"[""(s)ker-3""]",,7aedd07fdd75105ea08e5be9a03642822ab8d060c317d28098c0d1c8ced98990,,,,prompt_ready,,,,
+clef.png,音部記号,音部記号,"Subject: clef, target first meaning ""音部記号"".
+
+Composition: One large, accurate treble clef curls around the second line of a short five-line musical staff. The clef itself is the subject, clearly drawn and unobscured; no empty staff, pianist or other written notation.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. Allow only the intrinsic notation explicitly specified in Composition. No explanatory caption, other text, logo or watermark.",作成済み,,references/invidious.png,clef,"[""klāu-""]",music note,adc5a46e520dc16c79a577fe7647b97270e246edcec880473a49a5dec3492f03,,,,prompt_ready,,,,
+commandment.png,戒律、命令,戒律,"Subject: commandment, target first meaning ""戒律"".
+
+Composition: A monk in a plain robe pauses before a glass of wine and gently declines it with an open palm, while holding a small religious rule book close to his chest. A simple prayer room with a modest altar establishes observance of a religious precept, without a construction foreman's work instructions.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,commandment,[],the act or power of commanding,988550ec8137e96432d5a6f2f7b11dbdc574f402391d81af2e3ec9a38edeb257,,,,prompt_ready,,,,
+correspondence.png,通信、一致,通信,"Subject: correspondence, target first meaning ""通信"".
+
+Composition: Two distant friends exchange handwritten letters: one person seals an envelope beside a newly received envelope, while a small inset shows the other person reading the reply. Keep all handwriting unreadable; the connected exchange of correspondence is the focus.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,correspondence,[],communication,17bcde162940431cf25b8ea5be823af8a65b122bcbe6a5b30c3ede3bb3d69663,,,,prompt_ready,,,,
+craft.png,工芸、技術、船,工芸,"Subject: craft, target first meaning ""工芸"".
+
+Composition: A craftsperson patiently carves a small wooden bowl at a workbench, with curled shavings, a hand chisel and a partly finished woven basket nearby. Emphasize practical handmade craft work, without any boat or sailing scene.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,craft,[],handicraft,7758cf0b1bd02cd2774ae0c450f8743e8bb3856d1160ea402306872321638dff,,,,prompt_ready,,,,
+cursive.png,草書体の,草書体の,"Subject: cursive, target first meaning ""草書体の"".
+
+Composition: A hand uses a fountain pen to write the single intrinsic sample hello in flowing joined lowercase cursive on lined paper. Every letter connects naturally to the next; a small ink bottle sits beside the page. Enlarge the continuous pen strokes, with no printed block letters or explanatory captions.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. Allow only the intrinsic notation explicitly specified in Composition. No explanatory caption, other text, logo or watermark.",作成済み,,references/invidious.png,cursive,"[""kers-2""]",flowing,735614af883905448fedcad5617beafcca5877022c64f77361628a0b6523f242,,,,prompt_ready,,,,
+Delhi.png,デリー,デリー,"Subject: Delhi, target first meaning ""デリー"".
+
+Composition: A compact Delhi city scene shows the Red Fort's red-sandstone gateway beside a short stretch of bustling street, with a cycle rickshaw and distant minarets. The recognizable Indian capital landmarks dominate; no male portrait.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,Delhi,[],Delhi,fdf91d29075eb794dcd685ddd180590dfc6ea56ce59c1e12b7b47df6e59e8e78,,,,prompt_ready,,,,
+Devanagari.png,デーバナーガリー,デーバナーガリー,"Subject: Devanagari, target first meaning ""デーバナーガリー"".
+
+Composition: A learner copies the authentic Devanagari characters अ and क from an open writing primer onto a small slate. Make the letters' correct shapes and horizontal headline clear. A teacher points at the source characters; keep the script itself central, with no Latin or Arabic substitute writing.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. Allow only the intrinsic notation explicitly specified in Composition. No explanatory caption, other text, logo or watermark.",作成済み,,references/invidious.png,Devanagari,"[""dyeu-""]",script,6e6d47f9d3a15d6a588596762e4bc7c2b407f90de78541b2868b9e58398f79a0,,,,prompt_ready,,,,
+digraph.png,二重字,二重字,"Subject: digraph, target first meaning ""二重字"".
+
+Composition: A teacher holds two adjacent letter tiles s and h together as the digraph sh. Beside them, one child demonstrates a quiet shushing mouth with a finger near the lips. The two letters visibly form one combined sound; omit blank tiles and explanatory sentences.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. Allow only the intrinsic notation explicitly specified in Composition. No explanatory caption, other text, logo or watermark.",作成済み,,references/invidious.png,digraph,"[""dwo-""]",,644486f0085c26be5212ebfac84d7c9890c14a590d7f3182c8b79a9cfaae3e7f,,,,prompt_ready,,,,
+diphthong.png,二重母音,二重母音,"Subject: diphthong, target first meaning ""二重母音"".
+
+Composition: A teacher demonstrates a diphthong by smoothly changing her mouth from an open vowel shape toward a rounded closing shape, shown as two linked close-up mouth positions. A learner imitates the continuous transition; no dipping a boat into water.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,diphthong,"[""dwo-""]",,99b59bb34825dfdca3d463449f25598dc5e828310e9118ebc7d859f14d90e2d2,,,,prompt_ready,,,,
+dislocation.png,脱臼、転位,脱臼,"Subject: dislocation, target first meaning ""脱臼"".
+
+Composition: A clean educational cutaway shows a shoulder joint with the rounded humeral head displaced clearly outside its shallow socket. Add a small intact shoulder beside it for comparison, without crystal lattices, gore or written labels.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,dislocation,[],joint displacement,fb9f5314176784c3853caea58d261d7db8d3942d1c4b529bc418a5c19f3c80c7,,,,prompt_ready,,,,
+dodecagon.png,12辺形,12辺形,"Subject: dodecagon, target first meaning ""12辺形"".
+
+Composition: A single flat blue regular dodecagon lies face-on at the center. Draw exactly twelve equal straight edges and twelve distinct corners, evenly spaced around the perimeter, with no rounded sides, extra corners or perspective distortion. A small ruler sits below without touching the polygon; include no text or numbers.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,dodecagon,"[""dwo-"",""dekm̥"",""genu-1""]",twelve-sided,d16b7751697486ed7e11a3d3cf56115bed2ea8702f6d1db722831124e70ca843,,,,prompt_ready,,,,
+eigenvector.png,固有ベクトル,固有ベクトル,"Subject: eigenvector, target first meaning ""固有ベクトル"".
+
+Composition: A coordinate plane shows a blue vector arrow from the origin and a second longer arrow on exactly the same ray after a linear transformation. A small transformed grid stretches along that direction; the vector keeps its direction, with no exercise weights.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,eigenvector,"[""aik-1"",""wegh-""]",vector,b21d788ab11beec1af209315ba6a59379e412e1ff70858bef5774745748ac866,,,,prompt_ready,,,,
+ejaculate.png,射精する,射精する,"Subject: ejaculate, target first meaning ""射精する"".
+
+Composition: A calm medical teaching diagram uses a simplified sagittal cutaway of an adult male reproductive system. Highlight the path of semen from the ejaculatory ducts into the urethra and out through the penis with one clear directional arrow. Keep it strictly clinical, non-aroused and detached from any sexual scene; include no people performing sexual acts.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,ejaculate,"[""eghs"",""yē-""]",expel,a0899247b66ffa6cfa59d8ee59b37c708a94ff836438ba6e667f29012f60a94c,,,,prompt_ready,,,,
+esotropia.png,内斜視,内斜視,"Subject: esotropia, target first meaning ""内斜視"".
+
+Composition: A straight-on clinical portrait shows an adult with both eyes open, while one iris turns distinctly inward toward the bridge of the nose. The other eye remains directed straight ahead, making the convergent misalignment easy to see. Keep the head level and use a neutral expression, without a decorative pedestal.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,esotropia,"[""en"",""trep-2"",""okʷ-"",""-ā-""]",cross-eye,53aaaaad0c0b529b65712d06469485f7efa1bee0965193af9247a5b655e9eedf,,,,prompt_ready,,,,
+fuck.png,性交する、くそっ,性交する,"Subject: fuck, target first meaning ""性交する"".
+
+Composition: Two consenting adults embrace closely in a bed, with their bodies completely concealed beneath one plain opaque blanket up to the shoulders. Their relaxed faces and mutual affectionate contact imply private sexual intimacy. Use a simple bedside lamp and closed door; show no nudity, genitals, sexual mechanics or angry computer-breaking scene.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,fuck,"[""peuk-""]",have sex,064c80fe6443e0c25d902210b29913a3d6b8201fe972cfca0b5224e82322524f,,,,prompt_ready,,,,
+grief.png,深い悲しみ,深い悲しみ,"Subject: grief, target first meaning ""深い悲しみ"".
+
+Composition: A bereaved adult sits beside a small memorial photograph and a white flower, shoulders slumped and face wet with tears. A friend sits close in quiet support; the deep personal sadness dominates, without a well or pit.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,grief,"[""gʷerə-2""]",sorrow,46ac58ca860784de41ad7f645ce7680fda9ac3fe599c9324314b5ff7ad013205,,,,prompt_ready,,,,
+handball.png,壁打ちハンドボール,壁打ちハンドボール,"Subject: handball, target first meaning ""壁打ちハンドボール"".
+
+Composition: Two players play wall handball in a simple three-sided court. One open palm strikes a small rubber ball toward the high front wall while the other player waits for its rebound; no football-style goal or throwing into a net.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,handball,[],wall-based hand-striking ball game,712841c8b7926f690d50c9dea736a50909c2a62abc4c9ad7713ecce7241060ae,,,,prompt_ready,,,,
+Hebrew.png,ヘブライ語、ヘブライ人,ヘブライ語,"Subject: Hebrew, target first meaning ""ヘブライ語"".
+
+Composition: An open Hebrew reading book presents a short row of authentic Hebrew letter forms. A learner follows the line from right to left with a fingertip while a teacher watches; focus on the written language, without invented personal identity or a generic man's portrait.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. Allow only the intrinsic notation explicitly specified in Composition. No explanatory caption, other text, logo or watermark.",作成済み,,references/invidious.png,Hebrew,[],Hebrew language,93170efb913a0389c3970c884caf708add786ca9c8c5c003357bdb86e1aff553,,,,prompt_ready,,,,
+hyphen.png,ハイフン,ハイフン,"Subject: hyphen, target first meaning ""ハイフン"".
+
+Composition: Two small word cards read well and known, joined by one short horizontal hyphen to form well-known. An adult's fingertip points exactly to the centered punctuation mark. Enlarge the mark while keeping it midway up the lowercase letters, clearly different from a low underscore or a blank card.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. Allow only the intrinsic notation explicitly specified in Composition. No explanatory caption, other text, logo or watermark.",作成済み,,references/invidious.png,hyphen,"[""sem-1""]",short dash,c4e531c52dfb624935cd26c9f58cdcdfacac2f87744ca69cee93ac6027aa35e4,,,,prompt_ready,,,,
+interjection.png,投入,投入,"Subject: interjection, target first meaning ""投入"".
+
+Composition: A worker places one small parcel into the open intake of a sorting machine while another parcel waits beside it. The hand and parcel visibly cross the intake opening, showing the act of putting something in; no conversational interruption.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,interjection,"[""en"",""yē-""]",exclamation,e3203aa5efc5c468c328e379b5489b1b0e90c2032f20c0476b62266a448cc945,,,,prompt_ready,,,,
+internalize.png,内面化する、内在化する,内面化する,"Subject: internalize, target first meaning ""内面化する"".
+
+Composition: A child who has learned to tidy up now independently puts away scattered toys, while the parent watches quietly from a distance without prompting. A small inset recalls the earlier shared demonstration; the learned practice has become the child's own habit.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,internalize,[],incorporate beliefs or values into one's own thinking,aadb739702a15520dbd64c1714571e4af5b9483f0b43d2ada4486114f0fb8e2e,,,,prompt_ready,,,,
+Islam.png,イスラム教,イスラム教,"Subject: Islam, target first meaning ""イスラム教"".
+
+Composition: A peaceful Islamic worship scene shows a mosque prayer space, prayer rugs aligned toward a simple mihrab and a worshipper quietly praying. Include a closed Qur'an on a wooden stand; no readable sacred text or human portrait standing alone.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,Islam,[],Islam,c7ef690a6881281dac5bfeb7d0adbd6a0ba5801471829a933fe4fcca01e445c2,,,,prompt_ready,,,,
+Julian.png,ローマ皇帝ユリアヌス,ローマ皇帝ユリアヌス,"Subject: Julian, target first meaning ""ローマ皇帝ユリアヌス"".
+
+Composition: The Roman emperor Julian stands in a late Roman imperial tunic and military cloak beside a simple throne, holding a rolled document. A restrained diadem marks his office; avoid invented facial likeness, modern casual clothing or unverified historical events.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,Julian,[],Roman emperor,11bcf3419f331ba166c0476ae83311a486995e3d6f8c90e0b2d45baf42e52906,,,,prompt_ready,,,,
+lactate.png,乳酸,乳酸,"Subject: lactate, target first meaning ""乳酸"".
+
+Composition: The current Japanese target is lactic acid: center its accurate neutral formula CH3–CH(OH)–C(=O)–OH. Use single bonds along the three-carbon chain, one hydroxyl on the middle carbon and one carbonyl double bond. Show the terminal hydroxyl's H, no negative charge, no carbon-carbon double bond and no extra oxygen.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. Allow only the essential chemical atom/group symbols and bond notation in the structural formula itself. No caption, compound name, other text, logo or watermark.",作成済み,,references/invidious.png,lactate,"[""melg-""]",milk acid,98901eda4197b39de061003c51c88ef5230399b96f37e79aeae362787c3e1256,,,,prompt_ready,,,,
+Madison.png,ドリー・マディソン,ドリー・マディソン,"Subject: Madison, target first meaning ""ドリー・マディソン"".
+
+Composition: Dolley Madison appears as an early nineteenth-century American First Lady in a modest high-waisted formal gown, gloves and a period turban-style headdress. She stands beside a simple reception table in the presidential residence; avoid inventing a modern celebrity likeness or using jeans.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,Madison,[],American socialite,8e15c27f0bcab4c01791231e90e357074f0c111629dd99c25b83a964ee1976c1,,,,prompt_ready,,,,
+metathesis.png,字位転換,字位転換,"Subject: metathesis, target first meaning ""字位転換"".
+
+Composition: Two letter tiles switch places inside the intrinsic pair form → from. Show the middle o and r exchanging positions along two short crossing curved arrows; the f and m stay fixed at the ends. An attentive learner watches the transposition. Include no generic colored counters or unrelated medical scene.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. Allow only the intrinsic notation explicitly specified in Composition. No explanatory caption, other text, logo or watermark.",作成済み,,references/invidious.png,metathesis,"[""me-2"",""dhē-""]",transposition,b1c129992460e7b4d221b014c2a60032f6fe61fa40853ffb11a60baf3db175df,,,,prompt_ready,,,,
+million.png,100万,100万,"Subject: million, target first meaning ""100万"".
+
+Composition: A large mechanical counter displays exactly 1,000,000, with a child turning its side crank as the final wheel clicks into place. Make all seven digits and both separators clearly legible on one integrated display. A small filled counting tray sits below; do not substitute a small cube stack without its scale.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. Allow only the intrinsic notation explicitly specified in Composition. No explanatory caption, other text, logo or watermark.",作成済み,,references/invidious.png,million,"[""gheslo-""]",1000000,e8a985b03f3b6c9ef994fcbbcbd96f2c50936adae77fdad7d10fac0df591721e,,,,prompt_ready,,,,
+nickel.png,5セント白銅貨、ニッケル,5セント白銅貨,"Subject: nickel, target first meaning ""5セント白銅貨"".
+
+Composition: Two United States five-cent nickel coins lie on a small felt pad: one shows Jefferson's portrait, the other Monticello and the intrinsic denomination FIVE CENTS. Keep their silvery surfaces, circular rims and coin relief clear. Include no metal ingots, unrelated currency or explanatory labels.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. Allow only the intrinsic notation explicitly specified in Composition. No explanatory caption, other text, logo or watermark.",作成済み,,references/invidious.png,nickel,[],five-cent coin,20261f2d57c111e133ebf123250b3cd2f2c556717dac656155bb766ef01771cd,,,,prompt_ready,,,,
+nitrate.png,硝酸塩、硝酸エステル,硝酸塩,"Subject: nitrate, target first meaning ""硝酸塩"".
+
+Composition: An accurate sodium nitrate formula shows a separate Na⁺ ion beside one bracketed NO3⁻ group. The trigonal-planar nitrate has central N⁺ bonded to exactly three O atoms: one N=O and two N–O⁻ bonds, giving the group an overall minus charge. Show no methyl group or carbon atom.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. Allow only the essential chemical atom/group symbols and bond notation in the structural formula itself. No caption, compound name, other text, logo or watermark.",作成済み,,references/invidious.png,nitrate,[],nitrate salt,a83a3d8a2ed2e01ee1ea1b92887a03bd849570928acb63db16d87c8444cd627a,,,,prompt_ready,,,,
+norepinephrine.png,ノルエピネフリン、副腎髄質ホルモン,ノルエピネフリン,"Subject: norepinephrine, target first meaning ""ノルエピネフリン"".
+
+Composition: An accurate norepinephrine structural formula shows a benzene ring with adjacent hydroxyl groups and the side chain –CH(OH)–CH2–NH2. Keep the side chain attached at the correct catechol-ring position and use only single bonds throughout that side chain. Show the naturally occurring R configuration at the hydroxyl-bearing carbon; omit extra carbon atoms and side-chain double bonds.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. Allow only the essential chemical atom/group symbols and bond notation in the structural formula itself. No caption, compound name, other text, logo or watermark.",作成済み,,references/invidious.png,norepinephrine,[],hormone and neurotransmitter also called noradrenaline,be755f2fd029b9bc86474d47d3d72fbeee88a59219d6e238f5a55f780e458f03,,,,prompt_ready,,,,
+palindrome.png,回文,回文,"Subject: palindrome, target first meaning ""回文"".
+
+Composition: Five letter tiles form the intrinsic palindrome LEVEL in one straight row. A child traces a short arrow from the first L to the last L while another traces back from the last L; the same ordered letters remain visible from either reading direction. Use no blank tiles or unrelated decorative words.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. Allow only the intrinsic notation explicitly specified in Composition. No explanatory caption, other text, logo or watermark.",作成済み,,references/invidious.png,palindrome,"[""kʷel-1"",""der-1""]",wordplay,393c697b92ead5c6794814964937a0884efd26c49eeb2534fd63c84de27f4fec,,,,prompt_ready,,,,
+poker.png,火かき棒,火かき棒,"Subject: poker, target first meaning ""火かき棒"".
+
+Composition: A hand grips the insulated wooden handle of a long iron fireplace poker, using its small hooked tip to move one glowing log safely inside a stone hearth. Show the whole metal tool and its fire-tending function, without a finger poking fabric.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,poker,[],fire-stirring rod,eeeea003f3a7a83b28c36dd48c1baaf456ceaafe0d21737e19ff25ddc9d09626,,,,prompt_ready,,,,
+Singapore.png,シンガポール,シンガポール,"Subject: Singapore, target first meaning ""シンガポール"".
+
+Composition: A compact Singapore waterfront scene shows the Merlion fountain in the foreground, backed by Marina Bay Sands' three towers and connecting rooftop deck. Include a small harbor boat for scale; focus on recognizable city landmarks, without a man's portrait.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,Singapore,"[""pelə-3""]",city-state,884525bbc5150917fd4c3f67da4436ed022f491d4c4e88d166907786c7d649ed,,,,prompt_ready,,,,
+spec.png,仕様、規格,仕様,"Subject: spec, target first meaning ""仕様"".
+
+Composition: An engineer compares a small metal bracket with its matching technical drawing. The drawing clearly depicts the same two holes and right-angle bend; calipers measure the real bracket's width. Keep the object, measurable features and specification sheet together, without stock-market charts or money.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,spec,[],product specification,dde10397d18e78cd0ca2610d2554b3ff6c129c3d429e0f8ca20584657453aab5,,,,prompt_ready,,,,
+spit@spei.png,つばを吐く、焼き串,つばを吐く,"Subject: spit, target first meaning ""つばを吐く"".
+
+Composition: An adult leans over a washbasin, lips pursed and cheeks relaxing as one small clear saliva droplet leaves the mouth toward the drain. One hand rests on the basin edge. Show the droplet's short outward trajectory clearly; omit food, roasting rods and graphic bodily detail.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,spit,"[""spei-""]",spit,c0c0a8c214ed44c9c013616f5013c9babd58101564e93bb815d1a85384814863,,,,prompt_ready,,,,
+sprang@x.png,springの過去形,springの過去形,"Subject: sprang, target first meaning ""springの過去形"".
+
+Composition: A boy has just sprung across a narrow puddle: his bent legs are airborne above the water, his arms lift for balance, and two small launch marks remain beside the starting footprint. His surprised, energetic expression and curved motion arc emphasize the completed leap, without woven fabric.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,sprang,[],past of spring,2e117b2a3bc5db343b0326c2aae41094090a1b33c7904d9c36726c3f07d32d42,,,,prompt_ready,,,,
+sterile.png,不妊の,不妊の,"Subject: sterile, target first meaning ""不妊の"".
+
+Composition: A clinician and an adult patient examine a simple reproductive-fertility model on a desk. A magnified inset shows an ovum and several sperm with a barrier preventing their union; no embryo forms. Use a calm clinical setting, fully clothed people and neutral expressions, without an operating-room sterilization scene.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,sterile,"[""ster-4""]",infertile,6db034b6180cf3a5d0d84e75b2b0a0bb0e0533b5514c3e5fae4833963df269fa,,,,prompt_ready,,,,
+strand.png,より糸、行き詰まらせる,より糸,"Subject: strand, target first meaning ""より糸"".
+
+Composition: One short length of twisted cord lies diagonally across the square. At the near end, three thinner yarns separate into loose visible fibers; the rest coils tightly into a single strand. Enlarge the fiber texture and twisting direction. Include no boat, beach or stranded person.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,strand,[],strand,99ba1b846c03a0d7e528d0b08ff53f02a5af9a4c4f9115bd3b5ecce37b6ecd36,,,,prompt_ready,,,,
+Stuart.png,ステュアート王家,ステュアート王家,"Subject: Stuart, target first meaning ""ステュアート王家"".
+
+Composition: A compact seventeenth-century royal family portrait depicts the Stuart royal house: a crowned king with long curled hair, a broad lace collar and a dark ceremonial cloak sits beside two younger princes in period doublets. Place a Scottish thistle and English rose below the portrait frame; omit modern clothing and generic businessmen.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,Stuart,[],Scottish royal house,205db87e62f7c60f3461c19271e0a9f3fc0284aa99d0c0a7a0a54fd7dd498301,,,,prompt_ready,,,,
+Syriac.png,シリア語,シリア語,"Subject: Syriac, target first meaning ""シリア語"".
+
+Composition: A learner reads a Syriac alphabet primer displaying the authentic Syriac letters ܐ and ܒ prominently. A teacher points at the first two letterforms while the learner copies them onto a small slate. Keep their precise Syriac shapes clear, without Arabic substitutes, Latin transliteration or explanatory captions.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. Allow only the intrinsic notation explicitly specified in Composition. No explanatory caption, other text, logo or watermark.",作成済み,,references/invidious.png,Syriac,[],literary and liturgical Eastern Aramaic language,253506b186910e9af6dbc9fb8de6783add7c5ca648aa12a488d8c2e240056ed0,,,,prompt_ready,,,,
+Tamil.png,タミル語、タミル人,タミル語,"Subject: Tamil, target first meaning ""タミル語"".
+
+Composition: A Tamil-language teacher sits beside an adult learner, pointing to the authentic Tamil letters அ and ஆ on an open primer. The learner traces the same two forms with a pencil. Make these intrinsic language specimens prominent, without explanatory sentences or a temple-and-costume portrait.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. Allow only the intrinsic notation explicitly specified in Composition. No explanatory caption, other text, logo or watermark.",作成済み,,references/invidious.png,Tamil,[],Tamil language,9c8ecbebf59b55f0558839e2e3f271f72f5cbc4fa8c2bd3f94d989cc17d4d8dc,,,,prompt_ready,,,,
+Tetragrammaton.png,神を表す4文字,神を表す4文字,"Subject: Tetragrammaton, target first meaning ""神を表す4文字"".
+
+Composition: An open ancient Hebrew manuscript displays the four-letter divine name יהוה as its prominent intrinsic text, correctly ordered right to left. A reader holds the book open while pointing to the four letters without obscuring them. Keep the rest of the page plain, without a human depiction of God or explanatory captions.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. Allow only the intrinsic notation explicitly specified in Composition. No explanatory caption, other text, logo or watermark.",作成済み,,references/invidious.png,Tetragrammaton,"[""kʷetwer-"",""gerbh-""]",divine name,66db2074479b6fc38edb01e472ed50732debbd79c18e445ff88413b712d882c5,,,,prompt_ready,,,,
+tire.png,疲れさせる,疲れさせる,"Subject: tire, target first meaning ""疲れさせる"".
+
+Composition: A coach makes an adult runner exhausted by having them carry two weighted bags up a short flight of stairs. The runner's shoulders sag, knees bend and forehead sweats; the coach indicates the remaining step. Show the tiring exertion clearly, without any automobile tire.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,tire,"[""deu-1""]",wear out,c5a7dce87a1e8628701454d2f29c8c6fc79c6dd80da93d8a936513b621f1042f,,,,prompt_ready,,,,
+Turkey.png,トルコ,トルコ,"Subject: Turkey, target first meaning ""トルコ"".
+
+Composition: A compact map of Turkey spans Anatolia with the narrow western connection to eastern Thrace. Show the Bosporus strait dividing the two portions, a small Istanbul domed skyline near the strait and Cappadocia's rock formations inland. Focus on the country and its geography rather than a man's portrait.
+
+Style: Match only the attached invidious.png drawing style: thick rounded dark-brown outlines, simple rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy its characters or scene.
+
+Framing: One compact composition occupies about 80-90% of the square, with every subject and tool fully inside the frame.
+
+Output: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos, watermark, checkerboard or solid background.",作成済み,,references/invidious.png,Turkey,[],Turkey,57c4f0407d5385abc260dbc7d965896b4e14d0e6d5f273ec6fcd4179acee4103,,,,prompt_ready,,,,

@@ -6,12 +6,12 @@ const vm=require('node:vm');
 const {parseHTML}=require('linkedom');
 const rootDir=path.resolve(__dirname,'../..');
 const overlay=fs.readFileSync(path.join(rootDir,'app/shared/explorer-difficulty-v2.js'),'utf8');
-const explorer=fs.readFileSync(path.join(rootDir,'app/etymon-explorer.html'),'utf8');
+const explorer=fs.readFileSync(path.join(rootDir,'app/vocabulary-master.html'),'utf8');
 const identity=require('../../app/shared/lexical-identity.js');
 const tick=()=>new Promise(resolve=>setImmediate(resolve));
 
 function nativeTable(words,{extra=false,spaced=false,sheet=false}={}){
- const columns=[['cPic','絵'],['cW','単語'],['cK','カナ'],['cR','レア度'],['cJa','語義'],['cEn','パラフレーズ'],['cRoots','印欧祖語'],['cParts','ことばの組み立て'],['cDef','語源ひとことメモ'],['cLang',spaced?' 語 \n 派 ':'語派'],['cPos','品詞'],['cMemo','メモ']];
+ const columns=[['cPic','絵'],['cW','単語'],['cK','カナ'],['cR','レア度'],['cJa','語義'],['cEn','パラフレーズ'],['cRoots','印欧祖語'],['cParts','語源組み立て'],['cDef','語源ひとことメモ'],['cLang',spaced?' 語 \n 派 ':'語派'],['cPos','品詞'],['cMemo','メモ']];
  if(extra)columns.splice(7,0,['unrelated','別の列']);
  if(sheet)columns.push(['cMemo','意味タグ']);
  const row=(w,i)=>'<tr data-i="'+i+'">'+columns.map(([cls])=>{
@@ -153,7 +153,7 @@ test('all inline Explorer JavaScript parses after data and memo changes',()=>{
  let checked=0;
  for(const script of explorer.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/g)){
   if(/\bsrc\s*=/.test(script[1])||/\btype\s*=/.test(script[1]))continue;
-  new vm.Script(script[2],{filename:'etymon-explorer.html:inline-'+checked});checked++;
+  new vm.Script(script[2],{filename:'vocabulary-master.html:inline-'+checked});checked++;
  }
  assert.ok(checked>0);
 });

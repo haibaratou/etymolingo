@@ -1,0 +1,561 @@
+[
+  {
+    "key": "[\"bale\",[\"bhel-2\"],\"\"]",
+    "source_record": 1408,
+    "w": "bale",
+    "p": [
+      "bhel-2"
+    ],
+    "etymology_id": "",
+    "ja": "俵",
+    "first_ja": "俵",
+    "en_snapshot": "package",
+    "pos": "名",
+    "filename": "bale.png",
+    "runtime_referenced": true,
+    "literal_names": [
+      "bale@bhel2.png"
+    ],
+    "image": {
+      "sha256": "fc901b7a63d7a6d4c5a24d9705832a6f86e08de079a78787e27e74e97ff6e22d",
+      "git_blob_sha": "82b47e20d351d45363080d49dc39eca3d069099d",
+      "bytes": 273522
+    },
+    "exact_reviewed_caption_records": 1,
+    "caption_samples": [
+      {
+        "en": "A bale of straw is tightly bound with rope.",
+        "ja": "わらを円筒形にまとめ、縄でしっかり縛った俵です。"
+      }
+    ],
+    "exact_historical_pixel_reviews": [],
+    "flagged_by_any_register": false
+  },
+  {
+    "key": "[\"bard\",[\"gʷerə-3\",\"dhē-\"],\"\"]",
+    "source_record": 1465,
+    "w": "bard",
+    "p": [
+      "gʷerə-3",
+      "dhē-"
+    ],
+    "etymology_id": "",
+    "ja": "吟遊詩人",
+    "first_ja": "吟遊詩人",
+    "en_snapshot": "minstrel",
+    "pos": "名",
+    "filename": "bard.png",
+    "runtime_referenced": true,
+    "literal_names": [
+      "bard@gwere3-dhe.png"
+    ],
+    "image": {
+      "sha256": "73d8bfd62d8c7163a6c731a088facf997f09c6be743f38642266e4e79c4a6f66",
+      "git_blob_sha": "e9415df0a2e07a6677ac3deaa7e3717165bb249e",
+      "bytes": 234460
+    },
+    "exact_reviewed_caption_records": 1,
+    "caption_samples": [
+      {
+        "en": "A bard sings while playing a stringed instrument.",
+        "ja": "吟遊詩人が、弦楽器を弾きながら歌っています。"
+      }
+    ],
+    "exact_historical_pixel_reviews": [],
+    "flagged_by_any_register": false
+  },
+  {
+    "key": "[\"barrow\",[\"bher-1\"],\"\"]",
+    "source_record": 1484,
+    "w": "barrow",
+    "p": [
+      "bher-1"
+    ],
+    "etymology_id": "",
+    "ja": "手押し車",
+    "first_ja": "手押し車",
+    "en_snapshot": "wheelbarrow",
+    "pos": "名",
+    "filename": "barrow.png",
+    "runtime_referenced": true,
+    "literal_names": [
+      "barrow@bher1.png"
+    ],
+    "image": {
+      "sha256": "09edfdaced545875f44cf368e475ce386eb1c6a7664b158cad647475561af2bc",
+      "git_blob_sha": "72833c1216d09e5a08fabfbe260bae66f8e904fe",
+      "bytes": 178148
+    },
+    "exact_reviewed_caption_records": 1,
+    "caption_samples": [
+      {
+        "en": "A barrow has one front wheel, a deep tray, and two handles.",
+        "ja": "手押し車には、前の車輪と深い荷台、二つの持ち手があります。"
+      }
+    ],
+    "exact_historical_pixel_reviews": [],
+    "flagged_by_any_register": false
+  },
+  {
+    "key": "[\"beck\",[\"bhā-1\"],\"\"]",
+    "source_record": 1551,
+    "w": "beck",
+    "p": [
+      "bhā-1"
+    ],
+    "etymology_id": "",
+    "ja": "手招き",
+    "first_ja": "手招き",
+    "en_snapshot": "nod",
+    "pos": "名/動",
+    "filename": "beck.png",
+    "runtime_referenced": true,
+    "literal_names": [
+      "beck@bha1.png"
+    ],
+    "image": {
+      "sha256": "c25f9ce530637b7029713b37e3a76f37f2a1dd15c4917013bd344cc75ea50fa9",
+      "git_blob_sha": "96eb0cd15dc05de126b77db2eef3af5e4e2816c9",
+      "bytes": 155025
+    },
+    "exact_reviewed_caption_records": 1,
+    "caption_samples": [
+      {
+        "en": "The boy gives a beck with his curled fingers, inviting someone closer.",
+        "ja": "男の子が指を軽く曲げて手招きし、近くへ来るよう呼んでいます。"
+      }
+    ],
+    "exact_historical_pixel_reviews": [],
+    "flagged_by_any_register": false
+  },
+  {
+    "key": "[\"bower\",[\"bheuə-\"],\"\"]",
+    "source_record": 1929,
+    "w": "bower",
+    "p": [
+      "bheuə-"
+    ],
+    "etymology_id": "",
+    "ja": "木陰",
+    "first_ja": "木陰",
+    "en_snapshot": "shaded area",
+    "pos": "名/動",
+    "filename": "bower.png",
+    "runtime_referenced": true,
+    "literal_names": [
+      "bower@bheue.png"
+    ],
+    "image": {
+      "sha256": "ffcba1e0c33d2fde618347655de6358e764f63a28f2107e82437507ca8f4c8c5",
+      "git_blob_sha": "60559b2e344cf76c554ec2288a5fdff5c83b0738",
+      "bytes": 355100
+    },
+    "exact_reviewed_caption_records": 1,
+    "caption_samples": [
+      {
+        "en": "A leafy bower arches over a wooden garden bench, creating a sheltered shady space.",
+        "ja": "葉の茂る枝が木製ベンチの上でアーチを作り、囲まれた木陰になっています。"
+      }
+    ],
+    "exact_historical_pixel_reviews": [],
+    "flagged_by_any_register": false
+  },
+  {
+    "key": "[\"crowd\",[\"greut-\"],\"\"]",
+    "source_record": 3678,
+    "w": "crowd",
+    "p": [
+      "greut-"
+    ],
+    "etymology_id": "",
+    "ja": "群衆",
+    "first_ja": "群衆",
+    "en_snapshot": "throng",
+    "pos": "名/動",
+    "filename": "crowd.png",
+    "runtime_referenced": true,
+    "literal_names": [
+      "crowd@greut.png"
+    ],
+    "image": {
+      "sha256": "ac6126f044137eb702504f3e4df830d459adc8d9733881d0d2031ac633a42cb8",
+      "git_blob_sha": "de739109ad4c339ceb19d7d545795bc92800a9ff",
+      "bytes": 375689
+    },
+    "exact_reviewed_caption_records": 1,
+    "caption_samples": [
+      {
+        "en": "A cheerful crowd gathers closely, clapping and watching together.",
+        "ja": "大勢の人が集まり、拍手をしながら同じ方向を見ています。"
+      }
+    ],
+    "exact_historical_pixel_reviews": [],
+    "flagged_by_any_register": false
+  },
+  {
+    "key": "[\"deal\",[\"dail-\"],\"\"]",
+    "source_record": 3877,
+    "w": "deal",
+    "p": [
+      "dail-"
+    ],
+    "etymology_id": "",
+    "ja": "取引",
+    "first_ja": "取引",
+    "en_snapshot": "trade",
+    "pos": "名/動",
+    "filename": "deal.png",
+    "runtime_referenced": true,
+    "literal_names": [
+      "deal@dail.png"
+    ],
+    "image": {
+      "sha256": "3e1e6c2fd2977d74881c94cd895bcf040b52825342e450d762c86fa4e02f9072",
+      "git_blob_sha": "bd01ec6ec82450a8487632b1b1e2ac689093d288",
+      "bytes": 249468
+    },
+    "exact_reviewed_caption_records": 1,
+    "caption_samples": [
+      {
+        "en": "Two traders make a deal, exchanging a crate of apples for a pouch of coins.",
+        "ja": "2人の商人が、木箱入りのリンゴと硬貨の袋を交換して取引しています。"
+      }
+    ],
+    "exact_historical_pixel_reviews": [],
+    "flagged_by_any_register": false
+  },
+  {
+    "key": "[\"ferret\",[\"bher-1\"],\"\"]",
+    "source_record": 5990,
+    "w": "ferret",
+    "p": [
+      "bher-1"
+    ],
+    "etymology_id": "",
+    "ja": "フェレット、探し出す",
+    "first_ja": "フェレット",
+    "en_snapshot": "searcher",
+    "pos": "名/動",
+    "filename": "ferret.png",
+    "runtime_referenced": true,
+    "literal_names": [
+      "ferret@bher1.png"
+    ],
+    "image": {
+      "sha256": "5e854f38329d231a02f28ff78c953a02346b33f0ca1e3953803ed64889a6ace8",
+      "git_blob_sha": "99db4e04671e32372836be9a6df95cf15b84f0b8",
+      "bytes": 205056
+    },
+    "exact_reviewed_caption_records": 1,
+    "caption_samples": [
+      {
+        "en": "A ferret has a long body, short legs, a masked face, and a raised furry tail.",
+        "ja": "フェレットに、細長い胴と短い脚、目の周りの模様、持ち上げた毛のある尾が見えます。"
+      }
+    ],
+    "exact_historical_pixel_reviews": [],
+    "flagged_by_any_register": false
+  },
+  {
+    "key": "[\"mental\",[\"men-2\"],\"\"]",
+    "source_record": 9679,
+    "w": "mental",
+    "p": [
+      "men-2"
+    ],
+    "etymology_id": "",
+    "ja": "あごの",
+    "first_ja": "あごの",
+    "en_snapshot": "genial",
+    "pos": "形",
+    "filename": "mental.png",
+    "runtime_referenced": true,
+    "literal_names": [
+      "mental@men2.png"
+    ],
+    "image": {
+      "sha256": "4739c843c4650eaca87e19d7bedfda23f45c8dc8d2fd0cbfce1248e5f407e4c3",
+      "git_blob_sha": "1b7c48b4bf53aeb20753f3b7225dfdc8f0d3d112",
+      "bytes": 186893
+    },
+    "exact_reviewed_caption_records": 0,
+    "caption_samples": [],
+    "exact_historical_pixel_reviews": [],
+    "flagged_by_any_register": true
+  },
+  {
+    "key": "[\"mortar\",[\"mer-2\"],\"\"]",
+    "source_record": 10087,
+    "w": "mortar",
+    "p": [
+      "mer-2"
+    ],
+    "etymology_id": "",
+    "ja": "モルタル、すり鉢、迫撃砲",
+    "first_ja": "モルタル",
+    "en_snapshot": "masonry binder",
+    "pos": "名",
+    "filename": "mortar@construction.png",
+    "runtime_referenced": true,
+    "literal_names": [
+      "mortar.png"
+    ],
+    "image": {
+      "sha256": "621dae5b9ca534fad74df13a1705532b6bc8fba734c4c0a87bcdc91bc6c639f0",
+      "git_blob_sha": "b478f999f575937738919239c3d5357f1aa14faf",
+      "bytes": 237593
+    },
+    "exact_reviewed_caption_records": 0,
+    "caption_samples": [],
+    "exact_historical_pixel_reviews": [],
+    "flagged_by_any_register": false
+  },
+  {
+    "key": "[\"mush\",[\"meik-\"],\"\"]",
+    "source_record": 10185,
+    "w": "mush",
+    "p": [
+      "meik-"
+    ],
+    "etymology_id": "",
+    "ja": "トウモロコシがゆ",
+    "first_ja": "トウモロコシがゆ",
+    "en_snapshot": "porridge",
+    "pos": "名/動",
+    "filename": "mush.png",
+    "runtime_referenced": true,
+    "literal_names": [
+      "mush@meik.png"
+    ],
+    "image": {
+      "sha256": "61423e8c06667cc082ad86196b6e3e6bb3ef7d43927c79176a32fbfde7b10834",
+      "git_blob_sha": "678bf3ee0dca77c0d1ee7747060926866b0011b6",
+      "bytes": 184872
+    },
+    "exact_reviewed_caption_records": 1,
+    "caption_samples": [
+      {
+        "en": "A wooden spoon rests in a bowl of thick yellow cornmeal mush.",
+        "ja": "木のスプーンが黄色いトウモロコシがゆの器に入っている。"
+      }
+    ],
+    "exact_historical_pixel_reviews": [],
+    "flagged_by_any_register": false
+  },
+  {
+    "key": "[\"ounce\",[\"leuk-\"],\"\"]",
+    "source_record": 11027,
+    "w": "ounce",
+    "p": [
+      "leuk-"
+    ],
+    "etymology_id": "",
+    "ja": "ユキヒョウ",
+    "first_ja": "ユキヒョウ",
+    "en_snapshot": "snow leopard",
+    "pos": "名",
+    "filename": "ounce.png",
+    "runtime_referenced": true,
+    "literal_names": [
+      "ounce@leuk.png"
+    ],
+    "image": {
+      "sha256": "7cdce3515eefaded30b3375a7746a6486b2b2ccfc160e578f15770289bb2fedc",
+      "git_blob_sha": "d0630403bab2998ac299a98fba4114bc0683084a",
+      "bytes": 106667
+    },
+    "exact_reviewed_caption_records": 0,
+    "caption_samples": [],
+    "exact_historical_pixel_reviews": [],
+    "flagged_by_any_register": false
+  },
+  {
+    "key": "[\"periwinkle\",[\"per1\",\"weik-5\",\"weik-4\"],\"\"]",
+    "source_record": 11594,
+    "w": "periwinkle",
+    "p": [
+      "per1",
+      "weik-5",
+      "weik-4"
+    ],
+    "etymology_id": "",
+    "ja": "ツルニチニチソウ、明るい青紫色",
+    "first_ja": "ツルニチニチソウ",
+    "en_snapshot": "flower",
+    "pos": "名/形",
+    "filename": "periwinkle.png",
+    "runtime_referenced": true,
+    "literal_names": [
+      "periwinkle@per1-weik5-weik4.png"
+    ],
+    "image": {
+      "sha256": "4249fdb3cc930114985791d2a9b0515d38601bd6bfbabbca8e7652c665328cec",
+      "git_blob_sha": "e46029e32a7c9c81e555cc2feb7cafe428100ea2",
+      "bytes": 246322
+    },
+    "exact_reviewed_caption_records": 1,
+    "caption_samples": [
+      {
+        "en": "The periwinkle has purple flowers and trailing leafy stems.",
+        "ja": "ツルニチニチソウの紫色の花が、葉の付いたつるに咲いている。"
+      }
+    ],
+    "exact_historical_pixel_reviews": [],
+    "flagged_by_any_register": false
+  },
+  {
+    "key": "[\"pinion\",[\"pet-\"],\"\"]",
+    "source_record": 11825,
+    "w": "pinion",
+    "p": [
+      "pet-"
+    ],
+    "etymology_id": "",
+    "ja": "風切り羽、両腕を縛る",
+    "first_ja": "風切り羽",
+    "en_snapshot": "wing",
+    "pos": "名/動",
+    "filename": "pinion.png",
+    "runtime_referenced": true,
+    "literal_names": [
+      "pinion@pet.png"
+    ],
+    "image": {
+      "sha256": "d44c2c633261f1eca6c814867b8da16b9825768fe4678d70479d67be49a6b8ad",
+      "git_blob_sha": "14e0cea609ca44983e21bc74824554c975cb1b21",
+      "bytes": 226218
+    },
+    "exact_reviewed_caption_records": 1,
+    "caption_samples": [
+      {
+        "en": "The pinion spreads its long outer flight feathers in a fan.",
+        "ja": "鳥が翼を広げ、外側の長い風切り羽を見せている。"
+      }
+    ],
+    "exact_historical_pixel_reviews": [],
+    "flagged_by_any_register": false
+  },
+  {
+    "key": "[\"rank\",[\"(s)ker-3\"],\"\"]",
+    "source_record": 12980,
+    "w": "rank",
+    "p": [
+      "(s)ker-3"
+    ],
+    "etymology_id": "",
+    "ja": "階級、列",
+    "first_ja": "階級",
+    "en_snapshot": "tier",
+    "pos": "名/動",
+    "filename": "rank.png",
+    "runtime_referenced": true,
+    "literal_names": [
+      "rank@sker3.png"
+    ],
+    "image": {
+      "sha256": "7762637b4ea4a9d372c166fde6031225f0ff5e9377bd2ce5cac0454ed7221cc3",
+      "git_blob_sha": "410f0851274676c965766855f38df09d7efeec2f",
+      "bytes": 374249
+    },
+    "exact_reviewed_caption_records": 0,
+    "caption_samples": [],
+    "exact_historical_pixel_reviews": [],
+    "flagged_by_any_register": true
+  },
+  {
+    "key": "[\"real\",[\"rē-\"],\"\"]",
+    "source_record": 13053,
+    "w": "real",
+    "p": [
+      "rē-"
+    ],
+    "etymology_id": "",
+    "ja": "本物の",
+    "first_ja": "本物の",
+    "en_snapshot": "actual",
+    "pos": "名/形",
+    "filename": "real.png",
+    "runtime_referenced": true,
+    "literal_names": [
+      "real@re.png"
+    ],
+    "image": {
+      "sha256": "34ca52fcceb249e9d5b2d5e9376d502c76a6be3956488920833c01a9e636067f",
+      "git_blob_sha": "d92811e9ab6db2492cedf5f4df3918391528c10f",
+      "bytes": 244467
+    },
+    "exact_reviewed_caption_records": 1,
+    "caption_samples": [
+      {
+        "en": "A real pearl is a genuine natural object, shown being examined beside its oyster shell.",
+        "ja": "本物の真珠を開いた貝殻のそばで調べる宝石職人。"
+      }
+    ],
+    "exact_historical_pixel_reviews": [],
+    "flagged_by_any_register": true
+  },
+  {
+    "key": "[\"tiller\",[\"ad-\"],\"\"]",
+    "source_record": 16004,
+    "w": "tiller",
+    "p": [
+      "ad-"
+    ],
+    "etymology_id": "",
+    "ja": "耕作者",
+    "first_ja": "耕作者",
+    "en_snapshot": "farmer",
+    "pos": "名",
+    "filename": "tiller.png",
+    "runtime_referenced": true,
+    "literal_names": [
+      "tiller@ad.png"
+    ],
+    "image": {
+      "sha256": "29d400b8fcff7429cd613339082434c0bcccf5d8cfb27ba25de0f12024af0a75",
+      "git_blob_sha": "5f5574e496a68ea4d5035c68a7fbad41c19d4183",
+      "bytes": 236379
+    },
+    "exact_reviewed_caption_records": 1,
+    "caption_samples": [
+      {
+        "en": "A tiller cultivates the soil around young crops with a hoe.",
+        "ja": "tiller はくわで土を耕す人。"
+      }
+    ],
+    "exact_historical_pixel_reviews": [],
+    "flagged_by_any_register": false
+  },
+  {
+    "key": "[\"wind\",[\"wē-\"],\"\"]",
+    "source_record": 17262,
+    "w": "wind",
+    "p": [
+      "wē-"
+    ],
+    "etymology_id": "",
+    "ja": "風、巻く",
+    "first_ja": "風",
+    "en_snapshot": "breeze",
+    "pos": "名/動",
+    "filename": "wind.png",
+    "runtime_referenced": true,
+    "literal_names": [
+      "wind@we.png"
+    ],
+    "image": {
+      "sha256": "e0c67fe855ea4923476681f65c8df077d8912c8098506d0256f3811a1c9f74c2",
+      "git_blob_sha": "060cbac5a0c4a74faf68765cda8acd21cd354ee8",
+      "bytes": 305790
+    },
+    "exact_reviewed_caption_records": 1,
+    "caption_samples": [
+      {
+        "en": "Strong wind bends a tree and blows a woman's scarf, hair, and nearby leaves sideways.",
+        "ja": "強い風が木をしならせ、女性のスカーフや髪、周囲の葉を横になびかせています。"
+      }
+    ],
+    "exact_historical_pixel_reviews": [],
+    "flagged_by_any_register": false
+  }
+]

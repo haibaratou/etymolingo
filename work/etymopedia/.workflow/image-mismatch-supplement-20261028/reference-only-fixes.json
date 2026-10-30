@@ -1,0 +1,29 @@
+[
+  {
+    "key": "[\"mental\",[\"men-2\"],\"\"]",
+    "first_ja": "あごの",
+    "displayed_filename": "mental.png",
+    "displayed_sha256": "4739c843c4650eaca87e19d7bedfda23f45c8dc8d2fd0cbfce1248e5f407e4c3",
+    "existing_correct_literal_filename": "mental@men2.png",
+    "existing_correct_sha256": "f048b659a91c860bccbef5f462cf1ef2c67fcd6852ee1a30d7e18bdc9fb28d19",
+    "decision": "reuse existing correct PNG; do not regenerate; binding change is outside this read-only task"
+  },
+  {
+    "key": "[\"ounce\",[\"leuk-\"],\"\"]",
+    "first_ja": "ユキヒョウ",
+    "displayed_filename": "ounce.png",
+    "displayed_sha256": "7cdce3515eefaded30b3375a7746a6486b2b2ccfc160e578f15770289bb2fedc",
+    "existing_correct_literal_filename": "ounce@leuk.png",
+    "existing_correct_sha256": "04e049acc9dc9969d8e780482c969274ba8838f57a06993de0523fdedd29dcb6",
+    "decision": "reuse existing correct PNG; do not regenerate; binding change is outside this read-only task"
+  },
+  {
+    "key": "[\"rank\",[\"(s)ker-3\"],\"\"]",
+    "first_ja": "階級",
+    "displayed_filename": "rank.png",
+    "displayed_sha256": "7762637b4ea4a9d372c166fde6031225f0ff5e9377bd2ce5cac0454ed7221cc3",
+    "existing_correct_literal_filename": "rank@sker3.png",
+    "existing_correct_sha256": "2b3c9ef9a159de2429441e918226437ae34c23b111160cc73cacf637712d57e2",
+    "decision": "reuse existing correct PNG; do not regenerate; binding change is outside this read-only task"
+  }
+]

@@ -1,0 +1,8 @@
+{
+  "status": "merged",
+  "rows": 158,
+  "sha256": "f7549722ce8bda184e3a53905d0ab18a39c70985aa16eca46277d354c0def716",
+  "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_rows_image_mismatch_supplement_20261028.csv",
+  "original_149_byte_prefix_unchanged": true,
+  "retry_basis": "User explicitly closed the CSV; previous replacement confirmed not executed. One new atomic replacement attempt succeeded."
+}

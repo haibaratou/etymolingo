@@ -1,0 +1,64 @@
+{
+  "checked_at": "2026-10-28T12:37:41.273767+00:00",
+  "word": "board",
+  "ordered_roots": [
+    "bherdh-"
+  ],
+  "current_first_ja": "板",
+  "current_image": "assets/word/board.png",
+  "current_image_sha256": "adece6a283806035153269aca35271e969c7bdf343cd165399498de66e6d2035",
+  "observed_pixels": "girl boarding a bus, no representative plank",
+  "source_audit_records": [
+    88,
+    89
+  ],
+  "source_audit_action": "open / revise_image",
+  "earliest_verified_audit_commit": "f511ed8dc775c9fad138648b50648d98e0af7b24",
+  "audit_commit_authored_at": "2026-10-27T03:53:18+09:00",
+  "audit_commit_authored_at_UTC": "2026-10-26T18:53:18Z",
+  "verified_present_in_previous_task_source_HEAD": "38f7f8c74e35593e1951fe28c345a721a4b7c05c",
+  "historical_board_audit_rows": [
+    {
+      "state": "open",
+      "action": "revise_image",
+      "first_ja": "板",
+      "image_sha256": "adece6a283806035153269aca35271e969c7bdf343cd165399498de66e6d2035"
+    },
+    {
+      "state": "open",
+      "action": "revise_image",
+      "first_ja": "板",
+      "image_sha256": "adece6a283806035153269aca35271e969c7bdf343cd165399498de66e6d2035"
+    }
+  ],
+  "previous_task_completed_at": "2026-10-27T12:12:47.344198+00:00",
+  "previous_runtime_board": [
+    {
+      "w": "board",
+      "p": [
+        "bherdh-"
+      ],
+      "ja": "板、委員会、食事、掲示板、盤、回路基板、乗り込む、食事を提供する、下宿する、板でふさぐ"
+    }
+  ],
+  "prior_CSV_presence": {
+    "prompt_rows_1000_with_priority_fixes_20261026.csv": {
+      "rows": 1013,
+      "board_rows": 0
+    },
+    "prompt_rows_weblio_missing_low500_redone_20261024_v3.csv": {
+      "rows": 500,
+      "board_rows": 0
+    },
+    "prompt_rows_image_meaning_fixes_20261027.csv": {
+      "rows": 4,
+      "board_rows": 0
+    },
+    "prompt_rows_difficulty_low_missing_20261027.csv": {
+      "rows": 2000,
+      "board_rows": 0
+    }
+  },
+  "cause": "The previous 2000 selector selected missing images and excluded every existing formal PNG at select_difficulty_prompts_20261027.py:44 (official_PNG_exists), without merging the pre-existing repair queue. The four-row repair CSV only came from the 1513 production-row caption-import comparison. Board appeared in neither of those two production input CSVs. The old audit issue already existed at that time; this was an extraction-scope omission, not evidence of a newly added report.",
+  "current_correction": "board is the first row of the new supplemental formal CSV; duplicate audit reports are merged into one prompt"
+}

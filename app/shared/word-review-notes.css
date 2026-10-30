@@ -1,0 +1,15 @@
+/* WORK candidate: no wide column, card, or additional row-height padding. */
+.reviewNotes{margin:2px 0 0;font-size:11px;line-height:1.45;font-weight:400;max-width:30rem}
+.reviewNotes>summary{cursor:pointer;width:max-content;max-width:100%;color:var(--ink-soft);font-weight:500}
+.reviewNotes[data-needs-review]>summary{color:#8c4b19}
+.reviewNotesBody{margin:4px 0;overflow-wrap:anywhere;white-space:normal;text-align:left}
+.reviewNotesBody section{border-top:1px solid var(--line);padding:4px 0}
+.reviewNotesBody p{margin:3px 0}.reviewNotesBody ul{margin:3px 0;padding-left:17px}
+.reviewNotesBody pre{font:inherit;white-space:pre-wrap;overflow-wrap:anywhere;margin:3px 0}
+.reviewNotesBody small{font-size:10px;color:var(--ink-soft)}
+.reviewNotesBody details{margin:3px 0}.reviewNotesBody summary{cursor:pointer}
+.reviewIssue[data-issue-status="held"],.reviewIssue[data-issue-status="conflict"],.reviewIssue[data-issue-status="known_issue"]{color:#8c4b19}
+.reviewIssue[data-issue-status="resolved"],.reviewIssue[data-issue-status="dismissed"]{color:var(--ink-soft)}
+.reviewUsers button{font:inherit;padding:0 2px;border:0;background:none;color:var(--accent);cursor:pointer;text-decoration:underline}
+.reviewStale{color:#8c4b19}.reviewPending{font-size:11px;flex-basis:100%;color:var(--ink-soft)}
+@media(max-width:620px){.reviewNotes{max-width:100%;font-size:10px}}

@@ -5,9 +5,9 @@ const path=require('node:path');
 const vm=require('node:vm');
 const {webcrypto}=require('node:crypto');
 const root=path.resolve(__dirname,'../..');
-const rules=require(path.join(root,'app/games/picture-words/reviewed-scenes.js'));
+const rules=require(path.join(root,'app/support/picture-words/reviewed-scenes.js'));
 const context={window:{}};
-vm.runInNewContext(fs.readFileSync(path.join(__dirname,'www/app/games/picture-words/catalog.js'),'utf8'),context);
+vm.runInNewContext(fs.readFileSync(path.join(__dirname,'www/app/support/picture-words/catalog.js'),'utf8'),context);
 const words=context.window.PICTURE_WORDS_CATALOG;
 const bundledIds=new Set(JSON.parse(fs.readFileSync(path.join(__dirname,'www/bundle-manifest.json'))).ids);
 const bundled=words.filter(w=>bundledIds.has(w.id));
@@ -15,7 +15,7 @@ async function offlineRuntime() {
   const w={WordBloomReviewedScenes:{...rules},PICTLINGO_BUNDLED_IDS:[...bundledIds]};
   vm.runInNewContext(fs.readFileSync(path.join(__dirname,'mobile-data.js'),'utf8'),{window:w,URL,Uint8Array,btoa});
   await w.NicolingoOffline.ready();
-  return new w.WordBloomReviewedScenes.Runtime({meta:context.window.PICTURE_WORDS_CATALOG_META,crypto:webcrypto,location:{protocol:'https:',href:'https://localhost/app/games/picture-words.html'},navigator:{onLine:false},offline:w.NicolingoOffline,makeImageURL:()=> 'verified-local-image',fetcher:async url=>{
+  return new w.WordBloomReviewedScenes.Runtime({meta:context.window.PICTURE_WORDS_CATALOG_META,crypto:webcrypto,location:{protocol:'https:',href:'https://localhost/app/pictlingo-game.html'},navigator:{onLine:false},offline:w.NicolingoOffline,makeImageURL:()=> 'verified-local-image',fetcher:async url=>{
     const parsed=new URL(url);
     assert.equal(parsed.origin,'https://localhost','External network forbidden');
     assert.match(parsed.pathname,/^\/assets\/pictlingo\/[a-f0-9]{64}\.webp$/);
@@ -32,7 +32,7 @@ test('all 1086 images retain their reviewed source binding and are bundled once'
     assert.equal(await runtime.digest('SHA-256',original),w.androidImage.sourceSha256);
     await runtime.verifyImage(w,await runtime.loadPack(w));
   }
-  assert.equal(fs.existsSync(path.join(__dirname,'www/app/games/picture-words/scene-assets')),false);
+  assert.equal(fs.existsSync(path.join(__dirname,'www/app/support/picture-words/scene-assets')),false);
 });
 test('every compressed image and caption can be prepared with external networking forbidden',async()=>{
   const runtime=await offlineRuntime();
@@ -64,7 +64,7 @@ test('group uses the English headword and carries the selected US voice to Andro
   const w={Capacitor:{isNativePlatform:()=>true,registerPlugin:()=>native}};
   vm.runInNewContext(fs.readFileSync(path.join(__dirname,'native-bridge.js'),'utf8'),{window:w,document:{addEventListener:()=>{}}});
   await new Promise(resolve=>setImmediate(resolve));
-  const {Pronunciation}=require(path.join(root,'app/games/picture-words/pronunciation.js'));
+  const {Pronunciation}=require(path.join(root,'app/support/picture-words/pronunciation.js'));
   const p=new Pronunciation({synth:w.PictlingoNativeSpeech.synth,Utterance:w.PictlingoNativeSpeech.Utterance,setTimer:()=>0,clearTimer:()=>{}});
   p.speak({id:'group',en:'group',w:'しゅうだん'},'en',false,true);
   assert.equal(calls[0].text,'group');assert.equal(calls[0].language,'en-US');assert.equal(calls[0].voiceName,'american');assert.equal(calls[0].rate,1);

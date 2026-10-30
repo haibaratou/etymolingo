@@ -1,0 +1,21 @@
+{
+ "reviewed_cases": [1,64],
+ "method": "Current PNG pixels viewed on labelled 256px contact cells; board also opened at full resolution. Current first Japanese meaning and ordered roots displayed alongside each image.",
+ "major_mismatch": {
+  "1":"板に対し、少女がバスに乗り込む場面。木板が主役ではない。",
+  "10":"使徒言行録に対し、普通の成人男性の胸像。聖書文書を描いていない。",
+  "20":"脳の扁桃体に対し、口を開けた喉・口蓋扁桃の図。解剖学的に別の部位。",
+  "23":"聖公会信徒に対し、風車と畑。信徒・宗教行為の場面ではない。",
+  "31":"eatの過去形に対し、古代風の女神像。食べる動作・食事を示していない。",
+  "32":"伝説の沈没島アトランティスに対し、スペースシャトル。現データの見出しはAtlantisで島の語義に確定している。",
+  "38":"棒に対し、酒場のカウンター。第一語義の細長い棒を主題にしていない。",
+  "48":"都市ベルリンに対し、普通の男性の胸像。都市を描いていない。",
+  "51":"オートバイの乗り手に対し、自転車でペダルをこぐ人。",
+  "64":"国ブラジルに対し、普通の男性の胸像。国を描いていない。"
+ },
+ "needs_detail_review": {
+  "21":"アナスタシアという日本語音写だけでは特定対象が不明。読書する女性が完全に別物と断定はしない。",
+  "26":"アルギニンの分子図の窒素原子数と結合構造に疑義。全解像度と一次化学資料で確認する。"
+ },
+ "other_cases":"Viewed; no complete contradiction with the current first Japanese meaning identified. This does not certify minor drawing or chemical/anatomical details."
+}

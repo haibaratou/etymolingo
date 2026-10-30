@@ -1,0 +1,35 @@
+{
+  "started_at": "2026-10-28T10:39:45.410342+00:00",
+  "board_image_sha256": "adece6a283806035153269aca35271e969c7bdf343cd165399498de66e6d2035",
+  "read_only_inputs": [
+    {
+      "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_rows_difficulty_low_missing_20261027.csv",
+      "sha256": "6ff3e2f0b416693d5701cfa72f44a9220014132aa8e5623e94e3572da34e5bcc",
+      "mtime": 1793183979.526298
+    },
+    {
+      "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_rows_image_meaning_fixes_20261027.csv",
+      "sha256": "dda1be8416b4d2ae41f9fa20116e0218e85437bcd61a3116956857c6c2f2b3af",
+      "mtime": 1793097522.4372473
+    },
+    {
+      "path": "D:\\Projects\\etymon-source\\tools\\dictionary-audit-20261027\\image-quality-audit.csv",
+      "sha256": "61e58643dd87f022339c6c8c60ffb6a4af2b97c74d93e963619cdcbc4ca2c074",
+      "mtime": 1793043070.123144
+    },
+    {
+      "path": "D:\\Projects\\etymon-source\\tools\\word-art-todo.csv",
+      "sha256": "a90b2ab926b4076a71c68bf8d730c91f421b82feea513450731cffe1ed4becb8",
+      "mtime": 1791047875.7099216
+    },
+    {
+      "path": "D:\\Projects\\etymolingo\\app\\data\\generated-etymon\\words.json",
+      "sha256": "becb126a19549168a799a34a2d76b74b914132b02ece63f893a20d9766b83e72",
+      "mtime": 1793176173.4179468
+    }
+  ],
+  "head": {
+    "D:\\Projects\\etymolingo": "65f04ea16338e8832bdfd02414efea31214bfb97",
+    "D:\\Projects\\etymon-source": "3f3cd2552f3dd2f95a52f9c0d3a738769522a83c"
+  }
+}

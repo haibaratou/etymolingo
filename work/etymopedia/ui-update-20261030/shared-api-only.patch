@@ -1,0 +1,11 @@
+--- a/app/shared/explorer-difficulty-v2.js
++++ b/app/shared/explorer-difficulty-v2.js
+@@ -4,7 +4,7 @@
+ (function(root,factory){
+   const api=factory();
+   if(typeof module==='object'&&module.exports)module.exports=api;
+-  if(root&&root.document){root.EtymonDifficultyV2=api;api.mount(root);}
++  if(root&&root.document){root.EtymonDifficultyV2=api;if(root.document.currentScript?.dataset.apiOnly!=='true')api.mount(root);}
+ })(typeof globalThis==='object'?globalThis:this,function(){
+ 'use strict';
+ const WEBLIO_TO_10=[0,1,2,3,4,5,5,6,6,6,7,7,7,7,8,8,8,8,8,9,9,9,9,9,9,10,10,10,10,10,10];

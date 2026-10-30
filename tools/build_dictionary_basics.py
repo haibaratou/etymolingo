@@ -24,7 +24,7 @@ if __name__=='__main__':
  p=argparse.ArgumentParser();p.add_argument('--root',type=Path,default=Path(__file__).resolve().parents[1]);a=p.parse_args();gen=a.root/'app/data/generated-etymon';words=json.loads((gen/'words.json').read_bytes());commit=subprocess.check_output(['git','-C',str(a.root),'rev-parse','HEAD'],text=True).strip()
  dirty=subprocess.check_output(['git','-C',str(a.root),'status','--porcelain','--','app/data/generated-etymon/words.json','app/data/generated-etymon/det'],text=True).strip();commit=None if dirty else commit
  d=build(words,{f.stem:f.read_bytes() for f in (gen/'det').glob('*.json')},commit);raw=script(d);(gen/'dictionary-basics.js').write_text(raw);digest=hashlib.sha256(raw.encode()).hexdigest()[:12]
- for name in ['app/pictpedia.html','app/eigo-no-e.html']:
+ for name in ['app/pictlingo-dictionary.html','app/eigo-no-e.html']:
   html=a.root/name
   if html.exists():html.write_text(re.sub(r'data/generated-etymon/dictionary-basics\.js(?:\?[^"\s]*)?','data/generated-etymon/dictionary-basics.js?v='+digest,html.read_text()))
  print('Dictionary basics:',len(d['entries']),'records; identity holds:',len(d['identityHolds']))

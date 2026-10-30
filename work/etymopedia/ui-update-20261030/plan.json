@@ -1,0 +1,37 @@
+{
+  "owned": [
+    {
+      "path": "app/etymopedia.html",
+      "sha256": "b0bf56238eb7fd8c12023f47107fa7e3ab7deb869321f24097f5ab932bcb6062",
+      "bytes": 22951142
+    },
+    {
+      "path": "app/support/etymopedia/learning-levels.js",
+      "sha256": "3fb424badd79c03870d762084cd9b00e8cc77df02df1c52cad18fd63f4b2272b",
+      "bytes": 2016
+    },
+    {
+      "path": "app/support/etymopedia/learning-levels.test.cjs",
+      "sha256": "628a74b8c090823160042d16387fec58c633faa641fe75caedc6141ba5cb5817",
+      "bytes": 2791
+    },
+    {
+      "path": "app/shared/explorer-difficulty-v2.js",
+      "sha256": "21d67fbda1b74ca6bcd0e5fc2606ff16eaadc5517a050f90eb565cd8c4119ab5",
+      "bytes": 22975
+    }
+  ],
+  "sharedChange": "Only expose existing difficulty API without mounting vocabulary UI when script has data-api-only=true. No evaluation/sorting changes. Preserve all other in-progress shared edits.",
+  "dedicatedAdditions": [
+    "app/support/etymopedia/build-data.cjs",
+    "app/support/etymopedia/current-data.js",
+    "app/support/etymopedia/learning-levels.css"
+  ],
+  "readOnlyInputs": [
+    "app/data/generated-etymon/words.json",
+    "app/data/generated-etymon/roots.json",
+    "app/data/generated-etymon/weblio-learning-levels.js",
+    "app/data/generated-etymon/learning-levels.js"
+  ],
+  "imageProtection": "EMB_IMG, original CSV, all image helpers, localStorage keys and selection logic remain byte-identical."
+}

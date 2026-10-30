@@ -403,3 +403,7 @@ waterworks.png,waterworks,現行正本との見出し語・順序付き語根・
 carbonara.png,carbonara,現行正本との見出し語・順序付き語根・第一語義の照合不一致。画像未生成。語義再照合待ち。,next1000_20261027,要確認
 shallot.png,shallot,現行正本との見出し語・順序付き語根・第一語義の照合不一致。画像未生成。語義再照合待ち。,next1000_20261027,要確認
 electromagnet.png,electromagnet,現行正本との見出し語・順序付き語根・第一語義の照合不一致。画像未生成。語義再照合待ち。,next1000_20261027,要確認
+gemstone.png,gemstone,現在の第一語義は「宝石用原石」だが実PNGはケース入りの研磨・カット済み宝石。,caption_import_current_ja_20261027,要再生成（第一語義・画像不一致）
+biker.png,biker,現在の第一語義は「オートバイに乗る人」だが実PNGはペダル付き自転車に乗る人。,caption_import_current_ja_20261027,要再生成（第一語義・画像不一致）
+plugin.png,plugin,現在の第一語義は「拡張ソフト」だが実PNGは電子基板へ差し込む物理部品。,caption_import_current_ja_20261027,要再生成（第一語義・画像不一致）
+coupe.png,coupe,現在の第一語義は「クーペ型の自動車」だが実PNGは発泡酒入りの浅いグラス。,caption_import_current_ja_20261027,要再生成（第一語義・画像不一致）

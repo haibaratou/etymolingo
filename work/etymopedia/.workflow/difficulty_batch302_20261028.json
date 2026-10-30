@@ -1,0 +1,30 @@
+[
+  {
+    "filename": "uninformed.png",
+    "en": "An uninformed traveler holds an incomplete map while a guide shows the missing section beside a forked sign.",
+    "ja": "情報不足の旅行者が不完全な地図を持ち、案内人が不足部分の地図を示している。",
+    "prompt": "Subject: uninformed, not given enough information. Two full-body travelers stand separated. Left confused traveler scratches head with one hand and holds incomplete map with other; right helpful guide holds missing map section with one hand and points at it with other. One simple forked wooden sign behind. NO path, no ground patch, no bushes, no grass, no shadows or glow. Only two people, maps and small sign. Clean closed dark brown outlines all edges, square transparent margins.\nUse attached invidious.png for drawing style only: thick rounded dark brown outlines, simplified rounded 2D forms. Exactly two naturally attached arms and two hands per person, normal compact forearm proportions. Clean smooth solid colors and restrained flat shadows. No watercolor grain, muddiness, speckles, mottling, paper texture, bleed or fuzzy edges. Transparent background, no detached ground shadows. All silhouettes clean closed dark brown outlines. 512x512 PNG RGBA.",
+    "source": "I:\\AI-Data\\Codex\\home\\generated_images\\01a16d16-2d6c-7b90-96a9-4b288d87ebe0\\exec-d5a362bc-d319-4567-84cd-5629561947f9.png"
+  },
+  {
+    "filename": "unloved.png",
+    "en": "An unloved teddy bear sits forgotten beneath a bed while a child embraces several newer toys above.",
+    "ja": "子供がベッドで新しいおもちゃを抱く一方、愛されなくなった古いクマがベッドの下に置かれている。",
+    "prompt": "Subject: unloved, target meaning \"愛されていない\".\n\nComposition: A neglected teddy bear sits forgotten beneath a bed while its owner lovingly embraces several newer toys above.\n\nStyle: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy the reference subject or composition.\n\nFraming: One compact composition, with the complete subject using about 80-90% of the square. Keep every part inside the frame.\n\nOutput: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.\nUse attached invidious.png for drawing style only: thick rounded dark brown outlines, simplified rounded 2D forms. Exactly two naturally attached arms and two hands per person, normal compact forearm proportions. Clean smooth solid colors and restrained flat shadows. No watercolor grain, muddiness, speckles, mottling, paper texture, bleed or fuzzy edges. Transparent background, no detached ground shadows. All silhouettes clean closed dark brown outlines. 512x512 PNG RGBA.",
+    "source": "I:\\AI-Data\\Codex\\home\\generated_images\\01a16d16-2d6c-7b90-96a9-4b288d87ebe0\\exec-c15497cc-ea07-4c28-98c8-8cb343f14953.png"
+  },
+  {
+    "filename": "unread.png",
+    "en": "An unread book remains wrapped and closed beside several worn volumes that have been opened.",
+    "ja": "未読の本が包装されたまま閉じられ、読み込まれた開いた本のそばに置かれている。",
+    "prompt": "Subject: unread, target meaning \"読まれていない\".\n\nComposition: An unread book still has uncut page folds and an intact paper wrapper, lying apart from worn open volumes.\n\nStyle: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy the reference subject or composition.\n\nFraming: One compact composition, with the complete subject using about 80-90% of the square. Keep every part inside the frame.\n\nOutput: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.\nUse attached invidious.png for drawing style only: thick rounded dark brown outlines, simplified rounded 2D forms. Exactly two naturally attached arms and two hands per person, normal compact forearm proportions. Clean smooth solid colors and restrained flat shadows. No watercolor grain, muddiness, speckles, mottling, paper texture, bleed or fuzzy edges. Transparent background, no detached ground shadows. All silhouettes clean closed dark brown outlines. 512x512 PNG RGBA.",
+    "source": "I:\\AI-Data\\Codex\\home\\generated_images\\01a16d16-2d6c-7b90-96a9-4b288d87ebe0\\exec-eb298451-6359-49de-acaf-47ab297641be.png"
+  },
+  {
+    "filename": "unscientific.png",
+    "en": "An amateur takes an unscientific approach, trusting a lucky charm while leaving measured plant records unused.",
+    "ja": "素人が植物の測定記録を使わず、お守りを頼る非科学的な方法を取っている。",
+    "prompt": "Subject: unscientific, target meaning \"非科学的な\".\n\nComposition: An amateur ignores measured plant results and consults a lucky charm instead, leaving the experimental records unused nearby.\n\nStyle: Use the attached invidious.png for drawing style only. Match its thick rounded dark-brown contours, simplified rounded 2D shapes, smooth solid colors and restrained cartoon shading. Do not copy the reference subject or composition.\n\nFraming: One compact composition, with the complete subject using about 80-90% of the square. Keep every part inside the frame.\n\nOutput: 512x512 PNG, RGBA, genuine transparent background. No text, numerals, labels, logos or watermark.\nUse attached invidious.png for drawing style only: thick rounded dark brown outlines, simplified rounded 2D forms. Exactly two naturally attached arms and two hands per person, normal compact forearm proportions. Clean smooth solid colors and restrained flat shadows. No watercolor grain, muddiness, speckles, mottling, paper texture, bleed or fuzzy edges. Transparent background, no detached ground shadows. All silhouettes clean closed dark brown outlines. 512x512 PNG RGBA.",
+    "source": "I:\\AI-Data\\Codex\\home\\generated_images\\01a16d16-2d6c-7b90-96a9-4b288d87ebe0\\exec-77675e3a-bafe-43ac-ac43-4850f06899dc.png"
+  }
+]

@@ -32,7 +32,7 @@ function game(width = 390) {
     clearTimeout: id => timers.delete(id),
   });
   const root = path.resolve(__dirname, '..');
-  const html = fs.readFileSync(path.join(root, 'app/games/word-suika_jp.html'), 'utf8');
+  const html = fs.readFileSync(path.join(root, 'app/word-suika_jp.html'), 'utf8');
   vm.runInContext(fs.readFileSync(path.join(root, 'app/data/generated-etymon/word-suika-ja.js'), 'utf8'), context);
   vm.runInContext(html.match(/<script>([\s\S]*?)<\/script>/)[1], context);
   const run = source => vm.runInContext(source, context);

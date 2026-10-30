@@ -5,7 +5,7 @@ const root=new URL('./',document.currentScript.src), raw=__RAW_BASE__, mediaExte
 function externalMedia(path){
  if(path.startsWith('assets/ui/')||path.split('/').includes('.git'))return false;
  const dot=path.lastIndexOf('.'),slash=path.lastIndexOf('/');
- return path.startsWith('app/games/picture-words/scene-assets/')||(dot>slash&&mediaExtensions.has(path.slice(dot).toLowerCase()));
+ return path.startsWith('app/support/picture-words/scene-assets/')||(dot>slash&&mediaExtensions.has(path.slice(dot).toLowerCase()));
 }
 function map(value,base){
  if(typeof value!=='string'||!value||/^(data:|blob:|#)/i.test(value))return value;

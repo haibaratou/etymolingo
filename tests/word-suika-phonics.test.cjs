@@ -11,7 +11,7 @@ function game() {
   const el = id => elements.get(id) || elements.set(id, { textContent: '', innerHTML: '', classList: { add() {}, remove() {}, toggle() {} }, getContext: () => drawing, getBoundingClientRect: () => ({ width: 390, height: 600, left: 0 }), querySelectorAll: () => [], addEventListener() {} }).get(id);
   const ctx = vm.createContext({ document: { querySelector: el }, window: {}, devicePixelRatio: 1, performance: { now: () => now }, requestAnimationFrame() {}, ResizeObserver: class { observe() {} }, Image: class {}, localStorage: { getItem: () => null, setItem() {} }, fetch: () => Promise.reject(new Error('offline test')), setTimeout: fn => (fn(), 1), clearTimeout() {} });
   const root = path.resolve(__dirname, '..');
-  const html = fs.readFileSync(path.join(root, 'app/games/word-suika-phonics.html'), 'utf8');
+  const html = fs.readFileSync(path.join(root, 'app/word-suika-phonics.html'), 'utf8');
   vm.runInContext(html.match(/<script>([\s\S]*?)<\/script>/)[1], ctx);
   return source => vm.runInContext(source, ctx);
 }

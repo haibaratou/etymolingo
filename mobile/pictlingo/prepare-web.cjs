@@ -5,7 +5,7 @@ const crypto = require('node:crypto');
 const {execFileSync}=require('node:child_process');
 const root = path.resolve(__dirname, '../..');
 const out = path.join(__dirname, 'www');
-const runtime = 'app/games/picture-words';
+const runtime = 'app/support/picture-words';
 const ctx = { window: {} };
 vm.runInNewContext(fs.readFileSync(path.join(root,runtime,'catalog.js'),'utf8'),ctx);
 const rules = require(path.join(root,runtime,'reviewed-scenes.js'));
@@ -13,7 +13,7 @@ const candidates = ctx.window.PICTURE_WORDS_CATALOG.filter(w => rules.supportsLa
 const words=[]; let packBytes=0;
 // Full offline build: include every eligible puzzle.
 for(const w of candidates) {
-  const p=path.join(root,'app/games',w.sceneAsset);
+  const p=path.join(root,'app/support',w.sceneAsset);
   if(!fs.existsSync(p))throw Error('Missing pack: '+w.id);
   const size=fs.statSync(p).size;
 
@@ -40,13 +40,13 @@ for(const w of words)w.androidImage=derivatives[w.id];
 fs.unlinkSync(path.join(out,'image-input.json'));
 const meta={...ctx.window.PICTURE_WORDS_CATALOG_META,count:candidates.length,androidPreview:true};
 write(runtime+'/catalog.js','window.PICTURE_WORDS_CATALOG_META='+JSON.stringify(meta)+';\nwindow.PICTURE_WORDS_CATALOG='+JSON.stringify(candidates)+';');
-write('index.html','<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Pictlingo</title><script>location.replace("app/games/picture-words.html?phone=1")</script></head><body></body></html>');
-let html=fs.readFileSync(path.join(root,'app/games/picture-words.html'),'utf8');
-html=html.replace(/\s*<link[^>]+(?:fonts\.googleapis|fonts\.gstatic)[^>]*>/g,'').replace(/\s*<link rel="manifest"[^>]*>/,'').replace(/\s*<script src="picture-words\/desktop.js[^>]*><\/script>/,'');
-html=html.replace('<script src="picture-words/catalog.js','<script src="picture-words/capacitor.js" defer></script>\n  <script src="picture-words/native-bridge.js" defer></script>\n  <script src="picture-words/catalog.js');
-html=html.replace('<a href="../index.html">ゲーム一覧へ</a>','<button type="button" id="exitApp">閉じる</button>');
+write('index.html','<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Pictlingo Game</title><script>location.replace("app/pictlingo-game.html?phone=1")</script></head><body></body></html>');
+let html=fs.readFileSync(path.join(root,'app/pictlingo-game.html'),'utf8');
+html=html.replace(/\s*<link[^>]+(?:fonts\.googleapis|fonts\.gstatic)[^>]*>/g,'').replace(/\s*<link rel="manifest"[^>]*>/,'').replace(/\s*<script src="support\/picture-words\/desktop.js[^>]*><\/script>/,'');
+html=html.replace('<script src="support/picture-words/catalog.js','<script src="support/picture-words/capacitor.js" defer></script>\n  <script src="support/picture-words/native-bridge.js" defer></script>\n  <script src="support/picture-words/catalog.js');
+html=html.replace('<a href="index.html">ゲーム一覧へ</a>','<button type="button" id="exitApp">閉じる</button>');
 html=html.replace('</head>','<style>#saveOffline{display:none!important}body{overscroll-behavior:none}#exitApp{background:none;color:inherit;padding:12px;font:inherit}</style></head>');
-write('app/games/picture-words.html',html);
+write('app/pictlingo-game.html',html);
 write(runtime+'/native-bridge.js',fs.readFileSync(path.join(__dirname,'native-bridge.js'),'utf8'));
 write(runtime+'/capacitor.js',fs.readFileSync(path.join(__dirname,'node_modules/@capacitor/core/dist/capacitor.js'),'utf8'));
 write(runtime+'/offline.js','window.PICTLINGO_BUNDLED_IDS='+JSON.stringify(words.map(w=>w.id))+';\n'+fs.readFileSync(path.join(__dirname,'mobile-data.js'),'utf8'));
@@ -54,7 +54,7 @@ let speech=fs.readFileSync(path.join(out,runtime,'pronunciation.js'),'utf8');
 speech=speech.replace('synth = root.speechSynthesis, Utterance = root.SpeechSynthesisUtterance','synth = root.PictlingoNativeSpeech?.synth || root.speechSynthesis, Utterance = root.PictlingoNativeSpeech?.Utterance || root.SpeechSynthesisUtterance');
 write(runtime+'/pronunciation.js',speech);
 let game=fs.readFileSync(path.join(out,runtime,'game.js'),'utf8');
-game=game.replace('`../etymon-explorer.html#words/q=', '`https://haibaratou.github.io/etymolingo/app/etymon-explorer.html#words/q=');
+game=game.replace('`vocabulary-master.html#words/q=', '`https://haibaratou.github.io/etymolingo/app/vocabulary-master.html#words/q=');
 write(runtime+'/game.js',game);
 const manifest={schema:3,questions:candidates.length,bundledQuestions:words.length,imageBytes:Object.values(derivatives).reduce((s,d)=>s+d.bytes,0),format:'webp-q90',ids:words.map(w=>w.id),sourceCatalogSha256:crypto.createHash('sha256').update(fs.readFileSync(path.join(root,runtime,'catalog.js'))).digest('hex')};
 write('bundle-manifest.json',JSON.stringify(manifest,null,2));

@@ -14,7 +14,7 @@
         async loadPack(w) {
           const d=w.androidImage;
           if(!d || d.sourceSha256!==w.image.sha256 || d.path!=='assets/pictlingo/'+d.sha256+'.webp')throw Error('invalid-derivative');
-          const response=await this.fetcher(new URL('../../'+d.path,this.location.href).href);
+          const response=await this.fetcher(new URL('../'+d.path,this.location.href).href);
           if(!response.ok)throw Error('image-unavailable');
           return new Uint8Array(await response.arrayBuffer());
         }

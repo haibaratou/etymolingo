@@ -15,6 +15,9 @@
 <script src="../assets/chara/brainrot/library/library.js?v=20261019-official"></script>
 <script src="../assets/chara/brainrot/site-characters.js?v=20261019-official"></script>
 <script src="data/wild-wordopia-dictionary.js"></script>
+<script src="shared/rarity-presentation.js?v=b2bf6d03d095"></script>
+<script src="shared/wild-wordopia-details.js?v=cd54ff384252"></script>
+<link rel="stylesheet" href="shared/rarity-presentation.css?v=fbc61c711f85">
 <style>
 :root{
   --forest:#143a37; --forest2:#0e2c2a; --moss:#2c5f4c; --leaf:#8fd16b;
@@ -255,6 +258,10 @@ footer .mini{font-family:var(--f-logo);font-size:22px;color:var(--ink)}
 @media(max-width:760px){.hero{display:flex;flex-direction:column;overflow:hidden}.hero .copy{position:relative;top:auto;left:auto;right:auto;max-width:none;padding:78px 22px 24px;order:1;z-index:3}.hero .stage{order:2;overflow-x:auto;overflow-y:hidden;padding-bottom:85px}.hero .world{width:920px;max-width:none;flex:none}.hero .lbl b{font-size:16px!important}.hero .lbl small{font-size:12px!important}.hero .w .lbl{min-width:135px;max-width:180px}.hero .tag{font-size:22px;line-height:1.5}.hero .lead{font-size:14px;line-height:1.85;max-width:30em}.hero .logo{font-size:68px}.hero .cta{gap:10px}.hero .btn{font-size:14px;padding:12px 17px}.edge{margin-top:-26px;height:26px}section.band{padding:48px 0 58px}.sectionKicker{font-size:11px}.dBody .mean{font-size:20px}.dBody{padding:26px 20px}.dNav{padding:10px 12px}.parts li{grid-template-columns:54px 1fr;padding:13px;gap:12px}.parts li img{width:54px;height:54px}.parts li b{font-size:18px}.parts li span:last-child{font-size:13px}.mlist li{grid-template-columns:48px 1fr;padding:13px}.mlist li img{width:48px;height:48px}.mlist .ja{display:block;margin-left:0}.mlist .why{font-size:13px}}
 @media(max-width:800px){.dArt{position:relative}}
 </style>
+<script src="support/character-manager/latest-site-images.js?v=516710e4b506"></script>
+<script src="support/character-manager/site-image-selections.js"></script>
+<script src="shared/manager-site-image-store.js?v=55c7bf9fc47f"></script>
+<script src="shared/manager-site-images.js?v=2d3933211aa3"></script>
 </head>
 <body>
 <header class="top">
@@ -312,7 +319,7 @@ footer .mini{font-family:var(--f-logo);font-size:22px;color:var(--ink)}
     <h2 class="h2" id="xh" style="font-size:clamp(22px,2.6vw,30px)">もっと奥へ</h2>
     <div class="exits">
       <a class="exit" href="etymopedia.html"><b>エティモペディア</b><span>祖先ごとの家系図と、絵つきの単語事典。</span></a>
-      <a class="exit" href="etymon-explorer.html"><b>語源データベース</b><span>49,170語と1,436の祖先を、すべて引ける。</span></a>
+      <a class="exit" href="vocabulary-master.html"><b>語源データベース</b><span>49,170語と1,436の祖先を、すべて引ける。</span></a>
       <a class="exit" href="index.html"><b>ゲーム</b><span>ワイルドたちと遊ぶゲームと単語パズル。</span></a>
     </div>
   </div>
@@ -329,8 +336,12 @@ const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&
 const ART="../assets/chara/brainrot/";
 const ALL=((window.ETYMOPEDIA_BRAINROT&&window.ETYMOPEDIA_BRAINROT.characters)||[]).map((c,i)=>({...c,no:i+1}));
 const BY={};ALL.forEach(c=>BY[c.id]=c);
-const img=c=>ART+c.file;
+const img=c=>window.WILDWORDOPIA_MANAGER_IMAGE?.(c)||ART+c.file;
 const DICT=window.WILDWORDOPIA_DICTIONARY||{roots:{},aliases:{},words:[]};
+let wordLearning=null,learningRows=new Map();
+const learningKey=w=>JSON.stringify([w.w,w.p,w.ja,w.en]);
+function levelFor(w){const rows=learningRows.get(learningKey(w));return rows?.length===1?wordLearning?.lookup(rows[0])?.level:undefined;}
+const byLearning=(a,b)=>(levelFor(a)??999)-(levelFor(b)??999)||a.w.localeCompare(b.w);
 const family=c=>DICT.roots[DICT.aliases[c.id]||c.rootKey||String(c.root||'').replace(/^\*/, '')];
 const familyWords=c=>{const key=family(c)?.key;return key?DICT.words.filter(w=>(w.p||[]).includes(key)):[];};
 const motifWord=(c,m)=>{const hits=familyWords(c).filter(w=>w.w===m.word);return hits.length===1?hits[0]:null;};
@@ -405,7 +416,7 @@ function list(){const q=$("#q").value.trim().toLowerCase();
   return !q?ALL:ALL.filter(c=>[c.kana,c.meaning,c.root,c.id,c.rootCharacterName&&c.rootCharacterName.meaningEn,...uniq(c).flatMap(m=>[m.word,m.ja])].join(" ").toLowerCase().includes(q));}
 function renderGrid(){
   const L=list();
-  $("#grid").innerHTML=L.length?L.slice(0,LIMIT).map(cardHTML).join(""):`<p class="none">そのことばのワイルドは、まだ見つかっていない。<a href="etymon-explorer.html">語源データベースでさがす</a></p>`;
+  $("#grid").innerHTML=L.length?L.slice(0,LIMIT).map(cardHTML).join(""):`<p class="none">そのことばのワイルドは、まだ見つかっていない。<a href="vocabulary-master.html">語源データベースでさがす</a></p>`;
   $("#more").hidden=L.length<=LIMIT;
   $("#grid").querySelectorAll(".card").forEach(b=>b.addEventListener("click",()=>{find(b.dataset.id);open(BY[b.dataset.id]);}));
 }
@@ -424,10 +435,9 @@ function dictionaryHTML(c){
 }
 function setupFamily(c){
  const target=$('#familyWords');if(!target)return;
- let limit=30;const all=familyWords(c).slice().sort((a,b)=>(a.r??Infinity)-(b.r??Infinity)||a.w.localeCompare(b.w));
- const names=['ふだん語','ときどき語','めずらし語','激レア語','幻レア語','神レア語','究極絶滅語'];
+ let limit=30;const all=familyWords(c).slice().sort(byLearning);
  function render(){const q=$('#familyQuery').value.trim().toLowerCase();const rows=all.filter(w=>!q||[w.w,w.ja,w.en,w.b].join(' ').toLowerCase().includes(q));let tier=-1;
- target.innerHTML=rows.slice(0,limit).map(w=>{const t=w.r==null?6:Math.min(6,Math.max(0,Math.floor(w.r/200)));const head=t!==tier?`<h4>${names[t]}</h4>`:'';tier=t;return head+`<article class="familyWord"><strong>${esc(w.w)}</strong><span>${esc(w.ja)}</span>${w.en?`<small>${esc(w.en)}</small>`:''}${w.b?`<p>${esc(w.b)}</p>`:''}</article>`;}).join('')||'<p>一致する単語はありません。</p>';
+ target.innerHTML=rows.slice(0,limit).map(w=>{const m=EtymonRarity.learning(levelFor(w),'list'),t=m.stars;const head=t!==tier?`<h4>${EtymonRarity.html(m)}</h4>`:'';tier=t;return head+`<article class="familyWord"><strong>${esc(w.w)}</strong><span>${esc(w.ja)}</span>${w.en?`<small>${esc(w.en)}</small>`:''}${w.b?`<p>${esc(w.b)}</p>`:''}</article>`;}).join('')||'<p>一致する単語はありません。</p>';
  $('#familyMore').hidden=rows.length<=limit;}
  $('#familyQuery').oninput=()=>{limit=30;render();};$('#familyMore').onclick=()=>{limit+=30;render();};render();
 }
@@ -448,7 +458,7 @@ function open(c){
       ${dictionaryHTML(c)}
       <div class="dLinks">
         ${ETYMO.has(c.id)?`<a href="etymopedia.html#/root/${encodeURIComponent(c.id)}">家系図を見る</a>`:""}
-        <a href="etymon-explorer.html#root:${encodeURIComponent(rootKey(c))}">子孫の英単語をぜんぶ見る</a>
+        <a href="vocabulary-master.html#root:${encodeURIComponent(rootKey(c))}">子孫の英単語をぜんぶ見る</a>
       </div>
     </div></div>
     <div class="dNav"><button type="button" data-d="-1" aria-label="前のワイルド">◀</button><button type="button" data-d="1" aria-label="次のワイルド">▶</button><button type="button" data-d="0" aria-label="閉じる">✕</button></div>`;
@@ -460,6 +470,11 @@ function step(d){if(!d){$("#dlg").close();return;}const c=ALL[(ALL.indexOf(cur)+
 $("#dlg").addEventListener("click",e=>{if(e.target===$("#dlg"))$("#dlg").close();});
 $("#dlg").addEventListener("keydown",e=>{if(e.key==="ArrowRight")step(1);if(e.key==="ArrowLeft")step(-1);});
 
+Promise.all([WildWordDetails.loadDictionary(),WildWordDetails.loadLearning()]).then(([data,learning])=>{
+  wordLearning=learning;learningRows=new Map();
+  for(const row of data.rows){const k=learningKey(row);if(!learningRows.has(k))learningRows.set(k,[]);learningRows.get(k).push(row);}
+  if(cur&&$('#dlg').open)setupFamily(cur);
+}).catch(()=>{});
 window.addEventListener('wildwordopia-selection-changed',()=>{
   const characters=window.ETYMOPEDIA_BRAINROT?.characters||[];
   ALL.splice(0,ALL.length,...characters.map((c,i)=>({...c,no:i+1})));

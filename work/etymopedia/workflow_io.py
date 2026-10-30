@@ -21,7 +21,12 @@ def read_csv(path):
  if not fields or len(fields)!=len(set(fields))or any(None in r for r in rows):raise ValueError('Malformed CSV/header')
  return data,fields,rows
 def definitions(source=SOURCE):
- spec=importlib.util.spec_from_file_location('illustration_scene_definitions',pathlib.Path(source)/'tools/illustration_scenes.py');m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m);return m
+ directory=pathlib.Path(source)/'tools';spec=importlib.util.spec_from_file_location('illustration_scene_definitions',directory/'illustration_scenes.py');m=importlib.util.module_from_spec(spec)
+ # Current scene validation imports its sibling non-PIE identity definitions.
+ sys.path.insert(0,str(directory))
+ try:spec.loader.exec_module(m)
+ finally:sys.path.pop(0)
+ return m
 def filename(value):
  if pathlib.PureWindowsPath(value).name!=value or not value.endswith('.png')or re.search(r'[<>:"/\\|?*\x00-\x1f]',value):raise ValueError('Unsafe image filename')
  return value
@@ -121,8 +126,10 @@ def current_words(source=SOURCE):
 def canonical(row,source=SOURCE):
  v=view(row);d=definitions(source);ja,en=d.first_senses({'ja':v['ja'],'en':v['en']});index,_=current_words(source)
  matches=index.get((v['word'],tuple(v['roots'])),[])
- senses={d.first_senses(word)for word in matches}
- if senses!={(ja,en)}:raise ValueError('Current canonical first sense missing, ambiguous or changed')
+ senses={d.first_senses(word)[0]for word in matches}
+ if len(matches)!=1 or senses!={ja}:raise ValueError('Current canonical first sense missing, ambiguous or changed')
+ # en is an independent paraphrase snapshot. Preserve its recorded digest for
+ # provenance; a later paraphrase edit does not invalidate this image review.
  digest=d.sense_digest(v['word'],v['roots'],ja,en)
  if row.get('語義SHA256')and row['語義SHA256']!=digest:raise ValueError('Stale sense digest')
  return v,d,ja,en,digest

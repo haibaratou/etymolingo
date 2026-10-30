@@ -1,0 +1,334 @@
+{
+  "total": 2000,
+  "existing": [],
+  "conflicts": [
+    {
+      "filename": "blacking.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "came@x.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "shapen.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "bushing.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "hammered.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "hand-out.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "re-view.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "turn-on.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "zoo-.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "arch-.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "put-down.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "re-mark.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "re-serve.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "write-down.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "bundling.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "kilo.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "kilo-.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "lie-down.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "multi-ply.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "abounding.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "bellied.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "con-.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "line-up.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "blimp.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "bongo.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "bowler.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "school-house.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "skid.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "slash.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "time-line.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "wind-up.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "amino-.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "ante-.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "barrack.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "begotten.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "birth-rate.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "breath-taking.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "buff.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "button-hole.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "celt.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "coca.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "film-maker.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "goggles.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "homo-.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "HTML.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "inline.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "jus.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "meal-worm.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "mogul.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "muffle.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "patronizing.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "peter.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "play-list.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "rasp.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "record-keeping.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "retro-.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "sideline.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "taco.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "tycoon.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "vibe.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "ani.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "baba.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "babysit.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "ballgame.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "balsa.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "barker.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "barre.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "blowback.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "box-office.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "bumble-bee.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "cachet.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "caddy.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "cairns.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "calve.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "canter.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "co-defendant.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "cyan-.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "drywall.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "FAQ.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "fob.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "frontage.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    },
+    {
+      "filename": "fund-raiser.png",
+      "reason": "Current canonical first sense missing, ambiguous or changed"
+    }
+  ]
+}

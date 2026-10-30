@@ -1,0 +1,75 @@
+{
+  "input_production_records": 1513,
+  "original_pending_records": 404,
+  "original_pending_preserved_byte_for_byte": true,
+  "new_pending_records": 4,
+  "pending_records_after": 408,
+  "ledger_before_sha256": "645a09fbf515f38216744bfab0ec73f5fd70e8004508fd9275d65ea8fcb27f51",
+  "ledger_after_sha256": "e251a553316a792b3ada324cf7e9999063e9346df2f81df95f17cc969d293652",
+  "accepted_caption_pairs": 1342,
+  "new_caption_pairs": 1340,
+  "updated_caption_pairs": 2,
+  "existing_match_after_rerun": 1342,
+  "image_revision_flags": 4,
+  "held_production_rows": 167,
+  "held_reviewed_owner_conflicts": 4,
+  "unreviewed_or_failed_production_rows": 163,
+  "verified_official_scene_pairs": 1346,
+  "unrelated_embedded_data_unchanged": true,
+  "word_snapshot_unchanged": true,
+  "png_changes": 0,
+  "private_pie_changes": 0,
+  "repeat_import_output_changes": 0,
+  "tests": {
+    "python_workflow": 21,
+    "python_guarded_import": 6,
+    "python_scenes": 18,
+    "python_review_warnings": 5,
+    "python_image_evidence": 4,
+    "node_display": 18
+  },
+  "check_roots": "passed; root classifications unchanged",
+  "check_format": "existing source validation flags 25,887 rows; source words were not modified",
+  "display": {
+    "desktop": "Local HTTP Explorer startup observed in Chrome. Subsequent controls unavailable: Debugger unattached.",
+    "mobile": "Not completed because browser debugger could not attach.",
+    "file_protocol": "Denied by browser URL security policy; no file:// workaround attempted.",
+    "image_visual_review": "586 paraphrase-drift PNGs on 17 contact sheets, Canada full-size, 58 baseline sample positions; prior CSV visual evidence retained."
+  },
+  "published": false,
+  "push_or_merge": false,
+  "repair_csv": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_rows_image_meaning_fixes_20261027.csv",
+  "display_followup": {
+    "checked_at": "2026-10-27T12:12:47.267533+00:00",
+    "url": "http://127.0.0.1:8783/app/etymon-explorer.html",
+    "connection": "Normal Chrome extension connection recovered with a new connected instance. No denied file-scheme access was retried or bypassed.",
+    "desktop": {
+      "viewport": [
+        1920,
+        911
+      ],
+      "word": "Canada",
+      "image_visible": true,
+      "english": "Canada is represented by a red maple leaf on its national flag.",
+      "japanese": "カナダ国旗の中央に赤いカエデの葉がある。",
+      "result": "Both captions and matching Canadian flag image visibly confirmed."
+    },
+    "mobile": {
+      "viewport": [
+        390,
+        844
+      ],
+      "word": "Canada",
+      "english_and_japanese_in_DOM": true,
+      "image_visible": true,
+      "result": "Both language captions render. Existing wide table requires horizontal scrolling for the long English line; this layout limitation remains."
+    },
+    "image_revision_warning": {
+      "word": "biker",
+      "current_first_ja": "オートバイに乗る人",
+      "visible_warning": "イラスト要修正"
+    },
+    "difficulty_UI": "Word table visibly uses 難易度 with ★1 through ★10 and a separate パラフレーズ column; Canada row showed ★5.",
+    "viewport_reset": true
+  }
+}

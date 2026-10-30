@@ -1,0 +1,1886 @@
+{
+  "completed_at": "2026-10-28T14:07:22.771746+00:00",
+  "delivery": {
+    "primary_csv": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_rows_image_mismatch_supplement_20261028.csv",
+    "primary_rows": 152,
+    "primary_sha256": "a75d6f85cce8c68bdf73e437bb3abace1bd9f088387e24e42d85226185dec3c8",
+    "extra_two_csv": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_rows_image_mismatch_followup_20261028.csv",
+    "extra_two_rows": 2,
+    "extra_two_sha256": "7937d5ac88fd5b99d5300a8f14d3fc67ba595e16d49530b4e98682f5903f8028",
+    "combined_nonoverlapping_prompt_rows": 154,
+    "combined_with_unchanged_prior_four": 158,
+    "appended_to_primary": [
+      "Santa",
+      "Veronica",
+      "Princeton"
+    ],
+    "extra_two": [
+      "Phillip",
+      "Gregory"
+    ],
+    "original_149_byte_prefix_unchanged": true,
+    "original_149_sha256": "550500344b45d3338b5b2f96bb6505d43245ed97f2965fc01d900c13fbddd9e7",
+    "combined_staged_154_path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_rows_image_mismatch_supplement_20261028.csv.stage-tmp",
+    "combined_staged_154_sha256": "1f0790a3b778020ea0268fa59ca0687d4ee087a2339287b9f462b590fa62c1a0",
+    "staged_154_is_not_an_additional_generation_queue": true
+  },
+  "blocked_action": {
+    "operation": "atomic replacement of 152-row primary CSV with verified 154-row version",
+    "target": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_rows_image_mismatch_supplement_20261028.csv",
+    "status": "denied_by_Windows_filesystem",
+    "first_error": "Node EPERM during rename of .csv.stage-tmp",
+    "retry": "One guarded retry after checking original remained 152 rows and no owner; Python os.replace returned WinError 5 access denied. No more retries or in-place overwrite.",
+    "execution_state": "Confirmed primary remains 152 rows; staged version and separate two-row CSV retain the additions.",
+    "lock_diagnostic": "Windows Restart Manager RmStartSession returned 29; no lock owner could be established. No process was stopped.",
+    "automatic_approval_review_rejection_observed": false
+  },
+  "corrected_original_eleven": {
+    "new_prompts": 5,
+    "regeneration_excluded": 5,
+    "actual_meaning_conflict_hold": 1,
+    "hold_word": "epithet"
+  },
+  "audit_overlay": {
+    "base_csv": "D:\\Projects\\etymolingo\\work\\etymopedia\\image_mismatch_decisions_20261028.csv",
+    "base_csv_sha256": "ad93dc1cb42133238c856c4f03b7615da6c0f5753642de2d8c951ee269b7acde",
+    "corrections_csv": "D:\\Projects\\etymolingo\\work\\etymopedia\\.workflow\\image-mismatch-supplement-20261028\\followup\\decision-corrections.csv",
+    "correction_rows": 12,
+    "effective_counts_after_overlay": {
+      "additional_prompt_ready": 154,
+      "excluded_no_major_current_mismatch": 9310,
+      "excluded_current_compatible_after_image_change": 76,
+      "already_queued_prior_four": 4,
+      "compatible_current_pixels": 3,
+      "insufficient_major_mismatch": 7,
+      "hold_conflicting_current_meaning_and_adopted_definitions": 1,
+      "correct_owned_image_exists_reference_fix_needed": 3,
+      "compatible_current_pixels_source_gloss_question": 1,
+      "compatible_or_identity_unresolved": 1,
+      "excluded_old_filename_not_currently_bound": 67
+    },
+    "detailed_evidence": "D:\\Projects\\etymolingo\\work\\etymopedia\\.workflow\\image-mismatch-supplement-20261028\\followup\\followup-decisions.json",
+    "original_audit_retained_unchanged": true
+  },
+  "narrow_b_recheck": {
+    "candidates": 357,
+    "sheets": 18,
+    "additional_mismatches_beyond_original_eleven": 0,
+    "details": "D:\\Projects\\etymolingo\\work\\etymopedia\\.workflow\\image-mismatch-supplement-20261028\\followup\\targeted-b-review-results.json"
+  },
+  "validation": {
+    "formal_parser": "workflow_io.read_csv, check_rows, view",
+    "exact_columns": 19,
+    "five_sections_every_row": true,
+    "UTF8_BOM_and_CRLF": true,
+    "unique_sense_IDs_and_casefolded_save_names": 154,
+    "current_first_Japanese_meaning_and_full_sense_digest": 154,
+    "current_unique_image_owner_and_literal_todo_filename": 154,
+    "current_PNG_SHA256_unchanged_vs_audit": 154,
+    "new_five_already_generated_staging_files": [],
+    "active_generation_CSV_overlaps": [],
+    "original_owned_word_ID_rows_rechecked": 21523,
+    "original_population_first_Japanese_or_identity_changes": [],
+    "checks": [
+      {
+        "key": "[\"board\",[\"bherdh-\"],\"\"]",
+        "filename": "board.png",
+        "current_first_ja": "板",
+        "image_sha256": "adece6a283806035153269aca35271e969c7bdf343cd165399498de66e6d2035",
+        "CSV_full_sense_digest": "aa07c5e5b49224cbec9ba7afeeee549234f95c574ea298d6af3a7cb6797354cb"
+      },
+      {
+        "key": "[\"Acts\",[],\"\"]",
+        "filename": "Acts.png",
+        "current_first_ja": "使徒言行録",
+        "image_sha256": "a634ca0b75f6ac64e5c5b640e936ad7b1fb8e503b3058e8f5425d1070d772a9d",
+        "CSV_full_sense_digest": "7c6bea3030dac777c2d56d44f969274c1b6ce3247d8163b39eedb2ce69e1adee"
+      },
+      {
+        "key": "[\"amygdala\",[],\"\"]",
+        "filename": "amygdala.png",
+        "current_first_ja": "感情に関わる脳の扁桃体",
+        "image_sha256": "0ab8fcc64800a8d4a27cb552d18283d839ce05bebc4490c1a2eb4953daf84ef7",
+        "CSV_full_sense_digest": "1b37be3b1d098c05eb826c529d35eec79709ec4282c35abf926e53c783a38f9c"
+      },
+      {
+        "key": "[\"Anglican\",[],\"\"]",
+        "filename": "Anglican.png",
+        "current_first_ja": "聖公会の信徒",
+        "image_sha256": "d2d3f5aef335afc65fa6a211e75fd134298be75cb19d788427a31887aeba4179",
+        "CSV_full_sense_digest": "c93c491002dd961ae3836f6f2fa24852291fc268da1a0a0e24fbe5e5568cc733"
+      },
+      {
+        "key": "[\"arginine\",[\"arg-\"],\"\"]",
+        "filename": "arginine.png",
+        "current_first_ja": "アルギニン",
+        "image_sha256": "5a09cba235dc02970de2711ef2d86196a55a57a862cafbbd6ad4c9bfb721c496",
+        "CSV_full_sense_digest": "34aacb2baaa90ec38446cd6b547916be9a45b89a26520115039b61227e7b017d"
+      },
+      {
+        "key": "[\"ate\",[],\"\"]",
+        "filename": "ate@x.png",
+        "current_first_ja": "eatの過去形",
+        "image_sha256": "d4688ccc33c55494179055ea1a4cd200f082cbf76030d1901406af4b394de8ae",
+        "CSV_full_sense_digest": "d1ab696a8616059d9c8dad7e896fd0c6c981771aa8efaba852641f1f59a527da"
+      },
+      {
+        "key": "[\"Atlantis\",[],\"\"]",
+        "filename": "Atlantis.png",
+        "current_first_ja": "伝説の沈没した島アトランティス",
+        "image_sha256": "88b406972390afc1717ee9ab918986d6b41f0138b99ec25b9a635f86763da469",
+        "CSV_full_sense_digest": "70dca61ec41688e2083c981c4f4c57514bfe269f0f9ae2a08f870809bd8719eb"
+      },
+      {
+        "key": "[\"bar\",[\"gʷerə-2\"],\"\"]",
+        "filename": "bar.png",
+        "current_first_ja": "棒",
+        "image_sha256": "eee8b12d972db0a212fb0f554bef8e644a3d27fa675dd880c9755360f885843d",
+        "CSV_full_sense_digest": "97c28ad952a1fefaf4a16fc2f43a9ee09f5aeb0f78faf7ffc229b728e52ed9b5"
+      },
+      {
+        "key": "[\"Berlin\",[],\"\"]",
+        "filename": "Berlin.png",
+        "current_first_ja": "ベルリン",
+        "image_sha256": "1cbd7a0829839d8d9faca3941ca7a4b8db4164c0196aa839757b217e356f50c7",
+        "CSV_full_sense_digest": "07b991de94fc38dcfe0dc56d4abb2fa7380aa61dbaf0b49cee56c075ab87aadd"
+      },
+      {
+        "key": "[\"Brazil\",[\"bhreuə-\"],\"\"]",
+        "filename": "Brazil.png",
+        "current_first_ja": "ブラジル",
+        "image_sha256": "1a6ee649612f0a1ad3cdf6c46b1806b92a84b07204ec9298ed8d7bfec2a1b951",
+        "CSV_full_sense_digest": "8a90a8177929a7a9871ac8d2def91fde4ed9a44ecc816134ba52f7d57c3402fa"
+      },
+      {
+        "key": "[\"cab\",[],\"\"]",
+        "filename": "cab.png",
+        "current_first_ja": "タクシー",
+        "image_sha256": "92a75e33a31c0baf1dd5d81912d616a68f34c0de1196218564089bedf0d9b124",
+        "CSV_full_sense_digest": "db22833f85d912cd355d1a8f2cdc580cb523a982ebaf909d84304b8a345d5a93"
+      },
+      {
+        "key": "[\"card\",[\"kars-\"],\"\"]",
+        "filename": "card.png",
+        "current_first_ja": "すきぐし",
+        "image_sha256": "f5e9f74680aed1db2ad2a55d7d7c3c20e42f838a5d199189262cb4ed1c726be8",
+        "CSV_full_sense_digest": "e7a6af4b8eb98eba1846b5956b4374e6bdfc87c560cb8f07518667b101ac7b7e"
+      },
+      {
+        "key": "[\"checked\",[],\"\"]",
+        "filename": "checked.png",
+        "current_first_ja": "確認した",
+        "image_sha256": "91f00d3d696e130e2da3124f4214a15a4c5e80a94874da3840fd89877688453a",
+        "CSV_full_sense_digest": "44ccc974ada12b2352dbec39abc8dc58e48d7135291769aa5aea2b4251d760a0"
+      },
+      {
+        "key": "[\"contradiction\",[\"kom\",\"deik-\"],\"\"]",
+        "filename": "contradiction.png",
+        "current_first_ja": "矛盾",
+        "image_sha256": "8e523a604456e21aff9f8e3daff71d172341be6ed207ce61a3bcd46349d8f4e8",
+        "CSV_full_sense_digest": "5867cabb7d78e0702518d0777ab9f6a93e4022e19194de4e581cf76326413b91"
+      },
+      {
+        "key": "[\"cool\",[\"gel-2\"],\"\"]",
+        "filename": "cool.png",
+        "current_first_ja": "涼しい",
+        "image_sha256": "8aa6f3c0a3e4492909555e3c63296c2d5af2297ba003efbc984f28a5fba0aa29",
+        "CSV_full_sense_digest": "1e4465c9b5f8c0163603ef1a70e164ddf2f341db09667b9e3b1b2f57cbe9686c"
+      },
+      {
+        "key": "[\"counter-\",[],\"\"]",
+        "filename": "counter-.png",
+        "current_first_ja": "反対の",
+        "image_sha256": "3247f3a59c5f0086d665725177956cb3ab4095aa21ce80265c78a39ed19ed92b",
+        "CSV_full_sense_digest": "566ec18ce1ac59ff5447b16db7153458dfbf82aa15857706710cf60bf88c28a9"
+      },
+      {
+        "key": "[\"creatinine\",[],\"\"]",
+        "filename": "creatinine.png",
+        "current_first_ja": "クレアチニン",
+        "image_sha256": "3d1872c0b61b30300ca6aadb2b93c81e0bfb33a98e94d37f9d0cba21281283f9",
+        "CSV_full_sense_digest": "12347820682695df7f11e6668ce3410dd60016c0cb7ddb3d0b97457042775bab"
+      },
+      {
+        "key": "[\"deliverance\",[],\"\"]",
+        "filename": "deliverance.png",
+        "current_first_ja": "救出",
+        "image_sha256": "92e00c854bbc69427208b5dc5719b3ef41285225909633a1f60deeb45ebedafa",
+        "CSV_full_sense_digest": "641851983930cb71238cbaeacc42c518f0d132c1b9ab1b0081e899d92886d610"
+      },
+      {
+        "key": "[\"domestic\",[\"dem-\"],\"\"]",
+        "filename": "domestic.png",
+        "current_first_ja": "家庭の",
+        "image_sha256": "6fe10a4dd5314be6d2cab54e0f9a236829712347f0004faa1287cb7fc4e1eea7",
+        "CSV_full_sense_digest": "1aa6f2f5a81bff85d274cde5f2c873590c2f4bec492bec2e5e01bfe029d3401b"
+      },
+      {
+        "key": "[\"draw\",[\"dhragh-\"],\"\"]",
+        "filename": "draw.png",
+        "current_first_ja": "引く",
+        "image_sha256": "947d415ed4dafc651ab7dac157b25e8cc8406fde3a202ae2d38a0330e9f352a3",
+        "CSV_full_sense_digest": "330872c4f6bbbd497800f6c8b82abe954f3e35246e5dacb4464e24f7b9515049"
+      },
+      {
+        "key": "[\"drinking\",[],\"\"]",
+        "filename": "drinking.png",
+        "current_first_ja": "飲酒",
+        "image_sha256": "6bfd410606c1484ea1e97659464331ea9085d96c82c5a3e33ac51211db6d69e0",
+        "CSV_full_sense_digest": "be9045e5480a0f55ed15f83fa42fa70f4dbb6aeea12f620e2dfb156072049157"
+      },
+      {
+        "key": "[\"drop\",[\"dhreu-\"],\"\"]",
+        "filename": "drop.png",
+        "current_first_ja": "しずく",
+        "image_sha256": "24650b9f49de7b174705d07e2f4442e3920bfc5339c3192e1d6563efa264de96",
+        "CSV_full_sense_digest": "7e8c4e3328f0377a8240f0953c0f0712bf8b5d37d3851ff73b48469802da2c7e"
+      },
+      {
+        "key": "[\"dry\",[\"dreug-\"],\"\"]",
+        "filename": "dry.png",
+        "current_first_ja": "乾いた",
+        "image_sha256": "de31409e381a8996be146a0a0cff79a76da281a4cbfaa1fc9537517697ea63dd",
+        "CSV_full_sense_digest": "62d2fb4710a929ef802c8f790cabcc705e7cacf9cf8797991064c5d66fce4248"
+      },
+      {
+        "key": "[\"escalate\",[],\"\"]",
+        "filename": "escalate.png",
+        "current_first_ja": "増大する",
+        "image_sha256": "a527949de2b464329637d3c475122f4ff773cfcd9b73f454958f264a5eb21d95",
+        "CSV_full_sense_digest": "d8f90638fdcaf057c910fad2dc98dd4d71a28764ad01a66db14d1f9d7b18da0e"
+      },
+      {
+        "key": "[\"Europa\",[],\"\"]",
+        "filename": "Europa.png",
+        "current_first_ja": "ゼウスにさらわれたフェニキアの王女エウロペ",
+        "image_sha256": "d0faf7e50ca769873cce546673c974418748620cbb9a0fdc758995b4dc92ee30",
+        "CSV_full_sense_digest": "cb11294dfce89c7bdd137b4c7f068e5c6266bc7291de6c6b0c3326b42654d1ec"
+      },
+      {
+        "key": "[\"ex-\",[],\"\"]",
+        "filename": "ex-.png",
+        "current_first_ja": "元〜",
+        "image_sha256": "e2a57d2bc9fd848248810c0a526a73e3e9730a2dfc766e9bdd3d6b0404823f2f",
+        "CSV_full_sense_digest": "58abe9ed8ee8145a1c4274596adc3417758ddcb4f5eca0c2e60a5f3da144bcee"
+      },
+      {
+        "key": "[\"finest\",[],\"\"]",
+        "filename": "finest.png",
+        "current_first_ja": "最上の",
+        "image_sha256": "f6f3cf18a64469d518f2ccb4b9b01e8ce3e7ea9e34d7851c2f9ab521ca55bb5b",
+        "CSV_full_sense_digest": "0810e5e829e59ba1791bb47f5b9489e4f0bdf4043462ae23e2b9e52d1405aba2"
+      },
+      {
+        "key": "[\"fit\",[],\"\"]",
+        "filename": "fit.png",
+        "current_first_ja": "適当な",
+        "image_sha256": "e25b4d9b92ea47b528202f222df348aa3db97094d70f7a9899ddb5116e0df290",
+        "CSV_full_sense_digest": "1a72886c95b8f0722fcac89625016e86411110c729c729769ef0599e2c499900"
+      },
+      {
+        "key": "[\"flag\",[\"plāk-1\"],\"\"]",
+        "filename": "flag.png",
+        "current_first_ja": "板石",
+        "image_sha256": "c29ac25cfb4c5a1cfdeac1e0605c3fefe3d525af9cbb52c2768d6534de5cab9d",
+        "CSV_full_sense_digest": "b9aa15abca382232377654a933484d0e3418be1e20fde99000b6d86c2d654bfc"
+      },
+      {
+        "key": "[\"forty\",[\"kʷetwer-\"],\"\"]",
+        "filename": "forty.png",
+        "current_first_ja": "40",
+        "image_sha256": "190f7f944a8a6d04e96fdf9e17af5d4624cae0251713825cda4dbeab18152f4d",
+        "CSV_full_sense_digest": "eab2dc6f9db97705856b3d37397f6495c82e61c71a4dcb2e914a679f1c6ea27f"
+      },
+      {
+        "key": "[\"Frank\",[\"Frankon-\"],\"\"]",
+        "filename": "Frank_cap.png",
+        "current_first_ja": "フランク人",
+        "image_sha256": "9b28091357bc85b596f59960eb0615302e495f4b2614533cc2b7e722e108edb4",
+        "CSV_full_sense_digest": "856f161a20ea798c87e5b15c3913b0b5702eef7d9ea13476a3d3072f41019875"
+      },
+      {
+        "key": "[\"freer\",[],\"\"]",
+        "filename": "freer.png",
+        "current_first_ja": "解放する人",
+        "image_sha256": "3eb4d133b10a9b7751a4ba54ece4a5d41048ad023a39428005b6350f86760866",
+        "CSV_full_sense_digest": "e59511defc62b4050848c3400354895bfcf3b7f86c04d1cdc1b7ef5848158742"
+      },
+      {
+        "key": "[\"futures\",[],\"\"]",
+        "filename": "futures.png",
+        "current_first_ja": "先物",
+        "image_sha256": "9d5a82cc92d8649239234ce22d4bc33abee3e6b47eecf74c54ee14e75672b90f",
+        "CSV_full_sense_digest": "2236420d906ade4f6194e4ca9b3dca80954648e18b02926baca8b2b0f6820298"
+      },
+      {
+        "key": "[\"gig\",[],\"\"]",
+        "filename": "gig.png",
+        "current_first_ja": "演奏",
+        "image_sha256": "7f43851ef565478417f0bdd13b9e4a27f315d61f3b9bd6264efd106ca420d0e3",
+        "CSV_full_sense_digest": "7f1d6d34599d425fda3a7deaf6d9056e1df928556a085577ec7f8be4e3435709"
+      },
+      {
+        "key": "[\"grounds\",[],\"\"]",
+        "filename": "grounds.png",
+        "current_first_ja": "根拠",
+        "image_sha256": "d75c1e1e0f2f0d0c0178a385cd11038a34b46207f7ff3e2fa04a83c1f4618a73",
+        "CSV_full_sense_digest": "24b0f6c89598b82262c253bd292798053ce582ebbf78007587c261179efee6e9"
+      },
+      {
+        "key": "[\"heard\",[],\"\"]",
+        "filename": "heard@x.png",
+        "current_first_ja": "hearの過去形・過去分詞",
+        "image_sha256": "763dcd2bdc516b349d31246d6793980312d3d1c616562e6d819925fc28545ff0",
+        "CSV_full_sense_digest": "761ff03f8920e34b2747a3c8b33b33d2aac35256ab4c315a7721cc623cba3e9e"
+      },
+      {
+        "key": "[\"Hiroshima\",[],\"\"]",
+        "filename": "Hiroshima.png",
+        "current_first_ja": "広島",
+        "image_sha256": "57871b7cd69afdbe6750bad6efc7aac06bc3bc275ba1cb928f5faf6846dca924",
+        "CSV_full_sense_digest": "c12f2aaccce0864cb779f563fdc79e00f8eded6573b86f65e902a086bd28413e"
+      },
+      {
+        "key": "[\"hung\",[],\"\"]",
+        "filename": "hung@x.png",
+        "current_first_ja": "結論の出ない",
+        "image_sha256": "c775900a78674145138c3543a33f56dce28eafd2b53cd76d450ca8083b0d102f",
+        "CSV_full_sense_digest": "43c2a9c0a05a49b715ecaf1a9e29a9a5267c5d2732d8c7f564782e7d6f179442"
+      },
+      {
+        "key": "[\"inter-\",[],\"\"]",
+        "filename": "inter-.png",
+        "current_first_ja": "間の",
+        "image_sha256": "d2ef1ea538690449a0f93d777d45b6378eec419dc78cd708b9ad8ab847dffc88",
+        "CSV_full_sense_digest": "b7b3ab23e55e18c88895ff9a87e8abd47bcd3c521e033c80b2a677ac6aa40e31"
+      },
+      {
+        "key": "[\"intrinsic\",[\"en\",\"sekʷ-1\"],\"\"]",
+        "filename": "intrinsic.png",
+        "current_first_ja": "本質的な",
+        "image_sha256": "1ddde354182c765755e11b33f848f0d537e0b00cd6a513c4afec4d8fb86c8afc",
+        "CSV_full_sense_digest": "21f439489c7f4d61df78389a60b6cbec847aa92d4451b3dc518795bc8d775904"
+      },
+      {
+        "key": "[\"Isis\",[],\"\"]",
+        "filename": "Isis.png",
+        "current_first_ja": "エジプトの女神イシス",
+        "image_sha256": "fdd7b8e1a98a1d87c9ff924d7e34412ef06cc51a34bee4e16a2d75cb677f7b68",
+        "CSV_full_sense_digest": "57f37b6da9c3e8db72316f22c9b88e6918421ca36ba500ae5071f45aabb8c8b1"
+      },
+      {
+        "key": "[\"ketamine\",[],\"\"]",
+        "filename": "ketamine.png",
+        "current_first_ja": "ケタミン",
+        "image_sha256": "697b0ec29b95c552d8adbc05e8daf88700a49a0608c75ede24cca624a238aa13",
+        "CSV_full_sense_digest": "2f575480b60bd381eec2d58a829d1a2cdb5b34139a227c890fad9d212c041508"
+      },
+      {
+        "key": "[\"leasing\",[\"leu-\"],\"\"]",
+        "filename": "leasing.png",
+        "current_first_ja": "嘘をつく事",
+        "image_sha256": "a16c476f6b9e65f56e27777597b765c3eb91b3130f6f88881a31a523e79dbad4",
+        "CSV_full_sense_digest": "482127ca7c218769201264526696a0ec02892510fe87bd401e30da5314a70113"
+      },
+      {
+        "key": "[\"letter\",[\"deph-\"],\"\"]",
+        "filename": "letter.png",
+        "current_first_ja": "文字",
+        "image_sha256": "083fd2a3419c92e9960d1c3b687dd39a5f41d0f11dd0504c6a9ecb63e65a120b",
+        "CSV_full_sense_digest": "27564e8484e7efe2690f58b27ab0299d1fd6becc4ca536eaccc78ef08fdc802c"
+      },
+      {
+        "key": "[\"lighting\",[],\"\"]",
+        "filename": "lighting.png",
+        "current_first_ja": "点火",
+        "image_sha256": "0bef44104df4b63a7b74ec39eb74c1db2c63f50b4f68943d31a29d31da020065",
+        "CSV_full_sense_digest": "99af20c6f9390f818418ffcba51ea8237be6277a9c43db1f966fc53186954c0c"
+      },
+      {
+        "key": "[\"LXX\",[],\"\"]",
+        "filename": "LXX.png",
+        "current_first_ja": "70",
+        "image_sha256": "aed12bfe6b8f292f0e8d4770bc190a58881c755024a1dc1b44d77da9f28888fe",
+        "CSV_full_sense_digest": "99be3acd04c3e361402c1ac57a32269bdc5324ed4ed0dae496ac8d819c0aba46"
+      },
+      {
+        "key": "[\"moving\",[\"meuə-\"],\"\"]",
+        "filename": "moving.png",
+        "current_first_ja": "感動的な",
+        "image_sha256": "9494aa08fc03b989616ffd3004bc9dd771b36de58c1ed80ca68af4ac72e20c48",
+        "CSV_full_sense_digest": "099fcd5505f143f598faef0728821ea044b5f4204f55c8e3a372d73b8e28a354"
+      },
+      {
+        "key": "[\"NATO\",[],\"\"]",
+        "filename": "NATO.png",
+        "current_first_ja": "北大西洋条約機構",
+        "image_sha256": "7790159623475edb6bca1aad8dc5224ce8a069187fda25663306a9eb7e66c45c",
+        "CSV_full_sense_digest": "a9e219160233d623877dd1f835eb2bcf97aff00594d30fb5f57707a761c654e6"
+      },
+      {
+        "key": "[\"overcoat\",[],\"\"]",
+        "filename": "overcoat.png",
+        "current_first_ja": "上塗り",
+        "image_sha256": "2558b2df9c9ae8f8120ea5c9979785327e4e21fc6894678c6a9bc413f8d2504e",
+        "CSV_full_sense_digest": "1adca1f30a89b9b4cb6d030019fee06e15303652df36b0a00de31daa7c7fa81f"
+      },
+      {
+        "key": "[\"Panama\",[],\"\"]",
+        "filename": "Panama.png",
+        "current_first_ja": "パナマ",
+        "image_sha256": "6096745934fac12f7eae3c8815125068ad286ca359e8c2469c032ff92e17ae38",
+        "CSV_full_sense_digest": "d6250bd6c9f96dcd7e3bf01c358ee904b6777e6341c75ae7fd5b295b8ce966c6"
+      },
+      {
+        "key": "[\"Parmesan\",[],\"\"]",
+        "filename": "Parmesan.png",
+        "current_first_ja": "硬いイタリア風チーズ",
+        "image_sha256": "cccc0c818c9e75427c027a6ef75dbe0581cf81a8738a02a6272e9e81e6a5cd6b",
+        "CSV_full_sense_digest": "b51a2d9ff9d6f90768ca98c5f585b5294bf4fe7d595c068db5e5bb91bd0333e3"
+      },
+      {
+        "key": "[\"pence\",[],\"\"]",
+        "filename": "pence.png",
+        "current_first_ja": "ペニーの複数形",
+        "image_sha256": "12a6b75c02e9689889331afca8e86c9fb18c9318582fa39d1ff6d38b6da35286",
+        "CSV_full_sense_digest": "2f4c58b7ad403a07d0fb1b6a3bc248ea4c917a58d8b364a09a69fff3faf7d71d"
+      },
+      {
+        "key": "[\"PhD\",[],\"\"]",
+        "filename": "PhD.png",
+        "current_first_ja": "博士号",
+        "image_sha256": "a1a0574c1e0c97197d0964d6afe32a57231d13fbf30c31fe2c2c981a616409af",
+        "CSV_full_sense_digest": "fb11860e2279d1be28e55d5d77836499efc58881105148fd11f7c1fbd9b82493"
+      },
+      {
+        "key": "[\"pipes\",[],\"\"]",
+        "filename": "pipes.png",
+        "current_first_ja": "パイプ",
+        "image_sha256": "95aaecc44a202ef0feff036af30270dbdb5016d27610500e632c1fc6509354b5",
+        "CSV_full_sense_digest": "e128019070408501ae5e1f5f4292e64b920a0f47eeb3b8f72c52caf5a502db9f"
+      },
+      {
+        "key": "[\"pointless\",[],\"\"]",
+        "filename": "pointless.png",
+        "current_first_ja": "無意味な",
+        "image_sha256": "4d90a2caaf7025e6bfd45108d553f269084b2b7f32514d2728ed50ba6a0faa5b",
+        "CSV_full_sense_digest": "889dea76b6e59b536c94e6f8342edd674c2e0ddca0729918a214690966ef3111"
+      },
+      {
+        "key": "[\"rather\",[\"kret-1\"],\"\"]",
+        "filename": "rather.png",
+        "current_first_ja": "むしろ",
+        "image_sha256": "e5d2cd8843dff4111f20e2a46c58bb419380f1514f3f1bce67cf13766c085dec",
+        "CSV_full_sense_digest": "ea5db3ad39f753fbf621d8d3c6b8626d3b2813da40949d68974ea4cf8cac7996"
+      },
+      {
+        "key": "[\"Reading\",[],\"\"]",
+        "filename": "Reading.png",
+        "current_first_ja": "読むこと",
+        "image_sha256": "0eb70520d8e6bffaa5117dad22f78dbe31d4b456a2ebf7a2655971a65437be8e",
+        "CSV_full_sense_digest": "655fbc35e30a10f1cc97ce3f436b23b826014b023478b55ca406475c184dfa6f"
+      },
+      {
+        "key": "[\"reticulum\",[],\"\"]",
+        "filename": "reticulum.png",
+        "current_first_ja": "反芻動物の第二胃",
+        "image_sha256": "d74fc4833d0a085b87fa2bed734201e40fef553ee855af92065a3409de9d0b49",
+        "CSV_full_sense_digest": "8f1650751328ae7176795705ab7a876e4c913542e051491c91f4b49676f7401e"
+      },
+      {
+        "key": "[\"RNA\",[],\"\"]",
+        "filename": "RNA.png",
+        "current_first_ja": "リボ核酸",
+        "image_sha256": "86e090dcd7059bffd8c30f8563838e125db6923d2de1d45f6c1e977638482227",
+        "CSV_full_sense_digest": "13d1feb7bb402399c83461a72f9a1d9501fa849ccdbce648878a09c7d2129f31"
+      },
+      {
+        "key": "[\"Rome\",[],\"\"]",
+        "filename": "Rome.png",
+        "current_first_ja": "ローマ",
+        "image_sha256": "b9bd0d4eb2ca26b0c0b2923398dabf1ddb84a56c1a22e0df3943d38230b1cee6",
+        "CSV_full_sense_digest": "1a095b54a6561a99e079cfd4dc4bdc0d19463388765ddeb83d5ec01ba5f02161"
+      },
+      {
+        "key": "[\"sandy\",[],\"\"]",
+        "filename": "sandy.png",
+        "current_first_ja": "砂の",
+        "image_sha256": "005ff39d006a96b17b56e4637d22a3bda9d2bcc45a6499a7c06887592b152816",
+        "CSV_full_sense_digest": "d1da9761df4985af13ba463ab2250b32c955b8515066299f2872efadc65f898e"
+      },
+      {
+        "key": "[\"Saturn\",[],\"\"]",
+        "filename": "Saturn.png",
+        "current_first_ja": "土星",
+        "image_sha256": "b8e03e2e22730531c827dec20bbe806968e1c8849e77f49ba322e6d34e5b7241",
+        "CSV_full_sense_digest": "d140cbfcaa679f0f28aed98d52a9d5ed82c5cf0167d38fc9dc5f181d0af14d65"
+      },
+      {
+        "key": "[\"Scotland\",[\"lendh-2\"],\"\"]",
+        "filename": "Scotland.png",
+        "current_first_ja": "スコットランド",
+        "image_sha256": "5fffebdcbc63e512e11d2afc227c1643a2c9ab1b5413997afd4fb49936581196",
+        "CSV_full_sense_digest": "4b4ec74ca8f6979a434d5d2ec0e781397aa37d2087f373d2d81331f3f075ae98"
+      },
+      {
+        "key": "[\"sepsis\",[],\"\"]",
+        "filename": "sepsis.png",
+        "current_first_ja": "敗血症",
+        "image_sha256": "adea958d6867a3734db5e5ed2f6b088a0b1ff45bc4914c728d8045a4f5dbb798",
+        "CSV_full_sense_digest": "51c7284caf7ffce44e3c02440349fe5b9640359def5581102c62fcffa5c4084b"
+      },
+      {
+        "key": "[\"sixteen\",[\"s(w)eks\",\"dekm̥\"],\"\"]",
+        "filename": "sixteen.png",
+        "current_first_ja": "16",
+        "image_sha256": "119fe2dcb16a8cd30c11d96ad5f354bb8131cc44e812a1314c6c8faa7dcad947",
+        "CSV_full_sense_digest": "3e7d4e460b3465dbd63a72b58e62051b64bde81fd0726d899e2c048961100a18"
+      },
+      {
+        "key": "[\"smitten\",[],\"\"]",
+        "filename": "smitten.png",
+        "current_first_ja": "心を奪われた",
+        "image_sha256": "3952738cc27096a3bb84df1fffc419d3d757908132b01b4e7f1c9e4765de62a6",
+        "CSV_full_sense_digest": "fd41d75322cc1e59c4609eca9608fc953e7c7f061821cd3f886a48c74453b691"
+      },
+      {
+        "key": "[\"spark\",[],\"\"]",
+        "filename": "spark.png",
+        "current_first_ja": "火花",
+        "image_sha256": "5a00f0cdb99388afcaa04ad70565a191dd90fa024062e67b2f3375439494b33f",
+        "CSV_full_sense_digest": "e1fa2745e7df5fb162956285fd091b84d952379254cd59cdeef956e3b85fc506"
+      },
+      {
+        "key": "[\"speaker\",[\"spreg-1\"],\"\"]",
+        "filename": "speaker.png",
+        "current_first_ja": "話し手",
+        "image_sha256": "a88d094fb7c1047210429d63885265ec96cd331dcafe0a0e6742445690a8dc4c",
+        "CSV_full_sense_digest": "bdf3bbe7515220262988ad7b83c0b8d9fa4632c6eab468c5c1d7894a90baf1a2"
+      },
+      {
+        "key": "[\"spell\",[\"spel-2\"],\"\"]",
+        "filename": "spell.png",
+        "current_first_ja": "つづる",
+        "image_sha256": "f3ed3abb788378bc1cb3357fc493626ac64160895e17f1b84f5c5f0488655340",
+        "CSV_full_sense_digest": "5ee740b07489857af0c8f959452acc166e7a93e64b7111644a5db37de3ee7583"
+      },
+      {
+        "key": "[\"spot\",[],\"\"]",
+        "filename": "spot.png",
+        "current_first_ja": "場所",
+        "image_sha256": "c4ce24d3ceb0106f48874667a66bcdcfaa15affc855c110f8beee8dbe553e31b",
+        "CSV_full_sense_digest": "9a3e0f97f9ec98aebb62f1ea23850e189306c22e97b51f2d5b7db35faff10eec"
+      },
+      {
+        "key": "[\"stare\",[\"ster-1\"],\"\"]",
+        "filename": "stare.png",
+        "current_first_ja": "じっと見つめる",
+        "image_sha256": "5dae63892156900fc2af83153892809c94cbc0bfba404164de3b13a24869ea47",
+        "CSV_full_sense_digest": "4f536f2dc53b4ed42314c3a97139324cdd11be67f0ee128a676c78d94a42dcde"
+      },
+      {
+        "key": "[\"stick\",[\"steig-\"],\"\"]",
+        "filename": "stick.png",
+        "current_first_ja": "棒",
+        "image_sha256": "2539abc56be41573cf263059cfcab6991eab7adb7bbd2db2f877efc3c4134429",
+        "CSV_full_sense_digest": "f54c9799ded847117499de3c696dcc5af4004ee377252673e653c5ed040f1118"
+      },
+      {
+        "key": "[\"super-\",[],\"\"]",
+        "filename": "super-.png",
+        "current_first_ja": "超〜",
+        "image_sha256": "1b442085349445be6e1d50791738ab925c3e4d6258ac8d2cca3353748dd954c5",
+        "CSV_full_sense_digest": "2b24d21e2cd3ec43a9549d6a773ecc8f4e3b4e65e941d3f02775968ef676901e"
+      },
+      {
+        "key": "[\"Switzerland\",[\"lendh-2\"],\"\"]",
+        "filename": "Switzerland.png",
+        "current_first_ja": "スイス",
+        "image_sha256": "4e534d2b4ed6b3a96e63c2cb9ddb75badc5a4c644c3baaf0d532284465c895ce",
+        "CSV_full_sense_digest": "1b098eb23b854fa23a155e9909d06074d0ea8e77660ba6b74377cdbfcbd07da8"
+      },
+      {
+        "key": "[\"tally\",[],\"\"]",
+        "filename": "tally.png",
+        "current_first_ja": "割り符",
+        "image_sha256": "2f0a9f8ef4d26d554f9b7de5db864e49d649ce7a88dd1ea32b823666a4826e4e",
+        "CSV_full_sense_digest": "09b4c39e5998470b2e71a62425aa58b6f71b5527a98164c85026907d6cfb051f"
+      },
+      {
+        "key": "[\"techno\",[],\"\"]",
+        "filename": "techno.png",
+        "current_first_ja": "テクノ音楽",
+        "image_sha256": "0e106c103e237e059a95acd06de95804c67416bd2d24d60810c37f7f957b60c5",
+        "CSV_full_sense_digest": "94c34faef761ac9a4872bda513c320285a450207389aae1e57df7ae376b2be27"
+      },
+      {
+        "key": "[\"tempered\",[],\"\"]",
+        "filename": "tempered.png",
+        "current_first_ja": "焼き戻した",
+        "image_sha256": "3f657eadaae5dcbdbec758cf9b702188b8d1b9c7466e6b732848f2196b1e1394",
+        "CSV_full_sense_digest": "e0b2d04fc364dfeccf23fcf4ff340db55be455fabd3439b5a38c46e1ea0210bb"
+      },
+      {
+        "key": "[\"tied\",[],\"\"]",
+        "filename": "tied.png",
+        "current_first_ja": "結ばれた",
+        "image_sha256": "8f431e4a3c239237d87db2f3e28d55a53a61a0e5e669895a5a890440a47ce55c",
+        "CSV_full_sense_digest": "7c3808676f13e518ee160d182e8ee01be0c09d21e934b432d40c5f1ccb11a9be"
+      },
+      {
+        "key": "[\"tissue\",[\"teks-\"],\"\"]",
+        "filename": "tissue.png",
+        "current_first_ja": "組織",
+        "image_sha256": "0054985877aea08b6e828febef72d4cae41c633c78faf550645b3f43e706d5cc",
+        "CSV_full_sense_digest": "b0314697702c8fdceb2071e7e8d5e364b683b80856cb214a2bbcb4be8884df3e"
+      },
+      {
+        "key": "[\"topical\",[],\"\"]",
+        "filename": "topical.png",
+        "current_first_ja": "時事の",
+        "image_sha256": "f408708dad4b33b4495362dbac0eb5572d8ce4d43d11e687ceeb1b115d4253ba",
+        "CSV_full_sense_digest": "5f8a0994b946baa47b3e99d87ac7e8f85afa93f851bab1aae86128b139283af9"
+      },
+      {
+        "key": "[\"tops\",[],\"\"]",
+        "filename": "tops.png",
+        "current_first_ja": "最上の",
+        "image_sha256": "bc3437d03998da913caa0fbaeebf7a0710c1d3aa43af668e7620105a5832f0ea",
+        "CSV_full_sense_digest": "a9b30af3a7eabc1e4291d76def23fb0adf5908a7637cdfa867e51281bb3709d9"
+      },
+      {
+        "key": "[\"trailer\",[],\"\"]",
+        "filename": "trailer.png",
+        "current_first_ja": "予告編",
+        "image_sha256": "f456370c160edbb7da9745a0f1da164295b8475515f757bd194479e17c71127a",
+        "CSV_full_sense_digest": "046e2f880363fb329213a40b2787530e0d306a75dd56bb0aa1ed2fc05c9d3f92"
+      },
+      {
+        "key": "[\"trimming\",[],\"\"]",
+        "filename": "trimming.png",
+        "current_first_ja": "整頓",
+        "image_sha256": "a2037380a22cdd9ba38d49b8d5393f2423aa22c61de4c12c4db779a306a7ed79",
+        "CSV_full_sense_digest": "2d0ad66b9391c248837517737161cd138b39acab23aec6a31964523fe3aac2ae"
+      },
+      {
+        "key": "[\"Tripoli\",[],\"\"]",
+        "filename": "Tripoli.png",
+        "current_first_ja": "リビアの首都トリポリ",
+        "image_sha256": "71be280311e1557acdbaf02d235331c2451267848db1e99732c0671c59c5a9c1",
+        "CSV_full_sense_digest": "01cdd35a0de5933fd3792de2596d619eeb6fd3eb9cb9e51684e92efd087b506e"
+      },
+      {
+        "key": "[\"turnover\",[],\"\"]",
+        "filename": "turnover.png",
+        "current_first_ja": "売上高",
+        "image_sha256": "7c3ea024413d3cc1b14db2a775c7f3fcd32db01f7f4dd37467c366f954415d41",
+        "CSV_full_sense_digest": "09fdde5bb6014374da6b934e30e7d1a5bcd879a5f0395f651e745e93e49bc900"
+      },
+      {
+        "key": "[\"unqualified\",[],\"\"]",
+        "filename": "unqualified.png",
+        "current_first_ja": "制限のない",
+        "image_sha256": "9215a9960fd8a75f1aef5ffee90ce307a4e04629b8f35395dbbcd45044aeff18",
+        "CSV_full_sense_digest": "50b030e52ed045523cdb8a6a821d2046d3ad133ea3c1cd370deb06a9c28aab7d"
+      },
+      {
+        "key": "[\"upgrade\",[],\"\"]",
+        "filename": "upgrade.png",
+        "current_first_ja": "改良",
+        "image_sha256": "63372011f1bae0da5a83ab6ab35bdda981f041f77cd443bb686f69693aa4e55b",
+        "CSV_full_sense_digest": "22cb16e0bd2c4af887c73befe5fc549a6cc49b7af29f3e0dba541019f16eef64"
+      },
+      {
+        "key": "[\"ut\",[],\"\"]",
+        "filename": "ut.png",
+        "current_first_ja": "ドの旧称",
+        "image_sha256": "bfbff84fd7a196a75b6a41a91cace4c3c3b2a82009dbe5f33d0f2b9392a4160f",
+        "CSV_full_sense_digest": "d79449e023243c4228a408819f6d871dd2b4b8a1fd1b958723d61546adf7e2d5"
+      },
+      {
+        "key": "[\"Virginia\",[],\"\"]",
+        "filename": "Virginia.png",
+        "current_first_ja": "バージニア州",
+        "image_sha256": "42e7489fcded1280b9b26209cb67bfbf547f5dc977162479421d1f4de32faa5f",
+        "CSV_full_sense_digest": "87a0e9d910b6a4a47769a9c4ce7418f6a035f8cf20d3cf2f709033e75bb87dc5"
+      },
+      {
+        "key": "[\"virtual\",[\"wī̆-ro-\"],\"\"]",
+        "filename": "virtual.png",
+        "current_first_ja": "事実上の",
+        "image_sha256": "22ac896f6a3506f7fcff9c6924f67674bbe2373b6478a56df1fd3f6fd88228e1",
+        "CSV_full_sense_digest": "6f27fd2e8b7513521c0c3f966e95263df8f79d86941aafff4fd8bf48d480f8ac"
+      },
+      {
+        "key": "[\"web\",[\"webh-\"],\"\"]",
+        "filename": "web.png",
+        "current_first_ja": "クモの巣",
+        "image_sha256": "db0747b1d09278ab0a2dce8eec56082f812ff816e1b015ed66838295c5878a5b",
+        "CSV_full_sense_digest": "484e75ee9fee7a729fd0b7fd7a537799d13e439dc30a2b22da73d3b9ec8ab5da"
+      },
+      {
+        "key": "[\"woke\",[],\"\"]",
+        "filename": "woke@x.png",
+        "current_first_ja": "wakeの過去形",
+        "image_sha256": "5f438294a4dba56ea794b01efc8808533ce233f2abd72c024e48cb052311a52f",
+        "CSV_full_sense_digest": "f767fdd3683b27f9c593a2de770c5a770aee685929d372bdbdb710929685d1f3"
+      },
+      {
+        "key": "[\"zombie\",[],\"\"]",
+        "filename": "zombie.png",
+        "current_first_ja": "ゾンビ",
+        "image_sha256": "349208e72955da09fdcaf845045bc027c9d73f523db70e7455924a375fd0bc4a",
+        "CSV_full_sense_digest": "ab1570c30df760ca3c93e4fd4683fdb826aec092df72367a2dd06a2e858a621f"
+      },
+      {
+        "key": "[\"AC\",[],\"\"]",
+        "filename": "AC.png",
+        "current_first_ja": "ad- の異形",
+        "image_sha256": "e14c1b6b2a404b8092e65d975624ea9155752cee9b318b62919f303951c39160",
+        "CSV_full_sense_digest": "dfceae6c9f4360e2bdb8db63d5b8f4b424b8ef6f463070f362e1ed9097f95b41"
+      },
+      {
+        "key": "[\"acrostic\",[\"ak-\",\"steigh-\"],\"\"]",
+        "filename": "acrostic.png",
+        "current_first_ja": "アクロスティック",
+        "image_sha256": "2818fccafd674d71a6befa7a0dc3ee7ef98a62e0d7fe64f6e0c5cf94d0f785c4",
+        "CSV_full_sense_digest": "675fe4a2ed4f1175ca3e0209141e46ca53f546b118fae9802fa017a3f88cdc2a"
+      },
+      {
+        "key": "[\"anaphora\",[\"an-\",\"bher-1\"],\"\"]",
+        "filename": "anaphora.png",
+        "current_first_ja": "首句反復",
+        "image_sha256": "81f8ee33f72f5491fcde5f156685721abd46608c7f7dbe9e45ae3880c7a751f3",
+        "CSV_full_sense_digest": "2221e323885e04180cb4bd21ecda2ba75eb83d911d1905b1c0df2ff668bdcf59"
+      },
+      {
+        "key": "[\"AP\",[],\"\"]",
+        "filename": "AP.png",
+        "current_first_ja": "ad- の異形",
+        "image_sha256": "94da7d783739152b388b657ef87c6c5a77d2631a3e5265154e465ce355b3ec0a",
+        "CSV_full_sense_digest": "e958e836546e5840d83338d957386f99c879735a4db8441159ba30caf74cc6e7"
+      },
+      {
+        "key": "[\"apostrophe\",[\"apo-\",\"streb(h)-\"],\"\"]",
+        "filename": "apostrophe.png",
+        "current_first_ja": "アポストロフィ",
+        "image_sha256": "153b6383df6d8ef3d9b8da94deb8139a99450581ab4b948a6679d27b56cfa4aa",
+        "CSV_full_sense_digest": "1d9e9f0c18394fcec40fb7b7739b0fa1935c4231f24cfdce888fac9d32810e73"
+      },
+      {
+        "key": "[\"Arabic\",[],\"\"]",
+        "filename": "Arabic.png",
+        "current_first_ja": "アラビア語の",
+        "image_sha256": "55f1a63dc1579fe2e87934a214159fc7d1e247eb9c99d97de991e29ef28336a0",
+        "CSV_full_sense_digest": "f0a546fcd083660fb10ee0d6de7884c117791182f4ec872e004cacb0c6bd1e9a"
+      },
+      {
+        "key": "[\"astringent\",[\"ad-\",\"streig-\"],\"\"]",
+        "filename": "astringent.png",
+        "current_first_ja": "厳しい",
+        "image_sha256": "4c62201cb97034781b690f35ee88f80429edcdbc34e72bcf59142e8bf733f99b",
+        "CSV_full_sense_digest": "34c3d82622fb99497893a466cf384e5355999897d3668b0dd49b2cf26e9f884a"
+      },
+      {
+        "key": "[\"Benin\",[],\"\"]",
+        "filename": "Benin.png",
+        "current_first_ja": "ベナン",
+        "image_sha256": "7a53d9a7d16f208c8a2a8593030aaa97e8295cc7a2dbd6b301cfbe527a2322fb",
+        "CSV_full_sense_digest": "b124c75ab81a6c0eeba630013675ac1ce11260d2c4e34777a014c0cee352bd60"
+      },
+      {
+        "key": "[\"biting\",[],\"\"]",
+        "filename": "biting.png",
+        "current_first_ja": "辛辣な",
+        "image_sha256": "fce8728fcd4970af7cee3570a27280e7ff221d20671edba7e0ef0b9d79e56d92",
+        "CSV_full_sense_digest": "b6b6176e6e3a5d2d5bb6cf057e4b3b283f1a0c81f84269099902377c0ae43271"
+      },
+      {
+        "key": "[\"blade\",[\"bhel-3\"],\"\"]",
+        "filename": "blade.png",
+        "current_first_ja": "刃",
+        "image_sha256": "2cf493eae723e42283a58f1e6009b0091bcebe94157ffbe01841567316323380",
+        "CSV_full_sense_digest": "9147e1f002bdee8b3ce345dc13b1fdda4c89815d4db0f01b1207b1442b0e6904"
+      },
+      {
+        "key": "[\"Cadillac\",[],\"\"]",
+        "filename": "Cadillac.png",
+        "current_first_ja": "高級自動車ブランドのキャデラック",
+        "image_sha256": "fb64ee9600c0f5881c564996a0af103d14f3af8ad72e030f5de37ff53d13cb9d",
+        "CSV_full_sense_digest": "4fff2181dd8102fb6bf547c2e6ca3187fdcea59b4d5fbe9f1d25edfd8c0ff57f"
+      },
+      {
+        "key": "[\"circumflex\",[\"(s)ker-3\"],\"\"]",
+        "filename": "circumflex.png",
+        "current_first_ja": "曲折アクセント記号",
+        "image_sha256": "3aa40c11951bcb00ffb6f649f1287c87e595cca569a1f03a12082dcf2bbd2ba9",
+        "CSV_full_sense_digest": "7aedd07fdd75105ea08e5be9a03642822ab8d060c317d28098c0d1c8ced98990"
+      },
+      {
+        "key": "[\"clef\",[\"klāu-\"],\"\"]",
+        "filename": "clef.png",
+        "current_first_ja": "音部記号",
+        "image_sha256": "07682cc47de66b48240761108c7e340e396fa75f19efb3e68895ec04789f9296",
+        "CSV_full_sense_digest": "adc5a46e520dc16c79a577fe7647b97270e246edcec880473a49a5dec3492f03"
+      },
+      {
+        "key": "[\"commandment\",[],\"\"]",
+        "filename": "commandment.png",
+        "current_first_ja": "戒律",
+        "image_sha256": "af30dd07c61dd3b093b86024710aef6d1973d21acf6964e6c1e13310f7436693",
+        "CSV_full_sense_digest": "988550ec8137e96432d5a6f2f7b11dbdc574f402391d81af2e3ec9a38edeb257"
+      },
+      {
+        "key": "[\"correspondence\",[],\"\"]",
+        "filename": "correspondence.png",
+        "current_first_ja": "通信",
+        "image_sha256": "12c244c6b20e2c0280fc56d15d2cd73217b4028cd51e2a73181c5b83eeb44c2c",
+        "CSV_full_sense_digest": "17bcde162940431cf25b8ea5be823af8a65b122bcbe6a5b30c3ede3bb3d69663"
+      },
+      {
+        "key": "[\"craft\",[],\"\"]",
+        "filename": "craft.png",
+        "current_first_ja": "工芸",
+        "image_sha256": "9a841b2439ea89454f4b5a8a0e759f40d82f80eeeaf1fc635db3ad4a967c439f",
+        "CSV_full_sense_digest": "7758cf0b1bd02cd2774ae0c450f8743e8bb3856d1160ea402306872321638dff"
+      },
+      {
+        "key": "[\"cursive\",[\"kers-2\"],\"\"]",
+        "filename": "cursive.png",
+        "current_first_ja": "草書体の",
+        "image_sha256": "d62463ad9bee3070270928639032d6f13a687131863f4e85e6ee785934d283d5",
+        "CSV_full_sense_digest": "735614af883905448fedcad5617beafcca5877022c64f77361628a0b6523f242"
+      },
+      {
+        "key": "[\"Delhi\",[],\"\"]",
+        "filename": "Delhi.png",
+        "current_first_ja": "デリー",
+        "image_sha256": "eda1b6daba33acfbea7cd7440b236e7664859af4c680ccce10d7687a49282055",
+        "CSV_full_sense_digest": "fdf91d29075eb794dcd685ddd180590dfc6ea56ce59c1e12b7b47df6e59e8e78"
+      },
+      {
+        "key": "[\"Devanagari\",[\"dyeu-\"],\"\"]",
+        "filename": "Devanagari.png",
+        "current_first_ja": "デーバナーガリー",
+        "image_sha256": "dda89b5a8a8083e69af002dd625db29916a810c76db842519c45b2b35edeea1f",
+        "CSV_full_sense_digest": "6e6d47f9d3a15d6a588596762e4bc7c2b407f90de78541b2868b9e58398f79a0"
+      },
+      {
+        "key": "[\"digraph\",[\"dwo-\"],\"\"]",
+        "filename": "digraph.png",
+        "current_first_ja": "二重字",
+        "image_sha256": "885ee8ba0fe4c0ad34448947558bddeba0017a17cf1c1c9b87d0bdbd956268e7",
+        "CSV_full_sense_digest": "644486f0085c26be5212ebfac84d7c9890c14a590d7f3182c8b79a9cfaae3e7f"
+      },
+      {
+        "key": "[\"diphthong\",[\"dwo-\"],\"\"]",
+        "filename": "diphthong.png",
+        "current_first_ja": "二重母音",
+        "image_sha256": "e2be5c8c5aa1103c19e5eec9d33769633aacb289540826e3c6115a4cf3b5e6ce",
+        "CSV_full_sense_digest": "99b59bb34825dfdca3d463449f25598dc5e828310e9118ebc7d859f14d90e2d2"
+      },
+      {
+        "key": "[\"dislocation\",[],\"\"]",
+        "filename": "dislocation.png",
+        "current_first_ja": "脱臼",
+        "image_sha256": "13f39e317772205abb4f25d38a6110c23c1d87f88077acc5e1b8b52101ff7c7d",
+        "CSV_full_sense_digest": "fb9f5314176784c3853caea58d261d7db8d3942d1c4b529bc418a5c19f3c80c7"
+      },
+      {
+        "key": "[\"dodecagon\",[\"dwo-\",\"dekm̥\",\"genu-1\"],\"\"]",
+        "filename": "dodecagon.png",
+        "current_first_ja": "12辺形",
+        "image_sha256": "1ab592b2d39d06eb8f30b5580339ffa94e27276e4a7fe617ab43d8f8f30a30cf",
+        "CSV_full_sense_digest": "d16b7751697486ed7e11a3d3cf56115bed2ea8702f6d1db722831124e70ca843"
+      },
+      {
+        "key": "[\"eigenvector\",[\"aik-1\",\"wegh-\"],\"\"]",
+        "filename": "eigenvector.png",
+        "current_first_ja": "固有ベクトル",
+        "image_sha256": "acaf058d50d96c72132ead3916f91724f35bc1e9232dee1cfbc2b8a34fd067eb",
+        "CSV_full_sense_digest": "b21d788ab11beec1af209315ba6a59379e412e1ff70858bef5774745748ac866"
+      },
+      {
+        "key": "[\"ejaculate\",[\"eghs\",\"yē-\"],\"\"]",
+        "filename": "ejaculate.png",
+        "current_first_ja": "射精する",
+        "image_sha256": "78359eef6fe95a71f75e2994bceec43bf30b7bc78bf33832948b45a8de5534ef",
+        "CSV_full_sense_digest": "a0899247b66ffa6cfa59d8ee59b37c708a94ff836438ba6e667f29012f60a94c"
+      },
+      {
+        "key": "[\"esotropia\",[\"en\",\"trep-2\",\"okʷ-\",\"-ā-\"],\"\"]",
+        "filename": "esotropia.png",
+        "current_first_ja": "内斜視",
+        "image_sha256": "b772c5fd9712ecc8d10d972cdf05751e782e2e6acaecebea17358006e051e915",
+        "CSV_full_sense_digest": "53aaaaad0c0b529b65712d06469485f7efa1bee0965193af9247a5b655e9eedf"
+      },
+      {
+        "key": "[\"fuck\",[\"peuk-\"],\"\"]",
+        "filename": "fuck.png",
+        "current_first_ja": "性交する",
+        "image_sha256": "f28fb0fd00cc430eca96455755fa04ef4d0016f7f0b80d9406f444b63c738160",
+        "CSV_full_sense_digest": "064c80fe6443e0c25d902210b29913a3d6b8201fe972cfca0b5224e82322524f"
+      },
+      {
+        "key": "[\"grief\",[\"gʷerə-2\"],\"\"]",
+        "filename": "grief.png",
+        "current_first_ja": "深い悲しみ",
+        "image_sha256": "5db6651a975c5697e91eb6ad657d0918c48d66740b848286645ca2c5b7c89de0",
+        "CSV_full_sense_digest": "46ac58ca860784de41ad7f645ce7680fda9ac3fe599c9324314b5ff7ad013205"
+      },
+      {
+        "key": "[\"handball\",[],\"\"]",
+        "filename": "handball.png",
+        "current_first_ja": "壁打ちハンドボール",
+        "image_sha256": "f980ddb72730f54320a20309be88739205af1404e33292dee682c701c779e0f3",
+        "CSV_full_sense_digest": "712841c8b7926f690d50c9dea736a50909c2a62abc4c9ad7713ecce7241060ae"
+      },
+      {
+        "key": "[\"Hebrew\",[],\"\"]",
+        "filename": "Hebrew.png",
+        "current_first_ja": "ヘブライ語",
+        "image_sha256": "cef4d576818a98a6e396d63e4d0be00ecb820ab61f2562f666bdb0994b15a6f5",
+        "CSV_full_sense_digest": "93170efb913a0389c3970c884caf708add786ca9c8c5c003357bdb86e1aff553"
+      },
+      {
+        "key": "[\"hyphen\",[\"sem-1\"],\"\"]",
+        "filename": "hyphen.png",
+        "current_first_ja": "ハイフン",
+        "image_sha256": "ba2cb7f9680e571c809f59f85aba9bea745277c0fc13d477b612c41181ba4cf1",
+        "CSV_full_sense_digest": "c4e531c52dfb624935cd26c9f58cdcdfacac2f87744ca69cee93ac6027aa35e4"
+      },
+      {
+        "key": "[\"interjection\",[\"en\",\"yē-\"],\"\"]",
+        "filename": "interjection.png",
+        "current_first_ja": "投入",
+        "image_sha256": "565e7c58689c25fca47ad28149838b04fb7a36e0cef5793f3c5110bcad189729",
+        "CSV_full_sense_digest": "e3203aa5efc5c468c328e379b5489b1b0e90c2032f20c0476b62266a448cc945"
+      },
+      {
+        "key": "[\"internalize\",[],\"\"]",
+        "filename": "internalize.png",
+        "current_first_ja": "内面化する",
+        "image_sha256": "48a4bdfb4d4a8f21f227cc078eb2eaae4205d21fc269e0defb30df478865cb8c",
+        "CSV_full_sense_digest": "aadb739702a15520dbd64c1714571e4af5b9483f0b43d2ada4486114f0fb8e2e"
+      },
+      {
+        "key": "[\"Islam\",[],\"\"]",
+        "filename": "Islam.png",
+        "current_first_ja": "イスラム教",
+        "image_sha256": "3d036f048934893e714f98d605ed134e364497d5db296db5552e7dabe8e614c8",
+        "CSV_full_sense_digest": "c7ef690a6881281dac5bfeb7d0adbd6a0ba5801471829a933fe4fcca01e445c2"
+      },
+      {
+        "key": "[\"Julian\",[],\"\"]",
+        "filename": "Julian.png",
+        "current_first_ja": "ローマ皇帝ユリアヌス",
+        "image_sha256": "834ee337cc53b1b06716b681c798d3e47355ab4ba0935e7f66dbf8e3b50ceef0",
+        "CSV_full_sense_digest": "11bcf3419f331ba166c0476ae83311a486995e3d6f8c90e0b2d45baf42e52906"
+      },
+      {
+        "key": "[\"lactate\",[\"melg-\"],\"\"]",
+        "filename": "lactate.png",
+        "current_first_ja": "乳酸",
+        "image_sha256": "65a6f828ce54c81e2176994d926af404c96ad2341b3a5a517debf2ab605a4bf6",
+        "CSV_full_sense_digest": "98901eda4197b39de061003c51c88ef5230399b96f37e79aeae362787c3e1256"
+      },
+      {
+        "key": "[\"Madison\",[],\"\"]",
+        "filename": "Madison.png",
+        "current_first_ja": "ドリー・マディソン",
+        "image_sha256": "9e9d5d7fb563fd23900f29455da839bf9d0fa00c9dec9ffd0e16a4b6bb942d80",
+        "CSV_full_sense_digest": "8e15c27f0bcab4c01791231e90e357074f0c111629dd99c25b83a964ee1976c1"
+      },
+      {
+        "key": "[\"metathesis\",[\"me-2\",\"dhē-\"],\"\"]",
+        "filename": "metathesis.png",
+        "current_first_ja": "字位転換",
+        "image_sha256": "7b6cc8b8cbef772ea33092c610149c9245f0097268633f2eba429d856b5e4370",
+        "CSV_full_sense_digest": "b1c129992460e7b4d221b014c2a60032f6fe61fa40853ffb11a60baf3db175df"
+      },
+      {
+        "key": "[\"million\",[\"gheslo-\"],\"\"]",
+        "filename": "million.png",
+        "current_first_ja": "100万",
+        "image_sha256": "27b4587a3b7f8177f5263ecb55ad298a87f4ee67ee6b9656cd01eb90684cc518",
+        "CSV_full_sense_digest": "e8a985b03f3b6c9ef994fcbbcbd96f2c50936adae77fdad7d10fac0df591721e"
+      },
+      {
+        "key": "[\"nickel\",[],\"\"]",
+        "filename": "nickel.png",
+        "current_first_ja": "5セント白銅貨",
+        "image_sha256": "5379e9fb4de673a3e932cc6dc6a3c3773c68ff1b23ca07f324288a3adc13a41f",
+        "CSV_full_sense_digest": "20261f2d57c111e133ebf123250b3cd2f2c556717dac656155bb766ef01771cd"
+      },
+      {
+        "key": "[\"nitrate\",[],\"\"]",
+        "filename": "nitrate.png",
+        "current_first_ja": "硝酸塩",
+        "image_sha256": "d0a80fd63651d77ace089ce87c6f60fb2f8e8b4780f116144f57bc996da4f853",
+        "CSV_full_sense_digest": "a83a3d8a2ed2e01ee1ea1b92887a03bd849570928acb63db16d87c8444cd627a"
+      },
+      {
+        "key": "[\"norepinephrine\",[],\"\"]",
+        "filename": "norepinephrine.png",
+        "current_first_ja": "ノルエピネフリン",
+        "image_sha256": "d97b3f56af6e7dabbf1c90561a92b6b7ca74888dc6d95c648c4d6385dc8ef42e",
+        "CSV_full_sense_digest": "be755f2fd029b9bc86474d47d3d72fbeee88a59219d6e238f5a55f780e458f03"
+      },
+      {
+        "key": "[\"palindrome\",[\"kʷel-1\",\"der-1\"],\"\"]",
+        "filename": "palindrome.png",
+        "current_first_ja": "回文",
+        "image_sha256": "f202ac93e52994a2c750d716fa253e7867895a117ab0ffb12ac60e5ee49f5feb",
+        "CSV_full_sense_digest": "393c697b92ead5c6794814964937a0884efd26c49eeb2534fd63c84de27f4fec"
+      },
+      {
+        "key": "[\"poker\",[],\"\"]",
+        "filename": "poker.png",
+        "current_first_ja": "火かき棒",
+        "image_sha256": "1afd736e1fbc4850e352d0a1882c01b49bf038972aed0c3b74d3037a51cfdcc5",
+        "CSV_full_sense_digest": "eeeea003f3a7a83b28c36dd48c1baaf456ceaafe0d21737e19ff25ddc9d09626"
+      },
+      {
+        "key": "[\"Singapore\",[\"pelə-3\"],\"\"]",
+        "filename": "Singapore.png",
+        "current_first_ja": "シンガポール",
+        "image_sha256": "90804bf661f0c8c1aa48d110de2f0b6a74a8331d9aecda1006c97480b5b24769",
+        "CSV_full_sense_digest": "884525bbc5150917fd4c3f67da4436ed022f491d4c4e88d166907786c7d649ed"
+      },
+      {
+        "key": "[\"spec\",[],\"\"]",
+        "filename": "spec.png",
+        "current_first_ja": "仕様",
+        "image_sha256": "2370ada7a27398406f49f8cd593711eb9658bb2aa9e71a3bf73d8135ca6b2580",
+        "CSV_full_sense_digest": "dde10397d18e78cd0ca2610d2554b3ff6c129c3d429e0f8ca20584657453aab5"
+      },
+      {
+        "key": "[\"spit\",[\"spei-\"],\"\"]",
+        "filename": "spit@spei.png",
+        "current_first_ja": "つばを吐く",
+        "image_sha256": "56da59180a7e9dffd7aeb6886f0da8933f671c9c92e215bec868d4854a5a025d",
+        "CSV_full_sense_digest": "c0c0a8c214ed44c9c013616f5013c9babd58101564e93bb815d1a85384814863"
+      },
+      {
+        "key": "[\"sprang\",[],\"\"]",
+        "filename": "sprang@x.png",
+        "current_first_ja": "springの過去形",
+        "image_sha256": "27bd1864a0c1e96c343457f350b5c161342a750b42072e0303c7a406f0388b11",
+        "CSV_full_sense_digest": "2e117b2a3bc5db343b0326c2aae41094090a1b33c7904d9c36726c3f07d32d42"
+      },
+      {
+        "key": "[\"sterile\",[\"ster-4\"],\"\"]",
+        "filename": "sterile.png",
+        "current_first_ja": "不妊の",
+        "image_sha256": "f3cd048caf1d8e18785bc772471fc9a3dea1ef8888d5b95b0b2ae4299c9f1b77",
+        "CSV_full_sense_digest": "6db034b6180cf3a5d0d84e75b2b0a0bb0e0533b5514c3e5fae4833963df269fa"
+      },
+      {
+        "key": "[\"strand\",[],\"\"]",
+        "filename": "strand.png",
+        "current_first_ja": "より糸",
+        "image_sha256": "017f5704844b63ee729f4fde09ca2a4f95cb18a884ef8f5634da58657086227f",
+        "CSV_full_sense_digest": "99ba1b846c03a0d7e528d0b08ff53f02a5af9a4c4f9115bd3b5ecce37b6ecd36"
+      },
+      {
+        "key": "[\"Stuart\",[],\"\"]",
+        "filename": "Stuart.png",
+        "current_first_ja": "ステュアート王家",
+        "image_sha256": "ac9d4eb66926f1091d98c48ac49876bd30054d12cc7cbcf406ab5efd1d8e215f",
+        "CSV_full_sense_digest": "205db87e62f7c60f3461c19271e0a9f3fc0284aa99d0c0a7a0a54fd7dd498301"
+      },
+      {
+        "key": "[\"Syriac\",[],\"\"]",
+        "filename": "Syriac.png",
+        "current_first_ja": "シリア語",
+        "image_sha256": "dd8516a8607a50df3f4a8665c1398a607327f0122cf4615d7462e648a3826133",
+        "CSV_full_sense_digest": "253506b186910e9af6dbc9fb8de6783add7c5ca648aa12a488d8c2e240056ed0"
+      },
+      {
+        "key": "[\"Tamil\",[],\"\"]",
+        "filename": "Tamil.png",
+        "current_first_ja": "タミル語",
+        "image_sha256": "a59bcb446dd3b1ec1de460a5175c528e2ec93ef459025ba2c28daac616312014",
+        "CSV_full_sense_digest": "9c8ecbebf59b55f0558839e2e3f271f72f5cbc4fa8c2bd3f94d989cc17d4d8dc"
+      },
+      {
+        "key": "[\"Tetragrammaton\",[\"kʷetwer-\",\"gerbh-\"],\"\"]",
+        "filename": "Tetragrammaton.png",
+        "current_first_ja": "神を表す4文字",
+        "image_sha256": "060b84db35fa99b5d3ea9f7f94590d4474cec03f0866a18309ff6e8c8073e5a4",
+        "CSV_full_sense_digest": "66db2074479b6fc38edb01e472ed50732debbd79c18e445ff88413b712d882c5"
+      },
+      {
+        "key": "[\"tire\",[\"deu-1\"],\"\"]",
+        "filename": "tire.png",
+        "current_first_ja": "疲れさせる",
+        "image_sha256": "37b9683137aaac26af3bc1d7ed16b6301de25664ad9dd8c9120c593be738cc5c",
+        "CSV_full_sense_digest": "c5a7dce87a1e8628701454d2f29c8c6fc79c6dd80da93d8a936513b621f1042f"
+      },
+      {
+        "key": "[\"Turkey\",[],\"\"]",
+        "filename": "Turkey.png",
+        "current_first_ja": "トルコ",
+        "image_sha256": "ede82cfd3d0c23383d07e1b56f20417b0479963e06d14a2bd6716fa765523493",
+        "CSV_full_sense_digest": "57c4f0407d5385abc260dbc7d965896b4e14d0e6d5f273ec6fcd4179acee4103"
+      },
+      {
+        "key": "[\"Santa\",[],\"\"]",
+        "filename": "Santa.png",
+        "current_first_ja": "サンタ",
+        "image_sha256": "0cc591d15ed38e28e06f5b9268cd4f6e4e88b877b652d2d56a743cb47550d0ba",
+        "CSV_full_sense_digest": "e17a6a8eb59d17c9ac13f9554683c77ff23985d504cc0f1018b03d69452df2d1"
+      },
+      {
+        "key": "[\"Veronica\",[],\"\"]",
+        "filename": "Veronica.png",
+        "current_first_ja": "ヴェロニカ",
+        "image_sha256": "7e98c89ba9a08d2f0ccaf725cdf2375afbf773a7910a7530c9c4576477bbb581",
+        "CSV_full_sense_digest": "2605ceeb25dcd757605622a620f27d575bfd159be4333373fb56d5bc6bcda9d6"
+      },
+      {
+        "key": "[\"Princeton\",[],\"\"]",
+        "filename": "Princeton.png",
+        "current_first_ja": "プリンストン",
+        "image_sha256": "6c2795d264c565545ca39f125536fade17283ff807b213d432042f866a8ea6bf",
+        "CSV_full_sense_digest": "880ab4218772c3bd9ef5137b0ad892c19bed806a6e7563d23961b142f509e9b8"
+      },
+      {
+        "key": "[\"Phillip\",[],\"\"]",
+        "filename": "Phillip.png",
+        "current_first_ja": "フィリップ",
+        "image_sha256": "dac06cc333f36590ffa6a5ab43a5f1c99ad82681a7fdbcae4915eea8b3a04de7",
+        "CSV_full_sense_digest": "b7339763dbfadc231e4f273907599044108735f5b159afce50e41fb63ab7ef79"
+      },
+      {
+        "key": "[\"Gregory\",[],\"\"]",
+        "filename": "Gregory.png",
+        "current_first_ja": "聖グレゴリウス(グレゴリー)",
+        "image_sha256": "1309673fb634fe24363440fab53e552c6776470883b3c7d782e0c8b3e5c72dbc",
+        "CSV_full_sense_digest": "49edec4f89dc97ea13eb6082632e9063d51369a8963eab9fa896a773526b4cd0"
+      }
+    ],
+    "other_historical_CSV_matches": [
+      {
+        "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_review_pending.csv",
+        "record": 16,
+        "filename": "drop.png",
+        "state": "",
+        "target_ja": "",
+        "image_sha256": ""
+      },
+      {
+        "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_review_pending.csv",
+        "record": 23,
+        "filename": "Rome.png",
+        "state": "",
+        "target_ja": "",
+        "image_sha256": ""
+      },
+      {
+        "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_review_pending.csv",
+        "record": 25,
+        "filename": "card.png",
+        "state": "",
+        "target_ja": "",
+        "image_sha256": ""
+      },
+      {
+        "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_review_pending.csv",
+        "record": 26,
+        "filename": "Berlin.png",
+        "state": "",
+        "target_ja": "",
+        "image_sha256": ""
+      },
+      {
+        "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_review_pending.csv",
+        "record": 27,
+        "filename": "Virginia.png",
+        "state": "",
+        "target_ja": "",
+        "image_sha256": ""
+      },
+      {
+        "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_review_pending.csv",
+        "record": 28,
+        "filename": "Acts.png",
+        "state": "",
+        "target_ja": "",
+        "image_sha256": ""
+      },
+      {
+        "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_review_pending.csv",
+        "record": 30,
+        "filename": "ate@x.png",
+        "state": "",
+        "target_ja": "",
+        "image_sha256": ""
+      },
+      {
+        "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_review_pending.csv",
+        "record": 31,
+        "filename": "Switzerland.png",
+        "state": "",
+        "target_ja": "",
+        "image_sha256": ""
+      },
+      {
+        "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_review_pending.csv",
+        "record": 32,
+        "filename": "Brazil.png",
+        "state": "",
+        "target_ja": "",
+        "image_sha256": ""
+      },
+      {
+        "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_review_pending.csv",
+        "record": 33,
+        "filename": "RNA.png",
+        "state": "",
+        "target_ja": "",
+        "image_sha256": ""
+      },
+      {
+        "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_review_pending.csv",
+        "record": 34,
+        "filename": "Scotland.png",
+        "state": "",
+        "target_ja": "",
+        "image_sha256": ""
+      },
+      {
+        "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_review_pending.csv",
+        "record": 35,
+        "filename": "Reading.png",
+        "state": "",
+        "target_ja": "",
+        "image_sha256": ""
+      },
+      {
+        "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_review_pending.csv",
+        "record": 36,
+        "filename": "woke@x.png",
+        "state": "",
+        "target_ja": "",
+        "image_sha256": ""
+      },
+      {
+        "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_review_pending.csv",
+        "record": 37,
+        "filename": "stare.png",
+        "state": "",
+        "target_ja": "",
+        "image_sha256": ""
+      },
+      {
+        "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_review_pending.csv",
+        "record": 42,
+        "filename": "spell.png",
+        "state": "",
+        "target_ja": "",
+        "image_sha256": ""
+      },
+      {
+        "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_review_pending.csv",
+        "record": 44,
+        "filename": "PhD.png",
+        "state": "",
+        "target_ja": "",
+        "image_sha256": ""
+      },
+      {
+        "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_review_pending.csv",
+        "record": 47,
+        "filename": "Santa.png",
+        "state": "",
+        "target_ja": "",
+        "image_sha256": ""
+      },
+      {
+        "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_review_pending.csv",
+        "record": 48,
+        "filename": "flag.png",
+        "state": "",
+        "target_ja": "",
+        "image_sha256": ""
+      },
+      {
+        "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_review_pending.csv",
+        "record": 50,
+        "filename": "ex-.png",
+        "state": "",
+        "target_ja": "",
+        "image_sha256": ""
+      },
+      {
+        "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_review_pending.csv",
+        "record": 51,
+        "filename": "lighting.png",
+        "state": "",
+        "target_ja": "",
+        "image_sha256": ""
+      },
+      {
+        "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_review_pending.csv",
+        "record": 52,
+        "filename": "intrinsic.png",
+        "state": "",
+        "target_ja": "",
+        "image_sha256": ""
+      },
+      {
+        "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_review_pending.csv",
+        "record": 56,
+        "filename": "inter-.png",
+        "state": "",
+        "target_ja": "",
+        "image_sha256": ""
+      },
+      {
+        "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_review_pending.csv",
+        "record": 57,
+        "filename": "sixteen.png",
+        "state": "",
+        "target_ja": "",
+        "image_sha256": ""
+      },
+      {
+        "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_review_pending.csv",
+        "record": 61,
+        "filename": "counter-.png",
+        "state": "",
+        "target_ja": "",
+        "image_sha256": ""
+      },
+      {
+        "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_review_pending.csv",
+        "record": 66,
+        "filename": "contradiction.png",
+        "state": "",
+        "target_ja": "",
+        "image_sha256": ""
+      },
+      {
+        "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_review_pending.csv",
+        "record": 69,
+        "filename": "pipes.png",
+        "state": "",
+        "target_ja": "",
+        "image_sha256": ""
+      },
+      {
+        "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_review_pending.csv",
+        "record": 71,
+        "filename": "cab.png",
+        "state": "",
+        "target_ja": "",
+        "image_sha256": ""
+      },
+      {
+        "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_review_pending.csv",
+        "record": 72,
+        "filename": "turnover.png",
+        "state": "",
+        "target_ja": "",
+        "image_sha256": ""
+      },
+      {
+        "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_review_pending.csv",
+        "record": 74,
+        "filename": "NATO.png",
+        "state": "",
+        "target_ja": "",
+        "image_sha256": ""
+      },
+      {
+        "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_review_pending.csv",
+        "record": 75,
+        "filename": "tops.png",
+        "state": "",
+        "target_ja": "",
+        "image_sha256": ""
+      },
+      {
+        "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_review_pending.csv",
+        "record": 77,
+        "filename": "sandy.png",
+        "state": "",
+        "target_ja": "",
+        "image_sha256": ""
+      },
+      {
+        "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_review_pending.csv",
+        "record": 78,
+        "filename": "super-.png",
+        "state": "",
+        "target_ja": "",
+        "image_sha256": ""
+      },
+      {
+        "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_review_pending.csv",
+        "record": 87,
+        "filename": "Phillip.png",
+        "state": "",
+        "target_ja": "",
+        "image_sha256": ""
+      },
+      {
+        "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_review_pending.csv",
+        "record": 99,
+        "filename": "tempered.png",
+        "state": "",
+        "target_ja": "",
+        "image_sha256": ""
+      },
+      {
+        "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_review_pending.csv",
+        "record": 105,
+        "filename": "gig.png",
+        "state": "",
+        "target_ja": "",
+        "image_sha256": ""
+      },
+      {
+        "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_review_pending.csv",
+        "record": 106,
+        "filename": "Veronica.png",
+        "state": "",
+        "target_ja": "",
+        "image_sha256": ""
+      },
+      {
+        "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_review_pending.csv",
+        "record": 111,
+        "filename": "Panama.png",
+        "state": "",
+        "target_ja": "",
+        "image_sha256": ""
+      },
+      {
+        "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_review_pending.csv",
+        "record": 112,
+        "filename": "Saturn.png",
+        "state": "",
+        "target_ja": "",
+        "image_sha256": ""
+      },
+      {
+        "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_review_pending.csv",
+        "record": 113,
+        "filename": "upgrade.png",
+        "state": "",
+        "target_ja": "",
+        "image_sha256": ""
+      },
+      {
+        "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_review_pending.csv",
+        "record": 116,
+        "filename": "sepsis.png",
+        "state": "",
+        "target_ja": "",
+        "image_sha256": ""
+      },
+      {
+        "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_review_pending.csv",
+        "record": 118,
+        "filename": "Anglican.png",
+        "state": "",
+        "target_ja": "",
+        "image_sha256": ""
+      },
+      {
+        "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_review_pending.csv",
+        "record": 119,
+        "filename": "deliverance.png",
+        "state": "",
+        "target_ja": "",
+        "image_sha256": ""
+      },
+      {
+        "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_review_pending.csv",
+        "record": 122,
+        "filename": "pointless.png",
+        "state": "",
+        "target_ja": "",
+        "image_sha256": ""
+      },
+      {
+        "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_review_pending.csv",
+        "record": 133,
+        "filename": "LXX.png",
+        "state": "",
+        "target_ja": "",
+        "image_sha256": ""
+      },
+      {
+        "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_review_pending.csv",
+        "record": 138,
+        "filename": "zombie.png",
+        "state": "",
+        "target_ja": "",
+        "image_sha256": ""
+      },
+      {
+        "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_review_pending.csv",
+        "record": 140,
+        "filename": "amygdala.png",
+        "state": "",
+        "target_ja": "",
+        "image_sha256": ""
+      },
+      {
+        "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_review_pending.csv",
+        "record": 142,
+        "filename": "creatinine.png",
+        "state": "",
+        "target_ja": "",
+        "image_sha256": ""
+      },
+      {
+        "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_review_pending.csv",
+        "record": 148,
+        "filename": "Isis.png",
+        "state": "",
+        "target_ja": "",
+        "image_sha256": ""
+      },
+      {
+        "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_review_pending.csv",
+        "record": 161,
+        "filename": "ut.png",
+        "state": "",
+        "target_ja": "",
+        "image_sha256": ""
+      },
+      {
+        "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_review_pending.csv",
+        "record": 163,
+        "filename": "reticulum.png",
+        "state": "",
+        "target_ja": "",
+        "image_sha256": ""
+      },
+      {
+        "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_review_pending.csv",
+        "record": 187,
+        "filename": "leasing.png",
+        "state": "",
+        "target_ja": "",
+        "image_sha256": ""
+      },
+      {
+        "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_review_pending.csv",
+        "record": 194,
+        "filename": "smitten.png",
+        "state": "",
+        "target_ja": "",
+        "image_sha256": ""
+      },
+      {
+        "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_review_pending.csv",
+        "record": 195,
+        "filename": "escalate.png",
+        "state": "",
+        "target_ja": "",
+        "image_sha256": ""
+      },
+      {
+        "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_review_pending.csv",
+        "record": 211,
+        "filename": "techno.png",
+        "state": "",
+        "target_ja": "",
+        "image_sha256": ""
+      },
+      {
+        "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_review_pending.csv",
+        "record": 221,
+        "filename": "Parmesan.png",
+        "state": "",
+        "target_ja": "",
+        "image_sha256": ""
+      },
+      {
+        "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_review_pending.csv",
+        "record": 224,
+        "filename": "tally.png",
+        "state": "",
+        "target_ja": "",
+        "image_sha256": ""
+      },
+      {
+        "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_review_pending.csv",
+        "record": 231,
+        "filename": "Europa.png",
+        "state": "",
+        "target_ja": "",
+        "image_sha256": ""
+      },
+      {
+        "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_review_pending.csv",
+        "record": 237,
+        "filename": "overcoat.png",
+        "state": "",
+        "target_ja": "",
+        "image_sha256": ""
+      },
+      {
+        "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_review_pending.csv",
+        "record": 246,
+        "filename": "Hiroshima.png",
+        "state": "",
+        "target_ja": "",
+        "image_sha256": ""
+      },
+      {
+        "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_review_pending.csv",
+        "record": 249,
+        "filename": "pence.png",
+        "state": "",
+        "target_ja": "",
+        "image_sha256": ""
+      },
+      {
+        "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_review_pending.csv",
+        "record": 262,
+        "filename": "trimming.png",
+        "state": "",
+        "target_ja": "",
+        "image_sha256": ""
+      },
+      {
+        "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_review_pending.csv",
+        "record": 265,
+        "filename": "arginine.png",
+        "state": "",
+        "target_ja": "",
+        "image_sha256": ""
+      },
+      {
+        "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_review_pending.csv",
+        "record": 267,
+        "filename": "unqualified.png",
+        "state": "",
+        "target_ja": "",
+        "image_sha256": ""
+      },
+      {
+        "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_review_pending.csv",
+        "record": 274,
+        "filename": "Atlantis.png",
+        "state": "",
+        "target_ja": "",
+        "image_sha256": ""
+      },
+      {
+        "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_review_pending.csv",
+        "record": 295,
+        "filename": "ketamine.png",
+        "state": "",
+        "target_ja": "",
+        "image_sha256": ""
+      },
+      {
+        "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_review_pending.csv",
+        "record": 309,
+        "filename": "Tripoli.png",
+        "state": "",
+        "target_ja": "",
+        "image_sha256": ""
+      },
+      {
+        "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_review_pending.csv",
+        "record": 322,
+        "filename": "freer.png",
+        "state": "",
+        "target_ja": "",
+        "image_sha256": ""
+      },
+      {
+        "path": "D:\\Projects\\dot-image-review\\ready_union_scopes_20261015.csv",
+        "record": 310,
+        "filename": "hyphen.png",
+        "state": "reviewed",
+        "target_ja": "",
+        "image_sha256": "ba2cb7f9680e571c809f59f85aba9bea745277c0fc13d477b612c41181ba4cf1"
+      },
+      {
+        "path": "D:\\Projects\\dot-image-review\\ready_union_scopes_20261015.csv",
+        "record": 386,
+        "filename": "cursive.png",
+        "state": "reviewed",
+        "target_ja": "",
+        "image_sha256": "d62463ad9bee3070270928639032d6f13a687131863f4e85e6ee785934d283d5"
+      },
+      {
+        "path": "D:\\Projects\\dot-image-review\\ready_union_scopes_20261015.csv",
+        "record": 474,
+        "filename": "million.png",
+        "state": "reviewed",
+        "target_ja": "",
+        "image_sha256": "27b4587a3b7f8177f5263ecb55ad298a87f4ee67ee6b9656cd01eb90684cc518"
+      },
+      {
+        "path": "D:\\Projects\\dot-image-review\\ready_union_scopes_20261015.csv",
+        "record": 1069,
+        "filename": "apostrophe.png",
+        "state": "reviewed",
+        "target_ja": "",
+        "image_sha256": "153b6383df6d8ef3d9b8da94deb8139a99450581ab4b948a6679d27b56cfa4aa"
+      },
+      {
+        "path": "D:\\Projects\\dot-image-review\\ready_union_scopes_20261015.csv",
+        "record": 1295,
+        "filename": "circumflex.png",
+        "state": "reviewed",
+        "target_ja": "",
+        "image_sha256": "3aa40c11951bcb00ffb6f649f1287c87e595cca569a1f03a12082dcf2bbd2ba9"
+      },
+      {
+        "path": "D:\\Projects\\dot-image-review\\ready_union_scopes_20261015.csv",
+        "record": 1397,
+        "filename": "anaphora.png",
+        "state": "reviewed",
+        "target_ja": "",
+        "image_sha256": "81f8ee33f72f5491fcde5f156685721abd46608c7f7dbe9e45ae3880c7a751f3"
+      },
+      {
+        "path": "D:\\Projects\\dot-image-review\\ready_union_scopes_20261015.csv",
+        "record": 1422,
+        "filename": "digraph.png",
+        "state": "reviewed",
+        "target_ja": "",
+        "image_sha256": "885ee8ba0fe4c0ad34448947558bddeba0017a17cf1c1c9b87d0bdbd956268e7"
+      },
+      {
+        "path": "D:\\Projects\\dot-image-review\\ready_union_scopes_20261015.csv",
+        "record": 1609,
+        "filename": "metathesis.png",
+        "state": "reviewed",
+        "target_ja": "",
+        "image_sha256": "7b6cc8b8cbef772ea33092c610149c9245f0097268633f2eba429d856b5e4370"
+      },
+      {
+        "path": "D:\\Projects\\dot-image-review\\ready_union_scopes_20261015.csv",
+        "record": 1740,
+        "filename": "diphthong.png",
+        "state": "reviewed",
+        "target_ja": "",
+        "image_sha256": "e2be5c8c5aa1103c19e5eec9d33769633aacb289540826e3c6115a4cf3b5e6ce"
+      },
+      {
+        "path": "D:\\Projects\\dot-image-review\\ready_union_scopes_20261015.csv",
+        "record": 1801,
+        "filename": "acrostic.png",
+        "state": "reviewed",
+        "target_ja": "",
+        "image_sha256": "2818fccafd674d71a6befa7a0dc3ee7ef98a62e0d7fe64f6e0c5cf94d0f785c4"
+      },
+      {
+        "path": "D:\\Projects\\dot-image-review\\ready_union_scopes_20261015.csv",
+        "record": 1836,
+        "filename": "clef.png",
+        "state": "reviewed",
+        "target_ja": "",
+        "image_sha256": "07682cc47de66b48240761108c7e340e396fa75f19efb3e68895ec04789f9296"
+      },
+      {
+        "path": "D:\\Projects\\dot-image-review\\ready_union_scopes_20261015.csv",
+        "record": 2013,
+        "filename": "palindrome.png",
+        "state": "reviewed",
+        "target_ja": "",
+        "image_sha256": "f202ac93e52994a2c750d716fa253e7867895a117ab0ffb12ac60e5ee49f5feb"
+      },
+      {
+        "path": "D:\\Projects\\dot-image-review\\ready_union_scopes_20261015.csv",
+        "record": 2040,
+        "filename": "Devanagari.png",
+        "state": "reviewed",
+        "target_ja": "",
+        "image_sha256": "dda89b5a8a8083e69af002dd625db29916a810c76db842519c45b2b35edeea1f"
+      },
+      {
+        "path": "D:\\Projects\\dot-image-review\\ready_union_scopes_20261015.csv",
+        "record": 2079,
+        "filename": "Tetragrammaton.png",
+        "state": "reviewed",
+        "target_ja": "",
+        "image_sha256": "060b84db35fa99b5d3ea9f7f94590d4474cec03f0866a18309ff6e8c8073e5a4"
+      },
+      {
+        "path": "D:\\Projects\\dot-image-review\\ready_union_scopes_20261015.csv",
+        "record": 2109,
+        "filename": "eigenvector.png",
+        "state": "reviewed",
+        "target_ja": "",
+        "image_sha256": "acaf058d50d96c72132ead3916f91724f35bc1e9232dee1cfbc2b8a34fd067eb"
+      },
+      {
+        "path": "D:\\Projects\\dot-image-review\\ready_union_scopes_20261015.csv",
+        "record": 2547,
+        "filename": "esotropia.png",
+        "state": "reviewed",
+        "target_ja": "",
+        "image_sha256": "b772c5fd9712ecc8d10d972cdf05751e782e2e6acaecebea17358006e051e915"
+      }
+    ]
+  },
+  "earlier_all_image_audit_coverage_retained": {
+    "current_owned_PNGs": 21522,
+    "fresh_current_pixel_PNGs": 9560,
+    "exact_current_hash_and_first_Japanese_sense_reviewed_caption_PNGs": 12146,
+    "fresh_and_prior_proof_overlap": 184,
+    "uncovered_owned_PNGs": [],
+    "alternate_literal_PNG_pairs_freshly_checked": 18,
+    "method_limit": "12,147 word-ID rows rely on exact-current-image-hash + exact-first-Japanese-sense retained reviewed-caption evidence; these were not all freshly reopened. Fresh contact review cannot certify every fine anatomical/chemical detail or ambiguous proper-name identity. Unbound images are not asserted semantically correct."
+  },
+  "earlier_all_image_hash_check": {
+    "checked_at": "2026-10-28T12:24:46.507068+00:00",
+    "PNG_files": 22658,
+    "added": [],
+    "removed": [],
+    "changed": []
+  },
+  "current_public_words_sha256": "eb08b4a563f3b58a255ed24932fc5d0b658a6b4fd15f0495c6f93d59556c03a5",
+  "input_hashes_now": [
+    {
+      "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_review_pending.csv",
+      "sha256": "e251a553316a792b3ada324cf7e9999063e9346df2f81df95f17cc969d293652"
+    },
+    {
+      "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_rows_1000_with_priority_fixes_20261026.csv",
+      "sha256": "069b74b64a3a7c57ff80aa3fefb7e0d4914a8c5f7f599b97057c9c90fff74b61"
+    },
+    {
+      "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_rows_difficulty_low_missing_20261027.csv",
+      "sha256": "3da6667eba15dd306a1136a5268d6507b17d1301076b0ea2e6169f5ecb2c8d75"
+    },
+    {
+      "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_rows_image_meaning_fixes_20261027.csv",
+      "sha256": "dda1be8416b4d2ae41f9fa20116e0218e85437bcd61a3116956857c6c2f2b3af"
+    },
+    {
+      "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_rows_weblio_missing_low500_redone_20261024_v3.csv",
+      "sha256": "ac66ff35d0b5bf1216e9346effc6f429322fc346392e8a5a19722b70617f9db5"
+    },
+    {
+      "path": "D:\\Projects\\dot-image-review\\ready_union_scopes_20261015.csv",
+      "sha256": "780583a744bf63afe671e68b75456ac21af50d21f74e114eaf5b8b68b90d3a6c"
+    }
+  ],
+  "heads_read_only": {
+    "D:\\Projects\\etymolingo": "65f04ea16338e8832bdfd02414efea31214bfb97",
+    "D:\\Projects\\etymon-source": "3f3cd2552f3dd2f95a52f9c0d3a738769522a83c"
+  },
+  "unchanged_by_this_followup": [
+    "all images",
+    "canonical/mother data",
+    "shared ledgers",
+    "Git working state except own prompt/audit artifacts; no pull/commit/push",
+    "original 149 prompt bytes",
+    "prior four correction CSV",
+    "earlier audit CSV"
+  ]
+}

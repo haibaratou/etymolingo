@@ -1,0 +1,46 @@
+{
+  "commit": "da4858d401e2cda5b8a034b916c6fb0874e27bfe",
+  "validation": "17 tests passed; build-data --check passed; embedded image and CSV, image helper and storage-code identity checked",
+  "canonicalWords": 49180,
+  "actualRange": [
+    1,
+    10
+  ],
+  "unclassified": 126,
+  "featured": {
+    "updated": 91,
+    "senseHold": 2,
+    "missingIdentity": 5
+  },
+  "lexicon": {
+    "updated": 927,
+    "senseHold": 2,
+    "missingIdentity": 15
+  },
+  "rootsUpdated": 12,
+  "fileProjection": {
+    "rows": 925,
+    "bytes": 88043
+  },
+  "browser": {
+    "action": "observe existing Chrome tab 896713488",
+    "target": "file:///D:/Projects/etymolingo/app/etymopedia.html#",
+    "outcome": "denied",
+    "reason": "URL protocol policy permits http/https only; no alternate browser route used"
+  },
+  "referenceImage": {
+    "libraryId": "libfile_b9b2e95b7d908191bf74a5b8cafd406f",
+    "outcome": "download failed",
+    "localPixelsVerified": false
+  },
+  "patchBytes": 133500,
+  "handoffPR": {
+    "url": "https://github.com/haibaratou/etymolingo/pull/53",
+    "draft": true,
+    "contents": "Exact implementation patch and handoff instructions only; public entrance not deployed",
+    "prerequisitesPending": [
+      "current app/support layout 3ad5eeb18",
+      "matching dictionary import and file projection refresh"
+    ]
+  }
+}

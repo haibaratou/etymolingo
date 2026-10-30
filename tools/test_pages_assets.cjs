@@ -27,7 +27,7 @@ function fixture() {
   const win = {Element, HTMLImageElement: Img, CSSStyleDeclaration: Style,
     XMLHttpRequest: XHR,
     document: {currentScript: {src: site + 'pages-assets.js'},
-      baseURI: site + 'app/games/picture-words.html', documentElement: {}},
+      baseURI: site + 'app/pictlingo-game.html', documentElement: {}},
     MutationObserver: class { observe() {} }, URL, Request,
     fetch: async input => { fetched = input; return {ok: true}; }};
   win.window = win;
@@ -42,7 +42,7 @@ test('tiny policy maps every currently tracked media path to the identical pinne
   const {win, code} = fixture();
   const media = childProcess.execFileSync('git',['ls-files','-z'],{cwd:repository,encoding:'utf8',maxBuffer:16*1024*1024})
     .split('\0').filter(name => name &&
-      (extensions.includes(path.posix.extname(name).toLowerCase()) || name.startsWith('app/games/picture-words/scene-assets/')) &&
+      (extensions.includes(path.posix.extname(name).toLowerCase()) || name.startsWith('app/support/picture-words/scene-assets/')) &&
       !name.startsWith('assets/ui/') && !name.split('/').includes('.git'));
   assert.ok(media.length > 0, 'The whole repository media inventory must be exercised');
   for (const name of media) {
@@ -56,18 +56,18 @@ test('tiny policy maps every currently tracked media path to the identical pinne
 
 test('base URL, Unicode, queries and fragments survive routing', () => {
   const {win} = fixture();
-  assert.equal(win.ETYMON_ASSET_URL('../../assets/word/caf%C3%A9.png?v=1#picture'),
+  assert.equal(win.ETYMON_ASSET_URL('../assets/word/caf%C3%A9.png?v=1#picture'),
     raw + 'assets/word/caf%C3%A9.png?v=1#picture');
   assert.equal(win.ETYMON_ASSET_URL('/etymolingo/assets/word/a.PNG'), raw + 'assets/word/a.PNG');
   assert.equal(win.ETYMON_ASSET_URL('../assets/word/a.png', site + 'app/index.html'), raw + 'assets/word/a.png');
-  assert.equal(win.ETYMON_ASSET_URL('picture-words/scene-assets/a%40abc.js'),
-    raw + 'app/games/picture-words/scene-assets/a%40abc.js');
+  assert.equal(win.ETYMON_ASSET_URL('support/picture-words/scene-assets/a%40abc.js'),
+    raw + 'app/support/picture-words/scene-assets/a%40abc.js');
 });
 
 test('local UI, scripts, data and outside origins remain unchanged', () => {
   const {win} = fixture();
-  for (const value of ['../data/generated-etymon/words.json','../../assets/ui/icon.png',
-    '../../assets/word/illustration-index.js','../../assets/word/a.svg',
+  for (const value of ['data/generated-etymon/words.json','../assets/ui/icon.png',
+    '../assets/word/illustration-index.js','../assets/word/a.svg',
     'https://example.com/a.png','https://haibaratou.github.io/another/a.png',
     '//example.com/a.png','data:image/png;base64,AA==','blob:https://example.com/id','#image',
     site + '.git/private.png']) {
@@ -77,7 +77,7 @@ test('local UI, scripts, data and outside origins remain unchanged', () => {
 
 test('unknown missing media route to raw while keeping the original error fallback', () => {
   const {win, Img, Element} = fixture();
-  const missing = '../../assets/word/definitely-missing-startup-fixture.png';
+  const missing = '../assets/word/definitely-missing-startup-fixture.png';
   assert.equal(win.ETYMON_ASSET_URL(missing), raw + 'assets/word/definitely-missing-startup-fixture.png');
   const img = new Img();
   let errors = 0;
@@ -94,23 +94,23 @@ test('unknown missing media route to raw while keeping the original error fallba
 test('dynamic properties, attributes, responsive images and canvas CORS stay supported', () => {
   const {Img, Element} = fixture();
   const img = new Img();
-  img.src = '../../assets/word/café.png';
+  img.src = '../assets/word/café.png';
   assert.equal(img.src,raw + 'assets/word/caf%C3%A9.png');
   assert.equal(img.crossOrigin,'anonymous');
-  img.srcset = '../../assets/word/a.png 1x, ../../assets/word/b.webp 2x';
+  img.srcset = '../assets/word/a.png 1x, ../assets/word/b.webp 2x';
   assert.equal(img.srcset,raw+'assets/word/a.png 1x, '+raw+'assets/word/b.webp 2x');
   const element = new Element();
-  element.setAttribute('style','background-image:url("../../assets/word/a.png")');
+  element.setAttribute('style','background-image:url("../assets/word/a.png")');
   assert.equal(element.getAttribute('style'),'background-image:url("'+raw+'assets/word/a.png")');
 });
 
 test('pack fetch, URL objects and XHR use the same policy', async () => {
   const {win, XHR, fetched} = fixture();
-  await win.fetch('picture-words/scene-assets/test.js');
-  assert.equal(fetched(),raw+'app/games/picture-words/scene-assets/test.js');
+  await win.fetch('support/picture-words/scene-assets/test.js');
+  assert.equal(fetched(),raw+'app/support/picture-words/scene-assets/test.js');
   await win.fetch(new URL(site+'assets/word/a.png'));
   assert.equal(fetched(),raw+'assets/word/a.png');
   const request = new XHR();
-  request.open('GET','../../assets/word/a.png');
+  request.open('GET','../assets/word/a.png');
   assert.equal(request.openedUrl,raw+'assets/word/a.png');
 });

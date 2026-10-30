@@ -1,0 +1,8 @@
+{
+  "status": "held_not_ready",
+  "reason": "Japanese target lacks enough identity detail; do not force a city or generic person based on the paraphrase or capitalization",
+  "scenes_not_in_csv": {
+    "385": "An ordinary adult man stands facing the viewer with one hand resting on his own chest and a friendly expression. This is a neutral fictional name illustration for Phillip; invent no famous person's biography, costume or distinctive likeness.",
+    "592": "A compact view of Wellington, New Zealand, shows its hillside red cable car overlooking the harbor and clustered waterfront buildings. Wind gently bends one nearby tree; no rubber boots or invented human portrait."
+  }
+}

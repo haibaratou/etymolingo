@@ -19,7 +19,7 @@
  function createIndex(words,options={}){
   const images=new Map(),sceneRows=new Map(),cache=new Map();
   const rows=words.map((word,i)=>({word,i,spelling:String(word.w||'').toLowerCase(),ja:String(word.ja||''),kana:String(word.k||''),
-   tags:(word.semanticTags||[]).join('\0').toLowerCase(),roots:(word.p||[]).join('\0').toLowerCase(),scene:''}));
+   tags:(word.semanticTags||[]).join('\0').toLowerCase(),roots:[...(word.p||[]),...(options.rootKeys?.(word)||[])].join('\0').toLowerCase(),scene:''}));
   const byRarity=rows.slice().sort((a,b)=>((a.word.r??9e9)-(b.word.r??9e9))||a.i-b.i);
   const add=(map,key,row)=>{if(!key)return;let values=map.get(key);if(!values)map.set(key,values=new Set());values.add(row);};
   for(const row of rows){

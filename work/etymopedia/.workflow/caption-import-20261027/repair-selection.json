@@ -1,0 +1,37 @@
+{
+  "rows": [
+    {
+      "filename": "gemstone.png",
+      "reason": "現在の第一語義は「宝石用原石」だが実PNGはケース入りの研磨・カット済み宝石。",
+      "current_first_ja": "宝石用原石",
+      "old_image_sha256": "1052be0e05f2e0e716427ff5ea23343cfc180d203391d989092170944c12f1e0",
+      "source_csv": "prompt_rows_1000_with_priority_fixes_20261026.csv",
+      "source_record": 526
+    },
+    {
+      "filename": "biker.png",
+      "reason": "現在の第一語義は「オートバイに乗る人」だが実PNGはペダル付き自転車に乗る人。",
+      "current_first_ja": "オートバイに乗る人",
+      "old_image_sha256": "4192a6e3be1509f97512a0e9eb73659ee2b8969b51c9688f6b4232ff0f8d738f",
+      "source_csv": "prompt_rows_weblio_missing_low500_redone_20261024_v3.csv",
+      "source_record": 121
+    },
+    {
+      "filename": "plugin.png",
+      "reason": "現在の第一語義は「拡張ソフト」だが実PNGは電子基板へ差し込む物理部品。",
+      "current_first_ja": "拡張ソフト",
+      "old_image_sha256": "d0b62e9a4eac669bc990ee01cfd806ea76424c792bbc63909ff2514acb0ec080",
+      "source_csv": "prompt_rows_weblio_missing_low500_redone_20261024_v3.csv",
+      "source_record": 194
+    },
+    {
+      "filename": "coupe.png",
+      "reason": "現在の第一語義は「クーペ型の自動車」だが実PNGは発泡酒入りの浅いグラス。",
+      "current_first_ja": "クーペ型の自動車",
+      "old_image_sha256": "407de1695f20b8e670a99673f37781b2a04cf17ad2a4a7a4f0df7fb2668bac90",
+      "source_csv": "prompt_rows_weblio_missing_low500_redone_20261024_v3.csv",
+      "source_record": 202
+    }
+  ],
+  "paraphrase_policy": "en is an independent snapshot and is not used to decide image revisions."
+}

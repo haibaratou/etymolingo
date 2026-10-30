@@ -1,0 +1,151 @@
+{
+  "schema": 1,
+  "source": "etymon-source/app/data/pie (generated runtime snapshot)",
+  "files": {
+    "roots": {
+      "file": "roots.json",
+      "bytes": 1031934,
+      "count": 1436,
+      "sha256": "6b92881cd5c2bb8f26663da6bfba38a994272f2216ebece01f2a33667fc744cf"
+    },
+    "words": {
+      "file": "words.json",
+      "bytes": 24619502,
+      "count": 49180,
+      "sha256": "3a039b85620ae5ad768e374a5b8658ae3c92ac89623f1771991ee76e1e9a5ee3"
+    },
+    "affixes": {
+      "file": "affixes.json",
+      "bytes": 257191,
+      "count": 888,
+      "sha256": "243da94e9b367b0c6a00ac1b3148e5f59f35d02c7713df6747152935ca9d90f2"
+    },
+    "word_block": {
+      "file": "word_block.json",
+      "bytes": 842688,
+      "count": 9,
+      "sha256": "927a778c8c0240eb10c6e0de01172f4dcba2d6344b1d1eaff9170c8fcdff9539"
+    },
+    "details_brief": {
+      "file": "details_brief.json",
+      "bytes": 147541,
+      "count": 49180,
+      "sha256": "7d94b3733bfc1d64d5b050f60141a024a90ffc4c0e0bb11067fded91466f85e6"
+    },
+    "eo_slugs": {
+      "file": "eo_slugs.json",
+      "bytes": 520338,
+      "count": 47363,
+      "sha256": "bea8d96709efe8bae910522a366314b2341b6705e1e7e0ffa54abcc1e49214a7"
+    },
+    "eo_pick": {
+      "file": "eo_pick.json",
+      "bytes": 7054,
+      "count": 237,
+      "sha256": "e20239da521c0c3c21246f8bfbd128ac4bebcfd09029c18605ad2d653ed2c6e6"
+    },
+    "word_parts": {
+      "file": "word-parts.json",
+      "bytes": 190548,
+      "count": 2167,
+      "sha256": "6b2671802e839c09145058b8c796529da75f80f6d15cf731aca38b4c79238dee",
+      "meaning_basis": "component-core-v2"
+    },
+    "multilingual_answers": {
+      "file": "multilingual-answers.json",
+      "bytes": 1885,
+      "count": 1,
+      "sha256": "608e94c0ed0e38f1b898bff2e50246c0dc32b67837e988cc53918397d8493358"
+    },
+    "illustration_scenes": {
+      "file": "illustration-scenes.json",
+      "bytes": 16081670,
+      "count": 11757,
+      "sha256": "e449661e6767ef2bf12fdc2325309e8f3586652e41365f24143d90ada2a78eba"
+    },
+    "illustration_review_status": {
+      "file": "illustration-review-status.js",
+      "bytes": 4211,
+      "count": 11,
+      "sha256": "687a48cc3f12bc48e5e0719458b7cd52bdfed363b7d0bd0bdba58482b53c85a1"
+    },
+    "word_suika_words": {
+      "file": "word-suika-words.json",
+      "bytes": 3899075,
+      "count": 15018,
+      "sha256": "1b959838b87bcbe5930c52e8176567bb1384c98224976a2e9d42078d0c2ab00a"
+    },
+    "det": {
+      "file": "det/*.json",
+      "bytes": 42770018,
+      "count": 27
+    },
+    "eo": {
+      "file": "eo/*.json",
+      "bytes": 21243040,
+      "count": 27
+    },
+    "semantic_classifications": {
+      "file": "semantic-classifications.json",
+      "bytes": 11255,
+      "count": 8,
+      "sha256": "fd17a499919db2f99d5f411167f869fff31b84afda8044b370cf567b49814e5f"
+    },
+    "offline_dictionary": {
+      "file": "offline-dictionary.js",
+      "words_sha256": "e0da3908fb3a10f38740acef5959cd36354ca85f1d1b57736cb4806c6ae4add6",
+      "parts": [
+        {
+          "file": "offline-dictionary.js",
+          "bytes": 1380,
+          "sha256": "9cb6b1e3b270c2637c67e0cefaa7fdd41a75214dcf631e8edca0f400ff704b34"
+        },
+        {
+          "file": "offline-dictionary-part-bd8809b373ac-00.js",
+          "bytes": 3145912,
+          "sha256": "2f333f397999b57f38eca021b312162f2f5fc090d73e5174f26791784646a1f3"
+        },
+        {
+          "file": "offline-dictionary-part-bd8809b373ac-01.js",
+          "bytes": 3145912,
+          "sha256": "5098abd37430154e65eb65863a555edc3c597452dcfc804383e580c2430356b5"
+        },
+        {
+          "file": "offline-dictionary-part-bd8809b373ac-02.js",
+          "bytes": 3145912,
+          "sha256": "ffdf4563484e2159014e3b4d7a09a4fd361ac55bb7d5281d277e2427b7ace623"
+        },
+        {
+          "file": "offline-dictionary-part-bd8809b373ac-03.js",
+          "bytes": 3145912,
+          "sha256": "d8b4e81bc1b9505f028e35ce90c7ed3ef74cdbd4e62de0eed53fd64620c65aba"
+        },
+        {
+          "file": "offline-dictionary-part-bd8809b373ac-04.js",
+          "bytes": 3145912,
+          "sha256": "62ecd0f0a2aeb273dee72fe74428180be401e248f32f2a99567339f61f64d42b"
+        },
+        {
+          "file": "offline-dictionary-part-bd8809b373ac-05.js",
+          "bytes": 3145912,
+          "sha256": "51603f0587c352b9e1a6cc399fb2b75f8da09a54894cfcf5ea2e061589e92f29"
+        },
+        {
+          "file": "offline-dictionary-part-bd8809b373ac-06.js",
+          "bytes": 3145912,
+          "sha256": "3dfcfa3bb9cc7606169179bdd93ad1f3a3c60bcd17307f702d626df793c3ef5a"
+        },
+        {
+          "file": "offline-dictionary-part-bd8809b373ac-07.js",
+          "bytes": 3145912,
+          "sha256": "7bc233ec26dd776232d5b7e42f1f4dbf30e30e82c51996605a512d088f7579b9"
+        },
+        {
+          "file": "offline-dictionary-part-bd8809b373ac-08.js",
+          "bytes": 2659188,
+          "sha256": "1e3512bd6ad8261017d8c52f2ca23608126ebc46a67857571d003593fe2dc87c"
+        }
+      ]
+    }
+  }
+}

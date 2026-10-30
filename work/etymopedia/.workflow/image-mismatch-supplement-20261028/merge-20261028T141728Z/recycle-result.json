@@ -1,0 +1,29 @@
+{
+  "completed_at": "2026-10-28T14:23:33.9173346Z",
+  "method": "Windows SendToRecycleBin; no permanent-delete fallback",
+  "merged_output": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_rows_image_mismatch_supplement_20261028.csv",
+  "merged_output_sha256": "f7549722ce8bda184e3a53905d0ab18a39c70985aa16eca46277d354c0def716",
+  "results": [
+    {
+      "original_path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_rows_image_mismatch_followup_20261028.csv",
+      "recycle_metadata": "D:\\$RECYCLE.BIN\\S-1-5-21-3758131398-3983472856-2710694881-1001\\$IHAXUYW.csv",
+      "recycle_data": "D:\\$Recycle.Bin\\S-1-5-21-3758131398-3983472856-2710694881-1001\\$RHAXUYW.csv",
+      "sha256": "7937d5ac88fd5b99d5300a8f14d3fc67ba595e16d49530b4e98682f5903f8028",
+      "status": "recycled_and_restore_bytes_verified"
+    },
+    {
+      "original_path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_rows_image_meaning_fixes_20261027.csv",
+      "recycle_metadata": "D:\\$RECYCLE.BIN\\S-1-5-21-3758131398-3983472856-2710694881-1001\\$IRPQB97.csv",
+      "recycle_data": "D:\\$Recycle.Bin\\S-1-5-21-3758131398-3983472856-2710694881-1001\\$RRPQB97.csv",
+      "sha256": "dda1be8416b4d2ae41f9fa20116e0218e85437bcd61a3116956857c6c2f2b3af",
+      "status": "recycled_and_restore_bytes_verified"
+    },
+    {
+      "original_path": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_rows_image_mismatch_supplement_20261028.csv.stage-tmp",
+      "recycle_metadata": "D:\\$RECYCLE.BIN\\S-1-5-21-3758131398-3983472856-2710694881-1001\\$IZ4ZO6G.stage-tmp",
+      "recycle_data": "D:\\$Recycle.Bin\\S-1-5-21-3758131398-3983472856-2710694881-1001\\$RZ4ZO6G.stage-tmp",
+      "sha256": "1f0790a3b778020ea0268fa59ca0687d4ee087a2339287b9f462b590fa62c1a0",
+      "status": "recycled_and_restore_bytes_verified"
+    }
+  ]
+}

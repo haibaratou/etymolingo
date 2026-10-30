@@ -1,0 +1,3360 @@
+[
+  {
+    "case": 12,
+    "w": "Ada",
+    "ja": "エイダ",
+    "p": [],
+    "b": "女性名Adaには、ヘブライ語Adha「飾り」に由来する説明と、ゲルマン語の「高貴な」を表す語に由来する説明がある。",
+    "filename": "Ada.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 21,
+    "w": "Anastasia",
+    "ja": "アナスタシア",
+    "p": [
+      "stā-",
+      "an-"
+    ],
+    "b": "人名。ギリシャ語の「復活」から。文字どおりには「立ち上がること」。",
+    "filename": "Anastasia.png",
+    "decision": "hold_identity_or_source"
+  },
+  {
+    "case": 76,
+    "w": "Carmen",
+    "ja": "カルメン",
+    "p": [
+      "kan-"
+    ],
+    "b": "人名、そしてオペラの題名。ラテン語 carmen は「歌・呪文・神託」。名前が歌そのもの。",
+    "filename": "Carmen.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 116,
+    "w": "Coventry",
+    "ja": "コベントリ",
+    "p": [],
+    "b": "仲間外れの状態を表す用法は、イングランドの都市Coventryの名に由来する。",
+    "filename": "Coventry.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 123,
+    "w": "Dalton",
+    "ja": "ダルトン",
+    "p": [],
+    "b": "姓としては、イングランド各地のDaltonという地名に由来する。地名は古英語dæl「谷」とtūn「集落」から成る。",
+    "filename": "Dalton.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 154,
+    "w": "Doppler",
+    "ja": "ドップラー",
+    "p": [],
+    "b": "姓としては「賭博をする人」を意味する。物理学での用法は、波の周波数の変化を説明した科学者Christian Dopplerの名にちなむ。",
+    "filename": "Doppler.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 201,
+    "w": "Flora",
+    "ja": "フローラ",
+    "p": [
+      "bhel-3"
+    ],
+    "b": "もとは花の女神フローラの名。1777年に「その土地の植物全体」の意味になった。",
+    "filename": "Flora_cap.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 442,
+    "w": "Rolf",
+    "ja": "ロルフ",
+    "p": [],
+    "b": "動詞のRolfは、施術法Rolfingを考案したIda P. Rolfの姓に由来する。",
+    "filename": "Rolf.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 587,
+    "w": "Veronica",
+    "ja": "ヴェロニカ",
+    "p": [],
+    "b": "女性名Veronicaは、ギリシャ語の女性名Berenikeの変形に由来する。「真の像」を意味するラテン語veraとギリシャ語eikonからの説明は、後世の民間語源。",
+    "filename": "Veronica.png",
+    "decision": "hold_identity_or_source"
+  },
+  {
+    "case": 600,
+    "w": "York",
+    "ja": "ヨーク",
+    "p": [],
+    "b": "古英語の地名Eoforwicに遡り、その前身はケルト語系のEborakon。「イチイの木の土地」とする説と、人名に結びつける説がある。",
+    "filename": "York.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 100015,
+    "w": "Abigail",
+    "ja": "アビゲイル",
+    "p": [],
+    "b": "ヘブライ語Abhigayil「父は喜んでいる」に由来する人名。侍女を指す用法は、戯曲The Scornful Ladyの同名の登場人物から広まった。",
+    "filename": "Abigail.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 100118,
+    "w": "Adeline",
+    "ja": "アデリーン",
+    "p": [],
+    "b": "フランス語からの女性名。ゲルマン語のadal「高貴な家系」にフランス語の女性形の接尾辞-ineを添えた形。",
+    "filename": "Adeline.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 100181,
+    "w": "Agatha",
+    "ja": "アガサ",
+    "p": [],
+    "b": "ギリシャ語 agathos（よい）の女性形 Agathē をラテン語化した人名。",
+    "filename": "Agatha.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 100215,
+    "w": "Alaric",
+    "ja": "アラリック",
+    "p": [
+      "reg-"
+    ],
+    "b": "人名。「すべてを統べる者」が名の意味。西ゴート族の男性名。",
+    "filename": "Alaric.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 100229,
+    "w": "Ali",
+    "ja": "アリ",
+    "p": [],
+    "b": "アラビア語の人名 ʿAlī「高い・崇高な」に由来する。人の名から姓としても使われるようになった。",
+    "filename": "Ali.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 100239,
+    "w": "Allen",
+    "ja": "アレン",
+    "p": [],
+    "b": "男性名・姓の Alan の異形。Alan は古ブルトン語の名から英語に入り、ノルマン征服に加わったブルトン人が広めた。",
+    "filename": "Allen.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 100253,
+    "w": "Alsace",
+    "ja": "アルザス",
+    "p": [
+      "al-1",
+      "sed-"
+    ],
+    "b": "地名の中身は「向こう岸に座る人」。ライン川の対岸の住民の意。",
+    "filename": "Alsace.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 100297,
+    "w": "Amritsar",
+    "ja": "アムリトサル",
+    "p": [
+      "mer-2",
+      "ne"
+    ],
+    "b": "地名の意味は「不死の池」。「死んだ」に否定が付いて「不死」となる。",
+    "filename": "Amritsar.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 100298,
+    "w": "Amsterdam",
+    "ja": "アムステルダム",
+    "p": [],
+    "b": "Amstel川の名とdam「堤・せき」からなる地名。",
+    "filename": "Amsterdam.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 100352,
+    "w": "Angola",
+    "ja": "アンゴラ",
+    "p": [],
+    "b": "ポルトガル人が接触した当時の現地の支配者の称号 N’gola に由来する国名。",
+    "filename": "Angola.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 100402,
+    "w": "Antigone",
+    "ja": "アンティゴネー",
+    "p": [
+      "genə-",
+      "ant-"
+    ],
+    "b": "人名。名前の意味は「母の代わりに」かもしれない、オイディプスの娘。",
+    "filename": "Antigone.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 100475,
+    "w": "Arcadia",
+    "ja": "アルカディア",
+    "p": [],
+    "b": "ギリシャの地名Arkadiaをラテン語化した形。牧歌文学で田園の理想郷として描かれ、穏やかな楽園を表す語にもなった。",
+    "filename": "Arcadia.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 100486,
+    "w": "Argentina",
+    "ja": "アルゼンチン",
+    "p": [
+      "arg-"
+    ],
+    "b": "国名の意味は「銀の国」。銀の川と呼ばれた河から名づけられた。",
+    "filename": "Argentina.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 100487,
+    "w": "Ariadne",
+    "ja": "アリアドネ",
+    "p": [],
+    "b": "ギリシャ語の人名Ariadnēから。さらに古くは、ギリシャ語以前の言語に由来すると考えられる。",
+    "filename": "Ariadne.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 100494,
+    "w": "Arlington",
+    "ja": "アーリントン",
+    "p": [
+      "dheuə-"
+    ],
+    "b": "英国の地名から。-ton は古英語 tūn(囲われた村)で、town と同じ語である。",
+    "filename": "Arlington.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 100495,
+    "w": "Armenia",
+    "ja": "アルメニア",
+    "p": [],
+    "b": "古代ペルシア語の属州名Arminaが、ギリシャ語Armeniāとして受け継がれた地名。現地ではHayastanという別の呼称が使われる。",
+    "filename": "Armenia.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 100496,
+    "w": "Armorica",
+    "ja": "アルモリカ",
+    "p": [
+      "mori-"
+    ],
+    "b": "地名。ガリア語で「海の前」。ブルターニュの古い呼び名である。",
+    "filename": "Armorica.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 100552,
+    "w": "Assyria",
+    "ja": "アッシリア",
+    "p": [],
+    "b": "ラテン語・ギリシャ語を経て、アッカド語Ashshurにさかのぼる。Ashshurは王国の中心都市の名であり、神の名でもあった。",
+    "filename": "Assyria.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 100559,
+    "w": "Astrid",
+    "ja": "アストリッド",
+    "p": [],
+    "b": "北欧の言語から入った女性名。古高ドイツ語 Ansitruda と同系で、その名は ansi「神」と trut「愛しい」からなる。",
+    "filename": "Astrid.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 100572,
+    "w": "Athens",
+    "ja": "アテネ",
+    "p": [],
+    "b": "ギリシャ語Athenaiから入った名で、原語は複数形。女神Athenaに結び付ける伝統的な説明があるが、さらに古い地名を作り替えた可能性がある。",
+    "filename": "Athens.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 100589,
+    "w": "Aubrey",
+    "ja": "オーブリー",
+    "p": [
+      "albho-",
+      "reg-"
+    ],
+    "b": "人名。中身は「エルフの支配者」。米国では1973年ごろから女子名に。",
+    "filename": "Aubrey.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 100599,
+    "w": "Augusta",
+    "ja": "オーガスタ",
+    "p": [],
+    "b": "ジョージア州の都市名は、ジョージ3世の母オーガスタ公妃にちなむ。",
+    "filename": "Augusta.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 100600,
+    "w": "Augustine",
+    "ja": "アウグスティヌス",
+    "p": [],
+    "b": "ラテン語の人名 Augustinus に由来する。augustus（尊厳ある）に人名を作る -inus を添えた形。",
+    "filename": "Augustine.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 100655,
+    "w": "Babel",
+    "ja": "バベル",
+    "p": [],
+    "b": "後期ラテン語、ヘブライ語Babhelを経て、アッカド語bab-ilu「神の門」にさかのぼる地名。",
+    "filename": "Babel.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 100667,
+    "w": "Bahamas",
+    "ja": "バハマ",
+    "p": [],
+    "b": "スペイン語baja mar「低い海」に由来するという説明もあるが、現地の地名Guanahaniに結び付ける説のほうが有力だとされる。",
+    "filename": "Bahamas.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 100679,
+    "w": "Ballard",
+    "ja": "バラード",
+    "p": [],
+    "b": "姓Ballardには、中英語ballard「頭のはげた人」に由来する英語系と、ゲルマン系人名Balhardに由来するフランス語系がある。",
+    "filename": "Ballard.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 100683,
+    "w": "Baltimore",
+    "ja": "ボルティモア",
+    "p": [],
+    "b": "メリーランドの都市名は、植民地の勅許を持っていた第2代ボルティモア男爵 Cecilius Calvert にちなむ。",
+    "filename": "Baltimore.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 100692,
+    "w": "Bangladesh",
+    "ja": "バングラデシュ",
+    "p": [],
+    "b": "ベンガル語の Bangla（ベンガルの）と desh（国）を組み合わせた国名。",
+    "filename": "Bangladesh.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 100703,
+    "w": "Barbara",
+    "ja": "バーバラ",
+    "p": [],
+    "b": "ラテン語barbarus「異国の、外国の」の女性形に由来する人名。さらにギリシャ語barbarosにさかのぼる。",
+    "filename": "Barbara.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 100723,
+    "w": "Barry",
+    "ja": "バリー",
+    "p": [],
+    "b": "姓には複数の由来があり、ゲール語 Ó Beargha／Ó Báire の英語化、ウェールズの Barry 島にちなむ地名姓などがある。",
+    "filename": "Barry.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 100737,
+    "w": "Batavia",
+    "ja": "バタビア",
+    "p": [],
+    "b": "イリノイ州の都市名は、初期入植者たちが移住してきたニューヨーク州のBatavia市にちなむ。",
+    "filename": "Batavia.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 100745,
+    "w": "Bavaria",
+    "ja": "バイエルン",
+    "p": [],
+    "b": "中世ラテン語Boiariaに連なる地名で、古代ケルト人の一集団Boiiの名に由来する。",
+    "filename": "Bavaria.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 100761,
+    "w": "Beatrice",
+    "ja": "ベアトリーチェ",
+    "p": [
+      "deu-2"
+    ],
+    "b": "人名。ラテン語で「幸せにする者」の意。名前そのものが祝福の言葉。",
+    "filename": "Beatrice.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 100787,
+    "w": "Bel",
+    "ja": "ベル",
+    "p": [],
+    "b": "単位名はAlexander Graham Bellの姓にちなんで付けられた。",
+    "filename": "Bel.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 100791,
+    "w": "Belgium",
+    "ja": "ベルギー",
+    "p": [],
+    "b": "古代の Belgæ（ベルガエ族）が住む地域を表したラテン語の地名に由来する。1830年に新国家の名として採用された。",
+    "filename": "Belgium.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 100795,
+    "w": "Belize",
+    "ja": "ベリーズ",
+    "p": [],
+    "b": "国名はBelize川の名から取られた可能性がある。",
+    "filename": "Belize.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 100810,
+    "w": "Bengal",
+    "ja": "ベンガル",
+    "p": [],
+    "b": "住民の呼び名から来た地名で、その名を始祖とされる Banga に結び付ける説がある。",
+    "filename": "Bengal.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 100818,
+    "w": "Berenice",
+    "ja": "ベレニケ",
+    "p": [
+      "bher-1"
+    ],
+    "b": "人名。「勝利を運ぶ者」。髪座(かみのけ座)の名は、この名の王妃の捧げた髪に由来する。",
+    "filename": "Berenice.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 100820,
+    "w": "Berkeley",
+    "ja": "バークリー",
+    "p": [],
+    "b": "姓としては「白樺の林・空き地」の意味。カリフォルニアの都市名は、哲学者George Berkeleyの姓にちなむ。",
+    "filename": "Berkeley.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 100821,
+    "w": "Bermuda",
+    "ja": "バミューダ",
+    "p": [],
+    "b": "スペインの探検家Juan de Bermudezの名にちなんで付けられた地名。",
+    "filename": "Bermuda.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 100831,
+    "w": "Bethesda",
+    "ja": "ベテスダ",
+    "p": [],
+    "b": "メリーランドの地名は、当地の教会Bethesda Meeting Houseの名に由来する。",
+    "filename": "Bethesda.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 100832,
+    "w": "Bethlehem",
+    "ja": "ベスレヘム",
+    "p": [],
+    "b": "「ラフムとラハムの家」を意味し、メソポタミアの農耕神の一対に関係する地名だという説がある。",
+    "filename": "Bethlehem.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 100844,
+    "w": "Bianca",
+    "ja": "ビアンカ",
+    "p": [],
+    "b": "イタリア語 bianco「白い」の女性形から生じた人名。bianco はゲルマン語起源。",
+    "filename": "Bianca.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 100882,
+    "w": "Bismarck",
+    "ja": "ビズマーク",
+    "p": [],
+    "b": "姓Bismarckは、Biscofsmark「司教の境界」を縮めた形だという説がある。",
+    "filename": "Bismarck.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 100898,
+    "w": "Blaise",
+    "ja": "ブレーズ",
+    "p": [],
+    "b": "4世紀初めの聖人Blaiseの名に由来する男性名。聖人の名はギリシャ語ではBlasios。",
+    "filename": "Blaise.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 100901,
+    "w": "Blanche",
+    "ja": "ブランチ",
+    "p": [],
+    "b": "フランス語Blancheから入った女性名。古フランス語blanc「白い」に由来し、この語はゲルマン系。",
+    "filename": "Blanche.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 100937,
+    "w": "Bob",
+    "ja": "ボブ",
+    "p": [],
+    "b": "男性名 Robert を短くし、音を変えて作られた親しみのある呼び方。",
+    "filename": "Bob.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 100942,
+    "w": "Boeing",
+    "ja": "ボーイング",
+    "p": [],
+    "b": "社名は創業者ウィリアム・E・ボーイングの姓にちなむ。1917年にPacific Aero ProductsからBoeing Airplane Companyへ改称した。",
+    "filename": "Boeing.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 100948,
+    "w": "Bologna",
+    "ja": "ボローニャ",
+    "p": [],
+    "b": "イタリアの都市Bolognaで作られたソーセージにちなむ名。bologna sausageを短くしたもの。",
+    "filename": "Bologna.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 100952,
+    "w": "Bonaparte",
+    "ja": "ボナパルト",
+    "p": [],
+    "b": "イタリアの姓Bonaparteは、人名B(u)onaparteに由来する。b(u)ona「よい」とparte「解決・よい取り合わせ」を合わせ、子の誕生を喜ぶ名だった。",
+    "filename": "Bonaparte.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 100971,
+    "w": "Bordeaux",
+    "ja": "ボルドー",
+    "p": [],
+    "b": "フランスの都市Bordeauxから輸入されたワインに、産地の名を用いたもの。英語のワイン名としては16世紀に見られる。",
+    "filename": "Bordeaux.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 100987,
+    "w": "Botswana",
+    "ja": "ボツワナ",
+    "p": [],
+    "b": "国名は「ツワナ人の土地」を意味する。",
+    "filename": "Botswana.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 101028,
+    "w": "Brian",
+    "ja": "ブライアン",
+    "p": [],
+    "b": "ケルト系の男性名で、もとは「強い」を意味した可能性があるとされる。",
+    "filename": "Brian.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 101042,
+    "w": "Brisbane",
+    "ja": "ブリスベン",
+    "p": [],
+    "b": "ニューサウスウェールズ総督トマス・マクドゥーガル・ブリズベンにちなむ都市名。探検家オクスリーの提案で名付けられた。",
+    "filename": "Brisbane.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 101066,
+    "w": "Bruce",
+    "ja": "ブルース",
+    "p": [],
+    "b": "ノルマン系の姓から人名になったもの。姓をノルマンディーの地名Brixに結び付ける説もあるが、この説明には異論がある。",
+    "filename": "Bruce.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 101117,
+    "w": "Burgundy",
+    "ja": "ブルゴーニュ",
+    "p": [
+      "bhergh-2"
+    ],
+    "b": "地名の意味は「高地の民」。スウェーデン出身の一族が名を残した。",
+    "filename": "Burgundy.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 101151,
+    "w": "cadmium",
+    "ja": "カドミウム",
+    "p": [],
+    "b": "亜鉛の鉱物を指したラテン語 cadmia に、金属元素名を作る -ium を付けた新ラテン語。cadmia はギリシャ語 kadmeia「テーバイの土」にさかのぼり、都市テーバイの伝説上の建設者カドモスの名と結び付いている。",
+    "filename": "cadmium.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 101153,
+    "w": "Caesarea",
+    "ja": "カイサリア",
+    "p": [],
+    "b": "ローマ皇帝Augustus Caesarをたたえて付けられた古代都市の名。",
+    "filename": "Caesarea.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 101157,
+    "w": "Caitlin",
+    "ja": "ケイトリン",
+    "p": [],
+    "b": "女性名Kathleenの別の綴りで、KathleenはCatherineと同系の形。",
+    "filename": "Caitlin.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 101167,
+    "w": "Caledonia",
+    "ja": "カレドニア",
+    "p": [],
+    "b": "ウィスコンシン州の町名は、初期入植者Levi Blakeにゆかりのバーモント州Caledonia郡から移された名。",
+    "filename": "Caledonia.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 101169,
+    "w": "calico",
+    "ja": "キャラコ",
+    "p": [],
+    "b": "インドの港町 Calicut の地名の別形に由来する。ヨーロッパ人がそこで手に入れた綿布の名となり、後にはその布を思わせる動物の斑模様にも使われた。",
+    "filename": "calico.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 101180,
+    "w": "Cameron",
+    "ja": "キャメロン",
+    "p": [],
+    "b": "スコットランドの姓。ハイランドでは通常、ゲール語 cam（曲がった）と sròn（鼻）から来るあだ名に由来し、ローランドでは同名の土地にちなむ例もある。",
+    "filename": "Cameron.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 101182,
+    "w": "Camilla",
+    "ja": "カミラ",
+    "p": [],
+    "b": "ラテン語の人名Camillusの女性形。camillus「祭儀に仕える高貴な家の少年」に由来し、さらにエトルリア語との関係も考えられている。",
+    "filename": "Camilla.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 101185,
+    "w": "Campbell",
+    "ja": "キャンベル",
+    "p": [],
+    "b": "スコットランド・ゲール語のcaimbeul「曲がった口」に由来する姓。cam「曲がった」がその構成要素。",
+    "filename": "Campbell.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 101188,
+    "w": "Canaan",
+    "ja": "カナン",
+    "p": [],
+    "b": "後期ラテン語Chanaan、ギリシャ語Chananを経て、ヘブライ語Kena’anにさかのぼる地名。",
+    "filename": "Canaan.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 101241,
+    "w": "Carlos",
+    "ja": "カルロス",
+    "p": [],
+    "b": "ゲルマン系の人名 Karl のスペイン語形。フランス語 Charles、イタリア語 Carlo に対応する。",
+    "filename": "Carlos.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 101274,
+    "w": "Castile",
+    "ja": "カスティーリャ",
+    "p": [
+      "kes-2"
+    ],
+    "b": "地名。「城」の複数形が地名に。ムーア人との戦いで砦だらけだった土地。",
+    "filename": "Castile.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 101289,
+    "w": "Catherine",
+    "ja": "キャサリン",
+    "p": [],
+    "b": "フランス語Catherineを経て、ギリシャ語の人名Aikaterineにさかのぼる。hは「清い」を意味するkatharosとの民間語源的な結び付きから加わったと考えられる。",
+    "filename": "Catherine.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 101388,
+    "w": "Chernobyl",
+    "ja": "チェルノブイリ",
+    "p": [],
+    "b": "ロシア語chernobylnik「ヨモギ」に由来する地名。ウクライナ語の形はChornobyl。",
+    "filename": "Chernobyl.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 101390,
+    "w": "Cheryl",
+    "ja": "シェリル",
+    "p": [],
+    "b": "Cherry と Beryl を組み合わせて作られた人名と考えられる。",
+    "filename": "Cheryl.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 101407,
+    "w": "Chile",
+    "ja": "チリ",
+    "p": [],
+    "b": "スペイン語では早くから Chili と記された地名。もとはアコンカグアの谷を指した現地の語に由来すると考えられる。",
+    "filename": "Chile.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 101441,
+    "w": "Cindy",
+    "ja": "シンディ",
+    "p": [],
+    "b": "女性名Cynthiaを親しみを込めて短くした形として、よく用いられる名。",
+    "filename": "Cindy.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 101477,
+    "w": "Clark",
+    "ja": "クラーク",
+    "p": [],
+    "b": "中英語で clerk を表した綴りから生まれた姓。当時の clerk は聖職者を指し、初期の Clark にも下級聖職者が多かった。",
+    "filename": "Clark.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 101483,
+    "w": "Claudius",
+    "ja": "クラウディウス",
+    "p": [],
+    "b": "ローマの氏族名に由来する人名。ラテン語claudus「足の不自由な」と関係するという説がある。",
+    "filename": "Claudius.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 101563,
+    "w": "Cohen",
+    "ja": "コーエン",
+    "p": [],
+    "b": "ヘブライ語kohen「祭司」に由来する姓。",
+    "filename": "Cohen.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 101573,
+    "w": "Colin",
+    "ja": "コリン",
+    "p": [],
+    "b": "男性名 Colin には、フランス語 Nicolas の愛称 Col から生まれた系統がある。",
+    "filename": "Colin.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 101581,
+    "w": "Colleen",
+    "ja": "コリーン",
+    "p": [],
+    "b": "アイルランド語cailín「少女」からの借用で、caile「少女・女性」の指小形。女性名Colleenにも同じ語が用いられた。",
+    "filename": "Colleen.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 101585,
+    "w": "Collins",
+    "ja": "コリンズ",
+    "p": [],
+    "b": "姓Collinsは、Nicholasの愛称Colからできた縮小形の人名に由来する。",
+    "filename": "Collins.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 101591,
+    "w": "cologne",
+    "ja": "コロン",
+    "p": [],
+    "b": "Cologne water を短くした語。Cologne water はフランス語 eau de Cologne「ケルンの水」の英訳で、香水が作られたドイツの都市ケルンの名に由来する。",
+    "filename": "cologne.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 101798,
+    "w": "Coulomb",
+    "ja": "クーロン",
+    "p": [],
+    "b": "電荷の単位名は、フランスの物理学者Charles Augustin de Coulombの姓にちなむ。",
+    "filename": "Coulomb.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 101838,
+    "w": "Craig",
+    "ja": "クレイグ",
+    "p": [],
+    "b": "スコットランドの姓から人名に転じたもの。Cragg の形に対応し、もとは「険しい岩のそばに住む人」を表した。",
+    "filename": "Craig.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 101911,
+    "w": "Cullen",
+    "ja": "カレン",
+    "p": [],
+    "b": "姓Cullenには複数の由来がある。アイルランドでは「若い猟犬」や「ヒイラギ」を表す人名から、スコットランドでは地名Cullenから生じた。ドイツのKölnにちなむ英語の姓もある。",
+    "filename": "Cullen.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 101980,
+    "w": "Danny",
+    "ja": "ダニー",
+    "p": [],
+    "b": "男性名 Daniel の愛称。",
+    "filename": "Danny.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 101982,
+    "w": "Darby",
+    "ja": "ダービー",
+    "p": [],
+    "b": "姓には、古ノルド語で「鹿の集落」を表す地名Derbyなどに由来するものと、ゲール語のÓ DiarmadaやMac Diarmadaなどを英語化したものがある。",
+    "filename": "Darby.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 101988,
+    "w": "Dartmouth",
+    "ja": "ダートマス",
+    "p": [],
+    "b": "マサチューセッツの町名は、イングランドの港の名を移したもの。",
+    "filename": "Dartmouth.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 101996,
+    "w": "Davis",
+    "ja": "デイビス",
+    "p": [],
+    "b": "David、またはそのウェールズ語形 Dafydd に基づく「その人の子」を表す姓。ゲール語の「David の子」に当たる姓を英語化した系統などもある。",
+    "filename": "Davis.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 102012,
+    "w": "Deborah",
+    "ja": "デボラ",
+    "p": [],
+    "b": "ヘブライ語で「蜂」を意味する女性名から。",
+    "filename": "Deborah.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 102099,
+    "w": "Dempsey",
+    "ja": "デンプシー",
+    "p": [],
+    "b": "姓はアイルランド語Ó Diomasaigh「Diomasachの子孫」から。Diomasachは「誇り高い」の意。",
+    "filename": "Dempsey.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 102147,
+    "w": "Derry",
+    "ja": "デリー",
+    "p": [],
+    "b": "ニューハンプシャーの地名は、アイルランドのDerryにちなむ。Doireは「オークの林」を意味する。",
+    "filename": "Derry.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 102196,
+    "w": "Diana",
+    "ja": "ダイアナ",
+    "p": [
+      "dyeu-"
+    ],
+    "b": "名は「輝く」から。月と狩りの女神で、ギリシャのアルテミスと重ねられた。",
+    "filename": "Diana.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 102218,
+    "w": "Dietrich",
+    "ja": "ディートリッヒ",
+    "p": [
+      "teutā-",
+      "reg-"
+    ],
+    "b": "人名。原義は「民を治める者」。Derrick はこの名の変わり形。",
+    "filename": "Dietrich.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 102237,
+    "w": "Dinah",
+    "ja": "ダイナ",
+    "p": [],
+    "b": "ヘブライ語Dinah「裁き」に由来する女性名。din「裁く」をもとにしている。",
+    "filename": "Dinah.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 102388,
+    "w": "Douglas",
+    "ja": "ダグラス",
+    "p": [],
+    "b": "スコットランドの地名から生まれた姓で、後に男性名にもなった。地名はゲール語 Dubh ghlais「暗い水」に由来する。",
+    "filename": "Douglas.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 102420,
+    "w": "Dresden",
+    "ja": "ドレスデン",
+    "p": [],
+    "b": "古ソルブ語drezga「森」に結び付くスラヴ系の地名で、「森の中の場所」という意味と考えられている。",
+    "filename": "Dresden.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 102465,
+    "w": "Durga",
+    "ja": "ドゥルガー",
+    "p": [
+      "dus-",
+      "gʷā-"
+    ],
+    "b": "名の意味は「近づきがたい」。悪を討つ女神にふさわしい名前。",
+    "filename": "Durga.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 102518,
+    "w": "Edna",
+    "ja": "エドナ",
+    "p": [],
+    "b": "ギリシャ語を経て、ヘブライ語ednah「喜び」に由来する女性名。",
+    "filename": "Edna.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 102545,
+    "w": "Eileen",
+    "ja": "アイリーン",
+    "p": [],
+    "b": "アイルランド語 Eibhlin などのケルト系人名から入り、形には Helen の影響も受けた名。",
+    "filename": "Eileen.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 102550,
+    "w": "El Paso",
+    "ja": "エルパソ",
+    "p": [
+      "petə-"
+    ],
+    "b": "地名。スペイン語「北の峠」の略。川が山を抜ける場所にちなむ地名。",
+    "filename": "El_Paso.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 102570,
+    "w": "Ellen",
+    "ja": "エレン",
+    "p": [],
+    "b": "Helen の古い形にあたる女性名。",
+    "filename": "Ellen.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 102578,
+    "w": "Elsa",
+    "ja": "エルサ",
+    "p": [],
+    "b": "ドイツ語でElisabetを親しみを込めて短くした形から生まれた女性名。",
+    "filename": "Elsa.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 102595,
+    "w": "Emil",
+    "ja": "エーミル",
+    "p": [],
+    "b": "ドイツ語・フランス語の人名を経て、ローマの氏族名Aemiliusに由来する。aemulus「競い合う」と結び付く名。",
+    "filename": "Emil.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 102596,
+    "w": "Emily",
+    "ja": "エミリー",
+    "p": [],
+    "b": "フランス語 Émilie を経て、ラテン語の女性名 Aemilia に由来する。",
+    "filename": "Emily.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 102637,
+    "w": "Enid",
+    "ja": "イーニッド",
+    "p": [
+      "anə-"
+    ],
+    "b": "人名。中世ウェールズ語で「魂」。もとは「息」の意だった。",
+    "filename": "Enid.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 102700,
+    "w": "Eritrea",
+    "ja": "エリトリア",
+    "p": [
+      "reudh-"
+    ],
+    "b": "地名。「紅海」のギリシャ語名から。国名がそのまま「赤い海」を指す。",
+    "filename": "Eritrea.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 102729,
+    "w": "Ethan",
+    "ja": "イーサン",
+    "p": [],
+    "b": "ヘブライ語ethan「強い、永続する」に由来する人名。",
+    "filename": "Ethan.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 102731,
+    "w": "Ethel",
+    "ja": "エセル",
+    "p": [],
+    "b": "古英語の人名 Etheldred・Ethelinda などを短くした形。共通する最初の要素は「高貴な・貴族」を意味する。",
+    "filename": "Ethel.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 102741,
+    "w": "Eudora",
+    "ja": "エウドラ",
+    "p": [
+      "dō-",
+      "es-",
+      "(e)su-"
+    ],
+    "b": "人名。ギリシャ語で「よい贈り物」。Dorothy と同じ二語の入れ替え。",
+    "filename": "Eudora.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 102742,
+    "w": "Eugenia",
+    "ja": "ユージニア",
+    "p": [],
+    "b": "女性名としてのEugeniaは、ラテン語を経たギリシャ語Eugeniaに由来し、「高貴さ」を意味する。",
+    "filename": "Eugenia.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 102745,
+    "w": "Eumenides",
+    "ja": "エウメニデス",
+    "p": [
+      "(e)su-",
+      "men-1"
+    ],
+    "b": "「親切な方々」という意味の忌み名。復讐の女神を本名で呼ぶと祟ると恐れられた。",
+    "filename": "Eumenides.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 102862,
+    "w": "fan",
+    "ja": "ファン",
+    "p": [
+      "dhēs-"
+    ],
+    "b": "扇の fan とは別語。fanatic の略で、語根は宗教の「祭礼」。",
+    "filename": "fan@dhes.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 102875,
+    "w": "Farrell",
+    "ja": "ファーレル",
+    "p": [],
+    "b": "姓Farrellはゲール語Ó Fearghail「Fearghalの子孫」を英語化して短くした形。Fearghalはfear「男」とgal「勇気」を組み合わせた人名。",
+    "filename": "Farrell.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 102905,
+    "w": "Felicia",
+    "ja": "フェリシア",
+    "p": [
+      "dhē(i)-"
+    ],
+    "b": "人名。ラテン語の「幸せな」から生まれた女性の名前。",
+    "filename": "Felicia.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 103003,
+    "w": "Flavius",
+    "ja": "フラウィウス",
+    "p": [
+      "bhel-1"
+    ],
+    "b": "人名。ローマの氏族名で、もとの意味は「金髪の」だったとされる。",
+    "filename": "Flavius.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 103027,
+    "w": "Florence",
+    "ja": "フィレンツェ",
+    "p": [],
+    "b": "ラテン語Florentiaに由来し、florens「花咲く、栄える」と結び付く。都市名と女性名は、この同じラテン語形を共有する。",
+    "filename": "Florence.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 103103,
+    "w": "Fortuna",
+    "ja": "フォルトゥナ",
+    "p": [
+      "bher-1"
+    ],
+    "b": "ローマの運命の女神。英語の fortune はこの名と同じ語から出ている。",
+    "filename": "Fortuna.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 103121,
+    "w": "Frankenstein",
+    "ja": "フランケンシュタイン",
+    "p": [],
+    "b": "ドイツ語の姓で、「フランケン地方の山」を意味するとも考えられる。steinは、この種の地名では険しい岩山を指す。",
+    "filename": "Frankenstein.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 103139,
+    "w": "Freyja",
+    "ja": "フレイヤ",
+    "p": [
+      "per1"
+    ],
+    "b": "古ノルド語 Freyja(貴婦人)から。北欧神話の愛と豊穣の女神で、Friday の名の由来ともいわれる。",
+    "filename": "Freyja.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 103209,
+    "w": "Galicia",
+    "ja": "ガリチア",
+    "p": [],
+    "b": "中東欧の地名には、リトアニア語galas「端、頂」に結び付ける説や、Gaulと同じ語根にさかのぼらせる説がある。",
+    "filename": "Galicia.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 103212,
+    "w": "Galloway",
+    "ja": "ギャロウェー",
+    "p": [],
+    "b": "スコットランド南西部の地名Gallowayにちなむ牛の品種名。",
+    "filename": "Galloway.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 103231,
+    "w": "Gary",
+    "ja": "ゲアリー",
+    "p": [],
+    "b": "姓・人名として、ノルマン語形を経て古ノルド語geiri、古デンマーク語geri「槍」にさかのぼる。",
+    "filename": "Gary.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 103253,
+    "w": "Geneva",
+    "ja": "ジュネーブ",
+    "p": [],
+    "b": "古代のラテン語地名Genavaに由来する。",
+    "filename": "Geneva.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 103254,
+    "w": "Genevieve",
+    "ja": "ジェネビーブ",
+    "p": [],
+    "b": "フランス語Genevièveを経て、後期ラテン語Genovefaに由来する女性名。さらに古い起源はケルト語系と考えられる。",
+    "filename": "Genevieve.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 103266,
+    "w": "gentrification",
+    "ja": "ジェントリフィケーション",
+    "p": [],
+    "b": "gentry「社会的地位の高い人々」と、「～化」を表す -ification を組み合わせた語。都市の地域に中産階級や富裕層が入り、住宅などが改修される変化を指し、地価の上昇や従来の住民の転出を伴うことも含む。",
+    "filename": "gentrification.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 103275,
+    "w": "Geraldine",
+    "ja": "ジェラルディン",
+    "p": [],
+    "b": "男性名Geraldの女性形として生まれた名。",
+    "filename": "Geraldine.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 103292,
+    "w": "Gibraltar",
+    "ja": "ジブラルタル",
+    "p": [],
+    "b": "「ターリクの山」を意味するJebel el Tarikに由来する地名。堅固な要塞の象徴として、英語では「難攻不落の拠点」にも転用された。",
+    "filename": "Gibraltar.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 103347,
+    "w": "Goa",
+    "ja": "ゴア",
+    "p": [],
+    "b": "現地の語goe mat「肥沃な土地」に由来するとされる地名。",
+    "filename": "Goa.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 103365,
+    "w": "Gordon",
+    "ja": "ゴードン",
+    "p": [],
+    "b": "スコットランドの姓 Gordon から、男性の個人名として使われるようになった名。",
+    "filename": "Gordon.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 103383,
+    "w": "Grady",
+    "ja": "グラディ",
+    "p": [],
+    "b": "姓としては、アイルランド語のÓ GrádaighまたはMag Bhrádaighを英語化し、短くした形。",
+    "filename": "Grady.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 103384,
+    "w": "Graham",
+    "ja": "グラハム",
+    "p": [],
+    "b": "イングランドの地名 Grantham が、アングロフランス語の形になって生まれた姓。12世紀初めから記録がある。",
+    "filename": "Graham.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 103389,
+    "w": "Granada",
+    "ja": "グラナダ",
+    "p": [],
+    "b": "ニカラグアの市名は、スペインの都市Granadaの名を用いたもの。",
+    "filename": "Granada.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 103415,
+    "w": "Greece",
+    "ja": "ギリシャ",
+    "p": [],
+    "b": "ラテン語 Graecia に由来し、住民を表す名から国名となった。英語ではそれ以前に Greklond という呼び方もあった。",
+    "filename": "Greece.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 103421,
+    "w": "Greenwich",
+    "ja": "グリニッジ",
+    "p": [
+      "ghrē-"
+    ],
+    "b": "地名の意味は「緑の船着き場」。1884年に世界の基準の子午線に。",
+    "filename": "Greenwich.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 103455,
+    "w": "Guido",
+    "ja": "ギド",
+    "p": [],
+    "b": "人名GuidoはGuyのイタリア語形。姓には、この人名から生じたものがある。",
+    "filename": "Guido.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 103460,
+    "w": "Guinness",
+    "ja": "ギネス",
+    "p": [],
+    "b": "姓Guinnessは、アイルランドの姓Mag AonghusaまたはMag Aonghuisに由来する。",
+    "filename": "Guinness.png",
+    "decision": "hold_identity_or_source"
+  },
+  {
+    "case": 103467,
+    "w": "Gunther",
+    "ja": "ガンサー",
+    "p": [],
+    "b": "ドイツ語の人名から。ゲルマン語の「戦い」を表す*gund-／*gunt-と、「軍勢」を表す*har-の組み合わせとされる。",
+    "filename": "Gunther.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 103468,
+    "w": "Gupta",
+    "ja": "グプタ",
+    "p": [],
+    "b": "インドの姓としては、サンスクリット語 gupta（隠された・守られた）に由来する。",
+    "filename": "Gupta.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 103475,
+    "w": "Gwendolyn",
+    "ja": "グウェンドリン",
+    "p": [
+      "weid-"
+    ],
+    "b": "人名。名の頭は「白い」。もとをたどれば「よく見える」という意味だった。",
+    "filename": "Gwendolyn.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 103514,
+    "w": "Hamilton",
+    "ja": "ハミルトン",
+    "p": [
+      "dheuə-"
+    ],
+    "b": "もとは地名。語根には「塀で囲まれた丘や町」の意がある。",
+    "filename": "Hamilton.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 103538,
+    "w": "Hanoi",
+    "ja": "ハノイ",
+    "p": [],
+    "b": "ベトナム語の地名Hà Nộiから。hà「川」とnội「内側」を合わせた名で、紅河の湾曲部の内側にある位置にちなむ。",
+    "filename": "Hanoi.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 103539,
+    "w": "Hans",
+    "ja": "ハンス",
+    "p": [],
+    "b": "Johannesを短くした、ドイツ語・オランダ語の人名。",
+    "filename": "Hans.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 103561,
+    "w": "Harris",
+    "ja": "ハリス",
+    "p": [],
+    "b": "人名 Harry に由来する姓。Harry は Henry の親しみのある発音形で、Harris は15世紀ごろから記録される。",
+    "filename": "Harris.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 103566,
+    "w": "Harvard",
+    "ja": "ハーバード",
+    "p": [],
+    "b": "姓は「軍の守り手」を表す古英語hereweardと同系。大学名は財産や蔵書を遺贈したJohn Harvardにちなむ。",
+    "filename": "Harvard.png",
+    "decision": "hold_identity_or_source"
+  },
+  {
+    "case": 103576,
+    "w": "Havana",
+    "ja": "ハバナ",
+    "p": [],
+    "b": "キューバの都市Havanaで作られた葉巻を指す呼び名から。",
+    "filename": "Havana.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 103577,
+    "w": "Hayward",
+    "ja": "ヘーワード",
+    "p": [],
+    "b": "カリフォルニアの都市名は、地元のHaywards Hotelにちなむ。市制施行時はHaywardsと呼ばれ、のちに末尾のsが落ちた。",
+    "filename": "Hayward.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 103615,
+    "w": "Helena",
+    "ja": "ヘレナ",
+    "p": [],
+    "b": "女性名Helenをラテン語形にした名前。",
+    "filename": "Helena.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 103626,
+    "w": "Henrietta",
+    "ja": "ヘンリエッタ",
+    "p": [],
+    "b": "フランス語 Henriette から入った人名。Henriette は男性名 Henri の女性形の愛称。",
+    "filename": "Henrietta.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 103629,
+    "w": "Hera",
+    "ja": "ヘラ",
+    "p": [],
+    "b": "ギリシャ語の女神名Hēraから。「保護する女性」を意味し、hērōs「英雄」と関係するという説明がある。",
+    "filename": "Hera.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 103643,
+    "w": "Herzegovina",
+    "ja": "ヘルツェゴビナ",
+    "p": [],
+    "b": "古セルビア語herceg「公爵」に、所有を表す-ovと「国・土地」を表す-inaを加えた地名。",
+    "filename": "Herzegovina.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 103669,
+    "w": "Hilary",
+    "ja": "ヒラリー",
+    "p": [],
+    "b": "後期ラテン語Hilarius、ラテン語hilaris「陽気な」に由来する人名。女性名では、これにEulaliaが混ざったという説明もある。",
+    "filename": "Hilary.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 103671,
+    "w": "Himalaya",
+    "ja": "ヒマラヤ",
+    "p": [
+      "ghei-2"
+    ],
+    "b": "地名。サンスクリット語で「雪の住処」。hima「雪」は「冬」の語根から。",
+    "filename": "Himalaya.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 103681,
+    "w": "Hippolytus",
+    "ja": "ヒッポリュトス",
+    "p": [
+      "leu-",
+      "ekwo-"
+    ],
+    "b": "人名。「馬を放つ者」。馬に引かれて命を落とした、その名を負った神話の人物である。",
+    "filename": "Hippolytus.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 103683,
+    "w": "Hiram",
+    "ja": "ハイラム",
+    "p": [],
+    "b": "フェニキア語・ヘブライ語の人名Hiramから。「高き者の兄弟」を意味するAhiramの短形とも考えられる。",
+    "filename": "Hiram.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 103722,
+    "w": "Honduras",
+    "ja": "ホンジュラス",
+    "p": [],
+    "b": "スペイン語で「深い所」を意味する国名。東側の沿岸の海の深さにちなむと考えられる。",
+    "filename": "Honduras.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 103760,
+    "w": "Howard",
+    "ja": "ハワード",
+    "p": [],
+    "b": "姓 Howard を、男性の個人名として使うようになったもの。",
+    "filename": "Howard.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 103762,
+    "w": "Hubert",
+    "ja": "ヒューバート",
+    "p": [
+      "bherəg-"
+    ],
+    "b": "人名。古高ドイツ語で「明るい心」の意。hugu「心」とberaht「輝く」から。",
+    "filename": "Hubert.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 103764,
+    "w": "Hudson",
+    "ja": "ハドソン",
+    "p": [],
+    "b": "英語の姓としては、中英語の人名 Hudde に -son（息子）を添えた父称に由来する。",
+    "filename": "Hudson.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 103784,
+    "w": "Hungary",
+    "ja": "ハンガリー",
+    "p": [],
+    "b": "中世ラテン語 Hungaria に由来する国名。フランス語 Hongrie も同じ形にさかのぼる。",
+    "filename": "Hungary.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 103825,
+    "w": "Ian",
+    "ja": "イアン",
+    "p": [],
+    "b": "John に対応するスコットランドの人名の形。さらにラテン語・ギリシャ語を経て、ヘブライ語 Yohanan にさかのぼる。",
+    "filename": "Ian.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 103996,
+    "w": "Indiana",
+    "ja": "インディアナ",
+    "p": [],
+    "b": "歴史的な呼称 Indian に、地名を作る -ana／-iana を添えた名。",
+    "filename": "Indiana.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 104010,
+    "w": "Indonesia",
+    "ja": "インドネシア",
+    "p": [
+      "snā-"
+    ],
+    "b": "国名の意味は「インドの島々」。1850年に作られた新しい名。",
+    "filename": "Indonesia.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 104197,
+    "w": "Iran",
+    "ja": "イラン",
+    "p": [
+      "aryo-"
+    ],
+    "b": "国名は「同胞の地」の意。1935年にペルシアから呼び名を改めた。",
+    "filename": "Iran.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 104198,
+    "w": "Iraq",
+    "ja": "イラク",
+    "p": [],
+    "b": "もとはメソポタミア地方を指したアラビア語の地名で、6世紀から記録がある。1920年に国名として用いられるようになった。",
+    "filename": "Iraq.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 104203,
+    "w": "Iris",
+    "ja": "イリス",
+    "p": [
+      "wei-"
+    ],
+    "b": "ギリシャ神話の虹の女神イリスの名。目の色づいた輪を虹に見立てた。",
+    "filename": "Iris_cap.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 104218,
+    "w": "Irwin",
+    "ja": "アーウィン",
+    "p": [],
+    "b": "姓としては、アイルランド・スコットランドでは Irvin、英語では Erwin の異形。",
+    "filename": "Irwin.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 104219,
+    "w": "Isaac",
+    "ja": "アイザック",
+    "p": [],
+    "b": "後期ラテン語・ギリシャ語を経て、ヘブライ語Yitzhaqに由来する。「彼は笑う」という意味の人名。",
+    "filename": "Isaac.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 104223,
+    "w": "Isidore",
+    "ja": "イシドールス",
+    "p": [
+      "dō-"
+    ],
+    "b": "人名。「イシスの贈り物」の意。セビリアの聖人は2001年、ネットの守護聖人に。",
+    "filename": "Isidore.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 104250,
+    "w": "Jake",
+    "ja": "ジェイク",
+    "p": [],
+    "b": "男性名 Jacob を短くした、親しみのある呼び方。",
+    "filename": "Jake.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 104251,
+    "w": "Jane",
+    "ja": "ジェイン",
+    "p": [],
+    "b": "フランス語Jeanne、古フランス語Jehaneを経て、中世ラテン語Johannaに由来する人名。そこから女性一般を指す俗語にもなった。",
+    "filename": "Jane.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 104261,
+    "w": "Jean",
+    "ja": "ジーン",
+    "p": [],
+    "b": "男性名は John のフランス語形で、女性名は Jane に対応するフランス語 Jeanne に由来する。",
+    "filename": "Jean.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 104266,
+    "w": "Jennifer",
+    "ja": "ジェニファー",
+    "p": [],
+    "b": "女性名 Guinevere の形が変わった名前。Jennie や Jenny はその愛称としても使われる。",
+    "filename": "Jennifer.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 104267,
+    "w": "Jenny",
+    "ja": "ジェニー",
+    "p": [],
+    "b": "もとは Jane や Janet の愛称。男性名 Jack の女性版として鳥などの雌を呼ぶのに使われ、Jenny wren という呼び名にも残る。",
+    "filename": "Jenny.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 104269,
+    "w": "Jeremiah",
+    "ja": "ジェレマイア",
+    "p": [],
+    "b": "後期ラテン語 Jeremias を経て、ヘブライ語の人名 Yirmeyah にさかのぼる。Jeremy は英語で親しまれてきた別形。",
+    "filename": "Jeremiah.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 104272,
+    "w": "Jerry",
+    "ja": "ジェリー",
+    "p": [],
+    "b": "Gerald、Gerard、Jeremiah、Jerome などの男性名からできた愛称。",
+    "filename": "Jerry.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 104275,
+    "w": "Jerusalem",
+    "ja": "エルサレム",
+    "p": [],
+    "b": "ギリシャ語Hierousalemを経て、ヘブライ語の都市名Yerushalayimに由来する。",
+    "filename": "Jerusalem.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 104277,
+    "w": "Jesse",
+    "ja": "ジェシー",
+    "p": [],
+    "b": "ラテン語を経て、ギリシャ語 Iessai、ヘブライ語の人名 Yishay にさかのぼる。それより古い起源は明らかでない。",
+    "filename": "Jesse.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 104278,
+    "w": "Jessica",
+    "ja": "ジェシカ",
+    "p": [],
+    "b": "後期ラテン語 Jesca、ギリシャ語 Ieskha を経て、ヘブライ語の人名 Yiskah にさかのぼる。",
+    "filename": "Jessica.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 104284,
+    "w": "jihad",
+    "ja": "ジハード",
+    "p": [],
+    "b": "アラビア語 jihād「努力、奮闘」を借用した語で、「力を尽くす、戦う」を表す動詞の動名詞に当たる。英語でも宗教上の戦いのほか、信仰のために行う内面的な努力を指す。",
+    "filename": "jihad.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 104285,
+    "w": "Jim",
+    "ja": "ジム",
+    "p": [],
+    "b": "男性名Jamesの愛称・短い形。",
+    "filename": "Jim.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 104296,
+    "w": "Jordan",
+    "ja": "ジョーダン",
+    "p": [],
+    "b": "人名はヨルダン川の名に由来する。十字軍や巡礼者が、子どもの洗礼に使う川の水を持ち帰った習慣と結びつく。",
+    "filename": "Jordan.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 104297,
+    "w": "Jose",
+    "ja": "ホセ",
+    "p": [],
+    "b": "スペイン語Joséを写した形で、Josephに対応する人名。",
+    "filename": "Jose.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 104298,
+    "w": "Joshua",
+    "ja": "ヨシュア",
+    "p": [],
+    "b": "後期ラテン語Joshuaなどを経て、ヘブライ語Yehoshuaに由来する。「主は救い」という意味の人名。",
+    "filename": "Joshua.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 104301,
+    "w": "Juan",
+    "ja": "ジュアン",
+    "p": [],
+    "b": "Johnに当たるスペイン語の人名。",
+    "filename": "Juan.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 104304,
+    "w": "Judea",
+    "ja": "ユダヤ",
+    "p": [],
+    "b": "ラテン語Iudaeaに由来する地名で、Judah「ユダ」の名にさかのぼる。",
+    "filename": "Judea.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 104312,
+    "w": "Julie",
+    "ja": "ジュリー",
+    "p": [],
+    "b": "女性名 Julia を英語の形にした名前。",
+    "filename": "Julie.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 104318,
+    "w": "Juno",
+    "ja": "ユノ",
+    "p": [
+      "yeu-"
+    ],
+    "b": "原義はおそらく「若い者」。新月の女神だったからとも言われる。",
+    "filename": "Juno.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 104324,
+    "w": "Justin",
+    "ja": "ジャスティン",
+    "p": [],
+    "b": "ラテン語の人名 Iustinus に由来する。iustus（正しい・公正な）に人名を作る語尾 -inus が付いた形。",
+    "filename": "Justin.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 104337,
+    "w": "Kate",
+    "ja": "ケイト",
+    "p": [],
+    "b": "女性名 Katherine の愛称として生まれた形。",
+    "filename": "Kate.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 104338,
+    "w": "Katie",
+    "ja": "ケイティ",
+    "p": [],
+    "b": "女性名 Kate に親しみを込めた愛称形。",
+    "filename": "Katie.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 104342,
+    "w": "Keith",
+    "ja": "キース",
+    "p": [],
+    "b": "スコットランドの姓を男性名に転用したもの。その姓には、古いケルト語で「森」を表す語から来た地名 Keith にちなむ系統がある。",
+    "filename": "Keith.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 104343,
+    "w": "Kellogg",
+    "ja": "ケロッグ",
+    "p": [],
+    "b": "姓としてのKelloggは、中英語kille「殺す」とhog(ge)「豚」からなり、豚の解体をする人の呼び名に由来する。",
+    "filename": "Kellogg.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 104344,
+    "w": "Kelly",
+    "ja": "ケリー",
+    "p": [],
+    "b": "アイルランドの姓で、古アイルランド語 ceallach「戦い」に由来するとされる。",
+    "filename": "Kelly.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 104346,
+    "w": "Kennedy",
+    "ja": "ケネディ",
+    "p": [],
+    "b": "アイルランドの姓で、古アイルランド語 cinneide「醜い頭」に由来するともいわれる。",
+    "filename": "Kennedy.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 104350,
+    "w": "Kenya",
+    "ja": "ケニア",
+    "p": [],
+    "b": "国名はケニア山にちなむ。山名は、キクユ語で「白い山」を表す Kirinyaga が短くなったものと考えられる。",
+    "filename": "Kenya.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 104357,
+    "w": "Kevin",
+    "ja": "ケヴィン",
+    "p": [],
+    "b": "アイルランド語Caomghin、さらに古アイルランド語Coemgenに由来する人名。「美しい生まれ」という意味とされる。",
+    "filename": "Kevin.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 104370,
+    "w": "Kimberly",
+    "ja": "キムバリー",
+    "p": [],
+    "b": "地名または姓のKimberleyから生まれた女性名と考えられる。",
+    "filename": "Kimberly.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 104408,
+    "w": "Kremlin",
+    "ja": "クレムリン",
+    "p": [],
+    "b": "古ロシア語kremlinuに由来し、kreml'「城塞」につながる。もとはロシアの各都市の城塞を指し、のちに特にモスクワのものを指すようになった。",
+    "filename": "Kremlin.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 104472,
+    "w": "Latvia",
+    "ja": "ラトビア",
+    "p": [],
+    "b": "住民の自称Latvjiに由来する国名。その民族名のさらに古い起源は明らかでない。",
+    "filename": "Latvia.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 104476,
+    "w": "Laura",
+    "ja": "ローラ",
+    "p": [],
+    "b": "イタリア語から入った名で、男性名 Laurentius の女性形 Laurentia を親しみを込めて短くした形と考えられる。",
+    "filename": "Laura.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 104522,
+    "w": "Leila",
+    "ja": "リーラ",
+    "p": [],
+    "b": "アラビア語の女性名Laylahから。laylahは「夜」を意味する。",
+    "filename": "Leila.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 104532,
+    "w": "Lennon",
+    "ja": "レノン",
+    "p": [],
+    "b": "姓としては、ゲール語のÓ LeannáinやÓ Lonáinなどを英語化・短縮したもの、またMcLennonやMcLennanを短くしたものがある。",
+    "filename": "Lennon.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 104535,
+    "w": "Leo",
+    "ja": "レオ",
+    "p": [],
+    "b": "ラテン語 leo「ライオン」に由来し、男性名にも、しし座の名にも使われた。ラテン語の語はギリシャ語 leōn にさかのぼる。",
+    "filename": "Leo.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 104551,
+    "w": "Levant",
+    "ja": "レヴァント",
+    "p": [
+      "legʷh-"
+    ],
+    "b": "地名。西欧から見て日が昇る方角。フランス語の「昇るところ」がそのまま地名に。",
+    "filename": "Levant.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 104554,
+    "w": "Lewis",
+    "ja": "ルイス",
+    "p": [],
+    "b": "フランス語の人名Louisが、アングロフランス語で変化した形。",
+    "filename": "Lewis.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 104604,
+    "w": "limo",
+    "ja": "リムジン",
+    "p": [],
+    "b": "limousine「リムジン」を短くした、アメリカ英語生まれの呼び名。limousine はフランス語から入り、フランス中部の地名 Limousin に由来する。",
+    "filename": "limo.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 104635,
+    "w": "Lloyd",
+    "ja": "ロイド",
+    "p": [
+      "pel-2"
+    ],
+    "b": "ウェールズ語で「灰色」。保険のロイズはこの姓のコーヒー店から。",
+    "filename": "Lloyd.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 104696,
+    "w": "Lucille",
+    "ja": "ルシール",
+    "p": [],
+    "b": "フランス語の女性名で、ラテン語の女性名Luciaの縮小形。",
+    "filename": "Lucille.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 104698,
+    "w": "Lucy",
+    "ja": "ルーシー",
+    "p": [],
+    "b": "フランス語 Lucie を経て、ラテン語の女性名 Lucia に由来する。男性名 Lucius の女性形で、lux「光」とつながる。",
+    "filename": "Lucy.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 104733,
+    "w": "Macbeth",
+    "ja": "マクベス",
+    "p": [],
+    "b": "人名Macbethはゲール語の「生命の子」に当たり、beatha「生命」を含む。もとは父親の名から作る父称ではなく、個人名だった。",
+    "filename": "Macbeth.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 104734,
+    "w": "Machiavelli",
+    "ja": "マキアベッリ",
+    "p": [],
+    "b": "この姓を、トスカーナのVal di Pesaにあった地名に結び付ける説がある。ただし、その地名は特定されていない。",
+    "filename": "Machiavelli.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 104742,
+    "w": "Madeira",
+    "ja": "マデイラ",
+    "p": [],
+    "b": "産地のMadeira島にちなむワイン名。島名はポルトガル語madeira「木材」に由来し、かつて森林に覆われていたことを表す。",
+    "filename": "Madeira.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 104743,
+    "w": "Madeline",
+    "ja": "マデレン",
+    "p": [],
+    "b": "フランス語を経た Magdalene 系の人名。ラテン語 Magdalena・ギリシャ語 Magdalene は「マグダラの女性」を表す。",
+    "filename": "Madeline.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 104769,
+    "w": "Maia",
+    "ja": "マイア",
+    "p": [
+      "mā-2"
+    ],
+    "b": "名は「よい母、乳母」の意。ヘルメスを産んだ女神の名。",
+    "filename": "Maia.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 104783,
+    "w": "Malawi",
+    "ja": "マラウイ",
+    "p": [],
+    "b": "当地の先住民族の呼称に由来し、1964年の独立時から用いられる国名。",
+    "filename": "Malawi.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 104785,
+    "w": "Malaysia",
+    "ja": "マレーシア",
+    "p": [],
+    "b": "Malayに地名を作る-iaを付けたもの。もとは19世紀初めの地理学者がマレー諸島一帯に用いた名で、後に国名となった。",
+    "filename": "Malaysia.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 104806,
+    "w": "Manchester",
+    "ja": "マンチェスター",
+    "p": [
+      "mā-2",
+      "kes-2"
+    ],
+    "b": "地名のもとは「乳房のような丘」。そこにローマの町があった。",
+    "filename": "Manchester.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 104839,
+    "w": "marathon",
+    "ja": "マラソン",
+    "p": [],
+    "b": "ギリシャの地名 Marathon「マラトン」に由来する競走名。マラトンの戦いの勝利をアテネへ走って伝えたという伝説にちなんで、近代オリンピックの長距離競走に付けられた。",
+    "filename": "marathon.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 104844,
+    "w": "Margaret",
+    "ja": "マーガレット",
+    "p": [],
+    "b": "古フランス語を経て、後期ラテン語の女性名 Margarita に由来する。さらにギリシャ語 margaritēs「真珠」にさかのぼる。",
+    "filename": "Margaret.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 104860,
+    "w": "Marley",
+    "ja": "マーリー",
+    "p": [],
+    "b": "姓としてはイングランドの同名地名に由来する。地名の後半は古英語lēah「森の空き地」で、前半には「境界」「快い」「テン」を意味する別々の語がある。",
+    "filename": "Marley.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 104892,
+    "w": "Matt",
+    "ja": "マット",
+    "p": [],
+    "b": "Matthew からできた人名。Matthew は古フランス語・ラテン語・ギリシャ語を経て、ヘブライ語 Mattathyah「神からの贈り物」にさかのぼる。",
+    "filename": "Matt.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 104901,
+    "w": "Max",
+    "ja": "マックス",
+    "p": [],
+    "b": "男性名Maximilianの一形態として使われる名前。",
+    "filename": "Max.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 104911,
+    "w": "McConnell",
+    "ja": "マコーネル",
+    "p": [],
+    "b": "ゲール語Mac Dhomhnaill「Domhnallの息子」を英語化した姓。O’Connellとは元の人名が異なる。",
+    "filename": "McConnell.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 104913,
+    "w": "McFarland",
+    "ja": "マクファーランド",
+    "p": [],
+    "b": "姓McFarlaneの異形。ゲール語の人名Parthalánに基づく父称Mac Pharthaláinを英語化した形にさかのぼる。",
+    "filename": "McFarland.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 104915,
+    "w": "McMillan",
+    "ja": "マクミラン",
+    "p": [],
+    "b": "姓としてのMcMillanは、ゲール語Mac Maoláinを英語化した形。Maolánはmaol「禿げた、剃髪した」から作られた呼び名。",
+    "filename": "McMillan.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 104936,
+    "w": "Medici",
+    "ja": "メディチ",
+    "p": [],
+    "b": "イタリア語の姓Medicoの複数形、または父称形から生まれた姓。Medicoは「医師」を意味する職業名に由来する。",
+    "filename": "Medici.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 104967,
+    "w": "Mentor",
+    "ja": "メンター",
+    "p": [
+      "men-1"
+    ],
+    "b": "「オデュッセイア」の人物 Mentor の名から。女神アテナがその姿を借りて助言する場面もある。",
+    "filename": "Mentor_cap.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 104982,
+    "w": "Mesopotamia",
+    "ja": "メソポタミア",
+    "p": [
+      "medhyo-"
+    ],
+    "b": "地名。文字どおり「二つの川の間の国」。ティグリスとユーフラテスに挟まれた地。",
+    "filename": "Mesopotamia.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 105041,
+    "w": "Milwaukee",
+    "ja": "ミルウォーキー",
+    "p": [],
+    "b": "ウィスコンシン州の都市名は、そばを流れる川の名から採られた。",
+    "filename": "Milwaukee.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 105088,
+    "w": "Mitchell",
+    "ja": "ジョニ・ミッチェル",
+    "p": [],
+    "b": "歌手Joni Mitchellの姓は、結婚相手だった歌手Chuck Mitchellから受け継いだもの。出生時の姓はAnderson。",
+    "filename": "Mitchell.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 105093,
+    "w": "Mnemosyne",
+    "ja": "ムネモシュネ",
+    "p": [
+      "men-1"
+    ],
+    "b": "ギリシャ神話の記憶の女神。mnemonic と同じ「思う」語。",
+    "filename": "Mnemosyne.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 105104,
+    "w": "Moira",
+    "ja": "モイラ",
+    "p": [
+      "(s)mer-2"
+    ],
+    "b": "ギリシャ神話の運命の女神。ギリシャ語で「分け前」。その語がそのまま「運命」を意味した。",
+    "filename": "Moira.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 105108,
+    "w": "Moldova",
+    "ja": "モルドバ",
+    "p": [],
+    "b": "国名は、隣国ルーマニア東部を流れるMoldova川の名に由来する。",
+    "filename": "Moldova.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 105168,
+    "w": "Mortimer",
+    "ja": "モーティマー",
+    "p": [],
+    "b": "姓には、フランスの地名Mortemerに由来する系統と、アイルランド語の姓に代わって使われた系統がある。Mortemerは古フランス語の「死んだ」と「海」を含む。",
+    "filename": "Mortimer.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 105169,
+    "w": "Morton",
+    "ja": "ジェリー・ロール・モートン",
+    "p": [],
+    "b": "Jelly Roll Mortonの芸名の姓は、継父の姓Moutonを英語風のMortonに改めたもの。",
+    "filename": "Morton.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 105200,
+    "w": "Muhammad",
+    "ja": "ムハマド",
+    "p": [],
+    "b": "Elijah MuhammadのMuhammadは、出生時の姓Pooleに代えて用いた名。Muhammad自体はアラビア語で「称賛に値する者」を意味する人名。",
+    "filename": "Muhammad.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 105215,
+    "w": "Murray",
+    "ja": "マレー",
+    "p": [
+      "mori-"
+    ],
+    "b": "スコットランドの地名 Moray から出た姓。ゲール語で「海に沿った土地」の意といわれる。",
+    "filename": "Murray.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 105218,
+    "w": "Muse",
+    "ja": "ミューズ",
+    "p": [
+      "men-1"
+    ],
+    "b": "ギリシャ神話の芸術の女神。「思いにふける」の muse は別語。犬が鼻を上げる姿からという説も。",
+    "filename": "Muse.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 105249,
+    "w": "Namibia",
+    "ja": "ナミビア",
+    "p": [],
+    "b": "国名はNamib砂漠の名に由来する。",
+    "filename": "Namibia.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 105271,
+    "w": "Navarre",
+    "ja": "ナバール",
+    "p": [],
+    "b": "ラテン語以前の地名。バスク語nava「平地」に基づく可能性が高いとされる。",
+    "filename": "Navarre.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 105273,
+    "w": "Nazareth",
+    "ja": "ナザレス",
+    "p": [],
+    "b": "ヘブライ語の地名 Natzerath に由来する。さらに古い起源は明らかでない。",
+    "filename": "Nazareth.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 105294,
+    "w": "Nehemiah",
+    "ja": "ニーアマイア",
+    "p": [],
+    "b": "ヘブライ語Nehemyah「主が慰める」に由来する人名。",
+    "filename": "Nehemiah.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 105295,
+    "w": "Nehru",
+    "ja": "ジャワハルラール・ネルー",
+    "p": [],
+    "b": "運河のそばに住んだ祖先を指す呼び名から生まれた姓。ペルシア語 nahar、ウルドゥー語 nehar は「運河」を表す。",
+    "filename": "Nehru.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 105309,
+    "w": "Netherlands",
+    "ja": "オランダ",
+    "p": [
+      "ni",
+      "lendh-2"
+    ],
+    "b": "国名は文字どおり「低い土地」。山国オーストリアが好んで使った名という。",
+    "filename": "Netherlands.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 105334,
+    "w": "Nigeria",
+    "ja": "ナイジェリア",
+    "p": [],
+    "b": "Niger川の名に、地名を作る接尾辞-iaを付けたもの。",
+    "filename": "Nigeria.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 105340,
+    "w": "Nike",
+    "ja": "ニケ",
+    "p": [],
+    "b": "ギリシャ語で「勝利」を意味する名。競技や戦いで優位に立つことを表す語が女神名になっている。",
+    "filename": "Nike.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 105343,
+    "w": "Nineveh",
+    "ja": "ニネベ",
+    "p": [],
+    "b": "アッカド語の都市名Ni-nu-aに由来する。さらに古い語源は確定していない。",
+    "filename": "Nineveh.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 105348,
+    "w": "Noah",
+    "ja": "ノア",
+    "p": [],
+    "b": "ヘブライ語 Noach「休息」に由来する男性名。",
+    "filename": "Noah.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 105388,
+    "w": "Norma",
+    "ja": "ノーマ",
+    "p": [],
+    "b": "このレコードは女性名を指し、定規座の名の語源をそのまま当てはめることはできない。",
+    "filename": "Norma.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 105499,
+    "w": "Olaf",
+    "ja": "オーラフ",
+    "p": [
+      "leip-"
+    ],
+    "b": "人名。意味は「祖先の遺したもの」。後半は英語の leave と同源。",
+    "filename": "Olaf.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 105505,
+    "w": "Olivia",
+    "ja": "オリビア",
+    "p": [],
+    "b": "イタリア語の人名Oliviaを取り入れたもの。ラテン語oliva「オリーブ」に由来する。",
+    "filename": "Olivia.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 105540,
+    "w": "Ophelia",
+    "ja": "オフィーリア",
+    "p": [],
+    "b": "ギリシャ語opheleia「助け・援助」に由来する女性名。ophelein「助ける」と結び付く。",
+    "filename": "Ophelia.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 105575,
+    "w": "Orion",
+    "ja": "オリオン",
+    "p": [],
+    "b": "ギリシャ神話の狩人Oriōn、Oariōnの名を星座に用いたもの。人名自体の最終的な起源は不明。",
+    "filename": "Orion.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 105576,
+    "w": "Orleans",
+    "ja": "オルレアン",
+    "p": [],
+    "b": "フランス語 Orléans に由来し、ローマ時代の地名 Aurelianum にさかのぼる。ローマ皇帝 Aurelian を記念して付けられた名。",
+    "filename": "Orleans.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 105657,
+    "w": "Owen",
+    "ja": "オーウェン",
+    "p": [],
+    "b": "姓としては、ウェールズ語の人名Owainや、ゲール語Eoghanに由来する名前から生じたもの。これらの人名は語源を共有する。",
+    "filename": "Owen.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 105679,
+    "w": "Padua",
+    "ja": "パドア",
+    "p": [],
+    "b": "イタリア語Padova、ラテン語Pataviumにさかのぼる都市名。さらに古い語源はガリア語の「松」とも考えられる。",
+    "filename": "Padua.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 105682,
+    "w": "pageant",
+    "ja": "ページェント",
+    "p": [
+      "pag-"
+    ],
+    "b": "中英語 pagent では「宗教劇の一幕」や「移動舞台」を指した。のちに華やかな行列や催しの意味に広がった。",
+    "filename": "pageant.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 105683,
+    "w": "Paige",
+    "ja": "ペイジ",
+    "p": [],
+    "b": "姓や人名としてのPaigeは、page「若い従者」の異形に由来する。",
+    "filename": "Paige.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 105733,
+    "w": "Paraguay",
+    "ja": "パラグアイ",
+    "p": [],
+    "b": "国名はParaguay川の名に由来する。",
+    "filename": "Paraguay.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 105757,
+    "w": "Parker",
+    "ja": "パーカー",
+    "p": [],
+    "b": "もとは「狩猟用の囲い地を管理する人」を表した職業由来の姓。12世紀半ばから記録がある。",
+    "filename": "Parker.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 105808,
+    "w": "Pauline",
+    "ja": "ポーリーン",
+    "p": [],
+    "b": "男性名Paulに対応する女性形として生まれた名前。",
+    "filename": "Pauline.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 105839,
+    "w": "Peirce",
+    "ja": "パース",
+    "p": [],
+    "b": "姓としてはPierceの異形。英語の人名Piersなどを経て、Peterに当たるフランス語の名にさかのぼる。",
+    "filename": "Peirce.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 105844,
+    "w": "Peloponnesus",
+    "ja": "ペロポネソス",
+    "p": [
+      "okʷ-",
+      "pel-2"
+    ],
+    "b": "地名。ギリシャ語で「ペロプスの島」。nesos は「島」の意である。",
+    "filename": "Peloponnesus.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 105914,
+    "w": "Perth",
+    "ja": "パース",
+    "p": [],
+    "b": "西オーストラリアの市名は、スコットランドの同名都市にちなむ。1829年、当時の英国植民地相ジョージ・マレーにゆかりのある地名が採用された。",
+    "filename": "Perth.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 105932,
+    "w": "Pete",
+    "ja": "ピート",
+    "p": [],
+    "b": "男性名 Peter を短くした愛称。",
+    "filename": "Pete.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 105999,
+    "w": "Pierre",
+    "ja": "ピエール",
+    "p": [],
+    "b": "Peterに当たるフランス語の人名。語源をたどると、ギリシャ語Petros「石、岩」に行き着く。",
+    "filename": "Pierre.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 106019,
+    "w": "Pisa",
+    "ja": "ピサ",
+    "p": [],
+    "b": "エトルリア語に由来するとされる地名だが、もとの意味は明らかでない。",
+    "filename": "Pisa.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 106095,
+    "w": "Poland",
+    "ja": "ポーランド",
+    "p": [
+      "pelə-2",
+      "lendh-2"
+    ],
+    "b": "国名は「平らな野の国」。語根は「平ら」と「開けた土地」。",
+    "filename": "Poland.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 106163,
+    "w": "Portugal",
+    "ja": "ポルトガル",
+    "p": [],
+    "b": "中世ラテン語Portus Caleに由来する国名。現在のポルト付近の古い地名で、portusは「港」を意味する。",
+    "filename": "Portugal.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 106192,
+    "w": "Potsdam",
+    "ja": "ポツダム",
+    "p": [],
+    "b": "993年にはPoztupimiと記されたスラブ語系の地名。初めの要素はpo「近くに」で、語尾はオランダ語地名の-damの影響を受けたとされる。",
+    "filename": "Potsdam.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 106278,
+    "w": "Princeton",
+    "ja": "プリンストン",
+    "p": [],
+    "b": "ニュージャージーの町は、後の英国王ジョージ2世となる王子 George にちなみ1724年に改名された。大学もこの町名を取り、1896年に Princeton University となった。",
+    "filename": "Princeton.png",
+    "decision": "hold_identity_or_source"
+  },
+  {
+    "case": 106282,
+    "w": "Priscilla",
+    "ja": "プリシラ",
+    "p": [
+      "per1"
+    ],
+    "b": "意味はラテン語で「古めかしい」。古さを敬う語からできた女性名。",
+    "filename": "Priscilla.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 106355,
+    "w": "Protestant",
+    "ja": "プロテスタント",
+    "p": [],
+    "b": "1529年のシュパイアー帝国議会の決定に抗議したドイツの諸侯や都市にちなむ呼び名。語形はドイツ語またはフランス語を経て、ラテン語protestari「公に宣言する」にさかのぼる。",
+    "filename": "Protestant.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 106386,
+    "w": "Ptolemy",
+    "ja": "プトレミー",
+    "p": [],
+    "b": "ギリシャ語の人名Ptolemaiosに由来し、「好戦的な」の意。ptolemosはpolemos「戦争」の異形。",
+    "filename": "Ptolemy.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 106459,
+    "w": "Quentin",
+    "ja": "クウェンティン",
+    "p": [],
+    "b": "フランス語を経て、ラテン語の人名 Quin(c)tianus に由来する。もとは quintus「第5の」から。",
+    "filename": "Quentin.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 106513,
+    "w": "Raleigh",
+    "ja": "ローリー",
+    "p": [],
+    "b": "英語の姓Raleighは、デヴォンの地名Raleighに由来する。地名は古英語の「ノロジカ」と「林の空き地」を表す語から生じたと考えられている。",
+    "filename": "Raleigh.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 106699,
+    "w": "Remington",
+    "ja": "レミングトン",
+    "p": [],
+    "b": "姓はイングランドの地名Rimingtonに由来する。「Riming川沿いの集落」の意で、Rimingは境界を流れる川の名。",
+    "filename": "Remington.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 106821,
+    "w": "Rhodes",
+    "ja": "セシル・ローズ",
+    "p": [],
+    "b": "姓Rhodesは、中英語rode「森の開墾地」に由来する地形名や地名から生じた。Rh-の綴りには、ギリシャのRhodes島との連想が影響した。",
+    "filename": "Rhodes.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 106830,
+    "w": "Rico",
+    "ja": "リコ",
+    "p": [],
+    "b": "姓としては、スペイン語・ポルトガル語rico「裕福な」からの呼び名や、イタリア語の人名Enrico・Federicoなどを短くした形に由来する。",
+    "filename": "Rico.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 106863,
+    "w": "Rockefeller",
+    "ja": "ロックフェラー",
+    "p": [],
+    "b": "姓Rockefellerはドイツ語Rockenfellerをアメリカで変えた形。地名Rockenfeldに由来し、その地名は「ライ麦」と「開けた土地」を表す語を含む。",
+    "filename": "Rockefeller.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 106886,
+    "w": "Roosevelt",
+    "ja": "ルーズベルト",
+    "p": [],
+    "b": "オランダの農場名 Rozenveld または Ruiseveld にちなむ姓とされる。語の構成には「バラの野」や「イグサの生える土地」とする説がある。",
+    "filename": "Roosevelt.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 106892,
+    "w": "Ross",
+    "ja": "ロス",
+    "p": [],
+    "b": "スコットランド北部の旧州 Ross の名に由来する姓。",
+    "filename": "Ross.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 106897,
+    "w": "Rouen",
+    "ja": "ルーアン",
+    "p": [],
+    "b": "ローマ時代の地名Rotomagusにさかのぼる。後半はガリア語magos「野、市場」で、前半には「車輪」と人名の二つの解釈がある。",
+    "filename": "Rouen.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 106905,
+    "w": "Roxy",
+    "ja": "ロクシー",
+    "p": [],
+    "b": "女性名ではRoxane系の形で、ペルシャ語起源の名につながる。映画館名のRoxyには、興行主Samuel L. Rothafelの愛称という別の由来がある。",
+    "filename": "Roxy.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 106920,
+    "w": "Rufus",
+    "ja": "ルーファス",
+    "p": [
+      "reudh-"
+    ],
+    "b": "人名。ラテン語で「赤毛の」。髪の色がそのまま名前になった。",
+    "filename": "Rufus.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 106935,
+    "w": "Rupert",
+    "ja": "ルパート",
+    "p": [],
+    "b": "ドイツ語の人名Ruprechtと英語のRobertが混ざってできた名と考えられている。",
+    "filename": "Rupert.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 106940,
+    "w": "Ryan",
+    "ja": "ライアン",
+    "p": [],
+    "b": "アイルランドの姓から個人名になったもの。もとのゲール語 Ó Riain は「Rian の子孫」を表す。",
+    "filename": "Ryan.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 106958,
+    "w": "Saigon",
+    "ja": "サイゴン",
+    "p": [],
+    "b": "この都市を流れるサイゴン川の名に由来する。川名そのものの起源ははっきりしない。",
+    "filename": "Saigon.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 106963,
+    "w": "Salem",
+    "ja": "セーラム",
+    "p": [],
+    "b": "マサチューセッツ州の都市名は、ヘブライ語の「平和」を意味する語を取り入れたもの。以前のNaumkeagに代わる名として付けられた。",
+    "filename": "Salem.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 106977,
+    "w": "Samaria",
+    "ja": "サマリア",
+    "p": [],
+    "b": "ギリシャ語Samareia、アラム語Shamerayinを経て、ヘブライ語Shomeronにさかのぼる地名。",
+    "filename": "Samaria.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 106999,
+    "w": "Sarajevo",
+    "ja": "サラエボ",
+    "p": [],
+    "b": "トルコ語saray「宮殿」をスラヴ語の形容詞形にした地名。",
+    "filename": "Sarajevo.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 107024,
+    "w": "Savoy",
+    "ja": "サボイ",
+    "p": [],
+    "b": "フランス語Savoieから。ローマ時代の地名Sapaudiaにさかのぼるが、さらに古い語源は不明。",
+    "filename": "Savoy.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 107104,
+    "w": "Sebastian",
+    "ja": "セバスチャン",
+    "p": [],
+    "b": "ラテン語 Sebastianus、ギリシャ語 Sebastianos に由来し、「Sebastia の人」の意。地名は sebastos（尊厳ある）に結び付く。",
+    "filename": "Sebastian.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 107167,
+    "w": "seminar",
+    "ja": "ゼミナール",
+    "p": [
+      "sē-"
+    ],
+    "b": "ラテン語では「苗床」。1887年にドイツの大学から入ってきた語。",
+    "filename": "seminar.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 107233,
+    "w": "Shakespeare",
+    "ja": "シェークスピア",
+    "p": [
+      "sper-1"
+    ],
+    "b": "1248年から記録のある姓で、意味はそのまま「槍を振る者」。",
+    "filename": "Shakespeare.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 107262,
+    "w": "Shiloh",
+    "ja": "シロ",
+    "p": [],
+    "b": "テネシーの地名は、古代イスラエルの町Shilohの名にちなむ。",
+    "filename": "Shiloh.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 107305,
+    "w": "Siena",
+    "ja": "シエナ",
+    "p": [],
+    "b": "古くこの地に定住したガリア系の人々Senonesの名に由来するとも考えられる都市名。",
+    "filename": "Siena.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 107327,
+    "w": "Simon",
+    "ja": "シモン",
+    "p": [],
+    "b": "ラテン語・ギリシャ語を経て、ヘブライ語 Shim'on「聞くこと」に由来する名。「鼻の低い」を表すギリシャ語由来の同形の人名と混同されることもあった。",
+    "filename": "Simon.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 107336,
+    "w": "Singh",
+    "ja": "シン",
+    "p": [],
+    "b": "ヒンディー語 Singh を経て、サンスクリット語 simhah「ライオン」に由来する。北インドの姓や中間名で、シク教徒の称号・姓としても広まった。",
+    "filename": "Singh.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 107471,
+    "w": "Somalia",
+    "ja": "ソマリア",
+    "p": [],
+    "b": "この地域に住むSomaliの人々の名にちなむ国名。Somaliという名の最終的な起源は不明。",
+    "filename": "Somalia.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 107479,
+    "w": "Sophie",
+    "ja": "ソフィー",
+    "p": [],
+    "b": "Sophiaに当たるフランス語形。Sophiaはギリシャ語sophia「知恵」に由来する人名。",
+    "filename": "Sophie.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 107485,
+    "w": "Sorbonne",
+    "ja": "ソルボンヌ",
+    "p": [],
+    "b": "創立者Robert de Sorbonの名に結び付く呼称で、そのSorbonはフランスのアルデンヌ地方の地名。",
+    "filename": "Sorbonne.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 107527,
+    "w": "Sparta",
+    "ja": "スパルタ",
+    "p": [],
+    "b": "ギリシャ語spartē「エニシダ類の植物で作る綱」に結び付ける説がある。ただし、都市の建設に使う綱にちなむという説明は民間語源の可能性もある。",
+    "filename": "Sparta.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 107546,
+    "w": "Spencer",
+    "ja": "スペンサー",
+    "p": [],
+    "b": "短い上着の名は、英国の政治家 George John Spencer、第2代スペンサー伯爵の姓にちなむ。",
+    "filename": "Spencer.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 107583,
+    "w": "Springfield",
+    "ja": "スプリングフィールド",
+    "p": [],
+    "b": "イリノイ州の市名。歴史家ポール・アングルは、近くのSpring Creekにちなむと説明し、ケンタッキー州の同名都市の影響もあり得るとしている。",
+    "filename": "Springfield.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 107622,
+    "w": "Stanford",
+    "ja": "スタンフォード",
+    "p": [],
+    "b": "古英語stān「石」とford「浅瀬」からできた地名。姓Stanfordも、この名を持つイングランド各地の地名に由来する。",
+    "filename": "Stanford.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 107648,
+    "w": "Stella",
+    "ja": "ステラ",
+    "p": [],
+    "b": "ラテン語 stella（星）を人名にしたもの。",
+    "filename": "Stella.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 107650,
+    "w": "stent",
+    "ja": "ステント",
+    "p": [],
+    "b": "イギリスの歯科医 Charles Thomas Stent の姓に由来する。歯科用の型取り材料の名を受け継ぐ言葉で、組織を支える器具や、血管などを開いた状態に保つ管を表す。",
+    "filename": "stent.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 107663,
+    "w": "Stewart",
+    "ja": "スチュアート",
+    "p": [],
+    "b": "姓Stewartは、屋敷の管理をする役人を表した職業名から生じたもの。古英語stigweardは「家」と「守る人」を組み合わせた語。",
+    "filename": "Stewart.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 107777,
+    "w": "Suffolk",
+    "ja": "サフォーク",
+    "p": [],
+    "b": "イングランドのSuffolk地方にちなむ馬の品種名。地名Suffolkは古英語で「南の人々」を意味した。",
+    "filename": "Suffolk.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 107838,
+    "w": "Susanna",
+    "ja": "スザンナ",
+    "p": [],
+    "b": "ラテン語Susanna、ギリシャ語Sousannaを経て、ヘブライ語Shoshannah「ユリ」に由来する女性名。",
+    "filename": "Susanna.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 107856,
+    "w": "Sweden",
+    "ja": "スウェーデン",
+    "p": [],
+    "b": "中期オランダ語Swedenから入った国名。英語では以前Swedelandと呼ばれ、現在の形は1600年ごろ、まずスコットランドで用いられた。",
+    "filename": "Sweden.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 107895,
+    "w": "Syracuse",
+    "ja": "シラキュース",
+    "p": [],
+    "b": "ニューヨーク州の都市名は、1825年にシチリア島のシラクサ（Syracuse）から採られた。",
+    "filename": "Syracuse.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 107907,
+    "w": "Taft",
+    "ja": "タフト",
+    "p": [],
+    "b": "姓としては英語のToftの異形のほか、ドイツ語Taft「タフタ織」に由来するユダヤ系の造語姓・職業にちなむ姓がある。",
+    "filename": "Taft.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 107931,
+    "w": "tarmac",
+    "ja": "タールマック",
+    "p": [],
+    "b": "tar-macadam を縮めた商標名に由来し、tar「タール」と、道路舗装法を考案した John L. McAdam の姓が組み合わさっている。商標名が一般化し、舗装された道路や滑走路も指すようになった。",
+    "filename": "tarmac.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 107987,
+    "w": "tequila",
+    "ja": "テキーラ",
+    "p": [],
+    "b": "スペイン語 tequila を借りた語で、メキシコのハリスコ州にある地名 Tequila に由来する。酒の産地の名が、そのままアガベから造る蒸留酒の名になった。",
+    "filename": "tequila.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 108000,
+    "w": "Terry",
+    "ja": "テリー",
+    "p": [],
+    "b": "愛称としては、男性名 Terence／Terrence や Theodore、女性名 Theresa などの形から生まれた。",
+    "filename": "Terry.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 108013,
+    "w": "Thailand",
+    "ja": "タイ",
+    "p": [],
+    "b": "住民の呼び名 Thai と、英語の land（土地・国）を組み合わせた国名。",
+    "filename": "Thailand.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 108018,
+    "w": "Thea",
+    "ja": "テア",
+    "p": [
+      "dhēs-"
+    ],
+    "b": "人名。ギリシャ語で「女神」。theos「神」の女性形がそのまま名前に。",
+    "filename": "Thea.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 108025,
+    "w": "Theodosia",
+    "ja": "テオドシア",
+    "p": [
+      "dō-",
+      "dhēs-"
+    ],
+    "b": "人名。ギリシャ語で「神の贈り物」。Dorothy と同じ二語の入れ替え。",
+    "filename": "Theodosia.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 108033,
+    "w": "Theresa",
+    "ja": "テレサ",
+    "p": [],
+    "b": "フランス語Thérèse、ラテン語Therasiaを経た女性名。さらにギリシャの島名Therasiaに由来すると考えられている。",
+    "filename": "Theresa.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 108049,
+    "w": "Thrace",
+    "ja": "トラキア",
+    "p": [],
+    "b": "ギリシャ語の地名Thrakēをラテン語化した形から。住民の呼び名に由来するとされるが、さらに古い起源は不明。",
+    "filename": "Thrace.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 108073,
+    "w": "Tiberius",
+    "ja": "チベリウス",
+    "p": [],
+    "b": "古代ローマの個人名で、川の名Tiberに関係すると考えられている。",
+    "filename": "Tiberius.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 108086,
+    "w": "Timothy",
+    "ja": "ティモシー",
+    "p": [
+      "kʷei-3",
+      "dhēs-"
+    ],
+    "b": "ギリシャ語で「神を敬う」。小文字の timothy は牧草の名で、人名から。",
+    "filename": "Timothy.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 108088,
+    "w": "Tina",
+    "ja": "ティナ",
+    "p": [],
+    "b": "Cristinaなどの女性名を短くした形。",
+    "filename": "Tina.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 108113,
+    "w": "Toledo",
+    "ja": "トレド",
+    "p": [],
+    "b": "スペインの都市Toledoにちなむ刀剣名。",
+    "filename": "Toledo.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 108116,
+    "w": "toluene",
+    "ja": "トルエン",
+    "p": [],
+    "b": "トルーバルサムという樹脂から得られたことにちなむ名。tolu はその樹脂の名に使われたコロンビアの地名 Tolú に由来し、化学物質名に地名が残っている。",
+    "filename": "toluene.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 108119,
+    "w": "Tommy",
+    "ja": "トミー",
+    "p": [],
+    "b": "英国兵の呼び名は、軍の書類に記入例として使われた架空の名Thomas Atkinsに由来する。人名Tommy自体はThomasの愛称。",
+    "filename": "Tommy.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 108124,
+    "w": "Tony",
+    "ja": "トニー",
+    "p": [],
+    "b": "男性名 Anthony を短くした形。Anthony は、古代ローマの氏族名 Antonius に由来する。",
+    "filename": "Tony.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 108134,
+    "w": "Toronto",
+    "ja": "トロント",
+    "p": [],
+    "b": "イロコイ語族の言語から伝わった地名。",
+    "filename": "Toronto.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 108150,
+    "w": "Townsend",
+    "ja": "タウンゼント",
+    "p": [],
+    "b": "姓としては、中英語 toun(es)ende「村の端」に由来し、村の端に住む人を表した地形姓。",
+    "filename": "Townsend.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 108266,
+    "w": "Truman",
+    "ja": "ハリー・トルーマン",
+    "p": [],
+    "b": "英語の姓としては Trueman の異形。中英語の「忠実な」を表す trewe などと man から、信頼できる人へのあだ名として生じた。",
+    "filename": "Truman.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 108275,
+    "w": "Tucson",
+    "ja": "トゥーソン",
+    "p": [],
+    "b": "スペイン語Tucsonを経て、オオダム語cukson「黒い基部」に由来する。cuk「黒い」とson「基部」からなる地名。",
+    "filename": "Tucson.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 108295,
+    "w": "Turnbull",
+    "ja": "ターンブル",
+    "p": [],
+    "b": "姓としては、中英語で雄牛を導く人を表した職業名に由来する。スコットランド国境地帯では、Trumbleとの混同やそこからの派生も考えられる。",
+    "filename": "Turnbull.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 108323,
+    "w": "Tyrone",
+    "ja": "タイローン",
+    "p": [],
+    "b": "アイルランド語Tir Eoghain「Eoghanの土地」に由来する地名。",
+    "filename": "Tyrone.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 108523,
+    "w": "urbanism",
+    "ja": "アーバニズム",
+    "p": [],
+    "b": "urban「都市の、都会生活の」に -ism を付けた名詞。urban はラテン語 urbanus「都市の」、さらに urbs「都市」にさかのぼり、urbanism は都市に暮らす人々に特有の生活様式を表す。",
+    "filename": "urbanism.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 108564,
+    "w": "Vancouver",
+    "ja": "バンクーバー",
+    "p": [],
+    "b": "探検家George Vancouverの名にちなむ地名。",
+    "filename": "Vancouver.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 108565,
+    "w": "Vanderbilt",
+    "ja": "バンダービルト",
+    "p": [],
+    "b": "姓Vanderbiltはオランダ語のVan der Biltに由来し、bilt／bult「低い丘」のそばに住む人を表した。",
+    "filename": "Vanderbilt.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 108567,
+    "w": "Vanessa",
+    "ja": "ヴァネッサ",
+    "p": [],
+    "b": "作家SwiftがEsther Vanhomrighのために作った名とされ、姓のVan-と、名の愛称Hessyの要素を組み合わせたもの。",
+    "filename": "Vanessa.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 108576,
+    "w": "Vaughan",
+    "ja": "ボーガン",
+    "p": [],
+    "b": "姓としては、ウェールズ語 bach「小さい」の指小形 bychan が軟音化した fychan に由来する。",
+    "filename": "Vaughan.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 108611,
+    "w": "Versailles",
+    "ja": "ベルサイユ",
+    "p": [],
+    "b": "地名の起源は確かでないが、ラテン語 versus「斜面」に由来する可能性がある。",
+    "filename": "Versailles.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 108638,
+    "w": "Victoria",
+    "ja": "ビクトリア",
+    "p": [
+      "weik-5"
+    ],
+    "b": "名前の意味は「戦の勝利」。ローマの勝利の女神の名でもある。",
+    "filename": "Victoria.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 108645,
+    "w": "Vienna",
+    "ja": "ウイーン",
+    "p": [],
+    "b": "フランス語Vienneを経て伝わった英語の地名で、ラテン語Vindobonaにさかのぼる。",
+    "filename": "Vienna.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 108646,
+    "w": "Vietnam",
+    "ja": "ベトナム",
+    "p": [],
+    "b": "ベトナム語の民族名 Viet と、nam「南」を組み合わせた国名。",
+    "filename": "Vietnam.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 108654,
+    "w": "Vincent",
+    "ja": "ヴィンセント",
+    "p": [
+      "weik-5"
+    ],
+    "b": "人名。ラテン語で「勝つ者」。コロンブスは聖人の日に見た島にこの名を付けた。",
+    "filename": "Vincent.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 108775,
+    "w": "Weber",
+    "ja": "ウェーバー",
+    "p": [],
+    "b": "ドイツ語系の姓としては「織工」を表す職業名から来たもの。weben（織る）から作られた語に由来する。",
+    "filename": "Weber.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 108784,
+    "w": "Weimar",
+    "ja": "ヴァイマル",
+    "p": [
+      "mori-"
+    ],
+    "b": "地名は古高ドイツ語で「聖なる」+「湖」。1919年の憲法でこの名が残った。",
+    "filename": "Weimar.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 108915,
+    "w": "Yale",
+    "ja": "エール",
+    "p": [],
+    "b": "ウェールズ語ialに由来する姓で、「肥沃な高地に住む人」の意味。大学名YaleはElihu Yaleの寄付を記念して付けられた。",
+    "filename": "Yale.png",
+    "decision": "excluded_no_major_current_mismatch"
+  },
+  {
+    "case": 108939,
+    "w": "Zambia",
+    "ja": "ザンビア",
+    "p": [],
+    "b": "ザンベジ川の名に由来し、1964年の独立時に採用された国名。",
+    "filename": "Zambia.png",
+    "decision": "excluded_no_major_current_mismatch"
+  }
+]

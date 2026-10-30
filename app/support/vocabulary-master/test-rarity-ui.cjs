@@ -16,12 +16,19 @@ test('current independent level is unchanged for every dictionary record and sou
  const words=JSON.parse(read('app/data/generated-etymon/words.json'));for(const word of words)assert.equal(JSON.stringify(api.evaluate(word,index)),JSON.stringify(old.module.exports.evaluate(word,prior)),word.w);
  assert.equal(words.length,49180);
 });
-test('large star counts encode exact levels and unknown is never maximum rarity',()=>{
+test('compact single-line star counts encode exact levels and unknown is never maximum rarity',()=>{
  for(let n=1;n<=10;n++){
   const b=makeButton({w:'test'},{level:n});assert.equal(b.children[0].children.length,n);assert.ok(b.children[0].children.every(x=>x.textContent==='★'));
   assert.equal(b.dataset.level,String(n));assert.match(b.title,/根拠/);assert.equal(b.attributes['aria-pressed'],undefined);
  }
- assert.equal(makeButton({w:'test'},{level:null}).textContent,'未分類');assert.match(source,/font-size:21px/);
+ assert.equal(makeButton({w:'test'},{level:null}).textContent,'未分類');
+ const starCSS=source.match(/\.difficulty-v2-stars\{([^}]+)\}/)[1];
+ assert.match(starCSS,/display:inline-flex/);assert.match(starCSS,/font-size:\.8em/);assert.match(starCSS,/white-space:nowrap/);
+ assert.doesNotMatch(starCSS,/grid|repeat\(/);
+ const buttonCSS=[...source.matchAll(/\.difficulty-v2-button\{([^}]+)\}/g)].at(-1)[1];
+ assert.match(buttonCSS,/padding:0/);assert.match(buttonCSS,/min-height:0/);assert.match(buttonCSS,/border:0/);assert.match(buttonCSS,/background:transparent/);
+ assert.doesNotMatch(source,/width:126px!important|font-size:21px|min-height:38px|grid-template-columns:repeat\(5/);
+ assert.doesNotMatch(html,/table-layout:fixed/); // Auto table layout retains the inline content's minimum width.
 });
 test('star tap opens evidence and never toggles the level filter',()=>{
  const block=source.match(/ doc\.addEventListener\('click',e=>\{([\s\S]*?)\n \},true\);/);assert.ok(block);

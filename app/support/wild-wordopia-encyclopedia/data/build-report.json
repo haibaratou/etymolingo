@@ -1,0 +1,43 @@
+{
+ "wordParts": {
+  "total": 1107,
+  "added": 0,
+  "alreadyPresent": 1107,
+  "stale": 0,
+  "ambiguous": 0,
+  "missing": 0,
+  "corrections": {
+   "total": 9,
+   "corrected": 0,
+   "alreadyCorrected": 9,
+   "stale": 0,
+   "ambiguous": 0,
+   "missing": 0
+  }
+ },
+ "origins": {
+  "total": 49180,
+  "matched": 49178,
+  "stale": 0,
+  "ambiguous": 2,
+  "unclassified": 45393
+ },
+ "semanticError": "Semantic art is not the guarded resolved primary row",
+ "counts": {
+  "words": 19882,
+  "characters": 215,
+  "roots": 1191,
+  "master": 49180
+ },
+ "skipped": {
+  "notBound": 1330,
+  "noMaster": 0,
+  "ambiguousMaster": 0
+ },
+ "withCharacter": 8998,
+ "noRoot": 8095,
+ "levels": 14224,
+ "captions": 9329,
+ "bytes": 6280835,
+ "indexBytes": 1436323
+}

@@ -1,0 +1,194 @@
+[
+  {
+    "case": 100316,
+    "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\_illust\\261017\\anaphora.png",
+    "filename": "anaphora.png",
+    "first_ja": "首句反復",
+    "sha256": "81f8ee33f72f5491fcde5f156685721abd46608c7f7dbe9e45ae3880c7a751f3",
+    "same_as_formal": true
+  },
+  {
+    "case": 100441,
+    "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\_illust\\261017\\apostrophe.png",
+    "filename": "apostrophe.png",
+    "first_ja": "アポストロフィ",
+    "sha256": "153b6383df6d8ef3d9b8da94deb8139a99450581ab4b948a6679d27b56cfa4aa",
+    "same_as_formal": true
+  },
+  {
+    "case": 101449,
+    "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\_illust\\261017\\circumflex.png",
+    "filename": "circumflex.png",
+    "first_ja": "曲折アクセント記号",
+    "sha256": "3aa40c11951bcb00ffb6f649f1287c87e595cca569a1f03a12082dcf2bbd2ba9",
+    "same_as_formal": true
+  },
+  {
+    "case": 101933,
+    "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\_illust\\261017\\cursive.png",
+    "filename": "cursive.png",
+    "first_ja": "草書体の",
+    "sha256": "d62463ad9bee3070270928639032d6f13a687131863f4e85e6ee785934d283d5",
+    "same_as_formal": true
+  },
+  {
+    "case": 102225,
+    "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\_illust\\261017\\digraph.png",
+    "filename": "digraph.png",
+    "first_ja": "二重字",
+    "sha256": "885ee8ba0fe4c0ad34448947558bddeba0017a17cf1c1c9b87d0bdbd956268e7",
+    "same_as_formal": true
+  },
+  {
+    "case": 103815,
+    "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\_illust\\261017\\hyphen.png",
+    "filename": "hyphen.png",
+    "first_ja": "ハイフン",
+    "sha256": "ba2cb7f9680e571c809f59f85aba9bea745277c0fc13d477b612c41181ba4cf1",
+    "same_as_formal": true
+  },
+  {
+    "case": 104991,
+    "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\_illust\\261017\\metathesis.png",
+    "filename": "metathesis.png",
+    "first_ja": "字位転換",
+    "sha256": "7b6cc8b8cbef772ea33092c610149c9245f0097268633f2eba429d856b5e4370",
+    "same_as_formal": true
+  },
+  {
+    "case": 105038,
+    "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\_illust\\261017\\million.png",
+    "filename": "million.png",
+    "first_ja": "100万",
+    "sha256": "27b4587a3b7f8177f5263ecb55ad298a87f4ee67ee6b9656cd01eb90684cc518",
+    "same_as_formal": true
+  },
+  {
+    "case": 100097,
+    "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\_illust\\261019\\acrostic.png",
+    "filename": "acrostic.png",
+    "first_ja": "アクロスティック",
+    "sha256": "2818fccafd674d71a6befa7a0dc3ee7ef98a62e0d7fe64f6e0c5cf94d0f785c4",
+    "same_as_formal": true
+  },
+  {
+    "case": 101493,
+    "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\_illust\\261019\\clef.png",
+    "filename": "clef.png",
+    "first_ja": "音部記号",
+    "sha256": "07682cc47de66b48240761108c7e340e396fa75f19efb3e68895ec04789f9296",
+    "same_as_formal": true
+  },
+  {
+    "case": 102181,
+    "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\_illust\\261019\\Devanagari.png",
+    "filename": "Devanagari.png",
+    "first_ja": "デーバナーガリー",
+    "sha256": "dda89b5a8a8083e69af002dd625db29916a810c76db842519c45b2b35edeea1f",
+    "same_as_formal": true
+  },
+  {
+    "case": 102248,
+    "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\_illust\\261019\\diphthong.png",
+    "filename": "diphthong.png",
+    "first_ja": "二重母音",
+    "sha256": "e2be5c8c5aa1103c19e5eec9d33769633aacb289540826e3c6115a4cf3b5e6ce",
+    "same_as_formal": true
+  },
+  {
+    "case": 102541,
+    "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\_illust\\261019\\eigenvector.png",
+    "filename": "eigenvector.png",
+    "first_ja": "固有ベクトル",
+    "sha256": "acaf058d50d96c72132ead3916f91724f35bc1e9232dee1cfbc2b8a34fd067eb",
+    "same_as_formal": true
+  },
+  {
+    "case": 105700,
+    "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\_illust\\261019\\palindrome.png",
+    "filename": "palindrome.png",
+    "first_ja": "回文",
+    "sha256": "f202ac93e52994a2c750d716fa253e7867895a117ab0ffb12ac60e5ee49f5feb",
+    "same_as_formal": true
+  },
+  {
+    "case": 108004,
+    "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\_illust\\261019\\Tetragrammaton.png",
+    "filename": "Tetragrammaton.png",
+    "first_ja": "神を表す4文字",
+    "sha256": "060b84db35fa99b5d3ea9f7f94590d4474cec03f0866a18309ff6e8c8073e5a4",
+    "same_as_formal": true
+  },
+  {
+    "case": 26,
+    "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\_illust\\261021\\arginine.png",
+    "filename": "arginine.png",
+    "first_ja": "アルギニン",
+    "sha256": "5a09cba235dc02970de2711ef2d86196a55a57a862cafbbd6ad4c9bfb721c496",
+    "same_as_formal": true
+  },
+  {
+    "case": 117,
+    "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\_illust\\261021\\creatinine.png",
+    "filename": "creatinine.png",
+    "first_ja": "クレアチニン",
+    "sha256": "3d1872c0b61b30300ca6aadb2b93c81e0bfb33a98e94d37f9d0cba21281283f9",
+    "same_as_formal": true
+  },
+  {
+    "case": 102716,
+    "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\_illust\\261021\\esotropia.png",
+    "filename": "esotropia.png",
+    "first_ja": "内斜視",
+    "sha256": "b772c5fd9712ecc8d10d972cdf05751e782e2e6acaecebea17358006e051e915",
+    "same_as_formal": true
+  },
+  {
+    "case": 290,
+    "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\_illust\\261021\\ketamine.png",
+    "filename": "ketamine.png",
+    "first_ja": "ケタミン",
+    "sha256": "697b0ec29b95c552d8adbc05e8daf88700a49a0608c75ede24cca624a238aa13",
+    "same_as_formal": true
+  },
+  {
+    "case": 51,
+    "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\_illust\\261027\\biker.png",
+    "filename": "biker.png",
+    "first_ja": "オートバイに乗る人",
+    "sha256": "4192a6e3be1509f97512a0e9eb73659ee2b8969b51c9688f6b4232ff0f8d738f",
+    "same_as_formal": true
+  },
+  {
+    "case": 115,
+    "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\_illust\\261027\\coupe.png",
+    "filename": "coupe.png",
+    "first_ja": "クーペ型の自動車",
+    "sha256": "407de1695f20b8e670a99673f37781b2a04cf17ad2a4a7a4f0df7fb2668bac90",
+    "same_as_formal": true
+  },
+  {
+    "case": 218,
+    "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\_illust\\261027\\gemstone.png",
+    "filename": "gemstone.png",
+    "first_ja": "宝石用原石",
+    "sha256": "1052be0e05f2e0e716427ff5ea23343cfc180d203391d989092170944c12f1e0",
+    "same_as_formal": true
+  },
+  {
+    "case": 103522,
+    "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\_illust\\261027\\handball.png",
+    "filename": "handball.png",
+    "first_ja": "壁打ちハンドボール",
+    "sha256": "f980ddb72730f54320a20309be88739205af1404e33292dee682c701c779e0f3",
+    "same_as_formal": true
+  },
+  {
+    "case": 395,
+    "path": "D:\\Projects\\etymolingo\\work\\etymopedia\\_illust\\261027\\plugin.png",
+    "filename": "plugin.png",
+    "first_ja": "拡張ソフト",
+    "sha256": "d0b62e9a4eac669bc990ee01cfd806ea76424c792bbc63909ff2514acb0ec080",
+    "same_as_formal": true
+  }
+]

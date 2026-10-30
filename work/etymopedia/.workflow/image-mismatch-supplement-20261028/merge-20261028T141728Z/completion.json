@@ -1,0 +1,23 @@
+{
+  "completed_at": "2026-10-28T14:24:58.757680+00:00",
+  "CSV_to_use_for_image_repairs": "D:\\Projects\\etymolingo\\work\\etymopedia\\prompt_rows_image_mismatch_supplement_20261028.csv",
+  "repair_rows": 158,
+  "new_missing_image_rows_added": 0,
+  "already_correct_excluded_during_this_merge": 0,
+  "source_counts": [
+    152,
+    2,
+    4
+  ],
+  "sha256": "f7549722ce8bda184e3a53905d0ab18a39c70985aa16eca46277d354c0def716",
+  "formal_parser": "passed",
+  "original_149_bytes_and_order": "preserved",
+  "trash_successes": 3,
+  "trash_verification": "D:\\Projects\\etymolingo\\work\\etymopedia\\.workflow\\image-mismatch-supplement-20261028\\merge-20261028T141728Z\\recycle-result.json",
+  "audit_path": "D:\\Projects\\etymolingo\\work\\etymopedia\\.workflow\\image-mismatch-supplement-20261028\\image_mismatch_decisions_20261028.csv",
+  "correction_overlay": "D:\\Projects\\etymolingo\\work\\etymopedia\\.workflow\\image-mismatch-supplement-20261028\\followup\\decision-corrections.csv",
+  "protected_active_2000_CSV_and_owner": "present, untouched; no ID or save-name overlap with repair CSV",
+  "prompt_review_pending": "present, untouched",
+  "epithet": "not added; confirmed corrected meaning pending",
+  "blockers": []
+}
