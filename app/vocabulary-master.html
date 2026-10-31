@@ -296,7 +296,7 @@ td.cOriginLanguage{min-width:105px;max-width:180px;font-size:11px;color:var(--in
 <script src="data/generated-etymon/etymology-origins.js?v=4fd044e07a94"></script>
 <script src="data/generated-etymon/word-parts-supplement.js?v=dac2cb3c0a72"></script>
 <script src="shared/etymological-components.js?v=e7cc88f3ba85"></script>
-<script src="shared/vocabulary-components-ui.js?v=d841712f0bb0"></script>
+<script src="shared/vocabulary-components-ui.js?v=98a569dcae13"></script>
 <script src="data/generated-etymon/etymological-components.js?v=ca8c9907e106"></script>
 <link rel="stylesheet" href="shared/word-review-notes.css?v=ae7f729c756f">
 <script src="shared/word-review-notes.js?v=5edd24241d55"></script>
@@ -751,7 +751,7 @@ function rootChip(key,word){
 }
 function componentCoverage(word){return COMPONENTS?.coverage(word)||null;}
 function hasPieRoot(word){
-  return window.VocabularyComponentsUI.hasPie(componentCoverage(word));
+  return window.VocabularyComponentsUI.hasPie(componentCoverage(word),word,ROOT_BY);
 }
 /* この語根がどの道を通って英語に入ったかの内訳。混成語は2つの語派に数えるので、
    合計が語数を超えることがある(television = ギリシャ語派 + ロマンス語派)。 */
@@ -903,7 +903,7 @@ function applyFilters(list){
     window.EtymonOrigins.matches(w,F.originFamilies,F.originLanguages)
     &&(!F.pos||(w.pos||'').includes(F.pos))
     &&(!F.comp||w.p.length>1)
-    &&window.VocabularyComponentsUI.matches(componentCoverage(w),F.rootType)
+    &&window.VocabularyComponentsUI.matches(componentCoverage(w),F.rootType,w,ROOT_BY)
     /* PIEの語根登録を確認する。部品だけの登録、未知IDをPIE語根に数えない。 */
     &&(!F.noroot||!hasPieRoot(w))
     &&(!F.pic||(F.pic==='1'?!!w.pic:!w.pic))
@@ -1061,7 +1061,7 @@ function renderToolbar(){
     <span class="tLabel">品詞</span>
     ${POSES.map(([v,l])=>`<button class="tBtn${F.pos===v?' on':''}" data-pos="${v}">${l}</button>`).join('')}
     <button class="tBtn${F.comp?' on':''}" id="fComp" title="従来の関連IDが複数ある語。実際の合成語とは限りません。">旧参照が複数</button>
-    <button class="tBtn${F.noroot?' on':''}" id="fNoRoot" title="確認済みまたは旧登録のPIE語根がない語。確認形・部品・未登録・未確定も含みます。">PIE語根の登録なし</button>
+    <button class="tBtn${F.noroot?' on':''}" id="fNoRoot" title="PIE語根の登録がない語。登録の有無と、その語との接続の確認状態は別です。">PIE語根の登録なし</button>
     <label><span class="tLabel">語根の種類</span> <select id="fRootType" aria-label="語根・部品の確認状態">${window.VocabularyComponentsUI.choices.map(([v,l])=>`<option value="${v}"${F.rootType===v?' selected':''}>${esc(l)}</option>`).join('')}</select></label>
     ${componentDataError?`<small class="originError">${esc(componentDataError)}</small>`:''}
     <button class="tBtn${F.review?' on':''}" id="fReview" title="日本語/パラフレーズ/品詞の欠落、語義数不一致、長すぎる定義文などを拾う">要点検のみ</button>
