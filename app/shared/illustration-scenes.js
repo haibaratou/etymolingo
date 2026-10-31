@@ -129,7 +129,7 @@ if (typeof window !== 'undefined' && /\/vocabulary-master\.html$/.test(window.lo
       addScript('data/generated-etymon/learning-levels.js?v=e3e733383168')
     ]).then(()=>Promise.all([
       addScript('shared/explorer-inflections.js?v=65a568ed03bf'),
-      addScript('shared/explorer-difficulty-v2.js?v=dec3ed58d485')
+      addScript('shared/explorer-difficulty-v2.js?v=c8f1b29f8eb9')
     ]));
     panels.then(()=>{
       document.documentElement.dataset.explorerPanelsReady='1';
