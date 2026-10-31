@@ -17,7 +17,7 @@ const between=(text,start,end)=>{
 };
 function componentContext(roots,words){
  const prepared=components.prepare({schema:1,entities:[],words:[],aliases:[]},roots);
- const context={window:{VocabularyComponentsUI:componentsUI},COMPONENTS:components.bind(words,prepared)};
+ const context={window:{VocabularyComponentsUI:componentsUI},ROOT_BY:new Map(roots.map(r=>[r.key,r])),COMPONENTS:components.bind(words,prepared)};
  vm.runInNewContext(html.match(/^function componentCoverage\([^]*?^function hasPieRoot\([^]*?^}/m)[0],context);
  return context;
 }
@@ -51,6 +51,20 @@ test('Germanic sound symbolism is not counted as PIE ancestry',()=>{
  const word={w:'sound-symbolic-fixture',p:['snu-']};
  const context=componentContext([{key:'snu-',kind:'germanic_sound_symbolism'}],[word]);
  assert.equal(context.hasPieRoot(word),false);
+});
+
+test('PIE registration filter remains independent of proof coverage and its absence',()=>{
+ const word={w:'earth',p:['er-2']};
+ const context=componentContext([{key:'er-2',kind:'pie_reconstruction',origin_language:'PIE'}],[word]);
+ const coverage={guard_valid:false,confirmed_pie_lexical_count:0,confirmed_attested_lexical_count:1,eligible_legacy_pie_ref_count:0};
+ context.COMPONENTS={coverage:()=>coverage};
+ assert.equal(context.hasPieRoot(word),true);
+ assert.equal(coverage.confirmed_pie_lexical_count,0);
+ assert.equal(coverage.confirmed_attested_lexical_count,1);
+ assert.equal(componentsUI.matches(coverage,'pie',word,context.ROOT_BY),!(!context.hasPieRoot(word)));
+ context.COMPONENTS=null;
+ assert.equal(context.hasPieRoot(word),true);
+ assert.equal(context.hasPieRoot({w:'unknown',p:['unknown']}),false);
 });
 
 test('root chips show uncertain relations without converting them into proven etymologies',()=>{
