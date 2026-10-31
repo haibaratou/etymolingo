@@ -5,12 +5,24 @@
  const labels={pie_confirmed:'PIE語根確認',attested_confirmed:'確認形あり',mixed_basis_confirmed:'PIE・確認形の混成',formative_only:'部品のみ確認',source_supported:'資料支持',legacy_registered:'旧登録',uncertain:'未確定の旧参照',not_registered:'参照未登録',unavailable:'参照の照合不可'};
  const kinds={pie_reconstruction:'PIE再建語根',attested_lexeme:'確認された語形',attested_morphological_root:'確認された語根',pie_formative:'PIEの語形成要素',proposed_reconstruction:'未確定の再建形',attested_formative:'確認された接辞・部品'};
  const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
- function hasPie(c){return !!c&&(c.confirmed_pie_lexical_count>0||(c.typed_legacy_root_scope?c.eligible_legacy_pie_ref_count:c.legacy_pie_ref_count)>0);}
- function matches(c,selected){
-  if(!selected)return true;if(!c)return selected==='unavailable';
+ // Dictionary registration is independent of a word's evidence/binding validity.
+ function registeredPie(word,roots){
+  return Array.isArray(word?.p)&&word.p.some(key=>{
+   if(typeof key!=='string')return false;
+   const r=roots instanceof Map?roots.get(key):roots&&Object.prototype.hasOwnProperty.call(roots,key)?roots[key]:null;
+   if(!r||r.unresolved||r.component_id||r.alias_of)return false;
+   const kind=r.kind||'pie_registered';
+   return ['pie_registered','pie','pie_root','pie_reconstruction'].includes(kind)
+    &&(!r.origin_language||r.origin_language==='PIE')
+    &&typeof (r.pie||r.key)==='string'&&!!(r.pie||r.key);
+  });
+ }
+ function hasPie(c,word,roots){return !!(c?.confirmed_pie_lexical_count>0||(roots?registeredPie(word,roots):c?.legacy_pie_ref_count>0));}
+ function matches(c,selected,word,roots){
+  if(!selected)return true;if(selected==='pie')return hasPie(c,word,roots);if(!c)return selected==='unavailable';
   switch(selected){
    case 'confirmed':return c.has_confirmed_components;
-   case 'pie':return hasPie(c);
+   case 'pie':return hasPie(c,word,roots);
    case 'attested':return c.confirmed_attested_lexical_count>0;
    case 'mixed':return c.mixed_basis;
    case 'formative':return c.confirmed_formative_count>0&&!c.has_confirmed_lexical;
@@ -205,5 +217,5 @@
  function navigationCount(root,binding,byRoot){
   return (binding?.byLegacyRoot?.(root.key)||[]).length?(byRoot.get(root.key)||binding?.rootMembers?.(root.key)||[]).length:(root.all??root.dict);
  }
- return {choices,labels,kinds,hasPie,matches,badge,chips,assemblyChips,rootCell,legacyRelation,historicalAnalyses,info,sourceBadge,details,integrateRootMembers,navigationCount};
+ return {choices,labels,kinds,registeredPie,hasPie,matches,badge,chips,assemblyChips,rootCell,legacyRelation,historicalAnalyses,info,sourceBadge,details,integrateRootMembers,navigationCount};
 });
