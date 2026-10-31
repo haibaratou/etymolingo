@@ -299,7 +299,8 @@ test('late visual data repaints existing scores after the lightweight panel alre
  const listeners=new Map(),observers=[];
  const Observer=class extends window.MutationObserver{constructor(fn){super(fn);observers.push(this);}};
  t.after(()=>observers.forEach(o=>o.disconnect()));
- const warnings=[],context={document:window.document,WORDS:[{w:'steam',p:[],g:'G',pos:'名'}],URL,queueMicrotask,MutationObserver:Observer,Blob,Response,DecompressionStream,atob,console:{warn(...a){warnings.push(a);}},addEventListener:(type,fn)=>listeners.set(type,fn)};
+ const DelayedResponse=class extends Response{async text(){const raw=await super.text();await new Promise(resolve=>setTimeout(resolve,180));return raw;}};
+ const warnings=[],context={document:window.document,WORDS:[{w:'steam',p:[],g:'G',pos:'名'}],URL,queueMicrotask,MutationObserver:Observer,Blob,Response:DelayedResponse,DecompressionStream,atob,console:{warn(...a){warnings.push(a);}},addEventListener:(type,fn)=>listeners.set(type,fn)};
  vm.runInNewContext(overlay,context);await tick();await tick();
  assert.equal(window.document.querySelector('td.cLang .ety-family-tag').textContent,'ゲルマン');
  assert.equal(window.document.querySelector('td.guess-v2-col').textContent,'読込中');
@@ -308,7 +309,14 @@ test('late visual data repaints existing scores after the lightweight panel alre
  assert.equal(window.document.querySelector('td.guess-v2-col').textContent,'読込エラー');
  context.ETYMON_PUZZLE_ENVELOPE={schema:1,encoding:'gzip-base64',data:pack({schema:1,entries:[{id:'steam-picture',w:'steam',p:[],imagePath:'assets/word/steam.png',imageGitBlobSha:'same-picture'}]})};
  context.ETYMON_PUZZLE_VISUAL_SCORES={entries:[{id:'steam-picture',score:89,imageGitBlobSha:'same-picture'}]};
+ const scoreCell=window.document.querySelector('td.guess-v2-col');
+ const repainted=new Promise((resolve,reject)=>{
+  const observer=new Observer(()=>{if(scoreCell.textContent==='89 / 100'){clearTimeout(timeout);observer.disconnect();resolve();}});
+  const timeout=setTimeout(()=>{observer.disconnect();reject(new Error('Visual score did not recover: '+scoreCell.textContent+'; warnings='+warnings.length));},2000);
+  observer.observe(scoreCell,{childList:true,subtree:true,characterData:true});
+ });
  listeners.get('etymon:visual-ready')();
- for(let n=0;n<20&&window.document.querySelector('td.guess-v2-col').textContent!=='89 / 100';n++)await new Promise(resolve=>setTimeout(resolve,5));
+ await repainted;
+ assert.equal(warnings.length,0,'valid late visual data must not trigger a load error');
  assert.equal(window.document.querySelector('td.guess-v2-col').textContent,'89 / 100');
 });
