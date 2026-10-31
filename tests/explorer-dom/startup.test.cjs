@@ -320,3 +320,16 @@ test('late visual data repaints existing scores after the lightweight panel alre
  assert.equal(warnings.length,0,'valid late visual data must not trigger a load error');
  assert.equal(window.document.querySelector('td.guess-v2-col').textContent,'89 / 100');
 });
+
+test('all registered lexical PIE kinds remain exact searchable',()=>{for(const kind of [undefined,'pie_registered','pie','pie_root','pie_reconstruction']){const root={key:'er-2',kind,origin_language:'PIE'};assert.deepEqual(search.matchingRoots([root],'*er-2'),[root]);assert.deepEqual(search.matchingRoots([root],'＊er-2'),[root]);}});
+test('unverified, proposed, formative, aliases, attested and unknown are not newly promoted',()=>{for(const kind of ['unverified_reconstruction','proposed_reconstruction','pie_formative','legacy_alias','latin_lemma','attested_lexeme','unknown'])assert.equal(search.matchingRoots([{key:'er-2',kind}],'*er-2').length,0);});
+test('metadata aliases, canonical entities, wrong language and unresolved roots stay excluded',()=>{for(const extra of [{component_id:'x'},{alias_of:'x'},{unresolved:true},{origin_language:'L'}])assert.equal(search.matchingRoots([{key:'er-2',kind:'pie_reconstruction',...extra}],'*er-2').length,0);});
+test('root homograph numbers remain exact and marker is not a wildcard',()=>{const roots=[{key:'er-1'},{key:'er-2',kind:'pie_reconstruction'}];assert.deepEqual(search.matchingRoots(roots,'*er-2'),[roots[1]]);assert.deepEqual(search.matchingRoots(roots,'*er'),[]);assert.deepEqual(search.matchingRoots(roots,'er-2'),[]);});
+test('registered PIE lookup includes the linked word without promoting its ancestry proof',()=>{
+ const roots=[{key:'er-2',kind:'pie_reconstruction',origin_language:'PIE'}];
+ const words=[{w:'earth',p:['er-2'],ja:'地球、土',confirmed_pie_lexical_count:0},{w:'other',p:[],ja:'他'}];
+ const before=JSON.stringify({roots,words});const index=search.createIndex(words,{roots});
+ assert.deepEqual(index.search('*er-2'),[words[0]]);
+ assert.equal(words[0].confirmed_pie_lexical_count,0);
+ assert.equal(JSON.stringify({roots,words}),before);
+});
