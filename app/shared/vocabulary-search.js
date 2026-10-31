@@ -23,9 +23,16 @@
   const text=String(value||'').trim();
   return /^[*＊]/u.test(text)?rootText(text.slice(1)):null;
  }
+ // Registration metadata is not a claim that a word's PIE connection is confirmed.
+ function isRegisteredPieRoot(root){
+  return !!root&&!root.unresolved&&!root.component_id&&!root.alias_of
+   &&['pie_registered','pie','pie_root','pie_reconstruction'].includes(root.kind||'pie_registered')
+   &&(!root.origin_language||root.origin_language==='PIE')
+   &&typeof root.key==='string'&&!!root.key;
+ }
  function matchingRoots(roots,value){
   const key=rootQuery(value);
-  return key?roots.filter(r=>(!r.kind||r.kind==='pie')&&rootText(r.key)===key):[];
+  return key?roots.filter(r=>isRegisteredPieRoot(r)&&rootText(r.key)===key):[];
  }
  function createIndex(words,options={}){
   const images=new Map(),sceneRows=new Map(),cache=new Map();
