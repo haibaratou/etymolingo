@@ -295,8 +295,8 @@ td.cOriginLanguage{min-width:105px;max-width:180px;font-size:11px;color:var(--in
 <script src="shared/vocabulary-search.js?v=497ddbae6b1e"></script>
 <script src="data/generated-etymon/etymology-origins.js?v=4fd044e07a94"></script>
 <script src="data/generated-etymon/word-parts-supplement.js?v=dac2cb3c0a72"></script>
-<script src="shared/etymological-components.js?v=5abea4ddd5f1"></script>
-<script src="shared/vocabulary-components-ui.js?v=6088cd9e8771"></script>
+<script src="shared/etymological-components.js?v=e7cc88f3ba85"></script>
+<script src="shared/vocabulary-components-ui.js?v=d841712f0bb0"></script>
 <script src="data/generated-etymon/etymological-components.js?v=ca8c9907e106"></script>
 <link rel="stylesheet" href="shared/word-review-notes.css?v=ae7f729c756f">
 <script src="shared/word-review-notes.js?v=5edd24241d55"></script>
@@ -644,7 +644,10 @@ async function loadData(){
 }
 function wordParts(w,labeled=false){
   const key=JSON.stringify([w.w,(w.p||[]).join('+')]);
-  const text=WORD_PARTS[key];
+  const ancestryRequested=COMPONENTS?.hasAssemblyAncestryDisplay?.(w);
+  const text=ancestryRequested
+    ?(COMPONENTS.boundAssemblyCaption(w)||COMPONENTS.directAssemblyCaption(w)||'')
+    :WORD_PARTS[key];
   return text?`<div class="wordParts">${labeled?'<b>語源組み立て</b>':''}<span>${esc(text)}</span></div>`:'';
 }
 function rootLabel(r){
