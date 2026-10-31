@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 30
     permissions:
-      contents: read # ONE_SHOT_DISABLED
+      contents: write # ONE_SHOT_WRITE
     outputs:
       published_sha: ${{ steps.commit.outputs.sha }}
     steps:
@@ -175,7 +175,7 @@ jobs:
       run: "set -euo pipefail\ncat > \"$RUNNER_TEMP/receive-runtime.py\" <<'PYRECEIVER'\n\"\"\"One-shot runtime receiver.\
         \ Never consume private diagnostic artifacts.\"\"\"\nimport base64, datetime, hashlib, io, json, os, pathlib, re,\
         \ stat, subprocess, zipfile\nfrom root_publication_guard import validate_root_publication,validate_embedded_roots\n\
-        DEADLINE='2026-10-31T11:44:00+00:00'\nCONTROL='.github/runtime-transfer/'\nWORKFLOW='.github/workflows/receive-reviewed-runtime.yml'\n\
+        DEADLINE='2026-10-31T13:20:00+00:00'\nCONTROL='.github/runtime-transfer/'\nWORKFLOW='.github/workflows/receive-reviewed-runtime.yml'\n\
         EXACT={'app/vocabulary-master.html','assets/word/illustration-index.js','app/licenses/pronunciation.html',*('app/shared/'+n+'.js'\
         \ for n in ['verb-inflections','nominal-adjective-inflections','explorer-inflections','offline-dictionary','illustration-scenes','explorer-difficulty-v2','lexical-identity','semantic-classifications','spelling-puzzle-eligibility','multilingual-answers'])}\n\
         NAMES=set('roots.json words.json affixes.json word_block.json details_brief.json eo_slugs.json eo_pick.json manifest.json\
@@ -280,7 +280,7 @@ jobs:
 
         import datetime
 
-        assert datetime.datetime.now(datetime.timezone.utc)<datetime.datetime.fromisoformat(''2026-10-31T11:44:00+00:00''),
+        assert datetime.datetime.now(datetime.timezone.utc)<datetime.datetime.fromisoformat(''2026-10-31T13:20:00+00:00''),
         ''Authorization window expired''
 
         PYTIME
@@ -322,7 +322,7 @@ jobs:
 
         import datetime
 
-        assert datetime.datetime.now(datetime.timezone.utc)<datetime.datetime.fromisoformat(''2026-10-31T11:44:00+00:00''),
+        assert datetime.datetime.now(datetime.timezone.utc)<datetime.datetime.fromisoformat(''2026-10-31T13:20:00+00:00''),
         ''Authorization window expired''
 
         PYTIME
@@ -364,9 +364,9 @@ jobs:
         EXPECTED_SHA: ${{ needs.apply.outputs.published_sha }}
       run: "python3 - <<'PYWAIT'\nimport datetime,json,os,time,urllib.request\nendpoint='https://api.github.com/repos/haibaratou/etymolingo/'\n\
         def get(path):\n    q=urllib.request.Request(endpoint+path,headers={'Authorization':'Bearer '+os.environ['GH_TOKEN'],'Accept':'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28'})\n\
-        \    with urllib.request.urlopen(q,timeout=30) as r:return json.load(r)\nassert datetime.datetime.now(datetime.timezone.utc)<datetime.datetime.fromisoformat('2026-10-31T11:44:00+00:00'),\
+        \    with urllib.request.urlopen(q,timeout=30) as r:return json.load(r)\nassert datetime.datetime.now(datetime.timezone.utc)<datetime.datetime.fromisoformat('2026-10-31T13:20:00+00:00'),\
         \ 'Authorization window expired'\nassert get('git/ref/heads/main')['object']['sha']==os.environ['EXPECTED_SHA'], 'Main\
-        \ advanced; do not deploy stale runtime'\nremaining=int((datetime.datetime.fromisoformat('2026-10-31T11:44:00+00:00')-datetime.datetime.now(datetime.timezone.utc)).total_seconds())-15\n\
+        \ advanced; do not deploy stale runtime'\nremaining=int((datetime.datetime.fromisoformat('2026-10-31T13:20:00+00:00')-datetime.datetime.now(datetime.timezone.utc)).total_seconds())-15\n\
         assert remaining>=60, 'Too little time remains to deploy'\nwith open(os.environ['GITHUB_OUTPUT'],'a') as f:f.write('timeout_ms='+str(min(1200000,remaining*1000))+'\\\
         n')\nPYWAIT\n"
     - name: Deploy verified runtime
