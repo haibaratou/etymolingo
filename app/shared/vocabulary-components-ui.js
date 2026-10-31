@@ -100,15 +100,23 @@
   if(!exact(row,fields)||row.relation!=='same_attested_lemma'||!supported(row.status)
     ||typeof row.note!=='string'||!row.note.trim()||!evidence(row.evidence))return null;
   const old=binding.legacyInfo(key),guard=row.legacy_guard,e=binding.entity(row.entity_ref);
-  const guardFields=['kind','form','origin_language','meaning','definition_reviewed','definition_source'];
-  if(!old||!exact(guard,guardFields)||!guardFields.every(field=>guard[field]===old[field])
+  const legacyFields=['kind','form','origin_language','meaning','definition_reviewed','definition_source'];
+  const editorialFields=['kind','form','origin_language','meaning','editorial_summary_reviewed','editorial_summary_source'];
+  const editorial=exact(guard,editorialFields),legacy=exact(guard,legacyFields);
+  if(!old||(!editorial&&!legacy))return null;
+  const guardFields=editorial?editorialFields:legacyFields;
+  const source=editorial?old.editorial_summary_source:old.definition_source;
+  if(!guardFields.every(field=>guard[field]===old[field])
+    ||(editorial?(old.editorial_summary_reviewed!==true||old.editorial_summary_matches_commentary!==true
+      ||old.editorial_original_intact!==true||old.legacy_definition_flags_truthy!==false)
+      :(old.editorial_schema_present!==false||old.definition_reviewed!==true))
+    ||typeof source!=='string'||!/^https:\/\//.test(source)
     ||old.type!=='latin_lemma'||old.kind!=='latin_lemma'||old.origin_language!=='L'||old.stage!==''
-    ||old.definition_reviewed!==true||!/^https:\/\//.test(old.definition_source)
     ||!e||e.kind!=='attested_lexeme'||!['dictionary_attested','individually_confirmed','reviewed'].includes(e.status)
     ||e.language!=='ラテン語'||(e.stage||e.language_stage||'')!==''
     ||e.form!==old.form||row.direct_form!==e.form||row.direct_meaning!==e.meaning||!visible.has(e.id))return null;
   const urls=new Set(row.evidence.map(x=>x.source));
-  if(!urls.has(old.definition_source)||!Array.isArray(e.evidence)||!e.evidence.some(x=>urls.has(x.source)))return null;
+  if(!urls.has(source)||!Array.isArray(e.evidence)||!e.evidence.some(x=>urls.has(x.source)))return null;
   const lineages=binding.wordLineages(word).filter(l=>l.confirmed&&l.role==='lexical'&&!l.uncertain_edges
     &&Array.isArray(l.legacy_root_keys)&&l.legacy_root_keys.includes(key)&&l.confirmed_path_refs.includes(e.id)
     &&Array.isArray(l.evidence)&&l.evidence.some(x=>urls.has(x.source)));
