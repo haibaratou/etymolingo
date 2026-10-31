@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 30
     permissions:
-      contents: write # ONE_SHOT_WRITE
+      contents: read # ONE_SHOT_DISABLED
     outputs:
       published_sha: ${{ steps.commit.outputs.sha }}
     steps:
