@@ -333,3 +333,69 @@ test('registered PIE lookup includes the linked word without promoting its ances
  assert.equal(words[0].confirmed_pie_lexical_count,0);
  assert.equal(JSON.stringify({roots,words}),before);
 });
+
+const halfStars=require('../../app/shared/explorer-difficulty-v2.js');
+test('all ten levels display at most five real star shapes with odd half clips',()=>{
+ for(let level=1;level<=10;level++){
+  const html=halfStars.starHTML(level);
+  assert.equal((html.match(/class="difficulty-v2-star(?: |")/g)||[]).length,Math.ceil(level/2));
+  assert.equal((html.match(/clip-path:inset\(0 50% 0 0\)/g)||[]).length,level%2);
+  assert.match(html,new RegExp('aria-label="'+(level/2)+' / 5 星"'));
+  assert.equal((html.match(/★/g)||[]).length,Math.ceil(level/2));
+ }
+});
+test('unclassified and zero stay distinct; invalid levels do not create misleading stars',()=>{
+ assert.equal(halfStars.starHTML(null),'未分類');assert.match(halfStars.starHTML(0),/0 \/ 5 星/);assert(!halfStars.starHTML(0).includes('★'));
+ for(const level of [undefined,-1,11,NaN,1.5,'10'])assert.equal(halfStars.starHTML(level),'');
+});
+test('display formatting leaves internal evaluation and ten-level constants intact',()=>{
+ const idx=halfStars.makeIndex({entries:[{w:'easy',status:'rated',level:1},{w:'hard',status:'rated',level:30}]},{entries:[]});
+ assert.equal(halfStars.evaluate({w:'easy'},idx).level,1);assert.equal(halfStars.evaluate({w:'hard'},idx).level,10);
+ assert.equal(halfStars.evaluate({w:'unknown',r:0},idx).level,null);
+ assert.equal(halfStars.WEBLIO_TO_10[30],10);
+});
+test('toolbar and detail inherit their original color and size while table stars keep gold styling',()=>{
+ const source=require('node:fs').readFileSync(require.resolve('../../app/shared/explorer-difficulty-v2.js'),'utf8');
+ assert(source.includes('.difficulty-v2-filter .difficulty-v2-stars,#difficultyV2Dialog .difficulty-v2-stars{font-size:inherit;color:inherit}'));
+ assert(source.includes('.difficulty-v2-stars{display:inline-flex;gap:0;font-size:.8em;line-height:1;color:#95630b;white-space:nowrap}'));
+});
+
+test('real table, filter and tap dialog show five-star scale but retain ten-level behavior',async(t)=>{
+ const {window}=parseHTML('<html><head></head><body><div id="toolbar"></div><div id="tableWrap"><table><thead><tr><th class="cW">単語</th><th class="cK">カナ</th><th class="cR">レア度</th></tr></thead><tbody>'+[0,1,2].map(i=>'<tr data-i="'+i+'"><td class="cW">word'+i+'</td><td class="cK"></td><td class="cR"></td></tr>').join('')+'</tbody></table></div></body></html>');
+ const observers=[];const Observer=class extends window.MutationObserver{constructor(fn){super(fn);observers.push(this)}};t.after(()=>observers.forEach(o=>o.disconnect()));
+ const words=[{w:'word0',r:1},{w:'word1',r:9999},{w:'word2',r:0}];
+ const context={document:window.document,WORDS:words,URL,queueMicrotask,MutationObserver:Observer,console,addEventListener(){},applyFilters:list=>list,renderToolbar(){},renderTable(){}};
+ vm.runInNewContext(overlay,context);await new Promise(r=>setImmediate(r));
+ const buttons=window.document.querySelectorAll('button[data-difficulty-v2]');
+ assert.equal(buttons.length,3);assert.equal(buttons[0].dataset.level,'1');assert.equal(buttons[1].dataset.level,'10');
+ assert.equal(buttons[0].querySelectorAll('.difficulty-v2-star').length,1);assert.equal(buttons[0].querySelectorAll('.difficulty-v2-half').length,1);
+ assert.equal(buttons[1].querySelectorAll('.difficulty-v2-star').length,5);assert.equal(buttons[2].textContent,'未分類');
+ const filter=window.document.querySelector('[data-difficulty-filter="10"]');assert.equal(filter.querySelectorAll('.difficulty-v2-star').length,5);
+ filter.click();assert.deepEqual(Array.from(context.applyFilters(words)),[words[1]]);filter.click();assert.equal(context.applyFilters(words).length,3);
+ buttons[0].click();const dialog=window.document.getElementById('difficultyV2Dialog');assert(dialog.hasAttribute('open'));assert.equal(dialog.querySelectorAll('h2 .difficulty-v2-star').length,1);assert.equal(dialog.querySelectorAll('h2 .difficulty-v2-half').length,1);
+ assert.match(dialog.textContent,/最大5つ星・0.5刻み/);assert.equal(context.EtymonDifficultyV2.levelFor(words[1]),10);
+});
+
+test('root source disclosure keeps original text and confirmed EO link separate from editorial summaries',()=>{
+ const context={URL,esc:s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))};
+ vm.runInNewContext(between(html,'function confirmedRootEtymOnlineURL','function rootNavigationCount'),context);
+ const out=context.rootSourceSectionsHTML({d:'COMMENTARY',original_definition:'ORIGINAL',editorial_summary:'SUMMARY',etymonline_reference:{status:'confirmed',url:'https://www.etymonline.com/word/*er-',heading:'*er-',section:'2'}});
+ const {document}=parseHTML('<div>'+out+'</div>');
+ assert.equal(document.querySelector('summary').textContent,'語源解説(ハイパー英語語源辞書)');
+ assert.equal(document.querySelector('details').hasAttribute('open'),false);
+ assert.equal(document.querySelector('.rootOriginal').textContent,'ORIGINAL');
+ assert.equal(document.querySelector('.rootTalk').textContent,'COMMENTARY');
+ assert(!out.includes('SUMMARY'));assert(!out.includes('編集要点'));
+ assert.equal(document.querySelector('.rootEoReference a').closest('details'),null);
+ assert(out.indexOf('rootEoReference')>out.indexOf('</details>'));
+});
+test('missing root original never falls back to reviewed summary or an invented EO link',()=>{
+ const context={URL,esc:s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))};
+ vm.runInNewContext(between(html,'function confirmedRootEtymOnlineURL','function rootNavigationCount'),context);
+ for(const r of [{def:'SUMMARY',definition_reviewed:true},{original_definition:'',def:'SUMMARY',editorial_summary:'SUMMARY'}]){
+  const out=context.rootSourceSectionsHTML(r);assert(!out.includes('SUMMARY'));assert(out.includes('原典解説は未収録'));assert(!out.includes('href='));
+ }
+ assert(context.rootSourceSectionsHTML({def:'LEGACY ORIGINAL'}).includes('LEGACY ORIGINAL'));
+ const out=context.rootSourceSectionsHTML({original_definition:'<img src=x>',etymonline_reference:{status:'candidate',url:'https://www.etymonline.com/word/x'}});
+ assert(out.includes('&lt;img src=x&gt;'));assert(!out.includes('href='));assert(!out.includes('対応未確認'));
+});
