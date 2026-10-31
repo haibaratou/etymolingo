@@ -4,9 +4,9 @@
   "files": {
     "roots": {
       "file": "roots.json",
-      "bytes": 1945362,
+      "bytes": 1955239,
       "count": 1436,
-      "sha256": "83f69530e502b8e5e77dcb36952ef022ab6f170ca86874444f5cf5f1c6a22b02"
+      "sha256": "57c5ca7272e063f82650eb27ace1cb509aeab32ba12f49cf2b241191578d1e48"
     },
     "words": {
       "file": "words.json",
@@ -102,7 +102,7 @@
       "file": "etymological-components.js",
       "bytes": 32019632,
       "count": 2734,
-      "sha256": "4dfd1ddb5ae353629a9f2ae6ef3cb8ccf5ce1bb229a0699551039a9805075d88",
+      "sha256": "d3163932cbf80a112af599912bcbba156e99794bbe102b1ed09e7e4be4f37799",
       "entity_count": 3503,
       "context_hash_algorithm": "component-word-context-v1"
     },
