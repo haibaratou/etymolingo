@@ -225,11 +225,14 @@ test('malformed/omitted runtime inputs retain the base unavailable behavior with
 
 test('optional deployed public-data contract preserves words/roots and resolves current typed terminals', t => {
   const data = path.join(ROOT, 'app/data/generated-etymon');
-  const paths = ['words.json', 'roots.json', 'etymological-components.js'].map(name => path.join(data, name));
+  const hasManifest=fs.existsSync(path.join(data,'manifest.json'));
+  const paths = ['words.json', 'roots.json', hasManifest?'manifest.json':'etymological-components.js'].map(name => path.join(data, name));
   if (!paths.every(p => fs.existsSync(p))) { t.skip('Public data is absent from this staged candidate.'); return; }
-  const raw = paths.map(p => fs.readFileSync(p)), words = JSON.parse(raw[0]), roots = JSON.parse(raw[1]), sandbox = {};
-  vm.createContext(sandbox); vm.runInContext(raw[2].toString('utf8'), sandbox);
-  const payload = sandbox.ETYMON_ETYMOLOGICAL_COMPONENTS, before = JSON.stringify([words, roots, payload]);
+  const raw = paths.map(p => fs.readFileSync(p)), words = JSON.parse(raw[0]), roots = JSON.parse(raw[1]);
+  const payload = require('../../shared/component-payload-node.cjs').readPayload(data,{roots,mode:hasManifest?'manifest':'legacy'}), before = JSON.stringify([words, roots, payload]);
+  const meta=hasManifest?JSON.parse(raw[2]).files.etymological_components:{file:'etymological-components.js'};
+  const componentPaths=[meta.file,...(meta.transport_schema===1?meta.parts.map(p=>p.file):[])].map(name=>path.join(data,name));
+  const componentBytes=componentPaths.map(p=>fs.readFileSync(p));
   const binding = C.bind(words, C.prepare(payload, roots));
   for (const word of words) if (binding.coverage(word).guard_valid) {
     const html = UI.rootCell(binding, word, legacyChip);
@@ -239,4 +242,5 @@ test('optional deployed public-data contract preserves words/roots and resolves 
   }
   assert.equal(JSON.stringify([words, roots, payload]), before);
   paths.forEach((p, index) => assert.deepEqual(fs.readFileSync(p), raw[index]));
+  componentPaths.forEach((p,index)=>assert.deepEqual(fs.readFileSync(p),componentBytes[index]));
 });

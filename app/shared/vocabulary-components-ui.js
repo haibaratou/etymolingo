@@ -17,7 +17,7 @@
     &&typeof (r.pie||r.key)==='string'&&!!(r.pie||r.key);
   });
  }
- function hasPie(c,word,roots){return !!(c?.confirmed_pie_lexical_count>0||(roots?registeredPie(word,roots):c?.legacy_pie_ref_count>0));}
+ function hasPie(c,word,roots){return !!(c?.confirmed_pie_lexical_count>0||(roots?registeredPie(word,roots):(c?.eligible_legacy_pie_ref_count??c?.legacy_pie_ref_count)>0));}
  function matches(c,selected,word,roots){
   if(!selected)return true;if(selected==='pie')return hasPie(c,word,roots);if(!c)return selected==='unavailable';
   switch(selected){

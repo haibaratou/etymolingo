@@ -44,14 +44,14 @@ async function main() {
   const Components = loadScript(path.join(APP, 'shared', 'etymological-components.js'));
   loadScript(path.join(GEN, 'etymology-origins.js'));
   loadScript(path.join(GEN, 'word-parts-supplement.js'));
-  loadScript(path.join(GEN, 'etymological-components.js'));
+  const componentPayload = require('../../shared/component-payload-node.cjs').readPayload(GEN, {roots});
   loadScript(path.join(ROOT, 'assets', 'word', 'illustration-index.js'));
   const report = {};
   report.wordParts = Origins.bindWordParts(words, parts, global.ETYMON_WORD_PARTS_SUPPLEMENT);
   report.origins = Origins.bind(words, Origins.prepare(global.ETYMON_ETYMOLOGY_ORIGINS));
   Identity.applyArtwork(words, global.ETYMON_WORD_ART || {});
   let components = null;
-  try { components = Components.bind(words, Components.prepare(global.ETYMON_ETYMOLOGICAL_COMPONENTS, roots)); }
+  try { components = Components.bind(words, Components.prepare(componentPayload, roots)); }
   catch (e) { report.componentsError = String(e.message || e); }
 
   /* ---------- Pictlingo Dictionary の現行カタログ(http 経路と同じ組み立て) ---------- */

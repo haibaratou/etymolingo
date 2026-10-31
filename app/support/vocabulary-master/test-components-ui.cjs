@@ -3,20 +3,26 @@ const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),cryp
 const root=path.resolve(__dirname,'../../..'),read=p=>fs.readFileSync(path.join(root,p),'utf8');
 const api=require('../../shared/etymological-components.js'),ui=require('../../shared/vocabulary-components-ui.js');
 const html=read('app/vocabulary-master.html'),runtime=[...html.matchAll(/<script([^>]*)>([\s\S]*?)<\/script>/g)].find(m=>!m[1].trim()&&m[2].includes('function loadData('))[2];
-const payload={};vm.createContext(payload);vm.runInContext(read('app/data/generated-etymon/etymological-components.js'),payload);
+const payload={ETYMON_ETYMOLOGICAL_COMPONENTS:require('../../shared/component-payload-node.cjs').readPayload(path.join(root,'app/data/generated-etymon'))};
 const words=JSON.parse(read('app/data/generated-etymon/words.json')),roots=JSON.parse(read('app/data/generated-etymon/roots.json'));
 const binding=api.bind(words,api.prepare(payload.ETYMON_ETYMOLOGICAL_COMPONENTS,roots));
 test('complete runtime compiles and component scripts exist with current hash tokens',()=>{
  new vm.Script(runtime);
- for(const p of ['shared/etymological-components.js','shared/vocabulary-components-ui.js','data/generated-etymon/etymological-components.js']){
+ const envelopeMode=html.includes('data-component-transport="gzip-v1"');
+ const meta=JSON.parse(read('app/data/generated-etymon/manifest.json')).files.etymological_components;
+ if(envelopeMode){assert.equal(meta.transport_schema,1);assert.ok(html.includes("const COMPONENT_ENVELOPE_SHA='"+meta.envelope_sha256+"'"));}
+ const paths=['shared/etymological-components.js','shared/vocabulary-components-ui.js',...(envelopeMode?['shared/component-transport.js','data/generated-etymon/'+meta.file]:['data/generated-etymon/etymological-components.js'])];
+ for(const p of paths){
   assert.ok(html.includes(p+'?v='));assert.ok(fs.existsSync(path.join(root,'app',p)));
   assert.ok(html.includes(p+'?v='+crypto.createHash('sha256').update(fs.readFileSync(path.join(root,'app',p))).digest('hex').slice(0,12)));
  }
 });
-test('runtime binds source-supported nodes and browse links without changing legacy data',()=>{
+test('runtime binds source-supported nodes and browse links without changing legacy data',async()=>{
  const W=structuredClone(words),R=structuredClone(roots),protectedWords=JSON.stringify(W),protectedRoots=JSON.stringify(R);
  const c={WORDS:W,ROOTS:R,LEGACY_ROOT_COUNT:0,COMPONENTS:null,componentDataError:'',byRoot:null,window:{EtymonComponents:api,ETYMON_ETYMOLOGICAL_COMPONENTS:payload.ETYMON_ETYMOLOGICAL_COMPONENTS}};
- vm.createContext(c);vm.runInContext(runtime.slice(runtime.indexOf('  LEGACY_ROOT_COUNT=ROOTS.length;'),runtime.indexOf('  ROOTS.forEach((r,i)=>{r.rank=i+1;});')),c);
+ // Loading integrity is exercised independently by the shared Node reader tests. This test checks the actual HTML binding block.
+ c.window.EtymonComponentTransport={load:async options=>{const meta=JSON.parse(read('app/data/generated-etymon/manifest.json')).files.etymological_components;assert.equal(options.mode,'envelope');assert.equal(options.expectedEnvelopeSHA256,meta.envelope_sha256);assert.strictEqual(options.roots,R);return require('../../shared/component-payload-node.cjs').readPayload(path.join(root,'app/data/generated-etymon'),{roots:R});}};
+ vm.createContext(c);await vm.runInContext('(async()=>{'+runtime.slice(runtime.indexOf('  LEGACY_ROOT_COUNT=ROOTS.length;'),runtime.indexOf('  ROOTS.forEach((r,i)=>{r.rank=i+1;});'))+'})()',c);
  assert.equal(JSON.stringify(W),protectedWords);assert.equal(JSON.stringify(R.slice(0,roots.length)),protectedRoots);
  assert.equal(c.LEGACY_ROOT_COUNT,1436);assert.ok(R.length>1436);assert.equal(c.COMPONENTS.summary.linked,payload.ETYMON_ETYMOLOGICAL_COMPONENTS.words.length);
  for(const node of R.slice(1436)){

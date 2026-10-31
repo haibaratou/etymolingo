@@ -110,7 +110,7 @@ test('layered nonPIE rows use neutral references; all typed PIE references prese
  assert.match(render(f).html,/従来のPIE参照（直接部品とは別段階）/);
 });
 test('current complete data keeps previous counts, filters, references and propose row bytes',()=>{
- const data=path.join(root,'app/data/generated-etymon'),context={};vm.createContext(context);vm.runInContext(fs.readFileSync(path.join(data,'etymological-components.js'),'utf8'),context);
+ const data=path.join(root,'app/data/generated-etymon'),context={ETYMON_ETYMOLOGICAL_COMPONENTS:require('../../shared/component-payload-node.cjs').readPayload(data)};
  const words=JSON.parse(fs.readFileSync(path.join(data,'words.json'),'utf8')),roots=JSON.parse(fs.readFileSync(path.join(data,'roots.json'),'utf8')),before=JSON.stringify({words,roots});
  const oldDir=path.join(root,'work/assembly-component-alignment-20261028/legacy-lemma-dedup'),oldAPI=path.join(oldDir,'etymological-components.js.before-a057615888fc'),oldUI=path.join(oldDir,'vocabulary-components-ui.js.before-cc2d1d2216c5');
  const priorAPI=fs.existsSync(oldAPI)?require(oldAPI):require(path.join(root,'app/shared/etymological-components.js'));

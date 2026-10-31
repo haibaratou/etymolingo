@@ -10,8 +10,8 @@ function contextFor(html){
  const art={};vm.createContext(art);vm.runInContext(read('assets/word/illustration-index.js'),art);
  const identity=require('../../shared/lexical-identity.js'),scenes=require('../../shared/illustration-scenes.js'),origins=require('../../shared/etymology-origins.js');
  const components=require('../../shared/etymological-components.js'),componentsUI=require('../../shared/vocabulary-components-ui.js');
- const componentPayload={};vm.createContext(componentPayload);vm.runInContext(read('app/data/generated-etymon/etymological-components.js'),componentPayload);
- const binding=components.bind(words,components.prepare(componentPayload.ETYMON_ETYMOLOGICAL_COMPONENTS,roots));
+ const componentPayload=require('../../shared/component-payload-node.cjs').readPayload(path.join(root,'app/data/generated-etymon'),{roots});
+ const binding=components.bind(words,components.prepare(componentPayload,roots));
  identity.applyArtwork(words,art.ETYMON_WORD_ART||{});
  words.forEach((word,i)=>{word.i=i;});
  const clash=new Set(),names=new Set(),seen=new Map(),seenNames=new Map();

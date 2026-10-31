@@ -181,8 +181,8 @@ test('external origin evidence basis is retained without relaxing the existing w
 });
 test('current published aligned records bind and display all unique registered caption IDs',()=>{
  const read=p=>fs.readFileSync(path.join(root,p),'utf8');
- const words=JSON.parse(read('app/data/generated-etymon/words.json')),roots=JSON.parse(read('app/data/generated-etymon/roots.json')),p={};vm.createContext(p);vm.runInContext(read('app/data/generated-etymon/etymological-components.js'),p);
- const payload=p.ETYMON_ETYMOLOGICAL_COMPONENTS,b=api.bind(words,api.prepare(payload,roots));
+ const words=JSON.parse(read('app/data/generated-etymon/words.json')),roots=JSON.parse(read('app/data/generated-etymon/roots.json'));
+ const payload=require('../../shared/component-payload-node.cjs').readPayload(path.join(root,'app/data/generated-etymon'),{roots}),b=api.bind(words,api.prepare(payload,roots));
  for(const w of words){const a=b.annotations(w)?.assembly_alignment;if(!a)continue;assert.equal(b.coverage(w).guard_valid,true,w.w);const out=ui.rootCell(b,w,legacy);
   if(b.annotations(w).component_display==='layered')continue;
   for(const id of new Set(a.segments.map(s=>b.entity(s.entity_ref).id)))assert.equal(count(out,`data-k="component:${id}"`),1,w.w+': '+id);

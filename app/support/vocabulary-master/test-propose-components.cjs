@@ -3,7 +3,7 @@ const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),cryp
 const root=path.resolve(__dirname,'../../..'),read=p=>fs.readFileSync(path.join(root,p),'utf8');
 const api=require('../../shared/etymological-components.js'),ui=require('../../shared/vocabulary-components-ui.js');
 const words=JSON.parse(read('app/data/generated-etymon/words.json')),roots=JSON.parse(read('app/data/generated-etymon/roots.json'));
-const payload={};vm.createContext(payload);vm.runInContext(read('app/data/generated-etymon/etymological-components.js'),payload);
+const payload={ETYMON_ETYMOLOGICAL_COMPONENTS:require('../../shared/component-payload-node.cjs').readPayload(path.join(root,'app/data/generated-etymon'))};
 const data=payload.ETYMON_ETYMOLOGICAL_COMPONENTS,binding=api.bind(words,api.prepare(data,roots));
 const w=words[12569],parts=JSON.parse(read('app/data/generated-etymon/word-parts.json'));
 const html=read('app/vocabulary-master.html'),runtime=[...html.matchAll(/<script([^>]*)>([\s\S]*?)<\/script>/g)].find(m=>!m[1].trim()&&m[2].includes('function loadData('))[2];
