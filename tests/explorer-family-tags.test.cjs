@@ -61,7 +61,7 @@ test('a known direct-language decomposition remains visible with zero or one PIE
  const parts=JSON.parse(fs.readFileSync(path.join(__dirname,'../app/data/generated-etymon/word-parts.json'),'utf8'));
  const vm=require('node:vm');
  const code=html.match(/^function wordParts\([^]*?^}/m)[0];
- const context={WORD_PARTS:parts,esc:s=>String(s)};vm.createContext(context);vm.runInContext(code,context);
+ const context={WORD_PARTS:parts,COMPONENTS:null,esc:s=>String(s)};vm.createContext(context);vm.runInContext(code,context);
  assert.equal(context.wordParts({w:'normal',p:[]},true),'<div class="wordParts"><b>語源組み立て</b><span>ラテン語の形成材料：norma（基準・規則）＋-ālis（関係する形容詞を作る接尾辞）</span></div>');
  assert.equal(context.wordParts({w:'mission',p:[]}),'<div class="wordParts"><span>ラテン語の名詞祖先：missiō（送ること・派遣）</span></div>');
  assert.match(context.wordParts({w:'transmit',p:['terə-2']}),/mit（送る）/);
@@ -153,4 +153,19 @@ test('doubtful gno links do not appear in PIE membership or character explanatio
  assert.equal(gno.uncertain,undefined);
  assert.doesNotMatch(gno.d,/norma|nota|enormity|規則|直角定規/);
  assert.doesNotMatch(gno.d,/\d+語/);
+});
+
+
+test('wordParts selects guarded ancestry and keeps direct caption fallback',()=>{
+ const html=fs.readFileSync(path.join(__dirname,'../app/vocabulary-master.html'),'utf8');
+ const code=html.match(/^function wordParts\([^]*?^}/m)[0];
+ const vm=require('node:vm');
+ const context={WORD_PARTS:{},esc:s=>String(s),COMPONENTS:{hasAssemblyAncestryDisplay:()=>true,boundAssemblyCaption:()=> 'reviewed ancestry',directAssemblyCaption:()=> 'direct material'}};
+ vm.createContext(context);vm.runInContext(code,context);
+ const word={w:'fixture',p:[]};
+ assert.match(context.wordParts(word),/reviewed ancestry/);
+ context.COMPONENTS.boundAssemblyCaption=()=>'';
+ assert.match(context.wordParts(word),/direct material/);
+ context.COMPONENTS.directAssemblyCaption=()=>'';
+ assert.equal(context.wordParts(word),'');
 });
