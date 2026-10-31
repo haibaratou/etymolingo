@@ -32,8 +32,6 @@ aside{flex:0 0 236px;width:236px;min-width:0;overflow:hidden;display:flex;flex-d
 .sItem{display:flex;align-items:center;gap:7px;padding:4px 8px;cursor:pointer;border-bottom:1px solid #f1ece1}
 .sItem:hover{background:var(--hover)}
 .sItem.sel{background:#fbeede;box-shadow:inset 3px 0 0 var(--accent)}
-.sAva{flex:0 0 auto;width:24px;height:24px;border-radius:50%;object-fit:contain;background:#fff;border:1.5px solid var(--line)}
-.sAva.concept{background:#fdf7ec;border-style:dashed;padding:1px}
 .sDot{flex:0 0 auto;width:8px;height:8px;border-radius:50%;background:var(--line);margin:0 8px}
 .sRank{flex:0 0 34px;text-align:center;font-size:10px;font-weight:bold;color:#9a8e7c;font-variant-numeric:tabular-nums}
 .sRank.top50{color:#fff;background:var(--accent);border-radius:999px;padding:1px 3px}
@@ -89,6 +87,12 @@ aside{flex:0 0 236px;width:236px;min-width:0;overflow:hidden;display:flex;flex-d
 /* 書き直した語根の解説。もとの辞書記述より前に、大きめに出す。 */
 .rootTalk{font-size:13.5px;color:var(--ink);line-height:1.8;white-space:pre-line}
 .rootSrc{}
+.rootTextLabel{display:block;font-size:11px;color:var(--ink-soft);font-weight:600}
+.rootEditedSummary{font-size:12px;color:var(--ink-soft);line-height:1.6;white-space:pre-line}
+.rootOriginal{white-space:pre-wrap}
+.rootEoReference{font-size:12px;line-height:1.7;margin:4px 0 6px}
+.rootEoReference a{display:inline-block;min-height:28px;padding:3px 0}
+.rootEoStatus{color:var(--ink-soft)}
 .rootMix{display:flex;gap:5px;flex-wrap:wrap}
 .mixBtn{border:1px solid var(--line);background:#fff;border-radius:999px;padding:1px 9px;
   font-size:11px;color:var(--ink-soft);cursor:pointer;white-space:nowrap}
@@ -673,9 +677,6 @@ function renderSide(){
     else if(sort==='site')list=list.slice().sort((a,b)=>b.site-a.site||(b.all??b.dict)-(a.all??a.dict));
     $('#sideList').innerHTML=list.map(r=>`
       <div class="sItem${cur===r.key?' sel':''}" data-k="${esc(r.key)}">
-        ${r.img?`<img class="sAva" src="../assets/${esc(r.img)}" loading="lazy" onerror="this.remove()">`
-          :rootConceptSrc(r.key)?`<img class="sAva concept" src="${rootConceptSrc(r.key)}" loading="lazy" title="${esc(r.ja)}という古代概念" onerror="this.remove()">`
-          :`<span class="sDot"${r.color?` style="background:${esc(r.color)}"`:''}></span>`}
         <span class="sRank${r.rank<=50?' top50':''}" title="単語数順位による語根ID">#${String(r.rank).padStart(2,'0')}</span>
         <span class="sKey">${esc(rootLabel(r))}</span>
         <span class="sJa">${esc(r.ja)}</span>
@@ -762,6 +763,49 @@ function eoTag(r){
   if(!r.eo||eoSame(r.eo)===eoSame(r.pie||r.key))return '';
   return `<span class="cEo" title="既存資料の対応表記。同根関係は今回の個別確認対象とは別です">`
     +`etymonline: *${esc(r.eo)}${r.eo_en?` <i>${esc(r.eo_en)}</i>`:''}</span>`;
+}
+// Root sources are separate from editorial text. Never infer an EO URL from a root key.
+function confirmedRootEtymOnlineURL(ref){
+  if(!ref||ref.status!=='confirmed'||typeof ref.url!=='string')return '';
+  if(!ref.url.startsWith('https://www.etymonline.com/word/')||/[\s\\]/u.test(ref.url))return '';
+  try{
+    const u=new URL(ref.url);
+    const slug=decodeURIComponent(u.pathname.slice('/word/'.length));
+    if(u.protocol!=='https:'||u.hostname!=='www.etymonline.com'||u.port||u.username||u.password||u.search||u.hash
+      ||!u.pathname.startsWith('/word/')||!slug||/[\/\\\u0000-\u001f\u007f]/u.test(slug))return '';
+    return u.href;
+  }catch{return '';}
+}
+function rootEtymOnlineReferenceHTML(r){
+  const ref=r?.etymonline_reference;
+  const url=confirmedRootEtymOnlineURL(ref);
+  if(url){
+    const heading=typeof ref.heading==='string'&&ref.heading?ref.heading:'語根ページ';
+    const section=typeof ref.section==='string'&&ref.section?` <span class="rootEoSection">${esc(ref.section)}</span>`:'';
+    const uncertain=ref.certainty==='unverified_reconstruction'||r.kind==='unverified_reconstruction'
+      ?'<span class="rootEoStatus">（語根の再建は未確定）</span>':'';
+    return `<div class="rootEoReference"><a href="${esc(url)}" target="_blank" rel="noopener noreferrer">Etymonline：${esc(heading)}</a>${section}${uncertain}</div>`;
+  }
+  const candidate=ref?.status==='candidate';
+  return `<div class="rootEoReference rootEoStatus">Etymonline：${candidate?'対応候補を確認中':'対応未確認'}</div>`;
+}
+function rootSourceSectionsHTML(r){
+  const has=(key)=>Object.prototype.hasOwnProperty.call(r,key);
+  // On older runtimes, reviewed def is an editorial summary, NOT original source text.
+  const original=has('original_definition')
+    ?(typeof r.original_definition==='string'?r.original_definition:'')
+    :(!r.definition_reviewed&&typeof r.def==='string'?r.def:'');
+  const summary=has('editorial_summary')
+    ?(typeof r.editorial_summary==='string'?r.editorial_summary:'')
+    :(r.definition_reviewed&&typeof r.def==='string'?r.def:'');
+  const commentary=typeof r.d==='string'&&r.d
+    ?`<div class="rootTalk"><span class="rootTextLabel">編集解説</span>${esc(r.d)}</div>`:'';
+  const edited=summary
+    ?`<div class="rootEditedSummary"><span class="rootTextLabel">編集要点</span>${esc(summary)}</div>`:'';
+  const source=original
+    ?`<details class="rootSrc"><summary>語源解説（ハイパー英語語源辞書・原文）</summary><div class="rootDef rootOriginal">${esc(original)}</div></details>`:'';
+  // Keep this validated link immediately below the commentary and OUTSIDE all details.
+  return commentary+rootEtymOnlineReferenceHTML(r)+edited+source;
 }
 function rootNavigationCount(r){
   return window.VocabularyComponentsUI.navigationCount?.(r,COMPONENTS,byRoot)??(r.all??r.dict);
@@ -933,10 +977,7 @@ function renderHead(){
         ${window.VocabularyComponentsUI.info(COMPONENTS,r)}
         ${rootLangMix(r.key)}
         ${r.aff&&r.aff.length?`<span class="cAff">⇄ ${r.aff.map(n=>`<span class="chip" data-a="${esc(n)}">${esc(n)}</span>`).join('')}</span>`:''}
-        ${r.d?`<div class="rootTalk">${esc(r.d)}</div>`:''}
-        ${r.def?(r.d
-          ?`<details class="rootSrc"><summary>${r.definition_reviewed?'出典確認済みの要点':'もとの辞書の記述（未確認）'}</summary><div class="rootDef">${esc(r.def)}</div></details>`
-          :`<div class="rootDef">${esc(r.def)}</div>`):''}
+        ${rootSourceSectionsHTML(r)}
       </div>
     </div>`;
     h.querySelectorAll('.chip').forEach(el=>el.onclick=()=>{
