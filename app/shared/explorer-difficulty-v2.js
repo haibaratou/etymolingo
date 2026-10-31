@@ -56,10 +56,21 @@ function makeModal(root){
  dialog.addEventListener('click',e=>{if(e.target===dialog)dialog.close()});
  return dialog;
 }
+// Keep the internal ten-level scale; only its visual representation is halved.
+function starHTML(level){
+ if(level===null)return '未分類';
+ if(!Number.isInteger(level)||level<0||level>10)return '';
+ let icons='';
+ for(let n=0;n<Math.ceil(level/2);n++){
+  const half=n*2+1===level;
+  icons+='<span class="difficulty-v2-star'+(half?' difficulty-v2-half':'')+'"'+(half?' style="clip-path:inset(0 50% 0 0)"':'')+'>★</span>';
+ }
+ return '<span class="difficulty-v2-stars" role="img" aria-label="'+(level/2)+' / 5 星">'+icons+'</span>';
+}
 function modalHTML(w,d){
  const officially=d.official.length?d.official.map(x=>esc(x.pos)+' '+esc(x.level)).join(' / '):'該当なし';
- return '<h2>'+esc(w.w)+' — '+(d.level===null?'未分類':'★'.repeat(d.level))+'</h2>'
-  +'<p>独自10段階のレア度（公式CEFRの認定ではありません）</p>'
+ return '<h2>'+esc(w.w)+' — '+starHTML(d.level)+'</h2>'
+  +'<p>独自10段階のレア度を最大5つ星・0.5刻みで表示（公式CEFRの認定ではありません）</p>'
   +'<dl><dt>CEFR-J（品詞別）</dt><dd>'+officially+'</dd>'
   +'<dt>Oxford CEFR</dt><dd>未連携</dd>'
   +'<dt>Weblio Lv</dt><dd>'+(d.web===null?'—':d.web)+'</dd>'
@@ -69,7 +80,7 @@ function modalHTML(w,d){
 function mount(root){
  const doc=root.document,style=doc.createElement('style');
  style.textContent='.difficulty-v2-col{width:1%!important;min-width:0!important;max-width:none!important;white-space:nowrap!important;text-align:left!important;padding-left:8px!important;vertical-align:middle!important}.difficulty-v2-button{font-weight:700;font-size:13px;line-height:1.35;font-family:inherit;color:#245d4b;border:1px solid #a4c6b4;background:#eaf5ef;border-radius:7px;padding:2px 7px;white-space:nowrap;cursor:pointer;text-align:left;margin:0}.difficulty-v2-button:hover,.difficulty-v2-button:focus-visible{border-color:#338a6b;background:#d9efe3}.difficulty-v2-button[data-unknown="1"]{color:#62676a;background:#f4f4f4;border-color:#ddd}#difficultyV2Dialog{max-width:min(480px,92vw);border:1px solid #b7c1bd;border-radius:12px;padding:20px 22px;box-shadow:0 12px 40px #0003;background:#fff;color:#273b32}#difficultyV2Dialog::backdrop{background:#0006}#difficultyV2Dialog h2{font-size:20px;margin:0 0 8px}#difficultyV2Dialog p{margin:8px 0;line-height:1.55}#difficultyV2Dialog dl{display:grid;grid-template-columns:max-content 1fr;gap:7px 14px;margin:12px 0}#difficultyV2Dialog dt{font-weight:700}#difficultyV2Dialog dd{margin:0}#difficultyV2Dialog .difficulty-v2-close{display:block;margin:18px 0 0 auto;padding:6px 14px;cursor:pointer}#difficultyV2Dialog .difficulty-v2-caution{font-size:12px;color:#6a6a6a}';
- style.textContent+='.difficulty-v2-stars{display:inline-flex;gap:0;font-size:.8em;line-height:1;color:#95630b;white-space:nowrap}.difficulty-v2-button{padding:0;min-height:0;border:0;background:transparent;border-radius:0;line-height:1;box-shadow:none;margin:0}.difficulty-v2-button:hover,.difficulty-v2-button:focus-visible{background:transparent;border:0;outline:1px solid currentColor;outline-offset:1px}.difficulty-v2-filter{font-size:15px!important}.difficulty-v2-col{vertical-align:middle;padding:3px 5px!important}.difficulty-v2-unknown{font-size:12px}';
+ style.textContent+='.difficulty-v2-stars{display:inline-flex;gap:0;font-size:.8em;line-height:1;color:#95630b;white-space:nowrap}.difficulty-v2-button{padding:0;min-height:0;border:0;background:transparent;border-radius:0;line-height:1;box-shadow:none;margin:0}.difficulty-v2-button:hover,.difficulty-v2-button:focus-visible{background:transparent;border:0;outline:1px solid currentColor;outline-offset:1px}.difficulty-v2-filter{font-size:15px!important}.difficulty-v2-col{vertical-align:middle;padding:3px 5px!important}.difficulty-v2-unknown{font-size:12px}.difficulty-v2-filter .difficulty-v2-stars,#difficultyV2Dialog .difficulty-v2-stars{font-size:inherit;color:inherit}';
  style.textContent+='th.guess-v2-col,td.guess-v2-col{min-width:90px!important;max-width:90px!important;width:90px!important;text-align:left!important;padding-left:9px!important;font-size:12px;white-space:nowrap}.guess-v2-score{font-weight:700;font-variant-numeric:tabular-nums}.guess-v2-score.low{color:#b24e48}.guess-v2-score.mid{color:#86713f}.guess-v2-score.high{color:#167744}th.spelling-v2-col,td.spelling-v2-col{width:84px!important;min-width:84px!important;max-width:84px!important;text-align:left!important;padding-left:9px!important;white-space:nowrap;font-size:12px}.spelling-v2-ok{color:#17754c;font-weight:800}.spelling-v2-false{color:#666;font-weight:600}';
  style.textContent+='.ety-family-tags{display:flex;flex-wrap:wrap;gap:4px}td.cLang .ety-family-tag{display:inline-block;border:1px solid #bfcee1;background:#edf2f8;color:#284866;padding:2px 6px;border-radius:6px;font-size:11px;font-weight:700;white-space:nowrap}td.cLang .ety-family-tag[data-family="G"]{background:#e7f4e9;color:#24643b;border-color:#afd3b7}td.cLang .ety-family-tag[data-family="L"]{background:#fcece9;color:#843e3b;border-color:#e4b8b0}td.cLang .ety-family-tag[data-family="Gr"]{background:#e8effb;color:#34568d;border-color:#b8cbe9}';
  style.textContent+='td.cPos{min-width:104px;max-width:none}.ety-pos-tags{display:inline-grid;grid-template-columns:repeat(3,max-content);gap:4px;vertical-align:top}.ety-pos-tag{display:inline-block;padding:2px 6px;border-radius:5px;background:#e8edf5;color:#284564;border:1px solid #c5d3e7;font-weight:600;font-size:11px;white-space:nowrap}.ety-pos-tag[data-kind="動"]{background:#e9f5ec;border-color:#badcc4;color:#275d3a}.ety-pos-tag[data-kind="形"]{background:#fff0dc;border-color:#e5ceb1;color:#805324}.ety-pos-tag[data-kind="副"]{background:#f3e9fb;border-color:#d8c4e8;color:#614181}';
@@ -120,9 +131,9 @@ function mount(root){
    for(let n=1;n<=10;n++){
     const button=doc.createElement('button');button.type='button';
     button.className='tBtn difficulty-v2-filter'+(selectedLevels.has(n)?' on':'');
-    button.dataset.difficultyFilter=String(n);button.textContent='★'.repeat(n);
+    button.dataset.difficultyFilter=String(n);button.innerHTML=starHTML(n);
     button.setAttribute('aria-pressed',selectedLevels.has(n)?'true':'false');
-    button.title='タップしてレベル'+n+'を'+(selectedLevels.has(n)?'解除':'追加')+'。複数選択可';
+    button.title=(n/2)+'/5 星（内部レベル'+n+'）を'+(selectedLevels.has(n)?'解除':'追加')+'。複数選択可';
     button.addEventListener('click',()=>toggle(n));
     t.insertBefore(button,first);
    }
@@ -152,9 +163,9 @@ function mount(root){
   b.className='difficulty-v2-button';b.dataset.difficultyV2='1';
   b.dataset.word=w.w||'';b.dataset.level=d.level===null?'':String(d.level);
   if(d.level===null){b.textContent='未分類';b.classList.add('difficulty-v2-unknown');}
-  else {const stars=doc.createElement('span');stars.className='difficulty-v2-stars';stars.setAttribute('aria-hidden','true');for(let n=0;n<d.level;n++){const star=doc.createElement('span');star.textContent='★';stars.append(star);}b.append(stars);}
-  b.title=(d.level===null?'レア度未分類':'レア度 '+d.level+'/10')+'。タップして根拠を表示';
-  b.setAttribute('aria-label',esc(w.w)+' レア度 '+(d.level===null?'未分類':d.level)+'。根拠を表示');
+  else {b.innerHTML=starHTML(d.level);b.firstElementChild.setAttribute('aria-hidden','true');}
+  b.title=(d.level===null?'レア度未分類':'レア度 '+(d.level/2)+'/5 星（内部 '+d.level+'/10）')+'。タップして根拠を表示';
+  b.setAttribute('aria-label',esc(w.w)+' レア度 '+(d.level===null?'未分類':(d.level/2)+' / 5 星')+'。根拠を表示');
   if(d.level===null)b.dataset.unknown='1';
   b._details={w,d};return b;
  }
@@ -302,5 +313,5 @@ function mount(root){
  const init=()=>{installLevelFilters();if(typeof root.renderTable==='function')root.renderTable();observe();};
  if(doc.readyState==='loading')doc.addEventListener('DOMContentLoaded',init,{once:true});else init();
 }
-return {WEBLIO_TO_10,R_CUTS,makeIndex,evaluate,mount,languageFamilies,resolveFamilyTags:languageFamilies};
+return {starHTML,WEBLIO_TO_10,R_CUTS,makeIndex,evaluate,mount,languageFamilies,resolveFamilyTags:languageFamilies};
 });
