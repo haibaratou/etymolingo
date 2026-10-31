@@ -74,6 +74,15 @@
         origin_language: typeof row.origin_language === 'string' ? row.origin_language : '',
         stage: (row.stage !== undefined && typeof row.stage !== 'string') || (row.language_stage !== undefined && typeof row.language_stage !== 'string')
           ? '[invalid-stage]' : row.stage || row.language_stage || '',
+        editorial_summary: typeof row.editorial_summary === 'string' ? row.editorial_summary : '',
+        editorial_summary_reviewed: row.editorial_summary_reviewed === true,
+        editorial_summary_source: typeof row.editorial_summary_source === 'string' ? row.editorial_summary_source : '',
+        editorial_schema_present: ['original_definition','editorial_summary','editorial_summary_reviewed'].some(field => own(row, field)),
+        editorial_summary_matches_commentary: typeof row.d === 'string' && !!row.d
+          && typeof row.editorial_summary === 'string'
+          && row.editorial_summary === row.d.split('。', 1)[0] + (row.d.includes('。') ? '。' : ''),
+        editorial_original_intact: typeof row.original_definition === 'string' && row.def === row.original_definition,
+        legacy_definition_flags_truthy: !!(row.definition_reviewed || row.definition_source),
         definition_reviewed: row.definition_reviewed === true,
         definition_source: typeof row.definition_source === 'string' ? row.definition_source : '' }));
     }
@@ -647,7 +656,7 @@
  const deepFreeze=x=>{if(x&&typeof x==='object'&&!Object.isFrozen(x)){for(const v of Object.values(x))deepFreeze(v);Object.freeze(x);}return x;};
  const clone=x=>JSON.parse(JSON.stringify(x));
  const semanticVersion='legacy-root-semantic-v1';
- const semanticFields=['key','pie','display_form','ja','en','kind','origin_language','language','stage','origin_stage','language_stage','def','d','definition_reviewed','definition_source','kind_source','alias_target','eo','eo_en'];
+ const semanticFields=['key','pie','display_form','ja','en','kind','origin_language','language','stage','origin_stage','language_stage','def','d','definition_reviewed','definition_source','kind_source','alias_target','eo','eo_en','original_definition','original_definition_source','editorial_summary','editorial_summary_reviewed','editorial_summary_source','etymonline_reference'];
  function semanticProjection(root){
   return Object.fromEntries(semanticFields.map(k=>[k,k==='kind'?(root[k]||'pie_registered'):(Object.hasOwn(root,k)?root[k]:null)]));
  }
@@ -721,6 +730,7 @@
   latestBinding=null;
   const entities=new Map((Array.isArray(payload?.entities)?payload.entities:[]).filter(e=>e&&typeof e.id==='string').map(e=>[e.id,e]));
   const groups=new Map(),validByIdentity=new Map(),staleByIdentity=new Map(),typedByIdentity=new Set(),errors=[],allStale=[];
+  const assemblyDisplayRequested=new Set((Array.isArray(payload?.words)?payload.words:[]).filter(r=>r&&typeof r==='object'&&Object.hasOwn(r,'assembly_ancestry_display')).map(Base.identity));
   let touched=false;
   const rootRows=Array.isArray(roots)?roots:roots&&typeof roots==='object'?Object.entries(roots).map(([key,value])=>({...value,key})):[];
   for(const r of rootRows){if(!r||typeof r.key!=='string')continue;if(groups.has(r.key))groups.set(r.key,null);else groups.set(r.key,r);}
@@ -744,7 +754,43 @@
     return {...row,guard_valid:false,stale_reasons:[...(row.stale_reasons||[]),error.message]};}
   });
   const base=Base.prepare(touched?{...payload,words:rows}:payload,roots);
-  return {...base,base,rootSnapshots:groups,validByIdentity,staleByIdentity,typedByIdentity,bindingErrors:errors,bindingStale:Object.freeze(allStale),legacyBindingSource:payload?.legacy_root_source||null};
+  return {...base,base,rootSnapshots:groups,validByIdentity,staleByIdentity,typedByIdentity,bindingErrors:errors,bindingStale:Object.freeze(allStale),assemblyDisplayRequested,legacyBindingSource:payload?.legacy_root_source||null};
+ }
+
+ // This optional caption references an already verified legacy-root binding;
+ // it never creates another component, lineage, entity or root.
+ function checkAssemblyAncestryDisplay(row,bindings,roots,entities,lineages){
+  const display=row.assembly_ancestry_display;
+  if(!exact(display,['schema','kind','caption_template','caption','segments'])||display.schema!==1
+   ||display.kind!=='bound_root_before_first_material'||display.caption_template!=='{0}→{1}＋{2}'
+   ||typeof display.caption!=='string'||!Array.isArray(display.segments)||display.segments.length!==3)return null;
+  const [rootRef,left,right]=display.segments;
+  if(!exact(rootRef,['reference_type','key','lineage_id','form','meaning'])||rootRef.reference_type!=='legacy_root'
+   ||!exact(left,['reference_type','index'])||left.reference_type!=='assembly_segment'||left.index!==0
+   ||!exact(right,['reference_type','index'])||right.reference_type!=='assembly_segment'||right.index!==1)return null;
+  if(bindings.length!==1)return null;
+  const binding=bindings[0];
+  if(rootRef.key!==binding.reference.key||rootRef.lineage_id!==binding.lineage_id)return null;
+  // Repeat the strict binding proof against the CURRENT root objects, including
+  // semantic drift after bind(). Optional display metadata cannot revive it.
+  try{if(check(binding,row,roots,entities).reason)return null;}catch(error){return null;}
+  const root=binding.root_guard.snapshot;
+  if(typeof root.pie!=='string'||!root.pie.trim()||typeof root.ja!=='string'||!root.ja.trim())return null;
+  const raw=root.pie.normalize('NFC');
+  if(raw!==raw.trim()||raw.startsWith('**'))return null;
+  const form=raw.startsWith('*')?raw:'*'+raw;
+  if(form==='*'||/[{}（）＋→]/.test(form)||typeof rootRef.form!=='string'||rootRef.form!==form||rootRef.meaning!==root.ja)return null;
+  const alignment=row.assembly_alignment;
+  if(!alignment||alignment.caption_template!=='{0}＋{1}'||!Array.isArray(alignment.segments)||alignment.segments.length!==2)return null;
+  const first=alignment.segments[0],matches=lineages.filter(l=>l.id===binding.lineage_id);
+  if(matches.length!==1||first.lineage_id!==binding.lineage_id||first.entity_ref!==matches[0].word_ref)return null;
+  if(!Array.isArray(row.p)||!row.p.includes(rootRef.key)||!Array.isArray(matches[0].legacy_root_keys)||!matches[0].legacy_root_keys.includes(rootRef.key))return null;
+  const parts=alignment.segments.map(segment=>{
+   const entity=entities.get(segment.entity_ref);return entity?alignmentSurface(segment,entity):null;
+  });
+  if(parts.some(part=>part===null))return null;
+  const caption=form+'（'+root.ja+'）→'+parts[0]+'＋'+parts[1];
+  return display.caption===caption?caption:null;
  }
  function terminal(binding){
   const root=binding.root_guard.snapshot,key=binding.reference.key;
@@ -793,6 +839,33 @@
    })));
    for(const b of bindings){const key=b.reference.key;if(!byKey.has(key))byKey.set(key,new Set());byKey.get(key).add(word);}
   }
+  const displayRequested=new WeakSet(),displayRows=new WeakMap();
+  for(const word of input){
+   if(!word||typeof word!=='object')continue;
+   const entry=(prepared.base||prepared).entries.get(Base.identity(word));
+   if(prepared.assemblyDisplayRequested?.has(Base.identity(word)))displayRequested.add(word);
+   // Snapshot only a Base-validated direct assembly, without altering Base's
+   // annotations or the two attested materials.
+   if(displayRequested.has(word)&&entry&&base.coverage(word).guard_valid)displayRows.set(word,deepFreeze(clone(entry)));
+  }
+  function currentDisplayRow(word){
+   const row=displayRows.get(word);
+   if(!row||Base.identity(word)!==Base.identity(row)||!exact(row.word_guard,['ja','en','pos','b'])
+    ||['ja','en','pos','b'].some(k=>(word[k]??'')!==row.word_guard[k]))return null;
+   return row;
+  }
+  function directAssemblyCaption(word){
+   const row=currentDisplayRow(word);
+   return typeof row?.assembly_alignment?.caption==='string'?row.assembly_alignment.caption:null;
+  }
+  function boundAssemblyCaption(word){
+   const row=currentDisplayRow(word),bindings=approved.get(word)||[];
+   if(!row||!displayRequested.has(word)||!bindings.length)return null;
+   const lineages=base.wordLineages(word),entities=new Map();
+   for(const l of lineages)for(const id of l.refs){const e=base.entity(id);if(e)entities.set(id,e);}
+   for(const segment of row.assembly_alignment?.segments||[]){const e=base.entity(segment.entity_ref);if(e)entities.set(segment.entity_ref,e);}
+   return checkAssemblyAncestryDisplay(row,bindings,prepared.rootSnapshots,entities,lineages);
+  }
   const coverage=w=>cache.get(w)||base.coverage(w),refs=w=>rootCache.get(w)||base.rootRefs(w),lines=w=>lineCache.get(w)||base.wordLineages(w);
   function matches(word,filter){
    const bindings=approved.get(word)||[],rootKeys=new Set(bindings.map(b=>b.reference.key));
@@ -816,7 +889,7 @@
    if(filter.rootPresence&&!list(filter.rootPresence).includes(c.has_confirmed_lexical?'present':c.state==='not_registered'?'none':'unknown'))return false;
    return true;
   }
-  const result={...base,coverage,basis:w=>coverage(w).basis,confidence:w=>coverage(w).confidence,rootRefs:refs,wordLineages:lines,matches,
+  const result={...base,boundAssemblyCaption,directAssemblyCaption,hasAssemblyAncestryDisplay:word=>displayRequested.has(word),coverage,basis:w=>coverage(w).basis,confidence:w=>coverage(w).confidence,rootRefs:refs,wordLineages:lines,matches,
    legacyRootKeys:w=>Object.freeze((approved.get(w)||[]).map(b=>b.reference.key)),
    legacyRootBindings:w=>approved.get(w)||Object.freeze([]),bindingStale:w=>staleCache.get(w)||Object.freeze([]),
    byLegacyRoot:key=>Object.freeze([...(byKey.get(key)||[])]),
@@ -827,6 +900,9 @@
  }
  const current=()=>latestBinding;
  return {...Base,prepare,bind,identity:Base.identity,legacyRootBindingVersion:1,
+  boundAssemblyCaption:w=>current()?.boundAssemblyCaption(w)??null,
+  directAssemblyCaption:w=>current()?.directAssemblyCaption(w)??null,
+  hasAssemblyAncestryDisplay:w=>current()?.hasAssemblyAncestryDisplay(w)||false,
   coverage:w=>current()?.coverage(w)||Base.coverage(w),basis:w=>current()?.basis(w)||Base.basis(w),
   confidence:w=>current()?.confidence(w)||Base.confidence(w),
   entity:id=>current()?current().entity(id):Base.entity(id),legacyInfo:key=>current()?current().legacyInfo(key):Base.legacyInfo(key),
