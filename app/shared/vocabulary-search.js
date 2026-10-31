@@ -16,10 +16,24 @@
   const path=cleanPath(value),file=path.slice(path.lastIndexOf('/')+1);
   return /\.(?:png|jpe?g|webp|gif|avif|svg)$/i.test(file)?{path,file}:null;
  }
+ // A leading reconstruction marker requests an exact registered PIE key.
+ // Preserve hyphens, parentheses and homograph numbers; this is not a wildcard.
+ const rootText=value=>String(value||'').normalize('NFC').trim().toLowerCase();
+ function rootQuery(value){
+  const text=String(value||'').trim();
+  return /^[*＊]/u.test(text)?rootText(text.slice(1)):null;
+ }
+ function matchingRoots(roots,value){
+  const key=rootQuery(value);
+  return key?roots.filter(r=>(!r.kind||r.kind==='pie')&&rootText(r.key)===key):[];
+ }
  function createIndex(words,options={}){
   const images=new Map(),sceneRows=new Map(),cache=new Map();
-  const rows=words.map((word,i)=>({word,i,spelling:String(word.w||'').toLowerCase(),ja:String(word.ja||''),kana:String(word.k||''),
-   tags:(word.semanticTags||[]).join('\0').toLowerCase(),roots:[...(word.p||[]),...(options.rootKeys?.(word)||[])].join('\0').toLowerCase(),scene:''}));
+  const rows=words.map((word,i)=>{
+   const rootIDs=[...(word.p||[]),...(options.rootKeys?.(word)||[])];
+   return {word,i,rootIDs,spelling:String(word.w||'').toLowerCase(),ja:String(word.ja||''),kana:String(word.k||''),
+    tags:(word.semanticTags||[]).join('\0').toLowerCase(),roots:rootIDs.join('\0').toLowerCase(),scene:''};
+  });
   const byRarity=rows.slice().sort((a,b)=>((a.word.r??9e9)-(b.word.r??9e9))||a.i-b.i);
   const add=(map,key,row)=>{if(!key)return;let values=map.get(key);if(!values)map.set(key,values=new Set());values.add(row);};
   for(const row of rows){
@@ -35,6 +49,11 @@
    const query=String(value||'').trim();
    if(!query)return words;
    if(cache.has(query))return cache.get(query);
+   if(rootQuery(query)!==null){
+    const keys=new Set(matchingRoots(options.roots||[],query).map(r=>r.key));
+    const members=options.rootMembers?new Set([...keys].flatMap(key=>options.rootMembers(key)||[])):null;
+    return remember(query,byRarity.filter(row=>members?members.has(row.word):row.rootIDs.some(key=>keys.has(key))).map(row=>row.word));
+   }
    const image=imageQuery(query);
    if(image){
     const found=images.get(image.path)||images.get(image.file);
@@ -80,5 +99,5 @@
   function stop(){if(handle!==null)cancel(handle);handle=null;pending=false;latest=undefined;}
   return {schedule,flush,cancel:stop,get pending(){return pending;}};
  }
- return {createIndex,createLatestScheduler,imageQuery};
+ return {createIndex,createLatestScheduler,imageQuery,rootQuery,matchingRoots};
 });
