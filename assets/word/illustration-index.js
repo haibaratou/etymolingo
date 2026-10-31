@@ -17740,7 +17740,7 @@ globalThis.ETYMON_WORD_ART = {
   "[\"madder\",\"modhro-\"]": "madder",
   "[\"mystery\",\"mei-2\"]": "mystery",
   "[\"beetle\",\"bhau-\"]": "beetle",
-  "[\"walker\",\"wel-3\"]": "walker",
+  "[\"walker\",\"wel-3\"]": "Walker",
   "[\"utensil\",\"oit-\"]": "utensil",
   "[\"valentine\",\"\"]": "valentine",
   "[\"armadillo\",\"ar-\"]": "armadillo",
