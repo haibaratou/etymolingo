@@ -399,3 +399,58 @@ test('missing root original never falls back to reviewed summary or an invented 
  const out=context.rootSourceSectionsHTML({original_definition:'<img src=x>',etymonline_reference:{status:'candidate',url:'https://www.etymonline.com/word/x'}});
  assert(out.includes('&lt;img src=x&gt;'));assert(!out.includes('href='));assert(!out.includes('対応未確認'));
 });
+
+
+test('starred PIE search uses exact keys and preserves homograph numbers and hyphens',()=>{
+ const roots=[{key:'leu-'},{key:'leu-2'},{key:'leuk-'},{key:'autos',kind:'greek_lemma'}];
+ const words=[{w:'loosen',p:['leu-'],r:2},{w:'dirt',p:['leu-2'],r:1},{w:'light',p:['leuk-']},
+  {w:'misleading',p:[],ja:'*leu-',semanticTags:['*leu-']},{w:'auto',p:['autos']}];
+ const index=search.createIndex(words,{roots});
+ for(const q of ['*leu-','＊leu-',' * leu- '])assert.deepEqual(index.search(q),[words[0]]);
+ assert.deepEqual(index.search('*leu-2'),[words[1]]);
+ for(const q of ['*leu','*missing-','*','**leu-','*autos'])assert.deepEqual(index.search(q),[]);
+ assert.deepEqual(search.matchingRoots(roots,'＊leu-'),[roots[0]]);
+ assert.equal(search.rootQuery('loosen'),null);
+});
+
+test('starred search follows the same active root members as root navigation',()=>{
+ const roots=[{key:'leu-'}],old={w:'obsolete',p:['leu-']},current={w:'confirmed',p:[]};
+ const index=search.createIndex([old,current],{roots,rootMembers:key=>key==='leu-'?[current]:[]});
+ assert.deepEqual(index.search('*leu-'),[current]);assert.deepEqual(index.search('＊leu-'),[current]);
+});
+
+test('word, exact PNG lookup, absent results and input clearing keep their existing behavior',()=>{
+ const words=[{w:'light',p:['leuk-'],art:'light@shine'},{w:'light',p:['leu-'],art:'light@weight'},
+  {w:'lighter',p:[],art:'lighter'}];
+ const index=search.createIndex(words,{roots:[{key:'leu-'},{key:'leuk-'}],imageURLs:w=>['../assets/word/'+w.art+'.png'],baseURL:'https://example.test/app/vocabulary-master.html'});
+ assert.deepEqual(index.search('light'),words);
+ assert.deepEqual(index.search('light@weight.png'),[words[1]]);
+ assert.deepEqual(index.search('https://example.test/assets/word/light@shine.png?v=current'),[words[0]]);
+ assert.deepEqual(index.search('no-such-word'),[]);assert.deepEqual(index.search(''),words);assert.deepEqual(index.search('   '),words);
+});
+
+test('starred root results expose the matching item and open its unchanged identity',()=>{
+ const {document}=parseHTML('<html><body><div id="contentHead"></div><input id="qSide"></body></html>');
+ const roots=[{key:'leu-',ja:'解く'},{key:'leu-2',ja:'汚れ'}];
+ const context={window:{VocabularySearch:search},document,$:s=>document.querySelector(s),mode:'words',q:'＊leu-',ROOTS:roots,WORDS:[],esc:String,rootLabel:r=>'*'+r.key,
+  setNav(){},renderAll(){},pushState(){}};
+ vm.runInNewContext(html.match(/^function renderHead\([^]*?^}/m)[0],context);context.renderHead();
+ const button=document.querySelector('[data-search-root]');
+ assert.equal(document.querySelectorAll('[data-search-root]').length,1);assert.equal(button.dataset.searchRoot,'leu-');
+ button.onclick();assert.equal(context.mode,'root');assert.equal(context.cur,'leu-');assert.equal(document.getElementById('qSide').value,'＊leu-');
+ context.mode='words';context.q='';context.renderHead();assert.equal(document.querySelector('[data-search-root]'),null);
+});
+
+test('root sidebar accepts both reconstruction markers without merging neighboring roots',()=>{
+ const {document}=parseHTML('<html><body><aside id="side"></aside><input id="qSide"><select id="sortSide"><option value="abc" selected>abc</option></select><div id="sideList"></div></body></html>');
+ const roots=[{key:'leu-',ja:'解く'},{key:'leu-2',ja:'汚れ'},{key:'leuk-',ja:'光'}].map((r,i)=>({...r,pie:r.key,en:'fixture',rank:i+1}));
+ const context={window:{VocabularySearch:search},document,$:s=>document.querySelector(s),mode:'root',cur:'leu-',ROOTS:roots,esc:String,rootLabel:r=>'*'+r.key,rootConceptSrc:()=>'',rootNavigationTitle:()=>'',rootNavigationCount:()=>0};
+ vm.runInNewContext(html.match(/^function renderSide\([^]*?^}/m)[0],context);
+ for(const query of ['*leu-','＊leu-']){
+  document.getElementById('qSide').value=query;context.renderSide();
+  assert.deepEqual([...document.querySelectorAll('[data-k]')].map(el=>el.dataset.k),['leu-']);
+ }
+ document.getElementById('qSide').value='*leu-2';context.renderSide();assert.equal(document.querySelector('[data-k]').dataset.k,'leu-2');
+ document.getElementById('qSide').value='*missing-';context.renderSide();assert.equal(document.querySelectorAll('[data-k]').length,0);
+ document.getElementById('qSide').value='';context.renderSide();assert.equal(document.querySelectorAll('[data-k]').length,3);
+});
