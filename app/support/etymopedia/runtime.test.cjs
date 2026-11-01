@@ -3,6 +3,32 @@ const test=require('node:test'),assert=require('node:assert/strict'),fs=require(
 const {parseHTML}=require('../../../tests/explorer-dom/node_modules/linkedom');
 const {csv}=require('./build-data.cjs');
 const root=path.resolve(__dirname,'../../..'),read=p=>fs.readFileSync(path.join(root,p),'utf8');
+test('branch caption fallback avoids the character and words, and recovers after an impossible layout',()=>{
+ const html=read('app/etymopedia.html'),start=html.indexOf('function drawRootLines(){'),draw=html.slice(start,html.indexOf('\n}',start)+2);
+ const {document}=parseHTML('<div class="rootMap"><svg class="rmLines"></svg><div class="rmCharWrap"><img class="rmChar"></div><span class="rmConcept"></span><button class="wnode" data-side="left" data-slot="middle-left"><span class="wnImg"></span><span class="wnW">project</span><span class="originSealSlot"><span class="originSeal">ラテン語</span></span></button></div>');
+ const rect=(left,top,width,height)=>({left,top,width,height,right:left+width,bottom:top+height});
+ const set=(selector,value)=>{document.querySelector(selector).getBoundingClientRect=()=>value;};
+ const map=rect(0,0,900,480),image=rect(100,210,60,60),word=rect(80,274,100,20),parent=rect(80,210,100,84),normal=rect(349,139,202,202);
+ set('.rootMap',map);set('.rmCharWrap',rect(360,150,180,180));set('.wnImg',image);set('.wnW',word);set('.wnode',parent);set('.rmConcept',rect(0,0,0,0));set('.originSeal',rect(0,0,50,15.2));
+ let character=normal;document.querySelector('.rmChar').getBoundingClientRect=()=>character;
+ const context={$:s=>document.querySelector(s)};vm.createContext(context);vm.runInContext(draw,context);
+ const slot=document.querySelector('.originSealSlot'),node=document.querySelector('.wnode'),language=document.querySelector('.originSeal').textContent;
+ const position=()=>rect(parent.left+parseFloat(slot.style.left)-25,parent.top+parseFloat(slot.style.top)-7.6,50,15.2);
+ const intersects=(a,b)=>a.left<b.right&&a.right>b.left&&a.top<b.bottom&&a.bottom>b.top;
+ const run=()=>vm.runInContext('drawRootLines()',context);
+ run();const approvedPosition=position();
+ character=rect(150,0,750,480);run();
+ assert.notEqual(slot.style.display,'none','use a free area beyond the initial local search');
+ for(const obstacle of [character,image,word])assert.equal(intersects(position(),obstacle),false,'caption must not cover artwork or a word');
+ assert.ok(position().left>=0&&position().right<=map.right&&position().top>=0&&position().bottom<=map.bottom);
+ character=map;run();
+ assert.equal(slot.style.display,'none','an impossible layout must not fall back onto the character');
+ assert.ok(node.title.includes(language),'retain the language as a tooltip when there is no visible space');
+ character=normal;run();
+ assert.notEqual(slot.style.display,'none');assert.deepEqual(position(),approvedPosition,'restore the same ordinary branch position');
+ assert.deepEqual(document.querySelector('.wnImg').getBoundingClientRect(),image);assert.deepEqual(document.querySelector('.wnW').getBoundingClientRect(),word);
+});
+
 test('file-mode page loads current texts and every difficulty group without mutating images or storage (browserless DOM)',async()=>{
  const html=read('app/etymopedia.html').split('\n').map(l=>l.startsWith('const EMB_IMG =')?'const EMB_IMG = {};':l).join('\n');
  const script=[...html.matchAll(/<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/g)].at(-1)[1].split('/* ---- 起動 ---- */')[0];
@@ -33,7 +59,7 @@ test('file-mode page loads current texts and every difficulty group without muta
   assert.deepEqual(nodes.map(n=>n.dataset.slot),['upper-left','upper-right','lower-left','lower-right','middle-left','middle-right'].slice(0,nodes.length),'retain four diagonal slots before the two horizontal extras');
   for(const node of nodes){
    const image=node.querySelector('.wnImg'),word=node.querySelector('.wnW'),seal=node.querySelector('.originSeal');
-   if(seal){assert.equal(image.contains(seal),false,'origin label must not cover the image');assert.equal(word.contains(seal),false,'origin label must be separate from the word');assert.ok(seal.parentElement.classList.contains('originSealSlot'));}
+   if(seal){assert.equal(image.contains(seal),false,'origin label has its own overlay layer');assert.equal(word.contains(seal),false,'origin label must be separate from the word');assert.ok(seal.parentElement.classList.contains('originSealSlot'));}
   }
   const groups=[...document.querySelectorAll('.tierBox summary [data-etymopedia-difficulty]')].map(el=>el.dataset.level===''?null:Number(el.dataset.level));
   assert.deepEqual(groups,[...groups].sort((a,b)=>(a??99)-(b??99)));

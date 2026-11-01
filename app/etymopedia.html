@@ -200,8 +200,8 @@ section{padding:66px 0}
 .wnode[data-slot="middle-right"]{--rm-x:min(calc(100% - var(--rm-node)/2 - 8px),82%);--rm-y:50%}
 .wnImg{width:var(--rm-image);height:var(--rm-image);flex:0 0 auto;display:flex;align-items:center;justify-content:center;overflow:visible}
 .wnImg img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(2.5px 3px 0 #00000022)}
-.originSealSlot{display:flex;align-items:center;justify-content:center;width:100%;height:28px}
-.originSeal{display:inline-block;transform:rotate(-8deg);max-width:calc(100% - 4px);padding:1px 3px;background:#fff0bc;color:var(--ink);border:1px solid var(--ink);border-radius:3px;box-shadow:2px 2px 0 #241f2620;font-size:11px;font-weight:900;line-height:1.2;pointer-events:none}
+.originSealSlot{position:absolute;left:50%;top:0;transform:translate(-50%,-50%);display:flex;align-items:center;justify-content:center;width:max-content;pointer-events:none;z-index:2}
+.originSeal{display:inline-block;white-space:nowrap;padding:1px 3px;background:var(--paper);color:var(--ink2);border:0;border-radius:3px;box-shadow:none;font-size:11px;font-weight:700;line-height:1.2;pointer-events:none}
 .wnW{font-size:clamp(11px,1.8cqw,20px);font-weight:900;line-height:1.2;display:block;color:var(--ink);max-width:100%;overflow-wrap:anywhere}
 .reg-G{background:#7a8b99}.reg-L{background:#c0693c}.reg-Gr{background:#3f7fae}
 /* 古代概念チップ(語根構成)。個別ページ=大 / 辞典の行=小。
@@ -940,14 +940,60 @@ function drawRootLines(){
   svg.setAttribute("viewBox",`0 0 ${mr.width} ${mr.height}`);
   svg.style.width=mr.width+"px";svg.style.height=mr.height+"px";
   let p="";
-  map.querySelectorAll(".wnode").forEach(node=>{
+  const local=r=>({left:r.left-mr.left,right:r.right-mr.left,top:r.top-mr.top,bottom:r.bottom-mr.top});
+  const obstacles=[...map.querySelectorAll('.wnImg,.wnW,.rmChar,.rmConcept')].map(n=>local(n.getBoundingClientRect()));
+  const placed=[];
+  const nodes=[...map.querySelectorAll('.wnode')];
+  // Place the longest captions first so a shorter neighbour can use another point.
+  nodes.sort((a,b)=>(b.querySelector('.originSeal')?.getBoundingClientRect().width||0)-(a.querySelector('.originSeal')?.getBoundingClientRect().width||0)||(b.querySelector('.wnW').getBoundingClientRect().width-a.querySelector('.wnW').getBoundingClientRect().width));
+  nodes.forEach(node=>{
     const b=(node.querySelector('.wnImg')||node).getBoundingClientRect();
     const onLeft=node.dataset.side==="left",horizontal=node.dataset.slot.startsWith("middle-");
     const ex=(onLeft?b.right:b.left)-mr.left, ey=b.top+b.height/2-mr.top;
     const dx=ex-cx, dy=ey-cy, len=Math.hypot(dx,dy)||1;
     const sx=cx+dx/len*cr, sy=cy+dy/len*cr;   // 円周上の起点
     const mx=(sx+ex)/2;
-    const line=horizontal?`M ${sx} ${cy} L ${ex} ${cy}`:`M ${sx} ${sy} C ${mx} ${sy}, ${mx} ${ey}, ${ex} ${ey}`;
+    let line=horizontal?`M ${sx} ${cy} L ${ex} ${cy}`:`M ${sx} ${sy} C ${mx} ${sy}, ${mx} ${ey}, ${ex} ${ey}`;
+    const caption=node.querySelector('.originSeal'),slot=node.querySelector('.originSealSlot');
+    if(caption&&slot){
+      slot.style.display='';
+      const size=caption.getBoundingClientRect(),w=size.width,h=size.height;
+      const box=a=>({left:a.x-w/2,right:a.x+w/2,top:a.y-h/2,bottom:a.y+h/2});
+      const clear=a=>{const r=box(a);return r.left>=2&&r.right<=mr.width-2&&r.top>=2&&r.bottom<=mr.height-2&&[...obstacles,...placed].every(q=>r.right+2<=q.left||r.left-2>=q.right||r.bottom+2<=q.top||r.top-2>=q.bottom);};
+      const point=t=>horizontal?{x:sx+(ex-sx)*t,y:cy}:{x:(1-t)**3*sx+3*(1-t)**2*t*mx+3*(1-t)*t*t*mx+t**3*ex,y:(1-t)**3*sy+3*(1-t)**2*t*sy+3*(1-t)*t*t*ey+t**3*ey};
+      const ts=node.dataset.slot.startsWith('lower-')?[.43,.5,.36,.57,.3,.64]:[.44,.56,.38,.62,.32,.68,.5];
+      let anchor=ts.map(point).find(clear);
+      if(!anchor){
+        // Use the nearest free point, bending only the connecting line.
+        // Image slots, word captions and the diagram height do not move.
+        const shifts=[];
+        for(let x=-96;x<=96;x+=8)for(let y=-96;y<=96;y+=8)shifts.push({x,y,d:x*x+y*y});
+        shifts.sort((a,b)=>a.d-b.d);
+        for(const shift of shifts){
+          anchor=ts.map(point).map(a=>({x:a.x+shift.x,y:a.y+shift.y})).find(clear);
+          if(anchor)break;
+        }
+        if(!anchor){
+          const middle=point(.5);let distance=Infinity;
+          for(let y=h/2+2;y<=mr.height-h/2-2;y+=8)for(let x=w/2+2;x<=mr.width-w/2-2;x+=8){
+            const candidate={x,y},d=(x-middle.x)**2+(y-middle.y)**2;
+            if(d<distance&&clear(candidate)){anchor=candidate;distance=d;}
+          }
+        }
+        if(anchor){
+          // A single smooth curve passes through the caption, without a sharp elbow.
+          const qx=2*anchor.x-(sx+ex)/2,qy=2*anchor.y-(sy+ey)/2;
+          line=`M ${sx} ${sy} Q ${qx} ${qy} ${ex} ${ey}`;
+        }
+      }
+      if(anchor){
+        const parent=local(node.getBoundingClientRect());
+        slot.style.left=(anchor.x-parent.left)+'px';slot.style.top=(anchor.y-parent.top)+'px';
+        node.title='';placed.push(box(anchor));
+      }else{
+        slot.style.display='none';node.title='起源言語: '+caption.textContent;
+      }
+    }
     p+=`<path data-slot="${node.dataset.slot}" d="${line}" fill="none" stroke="#241f26" stroke-width="2.5" stroke-linecap="round"/>`;
     p+=`<circle cx="${ex}" cy="${ey}" r="4" fill="#241f26"/>`;
   });
