@@ -328,6 +328,8 @@ td.cOriginLanguage{min-width:105px;max-width:180px;font-size:11px;color:var(--in
 <script src="shared/word-review-notes.js?v=ea85823caa26"></script>
 <script src="data/generated-etymon/word-review-notes.js?v=0b1f6ff61d3a"></script>
 <script src="shared/offline-dictionary.js?v=ac1b0f82a525"></script>
+<link rel="stylesheet" href="support/vocabulary-master/classification-manager.css?v=a06e27815098">
+<script src="support/vocabulary-master/classification-manager.js?v=b9ee269b4034"></script>
 </head>
 <body>
 <header>
@@ -1578,10 +1580,11 @@ gs.addEventListener('compositionend',()=>{gsComposing=false;onGlobalSearchInput(
 gs.addEventListener('keydown',event=>{if(event.key==='Enter'&&!event.isComposing&&!gsComposing)searchRender.flush();});
 $('#gsX').onclick=()=>{searchRender.cancel();clearTimeout(gsTimer);gsComposing=false;gs.value='';q='';$('#gsX').classList.remove('on');limit=400;renderAll();pushState();gs.focus();};
 addEventListener('keydown',e=>{
+  if(e.target.closest?.('dialog[open]'))return;
   if(e.key==='/'&&document.activeElement!==gs){e.preventDefault();gs.focus();gs.select();}
   if(e.key==='Escape'&&document.activeElement===gs)$('#gsX').onclick();
 });
-loadData();
+loadData().then(()=>{window.VocabularyClassificationManager?.attach(WORDS,JSON.parse(document.getElementById('semanticData').textContent).entries);});
 </script>
 </body>
 </html>

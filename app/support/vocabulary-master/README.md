@@ -1,5 +1,53 @@
 # Vocabulary master origin columns
 
+## Local category and tag management
+
+The toolbar's category/tag button opens a separate dialog on `file://` and exact
+loopback hosts only. Management code loads on first opening. The main dictionary
+list and root explanation reader keep their own existing layout. Hosted public
+URLs do not attach the button or load the editor helpers.
+
+Management starts with an empty registry. Open an external canonical JSON when
+needed; no private canonical, guard, dictionary or audit snapshot is bundled.
+The current viewer's exact identity and meaning/POS provide import validation.
+The reference taxonomy is the existing public `app/eigo-no-e/categories.py`
+(20 categories, 63 subcategories); its spelling-based suggestions remain marked
+as unverified. The eight reviewed semantic records remain read-only.
+
+Edit one ordered `(word, roots, etymology_id)` identity at a time. Duplicate exact
+identities cannot be edited. Empty arrays explicitly override classification with
+none. Removing management and returning to reviewed/reference fallback is a
+separate recovery operation. Browser drafts use a separate local storage key;
+they are never described as a canonical/GitHub save.
+
+Use **export patch JSON** and **import patch JSON** for the tested transfer path.
+Canonical opening uses the standard file input, even when native file pickers
+exist. Direct file writing is disabled. To incorporate exported patches or
+recovery plans into the private canonical registry, use the private source's
+`tools/vocabulary_classifications.py` validation workflow against the matching
+generated dictionary; inspect/adopt its new candidate through the private source
+workflow. Neither this viewer nor a download updates that source automatically.
+
+The generic editor/reference/recovery helpers originate from source commit
+`1dfd59ee5718b0d793c07c055e78fdfa91535170`. Local integration only adds mounting
+hosts, a separate draft key, and the read/import-only file option. It does not run
+the private builder or weaken its private-output destination guard.
+
+Run the real-browser regression with installed Playwright and Chrome:
+
+```powershell
+$env:PLAYWRIGHT_CHANNEL='chrome'
+node app/support/vocabulary-master/test-classification-manager.cjs
+```
+
+For a sparse review worktree, `VOCABULARY_RUNTIME_ROOT` can supply unchanged
+public viewer dependencies from another local checkout. Optional
+`VOCABULARY_CLASSIFICATION_REPORT` writes test screenshots, downloads and JSON
+results; choose a private directory outside the public checkout. File viewing is
+the default test route. `VOCABULARY_TEST_HTTP=1` additionally selects local HTTP
+for the PC workflow when that network access is available. The remote-host gate
+is tested as a unit without contacting an external site.
+
 ## Root explanation and list viewport
 
 The root header keeps its title, language and affix controls. The read button
