@@ -33,6 +33,21 @@
    return row;
   }
   const api={lookup,status,update,source:row=>status(row).source,roots:rootMap};
+  // Exact reviewed exception: the legacy root identity is not an approved assembly.
+  api.pieRoots=row=>key(row)===JSON.stringify(['adjacent',['ad-','yē-']])?null:(api.source(row)?.p||null);
+  // Display selection only: do not mistake familiar spelling for a basic sense.
+  const exampleHolds=new Set([['anima',['anə-']],['animus',['anə-']],['rectus',['reg-']],['mare',['mori-']],['mere',['mori-']]].map(x=>JSON.stringify(x)));
+  const everydayExamples=new Set(['head','animal','anime','phone','fate','ban','infant','quick','zoo','survive','vitamin','a','an','no','one','eleven','onion','rule','dress','rich','view','story','history','wise','advice','advise','project','inject','marine','marsh','submarine','mermaid','automatic','date','tradition','edition','donate','donation','knee','kneel','polygon','hexagon']);
+  api.rootExamples=function(rootKey,explanation,candidates,hasArt){
+   const reviewedRoot=rootMap.get(rootKey);
+   if(!reviewedRoot||reviewedRoot.definition_reviewed!==true||reviewedRoot.d!==explanation)return [];
+   const tokens=new Set((String(explanation||'').match(/[A-Za-z]+(?:['’-][A-Za-z]+)*/g)||[]).map(x=>x.toLowerCase()));
+   const seen=new Set();return candidates.filter(row=>{
+    const source=api.source(row),roots=api.pieRoots(row),level=api.lookup(row)?.level;
+    if(!source||exampleHolds.has(key(source))||!roots?.includes(rootKey)||!tokens.has(source.w.toLowerCase())||!Number.isInteger(level)||level<1||level>9||!hasArt(source)||seen.has(source.w.toLowerCase()))return false;
+    seen.add(source.w.toLowerCase());return true;
+   }).sort((a,b)=>Number(everydayExamples.has(b.w))-Number(everydayExamples.has(a.w))||api.lookup(a).level-api.lookup(b).level||a.w.length-b.w.length||a.w.localeCompare(b.w)).slice(0,6);
+  };
   api.apply=function(words,lexicon,displayRoots,byId){
    // Featured cards and the family list sometimes use different Japanese wording.
    // Accept that wording only when the existing page independently contains the
@@ -62,27 +77,14 @@
   return data;
  }
  async function load(options={}){
-  const scope=options.scope||globalThis,protocol=options.protocol||scope.location.protocol;
-  const getJSON=async path=>{const response=await scope.fetch(path,{cache:'no-store'});if(!response.ok)throw Error('Current dictionary unavailable: '+path);return response.json();};
-  let data;
-  if(protocol==='file:')data=await decodeSnapshot(scope.ETYMOPEDIA_CURRENT_DATA);
-  else{
-   const [words,roots]=await Promise.all([getJSON('data/generated-etymon/words.json'),getJSON('data/generated-etymon/roots.json')]);
-   if(!Array.isArray(words)||!Array.isArray(roots))throw Error('Invalid current dictionary');
-   data={words:words.map((w,i)=>({...w,dictionaryIndex:i})),roots};
-  }
+  const scope=options.scope||globalThis;
+  // Use the same integrity-checked public projection on HTTP and file://.
+  // Never overwrite it with older shared dictionary JSON or source shards.
+  const data=await decodeSnapshot(scope.ETYMOPEDIA_CURRENT_DATA);
   const engine=scope.EtymonDifficultyV2;
   if(!engine||!Array.isArray(scope.ETYMON_WEBLIO_LEVELS?.entries)||!Array.isArray(scope.ETYMON_LEARNING_LEVELS?.entries))throw Error('Current difficulty evidence unavailable');
   const api=create(engine,engine.makeIndex(scope.ETYMON_WEBLIO_LEVELS,scope.ETYMON_LEARNING_LEVELS),data.words,data.roots);
-  const shards=new Map();
-  api.phonetic=async row=>{
-   const source=api.source(row);if(!source)return '';
-   if(protocol==='file:')return source.phonetic||'';
-   const letter=/^[a-z]/i.test(source.w)?source.w[0].toLowerCase():'_';
-   if(!shards.has(letter))shards.set(letter,getJSON('data/generated-etymon/det/'+letter+'.json'));
-   const record=(await shards.get(letter))[String(source.dictionaryIndex)];
-   return Array.isArray(record)&&norm(record[3])===norm(source.w)?String(record[4]||''):'';
-  };
+  api.phonetic=async row=>api.source(row)?.phonetic||'';
   return api;
  }
  function details(word,result,status='matched'){
