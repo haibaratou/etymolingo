@@ -33,8 +33,7 @@
    return row;
   }
   const api={lookup,status,update,source:row=>status(row).source,roots:rootMap};
-  // Exact reviewed exception: the legacy root identity is not an approved assembly.
-  api.pieRoots=row=>key(row)===JSON.stringify(['adjacent',['ad-','yē-']])?null:(api.source(row)?.p||null);
+  api.pieRoots=row=>api.source(row)?.p||null;
   // Display selection only: do not mistake familiar spelling for a basic sense.
   const exampleHolds=new Set([['anima',['anə-']],['animus',['anə-']],['rectus',['reg-']],['mare',['mori-']],['mere',['mori-']]].map(x=>JSON.stringify(x)));
   const everydayExamples=new Set(['head','animal','anime','phone','fate','ban','infant','quick','zoo','survive','vitamin','a','an','no','one','eleven','onion','rule','dress','rich','view','story','history','wise','advice','advise','project','inject','marine','marsh','submarine','mermaid','automatic','date','tradition','edition','donate','donation','knee','kneel','polygon','hexagon']);

@@ -89,8 +89,8 @@ test('derived dictionary uses existing PIE icons rather than language-family pil
  assert.ok(!html.includes('${w.parts?'));assert.match(html,/entryMorphRow.*conceptRowHTML\(wordConceptKeys\(w\)\)/);
 });
 
-test('reviewed adjacent exception retains word data but does not assert legacy PIE assembly',()=>{
- const w=projection.words.find(w=>w.w==='adjacent');assert.ok(w);const row={w:w.w,p:w.p,jp:w.ja};assert.ok(service.source(row));assert.equal(service.pieRoots(row),null);
+test('adjacent displays its registered PIE roots without rewriting data or bypassing sense guards',()=>{
+ const w=projection.words.find(w=>w.w==='adjacent');assert.ok(w);const before=JSON.stringify(w);const row={w:w.w,p:w.p,jp:w.ja};assert.ok(service.source(row));assert.deepEqual(service.pieRoots(row),['ad-','yē-']);assert.equal(JSON.stringify(w),before);assert.equal(service.pieRoots({...row,jp:'different sense'}),null);
 });
 test('root examples require whole tokens, exact sense, image, valid level and at most six',()=>{
  const names=['head','animal','phone','fate','ban','infant','chief','capital','captain','orphan','advanced'];
