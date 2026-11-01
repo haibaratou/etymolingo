@@ -1,0 +1,49 @@
+{
+  "schema": 1,
+  "entries": [
+    {
+      "w": "history",
+      "p": [
+        "weid-"
+      ],
+      "sense_sha256": "5cc41e4ac34d1aa3b45d463a0277a337b7500444278c6a7fefba7c4160c3f0cd",
+      "expected_origin_languages": [
+        "古代ギリシャ語",
+        "アングロフランス語",
+        "ラテン語"
+      ],
+      "display_languages": [
+        "古代ギリシャ語"
+      ]
+    },
+    {
+      "w": "tradition",
+      "p": [
+        "terə-2",
+        "dō-"
+      ],
+      "sense_sha256": "5795191dbaf1601ad965224f2e15de395cdf074ba37594115976c3938601cec7",
+      "expected_origin_languages": [
+        "中期フランス語",
+        "ラテン語"
+      ],
+      "display_languages": [
+        "ラテン語"
+      ]
+    },
+    {
+      "w": "view",
+      "p": [
+        "weid-"
+      ],
+      "sense_sha256": "3e48a0e264e36fffea3487eadef19ce3deced3dec7c77960803f3c50a3727556",
+      "expected_origin_languages": [
+        "古フランス語",
+        "ラテン語"
+      ],
+      "display_languages": [
+        "ラテン語"
+      ]
+    }
+  ]
+}

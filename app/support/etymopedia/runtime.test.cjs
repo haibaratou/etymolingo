@@ -13,7 +13,7 @@ test('file-mode page loads current texts and every difficulty group without muta
   fetch:async()=>{throw Error('No file fetch');},addEventListener(){},requestAnimationFrame(){},setTimeout(){},clearTimeout(){},scrollTo(){},ResizeObserver:class{observe(){}disconnect(){}},
   EtymonDifficultyV2:require('../../shared/explorer-difficulty-v2.js')};
  context.window=context;vm.createContext(context);
- for(const p of ['app/data/generated-etymon/weblio-learning-levels.js','app/data/generated-etymon/learning-levels.js','app/support/etymopedia/current-data.js','app/support/etymopedia/learning-levels.js'])vm.runInContext(read(p),context);
+ for(const p of ['assets/word/illustration-index.js','app/data/generated-etymon/weblio-learning-levels.js','app/data/generated-etymon/learning-levels.js','app/support/etymopedia/current-data.js','app/support/etymopedia/learning-levels.js'])vm.runInContext(read(p),context);
  vm.runInContext(script+'\nthis.pageState=()=>({WORDS,ROOTS,LEXICON,byId,LEVELS});',context);
  await vm.runInContext('loadAll()',context);
  const state=context.pageState(),legacyRoots=csv(read('app/data/roots.csv'));
@@ -23,11 +23,18 @@ test('file-mode page loads current texts and every difficulty group without muta
  const head=state.byId.head;assert.equal(head.pos,'名/動');assert.equal(head.jp,'頭、首長');
  vm.runInContext('renderWord("head")',context);await new Promise(resolve=>setImmediate(resolve));
  const star=document.querySelector('.entryStars [data-etymopedia-difficulty]');assert.ok(star);assert.equal(Number(star.dataset.stars),state.LEVELS.lookup(head).level/2);
- assert.equal(document.querySelector('.pimg img').getAttribute('src'),'data:image/png;base64,USER_ART');
+ assert.equal(document.querySelector('.pimg img').getAttribute('src').split('?')[0],'../assets/word/head.png','use the real page illustration index while retaining stored personal art');
  assert.equal(document.querySelectorAll('.entryStars [data-etymopedia-difficulty]').length,1,'no duplicate rarity indicator');
  const lists=[];
  for(const id of Object.keys(state.ROOTS)){
   vm.runInContext('renderRoot('+JSON.stringify(id)+')',context);
+  const nodes=[...document.querySelectorAll('.rootMap > .wnode')];
+  assert.ok(nodes.length>=2&&nodes.length<=6,id+': '+nodes.length+' '+'keep only the reviewed examples, without filler');
+  assert.deepEqual(nodes.map(n=>n.dataset.slot),['upper-left','upper-right','lower-left','lower-right','middle-left','middle-right'].slice(0,nodes.length),'retain four diagonal slots before the two horizontal extras');
+  for(const node of nodes){
+   const image=node.querySelector('.wnImg'),word=node.querySelector('.wnW'),seal=node.querySelector('.originSeal');
+   if(seal){assert.equal(image.contains(seal),false,'origin label must not cover the image');assert.equal(word.contains(seal),false,'origin label must be separate from the word');assert.ok(seal.parentElement.classList.contains('originSealSlot'));}
+  }
   const groups=[...document.querySelectorAll('.tierBox summary [data-etymopedia-difficulty]')].map(el=>el.dataset.level===''?null:Number(el.dataset.level));
   assert.deepEqual(groups,[...groups].sort((a,b)=>(a??99)-(b??99)));
   assert.ok(groups.every(n=>n===null||(n>=1&&n<=10)));

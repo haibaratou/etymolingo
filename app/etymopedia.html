@@ -181,32 +181,28 @@ section{padding:66px 0}
 .backLink{display:inline-block;margin-bottom:14px;font-weight:900;color:var(--ink2);cursor:pointer}
 .backLink:hover{color:var(--coral)}
 
-/* 語根ページ:キャラ中心の放射状マップ(左右バランス配置・最大6個) */
+/* 語根ページ:4つの斜め枠と、追加2つの外側水平枠 */
 .rmLead{font-size:22px;font-weight:900;margin:4px 0 2px}
-.rootMap{position:relative;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:26px;margin:20px 0}
+.rootMap{position:relative;container-type:inline-size;--rm-image:clamp(52px,9.8cqw,88px);--rm-node:clamp(68px,16cqw,144px);--rm-char:clamp(70px,22cqw,180px);width:100%;max-width:900px;height:clamp(390px,46vw,480px);margin:16px auto;isolation:isolate}
 .rmLines{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:visible}
-.rmSide{display:flex;flex-direction:column;justify-content:center;gap:22px;z-index:1}
-.rmSide.left{align-items:flex-end}
-.rmSide.right{align-items:flex-start}
-.rmCenter{position:relative;z-index:1;text-align:center;display:flex;flex-direction:column;align-items:center;gap:8px}
-.rmConcept{font-size:clamp(28px,4vw,38px);font-weight:900;color:var(--rc)}
-.rmCharWrap{width:230px;height:230px;border-radius:50%;border:none;display:flex;align-items:center;justify-content:center;overflow:visible;
-  background:var(--paper2);
-  background:radial-gradient(circle at 50% 40%, #fff 8%, color-mix(in srgb, var(--rc) 22%, #fff) 100%);
-  box-shadow:0 14px 30px rgba(36,31,38,.12)}
+.rmCenter{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:1;text-align:center}
+.rmConcept{position:absolute;left:50%;top:calc(100% + 12px);transform:translateX(-50%);width:max-content;max-width:calc(var(--rm-char)*1.2);font-size:clamp(13px,3.2cqw,38px);font-weight:900;line-height:1.25;color:var(--rc)}
+.rmCharWrap{width:var(--rm-char);height:var(--rm-char);border-radius:50%;border:none;display:flex;align-items:center;justify-content:center;overflow:visible;background:radial-gradient(circle at 50% 40%,#fff 8%,color-mix(in srgb,var(--rc) 22%,#fff) 100%);box-shadow:0 14px 30px rgba(36,31,38,.12)}
 .rmChar{width:112%;height:112%;object-fit:contain;filter:drop-shadow(0 6px 8px rgba(36,31,38,.16))}
 .rmRoot{font-family:"Shippori Mincho",serif;font-style:italic;font-weight:800;font-size:18px;color:var(--ink2)}
-/* 代表語は「絵+英語+リンク」だけのシンプル表示(枠・和訳・語派バッジなし。
-   詳細は下の辞典リストにあるので重複させない) */
-.wnode{font-family:inherit;display:flex;flex-direction:column;align-items:center;gap:7px;background:transparent;border:none;padding:6px;cursor:pointer;transition:transform .12s;width:172px;max-width:100%}
-.wnode:hover{transform:translateY(-4px) rotate(-.5deg)}
-.wnImg{width:96px;height:96px;flex:0 0 auto;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.wnode{position:absolute;left:var(--rm-x);top:calc(var(--rm-y) - var(--rm-image)/2);transform:translateX(-50%);z-index:1;font-family:inherit;display:flex;flex-direction:column;align-items:center;gap:4px;background:transparent;border:none;padding:0;cursor:pointer;transition:filter .12s;width:var(--rm-node);max-width:none}
+.wnode:hover{filter:brightness(1.03)}
+.wnode[data-slot="upper-left"]{--rm-x:33%;--rm-y:18%}
+.wnode[data-slot="upper-right"]{--rm-x:67%;--rm-y:18%}
+.wnode[data-slot="lower-left"]{--rm-x:33%;--rm-y:77%}
+.wnode[data-slot="lower-right"]{--rm-x:67%;--rm-y:77%}
+.wnode[data-slot="middle-left"]{--rm-x:max(calc(var(--rm-node)/2 + 8px),18%);--rm-y:50%}
+.wnode[data-slot="middle-right"]{--rm-x:min(calc(100% - var(--rm-node)/2 - 8px),82%);--rm-y:50%}
+.wnImg{width:var(--rm-image);height:var(--rm-image);flex:0 0 auto;display:flex;align-items:center;justify-content:center;overflow:visible}
 .wnImg img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(2.5px 3px 0 #00000022)}
-.rootMap .rmSide{min-height:410px;justify-content:space-between}
-.rootMap .rmSide:has(> .wnode:only-child){justify-content:center}
-.rootMap .wnImg{position:relative;overflow:visible}
-.originSeal{position:absolute;right:-22px;bottom:1px;transform:rotate(-12deg);max-width:132px;padding:3px 8px;background:#fff0bc;color:var(--ink);border:1.5px solid var(--ink);border-radius:3px;box-shadow:2px 2px 0 #241f2620;font-size:10px;font-weight:900;line-height:1.35;pointer-events:none}
-.wnW{font-size:22px;font-weight:900;line-height:1.1;display:block;color:var(--ink)}
+.originSealSlot{display:flex;align-items:center;justify-content:center;width:100%;height:28px}
+.originSeal{display:inline-block;transform:rotate(-8deg);max-width:calc(100% - 4px);padding:1px 3px;background:#fff0bc;color:var(--ink);border:1px solid var(--ink);border-radius:3px;box-shadow:2px 2px 0 #241f2620;font-size:11px;font-weight:900;line-height:1.2;pointer-events:none}
+.wnW{font-size:clamp(11px,1.8cqw,20px);font-weight:900;line-height:1.2;display:block;color:var(--ink);max-width:100%;overflow-wrap:anywhere}
 .reg-G{background:#7a8b99}.reg-L{background:#c0693c}.reg-Gr{background:#3f7fae}
 /* 古代概念チップ(語根構成)。個別ページ=大 / 辞典の行=小。
    アイコン未整備のキーはテキストピルで正式表記だけ出す */
@@ -274,17 +270,6 @@ section{padding:66px 0}
 .etyCard.hl{outline:4px solid var(--coral);outline-offset:3px}
 .rmMemo{margin-top:28px;background:var(--paper2);border:3px solid var(--ink);border-radius:18px;padding:16px 20px;font-size:16px;font-weight:700;line-height:2}
 .rmMemo .mt{display:inline-block;background:var(--coral);color:#fff;font-size:13px;font-weight:900;border-radius:8px;padding:2px 12px;margin-bottom:6px;transform:rotate(-2deg)}
-@media (max-width:820px){
-  .rootMap{grid-template-columns:1fr;min-height:0;gap:16px}
-  .rootMap .rmSide{align-items:stretch;min-height:0;gap:18px}
-  .rootMap .wnImg{width:104px;flex-basis:104px;height:88px;align-items:flex-start;justify-content:flex-start}
-  .rootMap .wnImg img{width:64px;height:64px}
-  .rootMap .originSeal{left:8px;right:auto;bottom:2px;max-width:96px;font-size:9px;transform:rotate(-8deg);transform-origin:left bottom}
-  .wnode,.rmSide.left .wnode,.rmSide.right .wnode{flex-direction:row;gap:14px;width:100%;justify-content:flex-start}
-  .wnImg{width:64px;height:64px}
-  .rmCenter{order:-1;margin-bottom:4px}
-  .rmLines{display:none}
-}
 
 /* 語根ページ:祖先→各単語(縦一列。単語どうしは絶対つなげない) */
 .rootHero{display:flex;gap:36px;align-items:center;margin-top:8px}
@@ -381,6 +366,24 @@ footer b{color:var(--ink)}
   .plateCol{width:100%}
   #heroArt,nav{display:none}
 }
+@media (max-width:1100px){
+  header .bar{height:60px;gap:8px}
+  #logo{flex:0 0 auto;white-space:nowrap}
+  #logo b{font-size:clamp(16px,4.5vw,20px);line-height:1.2}
+  #logo small{display:none}
+  #searchBox{flex:1 1 auto;min-width:0;width:auto;padding:6px 8px;gap:4px}
+  #searchBox input{min-width:0;font-size:12px}
+}
+@media (max-width:980px){
+  .rootMap{--rm-char:112px}
+  .rmChar{flex-shrink:0}
+  .rmConcept{top:calc(100% + 8px)}
+  .wnode[data-slot^="upper-"]{--rm-y:13%}
+  .wnode[data-slot^="lower-"]{--rm-y:min(78%,calc(100% - var(--rm-image)/2 - 60px))}
+}
+@media (max-width:640px){
+  .originSeal{font-size:9px}
+}
 </style>
 <link rel="stylesheet" href="shared/rarity-presentation.css?v=fbc61c711f85">
 </head>
@@ -421,7 +424,7 @@ footer b{color:var(--ink)}
 <script src="data/generated-etymon/weblio-learning-levels.js?v=e6a41b9d8680"></script>
 <script src="data/generated-etymon/learning-levels.js?v=48bcf2f15474"></script>
 <script src="shared/explorer-difficulty-v2.js?v=9dc8fbefa448" data-api-only="true"></script>
-<script src="support/etymopedia/current-data.js?v=4d12a321f43c"></script>
+<script src="support/etymopedia/current-data.js?v=aa4217faf200"></script>
 <script src="support/etymopedia/learning-levels.js?v=289cfaeeb70c"></script>
 <link rel="stylesheet" href="support/etymopedia/learning-levels.css?v=e43369502e71">
 <script>
@@ -876,20 +879,19 @@ function renderRoot(id){
   // Select only exact canonical identities named in the current PIE explanation.
   // Missing level, unresolved sense, or missing approved image means no filler.
   const list=LEVELS?LEVELS.rootExamples(r.pie,r.note,candidates,source=>approvedWordArt.has(wordArtSenseKey(source.w,source.p))):[];
-  // 左右へ交互に振り分けてバランスよく配置
-  const left=[],right=[];
-  list.forEach((w,i)=>(i%2===0?right:left).push(w));
-  const nodeHTML=w=>{
+  const exampleSlots=['upper-left','upper-right','lower-left','lower-right','middle-left','middle-right'];
+  const nodeHTML=(w,index)=>{
     const source=LEVELS.source(w);
     const stem=source&&approvedWordArt.get(wordArtSenseKey(source.w,source.p));
     if(!stem)return "";
     const img=imgURL("word/"+stem+".png");
     const escapeLabel=value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-    const labels=(source.origin_languages||[]).map(escapeLabel);
-    const seal=labels.length?`<span class="originSeal" title="起源言語">${labels.join('・')}</span>`:"";
-    return `<button class="wnode" style="--rc:${r.c}" onclick="location.hash='#/word/${w.w}'">
-      <span class="wnImg"><img src="${img}" alt="" onerror="this.closest('.wnode').remove();drawRootLines()">${seal}</span>
-      <span class="wnW">${w.w}</span></button>`;
+    const labels=(source.origin_sticker_languages||source.origin_languages||[]),label=labels.join('・');
+    const seal=label?`<span class="originSealSlot"><span class="originSeal" title="起源言語">${escapeLabel(label)}</span></span>`:"";
+    const slot=exampleSlots[index],side=slot.endsWith('left')?'left':'right';
+    return `<button class="wnode" data-example-index="${index}" data-slot="${slot}" data-side="${side}" style="--rc:${r.c}" onclick="location.hash='#/word/${w.w}'">
+      <span class="wnImg"><img src="${img}" alt="" onerror="this.closest('.wnode').remove();drawRootLines()"></span>
+      <span class="wnW">${w.w}</span>${seal}</button>`;
   };
   const drowHTML=([w,via,jp,note,pl])=>{
     const canonicalRoots=LEVELS&&LEVELS.pieRoots({w,jp,p:pl});
@@ -912,12 +914,11 @@ function renderRoot(id){
     <div class="rmLead">「<b style="color:${r.c}">${r.jp}</b>」から生まれた英単語たち</div>
     <div class="rootMap" style="--rc:${r.c}">
       <svg class="rmLines" aria-hidden="true"></svg>
-      <div class="rmSide left">${left.map(nodeHTML).join("")}</div>
       <div class="rmCenter">
         <div class="rmConcept">${r.jp}</div>
         <div class="rmCharWrap"><img class="rmChar" src="${imgURL(r.art)}" alt=""></div>
       </div>
-      <div class="rmSide right">${right.map(nodeHTML).join("")}</div>
+      ${list.map(nodeHTML).join("")}
     </div>
     <div class="rmMemo${r.concept?" hasSeal":""}"><span class="mt">語源メモ</span>${r.concept?`<span class="sealWrap"><img class="seal" src="${imgURL(r.concept)}" alt="" title="六千年前の「${r.jp}」のイメージ(古代概念)" onerror="this.closest('.sealWrap').remove()"><span class="sealRoot"><i>${r.r}</i></span></span>`:`<span class="rmRootNote"><i>${r.r}</i></span>`}<br>${r.note}</div>
     <div class="dictSec"><h3>派生語辞典(${lex.length}語)</h3>
@@ -931,7 +932,6 @@ function renderRoot(id){
 function drawRootLines(){
   const map=$(".rootMap");if(!map)return;
   const svg=map.querySelector(".rmLines");if(!svg)return;
-  if(!window.matchMedia("(min-width:821px)").matches){svg.innerHTML="";return;}
   const mr=map.getBoundingClientRect();
   const cw=map.querySelector(".rmCharWrap");if(!cw)return;
   const cb=cw.getBoundingClientRect();
@@ -942,12 +942,13 @@ function drawRootLines(){
   let p="";
   map.querySelectorAll(".wnode").forEach(node=>{
     const b=(node.querySelector('.wnImg')||node).getBoundingClientRect();
-    const onLeft=node.closest(".rmSide").classList.contains("left");
+    const onLeft=node.dataset.side==="left",horizontal=node.dataset.slot.startsWith("middle-");
     const ex=(onLeft?b.right:b.left)-mr.left, ey=b.top+b.height/2-mr.top;
     const dx=ex-cx, dy=ey-cy, len=Math.hypot(dx,dy)||1;
     const sx=cx+dx/len*cr, sy=cy+dy/len*cr;   // 円周上の起点
     const mx=(sx+ex)/2;
-    p+=`<path d="M ${sx} ${sy} C ${mx} ${sy}, ${mx} ${ey}, ${ex} ${ey}" fill="none" stroke="#241f26" stroke-width="2.5" stroke-linecap="round"/>`;
+    const line=horizontal?`M ${sx} ${cy} L ${ex} ${cy}`:`M ${sx} ${sy} C ${mx} ${sy}, ${mx} ${ey}, ${ex} ${ey}`;
+    p+=`<path data-slot="${node.dataset.slot}" d="${line}" fill="none" stroke="#241f26" stroke-width="2.5" stroke-linecap="round"/>`;
     p+=`<circle cx="${ex}" cy="${ey}" r="4" fill="#241f26"/>`;
   });
   svg.innerHTML=p;
