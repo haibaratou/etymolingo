@@ -181,7 +181,7 @@ section{padding:66px 0}
 .backLink{display:inline-block;margin-bottom:14px;font-weight:900;color:var(--ink2);cursor:pointer}
 .backLink:hover{color:var(--coral)}
 
-/* 語根ページ:キャラ中心の放射状マップ(左右バランス配置・4個以内) */
+/* 語根ページ:キャラ中心の放射状マップ(左右バランス配置・最大6個) */
 .rmLead{font-size:22px;font-weight:900;margin:4px 0 2px}
 .rootMap{position:relative;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:26px;margin:20px 0}
 .rmLines{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:visible}
@@ -196,12 +196,16 @@ section{padding:66px 0}
   box-shadow:0 14px 30px rgba(36,31,38,.12)}
 .rmChar{width:112%;height:112%;object-fit:contain;filter:drop-shadow(0 6px 8px rgba(36,31,38,.16))}
 .rmRoot{font-family:"Shippori Mincho",serif;font-style:italic;font-weight:800;font-size:18px;color:var(--ink2)}
-/* 見出し4語は「絵+英語+リンク」だけのシンプル表示(枠・和訳・語派バッジなし。
+/* 代表語は「絵+英語+リンク」だけのシンプル表示(枠・和訳・語派バッジなし。
    詳細は下の辞典リストにあるので重複させない) */
 .wnode{font-family:inherit;display:flex;flex-direction:column;align-items:center;gap:7px;background:transparent;border:none;padding:6px;cursor:pointer;transition:transform .12s;width:172px;max-width:100%}
 .wnode:hover{transform:translateY(-4px) rotate(-.5deg)}
 .wnImg{width:96px;height:96px;flex:0 0 auto;display:flex;align-items:center;justify-content:center;overflow:hidden}
 .wnImg img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(2.5px 3px 0 #00000022)}
+.rootMap .rmSide{min-height:410px;justify-content:space-between}
+.rootMap .rmSide:has(> .wnode:only-child){justify-content:center}
+.rootMap .wnImg{position:relative;overflow:visible}
+.originSeal{position:absolute;right:-22px;bottom:1px;transform:rotate(-12deg);max-width:132px;padding:3px 8px;background:#fff0bc;color:var(--ink);border:1.5px solid var(--ink);border-radius:3px;box-shadow:2px 2px 0 #241f2620;font-size:10px;font-weight:900;line-height:1.35;pointer-events:none}
 .wnW{font-size:22px;font-weight:900;line-height:1.1;display:block;color:var(--ink)}
 .reg-G{background:#7a8b99}.reg-L{background:#c0693c}.reg-Gr{background:#3f7fae}
 /* 古代概念チップ(語根構成)。個別ページ=大 / 辞典の行=小。
@@ -272,7 +276,10 @@ section{padding:66px 0}
 .rmMemo .mt{display:inline-block;background:var(--coral);color:#fff;font-size:13px;font-weight:900;border-radius:8px;padding:2px 12px;margin-bottom:6px;transform:rotate(-2deg)}
 @media (max-width:820px){
   .rootMap{grid-template-columns:1fr;min-height:0;gap:16px}
-  .rmSide{align-items:stretch}
+  .rootMap .rmSide{align-items:stretch;min-height:0;gap:18px}
+  .rootMap .wnImg{width:104px;flex-basis:104px;height:88px;align-items:flex-start;justify-content:flex-start}
+  .rootMap .wnImg img{width:64px;height:64px}
+  .rootMap .originSeal{left:8px;right:auto;bottom:2px;max-width:96px;font-size:9px;transform:rotate(-8deg);transform-origin:left bottom}
   .wnode,.rmSide.left .wnode,.rmSide.right .wnode{flex-direction:row;gap:14px;width:100%;justify-content:flex-start}
   .wnImg{width:64px;height:64px}
   .rmCenter{order:-1;margin-bottom:4px}
@@ -308,6 +315,8 @@ section{padding:66px 0}
 .dictList{background:#fff;border:3px solid var(--ink);border-radius:20px;overflow:hidden}
 .drow{display:flex;align-items:center;gap:14px;padding:13px 22px;border-bottom:2px dashed #e5dccb;cursor:pointer}
 .drow:last-child{border-bottom:none}
+.drow .cchips.sm{flex-wrap:wrap;max-width:210px;gap:6px}
+.drow .cchip.sm small{display:block;font-size:10px;max-width:68px;overflow-wrap:anywhere}
 .drow:hover{background:var(--paper2)}
 .drow .dthumb{width:46px;height:46px;flex:0 0 auto}
 .drow .dthumb img{width:100%;height:100%;object-fit:contain}
@@ -412,8 +421,8 @@ footer b{color:var(--ink)}
 <script src="data/generated-etymon/weblio-learning-levels.js?v=e6a41b9d8680"></script>
 <script src="data/generated-etymon/learning-levels.js?v=48bcf2f15474"></script>
 <script src="shared/explorer-difficulty-v2.js?v=9dc8fbefa448" data-api-only="true"></script>
-<script src="support/etymopedia/current-data.js?v=32f1f0accb5d"></script>
-<script src="support/etymopedia/learning-levels.js?v=f6f925982677"></script>
+<script src="support/etymopedia/current-data.js?v=4d12a321f43c"></script>
+<script src="support/etymopedia/learning-levels.js?v=a0ba388c2cb3"></script>
 <link rel="stylesheet" href="support/etymopedia/learning-levels.css?v=e43369502e71">
 <script>
 "use strict";
@@ -698,9 +707,7 @@ function conceptRowHTML(keys,small){
   return `<div class="cchips${small?" sm":""}">${keys.map(k=>conceptChipHTML(k,small)).join(`<span class="cplus">＋</span>`)}</div>`;
 }
 function wordConceptKeys(w){
-  if(w.p&&w.p.length) return w.p;
-  const pk=ROOTS[w.root]&&ROOTS[w.root].pie;   // 独自エントリはせめて語根の概念を出す
-  return pk?[pk]:[];
+  return LEVELS?LEVELS.pieRoots(w)||[]:[];
 }
 
 /* ---- 応募 ---- */
@@ -866,28 +873,31 @@ function renderRoot(id){
     seen.add(w.w);
     return true;
   });
-  // 代表4語は words.csv の先頭4語(= data/featured.csv。差し替えは featured.csv を
-  // 編集して python3 app/build_etymopedia_from_pie.py を再実行)
-  const mainWords=candidates;
-  const list=mainWords.slice(0,4);   // キャラ周りは4語以内
+  // Select only exact canonical identities named in the current PIE explanation.
+  // Missing level, unresolved sense, or missing approved image means no filler.
+  const list=LEVELS?LEVELS.rootExamples(r.pie,r.note,candidates,source=>approvedWordArt.has(wordArtSenseKey(source.w,source.p))):[];
   // 左右へ交互に振り分けてバランスよく配置
   const left=[],right=[];
   list.forEach((w,i)=>(i%2===0?right:left).push(w));
   const nodeHTML=w=>{
-    const top=topArt(w.w);
-    const img=top?top.img:imgURL(PLACEHOLDER_ART);   // 図版が無い単語の仮画像は PLACEHOLDER_ART(語根キャラは紛らわしいので使わない)
-    // 見出しは絵+英語のみ(和訳・語派は下の辞典リストにあるので重ねない)
+    const source=LEVELS.source(w);
+    const stem=source&&approvedWordArt.get(wordArtSenseKey(source.w,source.p));
+    if(!stem)return "";
+    const img=imgURL("word/"+stem+".png");
+    const escapeLabel=value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    const labels=(source.origin_languages||[]).map(escapeLabel);
+    const seal=labels.length?`<span class="originSeal" title="起源言語">${labels.join('・')}</span>`:"";
     return `<button class="wnode" style="--rc:${r.c}" onclick="location.hash='#/word/${w.w}'">
-      <span class="wnImg"><img src="${img}" alt=""></span>
+      <span class="wnImg"><img src="${img}" alt="" onerror="this.closest('.wnode').remove();drawRootLines()">${seal}</span>
       <span class="wnW">${w.w}</span></button>`;
   };
   const drowHTML=([w,via,jp,note,pl])=>{
+    const canonicalRoots=LEVELS&&LEVELS.pieRoots({w,jp,p:pl});
     const art=topArt(w,pl);
     const img=art?art.img:imgURL(`word/${w}.png`);
-    const vc=viaCls(via);
     return `<div class="drow" onclick="location.hash='#/word/${w}'">
       <span class="dthumb"><img src="${img}" alt="" loading="lazy" onerror="this.src='${imgURL(PLACEHOLDER_ART)}'"></span>
-      <span class="dw">${w}<button class="spk sm" data-say="${w}" title="発音を再生" onclick="event.stopPropagation();say(this.dataset.say)">🔊</button></span>${vc?`<span class="via ${vc}" title="語派のはなしへ" onclick="event.stopPropagation();location.hash='#/branches'">${regionLabel(via)}</span>`:`<span class="via none"></span>`}
+      <span class="dw">${w}</span>${canonicalRoots?conceptRowHTML(canonicalRoots,true):'<span class="canonical-hold">組立照合待ち</span>'}
       <span class="dj">${jp}</span><span class="dl">${note}${LEVELS&&LEVELS.status({w,jp,p:pl}).status!=="matched"?`<small class="canonical-hold">正本との照合待ち・更新保留</small>`:""}</span></div>`;
   };
   // 独自レベルの値ごとにまとめる。照合できない語は推測せず別枠に置く。
@@ -911,7 +921,7 @@ function renderRoot(id){
     </div>
     <div class="rmMemo${r.concept?" hasSeal":""}"><span class="mt">語源メモ</span>${r.concept?`<span class="sealWrap"><img class="seal" src="${imgURL(r.concept)}" alt="" title="六千年前の「${r.jp}」のイメージ(古代概念)" onerror="this.closest('.sealWrap').remove()"><span class="sealRoot"><i>${r.r}</i></span></span>`:`<span class="rmRootNote"><i>${r.r}</i></span>`}<br>${r.note}</div>
     <div class="dictSec"><h3>派生語辞典(${lex.length}語)</h3>
-      <div class="dictLegend"><span class="brLink" onclick="location.hash='#/branches'">${UI.br_legend_link||"語派バッジのひみつ →"}</span></div>
+      <div class="dictLegend">語源の組み立て</div>
       <div class="dictList">${dict||'<div class="drow"><span class="dl">(準備中)</span></div>'}</div></div>`;
   requestAnimationFrame(drawRootLines);
   setTimeout(drawRootLines,320);   // フォント確定後に引き直し

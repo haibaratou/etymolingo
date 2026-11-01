@@ -16,14 +16,14 @@ test('levels 1–10 display exactly half as many stars, retaining all ten levels
  for(const n of [null,undefined,0,-1,11,1.5,NaN,'1']){assert.equal(api.stars(n),'');assert.ok(api.pill(n).includes('未分類'));}
  assert.equal((api.stars(10).match(/★/g)||[]).length,5);
 });
-test('file projection matches the current public inputs, with no artwork or selection fields',async()=>{
- assert.equal(projection.wordsSha256,hash(read('app/data/generated-etymon/words.json')));
- assert.equal(projection.rootsSha256,hash(read('app/data/generated-etymon/roots.json')));
+test('public projection has strict safe fields and integrity independent of shared DB',async()=>{
+ const {validate}=require('./build-data.cjs');validate(projection);
+ assert.match(projection.wordsSha256,/^[a-f0-9]{64}$/);assert.match(projection.rootsSha256,/^[a-f0-9]{64}$/);
  assert.equal(projection.canonicalWordCount,words.length);assert.equal(projection.roots.length,12);
- const current=new Map(words.map(w=>[api.key(w),w]));
- for(const row of projection.words){const source=current.get(api.key(row));assert.ok(source);for(const k of ['ja','en','pos','g','r','b'])assert.equal(row[k],source[k]??'');for(const k of ['art','concept','pic','pica','selection'])assert.ok(!(k in row));}
+ const current=new Set(words.map(api.key));for(const row of projection.words)assert.ok(current.has(api.key(row)));
  assert.deepEqual(await api.decodeSnapshot(envelope),projection);
  await assert.rejects(api.decodeSnapshot({...envelope,sha256:'bad'}),/checksum/);
+ const bad=JSON.parse(JSON.stringify(projection));bad.words[0].b={source_original:'PRIVATE'};assert.throws(()=>validate(bad),/Invalid public text/);
 });
 test('all projected levels use the existing Weblio-first API without changing DB values',()=>{
  const before=JSON.stringify(projection.words);
@@ -46,7 +46,7 @@ test('data update uses authoritative text and corrected POS while keeping art, k
  assert.equal(JSON.stringify({w:row.w,p:row.p,morphs:row.morphs,split:row.split,art:row.art}),imageFields);
  const blank={...source,b:''};const empty=api.create(engine,index,[blank]);const target={w:source.w,p:source.p,jp:source.ja,memo:'old'};empty.update(target);assert.equal(target.memo,'');
  const viewRoot={pie:'kaput-',art:'same.png',concept:'same-seal.png',note:'old'};service.apply([],{}, {kaput:viewRoot},{});
- assert.equal(viewRoot.note,roots.find(r=>r.key==='kaput-').d);assert.equal(viewRoot.art,'same.png');assert.equal(viewRoot.concept,'same-seal.png');
+ assert.equal(viewRoot.note,projection.roots.find(r=>r.key==='kaput-').d);assert.equal(viewRoot.art,'same.png');assert.equal(viewRoot.concept,'same-seal.png');
 });
 test('featured and family entries reconcile only through separately confirmed exact identity and sense',()=>{
  const current={w:'test',p:['root'],ja:'現在の語義',pos:'名',b:'現在のメモ',r:400};
@@ -56,11 +56,11 @@ test('featured and family entries reconcile only through separately confirmed ex
  const hold=api.create(engine,index,[current]),other={w:'test',p:['root'],jp:'別の意味'};
  hold.apply([other],{root:[['test','G','現在の語義','old',['wrong-root']]]},{},{test:other});assert.equal(hold.lookup(other),null);assert.equal(other.jp,'別の意味');
 });
-test('HTTP loads current canonical JSON and fails closed rather than using old file data',async()=>{
- const requested=[];const scope={EtymonDifficultyV2:engine,ETYMON_WEBLIO_LEVELS:context.ETYMON_WEBLIO_LEVELS,ETYMON_LEARNING_LEVELS:context.ETYMON_LEARNING_LEVELS,fetch:async p=>{requested.push(p);return {ok:true,json:async()=>p.endsWith('/words.json')?words:roots};}};
+test('HTTP uses the safe snapshot and fails closed when it is missing',async()=>{
+ const requested=[];const scope={ETYMOPEDIA_CURRENT_DATA:envelope,EtymonDifficultyV2:engine,ETYMON_WEBLIO_LEVELS:context.ETYMON_WEBLIO_LEVELS,ETYMON_LEARNING_LEVELS:context.ETYMON_LEARNING_LEVELS,fetch:async p=>{requested.push(p);return {ok:true,json:async()=>p.endsWith('/words.json')?words:roots};}};
  const http=await api.load({protocol:'https:',scope});const head=words.find(w=>w.w==='head');assert.deepEqual(http.lookup({w:head.w,p:head.p,jp:head.ja}),engine.evaluate(head,index));
- assert.deepEqual(requested.sort(),['data/generated-etymon/roots.json','data/generated-etymon/words.json']);
- await assert.rejects(api.load({protocol:'https:',scope:{...scope,fetch:async()=>({ok:false})}}),/unavailable/);
+ assert.deepEqual(requested,[]);
+ await assert.rejects(api.load({protocol:'https:',scope:{...scope,ETYMOPEDIA_CURRENT_DATA:null}}),/unavailable/);
  const file=await api.load({protocol:'file:',scope:{...scope,ETYMOPEDIA_CURRENT_DATA:envelope,fetch:async()=>{throw Error('file mode must not fetch');}}});assert.deepEqual(file.lookup({w:head.w,p:head.p,jp:head.ja}),engine.evaluate(head,index));
 });
 test('shared difficulty script exposes the same API without mounting when requested',()=>{
@@ -82,4 +82,34 @@ test('entry keeps ten ordered level groups plus unclassified, and uses the curre
  assert.match(runtime,/Array\.from\(\{length:10\}/);assert.match(runtime,/\),null\]\.map/);assert.match(runtime,/EtymopediaLearning\.pill\(level,big,word\)/);
  assert.ok(!runtime.includes('custom-learning-levels.js'));assert.ok(!runtime.includes('EtymonRarity.learning('));
  new vm.Script([...html.matchAll(/<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/g)].at(-1)[1]);
+});
+test('derived dictionary uses existing PIE icons rather than language-family pills',()=>{
+ const html=read('app/etymopedia.html');const row=html.slice(html.indexOf('const drowHTML='),html.indexOf('// 独自レベル',html.indexOf('const drowHTML=')));
+ assert.match(row,/conceptRowHTML\(canonicalRoots,true\)/);assert.match(row,/LEVELS.pieRoots\(\{w,jp,p:pl\}\)/);assert.ok(!row.includes('regionLabel(via)'));assert.ok(!row.includes('viaCls(via)'));
+ assert.ok(!html.includes('${w.parts?'));assert.match(html,/entryMorphRow.*conceptRowHTML\(wordConceptKeys\(w\)\)/);
+});
+
+test('reviewed adjacent exception retains word data but does not assert legacy PIE assembly',()=>{
+ const w=projection.words.find(w=>w.w==='adjacent');assert.ok(w);const row={w:w.w,p:w.p,jp:w.ja};assert.ok(service.source(row));assert.equal(service.pieRoots(row),null);
+});
+test('root examples require whole tokens, exact sense, image, valid level and at most six',()=>{
+ const names=['head','animal','phone','fate','ban','infant','chief','capital','captain','orphan','advanced'];
+ const rows=names.map((w,i)=>({w,p:['test-root'],ja:w,r:i,level:w==='advanced'?10:3}));
+ const testEngine={evaluate:w=>({level:w.level})};const select=api.create(testEngine,{},rows,[{key:'test-root',d:names.join(' '),definition_reviewed:true}]);
+ const views=rows.map(w=>({w:w.w,p:w.p,jp:w.ja}));
+ const chosen=select.rootExamples('test-root',names.join(' '),views,w=>w.w!=='orphan');
+ assert.equal(chosen.length,6);assert.ok(!chosen.some(w=>['orphan','advanced'].includes(w.w)));
+ const boundary=api.create(testEngine,{},rows,[{key:'test-root',d:'headache',definition_reviewed:true}]);
+ assert.deepEqual(boundary.rootExamples('test-root','headache',views,()=>true),[]);
+ assert.deepEqual(select.rootExamples('test-root',names.join(' '),[{w:'head',p:['wrong-root'],jp:'head'}],()=>true),[]);
+ assert.deepEqual(select.rootExamples('test-root',names.join(' '),[{w:'head',p:['test-root'],jp:'different sense'}],()=>true),[]);
+});
+test('basic displayed sense priority does not confuse familiar spelling with specialized homographs',()=>{
+ const rows=[{w:'anime',p:['anə-'],ja:'アニメ',level:8},{w:'anima',p:['anə-'],ja:'魂',level:2},{w:'animus',p:['anə-'],ja:'敵意',level:2}];
+ const select=api.create({evaluate:w=>({level:w.level})},{},rows,[{key:'anə-',d:'anime anima animus',definition_reviewed:true}]);
+ assert.deepEqual(select.rootExamples('anə-','anime anima animus',rows.map(w=>({...w,jp:w.ja})),()=>true).map(w=>w.w),['anime']);
+});
+test('root display has origin seals and six selection; dictionary speakers alone are removed',()=>{
+ const html=read('app/etymopedia.html'),start=html.indexOf('const drowHTML='),row=html.slice(start,html.indexOf('// 独自レベル',start));
+ assert.ok(!row.includes('data-say'));assert.match(html,/entryHW.*data-say/);assert.match(html,/LEVELS.rootExamples\(r.pie,r.note/);assert.match(html,/source.origin_languages/);assert.match(html,/class="originSeal"/);assert.ok(!html.includes('mainWords.slice(0,4)'));
 });
