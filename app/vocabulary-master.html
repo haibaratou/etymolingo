@@ -100,6 +100,14 @@ aside{flex:0 0 236px;width:236px;min-width:0;overflow:hidden;display:flex;flex-d
 .mixBtn:hover{border-color:var(--accent);color:var(--accent)}
 .rootSrc summary{font-size:11px;color:var(--ink-soft);cursor:pointer;user-select:none}
 .rootSrc .rootDef{margin-top:4px}
+/* 解説は別表示で全文を読む。一覧の固定ヘッダーには長文を積まない。 */
+#rootExplanation{position:fixed;inset:0;margin:auto;width:min(960px,calc(100% - 24px));max-height:calc(100dvh - 24px);padding:0;border:2px solid var(--line);border-radius:12px;background:var(--bg);color:var(--ink);overflow:auto;overscroll-behavior:contain}
+#rootExplanation::backdrop{background:#33302b70}
+.rootReaderBar{position:sticky;top:0;z-index:3;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 14px;border-bottom:1px solid var(--line);background:var(--bg)}
+.rootReaderBar h2{font-size:16px;overflow-wrap:anywhere}
+.rootReaderBar button{flex-shrink:0}
+.rootReaderBody{padding:12px 18px 18px}
+.rootReaderBody .rootTalk{max-width:none}
 /* ツールバー */
 #toolbar{display:flex;align-items:center;gap:6px;padding:6px 14px;border-bottom:2px solid var(--line);background:#faf7f0;flex-wrap:wrap}
 #toolbar .tLabel{font-size:11px;color:var(--ink-soft);margin-left:8px}
@@ -247,17 +255,35 @@ td.cMemo input.filled{border-color:var(--accent2);background:#f2fbf8}
 @media(max-width:620px){
   /* 横に並べる幅が無いので、語根の一覧を上に畳む */
   #layout{flex-direction:column}
-  aside{flex:0 0 auto;width:100%;max-height:25vh;border-right:none;border-bottom:2px solid var(--line)}
+  aside{flex:0 0 min(12vh,84px);width:100%;max-height:84px;border-right:none;border-bottom:2px solid var(--line)}
+  .sideCtl{flex:0 0 auto;flex-wrap:nowrap;padding:5px 8px}
+  .sideCtl input{flex:1 1 0}
+  .sideCtl select{width:auto;flex:0 1 110px}
+  .rootHead{flex-wrap:nowrap;gap:8px}
+  .rootMeta{flex:1 1 0}
+  .rootVisual.concept{width:48px;height:60px;padding:2px;border-radius:12px}
+  .rootVisual.concept img{width:40px;height:40px}
+  .rootVisual figcaption{font-size:8px}
   .cPic,.cR{display:none}
   .detLayout{flex-direction:column}
   .detWordArt{flex:0 0 auto;width:96px;height:96px}
-  header{flex-wrap:wrap;gap:8px}
-  nav{margin-left:0}
+  header{flex-wrap:wrap;gap:5px;padding:5px 10px}
+  nav{margin-left:0;flex-wrap:nowrap;gap:3px}
+  nav button{padding:5px 4px;font-size:11px}
+  #toolbar{gap:4px;padding:5px 8px}
+  #toolbar .tBtn{padding:2px 5px;font-size:11px}
+  #toolbar .tLabel{font-size:10px;margin-left:4px}
+  #toolbar #fRootType{padding:3px;font-size:11px}
   /* 検索は主役なので、タイトルの下に全幅で置く */
   #gsWrap{flex-basis:100%;max-width:none}
   /* 件数は折り返させ、開発用の版番号は隠す(タイトル行が2段になるのを防ぐ) */
   #stats{white-space:normal}
   .statVer{display:none}
+}
+/* 小さい画面ではフィルタを横に送る。一覧を潰す縦の固定段を増やさない。 */
+@media(max-width:360px),(max-width:620px) and (max-height:700px){
+  #toolbar:not(:has(#originFilterPanel,#tagPanel)){flex-wrap:nowrap;overflow-x:auto}
+  #toolbar:not(:has(#originFilterPanel,#tagPanel))>*{flex-shrink:0}
 }
 /* 「タイピングゲームには出さない」という印だけ。for / from / and のような
    語源として重要な機能語が「消された語」に見えてはいけないので、
@@ -975,12 +1001,18 @@ function renderHead(){
           <span class="cCnt" title="${r.uncertain?'登録語数。関連未確定の参考語を含みます':'この項目に登録された関連語数。語別の由来確認状態は表を参照'}">${rootNavigationCount(r)}語${r.uncertain?`（関連未確定${r.uncertain}語を含む）`:''}</span>
           ${eoTag(r)}
         </div>
-        ${window.VocabularyComponentsUI.info(COMPONENTS,r)}
         ${rootLangMix(r.key)}
         ${r.aff&&r.aff.length?`<span class="cAff">⇄ ${r.aff.map(n=>`<span class="chip" data-a="${esc(n)}">${esc(n)}</span>`).join('')}</span>`:''}
-        ${rootSourceSectionsHTML(r)}
+        <div><button type="button" class="tBtn" id="rootExplanationOpen" aria-haspopup="dialog" aria-controls="rootExplanation">語根の解説を読む</button></div>
       </div>
-    </div>`;
+    </div>
+    <dialog id="rootExplanation" aria-labelledby="rootExplanationTitle">
+      <div class="rootReaderBar"><h2 id="rootExplanationTitle">${esc(rootLabel(r))} の解説</h2><button type="button" class="tBtn" id="rootExplanationClose" autofocus>閉じる</button></div>
+      <div class="rootReaderBody">${window.VocabularyComponentsUI.info(COMPONENTS,r)}${rootSourceSectionsHTML(r)}</div>
+    </dialog>`;
+    const explanation=h.querySelector('#rootExplanation');
+    h.querySelector('#rootExplanationOpen').onclick=()=>explanation.showModal();
+    h.querySelector('#rootExplanationClose').onclick=()=>explanation.close();
     h.querySelectorAll('.chip').forEach(el=>el.onclick=()=>{
       const a=AFFIXES.find(x=>x.name===el.dataset.a);
       mode=a?a.t:'pre';cur=el.dataset.a;setNav();renderAll();pushState();

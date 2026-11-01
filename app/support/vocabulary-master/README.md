@@ -1,5 +1,32 @@
 # Vocabulary master origin columns
 
+## Root explanation and list viewport
+
+The root header keeps its title, language and affix controls. The read button
+opens the full existing commentary, source disclosure and confirmed source link
+in a native dialog. Its single scroll surface and sticky close button keep long
+explanations readable without taking height from the dictionary list. Closing it
+or pressing Escape returns to the read button. Narrow screens also use a compact
+root sidebar and concept thumbnail. Very narrow or short screens show the fixed
+filters in a horizontal strip, without adding a vertical scroll pane. The list's existing scroll surface, sticky
+column headers and incremental row loading are unchanged.
+
+Run the real-browser layout regression with an installed Playwright and browser
+(it does not download either). For example, with Chrome:
+
+```powershell
+$env:PLAYWRIGHT_CHANNEL='chrome'
+node app/support/vocabulary-master/test-root-layout.cjs
+```
+
+`PLAYWRIGHT_MODULE` can point to an installed Playwright package. Optional
+`VOCABULARY_LAYOUT_REPORT` selects a directory for screenshots and JSON dimensions.
+The test opens the actual local entrance and checks *weid-* at eight desktop and
+narrow sizes, including 320px and 360px widths. It verifies minimum visible list
+height, full commentary and source text, reader close/focus/scroll, fixed filters
+and column headers, and row loading during real list scrolling. Expanded filter
+panels are outside this explanation-layout regression.
+
 ## Search input and image-reference lookup
 
 `app/shared/vocabulary-search.js` builds a read-only index after artwork overrides,
