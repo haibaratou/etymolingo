@@ -180,3 +180,9 @@ test('en explanation gives concrete negative-prefix examples and separates ne an
  assert.match(text,/impossible（不可能な）の im-/);
  assert.match(text,/こちらは \*ne に由来し、「中に」を表す \*en とは別系統/);
 });
+
+test('reviewed compound batch preserves exact spelling, genitive and plural distinctions',()=>{
+ const parts=JSON.parse(fs.readFileSync(path.join(__dirname,'../app/data/generated-etymon/word-parts.json'),'utf8'));
+ const expected={"[\"policeman\",\"\"]": "police（警察）＋man（人）", "[\"businessman\",\"\"]": "busi（忙しい）＋ness（状態）＋man（人）", "[\"salesman\",\"\"]": "sale（販売）＋s（属格の語尾）＋man（人）", "[\"saleswoman\",\"\"]": "sale（販売）＋s（属格の語尾）＋woman（女性）", "[\"snowball\",\"\"]": "snow（雪）＋ball（球）", "[\"snowflake\",\"\"]": "snow（雪）＋flake（薄い小片）", "[\"windshield\",\"\"]": "wind（風）＋shield（盾）", "[\"skateboard\",\"\"]": "skate（滑る）＋board（板）", "[\"surfboard\",\"\"]": "surf（砕ける波）＋board（板）", "[\"housekeeper\",\"\"]": "house（家）＋keep（保つ）＋er（人・もの）", "[\"haircut\",\"\"]": "hair（髪）＋cut（切ること）", "[\"footprint\",\"\"]": "foot（足）＋print（押した跡）", "[\"playmate\",\"\"]": "play（遊ぶ）＋mate（仲間）", "[\"teamwork\",\"\"]": "team（組）＋work（仕事）", "[\"countryside\",\"\"]": "country（土地）＋side（地域）", "[\"seagull\",\"\"]": "sea（海）＋gull（カモメ）", "[\"seafood\",\"pā-\"]": "sea（海）＋food（食べ物）", "[\"waterfront\",\"\"]": "water（水）＋front（前面）", "[\"waterway\",\"\"]": "water（水）＋way（道）", "[\"underwater\",\"\"]": "under（〜の下に）＋water（水）", "[\"underground\",\"\"]": "under（〜の下に）＋ground（地面）", "[\"overhead\",\"\"]": "over（〜の上に）＋head（頭）", "[\"downstairs\",\"\"]": "down（下へ）＋stair（階段）＋s（複数）", "[\"upstairs\",\"\"]": "up（上へ）＋stair（階段）＋s（複数）", "[\"downtown\",\"dheuə-\"]": "down（下へ）＋town（町）", "[\"laptop\",\"\"]": "lap（座った人の膝）＋top（上面）", "[\"password\",\"\"]": "pass（通る）＋word（言葉）"};
+ for(const [key,caption]of Object.entries(expected))assert.equal(parts[key],caption,key);
+});
