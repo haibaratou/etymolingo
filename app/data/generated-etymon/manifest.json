@@ -4,9 +4,9 @@
   "files": {
     "roots": {
       "file": "roots.json",
-      "bytes": 1956848,
+      "bytes": 2556860,
       "count": 1436,
-      "sha256": "425fc3b934ebb68771e49e32d9212020b75dc83d24e1ec5f24e1d36355696608"
+      "sha256": "1c40a4ff25b9fe2e679a6d84afed3f5befdd6e0f6beb777f3063703e5cea6c34"
     },
     "words": {
       "file": "words.json",
@@ -52,9 +52,9 @@
     },
     "word_parts": {
       "file": "word-parts.json",
-      "bytes": 317807,
-      "count": 3379,
-      "sha256": "7772ee4281b01a44da6615a749bae5a631a004a8350942f64ab338fa6a7b0255",
+      "bytes": 318122,
+      "count": 3384,
+      "sha256": "e24b66428ce6c0d9b55e616436b7c33eac411b91ba62282a07d94132a5533481",
       "meaning_basis": "component-core-v2"
     },
     "word_parts_supplement": {

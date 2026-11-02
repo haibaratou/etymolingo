@@ -51,7 +51,9 @@ test('shared root explanation connects the registered semantic branches',()=>{
  const spek=roots.find(r=>r.key==='spek-');
  const dis=roots.find(r=>r.key==='dwis-');
  assert.match(spek.d,/観察する/);
- assert.match(spek.d,/pect だけに「待つ」(?:という意味があるわけではない|を割り当てない)/);
+ assert.match(spek.d,/「見る・観察する」が基本/);
+ assert.match(spek.d,/expect は「よく見る」から待ち望む意味/);
+ assert.doesNotMatch(spek.d,/pect(?:自体|単独|だけ)の意味は「待つ」/);
  assert.match(dis.d,/離れて/);
  assert.match(dis.d,/否定/);
 });
@@ -169,4 +171,12 @@ test('wordParts uses the authoritative spelling caption and never falls back to 
  assert.doesNotMatch(context.wordParts(word),/reviewed ancestry|direct material/);
  context.COMPONENTS=null;
  assert.match(context.wordParts(word),/fix（固定する）＋ture（こと）/);
+});
+
+test('en explanation gives concrete negative-prefix examples and separates ne ancestry',()=>{
+ const roots=JSON.parse(fs.readFileSync(path.join(__dirname,'../app/data/generated-etymon/roots.json'),'utf8'));
+ const text=roots.find(r=>r.key==='en').d;
+ assert.match(text,/incorrect（正しくない）の in-/);
+ assert.match(text,/impossible（不可能な）の im-/);
+ assert.match(text,/こちらは \*ne に由来し、「中に」を表す \*en とは別系統/);
 });
