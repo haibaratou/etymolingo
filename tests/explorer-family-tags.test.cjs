@@ -23,8 +23,8 @@ test('family whitelist handles source language codes beyond the three main famil
 test('exported composition uses component meanings rather than the complete word story',()=>{
  const parts=JSON.parse(fs.readFileSync(path.join(__dirname,'../app/data/generated-etymon/word-parts.json'),'utf8'));
  const entry=(w,p)=>parts[JSON.stringify([w,p])];
- assert.equal(entry('disorder','dwis-+ar-'),'英語での名詞形成：dis-（否定・逆転・分離）＋order（秩序・順序）');
- assert.equal(entry('discourse','dwis-+kers-2'),'ラテン語段階の材料：dis-（離れて・否定（接頭辞））＋currere（走る）');
+ assert.equal(entry('disorder','dwis-+ar-'),'dis（否定）＋order（秩序）');
+ assert.equal(entry('discourse','dwis-+kers-2'),'dis（離れて）＋course（走る）');
  assert.equal(entry('unexpected','ne+eghs+spek-'),'un（否定）＋ex（十分に）＋pect（観察する）＋ed（〜した）');
 });
 
@@ -62,8 +62,8 @@ test('a known direct-language decomposition remains visible with zero or one PIE
  const vm=require('node:vm');
  const code=html.match(/^function wordParts\([^]*?^}/m)[0];
  const context={WORD_PARTS:parts,COMPONENTS:null,esc:s=>String(s)};vm.createContext(context);vm.runInContext(code,context);
- assert.equal(context.wordParts({w:'normal',p:[]},true),'<div class="wordParts"><b>語源組み立て</b><span>ラテン語の形成材料：norma（基準・規則）＋-ālis（関係する形容詞を作る接尾辞）</span></div>');
- assert.equal(context.wordParts({w:'mission',p:[]}),'<div class="wordParts"><span>ラテン語の名詞祖先：missiō（送ること・派遣）</span></div>');
+ assert.equal(context.wordParts({w:'normal',p:[]},true),'<div class="wordParts"><b>語源組み立て</b><span>norm（基準）＋al（〜に関する）</span></div>');
+ assert.equal(context.wordParts({w:'mission',p:[]}),'<div class="wordParts"><span>miss（送る）＋ion（こと）</span></div>');
  assert.match(context.wordParts({w:'transmit',p:['terə-2']}),/mit（送る）/);
  assert.equal(context.wordParts({w:'unreviewed-word',p:['a','b']}),'');
 });
@@ -89,7 +89,7 @@ test('the signum branch, away and inherited inspectorate roots use the corrected
  assert.deepEqual(word('away').p,['an-','wegh-']);
  assert.deepEqual(word('inspectorate').p,['en','spek-']);
  const parts=JSON.parse(fs.readFileSync(path.join(__dirname,'../app/data/generated-etymon/word-parts.json'),'utf8'));
- assert.equal(parts[JSON.stringify(['important','en+per-2'])],'中世ラテン語の現在分詞：importāre（意味する・重要である）＋-ns（現在分詞を作る語尾（〜している））');
+ assert.equal(parts[JSON.stringify(['important','en+per-2'])],'im（中に）＋port（運ぶ）＋ant（〜している）');
 });
 
 test('contested add ancestry and templum meanings preserve the exact lexical records',()=>{
@@ -104,9 +104,9 @@ test('contested add ancestry and templum meanings preserve the exact lexical rec
  assert.equal(added.length,2);
  assert.ok(added.some(w=>w.p.length===0));
  assert.ok(added.some(w=>JSON.stringify(w.p)===JSON.stringify(['ad-'])));
- assert.equal(parts[JSON.stringify(['add','ad-'])],'ラテン語段階の材料：ad-（〜へ（接頭辞））＋-dere（置く（複合内の結合要素））');
+ assert.equal(parts[JSON.stringify(['add','ad-'])],'ad（〜へ）＋d（置く）');
  assert.equal(parts[JSON.stringify(['add','ad-+dō-'])],undefined);
- assert.equal(parts[JSON.stringify(['contemplate','kom+temə-1'])],'ラテン語段階の材料：com-（共に・一緒に（強意にも用いる接頭辞））＋templum（占兆のために区切った空間・聖域）');
+ assert.equal(parts[JSON.stringify(['contemplate','kom+temə-1'])],'con（十分に）＋templ（占いのための場所）＋ate（〜する・〜にする）');
  assert.doesNotMatch(parts[JSON.stringify(['contemplate','kom+temə-1'])],/場所を見る/);
 });
 
@@ -156,16 +156,17 @@ test('doubtful gno links do not appear in PIE membership or character explanatio
 });
 
 
-test('wordParts selects guarded ancestry and keeps direct caption fallback',()=>{
+test('wordParts uses the authoritative spelling caption and never falls back to ancestry prose',()=>{
  const html=fs.readFileSync(path.join(__dirname,'../app/vocabulary-master.html'),'utf8');
  const code=html.match(/^function wordParts\([^]*?^}/m)[0];
  const vm=require('node:vm');
  const context={WORD_PARTS:{},esc:s=>String(s),COMPONENTS:{hasAssemblyAncestryDisplay:()=>true,boundAssemblyCaption:()=> 'reviewed ancestry',directAssemblyCaption:()=> 'direct material'}};
  vm.createContext(context);vm.runInContext(code,context);
  const word={w:'fixture',p:[]};
- assert.match(context.wordParts(word),/reviewed ancestry/);
- context.COMPONENTS.boundAssemblyCaption=()=>'';
- assert.match(context.wordParts(word),/direct material/);
- context.COMPONENTS.directAssemblyCaption=()=>'';
  assert.equal(context.wordParts(word),'');
+ context.WORD_PARTS[JSON.stringify(['fixture',''])]='fix（固定する）＋ture（こと）';
+ assert.match(context.wordParts(word),/fix（固定する）＋ture（こと）/);
+ assert.doesNotMatch(context.wordParts(word),/reviewed ancestry|direct material/);
+ context.COMPONENTS=null;
+ assert.match(context.wordParts(word),/fix（固定する）＋ture（こと）/);
 });
