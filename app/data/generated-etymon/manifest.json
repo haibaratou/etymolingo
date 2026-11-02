@@ -52,9 +52,9 @@
     },
     "word_parts": {
       "file": "word-parts.json",
-      "bytes": 317487,
-      "count": 3374,
-      "sha256": "dd193b7bf3c451b95270e4ace90cd985547f763f0bcb88c7fb51e31ea7538509",
+      "bytes": 317807,
+      "count": 3379,
+      "sha256": "7772ee4281b01a44da6615a749bae5a631a004a8350942f64ab338fa6a7b0255",
       "meaning_basis": "component-core-v2"
     },
     "word_parts_supplement": {
