@@ -656,7 +656,9 @@
  const deepFreeze=x=>{if(x&&typeof x==='object'&&!Object.isFrozen(x)){for(const v of Object.values(x))deepFreeze(v);Object.freeze(x);}return x;};
  const clone=x=>JSON.parse(JSON.stringify(x));
  const semanticVersion='legacy-root-semantic-v1';
- const semanticFields=['key','pie','display_form','ja','en','kind','origin_language','language','stage','origin_stage','language_stage','def','d','definition_reviewed','definition_source','kind_source','alias_target','eo','eo_en','original_definition','original_definition_source','editorial_summary','editorial_summary_reviewed','editorial_summary_source','etymonline_reference'];
+ // Reader prose d and its derived summary are validated by the editorial loader,
+ // not used as ancestry identity. The hashed snapshot and all core/source fields stay guarded.
+ const semanticFields=['key','pie','display_form','ja','en','kind','origin_language','language','stage','origin_stage','language_stage','def','definition_reviewed','definition_source','kind_source','alias_target','eo','eo_en','original_definition','original_definition_source','editorial_summary_reviewed','editorial_summary_source','etymonline_reference'];
  function semanticProjection(root){
   return Object.fromEntries(semanticFields.map(k=>[k,k==='kind'?(root[k]||'pie_registered'):(Object.hasOwn(root,k)?root[k]:null)]));
  }
