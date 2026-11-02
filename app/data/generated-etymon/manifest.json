@@ -52,17 +52,17 @@
     },
     "word_parts": {
       "file": "word-parts.json",
-      "bytes": 317614,
+      "bytes": 317487,
       "count": 3374,
-      "sha256": "5224ac159fbdcaa19a33e1596aac2e1000a8a7aee99cb5183688a5fe240cc2f3",
+      "sha256": "dd193b7bf3c451b95270e4ace90cd985547f763f0bcb88c7fb51e31ea7538509",
       "meaning_basis": "component-core-v2"
     },
     "word_parts_supplement": {
       "file": "word-parts-supplement.js",
-      "bytes": 112158,
-      "count": 514,
+      "bytes": 111608,
+      "count": 511,
       "correction_count": 3,
-      "sha256": "c7c5a09a9401c86c700827c8a4dcf3f890a1be5b0b7c221c1537e7ea16ad038c"
+      "sha256": "dfcf29f560f8faa70e2936e37f85647942bd1f367a5939aff4cfe2903e09f976"
     },
     "multilingual_answers": {
       "file": "multilingual-answers.json",
