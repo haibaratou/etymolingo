@@ -4,9 +4,9 @@
   "files": {
     "roots": {
       "file": "roots.json",
-      "bytes": 2596245,
+      "bytes": 2595900,
       "count": 1436,
-      "sha256": "867b318ffab5005714fd72b10d471b14e34ea6f928ba6efd5e3598dd96434d70"
+      "sha256": "7f7eb7f81e82f7cb24e0725b2492058bdd4309f59967a904674cd20203b12823"
     },
     "words": {
       "file": "words.json",
