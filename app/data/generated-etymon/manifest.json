@@ -4,9 +4,9 @@
   "files": {
     "roots": {
       "file": "roots.json",
-      "bytes": 1955239,
+      "bytes": 1956848,
       "count": 1436,
-      "sha256": "57c5ca7272e063f82650eb27ace1cb509aeab32ba12f49cf2b241191578d1e48"
+      "sha256": "425fc3b934ebb68771e49e32d9212020b75dc83d24e1ec5f24e1d36355696608"
     },
     "words": {
       "file": "words.json",
@@ -52,17 +52,17 @@
     },
     "word_parts": {
       "file": "word-parts.json",
-      "bytes": 393398,
-      "count": 3348,
-      "sha256": "59c36eea7400969511af3bc51a34bb49496ba3545fc36a63d007b793ea7f65d0",
+      "bytes": 317614,
+      "count": 3374,
+      "sha256": "5224ac159fbdcaa19a33e1596aac2e1000a8a7aee99cb5183688a5fe240cc2f3",
       "meaning_basis": "component-core-v2"
     },
     "word_parts_supplement": {
       "file": "word-parts-supplement.js",
-      "bytes": 2148313,
-      "count": 1160,
-      "correction_count": 2103,
-      "sha256": "78c67605d03efe3633b9b8f85e0af6eedc19eaaa0bd1e0e00b3bd57f00a17d6e"
+      "bytes": 112158,
+      "count": 514,
+      "correction_count": 3,
+      "sha256": "c7c5a09a9401c86c700827c8a4dcf3f890a1be5b0b7c221c1537e7ea16ad038c"
     },
     "multilingual_answers": {
       "file": "multilingual-answers.json",

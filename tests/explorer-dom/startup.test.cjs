@@ -454,3 +454,22 @@ test('root sidebar accepts both reconstruction markers without merging neighbori
  document.getElementById('qSide').value='*missing-';context.renderSide();assert.equal(document.querySelectorAll('[data-k]').length,0);
  document.getElementById('qSide').value='';context.renderSide();assert.equal(document.querySelectorAll('[data-k]').length,3);
 });
+
+
+test('English spelling assembly wins over historical captions for before and evidence',()=>{
+ const code=between(html,'function wordParts(','function rootLabel(');
+ for(const [word,roots,caption] of [['before',['ambhi','per1'],'be（〜の周りに）＋fore（前へ）'],['evidence',['eghs','weid-'],'e（外へ）＋vid（見る）＋ence（こと）']]){
+  const w={w:word,p:roots},key=JSON.stringify([word,roots.join('+')]);
+  const c={w,WORD_PARTS:{[key]:caption},esc:s=>s,COMPONENTS:{hasAssemblyAncestryDisplay:()=>true,boundAssemblyCaption:()=>{throw Error('historical text must not override spelling assembly')}}};
+  vm.runInNewContext(code+';result=wordParts(w)',c);assert(c.result.includes(caption));
+ }
+});
+
+test('network and bundled word-parts are the same digest-bound snapshot',()=>{
+ const crypto=require('node:crypto');
+ const raw=fs.readFileSync(path.join(root,'app/data/generated-etymon/word-parts.json'));
+ const expected=html.match(/const WORD_PARTS_SHA256='([0-9a-f]{64})'/)[1];
+ assert.equal(crypto.createHash('sha256').update(raw).digest('hex'),expected);
+ const bundle=unpack(html.match(/<script id="pieData" type="application\/gzip-base64">([^]*?)<\/script>/)[1]);
+ assert.deepEqual(bundle.word_parts,JSON.parse(raw));
+});
