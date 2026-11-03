@@ -1,0 +1,920 @@
+{
+  "weid-": [
+    {
+      "w": "view",
+      "p": [
+        "weid-"
+      ],
+      "ja": "眺め、見解",
+      "en": "scene / opinion",
+      "pos": "名/動",
+      "languages": [
+        "ラテン語"
+      ]
+    },
+    {
+      "w": "history",
+      "p": [
+        "weid-"
+      ],
+      "ja": "歴史",
+      "en": "chronicles",
+      "pos": "名",
+      "languages": [
+        "古代ギリシャ語"
+      ]
+    },
+    {
+      "w": "story",
+      "p": [
+        "weid-"
+      ],
+      "ja": "物語",
+      "en": "narrative",
+      "pos": "名/動",
+      "languages": [
+        "古代ギリシャ語"
+      ]
+    },
+    {
+      "w": "advice",
+      "p": [
+        "ad-",
+        "weid-"
+      ],
+      "ja": "助言",
+      "en": "guidance",
+      "pos": "名",
+      "languages": [
+        "ラテン語"
+      ]
+    },
+    {
+      "w": "wise",
+      "p": [
+        "weid-"
+      ],
+      "ja": "賢い、やり方",
+      "en": "sagacious / manner",
+      "pos": "名/形",
+      "languages": [
+        "古英語"
+      ]
+    },
+    {
+      "w": "vision",
+      "p": [
+        "weid-"
+      ],
+      "ja": "視力、幻",
+      "en": "sight / apparition",
+      "pos": "名",
+      "languages": [
+        "ラテン語"
+      ]
+    }
+  ],
+  "reg-": [
+    {
+      "w": "rule",
+      "p": [
+        "reg-"
+      ],
+      "ja": "規則、定規",
+      "en": "regulation / measuring bar",
+      "pos": "名/動",
+      "languages": [
+        "ラテン語"
+      ]
+    },
+    {
+      "w": "dress",
+      "p": [
+        "de-",
+        "reg-"
+      ],
+      "ja": "ドレス",
+      "en": "attire",
+      "pos": "名/動/形",
+      "languages": [
+        "ラテン語"
+      ]
+    },
+    {
+      "w": "rich",
+      "p": [
+        "reg-"
+      ],
+      "ja": "金持ちの、濃厚な",
+      "en": "affluent / heavy in flavor",
+      "pos": "形",
+      "languages": [
+        "古英語"
+      ]
+    },
+    {
+      "w": "right",
+      "p": [
+        "reg-"
+      ],
+      "ja": "正しい、右、権利",
+      "en": "correct / rightward / entitlement",
+      "pos": "名/動/形/副",
+      "languages": [
+        "古英語"
+      ]
+    },
+    {
+      "w": "direct",
+      "p": [
+        "dwis-",
+        "reg-"
+      ],
+      "ja": "導く、直接の",
+      "en": "guide / straight",
+      "pos": "動/形/副",
+      "languages": [
+        "ラテン語"
+      ]
+    },
+    {
+      "w": "correct",
+      "p": [
+        "kom",
+        "reg-"
+      ],
+      "ja": "正しい",
+      "en": "accurate",
+      "pos": "動/形",
+      "languages": [
+        "ラテン語"
+      ]
+    }
+  ],
+  "gwei-": [
+    {
+      "w": "quick",
+      "p": [
+        "gwei-"
+      ],
+      "ja": "速い",
+      "en": "swift",
+      "pos": "名/形/副",
+      "languages": [
+        "古英語"
+      ]
+    },
+    {
+      "w": "zoo",
+      "p": [
+        "gwei-"
+      ],
+      "ja": "動物園",
+      "en": "animal park",
+      "pos": "名",
+      "languages": [
+        "古代ギリシャ語"
+      ]
+    },
+    {
+      "w": "survive",
+      "p": [
+        "uper",
+        "gwei-"
+      ],
+      "ja": "生き残る",
+      "en": "live on",
+      "pos": "動",
+      "languages": [
+        "ラテン語"
+      ]
+    },
+    {
+      "w": "vivid",
+      "p": [
+        "gwei-"
+      ],
+      "ja": "鮮やかな",
+      "en": "bright",
+      "pos": "形",
+      "languages": [
+        "ラテン語"
+      ]
+    },
+    {
+      "w": "vital",
+      "p": [
+        "gwei-"
+      ],
+      "ja": "生命の、不可欠な",
+      "en": "of life / essential",
+      "pos": "形",
+      "languages": [
+        "ラテン語"
+      ]
+    },
+    {
+      "w": "whiskey",
+      "p": [
+        "wed-1",
+        "gwei-"
+      ],
+      "ja": "ウイスキー",
+      "en": "grain liquor",
+      "pos": "名",
+      "languages": [
+        "アイルランド語"
+      ]
+    }
+  ],
+  "bhā-2": [
+    {
+      "w": "phone",
+      "p": [
+        "bhā-2"
+      ],
+      "ja": "電話",
+      "en": "handset",
+      "pos": "名/動",
+      "languages": [
+        "古代ギリシャ語"
+      ]
+    },
+    {
+      "w": "fate",
+      "p": [
+        "bhā-2"
+      ],
+      "ja": "運命",
+      "en": "destiny",
+      "pos": "名",
+      "languages": [
+        "ラテン語"
+      ]
+    },
+    {
+      "w": "infant",
+      "p": [
+        "ne",
+        "bhā-2"
+      ],
+      "ja": "幼児",
+      "en": "baby",
+      "pos": "名/形",
+      "languages": [
+        "ラテン語"
+      ]
+    },
+    {
+      "w": "ban",
+      "p": [
+        "bhā-2"
+      ],
+      "ja": "禁止",
+      "en": "prohibition",
+      "pos": "名/動",
+      "languages": [
+        "古英語"
+      ]
+    },
+    {
+      "w": "confess",
+      "p": [
+        "kom",
+        "bhā-2"
+      ],
+      "ja": "自白する",
+      "en": "admit",
+      "pos": "動",
+      "languages": [
+        "ラテン語"
+      ]
+    },
+    {
+      "w": "famous",
+      "p": [
+        "bhā-2"
+      ],
+      "ja": "有名な",
+      "en": "renowned",
+      "pos": "形",
+      "languages": [
+        "ラテン語"
+      ]
+    }
+  ],
+  "men-1": [
+    {
+      "w": "mind",
+      "p": [
+        "men-1"
+      ],
+      "ja": "心、気にする",
+      "en": "intellect / object to",
+      "pos": "名/動",
+      "languages": [
+        "古英語"
+      ]
+    },
+    {
+      "w": "mental",
+      "p": [
+        "men-1"
+      ],
+      "ja": "精神の",
+      "en": "psychological",
+      "pos": "名/形",
+      "languages": [
+        "ラテン語"
+      ]
+    },
+    {
+      "w": "mention",
+      "p": [
+        "men-1"
+      ],
+      "ja": "言及する、表彰",
+      "en": "refer / commendation",
+      "pos": "名/動",
+      "languages": [
+        "ラテン語"
+      ]
+    },
+    {
+      "w": "comment",
+      "p": [
+        "kom",
+        "men-1"
+      ],
+      "ja": "論評、注釈",
+      "en": "critique / annotation",
+      "pos": "名/動",
+      "languages": [
+        "ラテン語"
+      ]
+    },
+    {
+      "w": "monitor",
+      "p": [
+        "men-1"
+      ],
+      "ja": "監視装置",
+      "en": "surveillance device",
+      "pos": "名/動",
+      "languages": [
+        "ラテン語"
+      ]
+    },
+    {
+      "w": "monument",
+      "p": [
+        "men-1"
+      ],
+      "ja": "記念碑",
+      "en": "memorial",
+      "pos": "名",
+      "languages": [
+        "ラテン語"
+      ]
+    }
+  ],
+  "dō-": [
+    {
+      "w": "date",
+      "p": [
+        "dō-"
+      ],
+      "ja": "日付、デート",
+      "en": "day / romantic outing",
+      "pos": "名/動",
+      "languages": [
+        "ラテン語"
+      ]
+    },
+    {
+      "w": "tradition",
+      "p": [
+        "terə-2",
+        "dō-"
+      ],
+      "ja": "伝統",
+      "en": "custom",
+      "pos": "名",
+      "languages": [
+        "ラテン語"
+      ]
+    },
+    {
+      "w": "edition",
+      "p": [
+        "eghs",
+        "dō-"
+      ],
+      "ja": "版",
+      "en": "version",
+      "pos": "名",
+      "languages": [
+        "ラテン語"
+      ]
+    },
+    {
+      "w": "donate",
+      "p": [
+        "dō-"
+      ],
+      "ja": "寄付する",
+      "en": "contribute",
+      "pos": "動",
+      "languages": [
+        "ラテン語"
+      ]
+    },
+    {
+      "w": "donation",
+      "p": [
+        "dō-"
+      ],
+      "ja": "寄付",
+      "en": "contribution",
+      "pos": "名",
+      "languages": [
+        "ラテン語"
+      ]
+    },
+    {
+      "w": "donor",
+      "p": [
+        "dō-"
+      ],
+      "ja": "提供者",
+      "en": "giver",
+      "pos": "名",
+      "languages": [
+        "ラテン語"
+      ]
+    }
+  ],
+  "kaput-": [
+    {
+      "w": "head",
+      "p": [
+        "kaput-"
+      ],
+      "ja": "頭、首長",
+      "en": "top of body / chief",
+      "pos": "名/動",
+      "languages": [
+        "古英語"
+      ]
+    },
+    {
+      "w": "captain",
+      "p": [
+        "kaput-"
+      ],
+      "ja": "船長、主将",
+      "en": "ship commander / team leader",
+      "pos": "名/動",
+      "languages": [
+        "ラテン語"
+      ]
+    },
+    {
+      "w": "chief",
+      "p": [
+        "kaput-"
+      ],
+      "ja": "長",
+      "en": "leader",
+      "pos": "名/形",
+      "languages": [
+        "ラテン語"
+      ]
+    },
+    {
+      "w": "capital",
+      "p": [
+        "kaput-"
+      ],
+      "ja": "首都、資本、大文字",
+      "en": "chief city / fund / upper case",
+      "pos": "名/形",
+      "languages": [
+        "ラテン語"
+      ]
+    },
+    {
+      "w": "cabbage",
+      "p": [
+        "kaput-"
+      ],
+      "ja": "キャベツ",
+      "en": "leafy head vegetable",
+      "pos": "名",
+      "languages": [
+        "ラテン語"
+      ]
+    },
+    {
+      "w": "chef",
+      "p": [
+        "kaput-"
+      ],
+      "ja": "シェフ",
+      "en": "cook",
+      "pos": "名",
+      "languages": [
+        "ラテン語"
+      ]
+    }
+  ],
+  "oi-no-": [
+    {
+      "w": "one",
+      "p": [
+        "oi-no-"
+      ],
+      "ja": "一つ",
+      "en": "single",
+      "pos": "名",
+      "languages": [
+        "古英語"
+      ]
+    },
+    {
+      "w": "an",
+      "p": [
+        "oi-no-"
+      ],
+      "ja": "一つの",
+      "en": "one",
+      "pos": "冠",
+      "languages": [
+        "古英語"
+      ]
+    },
+    {
+      "w": "no",
+      "p": [
+        "ne",
+        "oi-no-"
+      ],
+      "ja": "一つも〜ない",
+      "en": "zero",
+      "pos": "形",
+      "languages": [
+        "古英語"
+      ]
+    },
+    {
+      "w": "eleven",
+      "p": [
+        "oi-no-",
+        "leikʷ-"
+      ],
+      "ja": "11",
+      "en": "11",
+      "pos": "名",
+      "languages": [
+        "古英語"
+      ]
+    },
+    {
+      "w": "onion",
+      "p": [
+        "oi-no-"
+      ],
+      "ja": "タマネギ",
+      "en": "bulb vegetable",
+      "pos": "名",
+      "languages": [
+        "ラテン語"
+      ]
+    },
+    {
+      "w": "alone",
+      "p": [
+        "al-5",
+        "oi-no-"
+      ],
+      "ja": "ひとりで",
+      "en": "solitary",
+      "pos": "形",
+      "languages": [
+        "古英語"
+      ]
+    }
+  ],
+  "yē-": [
+    {
+      "w": "project",
+      "p": [
+        "per1",
+        "yē-"
+      ],
+      "ja": "計画、投影する",
+      "en": "plan / cast forth",
+      "pos": "名/動",
+      "languages": [
+        "ラテン語"
+      ]
+    },
+    {
+      "w": "inject",
+      "p": [
+        "en",
+        "yē-"
+      ],
+      "ja": "注入する",
+      "en": "infuse",
+      "pos": "動",
+      "languages": [
+        "ラテン語"
+      ]
+    },
+    {
+      "w": "subject",
+      "p": [
+        "upo",
+        "yē-"
+      ],
+      "ja": "主題、被験者",
+      "en": "topic / test person",
+      "pos": "名/動/形",
+      "languages": [
+        "ラテン語"
+      ]
+    },
+    {
+      "w": "object",
+      "p": [
+        "epi",
+        "yē-"
+      ],
+      "ja": "物体、反対する",
+      "en": "item / protest",
+      "pos": "名",
+      "languages": [
+        "ラテン語"
+      ]
+    },
+    {
+      "w": "reject",
+      "p": [
+        "re-",
+        "yē-"
+      ],
+      "ja": "拒絶する",
+      "en": "refuse",
+      "pos": "名/動",
+      "languages": [
+        "ラテン語"
+      ]
+    },
+    {
+      "w": "eject",
+      "p": [
+        "eghs",
+        "yē-"
+      ],
+      "ja": "押し出す",
+      "en": "expel",
+      "pos": "動",
+      "languages": [
+        "ラテン語"
+      ]
+    }
+  ],
+  "mori-": [
+    {
+      "w": "marine",
+      "p": [
+        "mori-"
+      ],
+      "ja": "海の",
+      "en": "oceanic",
+      "pos": "名/形",
+      "languages": [
+        "ラテン語"
+      ]
+    },
+    {
+      "w": "marsh",
+      "p": [
+        "mori-"
+      ],
+      "ja": "湿地",
+      "en": "wetland",
+      "pos": "名",
+      "languages": [
+        "古英語"
+      ]
+    },
+    {
+      "w": "submarine",
+      "p": [
+        "mori-",
+        "upo"
+      ],
+      "ja": "潜水艦",
+      "en": "undersea ship",
+      "pos": "名/動/副",
+      "languages": [
+        "ラテン語"
+      ]
+    },
+    {
+      "w": "mermaid",
+      "p": [
+        "mori-",
+        "maghu-"
+      ],
+      "ja": "人魚",
+      "en": "siren",
+      "pos": "名",
+      "languages": [
+        "古英語"
+      ]
+    },
+    {
+      "w": "maritime",
+      "p": [
+        "mori-"
+      ],
+      "ja": "海事の",
+      "en": "nautical",
+      "pos": "名/形",
+      "languages": [
+        "ラテン語"
+      ]
+    },
+    {
+      "w": "rosemary",
+      "p": [
+        "ers-2",
+        "mori-"
+      ],
+      "ja": "ローズマリー",
+      "en": "fragrant shrub",
+      "pos": "名",
+      "languages": [
+        "ラテン語"
+      ]
+    }
+  ],
+  "anə-": [
+    {
+      "w": "animal",
+      "p": [
+        "anə-"
+      ],
+      "ja": "動物",
+      "en": "beast",
+      "pos": "名",
+      "languages": [
+        "ラテン語"
+      ]
+    },
+    {
+      "w": "animation",
+      "p": [
+        "anə-",
+        "-ti-"
+      ],
+      "ja": "動画",
+      "en": "cartoon",
+      "pos": "名",
+      "languages": [
+        "ラテン語"
+      ]
+    },
+    {
+      "w": "unanimous",
+      "p": [
+        "oi-no-",
+        "anə-"
+      ],
+      "ja": "満場一致の",
+      "en": "in agreement",
+      "pos": "形",
+      "languages": [
+        "ラテン語"
+      ]
+    },
+    {
+      "w": "anemone",
+      "p": [
+        "anə-"
+      ],
+      "ja": "アネモネ",
+      "en": "windflower",
+      "pos": "名",
+      "languages": [
+        "古代ギリシャ語"
+      ]
+    },
+    {
+      "w": "animate",
+      "p": [
+        "anə-"
+      ],
+      "ja": "生命を吹き込む、アニメーション化する",
+      "en": "enliven / create moving images",
+      "pos": "動/形",
+      "languages": [
+        "ラテン語"
+      ]
+    },
+    {
+      "w": "inanimate",
+      "p": [
+        "ne",
+        "anə-"
+      ],
+      "ja": "生命のない",
+      "en": "lifeless",
+      "pos": "形",
+      "languages": [
+        "ラテン語"
+      ]
+    }
+  ],
+  "genu-1": [
+    {
+      "w": "knee",
+      "p": [
+        "genu-1"
+      ],
+      "ja": "ひざ",
+      "en": "leg joint",
+      "pos": "名/動",
+      "languages": [
+        "古英語"
+      ]
+    },
+    {
+      "w": "kneel",
+      "p": [
+        "genu-1"
+      ],
+      "ja": "ひざまずく",
+      "en": "genuflect",
+      "pos": "名/動",
+      "languages": [
+        "古英語"
+      ]
+    },
+    {
+      "w": "polygon",
+      "p": [
+        "pelə-1",
+        "genu-1"
+      ],
+      "ja": "多角形",
+      "en": "multi-sided shape",
+      "pos": "名",
+      "languages": [
+        "古代ギリシャ語"
+      ]
+    },
+    {
+      "w": "hexagon",
+      "p": [
+        "genu-1",
+        "s(w)eks"
+      ],
+      "ja": "六角形",
+      "en": "six-sided shape",
+      "pos": "名",
+      "languages": [
+        "古代ギリシャ語"
+      ]
+    },
+    {
+      "w": "pentagon",
+      "p": [
+        "penkʷe",
+        "genu-1"
+      ],
+      "ja": "五角形",
+      "en": "five-sided shape",
+      "pos": "名",
+      "languages": [
+        "古代ギリシャ語"
+      ]
+    },
+    {
+      "w": "diagonal",
+      "p": [
+        "dwo-",
+        "genu-1"
+      ],
+      "ja": "斜めの",
+      "en": "slanted",
+      "pos": "形",
+      "languages": [
+        "古代ギリシャ語"
+      ]
+    }
+  ]
+}
