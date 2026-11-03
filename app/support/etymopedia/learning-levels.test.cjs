@@ -92,24 +92,28 @@ test('derived dictionary uses existing PIE icons rather than language-family pil
 test('adjacent displays its registered PIE roots without rewriting data or bypassing sense guards',()=>{
  const w=projection.words.find(w=>w.w==='adjacent');assert.ok(w);const before=JSON.stringify(w);const row={w:w.w,p:w.p,jp:w.ja};assert.ok(service.source(row));assert.deepEqual(service.pieRoots(row),['ad-','yē-']);assert.equal(JSON.stringify(w),before);assert.equal(service.pieRoots({...row,jp:'different sense'}),null);
 });
-test('root examples require whole tokens, exact sense, image, valid level and at most six',()=>{
- const names=['head','animal','phone','fate','ban','infant','chief','capital','captain','orphan','advanced'];
- const rows=names.map((w,i)=>({w,p:['test-root'],ja:w,r:i,level:w==='advanced'?10:3}));
- const testEngine={evaluate:w=>({level:w.level})};const select=api.create(testEngine,{},rows,[{key:'test-root',d:names.join(' '),definition_reviewed:true}]);
- const views=rows.map(w=>({w:w.w,p:w.p,jp:w.ja}));
- const chosen=select.rootExamples('test-root',names.join(' '),views,w=>w.w!=='orphan');
- assert.equal(chosen.length,6);assert.ok(!chosen.some(w=>['orphan','advanced'].includes(w.w)));
- const boundary=api.create(testEngine,{},rows,[{key:'test-root',d:'headache',definition_reviewed:true}]);
- assert.deepEqual(boundary.rootExamples('test-root','headache',views,()=>true),[]);
- assert.deepEqual(select.rootExamples('test-root',names.join(' '),[{w:'head',p:['wrong-root'],jp:'head'}],()=>true),[]);
- assert.deepEqual(select.rootExamples('test-root',names.join(' '),[{w:'head',p:['test-root'],jp:'different sense'}],()=>true),[]);
+test('twelve configured root maps have six exact sense-locked examples and shared origin labels',()=>{
+ const config=JSON.parse(read('app/support/etymopedia/root-map-examples.json'));assert.equal(Object.keys(config).length,12);
+ for(const [rootKey,expected]of Object.entries(config)){
+  const views=projection.words.filter(w=>w.p.includes(rootKey)).map(w=>({...w,jp:w.ja}));
+  const chosen=service.rootExamples(rootKey,'',views,()=>true);
+  assert.equal(chosen.length,6);assert.equal(new Set(chosen.map(w=>w.w)).size,6);
+  assert.deepEqual(chosen.map(w=>w.w),expected.map(w=>w.w));
+  chosen.forEach(w=>assert.ok(service.mapOriginLanguages(w.w).length));
+ }
 });
-test('basic displayed sense priority does not confuse familiar spelling with specialized homographs',()=>{
- const rows=[{w:'anime',p:['anə-'],ja:'アニメ',level:8},{w:'anima',p:['anə-'],ja:'魂',level:2},{w:'animus',p:['anə-'],ja:'敵意',level:2}];
- const select=api.create({evaluate:w=>({level:w.level})},{},rows,[{key:'anə-',d:'anime anima animus',definition_reviewed:true}]);
- assert.deepEqual(select.rootExamples('anə-','anime anima animus',rows.map(w=>({...w,jp:w.ja})),()=>true).map(w=>w.w),['anime']);
+test('six-example contract refuses missing artwork, changed sense, roots, levels and duplicate identities',()=>{
+ const key='yē-',views=projection.words.filter(w=>w.p.includes(key)).map(w=>({...w,jp:w.ja}));
+ assert.throws(()=>service.rootExamples(key,'',views,()=>false),/validation failed/);
+ const missing=views.filter(w=>w.w!=='project');assert.throws(()=>service.rootExamples(key,'',missing,()=>true),/validation failed/);
+ const wrong=views.map(w=>w.w==='project'?{...w,jp:'別語義'}:w);assert.throws(()=>service.rootExamples(key,'',wrong,()=>true),/validation failed/);
+ const wrongRoots=views.map(w=>w.w==='project'?{...w,p:['unrelated']}:w);assert.throws(()=>service.rootExamples(key,'',wrongRoots,()=>true),/validation failed/);
+ const noLevels=api.create({evaluate:()=>({level:null})},{},projection.words,projection.roots);assert.throws(()=>noLevels.rootExamples(key,'',views,()=>true),/validation failed/);
+ const duplicate=api.create(engine,index,[...projection.words,projection.words.find(w=>w.w==='project')],projection.roots);assert.throws(()=>duplicate.rootExamples(key,'',views,()=>true),/validation failed/);
+ const changed=projection.words.map(w=>w.w==='project'?{...w,en:'unrelated sense'}:w);const guarded=api.create(engine,index,changed,projection.roots);assert.throws(()=>guarded.rootExamples(key,'',views,()=>true),/validation failed/);
 });
 test('root display has origin seals and six selection; dictionary speakers alone are removed',()=>{
  const html=read('app/etymopedia.html'),start=html.indexOf('const drowHTML='),row=html.slice(start,html.indexOf('// 独自レベル',start));
  assert.ok(!row.includes('data-say'));assert.match(html,/entryHW.*data-say/);assert.match(html,/LEVELS.rootExamples\(r.pie,r.note/);assert.match(html,/source.origin_languages/);assert.match(html,/class="originSeal"/);assert.ok(!html.includes('mainWords.slice(0,4)'));
 });
+
