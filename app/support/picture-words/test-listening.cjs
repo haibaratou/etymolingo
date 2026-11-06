@@ -54,8 +54,14 @@ test('queued playback stays locked until exact English onstart; wrong tap, repla
   assert.equal(started(session), true);
   const wrong = (session.round.answerIndex + 1) % 4;
   assert.deepEqual(session.choose(wrong), { index: wrong, correct: false });
-  assert.equal(session.choose(session.round.answerIndex), null);
+  assert.equal(session.state, 'playing');
+  const sameRound = session.round, sameNumber = session.number;
+  assert.deepEqual(session.choose((wrong + 1) % 4 === session.round.answerIndex ? (wrong + 2) % 4 : (wrong + 1) % 4).correct, false);
+  assert.equal(session.round, sameRound); assert.equal(session.number, sameNumber);
   assert.equal(session.replay(), true);
+  assert.deepEqual(session.choose(session.round.answerIndex), { index: session.round.answerIndex, correct: true });
+  assert.equal(session.state, 'answered');
+  assert.equal(session.choose(wrong), null);
   const previous = session.round.target.id;
   assert.equal(await session.next(), true);
   assert.notEqual(session.round.target.id, previous);

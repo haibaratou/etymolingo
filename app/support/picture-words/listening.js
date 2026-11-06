@@ -144,6 +144,19 @@
     function select(index) {
       const answer = session.choose(index);
       if (!answer) return;
+      if (!answer.correct) {
+        app.dataset.state = session.state;
+        app.dataset.reveal = 'grid';
+        $('listeningAnswer').hidden = true;
+        app.querySelectorAll('.listening-choice').forEach((button, i) => {
+          button.classList.toggle('is-wrong', i === index);
+          button.classList.remove('is-correct', 'is-featured');
+          button.setAttribute('aria-label', `イラスト${i + 1}${i === index ? '、不正解' : ''}`);
+        });
+        syncChoices();
+        status('もう一度。ほかのイラストを選んでください。中央のボタンで英文を聞き直せます。');
+        return;
+      }
       const { target, answerIndex, prepared } = session.round;
       app.dataset.state = 'answered'; syncChoices();
       app.dataset.reveal = answer.correct ? 'single' : 'grid';

@@ -84,7 +84,7 @@
       if (this.state !== 'playing' || !this.heard || !Number.isInteger(index) || index < 0 || index >= 4) return null;
       this.speech.stop();
       this.answer = { index, correct: index === this.round.answerIndex };
-      this.state = 'answered';
+      if (this.answer.correct) this.state = 'answered';
       return this.answer;
     }
     stop() { this.serial++; this.speech.stop(); }
