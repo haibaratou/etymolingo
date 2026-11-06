@@ -16,6 +16,10 @@ function fixture(options = {}) {
   const session = new core.Session({ words, prepare: async w => prepared(w), speech, random: () => .23, ...options });
   return { session, speech, calls };
 }
+function started(session, overrides = {}) {
+  return session.playbackState({ state: 'speaking', kind: 'scene', language: 'en', wordId: session.round.target.id,
+    text: session.round.prepared[session.round.answerIndex].entry.scene.en, ...overrides });
+}
 test('four choices use distinct identity, PNG content, headword and reviewed sentence', () => {
   const base = words[0];
   for (const clone of [word('a', { id: base.id }), word('b', { image: { ...base.image } }),
@@ -37,14 +41,17 @@ test('not enough distinct illustrations fails instead of repeating an image', ()
   assert.equal(core.chooseRound(words.slice(0, 3)), null);
   assert.equal(core.chooseRound(words.map(w => ({ ...w, image: words[0].image }))), null);
 });
-test('explicit English playback unlocks choices; wrong tap reveals once, replay and next work', async () => {
+test('queued playback stays locked until exact English onstart; wrong tap, replay and next work', async () => {
   const { session, calls } = fixture();
   assert.equal(await session.next(), true);
   assert.equal(session.choose(0), null);
   assert.equal(session.replay(), true);
+  assert.equal(session.heard, false); assert.equal(session.choose(0), null);
   assert.equal(calls.at(-1)[0], session.round.target);
   assert.equal(calls.at(-1)[1], session.round.prepared[session.round.answerIndex]);
   assert.equal(calls.at(-1)[2], 'en');
+  assert.equal(started(session, { state: 'queued' }), false); assert.equal(session.heard, false);
+  assert.equal(started(session), true);
   const wrong = (session.round.answerIndex + 1) % 4;
   assert.deepEqual(session.choose(wrong), { index: wrong, correct: false });
   assert.equal(session.choose(session.round.answerIndex), null);
@@ -59,9 +66,39 @@ test('correct answer and unavailable speech preserve clear session states', asyn
   const { session, speech } = fixture(); await session.next();
   speech.speakScene = () => false;
   assert.equal(session.replay(), false); assert.equal(session.choose(0), null);
-  speech.speakScene = () => true; session.replay();
+  speech.speakScene = () => true; session.replay(); started(session);
   assert.deepEqual(session.choose(session.round.answerIndex), { index: session.round.answerIndex, correct: true });
   assert.equal(session.state, 'answered');
+});
+test('autoplay denial and unrelated or late speech events never unlock the new question', async () => {
+  const { session } = fixture(); await session.next(); session.replay();
+  for (const event of [{ state: 'error', error: 'not-allowed' }, { state: 'unavailable' }, { kind: 'primer' }, { kind: 'preparing-scene' },
+    { language: 'ja' }, { wordId: 'different-id' }, { text: 'unreviewed sentence' }]) {
+    assert.equal(started(session, event), false); assert.equal(session.heard, false);
+  }
+  const old = { wordId: session.round.target.id, text: session.round.prepared[session.round.answerIndex].entry.scene.en };
+  started(session); session.choose(session.round.answerIndex); await session.next();
+  assert.equal(started(session, old), false); assert.equal(session.heard, false);
+  assert.equal(session.replay(), true); assert.equal(started(session), true);
+});
+test('exact reviewed target utterance is silently prepared before playback without rejecting voice failures', async () => {
+  const { session, speech, calls } = fixture(); const preparation = [];
+  speech.prepareScene = async (...args) => { preparation.push(args); return false; };
+  assert.equal(await session.next(), true); assert.equal(preparation.length, 1);
+  assert.equal(preparation[0][0], session.round.target);
+  assert.equal(preparation[0][1], session.round.prepared[session.round.answerIndex]);
+  assert.equal(preparation[0][2], 'en');
+  assert.equal(calls.some(Array.isArray), false); assert.equal(session.heard, false);
+  speech.prepareScene = async () => { throw Error('voice-discovery-failed'); };
+  assert.equal(await session.next(), true); assert.equal(session.heard, false);
+});
+test('stopping while voice preparation waits cannot install a late round', async () => {
+  let release, reached; const waiting = new Promise(resolve => { reached = resolve; });
+  const barrier = new Promise(resolve => { release = resolve; });
+  const { session, speech } = fixture();
+  speech.prepareScene = async () => { reached(); await barrier; return true; };
+  const pending = session.next(); await waiting; session.stop(); release();
+  assert.equal(await pending, false); assert.equal(session.round, null); assert.equal(session.number, 0);
 });
 test('image verification and exact prepared sentence binding fail closed', async () => {
   for (const mutate of [r => ({ ...r, imageVerified: false }), r => ({ ...r, ttsAllowed: false }),

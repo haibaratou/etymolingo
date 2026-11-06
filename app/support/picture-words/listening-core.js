@@ -58,6 +58,9 @@
           JSON.stringify(result.entry?.p) === JSON.stringify(round.choices[i].roots) &&
           result.entry?.scene?.en === round.choices[i].description.en ? -1 : i).filter(i => i >= 0);
         if (!bad.length) {
+          // Prepare the exact utterance and discover a voice before automatic playback.
+          try { await this.speech.prepareScene?.(round.target, prepared[round.answerIndex], 'en'); } catch { /* Replay remains available. */ }
+          if (serial !== this.serial) return false;
           this.round = { ...round, prepared }; this.number++; this.state = 'playing'; return true;
         }
         for (const i of bad) this.failed.add(round.choices[i].id);
@@ -68,9 +71,14 @@
     }
     replay() {
       if (!this.round || !['playing', 'answered'].includes(this.state)) return false;
-      const ok = this.speech.speakScene(this.round.target, this.round.prepared[this.round.answerIndex], 'en');
-      if (ok) this.heard = true;
-      return ok;
+      return this.speech.speakScene(this.round.target, this.round.prepared[this.round.answerIndex], 'en');
+    }
+    playbackState(event) {
+      if (this.state !== 'playing' || !this.round || event.state !== 'speaking' || event.kind !== 'scene' ||
+          event.language !== 'en' || event.wordId !== this.round.target.id ||
+          event.text !== this.round.prepared[this.round.answerIndex].entry.scene.en) return false;
+      this.heard = true;
+      return true;
     }
     choose(index) {
       if (this.state !== 'playing' || !this.heard || !Number.isInteger(index) || index < 0 || index >= 4) return null;

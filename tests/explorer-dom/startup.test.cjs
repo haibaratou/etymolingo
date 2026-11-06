@@ -1,6 +1,8 @@
 const test=require('node:test'),assert=require('node:assert/strict');
 const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),zlib=require('node:zlib');
 const {parseHTML}=require('linkedom');
+const crypto=require('node:crypto');
+const canonicalLevels=require('../../app/shared/custom-learning-levels.js');
 const root=path.resolve(__dirname,'../..');
 const html=fs.readFileSync(path.join(root,'app/vocabulary-master.html'),'utf8');
 const scenes=fs.readFileSync(path.join(root,'app/shared/illustration-scenes.js'),'utf8');
@@ -23,6 +25,25 @@ function componentContext(roots,words){
 }
 const unpack=b64=>JSON.parse(zlib.gunzipSync(Buffer.from(b64,'base64')));
 const pack=data=>zlib.gzipSync(JSON.stringify(data)).toString('base64');
+const sha=raw=>crypto.createHash('sha256').update(raw).digest('hex');
+const motherProfile=(()=>{
+ const scope={window:{}};
+ vm.runInNewContext(fs.readFileSync(path.join(root,'app/data/generated-etymon/custom-learning-levels.js'),'utf8'),scope);
+ const data=unpack(scope.window.ETYMON_CUSTOM_LEARNING_LEVELS.data);
+ return Object.fromEntries(['schema','ruleVersion','profile','profileSha256','policySha256','sourceCefrSha256','sourceWeblioSha256'].map(name=>[name,data[name]]));
+})();
+function canonicalFixture(words,expectedLevels){
+ assert.equal(words.length,expectedLevels.length);
+ const entries=words.map((word,i)=>{
+  const p=word.p||[],level=expectedLevels[i],senseJa=canonicalLevels.norm(String(word.ja||'').split('、')[0]),senseEn=canonicalLevels.norm(String(word.en||'').split(' / ')[0]);
+  return {dictionaryIndex:i,w:word.w,p,pos:word.pos||'',...(word.etymology_id?{etymology_id:word.etymology_id}:{}),
+   senseJa,senseEn,senseSha256:sha(Buffer.from(JSON.stringify([canonicalLevels.norm(word.w),p,senseJa,senseEn]))),
+   level,raw:word.r??null,auxiliaryR:word.r??null,web:level===null?null:motherProfile.profile.weblioTo10.indexOf(level),official:[],
+   basis:level===null?'unclassified':'weblio_30_to_10',confidence:level===null?'unknown':'provisional',note:'Explicit canonical level for this synthetic fixture'};
+ });
+ const data={...motherProfile,sourceWordsSha256:sha(Buffer.from(JSON.stringify(words))),entries},raw=Buffer.from(JSON.stringify(data));
+ return {EtymonCustomLearningLevels:canonicalLevels,ETYMON_CUSTOM_LEARNING_LEVELS:{schema:1,encoding:'gzip-base64',sha256:sha(raw),data:zlib.gzipSync(raw).toString('base64')}};
+}
 
 test('root labels distinguish direct lemmas, uncertain reconstructions and legacy references',()=>{
  const context={};vm.runInNewContext(html.match(/^function rootLabel\([^]*?^}/m)[0],context);
@@ -300,8 +321,9 @@ test('late visual data repaints existing scores after the lightweight panel alre
  const Observer=class extends window.MutationObserver{constructor(fn){super(fn);observers.push(this);}};
  t.after(()=>observers.forEach(o=>o.disconnect()));
  const DelayedResponse=class extends Response{async text(){const raw=await super.text();await new Promise(resolve=>setTimeout(resolve,180));return raw;}};
- const warnings=[],context={document:window.document,WORDS:[{w:'steam',p:[],g:'G',pos:'名'}],URL,queueMicrotask,MutationObserver:Observer,Blob,Response:DelayedResponse,DecompressionStream,atob,console:{warn(...a){warnings.push(a);}},addEventListener:(type,fn)=>listeners.set(type,fn)};
- vm.runInNewContext(overlay,context);await tick();await tick();
+ const words=[{w:'steam',p:[],g:'G',pos:'名',ja:'蒸気',en:'vapor'}];
+ const warnings=[],context={...canonicalFixture(words,[5]),document:window.document,WORDS:words,URL,queueMicrotask,MutationObserver:Observer,Blob,Response:DelayedResponse,DecompressionStream,atob,console:{warn(...a){warnings.push(a);}},addEventListener:(type,fn)=>listeners.set(type,fn)};
+ vm.runInNewContext(overlay,context);assert.ok(await context.EtymonDifficultyV2.ready);await tick();await tick();
  assert.equal(window.document.querySelector('td.cLang .ety-family-tag').textContent,'ゲルマン');
  assert.equal(window.document.querySelector('td.guess-v2-col').textContent,'読込中');
  assert.equal(warnings.length,0);
@@ -363,17 +385,33 @@ test('toolbar and detail inherit their original color and size while table stars
 test('real table, filter and tap dialog show five-star scale but retain ten-level behavior',async(t)=>{
  const {window}=parseHTML('<html><head></head><body><div id="toolbar"></div><div id="tableWrap"><table><thead><tr><th class="cW">単語</th><th class="cK">カナ</th><th class="cR">レア度</th></tr></thead><tbody>'+[0,1,2].map(i=>'<tr data-i="'+i+'"><td class="cW">word'+i+'</td><td class="cK"></td><td class="cR"></td></tr>').join('')+'</tbody></table></div></body></html>');
  const observers=[];const Observer=class extends window.MutationObserver{constructor(fn){super(fn);observers.push(this)}};t.after(()=>observers.forEach(o=>o.disconnect()));
- const words=[{w:'word0',r:1},{w:'word1',r:9999},{w:'word2',r:0}];
- const context={document:window.document,WORDS:words,URL,queueMicrotask,MutationObserver:Observer,console,addEventListener(){},applyFilters:list=>list,renderToolbar(){},renderTable(){}};
- vm.runInNewContext(overlay,context);await new Promise(r=>setImmediate(r));
+ const words=[{w:'word0',r:1},{w:'word1',r:9999},{w:'word2',r:0}].map((word,i)=>({...word,p:[],pos:'名',ja:'例'+i,en:'fixture '+i}));
+ const originalTable=window.document.getElementById('tableWrap').innerHTML;
+ const context={...canonicalFixture(words,[1,10,null]),document:window.document,WORDS:words,URL,queueMicrotask,MutationObserver:Observer,console,addEventListener(){},applyFilters:list=>list,renderToolbar(){},renderTable(){
+  // The native renderer replaces its table when async canonical data arrives.
+  const visible=new Set(context.applyFilters(words).map(word=>words.indexOf(word)));
+  window.document.getElementById('tableWrap').innerHTML=originalTable;
+  for(const row of window.document.querySelectorAll('tbody tr[data-i]'))if(!visible.has(Number(row.dataset.i)))row.remove();
+ }};
+ vm.runInNewContext(overlay,context);assert.ok(await context.EtymonDifficultyV2.ready);await tick();await tick();
  const buttons=window.document.querySelectorAll('button[data-difficulty-v2]');
  assert.equal(buttons.length,3);assert.equal(buttons[0].dataset.level,'1');assert.equal(buttons[1].dataset.level,'10');
  assert.equal(buttons[0].querySelectorAll('.difficulty-v2-star').length,1);assert.equal(buttons[0].querySelectorAll('.difficulty-v2-half').length,1);
  assert.equal(buttons[1].querySelectorAll('.difficulty-v2-star').length,5);assert.equal(buttons[2].textContent,'未分類');
  const filter=window.document.querySelector('[data-difficulty-filter="10"]');assert.equal(filter.querySelectorAll('.difficulty-v2-star').length,5);
  filter.click();assert.deepEqual(Array.from(context.applyFilters(words)),[words[1]]);filter.click();assert.equal(context.applyFilters(words).length,3);
- buttons[0].click();const dialog=window.document.getElementById('difficultyV2Dialog');assert(dialog.hasAttribute('open'));assert.equal(dialog.querySelectorAll('h2 .difficulty-v2-star').length,1);assert.equal(dialog.querySelectorAll('h2 .difficulty-v2-half').length,1);
+ await tick();await tick(); // Observe the native table replacement before tapping its new button.
+ window.document.querySelector('button[data-difficulty-v2][data-word="word0"]').click();const dialog=window.document.getElementById('difficultyV2Dialog');assert(dialog.hasAttribute('open'));assert.equal(dialog.querySelectorAll('h2 .difficulty-v2-star').length,1);assert.equal(dialog.querySelectorAll('h2 .difficulty-v2-half').length,1);
  assert.match(dialog.textContent,/最大5つ星・0.5刻み/);assert.equal(context.EtymonDifficultyV2.levelFor(words[1]),10);
+ // A changed local r cannot rerate a valid mother record, and stale identities
+ // stay unclassified even though the old r-only formula would return level ten.
+ assert.equal(context.EtymonDifficultyV2.levelFor({...words[0],r:9999}),1);
+ for(const change of [{ja:'stale sense'},{pos:'動'},{p:['different-root']}])assert.equal(context.EtymonDifficultyV2.levelFor({...words[1],...change}),null);
+ await assert.rejects(context.EtymonDifficultyV2.loadCanonical({}),/loader unavailable/);
+ const stale=canonicalFixture(words,[1,10,null]),data=unpack(stale.ETYMON_CUSTOM_LEARNING_LEVELS.data);
+ data.ruleVersion='cefr_plus_edited_aux_v0.1';const raw=Buffer.from(JSON.stringify(data));
+ stale.ETYMON_CUSTOM_LEARNING_LEVELS={schema:1,encoding:'gzip-base64',sha256:sha(raw),data:zlib.gzipSync(raw).toString('base64')};
+ await assert.rejects(context.EtymonDifficultyV2.loadCanonical(stale),/profile/);
 });
 
 test('root source disclosure keeps original text and confirmed EO link separate from editorial summaries',()=>{

@@ -11,6 +11,9 @@ html[data-play-mode="listening"] .ambient,html[data-play-mode="listening"] #part
 .listening-header h1 small{font-family:Fredoka,system-ui,sans-serif;font-size:.72rem;font-weight:500;letter-spacing:.06em;color:#708477}
 .listening-back{justify-self:start;display:flex;align-items:center;gap:.3rem;color:#315b4b;text-decoration:none;min-height:44px;font-size:.85rem;font-weight:800}
 .listening-count{justify-self:end;white-space:nowrap;font-size:.78rem;color:#6f7d73}
+.listening-header-tools{justify-self:end;display:flex;align-items:center;justify-content:flex-end;gap:8px;flex-wrap:wrap;min-width:0}
+.listening-layout-toggle{min-height:38px;min-width:96px;padding:6px 10px;border:1px solid #cfdbd0;border-radius:12px;background:#fff;color:#315b4b;font:800 .68rem 'M PLUS Rounded 1c',system-ui,sans-serif;white-space:nowrap;cursor:pointer}
+.listening-layout-toggle[aria-pressed="true"]{background:#315b4b;border-color:#315b4b;color:#fff}
 .listening-stage{position:relative;min-height:0;width:100%}
 .listening-choices{height:100%;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));gap:12px}
 .listening-choice{position:relative;display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr);place-items:center;min-width:0;min-height:0;padding:12px;border:3px solid transparent;border-radius:24px;background:#fff;box-shadow:0 2px 8px #2943310a;cursor:pointer;overflow:hidden;transition:border-color .15s,background .15s}
@@ -41,6 +44,24 @@ html[data-play-mode="listening"] .ambient,html[data-play-mode="listening"] #part
 #listeningTranslation{margin:3px 0 8px;font-size:.76rem;line-height:1.5;color:#718075}
 .listening-next{min-height:42px;min-width:170px;padding:9px 22px;border:0;border-radius:14px;background:#315b4b;color:#fff;font:800 .9rem 'M PLUS Rounded 1c',system-ui,sans-serif;cursor:pointer}
 .listening-next span{padding-left:12px}
+.listening-app[data-reveal="single"] .listening-choices{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr)}
+.listening-app[data-reveal="single"] .listening-choice{border-color:transparent;background:#fff;box-shadow:0 2px 8px #2943310a}
+.listening-app[data-reveal="single"] .listening-choice-number{display:none}
+.listening-app[data-reveal="single"] .listening-speaker{left:auto;top:auto;right:14px;bottom:14px;transform:none}
+.listening-app[data-reveal="single"] .listening-footer{background:#fff;border-radius:20px;padding:10px 12px}
 @media(min-width:861px){.listening-app{padding:18px 28px 20px;gap:16px}.listening-header h1{font-size:1.2rem}.listening-choice{padding:20px}.listening-speaker{width:116px;height:116px}.listening-speaker svg{width:38px;height:38px}.listening-status{font-size:.86rem}}
 @media(max-width:480px){.listening-app{padding-right:10px;padding-left:10px;gap:8px}.listening-header{min-height:44px}.listening-choices{gap:8px}.listening-choice{border-radius:19px;padding:7px}.listening-choice-number{top:7px;left:8px;width:22px;height:22px}.listening-speaker{width:86px;height:86px;border-width:5px}.listening-speaker svg{width:28px;height:28px}.listening-speaker span{font-size:.58rem}.listening-answer-heading{gap:9px}#listeningWord{font-size:1.2rem}#listeningSentence{font-size:.9rem}}
+.listening-app.is-portrait{width:min(100%,430px);padding:max(12px,env(safe-area-inset-top)) max(10px,env(safe-area-inset-right)) max(12px,env(safe-area-inset-bottom)) max(10px,env(safe-area-inset-left));gap:8px}
+.listening-app.is-portrait .listening-header{min-height:44px}
+.listening-app.is-portrait .listening-header h1{font-size:1.05rem}
+.listening-app.is-portrait .listening-header-tools{gap:4px 6px}
+.listening-app.is-portrait .listening-choices{gap:8px}
+.listening-app.is-portrait .listening-choice{border-radius:19px;padding:7px}
+.listening-app.is-portrait .listening-choice-number{top:7px;left:8px;width:22px;height:22px}
+.listening-app.is-portrait .listening-speaker{width:86px;height:86px;border-width:5px}
+.listening-app.is-portrait .listening-speaker svg{width:28px;height:28px}
+.listening-app.is-portrait .listening-speaker span{font-size:.58rem}
+.listening-app.is-portrait .listening-answer-heading{gap:9px}
+.listening-app.is-portrait #listeningWord{font-size:1.2rem}
+.listening-app.is-portrait #listeningSentence{font-size:.9rem}
 @media(prefers-reduced-motion:reduce){.listening-choice{transition:none}}
