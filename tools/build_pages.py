@@ -8,6 +8,13 @@ from urllib.parse import urlsplit,unquote,quote
 MEDIA={'.png','.webp','.jpg','.jpeg','.gif','.avif','.mp4','.webm','.mp3','.wav','.ogg'}
 RUNTIME={'.html','.js','.mjs','.css','.json','.csv','.svg','.ico','.woff','.woff2','.ttf','.otf','.wasm','.xml','.webmanifest','.txt'}
 EXCLUDED={'tests','tools','.github','.git','Claude outputs'}
+# Keep authoring history in Git and local checkouts, outside the Pages runtime.
+AUTHORING_HISTORY_PREFIXES=(
+ 'work/etymopedia/.workflow/',
+ 'work/etymopedia/old/',
+ 'work/etymopedia/ui-update-20261030/',
+ 'work/etymopedia/tmp/',
+)
 
 # Only these three newly introduced Explorer dependencies may supplement Git's
 # tracked inventory, and only when the tracked entrance actually references them.
@@ -106,6 +113,7 @@ def build(root,out,repo,commit):
  count=0;bootstraps=0;snapshots=[]
  for name in tracked:
   p=PurePosixPath(name)
+  if name.startswith(AUTHORING_HISTORY_PREFIXES):continue
   if p.parts[0] in EXCLUDED or name in media or (Path(name).suffix.lower() not in RUNTIME and not name.startswith('assets/ui/')):continue
   if name.startswith('app/data/pie/'):raise ValueError('Forbidden source data in distribution repository')
   if p.parts[0] not in {'app','assets','mobile','work'} and name not in {'robots.txt','index.html','404.html','favicon.ico'}:continue

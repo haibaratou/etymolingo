@@ -125,6 +125,50 @@ class PagesBuildTests(unittest.TestCase):
         self.assertEqual(result['jaDictionaryLocalData']['indexSha256'],
                          hashlib.sha256(changed_bytes).hexdigest())
 
+    def test_authoring_history_is_not_published_while_active_work_and_nearby_names_remain(self):
+        excluded = {
+            'work/etymopedia/.workflow/review/before.json': '{"old":"review snapshot"}',
+            'work/etymopedia/old/codex/captions.csv': 'old caption rows',
+            'work/etymopedia/ui-update-20261030/before/app/example.html': '<p>old layout</p>',
+            'work/etymopedia/tmp/backup.json': '{"temporary":true}',
+        }
+        retained = {
+            'work/etymopedia/active.csv': 'current authoring input',
+            'work/etymopedia/.workflow-public.csv': 'different filename',
+            'work/etymopedia/old-public/data.json': '{"public":true}',
+            'work/etymopedia/ui-update-202610300/current.json': '{"current":true}',
+            'work/etymopedia/tmp-approved.csv': 'approved input',
+        }
+        inputs = {**excluded, **retained}
+        for name, text in inputs.items():
+            path = self.root/name
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_text(text, encoding='utf-8')
+        subprocess.run(['git','-C',str(self.root),'add','--',*inputs],check=True)
+        before = {name:(self.root/name).read_bytes() for name in inputs}
+        self.stage()
+        for name in excluded:
+            self.assertFalse((self.out/name).exists(), name)
+        for name in retained:
+            self.assertEqual((self.out/name).read_bytes(), before[name], name)
+        self.assertEqual((self.out/'work/etymopedia/foo.csv').read_text(), 'csv source')
+        for name, original in before.items():
+            self.assertEqual((self.root/name).read_bytes(), original, name)
+
+    def test_media_under_authoring_history_still_uses_the_pinned_original_url(self):
+        name = 'work/etymopedia/.workflow/review/source.png'
+        source = self.root/name
+        source.parent.mkdir(parents=True, exist_ok=True)
+        source.write_bytes(b'original media stays in the repository')
+        game = self.root/'app/game.html'
+        game.write_text(self.files['app/game.html'].replace('</body>',
+            '<img src="../'+name+'"></body>'), encoding='utf-8')
+        subprocess.run(['git','-C',str(self.root),'add','--',name,'app/game.html'],check=True)
+        self.stage()
+        self.assertIn(self.raw+name,(self.out/'app/game.html').read_text())
+        self.assertFalse((self.out/name).exists())
+        self.assertEqual(source.read_bytes(), b'original media stays in the repository')
+
     def test_media_and_runtime_sources_are_unchanged_and_client_manifest_is_absent(self):
         report = self.stage()
         self.assertFalse((self.out/'assets/word/a.png').exists())

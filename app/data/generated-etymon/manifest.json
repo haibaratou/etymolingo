@@ -72,9 +72,9 @@
     },
     "illustration_scenes": {
       "file": "illustration-scenes.json",
-      "bytes": 22998126,
+      "bytes": 23001872,
       "count": 14112,
-      "sha256": "4b698463f79bd7d2c8e37560891c1e69f9208c7007772b1b6684cf01d7640889"
+      "sha256": "1f3a956f22edfc14980cb5df822dfa3f09f5f8664dc57c408c0cb3ae4600b89a"
     },
     "illustration_review_status": {
       "file": "illustration-review-status.js",
