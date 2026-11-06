@@ -38,18 +38,37 @@
     }
     return null;
   }
+  const wordLevel = word => Number.isInteger(word?.customLearningLevel?.level) && word.customLearningLevel.level >= 1 && word.customLearningLevel.level <= 10 ? word.customLearningLevel.level : null;
+  const wordsForLevel = (words, level) => level === null ? words.slice() : words.filter(word => wordLevel(word) === level);
+  function levelOptions(words) {
+    return [null, ...Array.from({ length: 10 }, (_, i) => i + 1)].map(level => {
+      const pool = wordsForLevel(words, level);
+      return { level, count: pool.length, playable: pool.length >= 4 && Boolean(chooseRound(pool, undefined, () => .5)) };
+    });
+  }
   class Session {
     constructor({ words, prepare, speech, random = Math.random }) {
       Object.assign(this, { words, prepare, speech, random });
+      this.catalogWords = words.slice(); this.level = null; this.errorReason = null;
       this.failed = new Set(); this.serial = 0; this.number = 0;
       this.round = null; this.state = 'loading'; this.heard = false; this.answer = null;
     }
+    pauseForSetup() {
+      this.stop(); this.state = 'setup'; this.round = null;
+      this.heard = false; this.answer = null; this.number = 0;
+    }
+    setLevel(level) {
+      if (level !== null && (!Number.isInteger(level) || level < 1 || level > 10)) return false;
+      this.level = level;
+      this.words = wordsForLevel(this.catalogWords, level);
+      return true;
+    }
     async next() {
       const serial = ++this.serial, previousId = this.round?.target.id;
-      this.speech.stop(); this.state = 'loading'; this.heard = false; this.answer = null;
+      this.speech.stop(); this.state = 'loading'; this.heard = false; this.answer = null; this.errorReason = null;
       for (let attempt = 0; attempt < 3; attempt++) {
         const round = chooseRound(this.words.filter(word => !this.failed.has(word.id)), previousId, this.random);
-        if (!round) break;
+        if (!round) { this.errorReason = 'insufficient-choices'; break; }
         const prepared = await Promise.all(round.choices.map(word => Promise.resolve().then(() => this.prepare(word)).catch(() => null)));
         if (serial !== this.serial) return false;
         const bad = prepared.map((result, i) => result?.status === 'reviewed' && result.playable === true &&
@@ -89,7 +108,7 @@
     }
     stop() { this.serial++; this.speech.stop(); }
   }
-  const api = { normalize, mentions, distinct, eligibleCatalog, chooseRound, Session };
+  const api = { normalize, mentions, distinct, eligibleCatalog, chooseRound, wordLevel, wordsForLevel, levelOptions, Session };
   if (typeof module === 'object' && module.exports) module.exports = api;
   else root.PictlingoListeningCore = api;
 })(typeof window === 'undefined' ? globalThis : window);

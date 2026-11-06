@@ -145,3 +145,67 @@ test('listening boot precedes puzzle save reads and never accesses puzzle/histor
   const sw = fs.readFileSync(path.join(__dirname, '../picture-words-sw.js'), 'utf8');
   for (const asset of ['listening-core.js', 'listening.js', 'listening.css']) assert.ok(sw.includes("'" + asset + "'"));
 });
+
+
+test('difficulty choices use only mother levels and require four distinct images', () => {
+  const leveled = words.map((w, i) => ({ ...w, customLearningLevel: { level: i < 4 ? 1 : 5 } }));
+  const options = core.levelOptions([...leveled, word('unclassified')]);
+  assert.deepEqual(options[0], { level: null, count: 9, playable: true });
+  assert.deepEqual(options.find(x => x.level === 1), { level: 1, count: 4, playable: true });
+  assert.deepEqual(options.find(x => x.level === 5), { level: 5, count: 4, playable: true });
+  assert.deepEqual(options.find(x => x.level === 10), { level: 10, count: 0, playable: false });
+  assert.equal(core.wordLevel({ customLearningLevel: { level: 3.5 } }), null);
+  assert.equal(core.wordLevel({ customLearningLevel: { level: 11 } }), null);
+  assert.equal(core.levelOptions(leveled.slice(0, 3)).find(x => x.level === 1).playable, false);
+  assert.equal(core.levelOptions(leveled.slice(0, 4).map(w => ({ ...w, image: leveled[0].image }))).find(x => x.level === 1).playable, false);
+});
+
+test('selected difficulty filters target and all distractors without falling back to other levels', async () => {
+  const leveled = words.map((w, i) => ({ ...w, customLearningLevel: { level: i < 4 ? 1 : 5 } }));
+  const checked = [];
+  const { session } = fixture({ words: leveled, prepare: async w => { checked.push(w); return prepared(w); } });
+  assert.equal(session.setLevel(1), true); assert.equal(await session.next(), true);
+  assert.ok(session.round.choices.every(w => w.customLearningLevel.level === 1));
+  assert.ok(checked.every(w => w.customLearningLevel.level === 1));
+  assert.equal(session.setLevel(5), true); assert.equal(await session.next(), true);
+  assert.ok(session.round.choices.every(w => w.customLearningLevel.level === 5));
+  const selected = session.words;
+  for (const invalid of [0, 11, 3.5, '5', undefined]) { assert.equal(session.setLevel(invalid), false); assert.equal(session.words, selected); }
+  assert.equal(session.setLevel(10), true); assert.equal(await session.next(), false);
+  assert.equal(session.state, 'error'); assert.equal(session.errorReason, 'insufficient-choices'); assert.equal(session.round, null);
+  assert.equal(session.setLevel(null), true); assert.equal(session.words.length, 8); assert.equal(await session.next(), true);
+});
+
+test('changing difficulty while an old question loads cannot install the old level', async () => {
+  const leveled = words.map((w, i) => ({ ...w, customLearningLevel: { level: i < 4 ? 1 : 5 } }));
+  let release; const barrier = new Promise(resolve => { release = resolve; });
+  const { session } = fixture({ words: leveled, prepare: async w => { if (w.customLearningLevel.level === 1) await barrier; return prepared(w); } });
+  session.setLevel(1); const old = session.next(); await Promise.resolve();
+  session.setLevel(5); assert.equal(await session.next(), true); const current = session.round;
+  release(); assert.equal(await old, false); assert.equal(session.round, current);
+  assert.ok(current.choices.every(w => w.customLearningLevel.level === 5));
+});
+
+
+test('returning to difficulty setup stops the round and selection alone cannot replay it', async () => {
+  const leveled = words.map((w, i) => ({ ...w, customLearningLevel: { level: i < 4 ? 1 : 5 } }));
+  const { session, calls } = fixture({ words: leveled });
+  session.setLevel(1); await session.next(); started(session);
+  session.pauseForSetup();
+  assert.equal(session.state, 'setup'); assert.equal(session.round, null);
+  assert.equal(session.heard, false); assert.equal(session.answer, null); assert.equal(session.number, 0);
+  assert.equal(session.replay(), false); assert.equal(session.choose(0), null);
+  const before = calls.length;
+  assert.equal(session.setLevel(5), true); assert.equal(calls.length, before);
+  assert.equal(session.state, 'setup'); assert.equal(session.round, null);
+  assert.equal(await session.next(), true); assert.equal(session.number, 1);
+  assert.ok(session.round.choices.every(w => w.customLearningLevel.level === 5));
+});
+
+test('returning to setup invalidates unfinished image preparation without installing a question', async () => {
+  let release; const barrier = new Promise(resolve => { release = resolve; });
+  const { session } = fixture({ prepare: async w => { await barrier; return prepared(w); } });
+  const pending = session.next(); await Promise.resolve(); session.pauseForSetup(); release();
+  assert.equal(await pending, false); assert.equal(session.state, 'setup');
+  assert.equal(session.round, null); assert.equal(session.number, 0); assert.equal(session.replay(), false);
+});

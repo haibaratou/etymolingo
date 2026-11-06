@@ -324,3 +324,86 @@ test('stopping from the prepared event prevents the subsequent audible continuat
   x.speech.speakScene(moon, scene, 'en'); x.calls[0].onstart(); x.calls[0].onend();
   assert.equal(x.calls.length, 1); assert.equal(x.speech.current, null); assert.equal(x.timers.size, 0);
 });
+
+function pendingOutput() {
+  const requests=[];
+  return { requests, cancellations:0, suspended:0, closed:0,
+    ensure() { return new Promise((resolve,reject)=>requests.push({resolve,reject})); },
+    cancel() { this.cancellations++; }, suspend() { this.suspended++; }, close() { this.closed++; } };
+}
+const flushOutput=async()=>{await Promise.resolve();await Promise.resolve();};
+test('output stream is ready before native initialization or any audible clue is submitted', async()=>{
+  const output=pendingOutput(),x=setup([en],{outputScenes:true,outputPreparation:output,primeScenes:true});
+  assert.equal(x.speech.speakScene(moon,scene,'en'),true);
+  assert.equal(x.calls.length,0);assert.equal(x.states.at(-1).kind,'preparing-scene');
+  assert.equal(x.states.some(s=>s.kind==='scene'&&s.state==='speaking'),false);
+  output.requests[0].resolve({supported:true});await flushOutput();
+  assert.equal(x.calls.length,1);assert.equal(x.calls[0].volume,0);
+  x.calls[0].onstart();x.calls[0].onend();
+  assert.equal(x.calls.length,2);assert.equal(x.calls[1].volume,1);assert.equal(x.calls[1].text,scene.entry.scene.en);
+  assert.equal(output.requests.length,1);
+});
+test('late output preparation cannot start a canceled question or override a replacement replay',async()=>{
+  const output=pendingOutput(),x=setup([en],{outputScenes:true,outputPreparation:output});
+  x.speech.speakScene(moon,scene,'en');const old=output.requests[0];
+  x.speech.speakScene(moon,scene,'en');const latest=output.requests[1];
+  old.resolve({supported:true});await flushOutput();assert.equal(x.calls.length,0);
+  latest.resolve({supported:true});await flushOutput();assert.equal(x.calls.length,1);
+  assert.equal(x.calls[0].text,scene.entry.scene.en);
+});
+test('blocked output leaves a retryable state without announcing audible playback',async()=>{
+  const output=pendingOutput(),x=setup([en],{outputScenes:true,outputPreparation:output});
+  x.speech.speakScene(moon,scene,'en');output.requests[0].reject({name:'NotAllowedError'});await flushOutput();
+  assert.equal(x.calls.length,0);assert.equal(x.states.at(-1).error,'not-allowed');assert.equal(x.speech.current,null);
+  x.speech.speakScene(moon,scene,'en');output.requests[1].resolve({supported:true});await flushOutput();
+  assert.equal(x.calls.length,1);assert.equal(x.calls[0].text,scene.entry.scene.en);
+});
+test('muting and document suspension cancel pending output and release its stream',async()=>{
+  const output=pendingOutput(),x=setup([en],{outputScenes:true,outputPreparation:output});
+  x.speech.speakScene(moon,scene,'en');x.speech.setEnabled(false);output.requests[0].resolve({supported:true});await flushOutput();
+  assert.equal(x.calls.length,0);assert.equal(output.suspended,1);
+  x.speech.setEnabled(true);x.speech.speakScene(moon,scene,'en');x.speech.suspendOutput();output.requests[1].resolve({supported:true});await flushOutput();
+  assert.equal(x.calls.length,0);assert.equal(output.suspended,2);
+  x.speech.closeOutput();assert.equal(output.closed,1);
+});
+test('headword requests remain synchronous and scene output preparation stays opt in',()=>{
+  const output=pendingOutput(),x=setup([en],{outputScenes:true,outputPreparation:output});
+  x.speech.speak(moon,'en');assert.equal(x.calls.length,1);assert.equal(output.requests.length,0);
+  const y=setup([en],{outputPreparation:output});y.speech.speakScene(moon,scene,'en');
+  assert.equal(y.calls.length,1);assert.equal(output.requests.length,0);
+});
+test('stopping from the output-prepared state prevents a hidden native continuation',async()=>{
+  const output=pendingOutput(),x=setup([en],{outputScenes:true,outputPreparation:output});
+  const original=x.speech.onState;x.speech.onState=state=>{original(state);if(state.state==='prepared')x.speech.stop();};
+  x.speech.speakScene(moon,scene,'en');output.requests[0].resolve({supported:true});await flushOutput();assert.equal(x.calls.length,0);
+});
+test('a released output route reinitializes the native voice before the next audible scene',async()=>{
+  const output=pendingOutput(),x=setup([en],{outputScenes:true,outputPreparation:output,primeScenes:true});
+  x.speech.speakScene(moon,scene,'en');output.requests[0].resolve({supported:true});await flushOutput();
+  x.calls[0].onstart();x.calls[0].onend();x.calls[1].onstart();x.calls[1].onend();assert.equal(x.speech.primedVoices.size,1);
+  x.speech.suspendOutput();assert.equal(x.speech.primedVoices.size,0);
+  x.speech.speakScene(moon,scene,'en');output.requests[1].resolve({supported:true});await flushOutput();
+  assert.equal(x.calls.length,3);assert.equal(x.calls[2].volume,0);
+  x.calls[2].onstart();x.calls[2].onend();assert.equal(x.calls[3].volume,1);assert.equal(x.calls[3].text,scene.entry.scene.en);
+});
+test('a synchronously canceled output request never opens an output stream',()=>{
+  const output=pendingOutput(),x=setup([en],{outputScenes:true,outputPreparation:output});
+  const original=x.speech.onState;x.speech.onState=state=>{original(state);if(state.kind==='preparing-scene'&&state.state==='queued')x.speech.stop();};
+  assert.equal(x.speech.speakScene(moon,scene,'en'),false);assert.equal(output.requests.length,0);assert.equal(x.calls.length,0);
+});
+test('explicit start opens the output route synchronously before any question speech or await',async()=>{
+  const output=pendingOutput(),x=setup([en],{outputScenes:true,outputPreparation:output});
+  const ready=x.speech.prepareOutputRoute();
+  assert.equal(output.requests.length,1);assert.equal(x.calls.length,0);assert.deepEqual(x.states,[]);
+  output.requests[0].resolve({supported:true,state:'running'});
+  assert.deepEqual(await ready,{supported:true,state:'running'});
+  assert.equal(x.calls.length,0);assert.deepEqual(x.states,[]);
+});
+test('start route remains optional and stopping after start never submits a hidden clue',async()=>{
+  const normal=setup([en]);assert.deepEqual(await normal.speech.prepareOutputRoute(),{supported:false});
+  assert.equal(normal.calls.length,0);assert.deepEqual(normal.states,[]);
+  const output=pendingOutput(),x=setup([en],{outputScenes:true,outputPreparation:output});
+  const ready=x.speech.prepareOutputRoute();x.speech.stop();
+  assert.ok(output.cancellations>0);output.requests[0].resolve({supported:true});await ready;
+  assert.equal(x.calls.length,0);assert.deepEqual(x.states,[]);
+});

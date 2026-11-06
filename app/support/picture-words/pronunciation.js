@@ -10,12 +10,91 @@
         return score(b) - score(a);
       })[0] || null;
   }
+  class OutputPreparation {
+    constructor({ Context = root.AudioContext || root.webkitAudioContext,
+      setTimer = (fn, ms) => setTimeout(fn, ms), clearTimer = id => clearTimeout(id),
+      timeoutMs = 3000 } = {}) {
+      this.Context = Context; this.setTimer = setTimer; this.clearTimer = clearTimer;
+      this.timeoutMs = timeoutMs; this.context = null; this.source = null;
+      this.pending = null; this.serial = 0; this.timer = null; this.reject = null;
+    }
+    ensure() {
+      if (!this.Context) return Promise.resolve({ supported: false });
+      if (this.pending) return this.pending;
+      try {
+        if (!this.context || this.context.state === 'closed') {
+          this.context = new this.Context({ latencyHint: 'playback' });
+          const buffer = this.context.createBuffer(1, 256, this.context.sampleRate);
+          this.source = this.context.createBufferSource();
+          this.source.buffer = buffer; this.source.loop = true;
+          this.source.connect(this.context.destination); this.source.start();
+        }
+      } catch (error) { return Promise.reject(error); }
+      const context = this.context, serial = ++this.serial;
+      let baseline;
+      try { baseline = context.getOutputTimestamp?.(); } catch {}
+      const baselineTime = baseline ? baseline.contextTime : context.currentTime;
+      // Call resume now, including on the explicit replay's input stack.
+      let resumed;
+      try { resumed = context.resume(); } catch (error) { return Promise.reject(error); }
+      this.pending = new Promise((resolve, reject) => {
+        this.reject = reject;
+        let elapsed = 0, done = false;
+        const finish = (error, result) => {
+          if (serial !== this.serial || done) return;
+          done = true;
+          this.clearTimer(this.timer); this.timer = null;
+          this.pending = null; this.reject = null;
+          if (error) reject(error); else resolve(result);
+        };
+        const sample = () => {
+          if (serial !== this.serial || done) return;
+          let timestamp;
+          try { timestamp = context.getOutputTimestamp?.(); } catch {}
+          if (context.state === 'running' && (timestamp ? timestamp.contextTime > baselineTime : context.currentTime > baselineTime)) {
+            finish(null, { supported: true, state: context.state,
+              outputTimestamp: timestamp || null, baseLatency: context.baseLatency,
+              outputLatency: context.outputLatency });
+            return;
+          }
+          elapsed += 20;
+          if (elapsed >= this.timeoutMs) {
+            const error = new Error('Audio output is not ready');
+            error.name = context.state === 'suspended' ? 'NotAllowedError' : 'TimeoutError';
+            finish(error); return;
+          }
+          this.timer = this.setTimer(sample, 20);
+        };
+        // A suspended resume promise may remain pending until a user gesture.
+        // Poll its bounded state as well, instead of hanging the question.
+        Promise.resolve(resumed).catch(error => finish(error));
+        Promise.resolve().then(sample);
+      });
+      return this.pending;
+    }
+    cancel() {
+      this.serial++; this.clearTimer(this.timer); this.timer = null;
+      const reject = this.reject; this.reject = null; this.pending = null;
+      if (reject) { const error = new Error('Audio preparation was canceled'); error.name = 'AbortError'; reject(error); }
+    }
+    suspend() {
+      this.cancel();
+      try { return Promise.resolve(this.context?.suspend()).catch(() => {}); } catch { return Promise.resolve(); }
+    }
+    close() {
+      this.suspend();
+      try { this.source?.stop(); this.source?.disconnect(); } catch {}
+      const context = this.context; this.context = null; this.source = null;
+      try { return Promise.resolve(context?.close()).catch(() => {}); } catch { return Promise.resolve(); }
+    }
+  }
   class Pronunciation {
-    constructor({ synth = root.speechSynthesis, Utterance = root.SpeechSynthesisUtterance, onState = () => {}, onVoices = () => {}, setTimer = (fn, delay) => setTimeout(fn, delay), clearTimer = id => clearTimeout(id), voiceWaitMs = 750, primeScenes = false, primeTimeoutMs = 5000 } = {}) {
+    constructor({ synth = root.speechSynthesis, Utterance = root.SpeechSynthesisUtterance, onState = () => {}, onVoices = () => {}, setTimer = (fn, delay) => setTimeout(fn, delay), clearTimer = id => clearTimeout(id), voiceWaitMs = 750, primeScenes = false, primeTimeoutMs = 5000, outputScenes = false, outputPreparation = null } = {}) {
       this.synth = synth; this.Utterance = Utterance; this.onState = onState; this.onVoices = onVoices;
       this.setTimer = setTimer; this.clearTimer = clearTimer; this.timer = null; this.current = null; this.serial = 0;
       this.enabled = true; this.voices = []; this.prepared = new Map(); this.preparation = 0;
       this.voiceWaitMs = voiceWaitMs; this.voiceWaiters = new Set();
+      this.output = outputScenes ? outputPreparation || new OutputPreparation({ setTimer, clearTimer }) : null;
       this.primeScenes = primeScenes; this.primeTimeoutMs = primeTimeoutMs; this.primedVoices = new Set();
       this.refreshVoices = () => {
         try { this.voices = Array.from(this.synth?.getVoices?.() || []); } catch { this.voices = []; }
@@ -30,9 +109,13 @@
       if (this.voices.length && !chooseVoice(this.voices, language)) return 'missing-voice';
       return 'ready'; // Empty lists may mean asynchronous voice initialization.
     }
-    setEnabled(value) { this.enabled = !!value; if (!this.enabled) this.stop(); }
+    setEnabled(value) { this.enabled = !!value; if (!this.enabled) this.suspendOutput(); }
+    prepareOutputRoute() { return this.output ? this.output.ensure() : Promise.resolve({ supported: false }); }
+    suspendOutput() { this.stop(); if (this.output) this.primedVoices.clear(); return this.output?.suspend(); }
+    closeOutput() { this.stop(); if (this.output) this.primedVoices.clear(); return this.output?.close(); }
     stop() {
       this.serial++; this.preparation++; this.clearTimer(this.timer); this.timer = null;
+      this.output?.cancel();
       const previous = this.current; this.current = null;
       if (previous) {
         try { this.synth.cancel(); } catch { /* Keep puzzle controls usable. */ }
@@ -112,7 +195,7 @@
         if (!current()) return;
         if (!started) { finish('error', 'preparation-incomplete'); return; }
         this.primedVoices.add(voiceKey);
-        if (finish('prepared') && serial === this.serial) this.speakText(info, requested);
+        if (finish('prepared') && serial === this.serial) this.speakText(info, requested, true);
       };
       utterance.onerror = event => finish('error', event.error);
       this.current = { utterance, info: primeInfo };
@@ -124,13 +207,35 @@
       } catch (error) { finish('error', error?.name === 'NotAllowedError' ? 'not-allowed' : 'synthesis-failed'); return false; }
       return true;
     }
-    speakText(info, requested = false) {
+    prepareOutput(info, requested) {
+      const serial = this.serial, token = {}, primeInfo = { ...info, kind: 'preparing-scene' };
+      this.current = { utterance: token, info: primeInfo };
+      const current = () => serial === this.serial && this.current?.utterance === token;
+      this.onState({ ...primeInfo, state: 'queued' });
+      if (!current()) return false;
+      let pending;
+      try { pending = this.output.ensure(); }
+      catch (error) { pending = Promise.reject(error); }
+      Promise.resolve(pending).then(() => {
+        if (!current()) return;
+        this.current = null;
+        this.onState({ ...primeInfo, state: 'prepared' });
+        if (serial === this.serial) this.speakText(info, requested, true);
+      }, error => {
+        if (!current()) return;
+        this.current = null;
+        this.onState({ ...primeInfo, state: 'error', error: error?.name === 'NotAllowedError' ? 'not-allowed' : 'output-unavailable' });
+      });
+      return true;
+    }
+    speakText(info, requested = false, outputPrepared = false) {
       const {language, slow} = info;
       this.stop();
       if (typeof info.text !== 'string' || !info.text.trim()) { this.onState({ ...info, state: 'unavailable' }); return false; }
       if (!this.voices.length) this.refreshVoices();
       if (!this.enabled && !requested) { this.onState({ ...info, state: 'muted' }); return false; }
       if (this.availability(language) !== 'ready') { this.onState({ ...info, state: 'unavailable' }); return false; }
+      if (this.output && info.kind === 'scene' && !outputPrepared) return this.prepareOutput(info, requested);
       const voice = chooseVoice(this.voices, language);
       const voiceKey = `${language}:${voice ? `${voice.voiceURI || voice.name || voice.lang}:${normalize(voice.lang)}:${!!voice.localService}` : 'default'}`;
       if (this.primeScenes && info.kind === 'scene' && !this.primedVoices.has(voiceKey)) {
@@ -178,7 +283,7 @@
       return true;
     }
   }
-  const api = { Pronunciation, chooseVoice };
+  const api = { Pronunciation, chooseVoice, OutputPreparation };
   if (typeof module === 'object' && module.exports) module.exports = api;
   else root.WordBloomSpeech = api;
 })(typeof window === 'undefined' ? globalThis : window);

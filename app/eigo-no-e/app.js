@@ -75,8 +75,10 @@ for (const c of D.categories) { CAT.set(c.id, c); for (const s of c.subs) SUB.se
 for (const w of W) for (const k of w.c) (inSub.get(k) || inSub.set(k, []).get(k)).push(w);
 const inCat = id => W.filter(w => !w.unavailable && w.c.some(k => k.startsWith(id + '/')));
 const assetURL = path => String(path).split('/').map(encodeURIComponent).join('/');
-const full = w => `../${assetURL(w.image.path)}?v=${w.image.sha256.slice(0,12)}`;
-const thumb = w => `${assetURL(w.thumb.path)}?v=${w.thumb.sha256.slice(0,12)}`;
+const mediaURL = value => typeof window.ETYMON_ASSET_URL === 'function' ? window.ETYMON_ASSET_URL(value) : value;
+const mediaCrossOrigin = typeof window.ETYMON_ASSET_URL === 'function' ? ' crossorigin="anonymous"' : '';
+const full = w => mediaURL(`../${assetURL(w.image.path)}?v=${w.image.sha256.slice(0,12)}`);
+const thumb = w => mediaURL(`${assetURL(w.thumb.path)}?v=${w.thumb.sha256.slice(0,12)}`);
 const href = w => `#/w/${encodeURIComponent(w.id)}`;
 const firstJa = w => String(w.ja || '').split('、')[0];
 const num = n => Number(n||0).toLocaleString('ja-JP');
@@ -124,7 +126,7 @@ const hasCaption = w => w.description ? w.description.status==='reviewed'&&!!w.d
 const needsRevision = w => w.description?.status==='mismatch';
 const needsReview = w => w.description?.reason==='illustration_needs_review';
 const missingCaptionHTML = w => (needsRevision(w)||needsReview(w))?`<p class="caption-status" lang="ja">${needsReview(w)?'イラスト要確認':'イラスト要修正'}</p>${w.description?.detail?`<small class="caption-revision-reason">${esc(w.description.detail)}</small>`:''}`:'<p class="caption-status">解説未作成</p>';
-const tile = w => `<a class="tile" href="${href(w)}"><span class="pic"><img src="${esc(thumb(w))}" data-fallback="${esc(full(w))}" alt="${esc(w.w ? w.w+' のイラスト' : titleOf(w))}" loading="lazy" decoding="async" width="320" height="320"></span><span class="cap"><span class="w">${esc(titleOf(w))}</span>${w.ja?`<span class="j">${esc(firstJa(w))}</span>`:''}${learningHTML(w)}${w.w&&!hasCaption(w)?`<small class="caption-status">${needsReview(w)?'イラスト要確認':needsRevision(w)?'イラスト要修正':'解説未作成'}</small>`:''}</span></a>`;
+const tile = w => `<a class="tile" href="${href(w)}"><span class="pic"><img${mediaCrossOrigin} src="${esc(thumb(w))}" data-fallback="${esc(full(w))}" alt="${esc(w.w ? w.w+' のイラスト' : titleOf(w))}" loading="lazy" decoding="async" width="320" height="320"></span><span class="cap"><span class="w">${esc(titleOf(w))}</span>${w.ja?`<span class="j">${esc(firstJa(w))}</span>`:''}${learningHTML(w)}${w.w&&!hasCaption(w)?`<small class="caption-status">${needsReview(w)?'イラスト要確認':needsRevision(w)?'イラスト要修正':'解説未作成'}</small>`:''}</span></a>`;
 const gridPages = new Map(); let gridSerial=0;
 const grid = list => {
   list=list.filter(w=>!w.unavailable);const token=String(++gridSerial),shown=Math.min(60,list.length);
@@ -209,7 +211,7 @@ function paint() {
   if (mode !== 'word' || !input.value.trim()) { box.classList.remove('open'); items = []; return; }
   const all = searchWord(input.value); items = all.slice(0, 6);
   if (!items.length) { box.classList.remove('open'); return; }
-  box.innerHTML = items.map((w, i) => `<a href="${href(w)}" class="${i === active ? 'active' : ''}"><img src="${thumb(w)}" alt=""><span class="s-w">${esc(w.w)}</span><span class="s-j">${esc(firstJa(w))}</span></a>`).join('')
+  box.innerHTML = items.map((w, i) => `<a href="${href(w)}" class="${i === active ? 'active' : ''}"><img${mediaCrossOrigin} src="${thumb(w)}" alt=""><span class="s-w">${esc(w.w)}</span><span class="s-j">${esc(firstJa(w))}</span></a>`).join('')
     + (all.length > items.length ? `<a class="s-all" href="#/s/${encodeURIComponent(input.value.trim())}">「${esc(input.value.trim())}」の結果を ${num(all.length)} 件すべて見る</a>` : '');
   box.classList.add('open');
 }
@@ -235,7 +237,7 @@ function side(curCat, curSub) {
   $('#side').innerHTML = `<h2>カテゴリー</h2>` + D.categories.map(c => {
     const icon = c.icon && byId.get(c.icon);
     return `<details${c.id === curCat ? ' open' : ''}><summary class="${c.id === curCat && !curSub ? 'on' : ''}" data-href="#/c/${c.id}">
-      ${icon ? `<img src="${thumb(icon)}" alt="">` : ''}<span>${esc(c.ja)}</span><span class="chev">${chev}</span></summary>
+      ${icon ? `<img${mediaCrossOrigin} src="${thumb(icon)}" alt="">` : ''}<span>${esc(c.ja)}</span><span class="chev">${chev}</span></summary>
       <ul><li><a href="#/c/${c.id}" class="${c.id === curCat && !curSub ? 'on' : ''}">すべて<small>${num(inCat(c.id).length)}</small></a></li>
       ${c.subs.filter(s => s.n).map(s => `<li><a href="#/c/${c.id}/${s.id}" class="${c.id === curCat && s.id === curSub ? 'on' : ''}">${esc(s.ja)}<small>${s.n}</small></a></li>`).join('')}</ul></details>`;
   }).join('');
@@ -253,12 +255,12 @@ function home() {
   side();
   const tries = [['s', 'book'], ['s', '本'], ['s', 'help'], ['t', '学校'], ['t', '木'], ['t', 'box']];
   view.innerHTML = `<div class="page fade">
-    <section class="pict-hero"><h1 class="hero-title">Pictlingo Dictionary</h1><img class="hero-art" src="../assets/pictpedia/hero-carnival.png?v=e139fd54677d" width="1536" height="1024" alt="Pictlingo Dictionary：空飛ぶ鉛筆とドラゴンに乗る二人と、にぎやかなことばの世界" fetchpriority="high"></section>
+    <section class="pict-hero"><h1 class="hero-title">Pictlingo Dictionary</h1><img${mediaCrossOrigin} class="hero-art" src="${mediaURL('../assets/pictpedia/hero-carnival.png?v=e139fd54677d')}" width="1536" height="1024" alt="Pictlingo Dictionary：空飛ぶ鉛筆とドラゴンに乗る二人と、にぎやかなことばの世界" fetchpriority="high"></section>
     <div class="tryline">たとえば ${tries.map(([m, q]) => `<a class="${m === 't' ? 'text' : ''}" href="#/${m}/${encodeURIComponent(q)}" title="${m === 't' ? 'あいまい検索' : '単語検索'}">${esc(q)}</a>`).join('')}</div>
     <h2 class="h2" id="categories">カテゴリーからさがす<a href="#/all">${num(D.word_entry_count)}語・${num(D.total_art)}枚</a></h2>
     <div class="cats">${D.categories.map(c => {
       const icon = c.icon && byId.get(c.icon);
-      return `<article class="cat"><a class="ic" href="#/c/${c.id}" tabindex="-1">${icon ? `<img src="${thumb(icon)}" alt="" loading="lazy">` : ''}</a>
+      return `<article class="cat"><a class="ic" href="#/c/${c.id}" tabindex="-1">${icon ? `<img${mediaCrossOrigin} src="${thumb(icon)}" alt="" loading="lazy">` : ''}</a>
         <h3><a class="cat-main" href="#/c/${c.id}">${esc(c.ja)}</a><small>${esc(c.en)}</small></h3></article>`;
     }).join('')}</div>
     <h2 class="h2">ピックアップ<small>Pick up</small><a href="#/" id="reshuffle">ほかの絵</a></h2>
@@ -304,7 +306,7 @@ function wordPage(id) {
     <nav class="crumbs"><a href="#/">トップ</a>${sub ? `${chev}<a href="#/c/${sub.cat.id}">${esc(sub.cat.ja)}</a>${chev}<a href="#/c/${k}">${esc(sub.ja)}</a>` : ''}${chev}<span>${esc(titleOf(w))}</span></nav>
     <article class="word">
       <div class="word-art">
-        <div class="plate"><img src="${esc(full(w))}" alt="${esc(titleOf(w))}" width="1024" height="1024"></div>
+        <div class="plate"><img${mediaCrossOrigin} src="${esc(full(w))}" alt="${esc(titleOf(w))}" width="1024" height="1024"></div>
         <div class="word-learning">${learningHTML(w,'detail')}</div>
       </div>
       <div class="word-info">

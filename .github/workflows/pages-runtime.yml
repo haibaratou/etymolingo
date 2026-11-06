@@ -52,6 +52,9 @@ jobs:
           node --check app/shared/explorer-inflections.js
           node --check app/shared/lexical-identity.js
           node --test --test-timeout=30000 tests/explorer-dom/overlay.test.cjs tests/explorer-dom/startup.test.cjs tests/explorer-family-tags.test.cjs tests/etymological-reader-prose.test.cjs app/shared/explorer-language-tags.test.cjs app/shared/lexical-identity.test.cjs tests/explicit-inflection-eligibility.test.cjs app/shared/multilingual-answers.test.cjs
+      - name: Check listening retries, difficulty and audio preparation
+        run: |
+          node --test --test-timeout=30000 app/support/picture-words/test-listening.cjs app/support/picture-words/pronunciation.test.cjs app/support/picture-words/output-preparation.test.cjs
       - name: Check Pages startup and asset routes
         run: |
           python3 tools/test_pages_build.py

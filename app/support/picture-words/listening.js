@@ -17,14 +17,25 @@
         <div class="listening-header-tools"><span id="listeningCount" class="listening-count"></span>
           <button id="listeningLayout" class="listening-layout-toggle" type="button" aria-pressed="false" aria-controls="listeningApp" aria-label="モバイル縦表示に切り替える">モバイル縦表示</button>
         </div>
+        <div id="listeningRoundTools" class="listening-round-tools" hidden>
+          <span id="listeningChosenLevel"></span>
+          <button id="listeningChooseLevel" class="listening-change-level" type="button">難易度を選び直す</button>
+        </div>
       </header>
-      <section id="listeningStage" class="listening-stage" aria-label="英文に合うイラストを選ぶ" aria-busy="true">
+      <section id="listeningSetup" class="listening-setup" aria-labelledby="listeningSetupTitle">
+        <div class="listening-setup-intro"><h2 id="listeningSetupTitle" tabindex="-1">難易度を選択</h2>
+          <p>母艦と同じ難易度です。選んだ星の語から4択で出題します。</p></div>
+        <div id="listeningLevels" class="listening-level-grid" role="group" aria-label="リスニングの難易度"></div>
+        <button id="listeningStart" class="listening-start" type="button" disabled>難易度を選んでください</button>
+        <p id="listeningSetupStatus" class="listening-setup-status" role="status" aria-live="polite">出題できる難易度を読み込み中…</p>
+      </section>
+      <section id="listeningStage" hidden class="listening-stage" aria-label="英文に合うイラストを選ぶ" aria-busy="true">
         <div id="listeningChoices" class="listening-choices"></div>
         <button id="listeningSpeaker" class="listening-speaker" type="button" aria-label="英文を聞く" disabled>
           <svg aria-hidden="true"><use href="#i-sound"/></svg><span>英文を聞く</span>
         </button>
       </section>
-      <footer class="listening-footer">
+      <footer id="listeningFooter" class="listening-footer" hidden>
         <p id="listeningStatus" class="listening-status" role="status" aria-live="polite">確認済みのイラストを読み込み中…</p>
         <section id="listeningAnswer" class="listening-answer" aria-labelledby="listeningVerdict" hidden>
           <div class="listening-answer-heading"><strong id="listeningVerdict"></strong><span><b id="listeningWord" lang="en"></b><span id="listeningMeaning"></span></span></div>
@@ -33,7 +44,7 @@
         </section>
         <button id="listeningRetry" class="listening-next" type="button" hidden>もう一度読み込む</button>
       </footer>`;
-    doc.body.append(app);
+    doc.body.append(app); app.dataset.screen = 'setup'; app.dataset.state = 'setup';
     // Existing boot observer also reveals this mode's loading/error UI.
     $('game').dataset.state = 'playing';
     const back = new URL(root.location.href); back.searchParams.delete('mode');
@@ -44,13 +55,14 @@
       $('listeningLayout').setAttribute('aria-label', portrait ? '通常表示に戻す' : 'モバイル縦表示に切り替える');
       $('listeningLayout').textContent = portrait ? '通常表示' : 'モバイル縦表示';
     });
-    let session, speech, viewSerial = 0, pendingAutoplay = false, imagesReady = false;
+    let session, speech, viewSerial = 0, pendingAutoplay = false, imagesReady = false, isSetup = true, selectedOption;
     const status = text => { $('listeningStatus').textContent = text; };
     const syncChoices = () => app.querySelectorAll('.listening-choice').forEach(button => {
       button.disabled = !imagesReady || !session || session.state !== 'playing' || !session.heard;
     });
     const voiceMessage = () => '英語の読み上げ音声を利用できません。端末の音声設定を確認してください。';
     function audioState(event) {
+      if (isSetup) return;
       if (event.kind === 'preparing-scene') {
         app.dataset.audioState = ['error', 'unavailable'].includes(event.state) ? 'retry'
           : event.state === 'prepared' ? 'ready' : event.state === 'idle' ? 'idle' : 'preparing';
@@ -75,6 +87,7 @@
       else if (event.state === 'finished' && session?.state === 'playing') status('どのイラスト？ 中央のボタンで何度でも聞けます。');
     }
     function render() {
+      if (isSetup) return;
       const ready = ['playing', 'answered'].includes(session.state);
       app.dataset.state = session.state;
       app.dataset.reveal = 'grid';
@@ -85,9 +98,10 @@
       $('listeningCount').textContent = session.number ? `${session.number}問目` : '';
       if (!ready) {
         $('listeningChoices').replaceChildren();
-        status(session.state === 'error' ? '4枚の確認済みイラストを読み込めませんでした。通信と最新版のデータを確認してください。' : '確認済みのイラストを読み込み中…');
+        status(session.state === 'error' ? session.errorReason === 'insufficient-choices' ? 'この難易度では異なる4枚のイラストがそろいません。ほかの難易度を選んでください。' : '4枚の確認済みイラストを読み込めませんでした。通信と最新版のデータを確認してください。' : '確認済みのイラストを読み込み中…');
         return;
       }
+      for (const id of ['listeningVerdict', 'listeningWord', 'listeningMeaning', 'listeningSentence', 'listeningTranslation']) $(id).textContent = '';
       $('listeningChoices').replaceChildren(...session.round.choices.map((word, index) => {
         const button = doc.createElement('button');
         button.type = 'button'; button.className = 'listening-choice'; button.dataset.choice = String(index);
@@ -102,17 +116,26 @@
       status(speech.availability('en') === 'ready' ? '英文を再生します。聞こえた英文に合うイラストを選ぼう。' : voiceMessage());
     }
     function autoplay() {
-      if (!pendingAutoplay || !imagesReady || doc.hidden || session?.state !== 'playing') return;
+      if (isSetup || !pendingAutoplay || !imagesReady || doc.hidden || session?.state !== 'playing') return;
       pendingAutoplay = false;
       if (!session.replay()) status(speech.availability('en') === 'ready'
         ? '自動再生を開始できませんでした。中央のボタンで英文を聞いてください。' : voiceMessage());
       syncChoices();
     }
-    async function next() {
+    async function next(unlockOutput = false) {
+      if (isSetup || !session) return;
       const serial = ++viewSerial;
       pendingAutoplay = false; imagesReady = false;
       const focusSpeaker = doc.activeElement === $('listeningNext');
-      const loading = session.next(); render();
+      const loading = session.next();
+      // This call is still on START's input stack, before image preparation's
+      // first microtask. Session.next has already stopped the previous route.
+      let routeReady;
+      if (unlockOutput) {
+        try { routeReady = Promise.resolve(speech.prepareOutputRoute()).then(() => true, () => false); }
+        catch { routeReady = Promise.resolve(false); }
+      }
+      render();
       const ready = await loading;
       if (serial !== viewSerial) return;
       render();
@@ -133,12 +156,14 @@
         status('イラストを表示できませんでした。もう一度読み込んでください。');
         return;
       }
-      if (serial !== viewSerial) return;
+      const outputReady = routeReady ? await routeReady : true;
+      if (serial !== viewSerial || isSetup) return;
       imagesReady = true;
       $('listeningStage').setAttribute('aria-busy', 'false');
       $('listeningSpeaker').disabled = speech.availability('en') !== 'ready';
-      pendingAutoplay = ready;
-      autoplay();
+      pendingAutoplay = ready && outputReady;
+      if (outputReady) autoplay();
+      else status('音声を準備できませんでした。中央の再生ボタンでもう一度試してください。');
       if (ready && focusSpeaker && session.state === 'playing') $('listeningSpeaker').focus({ preventScroll: true });
     }
     function select(index) {
@@ -185,24 +210,46 @@
       if (!session?.replay()) status(voiceMessage());
       syncChoices();
     });
-    $('listeningNext').addEventListener('click', next);
+    function showSetup() {
+      isSetup = true; viewSerial++; pendingAutoplay = false; imagesReady = false;
+      session?.pauseForSetup(); speech?.suspendOutput();
+      app.dataset.screen = 'setup'; app.dataset.state = 'setup'; app.dataset.reveal = 'grid';
+      $('listeningStage').hidden = true; $('listeningFooter').hidden = true;
+      $('listeningRoundTools').hidden = true; $('listeningSetup').hidden = false;
+      $('listeningChoices').replaceChildren(); $('listeningAnswer').hidden = true;
+      $('listeningCount').textContent = '';
+      $('listeningSetupStatus').textContent = selectedOption ? '難易度を選び直して「始める」を押してください。' : '難易度を選んでから「始める」を押してください。';
+    }
+    $('listeningStart').addEventListener('click', () => {
+      if (!session || !selectedOption?.playable || !session.setLevel(selectedOption.level)) return;
+      isSetup = false; app.dataset.screen = 'playing';
+      $('listeningSetup').hidden = true; $('listeningStage').hidden = false;
+      $('listeningFooter').hidden = false; $('listeningRoundTools').hidden = false;
+      $('listeningChosenLevel').textContent = selectedOption.level === null ? 'おまかせ' : `難易度 ★ ${selectedOption.level / 2} / 5`;
+      next(true);
+    });
+    $('listeningChooseLevel').addEventListener('click', () => {
+      showSetup(); $('listeningSetupTitle').focus({ preventScroll: true });
+    });
+    $('listeningNext').addEventListener('click', () => next());
     $('listeningRetry').addEventListener('click', () => root.location.reload());
     doc.addEventListener('visibilitychange', () => {
+      if (isSetup) return;
       if (doc.hidden) {
         if (session?.state === 'playing' && !session.heard) pendingAutoplay = true;
-        speech?.stop();
+        speech?.suspendOutput();
       } else autoplay();
     });
-    root.addEventListener('pagehide', () => { viewSerial++; session?.stop(); });
+    root.addEventListener('pagehide', () => { viewSerial++; session?.stop(); speech?.closeOutput(); });
     root.addEventListener('pageshow', event => {
-      if (!event.persisted || !session) return;
+      if (!event.persisted || !session || isSetup) return;
       if (session.state === 'loading' || (session.state === 'playing' && !imagesReady)) next();
       else if (session.state === 'playing' && !session.heard) { pendingAutoplay = true; autoplay(); }
     });
     try {
       const reviewed = root.WordBloomReviewedScenes;
       if (!root.PictlingoListeningCore || !root.WordBloomSpeech || !reviewed || !root.WordBloomLearningGate) throw new Error('missing-runtime');
-      speech = new root.WordBloomSpeech.Pronunciation({ primeScenes: root.matchMedia('(min-width:861px)').matches,
+      speech = new root.WordBloomSpeech.Pronunciation({ primeScenes: root.matchMedia('(min-width:861px)').matches, outputScenes: true,
         onState: audioState, onVoices: () => {
         if (session && ['playing', 'answered'].includes(session.state)) {
           $('listeningSpeaker').disabled = !imagesReady || speech.availability('en') !== 'ready';
@@ -218,11 +265,28 @@
       if (!(await runtime.checkDataset()).ok) throw new Error('dataset-unavailable');
       const words = root.PictlingoListeningCore.eligibleCatalog(learning.words, reviewed, offline);
       session = new root.PictlingoListeningCore.Session({ words, speech, prepare: word => runtime.prepare(word) });
-      await next();
+      $('listeningLevels').replaceChildren(...root.PictlingoListeningCore.levelOptions(words).map(option => {
+        const { level, count, playable } = option;
+        const button = doc.createElement('button'); button.type = 'button'; button.className = 'listening-level-choice';
+        button.dataset.level = level === null ? 'all' : String(level);
+        if (level === null) button.classList.add('is-all');
+        button.setAttribute('aria-pressed', 'false'); button.disabled = !playable;
+        const label = doc.createElement('strong'); label.textContent = level === null ? 'おまかせ' : `★ ${level / 2} / 5`;
+        const detail = doc.createElement('small'); detail.textContent = `${count}問${playable ? '' : '・4択に必要なイラストが不足'}`;
+        button.append(label, detail);
+        button.addEventListener('click', () => {
+          if (!isSetup || !playable) return;
+          selectedOption = option;
+          $('listeningLevels').querySelectorAll('button').forEach(other => other.setAttribute('aria-pressed', String(other === button)));
+          $('listeningStart').disabled = false;
+          $('listeningStart').textContent = level === null ? 'おまかせで始める' : `★ ${level / 2} で始める`;
+          $('listeningSetupStatus').textContent = '「始める」を押すと英文と4枚のイラストが出ます。';
+        });
+        return button;
+      }));
+      showSetup();
     } catch {
-      app.dataset.state = 'error'; $('listeningStage').setAttribute('aria-busy', 'false');
-      $('listeningRetry').hidden = false;
-      status('確認済みデータを読み込めません。最新版に再読み込みしてください。');
+      app.dataset.state = 'error'; $('listeningSetupStatus').textContent = '確認済みデータを読み込めません。最新版に再読み込みしてください。';
     }
   }
   root.PictlingoListening = { requested, mount };

@@ -68,3 +68,23 @@ html[data-play-mode="listening"] .ambient,html[data-play-mode="listening"] #part
 .listening-app[data-reveal="single"] .listening-speaker svg{width:26px;height:26px}
 .listening-app[data-reveal="single"] .listening-speaker span{font-size:.78rem}
 @media(prefers-reduced-motion:reduce){.listening-choice{transition:none}}
+
+.listening-round-tools{grid-column:1/-1;display:flex;justify-content:center;align-items:center;gap:12px;flex-wrap:wrap}
+#listeningChosenLevel{font-size:.78rem;font-weight:800;color:#315b4b}
+.listening-change-level{min-height:42px;padding:8px 14px;border:1px solid #cfdbd0;border-radius:12px;background:#fff;color:#315b4b;font:800 .75rem 'M PLUS Rounded 1c',system-ui,sans-serif;cursor:pointer}
+.listening-setup{min-height:0;overflow:auto;overscroll-behavior:contain;width:min(100%,720px);justify-self:center;display:flex;flex-direction:column;align-items:stretch;justify-content:safe center;gap:14px;padding:6px 2px 18px}
+.listening-setup-intro{text-align:center}
+.listening-setup h2{margin:0 0 6px;font-size:1.6rem;color:#284f40}
+.listening-setup-intro p{margin:0;color:#62766a;font-size:.84rem;line-height:1.5}
+.listening-level-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.listening-level-choice{min-width:0;min-height:66px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:4px;padding:10px 8px;border:2px solid #d5e0d6;border-radius:16px;background:#fff;color:#315b4b;font-family:inherit;cursor:pointer}
+.listening-level-choice.is-all{grid-column:1/-1}
+.listening-level-choice strong{font-size:1.08rem;font-weight:800}
+.listening-level-choice small{font-size:.68rem;line-height:1.4}
+.listening-level-choice[aria-pressed="true"]{border-color:#315b4b;background:#e5f3e7;box-shadow:0 0 0 2px #315b4b22}
+.listening-level-choice:disabled{color:#7e8b81;border-color:#dce2db;background:#eeefea;cursor:default}
+.listening-start{min-height:52px;padding:12px 20px;border:0;border-radius:16px;background:#315b4b;color:#fff;font:800 1rem 'M PLUS Rounded 1c',system-ui,sans-serif;cursor:pointer}
+.listening-start:disabled{background:#a8b3aa;cursor:default}
+.listening-setup-status{margin:0;text-align:center;color:#62766a;font-size:.76rem;line-height:1.5}
+@media(max-width:480px){.listening-setup{gap:10px;padding-bottom:8px}.listening-setup h2{font-size:1.3rem}.listening-setup-intro p{font-size:.73rem}.listening-level-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.listening-level-choice{min-height:54px;padding:7px 5px;border-radius:13px}.listening-level-choice strong{font-size:.98rem}.listening-level-choice small{font-size:.64rem}.listening-start{min-height:48px}}
+.listening-app.is-portrait .listening-level-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
