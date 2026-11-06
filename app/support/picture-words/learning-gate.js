@@ -1,11 +1,11 @@
-/* Compiled from the mother dictionary's CEFR-J, visual reviews and exact bilingual scenes. */
+/* Compiled from the mother dictionary's canonical levels and exact reviewed scenes. */
 (function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;else root.WordBloomLearningGate=api;})(typeof globalThis==='object'?globalThis:this,function(){
  'use strict';
  async function load(catalog,meta,envelope,cefr,reviewed){
   if(envelope?.schema!==1||envelope.encoding!=='gzip-base64'||!cefr||!reviewed)throw Error('Missing learning selection');
   const bytes=Uint8Array.from(atob(envelope.data),c=>c.charCodeAt(0));
   const data=JSON.parse(await new Response(new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'))).text());
-  if(data.schema!==1||data.report?.scheme!=='custom-learning-hint'||data.report.version!=='cefr_plus_edited_aux_v0.1')throw Error('Unsupported learning selection');
+  if(data.schema!==1||data.report?.scheme!=='custom-learning-hint'||data.report.version!==globalThis.EtymonCustomLearningLevels?.version)throw Error('Unsupported learning selection');
   const custom=await globalThis.EtymonCustomLearningLevels.decode(globalThis.ETYMON_CUSTOM_LEARNING_LEVELS);
   if(data.report.customSourceWordsSha256!==custom.data.sourceWordsSha256||data.report.customProfileSha256!==custom.data.profileSha256)throw Error('Custom learning source mismatch');
   const levels=cefr.create(globalThis.ETYMON_LEARNING_LEVELS),overlays=new Map(data.entries.map(e=>[e.id,e]));

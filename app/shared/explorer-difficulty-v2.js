@@ -1,6 +1,5 @@
-/* Learner difficulty v2: explicit Weblio-first, CEFR-J and edited r fallback.
-   This is an independent DISPLAY hint, not a modification to dictionary sense,
-   official CEFR, image evaluation, or game progression. */
+/* Mother-owned difficulty: every production view reads the same checked sidecar.
+   The legacy formula remains available for source-policy parity audits only. */
 (function(root,factory){
   const api=factory();
   if(typeof module==='object'&&module.exports)module.exports=api;
@@ -27,6 +26,9 @@ function makeIndex(webData,cefrData){
  return {web,cefr};
 }
 function evaluate(w,index){
+ if(index&&Object.prototype.hasOwnProperty.call(index,'canonical')){
+  return index.canonical?.lookup(w)||{level:null,basis:'unclassified',web:null,raw:null,official:[],confidence:'unknown',note:'母艦の現在の難易度を確認できません。データ一式を更新してください。'};
+ }
  const raw=Number.isFinite(w?.r)?numeric(w.r):null,all=index.cefr.get(w?.w)||[];
  const tags=String(w?.pos||'').split(/[\/・,、]/).map(t=>t.trim()).filter(Boolean);
  const matched=all.filter(e=>tags.includes(POS[e.pos]));
@@ -44,6 +46,14 @@ function evaluate(w,index){
   return {level:lv,basis:'edited_r_fallback',web:null,raw,official,confidence:'provisional_very_low',note:'Weblioと該当CEFR-Jなし。書籍頻度由来の加工rによる低信頼の推定。'};
  }
  return {level:null,basis:'unclassified',web:null,raw:null,official,confidence:'unknown',note:'根拠不足のため未分類。'};
+}
+function canonicalIndex(canonical){
+ if(!canonical||typeof canonical.lookup!=='function')throw Error('Mother difficulty lookup unavailable');
+ return {canonical};
+}
+async function loadCanonical(scope=globalThis){
+ if(!scope.EtymonCustomLearningLevels?.decode)throw Error('Mother difficulty loader unavailable');
+ return scope.EtymonCustomLearningLevels.decode(scope.ETYMON_CUSTOM_LEARNING_LEVELS);
 }
 function makeModal(root){
  let dialog=root.document.getElementById('difficultyV2Dialog');
@@ -85,8 +95,8 @@ function mount(root){
  style.textContent+='.ety-family-tags{display:flex;flex-wrap:wrap;gap:4px}td.cLang .ety-family-tag{display:inline-block;border:1px solid #bfcee1;background:#edf2f8;color:#284866;padding:2px 6px;border-radius:6px;font-size:11px;font-weight:700;white-space:nowrap}td.cLang .ety-family-tag[data-family="G"]{background:#e7f4e9;color:#24643b;border-color:#afd3b7}td.cLang .ety-family-tag[data-family="L"]{background:#fcece9;color:#843e3b;border-color:#e4b8b0}td.cLang .ety-family-tag[data-family="Gr"]{background:#e8effb;color:#34568d;border-color:#b8cbe9}';
  style.textContent+='td.cPos{min-width:104px;max-width:none}.ety-pos-tags{display:inline-grid;grid-template-columns:repeat(3,max-content);gap:4px;vertical-align:top}.ety-pos-tag{display:inline-block;padding:2px 6px;border-radius:5px;background:#e8edf5;color:#284564;border:1px solid #c5d3e7;font-weight:600;font-size:11px;white-space:nowrap}.ety-pos-tag[data-kind="動"]{background:#e9f5ec;border-color:#badcc4;color:#275d3a}.ety-pos-tag[data-kind="形"]{background:#fff0dc;border-color:#e5ceb1;color:#805324}.ety-pos-tag[data-kind="副"]{background:#f3e9fb;border-color:#d8c4e8;color:#614181}';
  doc.head.append(style);
- const index=makeIndex(root.ETYMON_WEBLIO_LEVELS,root.ETYMON_LEARNING_LEVELS);
- const difficultyCache=new WeakMap();
+ let canonical=null,difficultyCache=new WeakMap();
+ const index=canonicalIndex({lookup:w=>canonical?.lookup(w)});
  function difficultyFor(w){if(!difficultyCache.has(w))difficultyCache.set(w,evaluate(w,index));return difficultyCache.get(w);}
  root.EtymonDifficultyV2.levelFor=w=>difficultyFor(w).level;
  let pending=false,table=null,removed=[],difficultyIndex=-1;
@@ -312,6 +322,15 @@ function mount(root){
  root.addEventListener('load',loadVisualScores,{once:true});
  const init=()=>{installLevelFilters();if(typeof root.renderTable==='function')root.renderTable();observe();};
  if(doc.readyState==='loading')doc.addEventListener('DOMContentLoaded',init,{once:true});else init();
+ root.EtymonDifficultyV2.ready=loadCanonical(root).then(current=>{
+  canonical=current;difficultyCache=new WeakMap();
+  if(typeof root.renderTable==='function')root.renderTable();
+  schedule();return current;
+ }).catch(error=>{
+  // Missing, mixed or damaged snapshots stay unclassified; never use old levels.
+  canonical=null;difficultyCache=new WeakMap();schedule();
+  console.warn('母艦の難易度データを読み込めません',error);return null;
+ });
 }
-return {starHTML,WEBLIO_TO_10,R_CUTS,makeIndex,evaluate,mount,languageFamilies,resolveFamilyTags:languageFamilies};
+return {starHTML,WEBLIO_TO_10,R_CUTS,makeIndex,evaluate,canonicalIndex,loadCanonical,mount,languageFamilies,resolveFamilyTags:languageFamilies};
 });

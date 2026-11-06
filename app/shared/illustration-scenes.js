@@ -125,8 +125,8 @@ if (typeof window !== 'undefined' && /\/vocabulary-master\.html$/.test(window.lo
     const panels=Promise.all([
       addScript('shared/spelling-puzzle-eligibility.js?v=a5edb2f52b2f'),
       addScript('shared/verb-inflections.js?v=73427e80a6fe'),
-      addScript('data/generated-etymon/weblio-learning-levels.js?v=37c51866e784'),
-      addScript('data/generated-etymon/learning-levels.js?v=e3e733383168')
+      addScript('data/generated-etymon/weblio-learning-levels.js?v=e6a41b9d8680'),
+      addScript('data/generated-etymon/learning-levels.js?v=48bcf2f15474')
     ]).then(()=>Promise.all([
       addScript('shared/explorer-inflections.js?v=65a568ed03bf'),
       addScript('shared/explorer-difficulty-v2.js?v=c8f1b29f8eb9')
@@ -134,7 +134,7 @@ if (typeof window !== 'undefined' && /\/vocabulary-master\.html$/.test(window.lo
     panels.then(()=>{
       document.documentElement.dataset.explorerPanelsReady='1';
       return Promise.all([
-        addScript('data/generated-etymon/puzzle-eligibility.js?v=2c67c904ae54'),
+        addScript('data/generated-etymon/puzzle-eligibility.js?v=76cf845d0966'),
         addScript('data/generated-etymon/puzzle-visual-scores.js?v=27826b8b5ce4')
       ]);
     }).then(()=>{

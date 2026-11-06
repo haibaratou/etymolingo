@@ -12,3 +12,5 @@ app/support/picture-words/reviewed-catalog-report.json text eol=lf
 app/support/picture-words/scene-assets/*.js text eol=lf
 app/eigo-no-e/data.js text eol=lf
 work/etymopedia/png_creation_dates.csv text eol=lf
+# Keep all manifest-bound JSON hashes stable across Windows checkouts.
+app/data/generated-etymon/*.json text eol=lf

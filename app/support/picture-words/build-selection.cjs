@@ -2,6 +2,7 @@ const fs=require('fs'),vm=require('vm'),zlib=require('zlib'),crypto=require('cry
 const path=require('path'),option=name=>{const i=process.argv.indexOf(name);return i>=0?process.argv[i+1]:undefined;};
 const root=path.resolve(option('--root')||path.join(__dirname,'../../..'));process.chdir(root);
 const base=path.resolve(option('--report-dir')||path.join(root,'work/build-reports/picture-words'));fs.mkdirSync(base,{recursive:true});const scope={window:{}};
+function writeAtomic(file,bytes){const temp=file+'.'+process.pid+'.tmp';try{fs.writeFileSync(temp,bytes);fs.renameSync(temp,file);}finally{if(fs.existsSync(temp))fs.unlinkSync(temp);}}
 const files={catalog:'app/support/picture-words/catalog.js',cefr:'app/data/generated-etymon/learning-levels.js',custom:'app/data/generated-etymon/custom-learning-levels.js',scores:'app/data/generated-etymon/puzzle-visual-scores.js',eligibility:'app/data/generated-etymon/puzzle-eligibility.js',scenes:'app/data/generated-etymon/illustration-scenes.json'};
 for(const k of ['catalog','cefr','custom','scores','eligibility'])vm.runInNewContext(fs.readFileSync(files[k],'utf8'),scope);
 const rt=require(root+'/app/support/picture-words/reviewed-scenes.js'),learning=require(root+'/app/shared/custom-learning-levels.js').create(JSON.parse(zlib.gunzipSync(Buffer.from(scope.window.ETYMON_CUSTOM_LEARNING_LEVELS.data,'base64'))));
@@ -38,9 +39,19 @@ for(const w of rows){
  counts[level.level]++;entries.push({id:w.id,customLearningLevel:{level:level.level,basis:level.basis,senseSha256:level.senseSha256},description,reviewedScene,visualReview:{score:score.score,imageGitBlobSha:score.imageGitBlobSha,rubricVersion:score.rubricVersion},currentImageGitBlobSha:actualBlob});
 }
 const report={schema:1,scheme:'custom-learning-hint',version:learning.data.ruleVersion,customSourceWordsSha256:learning.data.sourceWordsSha256,customProfileSha256:learning.data.profileSha256,threshold:50,sourceHashes,totalCatalog:rows.length,existingCandidateCount:candidateCount,eligible:entries.length,counts,excludedSequential:excluded,excludedOverlapping:diagnostics,scoreSourceEntries:scores.size,allEligibleImagesLocallyRehashed:true,scoreSourceVerification:'current published source SHA256 recorded; candidate images rehashed',prohibitedPieRead:false};
-fs.writeFileSync(base+'/selection-report.json',JSON.stringify(report,null,2));fs.writeFileSync(base+'/selection-holds.json',JSON.stringify(holds,null,2));
-fs.writeFileSync(base+'/level-examples.json',JSON.stringify(Array.from({length:10},(_,i)=>({level:i+1,examples:entries.filter(e=>e.customLearningLevel.level===i+1).map(e=>rows.find(w=>w.id===e.id)).sort((a,b)=>a.en.length-b.en.length).slice(0,8).map(w=>({id:w.id,en:w.en}))})),null,2));
+for(const [name,file] of Object.entries(files))if(hash(fs.readFileSync(file))!==sourceHashes[name].sha256)throw Error('Selection inputs changed during build: '+file);
+writeAtomic(base+'/selection-report.json',JSON.stringify(report,null,2));writeAtomic(base+'/selection-holds.json',JSON.stringify(holds,null,2));
+writeAtomic(base+'/level-examples.json',JSON.stringify(Array.from({length:10},(_,i)=>({level:i+1,examples:entries.filter(e=>e.customLearningLevel.level===i+1).map(e=>rows.find(w=>w.id===e.id)).sort((a,b)=>a.en.length-b.en.length).slice(0,8).map(w=>({id:w.id,en:w.en}))})),null,2));
 const data={schema:1,report,scenesSha256:sourceHashes.scenes.sha256,entries};
 const envelope={schema:1,encoding:'gzip-base64',data:zlib.gzipSync(Buffer.from(JSON.stringify(data))).toString('base64')};
-fs.writeFileSync('app/data/generated-etymon/picture-words-selection.js','window.PICTURE_WORDS_SELECTION='+JSON.stringify(envelope)+';\n');
+const selectionScript='window.PICTURE_WORDS_SELECTION='+JSON.stringify(envelope)+';\n';
+writeAtomic('app/data/generated-etymon/picture-words-selection.js',selectionScript);
+const entrance='app/pictlingo-game.html';
+if(fs.existsSync(entrance)){
+ const before=fs.readFileSync(entrance,'utf8'),after=before.replace(/data\/generated-etymon\/picture-words-selection\.js(?:\?[^"\s]*)?/g,'data/generated-etymon/picture-words-selection.js?v='+hash(Buffer.from(selectionScript)).slice(0,12));
+ if(after!==before){
+  if(fs.readFileSync(entrance,'utf8')!==before)throw Error('Game entrance changed during cache-key update');
+  writeAtomic(entrance,after);
+ }
+}
 console.log(JSON.stringify(report));

@@ -1239,3 +1239,18 @@ html.phone-host body> :not(.desktop-phone-host){display:none!important}
 .quest-dictionary .dictionary-tiers{grid-template-columns:repeat(2,minmax(0,1fr))}
 .quest-dictionary .dictionary-tiers button{min-width:0;display:flex;flex-direction:column;align-items:center;gap:4px}
 .quest-dictionary .dictionary-tiers .art-stars{padding:3px 5px!important}
+
+/* Rarity stars: level 1-10 is drawn as 0.5-5 stars; an odd level ends with a half star. */
+.art-stars .star-half{display:block;flex:none;width:12px;overflow:hidden}
+.art-stars .star-half img{max-width:none;flex:none}
+.art-stars.custom-level .star-half{width:14px}
+#rarityBadge .art-stars .star-half{width:calc(clamp(18px,4.6vw,32px) / 2)}
+.word-stars>.star-half{display:block;flex:none;width:14px;overflow:hidden}
+.word-stars>.star-half img{max-width:none}
+.dictionary-rarity .art-stars .star-half{width:6.5px}
+.dictionary-tiers .art-stars .star-half{width:6px}
+/* Five star slots: empty stars show the maximum; the gold layer is clipped to 0, 50 or 100%. */
+.star-slot{position:relative;display:block;flex:none;line-height:0}
+.star-slot>img.star-empty{filter:grayscale(1) brightness(1.7) opacity(.45)!important}
+.star-slot>.star-fill{position:absolute;left:0;top:0;bottom:0;width:var(--fill);overflow:hidden}
+.star-slot>.star-fill>img{display:block;max-width:none}

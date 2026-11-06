@@ -42,9 +42,17 @@
   const note=c?.has_confirmed_components?'語ごとの資料で確認した形です。構成要素すべての確認完了を意味しません。':state==='not_registered'?'参照が未登録です。語源や語根が存在しないという意味ではありません。':state==='unavailable'?'データ未読込・語義変更・参照不整合などのため確認できません。': '従来の関連付けです。語ごとの直接の由来は未検証です。';
   return `<small class="componentState" data-root-state="${esc(state)}" title="${esc(note)}">${esc(label)}</small>`;
  }
- function chips(binding,word,exclude){
+ function confirmedRefs(binding,word){
+  // A context-invalid row must never revive cached confirmed chips.
+  if(!binding?.coverage?.(word)?.guard_valid||!annotations(binding,word))return [];
   const seen=new Set();
-  return (binding?.rootRefs(word)||[]).filter(ref=>{if(seen.has(ref.key)||exclude?.has(ref.id||ref.entity_id))return false;seen.add(ref.key);return true;}).map(ref=>`<span class="chip verifiedComponent" data-k="${esc(ref.key)}" title="${esc(ref.language+'：'+displayMeaning(binding,word,ref.entity)+' / '+(kinds[ref.kind]||ref.kind))}">${ref.kind==='pie_reconstruction'?'*':''}${esc(ref.form)}<i>${esc(displayMeaning(binding,word,ref.entity))}</i><small>${esc(ref.language)}</small></span>`).join(' ');
+  return (binding.rootRefs(word)||[]).filter(ref=>{
+   const key=ref.reference_type==='legacy_root'?'legacy:'+ref.key:ref.id||ref.entity_id||ref.key;
+   if(!ref.entity||seen.has(key))return false;seen.add(key);return true;
+  });
+ }
+ function chips(binding,word,exclude){
+  return confirmedRefs(binding,word).filter(ref=>!exclude?.has(ref.id||ref.entity_id)).map(ref=>`<span class="chip verifiedComponent" data-k="${esc(ref.key)}" title="${esc(ref.language+'：'+displayMeaning(binding,word,ref.entity)+' / '+(kinds[ref.kind]||ref.kind))}">${ref.kind==='pie_reconstruction'&&!ref.form.startsWith('*')?'*':''}${esc(ref.form)}<i>${esc(displayMeaning(binding,word,ref.entity))}</i><small>${esc(ref.language)}</small></span>`).join(' ');
  }
 
  function annotations(binding,word){
@@ -92,13 +100,16 @@
   const rows=annotations(binding,word)?.historical_analyses;if(!Array.isArray(rows))return '';
   return rows.filter(a=>!options?.kinds||options.kinds.includes(a.kind)).map(a=>{
    if(!Array.isArray(a.segments))return '';
-   const nodes=a.segments.map(s=>{
+   const segments=options?.includeParent&&a.parent_entity_ref?[{entity_ref:a.parent_entity_ref},...a.segments]:a.segments;
+   const nodes=segments.map(s=>{
     const e=binding.entity(s.entity_ref);if(!e||options?.seen?.has(e.id))return '';
     options?.seen?.add(e.id);const chip=entityChip(binding,e.id);return displayMeaning(binding,word,e)===e.meaning?chip:'<span class="componentGeneralMeaning"><small>共有部品の一般義</small>'+chip+'</span>';
    }).filter(Boolean);
-   if(!nodes.length)return '';
+   const note=a.note&&!options?.seenNotes?.has(a.note)?a.note:'';
+   if(!nodes.length&&!note)return '';
+   if(note)options?.seenNotes?.add(note);
    const urls=[...new Set((a.evidence||[]).map(e=>e.source).filter(u=>/^https?:\/\//.test(u)))];
-   return `<div class="componentLayer${a.kind==='hypothesis'?' componentHypothesis':''}" data-analysis-kind="${esc(a.kind)}"><small>${esc(a.label)}</small><div>${nodes.join(`<span class="componentJoin">${esc(a.separator||'＋')}</span>`)}</div>${a.note?`<div class="componentNote">${esc(a.note)}</div>`:''}<span class="componentSources">${urls.map((u,i)=>`<a href="${esc(u)}" target="_blank" rel="noopener noreferrer">資料${i+1}</a>`).join(' · ')}</span></div>`;
+   return `<div class="componentLayer${a.kind==='hypothesis'?' componentHypothesis':''}" data-analysis-kind="${esc(a.kind)}"><small>${esc(a.label)}</small><div>${nodes.join(`<span class="componentJoin">${esc(a.separator||'＋')}</span>`)}</div>${note?`<div class="componentNote">${esc(note)}</div>`:''}<span class="componentSources">${urls.map((u,i)=>`<a href="${esc(u)}" target="_blank" rel="noopener noreferrer">資料${i+1}</a>`).join(' · ')}</span></div>`;
   }).join('');
  }
  function sameAttestedLegacy(binding,word,key,visible){
@@ -155,38 +166,29 @@
   if(!refs.length)return '';
   return '<div class="componentLayer"><small>語別の資料で照合したPIE語根</small>'+chips({...binding,rootRefs:()=>refs},word)+'</div>';
  }
+ function displayCoverage(binding,word){
+  const c=binding?.coverage?.(word);
+  return c?.guard_valid&&c.has_confirmed_components&&!annotations(binding,word)?{...c,state:'unavailable',guard_valid:false,has_confirmed_components:false}:c;
+ }
  function rootCell(binding,word,renderLegacy){
-  // One renderer owns this cell. Keep old memberships and navigation intact.
-  const active=new Set(binding?.legacyRootKeys?.(word)||[]),stale=binding?.bindingStale?.(word)||[];
-  const suppressed=new Set([...active,...stale.map(row=>row.root_key)]);
-  const keys=[...new Set(Array.isArray(word.p)?word.p:[])].filter(key=>!suppressed.has(key)),meta=annotations(binding,word);
-  const bindingNote=staleNote(binding,word);
-  if(meta?.component_display==='layered'){
-   const seen=new Set(),direct=[];
-   for(const l of binding.wordLineages(word))if(l.confirmed&&!seen.has(l.word_ref)){
-    seen.add(l.word_ref);
-    const e=binding.entity(l.word_ref),label=l.surface_form?l.surface_form+' ← '+e.form:e.form;
-    direct.push(entityChip(binding,l.word_ref,label,undefined,word));
-   }
-   const histories=historicalAnalyses(binding,word),visible=new Set(seen);
-   for(const a of meta.historical_analyses||[])for(const s of a.segments||[]){const e=binding.entity(s.entity_ref);if(e)visible.add(e.id);}
-   const {legacy,navigation}=legacyDisplay(binding,word,keys,renderLegacy,visible);
-   const allPie=keys.length&&keys.every(key=>['pie_registered','pie','pie_root','pie_reconstruction'].includes(binding.legacyInfo?.(key)?.type));
-   const label=allPie?'従来のPIE参照（直接部品とは別段階）':'従来の語根参照（直接部品とは別段階）';
-   return `<div class="componentLayer"><small>直接の構成形</small><div>${direct.join('<span class="componentJoin">＋</span>')}</div></div>`
-    +histories
-    +(legacy||navigation?`<div class="componentLayer legacyRootLayer"><small>${label}</small>${legacy}${navigation}</div>`:'')+typedRootLayer(binding,word)+badge(binding.coverage(word))+bindingNote;
-  }
-  if(meta?.assembly_alignment){
-   const seen=new Set(),assembly=assemblyChips(binding,word,seen);
-   const materials=historicalAnalyses(binding,word,{kinds:['material_composition'],seen});
-   const canonical=chips(binding,word,seen),visible=new Set([...seen,...binding.rootRefs(word).map(ref=>ref.id||ref.entity_id)]);
-   const {legacy,navigation}=legacyDisplay(binding,word,keys,renderLegacy,visible);
-   return legacy+' '+assembly+materials+' '+canonical+navigation+badge(binding?.coverage(word))+bindingNote;
-  }
-  const canonical=chips(binding,word),visible=new Set((binding?.rootRefs(word)||[]).map(ref=>ref.id||ref.entity_id));
-  const {legacy,navigation}=legacyDisplay(binding,word,keys,renderLegacy,visible);
-  return legacy+' '+canonical+navigation+badge(binding?.coverage(word))+bindingNote;
+  // Show each deepest confirmed reference once. Transmission and old group
+  // membership remain in details and in the unchanged navigation APIs.
+  const refs=confirmedRefs(binding,word),c=displayCoverage(binding,word);
+  if(refs.length)return chips(binding,word)+badge(c);
+  const blocked=new Set((binding?.bindingStale?.(word)||[]).map(row=>row.root_key));
+  const keys=[...new Set(Array.isArray(word?.p)?word.p:[])].filter(key=>!blocked.has(key));
+  return keys.map(renderLegacy).join(' ')+badge(c);
+ }
+ function legacyDetails(binding,word){
+  const active=new Set(binding?.legacyRootKeys?.(word)||[]);
+  const keys=[...new Set(Array.isArray(word?.p)?word.p:[])].filter(key=>!active.has(key));
+  if(!keys.length)return '';
+  const links=keys.map(key=>{
+   const r=binding?.legacyInfo?.(key),pie=['pie_registered','pie','pie_root','pie_reconstruction'].includes(r?.type);
+   const form=r?.form||key;
+   return `<span class="chip legacyComponentReference" data-k="${esc(key)}" title="${esc('従来の関連グループ：'+key)}">${pie&&!form.startsWith('*')?'*':''}${esc(form)}${r?.meaning?`<i>${esc(r.meaning)}</i>`:''}</span>`;
+  }).join(' ');
+  return `<details class="legacyRootLayer"><summary>従来の関連グループ</summary><small>語ごとの由来確認とは別の登録です。</small><div>${links}</div></details>`;
  }
 
  function info(binding,node){
@@ -201,15 +203,25 @@
   return `<span class="srcEO" title="出典: ${esc(entry[1])}">${esc(entry[0])}</span>`;
  }
  function details(binding,word){
-  const lineages=binding?.wordLineages(word)||[],c=binding?.coverage(word);
-  if(!lineages.length)return legacyRootProofs(binding,word)+staleNote(binding,word);
-  const rows=lineages.filter(l=>l.confirmed).map(l=>{
-   const e=l.terminal_entity,others=l.confirmed_path_refs.filter(id=>id!==e.id).map(id=>binding.entity(id)).filter(Boolean);
-   const sources=[...new Set([...(l.evidence||[]),...(e.evidence||[])].map(x=>x.source).filter(x=>/^https?:\/\//.test(x)))];
-   return `<div class="componentNote"><b>${l.role==='formative'?'接辞・部品':'語彙を担う要素'}：${esc(e.form)}</b>（${esc(e.language)}）${esc(displayMeaning(binding,word,e))}${others.length?'<br>確認した伝承・派生段階：'+others.map(x=>esc(x.form)+'（'+esc(x.language)+'）').join(' / '):''}${l.uncertain_edges?.length?'<br>さらに古い由来の説は確認形と分けて保留しています。':''}<div>${sources.map((u,i)=>`<a href="${esc(u)}" target="_blank" rel="noopener noreferrer">資料${i+1}</a>`).join(' · ')}</div></div>`;
+  const refs=confirmedRefs(binding,word),lineages=annotations(binding,word)?binding?.wordLineages?.(word)||[]:[],c=displayCoverage(binding,word);
+  const rows=refs.map(ref=>{
+   const e=ref.entity,sources=[...new Set([...(e.evidence||[]),...lineages.filter(l=>l.confirmed&&(l.terminal_entity?.id===e.id||l.id===ref.lineage_id)).flatMap(l=>l.evidence||[])].map(x=>x.source).filter(x=>/^https?:\/\//.test(x)))];
+   return `<div class="componentNote" data-confirmed-ref="${esc(ref.id||ref.key)}">${chips({...binding,rootRefs:()=>[ref]},word)}${sources.length?`<div>${sources.map((u,i)=>`<a href="${esc(u)}" target="_blank" rel="noopener noreferrer">資料${i+1}</a>`).join(' · ')}</div>`:''}</div>`;
   }).join('');
-  return (rows?`<div class="detSec"><b>語根・部品の個別確認</b>${badge(c)}${rows}${historicalAnalyses(binding,word)}<small>各要素で資料が支持する最深の形を表示しています。${c.components_complete?'':'全構成要素の確認は未完了です。'}</small></div>`:'')+legacyRootProofs(binding,word)+staleNote(binding,word);
+  const seen=new Set(refs.map(ref=>ref.id||ref.entity_id)),seenNotes=new Set();
+  const histories=historicalAnalyses(binding,word,{seen,seenNotes,includeParent:true});
+  const stages=[];
+  for(const l of lineages)if(l.confirmed)for(const id of l.confirmed_path_refs||[]){
+   const e=binding.entity(id);if(!e||seen.has(e.id))continue;
+   seen.add(e.id);stages.push(entityChip(binding,e.id));
+  }
+  const routes=histories+(stages.length?`<div class="componentLayer"><small>ほかの確認された伝承・派生段階</small>${stages.join(' ')}</div>`:'');
+  const qualified=lineages.some(l=>l.uncertain_edges?.length)?'<small>さらに古い由来の説は、確認された形と分けて保留しています。</small>':'';
+  return (rows?`<div class="detSec"><b>語根・部品の確認資料</b>${badge(c)}${rows}${c?.components_complete?'':'<small>確認できた範囲を表示しています。全構成要素の確認は未完了です。</small>'}</div>`:'')
+   +(routes?`<div class="detSec componentHistory"><b>伝承・派生の経路</b>${routes}${qualified}</div>`:'')
+   +(refs.length?legacyDetails(binding,word):'')+staleNote(binding,word);
  }
+
  function integrateRootMembers(byRoot,binding,roots){
   for(const root of roots)if(!root.component_id&&(binding?.byLegacyRoot?.(root.key)||[]).length)byRoot.set(root.key,Object.freeze([...new Set([...(byRoot.get(root.key)||[]),...(binding?.rootMembers?.(root.key)||[])])]));
   return byRoot;

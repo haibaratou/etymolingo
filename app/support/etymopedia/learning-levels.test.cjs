@@ -3,9 +3,10 @@ const test=require('node:test'),assert=require('node:assert/strict'),fs=require(
 const root=path.resolve(__dirname,'../../..'),api=require('./learning-levels.js'),engine=require('../../shared/explorer-difficulty-v2.js');
 const read=p=>fs.readFileSync(path.join(root,p),'utf8'),hash=raw=>crypto.createHash('sha256').update(raw).digest('hex');
 const context={};context.window=context;vm.createContext(context);
-for(const p of ['app/data/generated-etymon/weblio-learning-levels.js','app/data/generated-etymon/learning-levels.js','app/support/etymopedia/current-data.js'])vm.runInContext(read(p),context);
+for(const p of ['app/data/generated-etymon/weblio-learning-levels.js','app/data/generated-etymon/learning-levels.js','app/data/generated-etymon/custom-learning-levels.js','app/support/etymopedia/current-data.js'])vm.runInContext(read(p),context);
 const envelope=context.ETYMOPEDIA_CURRENT_DATA,projection=JSON.parse(zlib.gunzipSync(Buffer.from(envelope.data,'base64'))),words=JSON.parse(read('app/data/generated-etymon/words.json')),roots=JSON.parse(read('app/data/generated-etymon/roots.json'));
 const index=engine.makeIndex(context.ETYMON_WEBLIO_LEVELS,context.ETYMON_LEARNING_LEVELS),service=api.create(engine,index,projection.words,projection.roots);
+const custom=require('../../shared/custom-learning-levels.js'),canonical=custom.create(JSON.parse(zlib.gunzipSync(Buffer.from(context.ETYMON_CUSTOM_LEARNING_LEVELS.data,'base64'))));
 test('levels 1–10 display exactly half as many stars, retaining all ten levels',()=>{
  for(let n=1;n<=10;n++){
   const markup=api.pill(n);assert.equal((markup.match(/class="el-star(?: el-half)?"/g)||[]).length,Math.ceil(n/2));
@@ -57,11 +58,11 @@ test('featured and family entries reconcile only through separately confirmed ex
  hold.apply([other],{root:[['test','G','現在の語義','old',['wrong-root']]]},{},{test:other});assert.equal(hold.lookup(other),null);assert.equal(other.jp,'別の意味');
 });
 test('HTTP uses the safe snapshot and fails closed when it is missing',async()=>{
- const requested=[];const scope={ETYMOPEDIA_CURRENT_DATA:envelope,EtymonDifficultyV2:engine,ETYMON_WEBLIO_LEVELS:context.ETYMON_WEBLIO_LEVELS,ETYMON_LEARNING_LEVELS:context.ETYMON_LEARNING_LEVELS,fetch:async p=>{requested.push(p);return {ok:true,json:async()=>p.endsWith('/words.json')?words:roots};}};
- const http=await api.load({protocol:'https:',scope});const head=words.find(w=>w.w==='head');assert.deepEqual(http.lookup({w:head.w,p:head.p,jp:head.ja}),engine.evaluate(head,index));
+ const requested=[];const scope={ETYMOPEDIA_CURRENT_DATA:envelope,EtymonDifficultyV2:engine,ETYMON_WEBLIO_LEVELS:context.ETYMON_WEBLIO_LEVELS,ETYMON_LEARNING_LEVELS:context.ETYMON_LEARNING_LEVELS,EtymonCustomLearningLevels:custom,ETYMON_CUSTOM_LEARNING_LEVELS:context.ETYMON_CUSTOM_LEARNING_LEVELS,fetch:async p=>{requested.push(p);return {ok:true,json:async()=>p.endsWith('/words.json')?words:roots};}};
+ const http=await api.load({protocol:'https:',scope});const head=words.find(w=>w.w==='head');assert.deepEqual(http.lookup({w:head.w,p:head.p,jp:head.ja}),canonical.lookup(head));
  assert.deepEqual(requested,[]);
  await assert.rejects(api.load({protocol:'https:',scope:{...scope,ETYMOPEDIA_CURRENT_DATA:null}}),/unavailable/);
- const file=await api.load({protocol:'file:',scope:{...scope,ETYMOPEDIA_CURRENT_DATA:envelope,fetch:async()=>{throw Error('file mode must not fetch');}}});assert.deepEqual(file.lookup({w:head.w,p:head.p,jp:head.ja}),engine.evaluate(head,index));
+ const file=await api.load({protocol:'file:',scope:{...scope,ETYMOPEDIA_CURRENT_DATA:envelope,fetch:async()=>{throw Error('file mode must not fetch');}}});assert.deepEqual(file.lookup({w:head.w,p:head.p,jp:head.ja}),canonical.lookup(head));
 });
 test('shared difficulty script exposes the same API without mounting when requested',()=>{
  const source=read('app/shared/explorer-difficulty-v2.js');const sandbox={document:{currentScript:{dataset:{apiOnly:'true'}}}};vm.runInNewContext(source,sandbox);
@@ -80,7 +81,7 @@ test('entry keeps ten ordered level groups plus unclassified, and uses the curre
  const html=read('app/etymopedia.html');const runtime=html.split('\n').filter(l=>!l.startsWith('const EMB_')).join('\n');
  assert.match(runtime,/data-api-only="true"/);assert.match(runtime,/await EtymopediaLearning\.load\(\)/);assert.match(runtime,/LEVELS\.apply\(WORDS,LEXICON,ROOTS,byId\)/);
  assert.match(runtime,/Array\.from\(\{length:10\}/);assert.match(runtime,/\),null\]\.map/);assert.match(runtime,/EtymopediaLearning\.pill\(level,big,word\)/);
- assert.ok(!runtime.includes('custom-learning-levels.js'));assert.ok(!runtime.includes('EtymonRarity.learning('));
+ assert.ok(runtime.includes('data/generated-etymon/custom-learning-levels.js'));assert.ok(runtime.includes('shared/custom-learning-levels.js'));assert.ok(!runtime.includes('EtymonRarity.learning('));
  new vm.Script([...html.matchAll(/<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/g)].at(-1)[1]);
 });
 test('derived dictionary uses existing PIE icons rather than language-family pills',()=>{

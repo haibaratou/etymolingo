@@ -4,15 +4,15 @@
   "files": {
     "roots": {
       "file": "roots.json",
-      "bytes": 2606095,
+      "bytes": 2606064,
       "count": 1436,
-      "sha256": "4cf894123afd172b561ccc4d1e3137dcf0e8b8a8a5c575d20ee07e2dfa29845b"
+      "sha256": "dc314ef99fe59cc3a775756e04198be71684512663a99a62853aaeaf4f7bb094"
     },
     "words": {
       "file": "words.json",
-      "bytes": 27244803,
+      "bytes": 27257649,
       "count": 49180,
-      "sha256": "f5bfded48cf846e1d30589e95ac4bf56c78cbbb742739dbd2902de437ab1bd32"
+      "sha256": "dde8b678756857270de429f87011536b3d2a4375b1cf8f171d7239d5c3e66ec3"
     },
     "affixes": {
       "file": "affixes.json",
@@ -46,15 +46,15 @@
     },
     "etymology_origins": {
       "file": "etymology-origins.js",
-      "bytes": 12108234,
+      "bytes": 12101103,
       "count": 49180,
-      "sha256": "6aa21c887ab2a44618eacf7619a3b0335fa5a08a8daca9450e342e0abd079177"
+      "sha256": "0bb4e6298f692385c3663af057b23d4c2b376c138bb48a8266786ce822b52c48"
     },
     "word_parts": {
       "file": "word-parts.json",
-      "bytes": 319910,
+      "bytes": 319867,
       "count": 3411,
-      "sha256": "5b1e38798aff7cf50040a63dc3b9faafc900c5233635b9d5e55e698b93f7c04d",
+      "sha256": "d4024f24858860f40fb055a3c2031b1e6da4ff5fbde7d3196acc5ad60794ebc9",
       "meaning_basis": "component-core-v2"
     },
     "word_parts_supplement": {
@@ -100,10 +100,10 @@
     },
     "etymological_components": {
       "file": "etymological-components.js",
-      "bytes": 32019632,
-      "count": 2734,
-      "sha256": "d3163932cbf80a112af599912bcbba156e99794bbe102b1ed09e7e4be4f37799",
-      "entity_count": 3503,
+      "bytes": 32279071,
+      "count": 2740,
+      "sha256": "0536410bdc1e9e48858f50c28cb06862f5e6205a9fa5c41476634eb9013f8a8c",
+      "entity_count": 3516,
       "context_hash_algorithm": "component-word-context-v1"
     },
     "word_review_notes": {

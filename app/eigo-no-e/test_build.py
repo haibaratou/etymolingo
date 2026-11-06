@@ -3,6 +3,7 @@
 import copy,hashlib,importlib.util,io,json,tempfile,unittest
 from pathlib import Path
 from PIL import Image
+from unittest import mock
 import build
 
 def fixture(root):
@@ -64,6 +65,28 @@ class EligibilityTests(unittest.TestCase):
         (self.root/'app/pictlingo-dictionary.html').write_text(current_entry,encoding='utf-8')
         a,report=build.build(self.root);b,_=build.build(self.root)
         self.assertEqual(a,b);self.assertEqual(report['eligible'],1);self.assertEqual(report['schema'],2)
+        from build_generated_image_catalog import build_catalog_rows
+        snapshot=build_catalog_rows(self.root);before=copy.deepcopy(snapshot)
+        with mock.patch('build_generated_image_catalog.build_catalog_rows',side_effect=AssertionError('Unexpected second inventory scan')):
+            reused,reused_report=build.build(self.root,catalog_snapshot=snapshot)
+        self.assertEqual(reused,a);self.assertEqual(reused_report,report)
+        self.assertEqual(snapshot,before)
+        for relative,raw in a.items():
+            if relative.startswith('app/eigo-no-e/'):
+                path=self.root/relative;path.parent.mkdir(parents=True,exist_ok=True);path.write_bytes(raw)
+        with mock.patch.object(build,'render_thumbnail',side_effect=AssertionError('Unexpected unchanged thumbnail render')):
+            cached,cached_report=build.build(self.root,catalog_snapshot=snapshot,reuse_thumbnails=True)
+        self.assertEqual(cached,a);self.assertEqual(cached_report,report)
+        thumb_path=next(self.root/key for key in a if key.endswith('.webp'))
+        thumb_path.write_bytes(b'corrupt cached thumbnail')
+        repaired,_=build.build(self.root,catalog_snapshot=snapshot,reuse_thumbnails=True)
+        self.assertEqual(repaired,a)
+        image=self.root/'assets/word/book.png';original=image.read_bytes()
+        try:
+            image.write_bytes(original+b'changed-after-first-scan')
+            with self.assertRaisesRegex(ValueError,'Image changed after catalog verification'):
+                build.build(self.root,catalog_snapshot=snapshot)
+        finally:image.write_bytes(original)
         for entry in ['app/eigo-no-e.html','app/pictlingo-dictionary.html']:
             self.assertIn('eigo-no-e/data.js?v='+build.sha256(a['app/eigo-no-e/data.js'])[:12],a[entry].decode())
         (self.root/'app/eigo-no-e.html').unlink()

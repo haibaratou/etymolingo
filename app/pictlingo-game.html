@@ -35,14 +35,14 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=M+PLUS+Rounded+1c:wght@500;700;800&display=swap">
   <link rel="manifest" href="support/picture-words/manifest.webmanifest">
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <link rel="stylesheet" href="support/picture-words/style.css?v=ae7ffbf13ce9">
-  <script src="support/picture-words/desktop.js?v=c5e0c217bc08" defer></script>
-  <script src="support/picture-words/catalog.js?v=7294524c2ae8" defer></script>
+  <link rel="stylesheet" href="support/picture-words/style.css?v=b257954c53fc">
+  <script src="support/picture-words/desktop.js?v=b6bb7e47d57e" defer></script>
+  <script src="support/picture-words/catalog.js?v=9b6883ac7a2e" defer></script>
   <script src="data/generated-etymon/learning-levels.js?v=48bcf2f15474" defer></script>
   <script src="shared/learning-levels.js?v=79e8fc2cad88" defer></script>
-  <script src="data/generated-etymon/picture-words-selection.js?v=218926139bb6" defer></script>
+  <script src="data/generated-etymon/picture-words-selection.js?v=f7844149e49e" defer></script>
   <script src="shared/spelling-puzzle-eligibility.js?v=a250ce85e39f" defer></script>
-  <script src="support/picture-words/learning-gate.js?v=ff47c38058e2" defer></script>
+  <script src="support/picture-words/learning-gate.js?v=4ba998dc73b5" defer></script>
   <script src="support/picture-words/difficulty.js?v=700501f148a9" defer></script>
   <script src="support/picture-words/gesture.js?v=e43ccedf011a" defer></script>
   <script src="support/picture-words/pronunciation.js?v=092b18575e5d" defer></script>
@@ -51,11 +51,14 @@
   <script src="support/picture-words/offline.js?v=e3c662c81b63" defer></script>
   <link rel="stylesheet" href="shared/illustration-scenes.css?v=d8f7a1554521">
   <script src="shared/illustration-scenes.js?v=6b978e791e31" defer></script>
-<link rel="stylesheet" href="shared/rarity-presentation.css?v=fbc61c711f85">
-<script src="shared/rarity-presentation.js?v=b2bf6d03d095" defer></script>
-  <script src="support/picture-words/game.js?v=e056ed10bb8e" defer></script>
-<script src="data/generated-etymon/custom-learning-levels.js?v=f5cfb48d7e4b"></script>
-<script src="shared/custom-learning-levels.js?v=6e4bce3f02ce"></script>
+<link rel="stylesheet" href="shared/rarity-presentation.css?v=1f5ccbe54980">
+<script src="shared/rarity-presentation.js?v=0d3eac5156a2" defer></script>
+  <script src="support/picture-words/listening-core.js?v=060af5d150e0" defer></script>
+  <script src="support/picture-words/listening.js?v=6355a96fd4ad" defer></script>
+  <link rel="stylesheet" href="support/picture-words/listening.css?v=3d365319ea1e">
+  <script src="support/picture-words/game.js?v=85598a7dce83" defer></script>
+<script src="data/generated-etymon/custom-learning-levels.js?v=24ec13657403"></script>
+<script src="shared/custom-learning-levels.js?v=fd4891d8a4d8"></script>
 </head>
 <body>
   <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -153,6 +156,7 @@
         </section>
         <div class="play-toolbar" id="gameActions" role="group" aria-label="ゲーム操作">
           <button id="modeToggle" type="button" data-mode="en" aria-label="英語に切り替える"><span id="modeLabel"><span class="mode-ja">日本語</span><span aria-hidden="true">⇄</span><span class="mode-en">英語</span></span></button>
+          <a id="listeningMode" class="listening-mode-link" target="_top" href="pictlingo-game.html?mode=listening">リスニング</a>
           <button id="collection" class="action-button collection-button" type="button"><svg><use href="#i-book"/></svg><span id="collectionLabel">辞書</span><span id="collectionCount">0</span></button>
         </div>
       </div>
@@ -184,6 +188,7 @@
     <p>絵を見て、かなと英語をつなごう。</p>
     <img src="../assets/word/candy.png" alt="カラフルなキャンディー" width="220" height="220">
     <button id="launchDifficulty" class="modal-primary" type="button">難易度設定</button>
+    <a id="launchListening" class="listening-mode-link" target="_top" href="pictlingo-game.html?mode=listening">英文を聞いて、4つの絵から選ぶ</a>
     <button id="startPlay" class="modal-primary" type="button">遊ぶ</button>
     <button id="reloadReviewedData" class="modal-primary" type="button" hidden>データを再読み込み</button>
     <button id="saveOffline" class="modal-primary" type="button">20問を保存（約5MB）</button>

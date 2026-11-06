@@ -109,11 +109,48 @@ def render_thumbnail(raw,size):
         output=io.BytesIO();image.save(output,'WEBP',quality=82,method=4,exact=True)
         return output.getvalue()
 
-def build(root=ROOT,thumb_size=320):
+def thumbnail_cache(root,thumb_size):
+    """Reuse only intact, hash-bound files from an identical thumbnail profile."""
+    try:
+        report=json.loads((root/'app/eigo-no-e/build-manifest.json').read_bytes())
+        settings=report.get('thumbnail',{})
+        if report.get('build_version')!=BUILD_VERSION or any(settings.get(k)!=v for k,v in
+                {'size':thumb_size,'quality':82,'method':4,'pillow':PILLOW_VERSION}.items()):return {}
+        raw=(root/'app/eigo-no-e/data.js').read_bytes()
+        if sha256(raw)!=report.get('data_sha256'):return {}
+        marker=b'window.EIGO_NO_E='
+        data=json.JSONDecoder().raw_decode(raw.split(marker,1)[1].decode('utf-8'))[0]
+        if data.get('build_version')!=BUILD_VERSION:return {}
+        cache={};duplicates=set()
+        for row in data['words']:
+            if row['id'] in cache:duplicates.add(row['id'])
+            cache[row['id']]=row
+        return {k:v for k,v in cache.items() if k not in duplicates}
+    except (OSError,ValueError,KeyError,IndexError,TypeError):return {}
+
+def cached_thumbnail(root,cache,row,relative,thumb_size):
+    prior=cache.get(row['id'],{});thumb=prior.get('thumb',{});image=row['image']
+    if prior.get('image',{}).get('sha256')!=image['sha256'] or thumb.get('source_sha256')!=image['sha256'] or thumb.get('path')!=relative.removeprefix('app/') or thumb.get('width')!=thumb_size:return None
+    path=root/relative
+    if not path.is_file():return None
+    raw=path.read_bytes()
+    return raw if sha256(raw)==thumb.get('sha256') else None
+
+def build(root=ROOT,thumb_size=320,*,catalog_snapshot=None,reuse_thumbnails=False):
     root=Path(root);sys.path.insert(0,str(root/'app/data'))
     from build_generated_image_catalog import build_catalog_rows
     from semantic_classifications import apply_to_catalog
-    game_rows,meta,packs,common=build_catalog_rows(root,include_packs=False)
+    # The combined refresher supplies its already verified result in this process.
+    # Standalone builds retain the original scan and ownership verification path.
+    game_rows,meta,packs,common=(build_catalog_rows(root,include_packs=False)
+                               if catalog_snapshot is None else catalog_snapshot)
+    if catalog_snapshot is not None:
+        for relative,field in [('app/data/generated-etymon/words.json','sourceWordsSha256'),
+                               ('app/data/generated-etymon/illustration-scenes.json','scenesSha256'),
+                               ('assets/word/illustration-index.js','indexSha256')]:
+            if sha256((root/relative).read_bytes())!=meta[field]:
+                raise ValueError('Catalog input changed before dictionary build: '+relative)
+    cache=thumbnail_cache(root,thumb_size) if reuse_thumbnails else {}
     rows=[];thumb_outputs={};bindings=[]
     for g in game_rows:
         bound=g['bindingStatus']=='bound';sense=g.get('sense',{})
@@ -129,7 +166,11 @@ def build(root=ROOT,thumb_size=320):
         # Reviewed images retain optimized, immutable thumbnails. Other existing PNGs
         # load lazily without requiring thousands of redundant generated files.
         if g['description']['status']=='reviewed':
-            thumb=render_thumbnail((root/image['path']).read_bytes(),thumb_size)
+            image_raw=(root/image['path']).read_bytes()
+            if sha256(image_raw)!=image['sha256']:
+                raise ValueError('Image changed after catalog verification: '+image['path'])
+            thumb=cached_thumbnail(root,cache,g,relative,thumb_size)
+            if thumb is None:thumb=render_thumbnail(image_raw,thumb_size)
             row['thumb']={'path':relative.removeprefix('app/'),'sha256':sha256(thumb),'source_sha256':image['sha256'],'width':thumb_size}
             thumb_outputs[relative]=thumb
         else:row['thumb']={'path':'../'+image['path'],'sha256':image['sha256'],'source_sha256':image['sha256'],'width':512,'original':True}

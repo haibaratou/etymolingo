@@ -2,6 +2,7 @@
 (async () => {
   'use strict';
   if(window.NICOLINGO_PHONE_HOST)return;
+  if (window.PictlingoListening?.requested()) { await window.PictlingoListening.mount(); return; }
   const $ = id => document.getElementById(id);
   $('reloadGame').addEventListener('click', () => {
     const url = new URL(location.href);
@@ -114,13 +115,20 @@
   const text = () => copy[mode];
   const progress = () => saved[mode];
   const wordLevel = word => Number.isInteger(word?.customLearningLevel?.level) && word.customLearningLevel.level >= 1 && word.customLearningLevel.level <= 10 ? word.customLearningLevel.level : null;
-  const learningStars = level => `<span class="art-stars ${window.EtymonRarity?.classes(window.EtymonRarity.learning(level,'game'))||''}" data-learning-level="${level||0}" role="img" aria-label="${level?'独自レベル '+level+' / 10':'独自レベル未分類'}">${level?Array.from({length:level},()=>'<img src="../assets/ui/word_et_star.png" alt="" width="28" height="28">').join(''):'未分類'}</span>`;
+  const starMarkup = level => { const star = '<img src="../assets/ui/word_et_star.png" alt="" width="28" height="28">'; return Array.from({length:5}, (_, i) => `<span class="star-slot" style="--fill:${Math.max(0, Math.min(2, level - i * 2)) * 50}%">${star.replace('<img', '<img class="star-empty"')}<span class="star-fill">${star}</span></span>`).join(''); }; // Level 1-10 is shown as 0.5-5 of five stars.
+  const learningStars = level => `<span class="art-stars ${window.EtymonRarity?.classes(window.EtymonRarity.learning(level,'game'))||''}" data-learning-level="${level||0}" role="img" aria-label="${level?'レア度 星'+level/2+' / 5（独自レベル '+level+'）':'独自レベル未分類'}">${level?starMarkup(level):'未分類'}</span>`;
   const learningBadge = tier => learningStars(Number(difficulty.tiers[tier]?.key)||null);
   const collectedCount = lang => catalog.filter(word => supports(word, lang) && saved[lang].stars[word.id]).length;
   const uniqueCount = () => catalog.filter(word => saved.ja.stars[word.id] || saved.en.stars[word.id]).length;
   const bookName = lang => lang === 'ja' ? '日本語' : '英語';
   const nextUncollected = (lang, after) => {
-    const available = catalog.filter(word => supports(word, lang));
+    let available = catalog.filter(word => supports(word, lang));
+    // おまかせ発見はやさしい順: まだ星のない語のうち、いちばん低い独自レベルの、つづりのやさしい10語から選ぶ。
+    // (重みつきの抽選だけだと、語数の多い上のレベルばかり出てしまう)
+    if (saved.targetTier < 0) {
+      const open = available.filter(word => !saved[lang].stars[word.id]);
+      if (open.length) { const lowest = Math.min(...open.map(word => word.tier)); available = open.filter(word => word.tier === lowest).slice(0, 10); }
+    }
     const next = discovery.selectNext(available, saved, { language: lang, targetTier: saved.targetTier, afterId: catalog[after]?.id });
     return available[next] ? catalog.indexOf(available[next]) : -1;
   };
@@ -569,7 +577,16 @@
   function selectNode(id) {
     if (phase !== 'playing') return;
     const candidate = nodes.find(node => node.id === id);
-    if (selected.includes(id)) return;
+    if (selected.includes(id)) {
+      // Stepping back onto the previous tile during a stroke releases the last letter.
+      if (pointer && selected.length >= 2 && selected.at(-2) === id) {
+        const released = nodes.find(node => node.id === selected.at(-1));
+        selected = selected.slice(0, -1);
+        released?.button.classList.remove('hint-target');
+        sound.undo(); vibrate(5); updateAnswer(); drawTrail();
+      }
+      return;
+    }
     const previous=nodes.find(node=>node.id===selected.at(-1));
     const step=tileStep(nodes.length);
     if(previous && !areNeighbours(previous,candidate,step)) return;
@@ -1005,7 +1022,7 @@
   });
   function openDifficulty() {
     const title = '難易度';
-    const intro = document.createElement('p'); intro.className = 'modal-copy'; intro.textContent = '独自レベル1〜10の暫定目安です。CEFRを主軸に、編集済み補助指標で細分化しています。公式CEFRの追加区分や実測の学習難易度ではありません。CEFR未収録・品詞不一致の推定は特に低信頼です。';
+    const intro = document.createElement('p'); intro.className = 'modal-copy'; intro.textContent = '星は母艦の独自レベル1〜10を半分にした0.5〜5の暫定目安です。Weblioを主指標とし、未収録語はCEFR-J、編集済み補助指標の順に補います。辞書と同じ保存済みの値を使います。公式CEFRの追加区分や実測の学習難易度ではありません。';
     const grid = document.createElement('div'); grid.className = 'difficulty-grid';
     const automatic = document.createElement('button'); automatic.type = 'button'; automatic.className = 'difficulty-choice';
     automatic.setAttribute('aria-pressed', String(saved.targetTier === -1)); automatic.textContent = 'おまかせ';
@@ -1034,15 +1051,11 @@
   function renderWordDifficulty(control, word, compact = false) {
     const count = wordLevel(word);
     control.replaceChildren();
-    for (let i = 0; i < count; i++) {
-      const star = document.createElement('img');
-      star.src = '../assets/ui/word_et_star.png'; star.alt = ''; star.width = 28; star.height = 28;
-      control.append(star);
-    }
+    if (count) control.insertAdjacentHTML('beforeend', starMarkup(count)); // 0.5-5 stars
     window.EtymonRarity?.paint(control, window.EtymonRarity.learning(count, 'game'));
     if (!count) control.textContent = '未分類';
     control.removeAttribute('title');
-    control.setAttribute('aria-label', `${compact ? 'この単語' : word.en}の難易度と根拠を見る（${count ? `独自レベル ${count} / 10・星${count}` : '未分類'}）`);
+    control.setAttribute('aria-label', `${compact ? 'この単語' : word.en}の難易度と根拠を見る（${count ? `レア度 星${count / 2} / 5・独自レベル ${count}` : '未分類'}）`);
   }
   function openWordDifficulty(event) {
     event.preventDefault(); event.stopPropagation?.();
@@ -1053,19 +1066,20 @@
       const row = document.createElement('p'), name = document.createElement('strong'), valueNode = document.createElement('span');
       name.textContent = label; valueNode.textContent = value; row.append(name, valueNode); body.append(row);
     };
-    add('単語の難易度', Number.isInteger(info?.level) ? `独自レベル ${info.level} / 10（暫定目安）` : '未取得');
-    add('CEFR-J 1.6', entry.learningLevel?.level ? `${entry.learningLevel.level}（見出し・一致する品詞の参考帯）` : '見出し・一致する品詞の対応帯は未取得');
+    add('単語の難易度', Number.isInteger(info?.level) ? `星${info.level / 2} / 5（独自レベル ${info.level}・暫定目安）` : '未取得');
+    add('Weblio Lv（1〜30）', Number.isInteger(info?.web) ? String(info.web) : '掲載レベルなし');
+    add('CEFR-J 1.6', info?.official?.length ? info.official.map(value => `${value.pos} ${value.level}`).join(' / ') : '該当なし');
     const bases = {
-      cefr_anchor_then_edited_auxiliary_split: 'CEFRを基準に、編集済み補助指標で細分化',
-      edited_auxiliary_cefr_unlisted_estimate: 'CEFR未収録のため、編集済み補助指標で推定',
-      edited_auxiliary_pos_mismatch_estimate: 'CEFRの収録品詞が一致しないため、編集済み補助指標で推定'
+      weblio_30_to_10: 'Weblio Lvを母艦の独自10段階へ対応',
+      cefr_j_fallback: 'Weblio未収録のため、品詞に対応するCEFR-J帯と編集補助値で補完',
+      edited_r_fallback: 'Weblio・該当CEFR-Jなし。編集補助値から低信頼の推定'
     };
-    add('判定に使った情報', info ? (bases[info.basis] || '保存済みの独自学習レベル') : '未取得');
-    add('書籍頻度由来の編集補助値', Number.isFinite(info?.auxiliaryR) ? `r = ${info.auxiliaryR}（生頻度・Zipf値ではありません）` : '未取得');
-    add('推定の確かさ', info?.confidence === 'provisional_very_low' ? '暫定・非常に低い' : info?.confidence === 'provisional_low' ? '暫定・低い' : '未取得');
+    add('判定に使った情報', info ? (bases[info.basis] || '母艦の保存済み難易度') : '未取得');
+    add('書籍頻度由来の編集補助値', Number.isFinite(info?.raw) ? `r = ${info.raw}（生頻度・Zipf値ではありません）` : '未取得');
+    add('推定の確かさ', info?.confidence === 'provisional' ? '暫定' : info?.confidence === 'provisional_very_low' ? '暫定・非常に低い' : info?.confidence === 'provisional_low' ? '暫定・低い' : '未取得');
     add('現在のパズル', `${mode === 'ja' ? 'かな' : '英語'} ${profile.length}文字・${profile.choices}マス`);
     const note = document.createElement('p');
-    note.textContent = '独自レベルは公式CEFRの細区分や、実測した学習難易度ではありません。CEFRの参考帯は見出し・品詞別で、語義単位の検証値ではありません。元の生頻度・取得元、およびOxford・Weblio・Google Ngramの個別値は、このパズルの判定データでは未取得です。';
+    note.textContent = '母艦と辞書・パズルは同じ難易度データを使います。独自レベルは公式CEFRの細区分や、実測した学習難易度ではありません。Weblioは見出し語、CEFR-Jは見出し・品詞別の参考値であり、個別語義の公式認定ではありません。';
     body.append(note); openModal(phase === 'solved' ? `${entry.en} の難易度` : 'この単語の難易度', body);
   }
   $('rarityBadge').addEventListener('click', openWordDifficulty);
@@ -1232,7 +1246,7 @@
     }
   } else if (catalog.length) {
     const resume=catalog[index];
-    loadLevel(saved[mode].wordId===resume?.id&&supports(resume,mode)&&(saved.targetTier<0||resume.tier===saved.targetTier)?index:nextUncollected(mode,index));
+    loadLevel(saved[mode].wordId===resume?.id&&supports(resume,mode)&&(saved.targetTier<0?resume.tier<=Math.min(...catalog.filter(word=>supports(word,mode)&&!saved[mode].stars[word.id]).map(word=>word.tier)):resume.tier===saved.targetTier)?index:nextUncollected(mode,index));
     const installed = matchMedia('(display-mode: fullscreen), (display-mode: standalone)').matches;
     if (effectiveLayout() === 'mobile' && !installed) closePlay();
   }

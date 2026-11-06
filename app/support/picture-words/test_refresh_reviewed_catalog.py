@@ -1,5 +1,6 @@
 """Generated-image producer tests: missing descriptions never remove images."""
 import base64,copy,hashlib,json,os,sys,tempfile,unittest
+from unittest import mock
 from pathlib import Path
 import refresh_reviewed_catalog as R
 ROOT=Path(os.environ.get('PICTURE_WORDS_TEST_ROOT',Path(__file__).resolve().parents[3]));sys.path.insert(0,str(ROOT/'app/data'))
@@ -78,7 +79,7 @@ class ProducerTests(unittest.TestCase):
   self.assertGreaterEqual(len(ledger['resolutions']),3)
   self.assertEqual(C.issue_digest(ledger['resolutions'][:3]),'77663d0bcc428dfabadd109dd3efd126b62877e1bac86a8caf9b1a49797e8450')
  def test_all_images_present_without_any_caption(self):
-  rows,meta,_,_=C.build_catalog_rows(self.root);self.assertEqual(len(rows),3);self.assertEqual(meta['wordEntryCount'],2);self.assertEqual(meta['descriptionCounts'],{'missing':3});self.assertTrue(next(r for r in rows if r['en']=='I')['availability']['en']['playable'])
+  rows,meta,_,_=C.build_catalog_rows(self.root);self.assertEqual(len(rows),3);self.assertEqual(meta['wordEntryCount'],2);self.assertEqual(meta['descriptionCounts'],{'missing':3});self.assertEqual(next(r for r in rows if r['en']=='I')['availability']['en']['answer'],'I');self.assertFalse(next(r for r in rows if r['en']=='I')['availability']['en']['playable']);self.assertEqual(next(r for r in rows if r['en']=='I')['availability']['en']['reason'],'unsupported_english_answer_format')
  def test_caption_addition_changes_status_not_membership(self):
   old,_,_,_=C.build_catalog_rows(self.root);self.scenes=[self.reviewed()];self.save();new,_,packs,_=C.build_catalog_rows(self.root);self.assertEqual([r['id'] for r in old],[r['id'] for r in new]);self.assertEqual(len(packs),1);self.assertEqual(next(r for r in new if r['en']=='cat')['description']['status'],'reviewed')
  def test_stale_sense_disables_only_caption(self):
@@ -149,5 +150,45 @@ class ProducerTests(unittest.TestCase):
   self.words.append({'w':'constructor','p':[],'ja':'かな','en':'builder','r':1});self.save()
   (self.root/'assets/word/constructor.png').write_bytes((self.root/'assets/word/cat.png').read_bytes())
   with self.assertRaisesRegex(ValueError,'explicit stable mapping'):C.build_catalog_rows(self.root)
+
+class GenerationGuardTests(unittest.TestCase):
+ def setUp(self):
+  self.temp=tempfile.TemporaryDirectory();self.addCleanup(self.temp.cleanup);self.root=Path(self.temp.name)
+  self.out=self.root/R.GAME;self.out.mkdir(parents=True);self.html=self.root/R.HTML;self.html.write_bytes(b'latest editable game')
+  (self.root/'assets/word').mkdir(parents=True);(self.root/'assets/word/test.png').write_bytes(b'initial PNG')
+ def guard(self):return R.BuildGuard(self.root,self.out,self.html,game_only=True)
+ def test_concurrent_html_and_source_changes_abort_without_any_output(self):
+  for path in [self.html,self.root/'app/data/generated-etymon/words.json']:
+   with self.subTest(path=path):
+    guard=self.guard();path.parent.mkdir(parents=True,exist_ok=True);path.write_bytes(b'user latest edit')
+    output=self.out/'catalog.js'
+    with self.assertRaisesRegex(ValueError,'input changed'):guard.publish({output:b'new catalog',self.html:b'generated HTML'})
+    self.assertFalse(output.exists());self.assertEqual(path.read_bytes(),b'user latest edit')
+ def test_inventory_edit_is_detected_before_publication(self):
+  guard=self.guard();(self.root/'assets/word/new.png').write_bytes(b'new user image')
+  with self.assertRaisesRegex(ValueError,'PNG inventory changed'):guard.publish({self.out/'catalog.js':b'new'})
+  self.assertFalse((self.out/'catalog.js').exists())
+ def test_every_output_is_preflighted_before_first_write(self):
+  pack=self.out/'scene-assets/existing.js';pack.parent.mkdir();pack.write_bytes(b'previous')
+  guard=self.guard();pack.write_bytes(b'concurrent local edit');new=self.out/'catalog.js'
+  with self.assertRaisesRegex(ValueError,'output changed'):guard.publish({new:b'new catalog',pack:b'generated pack'})
+  self.assertFalse(new.exists());self.assertEqual(pack.read_bytes(),b'concurrent local edit')
+ def test_hash_is_rechecked_immediately_before_replacement(self):
+  target=self.out/'reviewed-catalog-report.json';target.write_bytes(b'old report');guard=self.guard();original=R.fingerprint;calls=0
+  def changing(path):
+   nonlocal calls
+   if Path(path)==target:
+    calls+=1
+    if calls==2:target.write_bytes(b'latest user report')
+   return original(path)
+  with mock.patch.object(R,'fingerprint',side_effect=changing):
+   with self.assertRaisesRegex(ValueError,'before replacement'):guard.publish({target:b'generated report'})
+  self.assertEqual(target.read_bytes(),b'latest user report')
+ def test_atomic_replace_preserves_hardlink_and_check_is_read_only(self):
+  target=self.out/'catalog.js';target.write_bytes(b'original catalog');linked=self.root/'preserved-copy.js';os.link(target,linked)
+  guard=self.guard();changed=guard.publish({target:b'new catalog'},check=True)
+  self.assertEqual(changed,[str(target)]);self.assertEqual(target.read_bytes(),b'original catalog')
+  guard.publish({target:b'new catalog'})
+  self.assertEqual(target.read_bytes(),b'new catalog');self.assertEqual(linked.read_bytes(),b'original catalog')
 
 if __name__=='__main__':unittest.main()
