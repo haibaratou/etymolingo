@@ -3,7 +3,7 @@
   "build_version": 4,
   "sources": {
     "words_sha256": "dde8b678756857270de429f87011536b3d2a4375b1cf8f171d7239d5c3e66ec3",
-    "scenes_sha256": "7294b4539db927946265af8dae67667c591a0ef20babda01bbc4558411d78304",
+    "scenes_sha256": "3dd2df49a1c9f76aa01f787dc00ea9d0347071129497c8bc9160edd260819ee4",
     "illustration_index_sha256": "9a149e6cc4a858470a0208b505010615be2648089c9cc8be6e95327db2b4f870",
     "image_dates_sha256": null,
     "semantic_classifications_sha256": "7b431d4495e9ba5910be2ad2ae0b0ad8122269dac8e6a85d9193307815f5c6f0"
@@ -21,7 +21,7 @@
     "pillow": "12.3.0",
     "unreviewed_fallback": "lazy exact original PNG"
   },
-  "data_sha256": "e8eaf3ad384f0d3efc0e013d64460238b696faaae49bad0f2fdb7e5826eef4ab",
+  "data_sha256": "f65b44190ac1dc6b5ccf6c3827874ab8ea45f6312142d4d2911fe68368ae21d8",
   "bindings": [
     {
       "id": "car",
