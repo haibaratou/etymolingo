@@ -3,14 +3,14 @@
   "build_version": 4,
   "sources": {
     "words_sha256": "dde8b678756857270de429f87011536b3d2a4375b1cf8f171d7239d5c3e66ec3",
-    "scenes_sha256": "1f3a956f22edfc14980cb5df822dfa3f09f5f8664dc57c408c0cb3ae4600b89a",
+    "scenes_sha256": "7294b4539db927946265af8dae67667c591a0ef20babda01bbc4558411d78304",
     "illustration_index_sha256": "9a149e6cc4a858470a0208b505010615be2648089c9cc8be6e95327db2b4f870",
     "image_dates_sha256": null,
     "semantic_classifications_sha256": "7b431d4495e9ba5910be2ad2ae0b0ad8122269dac8e6a85d9193307815f5c6f0"
   },
   "eligible": 24825,
   "word_entries": 23738,
-  "input_scenes": 14112,
+  "input_scenes": 14122,
   "excluded": [],
   "categories": 22,
   "unclassified": 22855,
@@ -21,7 +21,7 @@
     "pillow": "12.3.0",
     "unreviewed_fallback": "lazy exact original PNG"
   },
-  "data_sha256": "0393d120febf52f890dae2dce9ba240638d5cf907951db24951befe6b78d72b7",
+  "data_sha256": "e8eaf3ad384f0d3efc0e013d64460238b696faaae49bad0f2fdb7e5826eef4ab",
   "bindings": [
     {
       "id": "car",
@@ -19325,8 +19325,8 @@
       "image_path": "assets/word/hill.png",
       "image_sha256": "30ed8664b2513f1c969e97e0aa99b3613c4aedab8a151aee6cf73f8331852110",
       "image_git_blob": "40999abc348ad917fac2505e099cbe8b974e271e",
-      "thumbnail_path": "../assets/word/hill.png",
-      "thumbnail_sha256": "30ed8664b2513f1c969e97e0aa99b3613c4aedab8a151aee6cf73f8331852110"
+      "thumbnail_path": "eigo-no-e/thumbs/hill.30ed8664b251.webp",
+      "thumbnail_sha256": "971916e2b3583873ef9a2072b96ea9ef35b716e036916e235d0e99b5747860fa"
     },
     {
       "id": "internet",
@@ -19928,8 +19928,8 @@
       "image_path": "assets/word/bathroom.png",
       "image_sha256": "c20928afa819de6b5f58cc5d493938a1e0f79c6aa17867ee9b2188e454de78cc",
       "image_git_blob": "8c3f5d97ff678145080e6336b7761c94bd0db756",
-      "thumbnail_path": "../assets/word/bathroom.png",
-      "thumbnail_sha256": "c20928afa819de6b5f58cc5d493938a1e0f79c6aa17867ee9b2188e454de78cc"
+      "thumbnail_path": "eigo-no-e/thumbs/bathroom.c20928afa819.webp",
+      "thumbnail_sha256": "f46b0936c43e5ceb502a4cf73bdd90ee6b6b8401cb1ec4fc5c469101b77e1c4c"
     },
     {
       "id": "bias",
@@ -20072,8 +20072,8 @@
       "image_path": "assets/word/chin.png",
       "image_sha256": "2a48cfd2bb017135eeffa1b4ab42eb24473d1dfa77d032cc177903818fa5ead4",
       "image_git_blob": "fc795395dd9fe9ed67e01bc81703ee87dc5bd738",
-      "thumbnail_path": "../assets/word/chin.png",
-      "thumbnail_sha256": "2a48cfd2bb017135eeffa1b4ab42eb24473d1dfa77d032cc177903818fa5ead4"
+      "thumbnail_path": "eigo-no-e/thumbs/chin.2a48cfd2bb01.webp",
+      "thumbnail_sha256": "c37c94a34ea4cd9ad782cc05af8ab72bb9c1367954c28523d595a045391feb55"
     },
     {
       "id": "coverage",
@@ -20927,8 +20927,8 @@
       "image_path": "assets/word/aircraft.png",
       "image_sha256": "e7109caaa55385f75d175f10ecbb778a6bcffb2ded61c575b579fc662914e319",
       "image_git_blob": "160a36067430a9f7bebbc913b87679b06de51259",
-      "thumbnail_path": "../assets/word/aircraft.png",
-      "thumbnail_sha256": "e7109caaa55385f75d175f10ecbb778a6bcffb2ded61c575b579fc662914e319"
+      "thumbnail_path": "eigo-no-e/thumbs/aircraft.e7109caaa553.webp",
+      "thumbnail_sha256": "7787478ee17cde04396af8be4f697ccf873924977d30d6c51c5446a258b6408b"
     },
     {
       "id": "hiding",
@@ -23096,8 +23096,8 @@
       "image_path": "assets/word/leaf.png",
       "image_sha256": "574d517f2db72a67318db4715867cc72474da3eabb8189a82eb3899d273a98e8",
       "image_git_blob": "33ae929ce5054ee34b321cb8239c67ae63a8c4bf",
-      "thumbnail_path": "../assets/word/leaf.png",
-      "thumbnail_sha256": "574d517f2db72a67318db4715867cc72474da3eabb8189a82eb3899d273a98e8"
+      "thumbnail_path": "eigo-no-e/thumbs/leaf.574d517f2db7.webp",
+      "thumbnail_sha256": "b8c4282a822e40ee079ac896b472b019b7af3681480bf09ed554eda97fba355f"
     },
     {
       "id": "relate",
@@ -26201,8 +26201,8 @@
       "image_path": "assets/word/honey.png",
       "image_sha256": "c2298ab5fa5000a2aba0d0164a6a66392bdeb02f99658c5a548afcd6a3285ae2",
       "image_git_blob": "0f8194b5fd6398970387b9f915058ac3baca9dfd",
-      "thumbnail_path": "../assets/word/honey.png",
-      "thumbnail_sha256": "c2298ab5fa5000a2aba0d0164a6a66392bdeb02f99658c5a548afcd6a3285ae2"
+      "thumbnail_path": "eigo-no-e/thumbs/honey.c2298ab5fa50.webp",
+      "thumbnail_sha256": "ea33f1db42c5befc98f3aa9f44c55d93888252efe3be2afaf3dd004aae49a82c"
     },
     {
       "id": "ion",
@@ -26903,8 +26903,8 @@
       "image_path": "assets/word/flour.png",
       "image_sha256": "32187745522c3fc90d14052262dcb79c7fa38f57c98239cd8be91807ddc131f9",
       "image_git_blob": "dc23d91365c498b21a6334f6c5251a32d1e00ab0",
-      "thumbnail_path": "../assets/word/flour.png",
-      "thumbnail_sha256": "32187745522c3fc90d14052262dcb79c7fa38f57c98239cd8be91807ddc131f9"
+      "thumbnail_path": "eigo-no-e/thumbs/flour.32187745522c.webp",
+      "thumbnail_sha256": "f37f20a7d455dc5d92dfc1c7ffd15da239de82fd04f0607f13ab65f968c9f4d7"
     },
     {
       "id": "fortune",
@@ -27497,8 +27497,8 @@
       "image_path": "assets/word/oven.png",
       "image_sha256": "156800f6a2b1e826fadf4f1a6e4c897c39ba5bab7ed6f946e6e8c4e4d5ec9670",
       "image_git_blob": "cab3f12f148d163c978befa26008c88ef6f0a14c",
-      "thumbnail_path": "../assets/word/oven.png",
-      "thumbnail_sha256": "156800f6a2b1e826fadf4f1a6e4c897c39ba5bab7ed6f946e6e8c4e4d5ec9670"
+      "thumbnail_path": "eigo-no-e/thumbs/oven.156800f6a2b1.webp",
+      "thumbnail_sha256": "7f4120d3652754026e3cfde3991e27187bf9c51271837315e465abb21fd163bc"
     },
     {
       "id": "pan@per2",
@@ -28730,8 +28730,8 @@
       "image_path": "assets/word/clay.png",
       "image_sha256": "d499fcaefc8661565740fe4e37a4375f9420609ac1ada27ef5ba4ad3d0807b29",
       "image_git_blob": "5160189cc7c6ecab2aadd13c28095fd2ddad9cc7",
-      "thumbnail_path": "../assets/word/clay.png",
-      "thumbnail_sha256": "d499fcaefc8661565740fe4e37a4375f9420609ac1ada27ef5ba4ad3d0807b29"
+      "thumbnail_path": "eigo-no-e/thumbs/clay.d499fcaefc86.webp",
+      "thumbnail_sha256": "94bbd943b1f826563a03767025292b9635779d27350ab78e948da9276bac1440"
     },
     {
       "id": "delicate",
@@ -30899,8 +30899,8 @@
       "image_path": "assets/word/arrow.png",
       "image_sha256": "18c47bda97bef1971c088675a14a2390fd095010214824e7590734f779e79414",
       "image_git_blob": "2a07f1f9e5b22922d81307b347995326aaaeda19",
-      "thumbnail_path": "../assets/word/arrow.png",
-      "thumbnail_sha256": "18c47bda97bef1971c088675a14a2390fd095010214824e7590734f779e79414"
+      "thumbnail_path": "eigo-no-e/thumbs/arrow.18c47bda97be.webp",
+      "thumbnail_sha256": "fc2b91e4aef5c985bdc521751754820fc975c2de60bdf904543dab01f55b6116"
     },
     {
       "id": "attract",
@@ -223461,9 +223461,9 @@
     "preservedProtectedBindings": 20612
   },
   "description_counts": {
-    "reviewed": 12095,
+    "reviewed": 12105,
     "held": 903,
-    "missing": 10630,
+    "missing": 10620,
     "stale": 1197
   },
   "playable_counts": {

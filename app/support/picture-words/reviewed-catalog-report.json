@@ -3,16 +3,16 @@
   "meta": {
     "schema": 2,
     "sourceWordsSha256": "dde8b678756857270de429f87011536b3d2a4375b1cf8f171d7239d5c3e66ec3",
-    "scenesSha256": "1f3a956f22edfc14980cb5df822dfa3f09f5f8664dc57c408c0cb3ae4600b89a",
+    "scenesSha256": "7294b4539db927946265af8dae67667c591a0ef20babda01bbc4558411d78304",
     "indexSha256": "9a149e6cc4a858470a0208b505010615be2648089c9cc8be6e95327db2b4f870",
     "imageDateEvidenceSha256": null,
     "count": 24825,
     "wordEntryCount": 23738,
     "ownershipPendingCount": 1051,
     "descriptionCounts": {
-      "reviewed": 12095,
+      "reviewed": 12105,
       "held": 903,
-      "missing": 10630,
+      "missing": 10620,
       "stale": 1197
     },
     "playableCounts": {
@@ -31,13 +31,13 @@
     "conflictingFiles": 15,
     "preservedProtectedBindings": 20612
   },
-  "sceneEntries": 14112,
+  "sceneEntries": 14122,
   "existingIdsPreserved": 262,
   "legacyIdsPreserved": 80,
   "imageBytes": 5923497546,
   "emittedRows": 24825,
-  "lazyAssets": 12095,
-  "lazyAssetBytes": 3854058333,
+  "lazyAssets": 12105,
+  "lazyAssetBytes": 3857036015,
   "inventoryNamesSha256": "8c0e31959f4502a34b447834c7b3c30e6d9773e6a977b90ad7321162d560307c",
   "inclusionPolicy": "all_observed_valid_generated_PNGs",
   "dateGateApplied": false,
