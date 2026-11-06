@@ -44,10 +44,10 @@ html[data-play-mode="listening"] .ambient,html[data-play-mode="listening"] #part
 #listeningTranslation{margin:3px 0 8px;font-size:.76rem;line-height:1.5;color:#718075}
 .listening-next{min-height:42px;min-width:170px;padding:9px 22px;border:0;border-radius:14px;background:#315b4b;color:#fff;font:800 .9rem 'M PLUS Rounded 1c',system-ui,sans-serif;cursor:pointer}
 .listening-next span{padding-left:12px}
-.listening-app[data-reveal="single"] .listening-choices{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr)}
+.listening-app[data-reveal="single"] .listening-choices{height:auto;min-height:0;grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr)}
 .listening-app[data-reveal="single"] .listening-choice{border-color:transparent;background:#fff;box-shadow:0 2px 8px #2943310a}
 .listening-app[data-reveal="single"] .listening-choice-number{display:none}
-.listening-app[data-reveal="single"] .listening-speaker{left:auto;top:auto;right:14px;bottom:14px;transform:none}
+.listening-app[data-reveal="single"] .listening-stage{display:grid;grid-template-rows:minmax(0,1fr) auto;gap:8px}
 .listening-app[data-reveal="single"] .listening-footer{background:#fff;border-radius:20px;padding:10px 12px}
 @media(min-width:861px){.listening-app{padding:18px 28px 20px;gap:16px}.listening-header h1{font-size:1.2rem}.listening-choice{padding:20px}.listening-speaker{width:116px;height:116px}.listening-speaker svg{width:38px;height:38px}.listening-status{font-size:.86rem}}
 @media(max-width:480px){.listening-app{padding-right:10px;padding-left:10px;gap:8px}.listening-header{min-height:44px}.listening-choices{gap:8px}.listening-choice{border-radius:19px;padding:7px}.listening-choice-number{top:7px;left:8px;width:22px;height:22px}.listening-speaker{width:86px;height:86px;border-width:5px}.listening-speaker svg{width:28px;height:28px}.listening-speaker span{font-size:.58rem}.listening-answer-heading{gap:9px}#listeningWord{font-size:1.2rem}#listeningSentence{font-size:.9rem}}
@@ -64,4 +64,7 @@ html[data-play-mode="listening"] .ambient,html[data-play-mode="listening"] #part
 .listening-app.is-portrait .listening-answer-heading{gap:9px}
 .listening-app.is-portrait #listeningWord{font-size:1.2rem}
 .listening-app.is-portrait #listeningSentence{font-size:.9rem}
+.listening-app[data-reveal="single"] .listening-speaker{position:static;left:auto;top:auto;right:auto;bottom:auto;transform:none;place-self:center;width:min(100%,200px);height:52px;padding:10px 18px;border:0;border-radius:16px;flex-direction:row;gap:10px}
+.listening-app[data-reveal="single"] .listening-speaker svg{width:26px;height:26px}
+.listening-app[data-reveal="single"] .listening-speaker span{font-size:.78rem}
 @media(prefers-reduced-motion:reduce){.listening-choice{transition:none}}
