@@ -16,6 +16,28 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         timeout-minutes: 15
+        with:
+          # Keep the full Git index for media routing; fetch only selected blobs.
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /*
+            !*.[pP][nN][gG]
+            !*.[wW][eE][bB][pP]
+            !*.[jJ][pP][gG]
+            !*.[jJ][pP][eE][gG]
+            !*.[gG][iI][fF]
+            !*.[aA][vV][iI][fF]
+            !*.[mM][pP]4
+            !*.[wW][eE][bB][mM]
+            !*.[mM][pP]3
+            !*.[wW][aA][vV]
+            !*.[oO][gG][gG]
+            !/app/support/picture-words/scene-assets/
+            !/work/etymopedia/.workflow/
+            !/work/etymopedia/old/
+            !/work/etymopedia/ui-update-20261030/
+            !/work/etymopedia/tmp/
+            /assets/ui/**
       - uses: actions/setup-node@v4
         with:
           node-version: 22
