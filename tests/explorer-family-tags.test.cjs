@@ -64,7 +64,7 @@ test('a known direct-language decomposition remains visible with zero or one PIE
  const vm=require('node:vm');
  const code=html.match(/^function wordParts\([^]*?^}/m)[0];
  const context={WORD_PARTS:parts,COMPONENTS:null,esc:s=>String(s)};vm.createContext(context);vm.runInContext(code,context);
- assert.equal(context.wordParts({w:'normal',p:[]},true),'<div class="wordParts"><b>語源組み立て</b><span>norm（基準）＋al（〜に関する）</span></div>');
+ assert.equal(context.wordParts({w:'normal',p:[]},true),'<div class="wordParts"><b>語源計算式</b><span>norm（基準）＋al（〜に関する）</span></div>');
  assert.equal(context.wordParts({w:'mission',p:[]}),'<div class="wordParts"><span>miss（送る）＋ion（こと）</span></div>');
  assert.match(context.wordParts({w:'transmit',p:['terə-2']}),/mit（送る）/);
  assert.equal(context.wordParts({w:'unreviewed-word',p:['a','b']}),'');
@@ -134,7 +134,7 @@ test('attested Latin and Greek references are labelled consistently in titles an
  assert.match(context.rootChip('gnō-'),/\*gnō-|\*gnō-/);
  assert.equal(context.hasPieRoot(mixed),true);
  assert.equal(context.hasPieRoot(empty),false);
- assert.match(html,/>語根・部品\$\{arrow\('p'\)\}/);
+ assert.match(html,/>PIE\$\{arrow\('p'\)\}/);
 });
 
 test('doubtful gno links do not appear in PIE membership or character explanations',()=>{
