@@ -1106,7 +1106,8 @@ function tableRenderData(){
   const base=baseWords();
   return {base,shown:applyFilters(base)};
 }
-function renderToolbar(data=tableRenderData()){
+function renderToolbar(){
+  const data=arguments[0]===undefined?tableRenderData():arguments[0];
   const {base,shown}=data;
   const staleReviews=reviewDataError?0:(REVIEW_NOTES?.stats.stale||0);
   const active=(F.originFamilies.length>0||F.originLanguages.length>0)||F.pos!==''||F.comp||F.noroot||F.rootType!==''||F.pic!==''||F.tag!==''||F.review||F.reviewNotes;
@@ -1324,7 +1325,8 @@ function rowHTML(w){
     <td class="cGTag">${gameTagCell(w)}</td>
   </tr>`;
 }
-function renderTable(data){
+function renderTable(){
+  const data=arguments[0];
   sceneObserver.disconnect();
   illustrationReviewObserver.disconnect();
   tblRows=data?data.shown:applyFilters(baseWords());
