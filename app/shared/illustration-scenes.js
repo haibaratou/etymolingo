@@ -123,19 +123,19 @@ if (typeof window !== 'undefined' && /\/vocabulary-master\.html$/.test(window.lo
       window.dispatchEvent(new Event('etymon:review-ready'));
     }).catch(err=>console.warn('Illustration review status unavailable',err));
     const panels=Promise.all([
-      addScript('shared/spelling-puzzle-eligibility.js?v=a5edb2f52b2f'),
+      (window.EtymonSpellingEligibility?Promise.resolve():addScript('shared/spelling-puzzle-eligibility.js?v=a5edb2f52b2f')),
       addScript('shared/verb-inflections.js?v=73427e80a6fe'),
       addScript('data/generated-etymon/weblio-learning-levels.js?v=e6a41b9d8680'),
       addScript('data/generated-etymon/learning-levels.js?v=48bcf2f15474')
     ]).then(()=>Promise.all([
       addScript('shared/explorer-inflections.js?v=65a568ed03bf'),
-      addScript('shared/explorer-difficulty-v2.js?v=c8f1b29f8eb9')
+      (window.EtymonDifficultyV2?Promise.resolve():addScript('shared/explorer-difficulty-v2.js?v=e731dd8f968f'))
     ]));
     panels.then(()=>{
       document.documentElement.dataset.explorerPanelsReady='1';
       return Promise.all([
-        addScript('data/generated-etymon/puzzle-eligibility.js?v=76cf845d0966'),
-        addScript('data/generated-etymon/puzzle-visual-scores.js?v=27826b8b5ce4')
+        (window.ETYMON_PUZZLE_ENVELOPE?Promise.resolve():addScript('data/generated-etymon/puzzle-eligibility.js?v=76cf845d0966')),
+        (window.ETYMON_PUZZLE_VISUAL_SCORES?Promise.resolve():addScript('data/generated-etymon/puzzle-visual-scores.js?v=27826b8b5ce4'))
       ]);
     }).then(()=>{
       document.documentElement.dataset.explorerVisualReady='1';

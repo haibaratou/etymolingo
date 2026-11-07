@@ -1,6 +1,11 @@
 /* Mother-owned difficulty: every production view reads the same checked sidecar.
    The legacy formula remains available for source-policy parity audits only. */
 (function(root,factory){
+  const installed=root?.[Symbol.for('etymon.explorerDifficultyV2.mount')];
+  if(installed&&installed.document===root.document){
+    if(typeof module==='object'&&module.exports)module.exports=installed.api;
+    return;
+  }
   const api=factory();
   if(typeof module==='object'&&module.exports)module.exports=api;
   if(root&&root.document){root.EtymonDifficultyV2=api;if(root.document.currentScript?.dataset.apiOnly!=='true')api.mount(root);}
@@ -88,6 +93,9 @@ function modalHTML(w,d){
   +'<p>'+esc(d.note)+'</p><p class="difficulty-v2-caution">数値は学習者の実測正答率・公式CEFR細分類ではありません。</p>';
 }
 function mount(root){
+ const mountKey=Symbol.for('etymon.explorerDifficultyV2.mount');
+ const installed=root[mountKey];
+ if(installed&&installed.document===root.document)return installed.api;
  const doc=root.document,style=doc.createElement('style');
  style.textContent='.difficulty-v2-col{width:1%!important;min-width:0!important;max-width:none!important;white-space:nowrap!important;text-align:left!important;padding-left:8px!important;vertical-align:middle!important}.difficulty-v2-button{font-weight:700;font-size:13px;line-height:1.35;font-family:inherit;color:#245d4b;border:1px solid #a4c6b4;background:#eaf5ef;border-radius:7px;padding:2px 7px;white-space:nowrap;cursor:pointer;text-align:left;margin:0}.difficulty-v2-button:hover,.difficulty-v2-button:focus-visible{border-color:#338a6b;background:#d9efe3}.difficulty-v2-button[data-unknown="1"]{color:#62676a;background:#f4f4f4;border-color:#ddd}#difficultyV2Dialog{max-width:min(480px,92vw);border:1px solid #b7c1bd;border-radius:12px;padding:20px 22px;box-shadow:0 12px 40px #0003;background:#fff;color:#273b32}#difficultyV2Dialog::backdrop{background:#0006}#difficultyV2Dialog h2{font-size:20px;margin:0 0 8px}#difficultyV2Dialog p{margin:8px 0;line-height:1.55}#difficultyV2Dialog dl{display:grid;grid-template-columns:max-content 1fr;gap:7px 14px;margin:12px 0}#difficultyV2Dialog dt{font-weight:700}#difficultyV2Dialog dd{margin:0}#difficultyV2Dialog .difficulty-v2-close{display:block;margin:18px 0 0 auto;padding:6px 14px;cursor:pointer}#difficultyV2Dialog .difficulty-v2-caution{font-size:12px;color:#6a6a6a}';
  style.textContent+='.difficulty-v2-stars{display:inline-flex;gap:0;font-size:.8em;line-height:1;color:#95630b;white-space:nowrap}.difficulty-v2-button{padding:0;min-height:0;border:0;background:transparent;border-radius:0;line-height:1;box-shadow:none;margin:0}.difficulty-v2-button:hover,.difficulty-v2-button:focus-visible{background:transparent;border:0;outline:1px solid currentColor;outline-offset:1px}.difficulty-v2-filter{font-size:15px!important}.difficulty-v2-col{vertical-align:middle;padding:3px 5px!important}.difficulty-v2-unknown{font-size:12px}.difficulty-v2-filter .difficulty-v2-stars,#difficultyV2Dialog .difficulty-v2-stars{font-size:inherit;color:inherit}';
@@ -331,6 +339,7 @@ function mount(root){
   canonical=null;difficultyCache=new WeakMap();schedule();
   console.warn('母艦の難易度データを読み込めません',error);return null;
  });
+ root[mountKey]={document:doc,api:root.EtymonDifficultyV2};
 }
 return {starHTML,WEBLIO_TO_10,R_CUTS,makeIndex,evaluate,canonicalIndex,loadCanonical,mount,languageFamilies,resolveFamilyTags:languageFamilies};
 });
