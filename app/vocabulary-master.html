@@ -695,7 +695,10 @@ async function loadData(){
 function wordParts(w,labeled=false){
   const key=JSON.stringify([w.w,(w.p||[]).join('+')]);
   const text=WORD_PARTS[key];
-  return text?`<div class="wordParts">${labeled?'<b>語源計算式</b>':''}<span>${esc(text)}</span></div>`:'';
+  // Plain borrowing/inheritance prose is retained in details, not the formula column.
+  const explanation=typeof text==='string'&&!/[＋+＝=]/.test(text)&&/(?:由来|借用|継承|さかのぼ|遡る|語史|歴史形|同じ語|経由|命令形と基本形|単複関係|語[^＋+]*←|^[^（]*語)/.test(text);
+  if(!labeled&&explanation)return '';
+  return text?`<div class="wordParts">${labeled?'<b>'+(explanation?'語形・由来':'語源計算式')+'</b>':''}<span>${esc(text)}</span></div>`:'';
 }
 function rootLabel(r){
   if(r.component_id)return (r.kind==='pie_reconstruction'?'*':'')+(r.display_form||r.pie||r.key);
@@ -1344,7 +1347,7 @@ function renderTable(){
       <th class="cR sortable" data-c="r">レア度${arrow('r')}</th>
       <th class="cJa" title="一般的な意味を先頭に編集する方針です。まだ未点検の語義も含みます。">語義</th>
       <th class="cRoots sortable" data-c="p">PIE${arrow('p')}</th>
-      <th class="cParts" title="単語ができた段階の各部分と意味。→は古い形から現在の形への変化。古代概念の核と意味の広がりは大解説で説明します。語源ひとことメモは組み立てを受けて、当時の意味や使われ方を補います。">語源計算式</th>
+      <th class="cParts" title="綴りに対応する部品と意味の式。未整備は空欄です。借用元の説明は詳細に表示します。">語源計算式</th>
       <th class="cDef">語源ひとことメモ</th>
       <th class="cLang sortable" data-c="g">語源系統${arrow('g')}</th>
       <th class="cOriginLanguage sortable" data-c="originLanguages">起源言語${arrow('originLanguages')}</th>

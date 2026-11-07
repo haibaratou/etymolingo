@@ -186,3 +186,43 @@ test('reviewed compound batch preserves exact spelling, genitive and plural dist
  const expected={"[\"policeman\",\"\"]": "police（警察）＋man（人）", "[\"businessman\",\"\"]": "busi（忙しい）＋ness（状態）＋man（人）", "[\"salesman\",\"\"]": "sale（販売）＋s（属格の語尾）＋man（人）", "[\"saleswoman\",\"\"]": "sale（販売）＋s（属格の語尾）＋woman（女性）", "[\"snowball\",\"\"]": "snow（雪）＋ball（球）", "[\"snowflake\",\"\"]": "snow（雪）＋flake（薄い小片）", "[\"windshield\",\"\"]": "wind（風）＋shield（盾）", "[\"skateboard\",\"\"]": "skate（滑る）＋board（板）", "[\"surfboard\",\"\"]": "surf（砕ける波）＋board（板）", "[\"housekeeper\",\"\"]": "house（家）＋keep（保つ）＋er（人・もの）", "[\"haircut\",\"\"]": "hair（髪）＋cut（切ること）", "[\"footprint\",\"\"]": "foot（足）＋print（押した跡）", "[\"playmate\",\"\"]": "play（遊ぶ）＋mate（仲間）", "[\"teamwork\",\"\"]": "team（組）＋work（仕事）", "[\"countryside\",\"\"]": "country（土地）＋side（地域）", "[\"seagull\",\"\"]": "sea（海）＋gull（カモメ）", "[\"seafood\",\"pā-\"]": "sea（海）＋food（食べ物）", "[\"waterfront\",\"\"]": "water（水）＋front（前面）", "[\"waterway\",\"\"]": "water（水）＋way（道）", "[\"underwater\",\"\"]": "under（〜の下に）＋water（水）", "[\"underground\",\"\"]": "under（〜の下に）＋ground（地面）", "[\"overhead\",\"\"]": "over（〜の上に）＋head（頭）", "[\"downstairs\",\"\"]": "down（下へ）＋stair（階段）＋s（複数）", "[\"upstairs\",\"\"]": "up（上へ）＋stair（階段）＋s（複数）", "[\"downtown\",\"dheuə-\"]": "down（下へ）＋town（町）", "[\"laptop\",\"\"]": "lap（座った人の膝）＋top（上面）", "[\"password\",\"\"]": "pass（通る）＋word（言葉）"};
  for(const [key,caption]of Object.entries(expected))assert.equal(parts[key],caption,key);
 });
+
+function formulaDisplayFixture(){
+ const vm=require('node:vm');
+ const html=fs.readFileSync(path.join(__dirname,'../app/vocabulary-master.html'),'utf8');
+ const start=html.indexOf('function wordParts('),end=html.indexOf('function rootLabel(',start);
+ assert(start>=0&&end>start,'wordParts renderer must be extracted from the actual HTML');
+ const context={WORD_PARTS:{},esc:s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))};
+ vm.createContext(context);vm.runInContext(html.slice(start,end),context);
+ const word={w:'fixture',p:[]};
+ return {render:(text,labeled=false)=>{context.WORD_PARTS[JSON.stringify(['fixture',''])]=text;return context.wordParts(word,labeled);},esc:context.esc};
+}
+test('formula column omits origin prose but preserves its full body under the correct detail label',()=>{
+ const {render,esc}=formulaDisplayFixture();
+ const prose=[
+  'ラテン語の語形に由来：dēlīneāre（輪郭を描く）',
+  '古英語 wæter（水）を継承',
+  '古フランス語 forme（形）を一語として借用',
+  '確認できたラテン語起源：industria（勤勉・活動）',
+  '英語 win（勝つ）の過去形・過去分詞',
+  'フランス語のcafé（コーヒー・喫茶店）←caffè（コーヒー）←qahve（コーヒー）←qahwa（コーヒー）〔同じ語の借用経路。内部の分解は未確認〕'
+ ];
+ for(const text of prose){
+  assert.equal(render(text),'');
+  assert.equal(render(text,true),'<div class="wordParts"><b>語形・由来</b><span>'+esc(text)+'</span></div>');
+ }
+});
+test('formula renderer preserves component equations and single-form glosses without inventing missing expressions',()=>{
+ const {render,esc}=formulaDisplayFixture();
+ for(const text of ['dis（否定）＋order（秩序）','ne（否定）＋語形（語源説明）','part（由来）＋part（借用）','a + b','a＝b','dog（犬）','sushi（すし）']){
+  assert.equal(render(text),'<div class="wordParts"><span>'+esc(text)+'</span></div>');
+  assert.equal(render(text,true),'<div class="wordParts"><b>語源計算式</b><span>'+esc(text)+'</span></div>');
+ }
+ for(const missing of [undefined,null,'']){assert.equal(render(missing),'');assert.equal(render(missing,true),'');}
+ const unsafe='ラテン語の語形に由来：<x & "y">';
+ assert.equal(render(unsafe),'');assert(!render(unsafe,true).includes('<x'));assert(render(unsafe,true).includes('&lt;x &amp; &quot;y&quot;&gt;'));
+});
+test('formula column tooltip describes expressions and separates origin explanations',()=>{
+ const html=fs.readFileSync(path.join(__dirname,'../app/vocabulary-master.html'),'utf8');
+ assert.match(html,/<th class="cParts" title="綴りに対応する部品と意味の式。未整備は空欄です。借用元の説明は詳細に表示します。">語源計算式<\/th>/);
+});
