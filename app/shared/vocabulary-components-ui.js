@@ -170,6 +170,32 @@
   const c=binding?.coverage?.(word);
   return c?.guard_valid&&c.has_confirmed_components&&!annotations(binding,word)?{...c,state:'unavailable',guard_valid:false,has_confirmed_components:false}:c;
  }
+ function equivalentRegisteredPie(binding,word,ref,registered){
+  if(ref.kind!=='pie_reconstruction'||ref.reference_type==='legacy_root'||!ref.entity?.id)return null;
+  // Identity comes from explicit, guarded terminal-to-legacy links. A shared
+  // entity may carry that link on another word; spelling/meaning never merge roots.
+  const candidates=new Set(),members=[word,...(binding?.byEntity?.(ref.entity.id)||[])];
+  for(const member of new Set(members)){
+   if(!binding?.coverage?.(member)?.guard_valid||!annotations(binding,member))continue;
+   for(const line of binding?.wordLineages?.(member)||[]){
+    if(!line.confirmed||line.uncertain_edges||line.terminal_entity?.id!==ref.entity.id
+      ||line.terminal_entity.kind!=='pie_reconstruction'||line.deepest_confirmed_ref!==ref.entity.id
+      ||!line.confirmed_path_refs?.includes(ref.entity.id))continue;
+    const keys=line.legacy_root_keys;
+    if(!Array.isArray(keys)||!keys.length)continue;
+    // Multiple or conflicting explicit targets are not safe display equivalences.
+    if(keys.length!==1||typeof keys[0]!=='string')return null;
+    const key=keys[0],r=binding?.legacyInfo?.(key);
+    if(!member.p?.includes(key)||(binding?.bindingStale?.(member)||[]).some(row=>row.root_key===key))continue;
+    const types=['pie_registered','pie','pie_root','pie_reconstruction'];
+    if(!r||!types.includes(r.type)||!types.includes(r.kind||'pie_registered')
+      ||(r.origin_language&&r.origin_language!=='PIE')||!r.form?.trim())continue;
+    candidates.add(key);
+   }
+  }
+  const keys=[...candidates];
+  return keys.length===1&&registered.includes(keys[0])?keys[0]:null;
+ }
  function rootCell(binding,word,renderLegacy){
   const refs=confirmedRefs(binding,word),c=displayCoverage(binding,word);
   const blocked=new Set((binding?.bindingStale?.(word)||[]).map(row=>row.root_key));
@@ -188,7 +214,10 @@
     return r?.type==='pie_formative'&&r.kind==='pie_formative'&&r.origin_language==='PIE';
   });
   if(registered.length||pieRefs.length||formativeKeys.length||refs.some(ref=>ref.kind==='pie_formative')){
-   const selected=refs.filter(ref=>ref.kind==='pie_reconstruction'||ref.kind==='pie_formative');
+   // Keep the legacy tag and its broad PIE-group navigation when both refer
+   // to the same root. The confirmed entity remains unchanged in details.
+   const selected=refs.filter(ref=>(ref.kind==='pie_reconstruction'||ref.kind==='pie_formative')
+    &&!equivalentRegisteredPie(binding,word,ref,registered));
    const verifiedKeys=new Set(selected.filter(ref=>ref.reference_type==='legacy_root').map(ref=>ref.key));
    // Only this cell uses the shared PIE meaning. Assembly and details keep
    // their existing contextual glosses and are not affected by this renderer.

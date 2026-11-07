@@ -226,3 +226,59 @@ test('formula column tooltip describes expressions and separates origin explanat
  const html=fs.readFileSync(path.join(__dirname,'../app/vocabulary-master.html'),'utf8');
  assert.match(html,/<th class="cParts" title="綴りに対応する部品と意味の式。未整備は空欄です。借用元の説明は詳細に表示します。">語源計算式<\/th>/);
 });
+
+const ui=require('../app/shared/vocabulary-components-ui.js');
+function fixture(){
+ const entity={id:'shared-men',kind:'pie_reconstruction',form:'*men-',meaning:'考える',language:'印欧祖語',status:'individually_confirmed',evidence:[]};
+ const ref={id:entity.id,entity_id:entity.id,key:'component:'+entity.id,kind:entity.kind,form:entity.form,language:entity.language,entity};
+ const makeWord=(w,p)=>({w,p,ja:'意味',en:'meaning',pos:'名',b:''});
+ const current=makeWord('automatic',['men-1']),proof=makeWord('automation',['men-1']);
+ const meta=w=>({w:w.w,p:[...w.p],word_guard:{ja:w.ja,en:w.en,pos:w.pos,b:w.b}});
+ const metas=new Map([[current,meta(current)],[proof,meta(proof)]]),links=new Map([[current,[]],[proof,['men-1']]]);
+ const info=key=>({type:'pie_registered',kind:'',form:key,origin_language:'',meaning:key==='men-1'?'考える':'突出する'});
+ const api={coverage:()=>({guard_valid:true,state:'pie_confirmed'}),annotations:w=>metas.get(w),rootRefs:()=>[ref],byEntity:()=>[current,proof],legacyInfo:info,bindingStale:()=>[],entity:id=>id===entity.id?entity:null,wordLineages:w=>[{id:'line',confirmed:true,uncertain_edges:0,terminal_entity:entity,deepest_confirmed_ref:entity.id,confirmed_path_refs:[entity.id],legacy_root_keys:links.get(w)||[]}]};
+ const render=key=>'<span class="chip" data-k="'+key+'">*'+key+'</span>';
+ return {api,current,proof,metas,links,ref,render,meta};
+}
+test('PIE dedup uses a shared explicit guarded terminal mapping and preserves broad legacy navigation',()=>{
+ const f=fixture(),h=ui.rootCell(f.api,f.current,f.render);
+ assert(h.includes('data-k="men-1"'));assert(!h.includes('data-k="component:shared-men"'));
+ assert.equal((h.match(/class="chip/g)||[]).length,1);
+});
+test('similar spelling, matching meaning and homonym numbering alone never merge PIE roots',()=>{
+ const f=fixture();f.links.set(f.proof,[]);
+ let h=ui.rootCell(f.api,f.current,f.render);assert(h.includes('data-k="component:shared-men"'));assert(h.includes('data-k="men-1"'));
+ f.links.set(f.proof,['men-1']);f.current.p=['men-1','men-2'];f.metas.set(f.current,f.meta(f.current));
+ h=ui.rootCell(f.api,f.current,f.render);assert(h.includes('data-k="men-1"'));assert(h.includes('data-k="men-2"'));assert(!h.includes('data-k="component:shared-men"'));
+});
+test('conflicting or multiple explicit legacy targets keep the confirmed PIE tag',()=>{
+ const f=fixture();f.links.set(f.current,['men-2']);f.current.p.push('men-2');f.metas.set(f.current,f.meta(f.current));
+ assert(ui.rootCell(f.api,f.current,f.render).includes('data-k="component:shared-men"'));
+ f.links.set(f.current,[]);f.links.set(f.proof,['men-1','men-2']);
+ assert(ui.rootCell(f.api,f.current,f.render).includes('data-k="component:shared-men"'));
+});
+test('missing, unresolved or blocked legacy display never removes the confirmed PIE tag',()=>{
+ for(const mode of ['missing','unresolved','blocked']){
+  const f=fixture();
+  if(mode==='missing'){f.current.p=[];f.metas.set(f.current,f.meta(f.current));}
+  if(mode==='unresolved')f.api.legacyInfo=()=>null;
+  if(mode==='blocked')f.api.bindingStale=w=>w===f.current?[{root_key:'men-1'}]:[];
+  const h=ui.rootCell(f.api,f.current,f.render);assert(h.includes('data-k="component:shared-men"'),mode);
+ }
+});
+test('stale, mutated or uncertain proof words cannot establish display identity',()=>{
+ for(const mode of ['coverage','mutation','uncertain','blocked','wrong-terminal']){
+  const f=fixture();
+  if(mode==='coverage')f.api.coverage=w=>({guard_valid:w!==f.proof,state:'pie_confirmed'});
+  if(mode==='mutation')f.proof.ja='changed';
+  if(mode==='blocked')f.api.bindingStale=w=>w===f.proof?[{root_key:'men-1'}]:[];
+  if(mode==='uncertain'||mode==='wrong-terminal'){const lines=f.api.wordLineages;f.api.wordLineages=w=>lines(w).map(l=>({...l,...(w===f.proof?(mode==='uncertain'?{uncertain_edges:1}:{deepest_confirmed_ref:'other'}):{})}));}
+  assert(ui.rootCell(f.api,f.current,f.render).includes('data-k="component:shared-men"'),mode);
+ }
+});
+test('dedup remains safe without an entity-members index and does not mutate input data',()=>{
+ const f=fixture(),before=JSON.stringify([f.current,f.proof,f.ref]);delete f.api.byEntity;
+ assert(ui.rootCell(f.api,f.current,f.render).includes('data-k="component:shared-men"'));
+ f.links.set(f.current,['men-1']);assert(!ui.rootCell(f.api,f.current,f.render).includes('data-k="component:shared-men"'));
+ assert.equal(JSON.stringify([f.current,f.proof,f.ref]),before);
+});
