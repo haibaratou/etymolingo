@@ -102,10 +102,36 @@
  function usersHTML(binding,id){const users=binding.componentUsers(id),e=binding.entity(id);return '<details class="reviewUsers"><summary>'+esc(e?.form||id)+' の登録参照 '+users.length+'語</summary><small>登録された参照です。保留対象の自動拡張や語源の正しさの確認とは別です。</small><ul>'+users.map(w=>'<li><button type="button" title="検索・絞り込みを解除してこの語を開く" data-review-open-word="'+binding.index(w)+'">'+esc(w.w)+'</button> '+esc(w.ja)+'（'+esc(w.pos)+'）</li>').join('')+'</ul></details>';}
  // Reader notes and audit records share binding checks, not presentation.
  // Never promote returned reviews or machine checks to dictionary prose.
+ // Exact generated word-note metadata observed in the canonical payload.
+ // Match only its recorded paragraph/sentence position; never classify arbitrary
+ // English, scholarly uncertainty, lineage notes, authored memos or source text.
+ const WORD_NOTE_AUDIT_TRAILER='Cache history is a guarded snapshot only; exact-word external history is the origin evidence. Caption alignment and all-ancient-morphology completion are different states.';
+ const JAPANESE_NOTE_PROSE='名詞の-tusを省かない訂正。品詞別の語形史と資料差を区別し、全ての古い語尾・再建語根を確認したとはしない。';
+ const JAPANESE_EDIT_STATUS='既存JA/EN/POS/b/p/画像/難易度は変更しない。';
+ const CAPTION_EDIT_STATUS='Caption-only correction individually verified against the cited primary history; exact caption materials are now connected.';
+ const CAPTION_LIMITATION='This does not certify all older morphology or complete ancient ancestry.';
+ const CAPTION_SCOPE='Displayed caption correspondence is reviewed; full ancient morphology remains incomplete.';
+ const MORPHOLOGY_LIMITATION='full ancient morphology remains incomplete.';
+ function readerNoteText(note){
+  const text=note.text;if(note.kind!=='word')return text;
+  if(text===WORD_NOTE_AUDIT_TRAILER)return '';
+  const suffix=' '+WORD_NOTE_AUDIT_TRAILER;
+  if(text.endsWith(suffix))return text.slice(0,-suffix.length);
+  // These four records share the entire paragraph, not just a common phrase.
+  if(text===JAPANESE_NOTE_PROSE+JAPANESE_EDIT_STATUS)return JAPANESE_NOTE_PROSE;
+  // Keep the original independent limitation sentence following the work record.
+  const captionTail=' '+CAPTION_EDIT_STATUS+' '+CAPTION_LIMITATION;
+  if(text.endsWith(captionTail)&&text.slice(0,-captionTail.length).endsWith('.'))return text.slice(0,-captionTail.length)+' '+CAPTION_LIMITATION;
+  // In this mixed sentence, remove only the work-status clause. Preserve the
+  // original remaining clause byte for byte, including its lowercase first word.
+  const scopeTail=' '+CAPTION_SCOPE;
+  return text.split('\n').map(paragraph=>paragraph.endsWith(scopeTail)&&paragraph.slice(0,-scopeTail.length).endsWith('.')?paragraph.slice(0,-scopeTail.length)+' '+MORPHOLOGY_LIMITATION:paragraph).join('\n');
+ }
  function readerState(binding,w){
   const state=binding?.get(w)||{existing_notes:[],diagnostics:[],needsReview:false};
   const memo=typeof w?.b==='string'&&w.b.trim()?w.b:'';
-  return {state,memo,hasContent:!!memo||state.existing_notes.length>0};
+  const existingNotes=state.existing_notes.map(note=>({...note,text:readerNoteText(note)})).filter(note=>note.text.trim());
+  return {state,memo,existingNotes,hasContent:!!memo||existingNotes.length>0};
  }
  function safeSourceURL(value){
   if(typeof value!=='string'||!/^https:\/\//.test(value)||/[\u0000-\u0020\u007f]/.test(value))return '';
@@ -121,9 +147,9 @@
   return (saved||external?'<div class="reviewSources">'+saved+external+'</div>':'')+(failed?'<small class="reviewSourceStatus">出典原文の一部を読み込めませんでした。対応は未確認です。</small>':sources.status==='unverified'?'<small class="reviewSourceStatus">この語源に対応するEtymonline原文は未確認です。</small>':!saved&&!external?'<small class="reviewSourceStatus">この語に対応する保存原文は登録されていません。</small>':'');
  }
  function bodyHTML(binding,w,sources){
-  const {state,memo,hasContent}=readerState(binding,w);if(!hasContent)return '';
+  const {state,memo,existingNotes,hasContent}=readerState(binding,w);if(!hasContent)return '';
   const main=memo?'<section class="reviewMemo"><b>語源メモ</b><p>'+esc(memo)+'</p></section>':'';
-  const existing=state.existing_notes.length?'<section class="reviewExisting"><b>既存の語源備考</b>'+state.existing_notes.map(n=>'<p>'+esc(n.text)+'</p>').join('')+'</section>':'';
+  const existing=existingNotes.length?'<section class="reviewExisting"><b>既存の語源備考</b>'+existingNotes.map(n=>'<p>'+esc(n.text)+'</p>').join('')+'</section>':'';
   const stale=state.diagnostics.length?'<p class="reviewStale">現在の語義と一致しない過去の備考は表示していません。</p>':state.needsReview?'<p class="reviewStale">この語の語源記録には未解決の確認事項があります。</p>':'';
   return main+existing+stale+sourceHTML(binding,w,sources);
  }

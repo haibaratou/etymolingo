@@ -679,3 +679,133 @@ test('original EO sense selection and labeled other-sense disclosures remain dis
 });
 
 }
+
+// Narrow display projection for one exact generated trailer, not dictionary edits.
+{
+ const test=require('node:test'),assert=require('node:assert/strict');
+ const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
+ const {parseHTML}=require('linkedom');
+ const notes=require('../../app/shared/word-review-notes.js');
+ const trailer='Cache history is a guarded snapshot only; exact-word external history is the origin evidence. Caption alignment and all-ancient-morphology completion are different states.';
+ function noteFixture(text,{memo='既存メモ。',lineage='別系列の実質的説明。'}={}){
+  const word={w:'metadata-fixture',p:['fixture-root'],i:0,ja:'試験',en:'fixture',pos:'名',b:memo};
+  const metadata={...word,word_guard:{ja:word.ja,en:word.en,pos:word.pos,b:word.b},review_note:text,lineages:lineage?[{review_note:lineage}]:[]};
+  const payload={schema:1,batches:[],word_notes:[],component_issues:[],pending_scopes:[]};
+  const binding=notes.bind([word],notes.prepare(payload),{binding:{annotations:()=>metadata},componentPayload:{entities:[],words:[metadata]}});
+  return {word,metadata,binding};
+ }
+ const source={status:'ready',hasSaved:true,etymonlineURL:'https://www.etymonline.com/word/fixture'};
+ test('exact trailing audit template is separated while mixed etymological prose and raw record survive',()=>{
+  const prose='The attested donor is uncertain. The older reconstruction remains a hypothesis.';
+  const f=noteFixture(prose+' '+trailer),before=JSON.stringify(f.metadata),state=f.binding.get(f.word),body=notes.bodyHTML(f.binding,f.word,source);
+  assert.ok(body.includes(prose));assert.ok(body.includes(f.word.b));assert.match(body,/別系列の実質的説明/);assert.doesNotMatch(body,/Cache history|Caption alignment/);
+  assert.equal(f.binding.get(f.word),state);assert.equal(state.existing_notes[0].text,prose+' '+trailer);assert.equal(JSON.stringify(f.metadata),before);
+  assert.match(body,/data-review-source-word="0"/);assert.match(body,/https:\/\/www.etymonline.com\/word\/fixture/);
+ });
+ test('no general English, uncertainty, partial template, quotation, or middle passage is removed',()=>{
+  for(const text of [
+   'Shared exact lexical entities; attested path and dictionary reconstructions separated. No claim of all-ancient-morphology completion.',
+   'The existing assembly-to-component correspondence is reviewed; complete ancient morphology is not claimed.',
+   'Cache history is a guarded snapshot only; exact-word external history is the origin evidence.',
+   'Caption alignment and all-ancient-morphology completion are different states.',
+   'A quotation: "'+trailer+'"',
+   'A historical statement. '+trailer+' Further etymological explanation follows.',
+   'A historical statement. '+trailer.replace('guarded','guarding')
+  ]){
+   const f=noteFixture(text),{document}=parseHTML('<main>'+notes.bodyHTML(f.binding,f.word,source)+'</main>');
+   assert.ok(document.querySelector('main').textContent.includes(text),text);
+  }
+ });
+ test('the rule is restricted to canonical word notes, not lineage notes or authored memo text',()=>{
+  const f=noteFixture('Normal canonical prose.',{memo:'Authored memo. '+trailer,lineage:'Lineage explanation. '+trailer});
+  const {document}=parseHTML('<main>'+notes.bodyHTML(f.binding,f.word,source)+'</main>');
+  assert.ok(document.querySelector('.reviewMemo').textContent.includes(f.word.b));
+  assert.ok(document.querySelector('.reviewExisting').textContent.includes('Lineage explanation. '+trailer));
+ });
+ test('metadata-only canonical note creates neither an empty paragraph nor an empty note disclosure',()=>{
+  const blank=noteFixture(trailer,{memo:'',lineage:''});assert.equal(notes.html(blank.binding,blank.word),'');assert.equal(notes.bodyHTML(blank.binding,blank.word,source),'');
+  const memo=noteFixture(trailer,{lineage:''}),body=notes.bodyHTML(memo.binding,memo.word,source);
+  assert.ok(body.includes(memo.word.b));assert.doesNotMatch(body,/reviewExisting|Cache history|<p><\/p>/);assert.match(body,/data-review-source-word/);
+ });
+ test('lazy open, close and reopen preserve the source button without revealing the separated trailer',()=>{
+  const f=noteFixture('Preserved prose. '+trailer),{document}=parseHTML('<main>'+notes.html(f.binding,f.word)+'</main>'),area=document.querySelector('details');
+  assert.equal(area.querySelector('.reviewNotesBody').innerHTML,'');
+  for(let i=0;i<2;i++){
+   area.open=true;notes.hydrate(area,f.binding,f.word,source);assert.match(area.textContent,/Preserved prose/);assert.doesNotMatch(area.textContent,/Cache history|Caption alignment/);assert.ok(area.querySelector('[data-review-source-word]'));
+   area.open=false;notes.hydrate(area,f.binding,f.word,source);assert.equal(area.querySelector('.reviewNotesBody').innerHTML,'');
+  }
+ });
+ test('word context drift still withholds canonical prose instead of allowing the display rule to bypass guards',()=>{
+  const f=noteFixture('Prior sense prose. '+trailer);f.word.b='現在のメモ。';const body=notes.bodyHTML(f.binding,f.word,source);
+  assert.match(body,/現在のメモ/);assert.doesNotMatch(body,/Prior sense|Cache history/);assert.equal(f.binding.needsReview(f.word),true);
+ });
+ test('saved dictionary original is never filtered even when its wording matches the audit trailer',async()=>{
+  const html=fs.readFileSync(path.resolve(__dirname,'../../app/vocabulary-master.html'),'utf8');
+  const from=html.indexOf('async function fillEO('),to=html.indexOf('const ROOT_CONCEPT=',from);
+  assert.ok(from>=0&&to>from);const {document}=parseHTML('<main><div class="eoLocal"><span></span></div></main>');
+  const context={esc:x=>String(x),DICTIONARY_SOURCE_FAILURES:{eo:new Set(),picks:false},eoShard:async()=>({fixture:[{h:'fixture',p:'(n.)',x:'SAVED ORIGINAL: '+trailer}]}),eoPick:async()=>({})};
+  vm.runInNewContext(html.slice(from,to),context);await context.fillEO('fixture',document,{w:'fixture',p:[]});
+  assert.ok(document.querySelector('.eoLocal').textContent.includes('SAVED ORIGINAL: '+trailer));
+ });
+ test('list notes and notes inside the existing detail renderer both hide only the exact trailer',()=>{
+  const f=noteFixture('Preserved etymological explanation. '+trailer);
+  const html=fs.readFileSync(path.resolve(__dirname,'../../app/vocabulary-master.html'),'utf8');
+  const from=html.indexOf('function renderDetail(tr,w,d){'),to=html.indexOf('/* ダウンロードしたCSV',from);
+  assert.ok(from>=0&&to>from);
+  const {document}=parseHTML('<html><body><table><tbody><tr data-i="0"><td class="cW">'+notes.html(f.binding,f.word)+'</td></tr></tbody></table></body></html>');
+  const context={document,window:{VocabularyReviewNotes:notes,VocabularyComponentsUI:{details:()=>''}},REVIEW_NOTES:f.binding,COMPONENTS:null,esc:x=>String(x),EO_SLUG:new Set(),offlineDictionaryError:'',wordSenseImagesHTML:()=>'',semanticLine:()=>'',wordParts:()=>'',gameTagHTML:()=>'',hydrateIllustrationScenes:()=>{},fillEO:()=>Promise.resolve()};
+  vm.runInNewContext(html.slice(from,to),context);context.renderDetail(document.querySelector('tr'),f.word,null);
+  const areas=document.querySelectorAll('.reviewNotes');assert.equal(areas.length,2);
+  for(const area of areas){area.open=true;notes.hydrate(area,f.binding,f.word,source);assert.match(area.textContent,/Preserved etymological explanation/);assert.doesNotMatch(area.textContent,/Cache history|Caption alignment/);assert.ok(area.querySelector('[data-review-source-word]'));}
+ });
+ const japaneseProse='名詞の-tusを省かない訂正。品詞別の語形史と資料差を区別し、全ての古い語尾・再建語根を確認したとはしない。';
+ const japaneseStatus='既存JA/EN/POS/b/p/画像/難易度は変更しない。';
+ const captionStatus='Caption-only correction individually verified against the cited primary history; exact caption materials are now connected.';
+ const captionLimit='This does not certify all older morphology or complete ancient ancestry.';
+ const mixedStatus='Displayed caption correspondence is reviewed; full ancient morphology remains incomplete.';
+ test('known Japanese paragraph loses only its independent field-change status sentence',()=>{
+  const f=noteFixture(japaneseProse+japaneseStatus),original=JSON.stringify(f.metadata),body=notes.bodyHTML(f.binding,f.word,source);
+  assert.ok(body.includes(japaneseProse));assert.ok(!body.includes(japaneseStatus));assert.ok(body.includes(f.word.b));assert.match(body,/data-review-source-word/);
+  assert.equal(JSON.stringify(f.metadata),original);assert.equal(f.binding.get(f.word).existing_notes[0].text,japaneseProse+japaneseStatus);
+ });
+ test('known caption correction sentence is removed while both surrounding etymology and limitation remain exact',()=>{
+  const prose='The genitive ending has a separate historical role.';
+  const f=noteFixture(prose+' '+captionStatus+' '+captionLimit),body=notes.bodyHTML(f.binding,f.word,source),{document}=parseHTML('<main>'+body+'</main>');
+  assert.equal(document.querySelector('.reviewExisting p').textContent,prose+' '+captionLimit);assert.doesNotMatch(body,/Caption-only correction/);
+  assert.equal(f.binding.get(f.word).existing_notes[0].text,prose+' '+captionStatus+' '+captionLimit);assert.match(body,/data-review-source-word/);
+ });
+ test('mixed caption sentence keeps the original lowercase uncertainty clause byte for byte',()=>{
+  const prose='The stated donor is attested. Earlier transmission alternatives remain open.';
+  const f=noteFixture(prose+' '+mixedStatus),body=notes.bodyHTML(f.binding,f.word,source),{document}=parseHTML('<main>'+body+'</main>');
+  assert.equal(document.querySelector('.reviewExisting p').textContent,prose+' full ancient morphology remains incomplete.');
+  assert.doesNotMatch(body,/Displayed caption correspondence is reviewed/);assert.equal(f.binding.get(f.word).existing_notes[0].text,prose+' '+mixedStatus);assert.match(body,/data-review-source-word/);
+  const following='Unapproved following paragraph remains untouched.';const multiline=noteFixture(prose+' '+mixedStatus+'\n'+following);const rendered=parseHTML('<main>'+notes.bodyHTML(multiline.binding,multiline.word,source)+'</main>').document;assert.equal(rendered.querySelector('.reviewExisting p').textContent,prose+' full ancient morphology remains incomplete.\n'+following);
+ });
+ test('new exact templates in quotations, other contexts, middle positions and variants are preserved',()=>{
+  for(const text of [
+   'Quoted: "'+japaneseProse+japaneseStatus+'"',
+   '別の文脈。'+japaneseStatus,
+   japaneseProse+japaneseStatus+'別の説明が続く。',
+   japaneseProse+japaneseStatus.replace('変更しない','改変しない'),
+   'Quoted: "'+captionStatus+' '+captionLimit+'"',
+   'A label reads: '+captionStatus+' '+captionLimit,
+   'Preserved explanation. '+captionStatus+' '+captionLimit+' More explanation.',
+   'Preserved explanation. '+captionStatus.replace('individually','independently')+' '+captionLimit,
+   'Quoted: "'+mixedStatus+'"',
+   'A label reads: '+mixedStatus,
+   'Preserved explanation. '+mixedStatus+' More explanation.',
+   'Preserved explanation. '+mixedStatus.replace('is reviewed','was reviewed')
+  ]){const f=noteFixture(text),{document}=parseHTML('<main>'+notes.bodyHTML(f.binding,f.word,source)+'</main>');assert.ok(document.querySelector('.reviewExisting').textContent.includes(text),text);}
+ });
+ test('new template projections do not alter authored memos or lineage notes',()=>{
+  for(const text of [japaneseProse+japaneseStatus,'Historical explanation. '+captionStatus+' '+captionLimit,'Historical explanation. '+mixedStatus]){
+   const f=noteFixture('Plain word note.',{memo:text,lineage:text}),{document}=parseHTML('<main>'+notes.bodyHTML(f.binding,f.word,source)+'</main>');
+   assert.ok(document.querySelector('.reviewMemo').textContent.includes(text));assert.ok(document.querySelector('.reviewExisting').textContent.includes(text));
+  }
+ });
+ test('standalone etymological uncertainty and nonapproved work-status variants are never treated as metadata',()=>{
+  for(const text of ['All ultimate ancestry remains incomplete.','Full ultimate ancestry remains incomplete.','The existing assembly-to-component correspondence is reviewed; complete ancient morphology is not claimed.','The older sense is different and no current JA field is changed.']){
+   const f=noteFixture(text),{document}=parseHTML('<main>'+notes.bodyHTML(f.binding,f.word,source)+'</main>');assert.ok(document.querySelector('.reviewExisting').textContent.includes(text),text);
+  }
+ });
+}

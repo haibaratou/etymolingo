@@ -196,6 +196,47 @@
   const keys=[...candidates];
   return keys.length===1&&registered.includes(keys[0])?keys[0]:null;
  }
+ function mixedAttestedRefs(binding,word,refs,registered){
+  // A separately confirmed source material is not a transmission stage on
+  // the PIE branch. Keep it visible without promoting it to a PIE root.
+  if(!registered.length&&!refs.some(ref=>ref.kind==='pie_reconstruction'))return [];
+  const lines=binding?.wordLineages?.(word)||[];
+  const pieLines=lines.filter(line=>line.confirmed&&!line.uncertain_edges
+   &&refs.some(ref=>ref.kind==='pie_reconstruction'&&ref.lineage_id===line.id
+    &&ref.entity?.id===line.terminal_entity?.id));
+  if(!pieLines.length&&!registered.length)return [];
+  return refs.filter(ref=>{
+   if(!['attested_lexeme','attested_morphological_root'].includes(ref.kind)||ref.role!=='formative')return false;
+   const matches=lines.filter(line=>line.id===ref.lineage_id);
+   if(matches.length!==1)return false;
+   const line=matches[0];
+   if(!pieLines.length){
+    const segments=annotations(binding,word)?.assembly_alignment?.segments||[];
+    const aligned=segments.some(segment=>segment.lineage_id===line.id&&line.confirmed_path_refs?.includes(binding.entity(segment.entity_ref)?.id));
+    const other=lines.some(peer=>peer.id!==line.id&&peer.confirmed&&!peer.uncertain_edges&&peer.role==='lexical'
+     &&segments.some(segment=>segment.lineage_id===peer.id&&peer.confirmed_path_refs?.includes(binding.entity(segment.entity_ref)?.id)));
+    if(!aligned||!other)return false;
+    // Reuse the identity of an already verified independent source material,
+    // not an inferred link from the current row's unrelated legacy root list.
+    const shared=(binding?.byEntity?.(ref.entity.id)||[]).some(member=>{
+     if(!binding.coverage(member)?.guard_valid||!annotations(binding,member))return false;
+     const peers=binding.wordLineages(member)||[];
+     const sources=peers.filter(peer=>peer.confirmed&&!peer.uncertain_edges&&peer.role==='formative'
+      &&peer.terminal_entity?.id===ref.entity.id&&peer.deepest_confirmed_ref===ref.entity.id
+      &&peer.confirmed_path_refs?.includes(ref.entity.id)
+      &&!peer.confirmed_path_refs.some(id=>binding.entity(id)?.kind==='pie_reconstruction'));
+     return sources.length===1&&peers.some(peer=>peer.id!==sources[0].id&&peer.confirmed&&!peer.uncertain_edges
+      &&peer.terminal_entity?.kind==='pie_reconstruction'&&!peer.confirmed_path_refs?.includes(ref.entity.id));
+    });
+    if(!shared)return false;
+   }
+   return line.confirmed&&!line.uncertain_edges&&line.role==='formative'
+    &&line.deepest_confirmed_ref===ref.entity?.id&&line.terminal_entity?.id===ref.entity?.id
+    &&Array.isArray(line.confirmed_path_refs)&&line.confirmed_path_refs.includes(ref.entity.id)
+    &&!line.confirmed_path_refs.some(id=>binding.entity(id)?.kind==='pie_reconstruction')
+    &&pieLines.every(pie=>pie.id!==line.id&&!pie.confirmed_path_refs?.includes(ref.entity.id));
+  });
+ }
  function rootCell(binding,word,renderLegacy){
   const refs=confirmedRefs(binding,word),c=displayCoverage(binding,word);
   const blocked=new Set((binding?.bindingStale?.(word)||[]).map(row=>row.root_key));
@@ -225,7 +266,9 @@
    const oldPie=registered.filter(key=>!verifiedKeys.has(key));
    const legacy=oldPie.length?'<span class="registeredPieReferences" data-pie-status="registered">'+oldPie.map(renderLegacy).join(' ')+'</span>':'';
    const formatives=formativeKeys.filter(key=>!verifiedKeys.has(key)).map(renderLegacy).join(' ');
-   return [verified,legacy,formatives].filter(Boolean).join(' ');
+   const mixed=mixedAttestedRefs(binding,word,refs,registered);
+   const attested=mixed.length?chips({...binding,rootRefs:()=>mixed},word):'';
+   return [verified,legacy,formatives,attested].filter(Boolean).join(' ');
   }
   // No registered/confirmed PIE root: retain known forms and the existing
   // uncertain, alias, formative and non-PIE classifications without inference.

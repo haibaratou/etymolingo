@@ -282,3 +282,70 @@ test('dedup remains safe without an entity-members index and does not mutate inp
  f.links.set(f.current,['men-1']);assert(!ui.rootCell(f.api,f.current,f.render).includes('data-k="component:shared-men"'));
  assert.equal(JSON.stringify([f.current,f.proof,f.ref]),before);
 });
+
+function mixedSourceFixture(){
+ const word={w:'mixed',p:['men-1'],ja:'意味',en:'meaning',pos:'名',b:''};
+ const pie={id:'pie',kind:'pie_reconstruction',form:'*men-',meaning:'考える',language:'印欧祖語',status:'individually_confirmed'};
+ const auto={id:'greek-auto',kind:'attested_lexeme',form:'autós',meaning:'自分自身',language:'古代ギリシャ語',status:'dictionary_attested'};
+ const refs=[pie,auto].map((entity,i)=>({id:entity.id,entity_id:entity.id,key:'component:'+entity.id,entity,kind:entity.kind,form:entity.form,language:entity.language,role:i?'formative':'lexical',lineage_id:i?'auto-line':'pie-line'}));
+ const lines=refs.map(ref=>({id:ref.lineage_id,role:ref.role,confirmed:true,uncertain_edges:0,deepest_confirmed_ref:ref.entity.id,terminal_entity:ref.entity,confirmed_path_refs:[ref.entity.id],legacy_root_keys:[]}));
+ const meta={w:word.w,p:[...word.p],word_guard:{ja:word.ja,en:word.en,pos:word.pos,b:word.b}};
+ const api={coverage:()=>({guard_valid:true,state:'pie_confirmed'}),annotations:()=>meta,rootRefs:()=>refs,wordLineages:()=>lines,bindingStale:()=>[],entity:id=>[pie,auto].find(e=>e.id===id),legacyInfo:key=>({type:'pie_registered',form:key,kind:'',origin_language:''}),byEntity:()=>[word]};
+ const render=key=>'<span class="chip" data-k="'+key+'">*'+key+'</span>';
+ return {word,pie,auto,refs,lines,meta,api,render};
+}
+test('PIE rows retain an independently confirmed attested source material with its own language and navigation',()=>{
+ const f=mixedSourceFixture(),before=JSON.stringify(f.word),h=componentsUI.rootCell(f.api,f.word,f.render);
+ assert(h.includes('data-k="men-1"'));assert(h.includes('data-k="component:greek-auto"'));assert(h.includes('autós'));assert(h.includes('古代ギリシャ語'));assert(!h.includes('*autós'));assert.equal((h.match(/data-k="component:greek-auto"/g)||[]).length,1);assert.equal(JSON.stringify(f.word),before);
+});
+test('mixed source material can be shown without a legacy p key or spelling equation',()=>{
+ const f=mixedSourceFixture();assert(!f.word.p.includes('autos'));assert.equal(f.meta.assembly_alignment,undefined);
+ assert(componentsUI.rootCell(f.api,f.word,f.render).includes('data-k="component:greek-auto"'));
+ assert.deepEqual(f.word.p,['men-1']);
+});
+test('PIE mixed tags do not restore transmission stages, ordinary suffixes or material already on the PIE path',()=>{
+ for(const mode of ['lexical','suffix','shared-path','pie-path','unconfirmed','uncertain','wrong-terminal','duplicate-line']){
+  const f=mixedSourceFixture();
+  if(mode==='lexical'){f.refs[1].role='lexical';f.lines[1].role='lexical';}
+  if(mode==='suffix'){f.refs[1].kind='attested_formative';f.auto.kind='attested_formative';}
+  if(mode==='shared-path')f.lines[0].confirmed_path_refs.push(f.auto.id);
+  if(mode==='pie-path')f.lines[1].confirmed_path_refs.push(f.pie.id);
+  if(mode==='unconfirmed')f.lines[1].confirmed=false;
+  if(mode==='uncertain')f.lines[1].uncertain_edges=1;
+  if(mode==='wrong-terminal')f.lines[1].deepest_confirmed_ref='other';
+  if(mode==='duplicate-line')f.lines.push({...f.lines[1]});
+  assert(!componentsUI.rootCell(f.api,f.word,f.render).includes('data-k="component:greek-auto"'),mode);
+ }
+});
+test('unrelated legacy PIE registration alone cannot promote a historical form to a mixed source material',()=>{
+ const f=mixedSourceFixture();f.refs.shift();f.lines.shift();
+ assert(!componentsUI.rootCell(f.api,f.word,f.render).includes('data-k="component:greek-auto"'));
+});
+test('mixed source tags obey word/source guards rather than reviving stale components',()=>{
+ for(const mode of ['coverage','mutation']){const f=mixedSourceFixture();if(mode==='coverage')f.api.coverage=()=>({guard_valid:false,state:'unavailable'});else f.word.ja='changed';assert(!componentsUI.rootCell(f.api,f.word,f.render).includes('data-k="component:greek-auto"'));}
+});
+function registeredMixedSourceFixture(){
+ const f=mixedSourceFixture(),proof={w:'verified-peer',p:[],ja:'意味',en:'meaning',pos:'名',b:''};
+ const proofLines=JSON.parse(JSON.stringify(f.lines));
+ f.pie.kind='attested_lexeme';f.refs[0].kind='attested_lexeme';
+ f.meta.assembly_alignment={segments:[{lineage_id:'auto-line',entity_ref:'greek-auto'},{lineage_id:'pie-line',entity_ref:'pie'}]};
+ f.api.annotations=w=>w===proof?{w:proof.w,p:proof.p,word_guard:{ja:proof.ja,en:proof.en,pos:proof.pos,b:proof.b}}:f.meta;
+ f.api.wordLineages=w=>w===proof?proofLines:f.lines;
+ f.api.byEntity=()=>[proof];
+ return {...f,proof};
+}
+test('registered PIE plus a guarded aligned independent material retains the same source entity without a confirmed PIE terminal on this row',()=>{
+ const f=registeredMixedSourceFixture(),h=componentsUI.rootCell(f.api,f.word,f.render);
+ assert(h.includes('data-k="men-1"'));assert(h.includes('data-k="component:greek-auto"'));assert(!h.includes('data-k="component:pie"'));
+});
+test('registered-only mixed expansion requires explicit assembly branches and a guarded shared source identity',()=>{
+ for(const mode of ['no-alignment','no-peer','stale-peer','no-other-material','wrong-alignment']){
+  const f=registeredMixedSourceFixture();
+  if(mode==='no-alignment')delete f.meta.assembly_alignment;
+  if(mode==='no-peer')f.api.byEntity=()=>[];
+  if(mode==='stale-peer')f.api.coverage=w=>({guard_valid:w!==f.proof,state:'attested_confirmed'});
+  if(mode==='no-other-material')f.meta.assembly_alignment.segments.pop();
+  if(mode==='wrong-alignment')f.meta.assembly_alignment.segments[0].entity_ref='unrelated';
+  assert(!componentsUI.rootCell(f.api,f.word,f.render).includes('data-k="component:greek-auto"'),mode);
+ }
+});
