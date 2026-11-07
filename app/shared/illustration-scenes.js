@@ -19,7 +19,7 @@
   // canonical CSV imports as a script; preserve all existing identities.
   if (scriptBase && globalThis.location?.protocol === 'file:') {
     const script = document.createElement('script');
-    script.src = new URL('../data/generated-etymon/csv-illustration-scenes.js?v=a2eea49047a3', scriptBase).href;
+    script.src = new URL('../data/generated-etymon/csv-illustration-scenes.js?v=ddbe790986e1', scriptBase).href;
     script.onload = async () => {
       try {
         const envelope = globalThis.ETYMON_CSV_SCENES;
@@ -119,7 +119,7 @@ if (typeof window !== 'undefined' && /\/vocabulary-master\.html$/.test(window.lo
   let started=false;
   const start=()=>{
     if(started)return;started=true;
-    addScript('data/generated-etymon/illustration-review-status.js?v=9c583e53a5e0').then(()=>{
+    addScript('data/generated-etymon/illustration-review-status.js?v=87ea574d336a').then(()=>{
       window.dispatchEvent(new Event('etymon:review-ready'));
     }).catch(err=>console.warn('Illustration review status unavailable',err));
     const panels=Promise.all([

@@ -3,42 +3,42 @@
   "meta": {
     "schema": 2,
     "sourceWordsSha256": "dde8b678756857270de429f87011536b3d2a4375b1cf8f171d7239d5c3e66ec3",
-    "scenesSha256": "3dd2df49a1c9f76aa01f787dc00ea9d0347071129497c8bc9160edd260819ee4",
-    "indexSha256": "9a149e6cc4a858470a0208b505010615be2648089c9cc8be6e95327db2b4f870",
+    "scenesSha256": "2534244108bd28748d992a88faf92977666604e40c9864c13bf26cf6f5283503",
+    "indexSha256": "e072d0ba987d937f9d069c6055dcac06f585d62eb2c46a1be6346e944191b770",
     "imageDateEvidenceSha256": null,
-    "count": 24825,
-    "wordEntryCount": 23738,
+    "count": 25774,
+    "wordEntryCount": 24687,
     "ownershipPendingCount": 1051,
     "descriptionCounts": {
-      "reviewed": 12105,
-      "held": 903,
-      "missing": 10620,
+      "reviewed": 13010,
+      "held": 955,
+      "missing": 10612,
       "stale": 1197
     },
     "playableCounts": {
-      "en": 22580,
-      "ja": 20827
+      "en": 23418,
+      "ja": 21492
     }
   },
   "ownership": {
-    "pngPaths": 24825,
-    "primaryIdentities": 23738,
-    "primaryDistinctWords": 23454,
-    "primaryPngPaths": 23738,
-    "ownedPngPaths": 23774,
+    "pngPaths": 25774,
+    "primaryIdentities": 24687,
+    "primaryDistinctWords": 24369,
+    "primaryPngPaths": 24687,
+    "ownedPngPaths": 24723,
     "ownershipPendingPngPaths": 1051,
     "immutableAliases": 9,
     "conflictingFiles": 15,
-    "preservedProtectedBindings": 20612
+    "preservedProtectedBindings": 21559
   },
-  "sceneEntries": 14122,
+  "sceneEntries": 15085,
   "existingIdsPreserved": 262,
   "legacyIdsPreserved": 80,
-  "imageBytes": 5923497546,
-  "emittedRows": 24825,
-  "lazyAssets": 12105,
-  "lazyAssetBytes": 3857036015,
-  "inventoryNamesSha256": "8c0e31959f4502a34b447834c7b3c30e6d9773e6a977b90ad7321162d560307c",
+  "imageBytes": 6119319519,
+  "emittedRows": 25774,
+  "lazyAssets": 13010,
+  "lazyAssetBytes": 4107538550,
+  "inventoryNamesSha256": "051659f667e953fef00353aff0f7f61e97b872cd8db83c481d00ad9581cf5b9b",
   "inclusionPolicy": "all_observed_valid_generated_PNGs",
   "dateGateApplied": false,
   "captionGateApplied": false,
@@ -6836,9 +6836,9 @@
       "pic": "call",
       "issues": [
         {
-          "code": "image_first_sense_mismatch",
-          "detail": "A woman holds a phone to her ear. A speech bubble shows a man also holding a phone to his ear. This explicitly depicts telephoning, the secondary sense 電話をかける / phone. The canonical first sense is 呼ぶ / summon; no person is being beckoned or summoned. The content of the phone conversation is not known.",
-          "imageSha256": "76fcb4e342623dccfa984a560b3e75f93ce02e52eb6659d145572df1aca8a125",
+          "code": "known_issue_needs_review",
+          "detail": "Previously held image/sense changed; a fresh explicit review is required. A woman holds a phone to her ear. A speech bubble shows a man also holding a phone to his ear. This explicitly depicts telephoning, the secondary sense 電話をかける / phone. The canonical first sense is 呼ぶ / summon; no person is being beckoned or summoned. The content of the phone conversation is not known.",
+          "imageSha256": "bf137175ed6dc1af95759376ec1f48f5cc3b1d7ea9d33592fd2a894289b7d802",
           "senseSha256": "a5dd5a1094a614a3ea4d5474c958251a4c6a2fae369914a109d0df7e9d08b8f9",
           "issueSha256": "a1db4620fe9f5667c0805710acb57caf7f113b5efbec04bb0433694d65bf20f5",
           "scope": "play_blocking",
@@ -6881,9 +6881,9 @@
       "pic": "patient",
       "issues": [
         {
-          "code": "image_first_sense_mismatch",
-          "detail": "A child sits on an examination bed while a white-coated adult applies a stethoscope to the child’s chest. The concrete, conventional subject is a medical patient (the secondary noun sense). The canonical first sense is the adjective 忍耐強い / tolerant. A calm smile during an examination is not evidence of endurance or patience, and cannot repair the noun/adjective mismatch.",
-          "imageSha256": "dac42de935102cc8b4aa18d4431f0cae8be96054fc857e5254c154fcc18a6d51",
+          "code": "known_issue_needs_review",
+          "detail": "Previously held image/sense changed; a fresh explicit review is required. A child sits on an examination bed while a white-coated adult applies a stethoscope to the child’s chest. The concrete, conventional subject is a medical patient (the secondary noun sense). The canonical first sense is the adjective 忍耐強い / tolerant. A calm smile during an examination is not evidence of endurance or patience, and cannot repair the noun/adjective mismatch.",
+          "imageSha256": "5b8a522684bb06107234aa3d481ec7709f9c603bb9e918f8864b8677c22a7fe2",
           "senseSha256": "bb92b9ba73751d89585f20465b2efef21b16af9bc4587ccdd30d685ed251b47a",
           "issueSha256": "e84e7c33a03a9fce6f46684a20d648f68a94ba0a12933103f7e74d64173a6457",
           "scope": "play_blocking",
@@ -7499,9 +7499,9 @@
       "pic": "involved",
       "issues": [
         {
-          "code": "image_first_sense_mismatch",
-          "detail": "The adult and children jointly assemble a birdhouse. This directly depicts being involved as participating or concerned, not the canonical first 複雑な / complex.",
-          "imageSha256": "2c21ded4acfea05c35e3b59652bcfe4351c2bcc17cdaca3e9018a0832da057ad",
+          "code": "known_issue_needs_review",
+          "detail": "Previously held image/sense changed; a fresh explicit review is required. The adult and children jointly assemble a birdhouse. This directly depicts being involved as participating or concerned, not the canonical first 複雑な / complex.",
+          "imageSha256": "20e65f932c0f60abdedf319989b0a20a57df7514466b2774e3c0dbf1388aae1b",
           "senseSha256": "5390bf78077fea1ae1dcd8dcace47787a1616c6d8be0ba30b08951f99c4653f4",
           "issueSha256": "608fb55d591ac28d5b21c709a01c9132d2e2eadf5a9de1f9d284ae0d58ec8140",
           "scope": "play_blocking",
@@ -8209,18 +8209,18 @@
       "pic": "film",
       "issues": [
         {
-          "code": "image_first_sense_mismatch",
-          "detail": "The exact PNG shows a photographic-film cartridge and unexposed-looking perforated strip, not a movie or a scene being projected. The first canonical pair is 映画 / movie. A caption about the roll would silently substitute the photographic-material sense.",
-          "imageSha256": "bf36b90c89e676ea3356b158af7daade19e12a3aca12a2c31ef1704eae433249",
+          "code": "known_issue_needs_review",
+          "detail": "Previously held image/sense changed; a fresh explicit review is required. The exact PNG shows a photographic-film cartridge and unexposed-looking perforated strip, not a movie or a scene being projected. The first canonical pair is 映画 / movie. A caption about the roll would silently substitute the photographic-material sense.",
+          "imageSha256": "d646a7999f636e7f32cd11e3791ea19ad91b59e9e57d39bdee422600b47f35e2",
           "senseSha256": "bdeddc95a4e97662023ffb0f0e1f089f5250387b1108aacb52f1a0b43910a487",
           "issueSha256": "9c39dbd312df0e5a39c886bdc1718f94210b340d0227f0459990d14a33d7cc6f",
           "scope": "play_blocking",
           "blocksPlay": true
         },
         {
-          "code": "image_first_sense_mismatch",
-          "detail": "Matches film stock sense, not clearly movie or thin coating",
-          "imageSha256": "bf36b90c89e676ea3356b158af7daade19e12a3aca12a2c31ef1704eae433249",
+          "code": "known_issue_needs_review",
+          "detail": "Previously held image/sense changed; a fresh explicit review is required. Matches film stock sense, not clearly movie or thin coating",
+          "imageSha256": "d646a7999f636e7f32cd11e3791ea19ad91b59e9e57d39bdee422600b47f35e2",
           "senseSha256": "bdeddc95a4e97662023ffb0f0e1f089f5250387b1108aacb52f1a0b43910a487",
           "issueSha256": "ceb29c2d6ddf9737506ce66958f335ec8eeb89de826db075eec35d699ea90515",
           "scope": "play_blocking",
@@ -8429,18 +8429,18 @@
       "pic": "please",
       "issues": [
         {
-          "code": "image_first_sense_mismatch",
-          "detail": "The girl bows with hands pressed together toward a surprised boy, depicting a polite request. This supports later どうぞ / please, not first 喜ばせる / delight; no clear act of pleasing him is established.",
-          "imageSha256": "0f6155b475742a080563e14b6b83b3caa5a7e1120946ab1f237d0a723e443572",
+          "code": "known_issue_needs_review",
+          "detail": "Previously held image/sense changed; a fresh explicit review is required. The girl bows with hands pressed together toward a surprised boy, depicting a polite request. This supports later どうぞ / please, not first 喜ばせる / delight; no clear act of pleasing him is established.",
+          "imageSha256": "9035a6cdac90ae213a06828501a86b3290299d9f75726f7fd3c3be4dc58c887c",
           "senseSha256": "9e4773d8cee603f63d1e58ef64bb91834a1b85be70e66b6f4dc4f8640a24a412",
           "issueSha256": "239143d430c2fc88321789b6eab5125f1a14e22dd64aa13a18220fefda2ddf44",
           "scope": "play_blocking",
           "blocksPlay": true
         },
         {
-          "code": "image_first_sense_mismatch",
-          "detail": "The pose suggests asking or pleading, a valid polite-marker use of please. It does not show the first listed transitive verb 喜ばせる, and is not specifically an invitation meaning どうぞ.",
-          "imageSha256": "0f6155b475742a080563e14b6b83b3caa5a7e1120946ab1f237d0a723e443572",
+          "code": "known_issue_needs_review",
+          "detail": "Previously held image/sense changed; a fresh explicit review is required. The pose suggests asking or pleading, a valid polite-marker use of please. It does not show the first listed transitive verb 喜ばせる, and is not specifically an invitation meaning どうぞ.",
+          "imageSha256": "9035a6cdac90ae213a06828501a86b3290299d9f75726f7fd3c3be4dc58c887c",
           "senseSha256": "9e4773d8cee603f63d1e58ef64bb91834a1b85be70e66b6f4dc4f8640a24a412",
           "issueSha256": "9797d92e1c57d52176853c9359f2549d6062b2824b2993e3afd778f8f66d2af3",
           "scope": "play_blocking",
@@ -8468,9 +8468,9 @@
       "pic": "drink",
       "issues": [
         {
-          "code": "image_first_sense_mismatch",
-          "detail": "The PNG contains prepared beverages only. The first entry is the verb 飲む / imbibe, and no person, mouth or drinking action is shown. A caption listing drinks would switch to the noun; ready-to-drink phrasing would merely force a potential action.",
-          "imageSha256": "f5186022f6c7e3d91535474b7b570d81771cadc386e53045d73b0296e717bf97",
+          "code": "known_issue_needs_review",
+          "detail": "Previously held image/sense changed; a fresh explicit review is required. The PNG contains prepared beverages only. The first entry is the verb 飲む / imbibe, and no person, mouth or drinking action is shown. A caption listing drinks would switch to the noun; ready-to-drink phrasing would merely force a potential action.",
+          "imageSha256": "0bbfe5b030644376c2c73ac608c0674cd9d866e65e77424d9760d435ebe08cb0",
           "senseSha256": "c9ee43aed671da7982b69f8f162c1ba8083487f89e1f6df01e9635416349763c",
           "issueSha256": "9747c5fd11bdd0b39d859ae405d6752aaa4e8ba7ba6f0444abc5c174f463a435",
           "scope": "play_blocking",
@@ -8942,9 +8942,9 @@
       "pic": "extreme",
       "issues": [
         {
-          "code": "image_first_sense_mismatch",
-          "detail": "The flowerpot sits at the far end of a bench, illustrating spatial extremity. The current first sense is radical / 極端な, so this is the wrong sense.",
-          "imageSha256": "d8259979804f6ec2edc2c886d0de23c470a25a2777b968c51c1f411198974ea5",
+          "code": "known_issue_needs_review",
+          "detail": "Previously held image/sense changed; a fresh explicit review is required. The flowerpot sits at the far end of a bench, illustrating spatial extremity. The current first sense is radical / 極端な, so this is the wrong sense.",
+          "imageSha256": "9c2cf1dbb07deef33eb2b8528b9bbab04b3ea839fc3ae6e81ccf3d80b8f54d51",
           "senseSha256": "7a6343c57395c405e87c8a5edb26e68e91a86db0b9792dcd9654305e1324ae81",
           "issueSha256": "dcbd147f86ae8e199a8f05962b642408a506479a0c3f4368a64b45cd9543a52f",
           "scope": "play_blocking",
@@ -9392,9 +9392,9 @@
       "pic": "rank",
       "issues": [
         {
-          "code": "image_first_sense_mismatch",
-          "detail": "イラスト要修正。The current image depicts dense overgrown vegetation, a separate adjective sense, not the first sense 階級 / tier. Hold descriptions, TTS and play only for this exact image and sense pair; retain other rank homographs.",
-          "imageSha256": "7762637b4ea4a9d372c166fde6031225f0ff5e9377bd2ce5cac0454ed7221cc3",
+          "code": "known_issue_needs_review",
+          "detail": "Previously held image/sense changed; a fresh explicit review is required. イラスト要修正。The current image depicts dense overgrown vegetation, a separate adjective sense, not the first sense 階級 / tier. Hold descriptions, TTS and play only for this exact image and sense pair; retain other rank homographs.",
+          "imageSha256": "48df063941f392f17bd4c409700bd4cf2e03d71f3a8df787fd3d93c66f5fc49d",
           "senseSha256": "71c1ee33aa7ac226e2e9975eb95106dfbcade1bdaddd574149a4a458d65733ab",
           "issueSha256": "c7d42613c1aa8bdc29e9b538767ec9ba9679dde33430c34a28a69eb732c917b8",
           "scope": "play_blocking",
@@ -9407,9 +9407,9 @@
       "pic": "shower",
       "issues": [
         {
-          "code": "image_first_sense_mismatch",
-          "detail": "Matchesシャワー later sense, notにわか雨 first",
-          "imageSha256": "132b47ce4bedd0d164edd6caa2f5724de7a35a66f9e313a8fc6a4a47095debba",
+          "code": "known_issue_needs_review",
+          "detail": "Previously held image/sense changed; a fresh explicit review is required. Matchesシャワー later sense, notにわか雨 first",
+          "imageSha256": "cd6bc641c64d4d53f61bc5b5ca621c6b6d56dfa7c4f53122b5e272f6d0b8d00e",
           "senseSha256": "ac20560cf229af56f33b40d8a39e0a049de2fc153e130aff1b7ab45751020ae0",
           "issueSha256": "1f6375c7d073c8ff6c3559be85962bdff846da2b8b1986e0b9fbed54748ffc1a",
           "scope": "play_blocking",
@@ -23729,8 +23729,8 @@
       ]
     }
   ],
-  "observedPngPaths": 24826,
-  "usablePngPaths": 24825,
+  "observedPngPaths": 25775,
+  "usablePngPaths": 25774,
   "invalidPngFiles": [
     {
       "path": "assets/word/Ceylon.raw.png",

@@ -72,15 +72,15 @@
     },
     "illustration_scenes": {
       "file": "illustration-scenes.json",
-      "bytes": 23023095,
-      "count": 14122,
-      "sha256": "3dd2df49a1c9f76aa01f787dc00ea9d0347071129497c8bc9160edd260819ee4"
+      "bytes": 26831595,
+      "count": 15085,
+      "sha256": "2534244108bd28748d992a88faf92977666604e40c9864c13bf26cf6f5283503"
     },
     "illustration_review_status": {
       "file": "illustration-review-status.js",
-      "bytes": 4252,
-      "count": 11,
-      "sha256": "9c583e53a5e047ebdd33c168f1a62e75a0b8517ea2a066d2f57b5022571c332e"
+      "bytes": 3144,
+      "count": 8,
+      "sha256": "87ea574d336a3df13939cab04b7603f6feff02d24991d3d1576c919862a01f00"
     },
     "word_suika_words": {
       "file": "word-suika-words.json",
