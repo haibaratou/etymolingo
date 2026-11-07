@@ -171,12 +171,38 @@
   return c?.guard_valid&&c.has_confirmed_components&&!annotations(binding,word)?{...c,state:'unavailable',guard_valid:false,has_confirmed_components:false}:c;
  }
  function rootCell(binding,word,renderLegacy){
-  // Show each deepest confirmed reference once. Transmission and old group
-  // membership remain in details and in the unchanged navigation APIs.
   const refs=confirmedRefs(binding,word),c=displayCoverage(binding,word);
-  if(refs.length)return chips(binding,word)+badge(c);
   const blocked=new Set((binding?.bindingStale?.(word)||[]).map(row=>row.root_key));
   const keys=[...new Set(Array.isArray(word?.p)?word.p:[])].filter(key=>!blocked.has(key));
+  const pieTypes=new Set(['pie_registered','pie','pie_root','pie_reconstruction']);
+  // Registration is not word-specific proof. Keep existing root types intact.
+  const registered=keys.filter(key=>{
+   const r=binding?.legacyInfo?.(key);
+   return r&&pieTypes.has(r.type)&&pieTypes.has(r.kind||'pie_registered')
+    &&(!r.origin_language||r.origin_language==='PIE')&&typeof r.form==='string'&&!!r.form.trim();
+  });
+  const pieRefs=refs.filter(ref=>ref.kind==='pie_reconstruction');
+  // PIE formatives remain separately typed elements, never lexical roots.
+  const formativeKeys=keys.filter(key=>{
+    const r=binding?.legacyInfo?.(key);
+    return r?.type==='pie_formative'&&r.kind==='pie_formative'&&r.origin_language==='PIE';
+  });
+  if(registered.length||pieRefs.length||formativeKeys.length||refs.some(ref=>ref.kind==='pie_formative')){
+   const selected=refs.filter(ref=>ref.kind==='pie_reconstruction'||ref.kind==='pie_formative');
+   const verifiedKeys=new Set(selected.filter(ref=>ref.reference_type==='legacy_root').map(ref=>ref.key));
+   // Only this cell uses the shared PIE meaning. Assembly and details keep
+   // their existing contextual glosses and are not affected by this renderer.
+   const verified=selected.map(ref=>`<span class="chip verifiedComponent" data-k="${esc(ref.key)}" title="${esc(ref.language+'：'+ref.entity.meaning+' / '+(kinds[ref.kind]||ref.kind))}">${ref.kind==='pie_reconstruction'&&!ref.form.startsWith('*')?'*':''}${esc(ref.form)}<i>${esc(ref.entity.meaning)}</i><small>${esc(ref.language)}${ref.kind==='pie_formative'?'・語形成要素':''}</small></span>`).join(' ');
+   const oldPie=registered.filter(key=>!verifiedKeys.has(key));
+   const legacy=oldPie.length?'<span class="registeredPieReferences" data-pie-status="registered">'+oldPie.map(renderLegacy).join(' ')+'</span>':'';
+   const formatives=formativeKeys.filter(key=>!verifiedKeys.has(key)).map(renderLegacy).join(' ');
+   return [verified,legacy,formatives].filter(Boolean).join(' ');
+  }
+  // No registered/confirmed PIE root: retain known forms and the existing
+  // uncertain, alias, formative and non-PIE classifications without inference.
+  const classified=keys.filter(key=>{const r=binding?.legacyInfo?.(key);return r&&typeof r.form==='string'&&!!r.form.trim();});
+  if(classified.length)return keys.map(renderLegacy).join(' ');
+  if(refs.length)return chips(binding,word);
   return keys.map(renderLegacy).join(' ')+badge(c);
  }
  function legacyDetails(binding,word){
@@ -204,6 +230,15 @@
  }
  function details(binding,word){
   const refs=confirmedRefs(binding,word),lineages=annotations(binding,word)?binding?.wordLineages?.(word)||[]:[],c=displayCoverage(binding,word);
+  // When PIE-priority hides old non-PIE/uncertain groups on an unbound row,
+  // keep those existing registrations accessible in the existing detail layer.
+  const unblockedKeys=[...new Set(Array.isArray(word?.p)?word.p:[])].filter(key=>!(binding?.bindingStale?.(word)||[]).some(row=>row.root_key===key));
+  const pieKeys=unblockedKeys.filter(key=>{
+   const r=binding?.legacyInfo?.(key),types=['pie_registered','pie','pie_root','pie_reconstruction'];
+   return r&&((types.includes(r.type)&&types.includes(r.kind||'pie_registered')&&(!r.origin_language||r.origin_language==='PIE')&&typeof r.form==='string'&&!!r.form.trim())
+    ||(r.type==='pie_formative'&&r.kind==='pie_formative'&&r.origin_language==='PIE'));
+  });
+  const hiddenLegacy=!refs.length&&pieKeys.length&&unblockedKeys.some(key=>!pieKeys.includes(key));
   const rows=refs.map(ref=>{
    const e=ref.entity,sources=[...new Set([...(e.evidence||[]),...lineages.filter(l=>l.confirmed&&(l.terminal_entity?.id===e.id||l.id===ref.lineage_id)).flatMap(l=>l.evidence||[])].map(x=>x.source).filter(x=>/^https?:\/\//.test(x)))];
    return `<div class="componentNote" data-confirmed-ref="${esc(ref.id||ref.key)}">${chips({...binding,rootRefs:()=>[ref]},word)}${sources.length?`<div>${sources.map((u,i)=>`<a href="${esc(u)}" target="_blank" rel="noopener noreferrer">資料${i+1}</a>`).join(' · ')}</div>`:''}</div>`;
@@ -219,7 +254,7 @@
   const qualified=lineages.some(l=>l.uncertain_edges?.length)?'<small>さらに古い由来の説は、確認された形と分けて保留しています。</small>':'';
   return (rows?`<div class="detSec"><b>語根・部品の確認資料</b>${badge(c)}${rows}${c?.components_complete?'':'<small>確認できた範囲を表示しています。全構成要素の確認は未完了です。</small>'}</div>`:'')
    +(routes?`<div class="detSec componentHistory"><b>伝承・派生の経路</b>${routes}${qualified}</div>`:'')
-   +(refs.length?legacyDetails(binding,word):'')+staleNote(binding,word);
+   +((refs.length||hiddenLegacy)?legacyDetails(binding,word):'')+staleNote(binding,word);
  }
 
  function integrateRootMembers(byRoot,binding,roots){

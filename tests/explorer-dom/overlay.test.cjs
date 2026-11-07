@@ -12,6 +12,50 @@ const componentsUI=require('../../app/shared/vocabulary-components-ui.js');
 const origins=require('../../app/shared/etymology-origins.js');
 const tick=()=>new Promise(resolve=>setImmediate(resolve));
 
+// Synthetic display contracts only; these are not dictionary ancestry claims.
+function rootTagFixture(keys,legacy,refs,segments=[]){
+ const word={w:'tag-fixture',p:keys,ja:'fixture',en:'fixture',pos:'名',b:''};
+ const meta={w:word.w,p:word.p,word_guard:{ja:word.ja,en:word.en,pos:word.pos,b:word.b},assembly_alignment:{segments}};
+ const binding={coverage:()=>({guard_valid:true,has_confirmed_components:!!refs.length,state:'attested_confirmed'}),annotations:()=>meta,rootRefs:()=>refs,legacyInfo:key=>legacy[key],bindingStale:()=>[],wordLineages:()=>[],legacyRootKeys:()=>[],entity:id=>refs.find(r=>r.entity.id===id)?.entity,byEntity:()=>[]};
+ const render=key=>'<span class="chip" data-k="'+key+'">'+(legacy[key]?.label||key)+'</span>';
+ return {word,binding,render};
+}
+function rootTagRef(id,kind,language,form,meaning){
+ const entity={id,kind,language,form,meaning,status:'dictionary_attested',evidence:[{source:'https://example.test/fixture-source'}]};
+ return {id,key:'component:'+id,kind,language,form,entity};
+}
+test('root tags prefer all existing PIE roots and typed PIE formatives over intermediate forms',()=>{
+ const f=rootTagFixture(['pie-a','pie-b','formative','latin'],{
+  'pie-a':{type:'pie_registered',kind:'pie_registered',form:'a',label:'*a'},
+  'pie-b':{type:'pie_reconstruction',kind:'pie_reconstruction',origin_language:'PIE',form:'b',label:'*b'},
+  formative:{type:'pie_formative',kind:'pie_formative',origin_language:'PIE',form:'-f',label:'PIEの語形成 -f'},
+  latin:{type:'latin_lemma',kind:'latin_lemma',origin_language:'L',form:'l',label:'ラテン語 l'}
+ },[rootTagRef('middle','attested_lexeme','fixture-language','middle','fixture meaning')]);
+ const before=JSON.stringify(f.word),cell=componentsUI.rootCell(f.binding,f.word,f.render),detail=componentsUI.details(f.binding,f.word);
+ for(const key of ['pie-a','pie-b','formative'])assert.ok(cell.includes('data-k="'+key+'"'),key);
+ assert.ok(cell.includes('PIEの語形成'));
+ assert.ok(!cell.includes('data-k="latin"'));assert.ok(!cell.includes('component:middle'));
+ assert.ok(detail.includes('data-k="latin"'));assert.ok(detail.includes('component:middle'));
+ assert.equal(JSON.stringify(f.word),before);
+});
+test('PIE root tag meaning stays independent of the unchanged spelling-assembly gloss',()=>{
+ const ref=rootTagRef('pie','pie_reconstruction','印欧祖語（再建形）','*fixture','shared meaning');
+ const segment={entity_ref:'pie',language:ref.language,correspondence:'source_supported_surface',surface_form:'piece',surface_meaning:'assembly meaning',evidence:[{source:'https://example.test/fixture-source'}]};
+ const f=rootTagFixture([],{},[ref],[segment]);
+ const cell=componentsUI.rootCell(f.binding,f.word,f.render),assembly=componentsUI.assemblyChips(f.binding,f.word,new Set()),detail=componentsUI.details(f.binding,f.word);
+ assert.ok(cell.includes('<i>shared meaning</i>'));assert.ok(!cell.includes('assembly meaning'));
+ assert.ok(assembly.includes('<i>assembly meaning</i>'));assert.ok(detail.includes('<i>assembly meaning</i>'));
+ assert.equal(ref.entity.meaning,'shared meaning');assert.equal(segment.surface_meaning,'assembly meaning');
+});
+test('non-PIE and uncertain registered tags keep their classification instead of becoming PIE',()=>{
+ for(const [kind,language,label] of [['latin_lemma','L','ラテン語 f'],['unverified_reconstruction','und','由来未確定 f'],['legacy_alias','und','旧参照 f']]){
+  const f=rootTagFixture(['old'],{old:{type:kind==='legacy_alias'?'legacy_group_reference':kind,kind,origin_language:language,form:'f',label}},[rootTagRef('middle','attested_lexeme','fixture-language','middle','fixture meaning')]);
+  const cell=componentsUI.rootCell(f.binding,f.word,f.render);
+  assert.equal(cell,f.render('old'));assert.ok(!cell.includes('registeredPieReferences'));assert.ok(!cell.includes('component:middle'));
+ }
+ const empty=rootTagFixture([],{},[]);assert.ok(componentsUI.rootCell(empty.binding,empty.word,empty.render).includes('componentState'));
+});
+
 function nativeTable(words,{extra=false,spaced=false,sheet=false}={}){
  const columns=[['cPic','絵'],['cW','単語'],['cK','カナ'],['cR','レア度'],['cJa','語義'],['cEn','パラフレーズ'],['cRoots','印欧祖語'],['cParts','語源組み立て'],['cDef','語源ひとことメモ'],['cLang',spaced?' 語 \n 派 ':'語派'],['cPos','品詞'],['cMemo','メモ']];
  if(extra)columns.splice(7,0,['unrelated','別の列']);
