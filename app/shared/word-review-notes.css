@@ -13,3 +13,6 @@
 .reviewUsers button{font:inherit;padding:0 2px;border:0;background:none;color:var(--accent);cursor:pointer;text-decoration:underline}
 .reviewStale{color:#8c4b19}.reviewPending{font-size:11px;flex-basis:100%;color:var(--ink-soft)}
 @media(max-width:620px){.reviewNotes{max-width:100%;font-size:10px}}
+
+.reviewSourceButton{font:inherit;padding:2px 4px;border:1px solid var(--line);border-radius:4px;background:transparent;color:var(--accent);cursor:pointer;text-align:left}
+.reviewSources{display:flex;flex-direction:column;align-items:flex-start;gap:4px;margin-top:4px}

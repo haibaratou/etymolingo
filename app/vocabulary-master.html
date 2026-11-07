@@ -324,8 +324,8 @@ td.cOriginLanguage{min-width:105px;max-width:180px;font-size:11px;color:var(--in
 <script src="shared/etymological-components.js?v=5ea4bc892d5d"></script>
 <script src="shared/vocabulary-components-ui.js?v=24da7d00bb20"></script>
 <script src="data/generated-etymon/etymological-components.js?v=0536410bdc1e"></script>
-<link rel="stylesheet" href="shared/word-review-notes.css?v=ae7f729c756f">
-<script src="shared/word-review-notes.js?v=5edd24241d55"></script>
+<link rel="stylesheet" href="shared/word-review-notes.css?v=ade0dd400132">
+<script src="shared/word-review-notes.js?v=b447cf27558e"></script>
 <script src="data/generated-etymon/word-review-notes.js?v=0b1f6ff61d3a"></script>
 <script src="shared/offline-dictionary.js?v=ac1b0f82a525"></script>
 <script src="data/generated-etymon/custom-learning-levels.js?v=24ec13657403"></script>
@@ -402,12 +402,13 @@ function offlineDictionary(){
  if(!offlineDictionaryPromise)offlineDictionaryPromise=window.OfflineDictionary.load(WORDS).catch(error=>{offlineDictionaryError='ローカル辞書データを読み込めません。辞書データ一式を更新してください。';throw error;});
  return offlineDictionaryPromise;
 }
+const DICTIONARY_SOURCE_FAILURES={det:new Set(),eo:new Set(),picks:false};
 const DET_SHARD={};
 function detOf(word,i){
   const c=/^[a-z]/i.test(word)?word[0].toLowerCase():'_';
   if(location.protocol==='file:')return offlineDictionary().then(data=>data.det[c]?.[i]||null);
   if(!DET_SHARD[c])DET_SHARD[c]=fetch(DATA_DIR+'det/'+c+'.json?v='+PIE_V)
-    .then(r=>r.ok?r.json():{}).catch(()=>({}));
+    .then(r=>{if(!r.ok){DICTIONARY_SOURCE_FAILURES.det.add(c);return {};}return r.json();}).catch(()=>{DICTIONARY_SOURCE_FAILURES.det.add(c);return {};});
   return DET_SHARD[c].then(sh=>sh[i]||null);
 }
 let EO_SLUG=new Set();   // etymonline に実在する見出し(eo_slugs.json)
@@ -423,27 +424,31 @@ function prepareEOSlugs(){
 let EO_PICK=null;
 function eoPick(){
   if(location.protocol==='file:')return offlineDictionary().then(data=>data.eo_pick);
-  if(!EO_PICK)EO_PICK=fetch(DATA_DIR+'eo_pick.json?v='+PIE_V).then(r=>r.ok?r.json():{}).catch(()=>({}));
+  if(!EO_PICK)EO_PICK=fetch(DATA_DIR+'eo_pick.json?v='+PIE_V).then(r=>{if(!r.ok){DICTIONARY_SOURCE_FAILURES.picks=true;return {};}return r.json();}).catch(()=>{DICTIONARY_SOURCE_FAILURES.picks=true;return {};});
   return EO_PICK;
 }
 const EO_SHARD={};       // 先頭文字 → {単語: 項目} (eo/*.json を必要なときだけ読む)
 function eoShard(w){
   const k=/^[a-z]/i.test(w)?w[0].toLowerCase():'_';
   if(location.protocol==='file:')return offlineDictionary().then(data=>data.eo[k]||{});
-  if(!EO_SHARD[k])EO_SHARD[k]=fetch(DATA_DIR+'eo/'+k+'.json?v='+PIE_V).then(r=>r.ok?r.json():{}).catch(()=>({}));
+  if(!EO_SHARD[k])EO_SHARD[k]=fetch(DATA_DIR+'eo/'+k+'.json?v='+PIE_V).then(r=>{if(!r.ok){DICTIONARY_SOURCE_FAILURES.eo.add(k);return {};}return r.json();}).catch(()=>{DICTIONARY_SOURCE_FAILURES.eo.add(k);return {};});
   return EO_SHARD[k];
 }
 async function fillEO(word,row,w){
   const box=row.querySelector('.eoLocal span');if(!box)return;
   const headword=w.eo_headword||word;
   const all=(await eoShard(headword))[headword];
+  const sourceKey=/^[a-z]/i.test(headword)?headword[0].toLowerCase():'_';
+  if(DICTIONARY_SOURCE_FAILURES.eo.has(sourceKey)){box.textContent='語源辞書データを読み込めません。';return;}
   if(!all||!all.length){box.textContent='(保存された項目なし)';return;}
   // 鍵は「単語 + 語根」。行番号だと単語を1つ足し引きしただけで全部ずれる。
   const keep=w.etymology_id?w.eo_sections:(await eoPick())[word+'\t'+(w.p||[]).join('+')];
+  if(!w.etymology_id&&DICTIONARY_SOURCE_FAILURES.picks){box.textContent='この語源に対応する保存記事を確認できません。';return;}
   if(w.etymology_id&&(!Array.isArray(keep)||!keep.length)){
     box.textContent='この語源に対応する保存記事は未確認です。';return;
   }
   const mine=keep?all.filter(e=>keep.includes(e.p||'')):all;
+  if(Array.isArray(keep)&&!mine.length){box.textContent='この語源に対応する保存記事は未確認です。';return;}
   const other=keep?all.filter(e=>!keep.includes(e.p||'')):[];
   const fmt=e=>`<span class="eoHead">${esc(e.h)}${e.p?' '+esc(e.p):''}</span> ${e.x}`;
   box.innerHTML=(w.etymology_id?mine:(mine.length?mine:all)).map(fmt).join('<hr class="eoSep">')
@@ -1382,13 +1387,50 @@ function say(text){
   if(v)u.voice=v;
   speechSynthesis.speak(u);
 }
+// Load sources only when reader notes are opened. Reuse the existing HTTPS/file
+// dictionary loaders and their shard caches; never scan words during rendering.
+const reviewSourceCache=new WeakMap();
+function reviewSourceKey(w){return JSON.stringify([w.i,w.w,w.p,w.etymology_id||w.origin_id||'',w.eo_headword||'',w.eo_sections||null,w.ja,w.en,w.pos,w.b]);}
+function reviewSources(w){
+  const key=reviewSourceKey(w),cached=reviewSourceCache.get(w);if(cached?.key===key)return cached.promise;
+  const promise=Promise.all([detOf(w.w,w.i),prepareEOSlugs(),eoShard(w.eo_headword||w.w),w.etymology_id?Promise.resolve(null):eoPick()]).then(([d,,shard,picks])=>{
+    const headword=w.eo_headword||w.w,all=Array.isArray(shard?.[headword])?shard[headword]:[];
+    const keep=w.etymology_id?w.eo_sections:picks?.[w.w+'\t'+(w.p||[]).join('+')];
+    const mine=Array.isArray(keep)?all.filter(e=>keep.includes(e.p||'')):all;
+    // Do not borrow another sense's article when a sense selection is missing.
+    const shardKey=/^[a-z]/i.test(headword)?headword[0].toLowerCase():'_',detKey=/^[a-z]/i.test(w.w)?w.w[0].toLowerCase():'_';
+    const failed=DICTIONARY_SOURCE_FAILURES.det.has(detKey)||DICTIONARY_SOURCE_FAILURES.eo.has(shardKey)||(!w.etymology_id&&DICTIONARY_SOURCE_FAILURES.picks);
+    const hasEO=(!DICTIONARY_SOURCE_FAILURES.picks||!!w.etymology_id)&&(!w.etymology_id||(Array.isArray(keep)&&keep.length>0))&&mine.some(e=>typeof e.x==='string'&&!!e.x.trim());
+    const hasDet=Array.isArray(d)&&[0,1,2].some(i=>typeof d[i]==='string'&&d[i].trim()&&!/^not found$/i.test(d[i].trim()));
+    const unverified=all.length>0&&((w.etymology_id&&(!Array.isArray(keep)||!keep.length))||(Array.isArray(keep)&&!mine.length));
+    return {status:failed?'partial':unverified?'unverified':'ready',d,hasSaved:hasDet||hasEO,etymonlineURL:hasEO&&EO_SLUG.has(headword)?'https://www.etymonline.com/word/'+encodeURIComponent(headword):''};
+  }).catch(()=>({status:'error',d:null,hasSaved:false,etymonlineURL:''}));
+  reviewSourceCache.set(w,{key,promise});return promise;
+}
 wrapEl.addEventListener('toggle',e=>{
   const area=e.target;if(!area.matches?.('details.reviewNotes'))return;
-  const w=WORDS[Number(area.dataset.reviewOwner)];if(w)window.VocabularyReviewNotes?.hydrate(area,REVIEW_NOTES,w);
+  const index=Number(area.dataset.reviewOwner),w=WORDS[index];if(!w)return;
+  window.VocabularyReviewNotes?.hydrate(area,REVIEW_NOTES,w);
+  if(!area.open)return;
+  const key=reviewSourceKey(w);
+  reviewSources(w).then(sources=>{if(area.isConnected&&area.open&&WORDS[index]===w&&reviewSourceKey(w)===key)window.VocabularyReviewNotes?.hydrate(area,REVIEW_NOTES,w,sources);});
 },true);
 wrapEl.addEventListener('click',e=>{
   const reviewArea=e.target.closest('.reviewNotes');
   if(reviewArea){
+    const source=e.target.closest('[data-review-source-word]');
+    if(source){
+      e.preventDefault();
+      const index=Number(source.dataset.reviewSourceWord),w=WORDS[index];if(!w)return;
+      const tr=wrapEl.querySelector('tr[data-i="'+index+'"]'),key=reviewSourceKey(w);if(!tr)return;
+      reviewSources(w).then(sources=>{
+        if(!source.isConnected||!reviewArea.open||!tr.isConnected||WORDS[index]!==w||reviewSourceKey(w)!==key||!sources.hasSaved)return;
+        let detail=tr.nextElementSibling;
+        if(!detail?.classList.contains('detRow')){document.querySelectorAll('tr.detRow').forEach(row=>row.remove());renderDetail(tr,w,sources.d);detail=tr.nextElementSibling;}
+        detail?.scrollIntoView({block:'nearest'});
+      });
+      return;
+    }
     const jump=e.target.closest('[data-review-open-word]');
     if(jump){
       e.preventDefault();const index=Number(jump.dataset.reviewOpenWord),w=WORDS[index];if(!w)return;
@@ -1483,12 +1525,11 @@ function renderDetail(tr,w,d){
     <div class="detSec"><b>発音</b><button class="spk" data-say="${esc(w.w)}" title="発音を再生">🔊</button><span>${esc(d[4]||'')}${d[5]?` / ${esc(d[5])}`:''}${d[6]?` / 音節 ${esc(d[6])}`:''}</span></div>
     ${sec('英辞郎',d[7])}
     ${sec('Weblio',d[8])}
-    <div class="detSec eoLocal"><b>etymonline</b><span>読み込み中…</span></div>
     <div class="detSec"><b>リンク</b>
       <a href="${EO_SLUG.has(w.w)||EO_SLUG.has(w.w.toLowerCase())
         ? 'https://www.etymonline.com/word/'+encodeURIComponent(EO_SLUG.has(w.w)?w.w:w.w.toLowerCase())
         : 'https://www.etymonline.com/search?q='+encodeURIComponent(w.w)}" target="_blank" rel="noopener">etymonline で開く ↗</a></div>`
-    :`<div class="detSec"><span>${esc(offlineDictionaryError||'この単語の詳細データはありません。')}</span></div>`}</div></div></td>`;
+    :`<div class="detSec"><span>${esc(offlineDictionaryError||'この単語の詳細データはありません。')}</span></div>`}<div class="detSec eoLocal"><b>etymonline</b><span>読み込み中…</span></div></div></div></td>`;
   tr.after(det);
   hydrateIllustrationScenes(det);
   fillEO(w.w,det,w).catch(()=>{const box=det.querySelector('.eoLocal span');if(box)box.textContent=offlineDictionaryError||'語源辞書データを読み込めません。';});

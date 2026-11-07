@@ -511,3 +511,171 @@ test('network and bundled word-parts are the same digest-bound snapshot',()=>{
  const bundle=unpack(html.match(/<script id="pieData" type="application\/gzip-base64">([^]*?)<\/script>/)[1]);
  assert.deepEqual(bundle.word_parts,JSON.parse(raw));
 });
+
+// Keep reader-note regressions in this existing workflow entry point.
+{
+// Reader display regressions. Synthetic prose and sources are software fixtures.
+const test=require('node:test'),assert=require('node:assert/strict');
+const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
+const {parseHTML}=require('linkedom');
+const root=path.resolve(__dirname,'../..');
+const html=fs.readFileSync(path.join(root,'app/vocabulary-master.html'),'utf8');
+const api=require('../../app/shared/word-review-notes.js');
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const tick=()=>new Promise(r=>setImmediate(r));
+const between=(a,b)=>html.slice(html.indexOf(a),html.indexOf(b,html.indexOf(a)));
+const word=()=>({i:0,w:'fixture',p:['fixture-root'],ja:'試験語',en:'fixture',pos:'名',b:'既存の語源メモ。'});
+const empty=()=>({schema:1,batches:[],word_notes:[],component_issues:[],pending_scopes:[]});
+function binding(w,options={}){return api.bind([w],api.prepare(empty()),options);}
+function audited(w){
+ const guard=Object.fromEntries(['ja','en','pos','b'].map(k=>[k,w[k]??'']));
+ const meta={...w,word_guard:guard,review_note:'既存の語源備考。その全文を保持。',lineages:[{review_note:'既存の系列備考。'}]};
+ const payload={...empty(),batches:[{id:'internal-batch'}],word_notes:[{id:'internal-note',batch_id:'internal-batch',summary:'今回の反映: INTERNAL',confirmed_scope:['確認済みの範囲 INTERNAL'],unreviewed_scope:['未確認の範囲 INTERNAL'],source_review_text:'返却レビュー INTERNAL',machine_checks:[{check:'INTERNAL'}],issues:[{code:'fixture_issue',status:'held',reason:'INTERNAL issue',component_refs:[]}],target:{w:w.w,p:w.p,etymology_id:''},word_guard:guard}]};
+ const b=api.bind([w],api.prepare(payload),{binding:{annotations:()=>meta}});
+ return {b,meta,payload};
+}
+test('reader notes retain full authored and canonical prose but do not publish audit records',()=>{
+ const w=word(),{b,payload}=audited(w),before=JSON.stringify(payload),state=b.get(w);
+ const mark=api.html(b,w);assert.match(mark,/>備考（要確認）</);assert.equal(state.notes.length,1);assert.equal(b.needsReview(w),true);
+ assert.doesNotMatch(mark,/既存の語源メモ|INTERNAL/,'closed details have no eager body');
+ const body=api.bodyHTML(b,w,{status:'ready',hasSaved:true});
+ assert.match(body,/既存の語源メモ。/);assert.match(body,/既存の語源備考。その全文を保持。/);assert.match(body,/既存の系列備考。/);
+ assert.doesNotMatch(body,/INTERNAL|今回の反映|確認済みの範囲|未確認の範囲|作業単位|レビュー・備考原文/);
+ assert.equal(JSON.stringify(payload),before);
+});
+test('notes do not depend on the existence of an audit record, including helper data failures',()=>{
+ const w=word();assert.match(api.html(binding(w),w),/>備考</);assert.match(api.html(null,w),/>備考</);
+ const blank={...w,b:''};assert.equal(api.html(binding(blank),blank),'');assert.equal(api.html(null,blank),'');
+ const {b,meta}=audited(blank);meta.review_note='';meta.lineages=[];assert.equal(api.html(b,blank),'','an audit-only entry is not a reader note');
+});
+test('context-drifted canonical prose is withheld while current memo and review state survive',()=>{
+ const w=word(),{b}=audited(w);w.b='現在のメモ。';
+ const body=api.bodyHTML(b,w,{status:'ready',hasSaved:false});
+ assert.match(body,/現在のメモ/);assert.doesNotMatch(body,/その全文を保持|系列備考|INTERNAL/);assert.match(body,/一致しない過去の備考/);assert.equal(b.needsReview(w),true);
+});
+test('same-spelling identities never inherit another sense memo or canonical note',()=>{
+ const a=word(),b={...word(),i:1,p:['another'],etymology_id:'separate',b:'別語源のメモ。'},guard=Object.fromEntries(['ja','en','pos','b'].map(k=>[k,a[k]]));
+ const notes=api.bind([a,b],api.prepare(empty()),{binding:{annotations:w=>w===a?{...a,word_guard:guard,review_note:'第一語源の備考',lineages:[]}:null}});
+ assert.match(api.bodyHTML(notes,a),/第一語源/);assert.doesNotMatch(api.bodyHTML(notes,b),/第一語源/);assert.match(api.bodyHTML(notes,b),/別語源のメモ/);
+});
+test('unsafe source URLs and prose markup cannot create active content',()=>{
+ const w={...word(),b:'<img src=x onerror=bad()> & "raw"'},b=binding(w);
+ for(const u of ['javascript:alert(1)','data:text/html,bad','//bad.example','http://insecure.example','https://user:password@example.test/','https://example.test/\n" onclick="bad']){
+  const {document}=parseHTML('<main>'+api.bodyHTML(b,w,{status:'ready',hasSaved:false,etymonlineURL:u})+'</main>');
+  assert.equal(document.querySelectorAll('a,img,script').length,0,u);assert.ok(document.querySelector('main').textContent.includes(w.b));
+ }
+ const {document}=parseHTML('<main>'+api.bodyHTML(b,w,{status:'ready',hasSaved:false,etymonlineURL:'https://example.test/word/fixture?q="quoted"&next=1'})+'</main>');
+ const a=document.querySelector('a');assert.ok(a);assert.equal(a.getAttribute('rel'),'noopener noreferrer');assert.equal(a.getAttribute('target'),'_blank');assert.equal(a.getAttribute('onclick'),null);
+});
+test('missing, unverified and failed sources show distinct status text without empty buttons',()=>{
+ const w=word(),b=binding(w);
+ const missing=api.bodyHTML(b,w,{status:'ready',hasSaved:false});assert.match(missing,/登録されていません/);
+ const failed=api.bodyHTML(b,w,{status:'error',hasSaved:false});assert.match(failed,/読み込めませんでした/);assert.doesNotMatch(failed,/登録されていません/);
+ const unverified=api.bodyHTML(b,w,{status:'unverified',hasSaved:false});assert.match(unverified,/対応するEtymonline原文は未確認/);
+ for(const body of [missing,failed,unverified])assert.doesNotMatch(body,/<button|<a /);
+});
+function sourceContext({words=[word()],protocol='https:',det={},eo={},pick={},slugs=[],failure,offlineFailure=false}={}){
+ let loads=0;const calls=[];
+ const context={WORDS:words,location:{protocol},DATA_DIR:'data/generated-etymon/',PIE_V:'fixture',URL,console,Promise,
+ window:{OfflineDictionary:{load(){loads++;return offlineFailure?Promise.reject(Error('offline fixture failure')):Promise.resolve({det,eo,eo_pick:pick,eo_slugs:slugs});}}},
+ fetch:async url=>{calls.push(url);if(failure&&url.includes(failure))return {ok:false,status:503,json:async()=>({})};
+ const suffix=url.split('generated-etymon/')[1].split('?')[0];
+ const data=suffix==='eo_slugs.json'?slugs:suffix==='eo_pick.json'?pick:suffix.startsWith('det/')?det[suffix[4]]:suffix.startsWith('eo/')?eo[suffix[3]]:undefined;
+ return {ok:true,json:async()=>data||{}};}};
+ vm.runInNewContext(between("let offlineDictionaryPromise=null",'async function fillEO(')+between('const reviewSourceCache=new WeakMap();',"wrapEl.addEventListener('toggle',e=>{"),context);
+ return {context,calls,loads:()=>loads};
+}
+test('HTTPS source checks use cached existing loaders only after explicit note opening',async()=>{
+ const w=word(),f=sourceContext({det:{f:{0:['stored original','Not found','',w.w]}},eo:{f:{fixture:[{p:'(n.)',x:'stored EO'}]}},slugs:['fixture']});
+ assert.equal(f.calls.length,0);const a=f.context.reviewSources(w),b=f.context.reviewSources(w);assert.equal(a,b);
+ const sources=await a;assert.equal(sources.hasSaved,true);assert.equal(sources.etymonlineURL,'https://www.etymonline.com/word/fixture');assert.equal(f.calls.length,4);
+ await f.context.reviewSources(w);assert.equal(f.calls.length,4);
+});
+test('file sources reuse exactly one OfflineDictionary promise and never fetch',async()=>{
+ const w=word(),f=sourceContext({protocol:'file:',det:{f:{0:['stored original','Not found','',w.w]}},eo:{f:{fixture:[{p:'(n.)',x:'stored EO'}]}},slugs:['fixture']});
+ assert.equal(f.loads(),0);const sources=await f.context.reviewSources(w);assert.equal(sources.hasSaved,true);assert.equal(f.loads(),1);assert.equal(f.calls.length,0);
+ await f.context.reviewSources(w);assert.equal(f.loads(),1);
+ const failed=sourceContext({protocol:'file:',offlineFailure:true});assert.equal((await failed.context.reviewSources(w)).status,'error');assert.equal(failed.calls.length,0);
+});
+test('read failures are not reported as absent originals and partial data remain usable',async()=>{
+ const w=word(),missing=sourceContext();assert.equal((await missing.context.reviewSources(w)).status,'ready');assert.equal((await missing.context.reviewSources(w)).hasSaved,false);
+ const failed=sourceContext({failure:'det/'});const f=await failed.context.reviewSources(w);assert.equal(f.status,'partial');assert.equal(f.hasSaved,false);
+ const partial=sourceContext({failure:'det/',eo:{f:{fixture:[{x:'EO still present'}]}},slugs:['fixture']});assert.equal((await partial.context.reviewSources(w)).hasSaved,true);
+ const picks=sourceContext({failure:'eo_pick',eo:{f:{fixture:[{p:'(n.)',x:'potential wrong sense'}]}},slugs:['fixture']});assert.equal((await picks.context.reviewSources(w)).hasSaved,false);
+});
+test('EO-only originals remain usable and sense selection never borrows another etymology',async()=>{
+ const w=word(),f=sourceContext({eo:{f:{fixture:[{p:'(n.)',x:'noun original'},{p:'(v.)',x:'verb original'}]}},slugs:['fixture']});
+ const a=await f.context.reviewSources(w);assert.equal(a.hasSaved,true);assert.equal(a.d,null);
+ w.etymology_id='sense-two';w.eo_sections=[];const b=await f.context.reviewSources(w);assert.equal(b.hasSaved,false);assert.equal(b.status,'unverified');assert.equal(b.etymonlineURL,'');
+ w.eo_sections=['(v.)'];const c=await f.context.reviewSources(w);assert.equal(c.hasSaved,true);
+ w.eo_sections=['not-present'];const d=await f.context.reviewSources(w);assert.equal(d.hasSaved,false);assert.equal(d.status,'unverified');
+ const mismatch=sourceContext({eo:{f:{fixture:[{p:'(n.)',x:'noun original'}]}},pick:{'fixture\tfixture-root':['(v.)']},slugs:['fixture']});assert.equal((await mismatch.context.reviewSources(word())).hasSaved,false);
+});
+test('validating source availability does not invent a link for an unregistered EO slug',async()=>{
+ const w=word(),f=sourceContext({eo:{f:{fixture:[{x:'stored original'}]}},slugs:[]});
+ const sources=await f.context.reviewSources(w);assert.equal(sources.hasSaved,true);assert.equal(sources.etymonlineURL,'');
+});
+function eventFixture({delayed=false}={}){
+ const w=word(),b=binding(w),{window}=parseHTML('<html><body><div id="tableWrap"><table><tbody><tr data-i="0"><td class="cW">fixture'+api.html(b,w)+'</td></tr></tbody></table></div></body></html>');
+ const wrapEl=window.document.getElementById('tableWrap');let resolve,loads=0,rendered=0,headwordOpens=0;
+ const response=delayed?new Promise(r=>resolve=r):Promise.resolve({status:'ready',hasSaved:true,d:['stored']});
+ const context={WORDS:[w],REVIEW_NOTES:b,window:{VocabularyReviewNotes:api},document:window.document,wrapEl,reviewSourceKey:w=>JSON.stringify(w),reviewSources:()=>{loads++;return response;},
+ renderDetail(tr){rendered++;const row=window.document.createElement('tr');row.className='detRow';row.scrollIntoView=()=>{};tr.after(row);},toggleDetail(){headwordOpens++;},F:{}};
+ vm.runInNewContext(between("wrapEl.addEventListener('toggle',e=>{", "wrapEl.addEventListener('input',e=>{"),context);
+ const area=window.document.querySelector('.reviewNotes'),toggle=open=>{area.open=open;area.dispatchEvent(new window.Event('toggle',{bubbles:true}));};
+ return {w,b,window,context,area,toggle,resolve,loads:()=>loads,rendered:()=>rendered,headwordOpens:()=>headwordOpens};
+}
+test('opening notes hydrates lazily, closing clears the body, reopening retains the notes',async()=>{
+ const f=eventFixture();assert.equal(f.loads(),0);assert.equal(f.area.querySelector('.reviewNotesBody').innerHTML,'');
+ f.toggle(true);await tick();assert.match(f.area.textContent,/既存の語源メモ/);assert.ok(f.area.querySelector('[data-review-source-word]'));
+ f.toggle(false);assert.equal(f.area.querySelector('.reviewNotesBody').innerHTML,'');f.toggle(true);await tick();assert.ok(f.area.querySelector('[data-review-source-word]'));
+});
+test('closing, leaving, or changing a sense during source loading cannot repopulate obsolete notes',async()=>{
+ for(const change of ['close','remove','change']){
+  const f=eventFixture({delayed:true});f.toggle(true);
+  if(change==='close')f.toggle(false);else if(change==='remove')f.area.remove();else f.w.eo_sections=['changed'];
+  f.resolve({status:'ready',hasSaved:true,d:['original']});await tick();assert.equal(f.area.querySelector('[data-review-source-word]'),null,change);
+ }
+});
+test('source button opens one existing detail only and does not bubble into headword toggle',async()=>{
+ const f=eventFixture();f.toggle(true);await tick();const source=f.area.querySelector('[data-review-source-word]');
+ for(let i=0;i<3;i++)source.dispatchEvent(new f.window.Event('click',{bubbles:true,cancelable:true}));
+ await tick();assert.equal(f.rendered(),1);assert.equal(f.headwordOpens(),0);assert.equal(f.window.document.querySelectorAll('.detRow').length,1);
+ f.area.querySelector('summary').dispatchEvent(new f.window.Event('click',{bubbles:true}));assert.equal(f.headwordOpens(),0);
+ f.window.document.querySelector('.cW').dispatchEvent(new f.window.Event('click',{bubbles:true}));assert.equal(f.headwordOpens(),1);
+});
+test('source click interrupted by note close does not open an unwanted detail',async()=>{
+ const f=eventFixture();f.toggle(true);await tick();f.area.querySelector('button').dispatchEvent(new f.window.Event('click',{bubbles:true,cancelable:true}));f.toggle(false);await tick();assert.equal(f.rendered(),0);
+});
+test('the existing detail renderer displays saved EO text even when det data are absent',async()=>{
+ const w=word(),f=sourceContext({eo:{f:{fixture:[{h:'fixture',p:'(n.)',x:'SAVED EO ORIGINAL <i>whole</i>'}]}},slugs:['fixture']});
+ const {window}=parseHTML('<html><body><table><tbody><tr data-i="0"><td>fixture</td></tr></tbody></table></body></html>');
+ Object.assign(f.context,{document:window.document,window:{VocabularyReviewNotes:api,VocabularyComponentsUI:{details:()=>''}},REVIEW_NOTES:binding(w),COMPONENTS:null,esc,wordSenseImagesHTML:()=>'',semanticLine:()=>'',wordParts:()=>'',gameTagHTML:()=>'',hydrateIllustrationScenes:()=>{}});
+ vm.runInNewContext(between('async function fillEO(', 'const ROOT_CONCEPT=')+between('function renderDetail(tr,w,d){','/* ダウンロードしたCSV'),f.context);
+ f.context.renderDetail(window.document.querySelector('tr'),w,null);await tick();await tick();
+ const detail=window.document.querySelector('.detRow');assert.match(detail.textContent,/SAVED EO ORIGINAL whole/);assert.match(detail.textContent,/ローカル保存/);assert.doesNotMatch(detail.textContent,/今回の反映|作業単位/);
+});
+test('empty and unmatched saved sense picks do not revive other EO articles in the existing reader',async()=>{
+ for(const keep of [[],['(v.)']]){
+  const w=word(),f=sourceContext({eo:{f:{fixture:[{h:'fixture',p:'(n.)',x:'OTHER SENSE MUST NOT BECOME MAIN'}]}},pick:{'fixture\tfixture-root':keep},slugs:['fixture']});
+  const sources=await f.context.reviewSources(w);assert.equal(sources.hasSaved,false);assert.equal(sources.etymonlineURL,'');assert.equal(sources.status,'unverified');
+  const {document}=parseHTML('<div class="eoLocal"><span></span></div>');f.context.esc=esc;vm.runInNewContext(between('async function fillEO(', 'const ROOT_CONCEPT='),f.context);
+  await f.context.fillEO(w.w,document,w);assert.match(document.textContent||document.querySelector('span').textContent,/未確認/);assert.doesNotMatch(document.querySelector('span').innerHTML,/OTHER SENSE/);
+ }
+});
+test('existing saved EO reader distinguishes load failure from absent articles',async()=>{
+ for(const failure of ['eo/','eo_pick']){
+  const w=word(),f=sourceContext({failure,eo:{f:{fixture:[{h:'fixture',p:'(n.)',x:'SENSE MUST REMAIN HIDDEN'}]}},slugs:['fixture']});
+  const {document}=parseHTML('<div class="eoLocal"><span></span></div>');f.context.esc=esc;vm.runInNewContext(between('async function fillEO(', 'const ROOT_CONCEPT='),f.context);
+  await f.context.fillEO(w.w,document,w);const text=document.querySelector('span').textContent;
+  assert.match(text,/読み込めません|確認できません/);assert.doesNotMatch(text,/SENSE MUST|保存された項目なし/);
+ }
+});
+test('original EO sense selection and labeled other-sense disclosures remain distinct',async()=>{
+ const w=word(),f=sourceContext({eo:{f:{fixture:[{h:'fixture',p:'(n.)',x:'NOUN ORIGINAL'},{h:'fixture',p:'(v.)',x:'VERB ORIGINAL'}]}},pick:{'fixture\tfixture-root':['(v.)']},slugs:['fixture']});
+ const {document}=parseHTML('<div class="eoLocal"><span></span></div>');f.context.esc=esc;vm.runInNewContext(between('async function fillEO(', 'const ROOT_CONCEPT='),f.context);
+ await f.context.fillEO(w.w,document,w);const span=document.querySelector('span'),other=span.querySelector('.eoOther');
+ assert.ok(other);assert.match(other.textContent,/NOUN ORIGINAL/);assert.match(other.textContent,/この語根とは別系統/);other.remove();assert.match(span.textContent,/VERB ORIGINAL/);assert.doesNotMatch(span.textContent,/NOUN ORIGINAL/);
+});
+
+}

@@ -100,22 +100,46 @@
  }
  function listHTML(label,items){return array(items).length?'<div class="reviewScope"><b>'+esc(label)+'</b><ul>'+items.map(x=>'<li>'+esc(x)+'</li>').join('')+'</ul></div>':'';}
  function usersHTML(binding,id){const users=binding.componentUsers(id),e=binding.entity(id);return '<details class="reviewUsers"><summary>'+esc(e?.form||id)+' の登録参照 '+users.length+'語</summary><small>登録された参照です。保留対象の自動拡張や語源の正しさの確認とは別です。</small><ul>'+users.map(w=>'<li><button type="button" title="検索・絞り込みを解除してこの語を開く" data-review-open-word="'+binding.index(w)+'">'+esc(w.w)+'</button> '+esc(w.ja)+'（'+esc(w.pos)+'）</li>').join('')+'</ul></details>';}
- function bodyHTML(binding,w){
-  if(!binding)return '';const state=binding.get(w);if(!state.notes.length&&!state.existing_notes.length&&!state.diagnostics.length)return '';
-  const noteRows=state.notes.map(({record:n,shared_component:id})=>{
-   const issues=n.issues.map(i=>'<div class="reviewIssue" data-issue-status="'+esc(i.status)+'"><b>'+esc(({held:'保留',conflict:'不整合',known_issue:'具体的課題',resolved:'解消済み',dismissed:'対象外'})[i.status])+' · '+esc(i.code)+'</b><p>'+esc(i.reason)+'</p></div>').join('');
-   const checks=n.machine_checks.length?'<details class="reviewMachine"><summary>機械検査（語源の正しさとは別）</summary><pre>'+esc(JSON.stringify(n.machine_checks,null,2))+'</pre></details>':'';
-   const refs=[...new Set([...(id?[id]:[]),...n.issues.flatMap(i=>i.component_refs)].filter(ref=>binding.entity(ref)))];
-   const batch=binding.batches.get(n.batch_id),missing=batch?.source_review_status==='raw_returned_reviews_unavailable'?'<small>返却レビュー原文は未取得です。</small>':'';
-   return '<section data-review-note="'+esc(n.id)+'"><b>'+esc(n.summary)+'</b>'+issues+listHTML('確認済みの範囲',n.confirmed_scope)+listHTML('未確認の範囲',n.unreviewed_scope)+(n.source_review_text?'<details><summary>レビュー・備考原文</summary><pre>'+esc(n.source_review_text)+'</pre></details>':'')+checks+missing+refs.map(ref=>usersHTML(binding,ref)).join('')+'<small>作業単位: '+esc(n.batch_id)+'</small></section>';
-  }).join('');
-  const fallback=state.existing_notes.length?'<details><summary>既存の語源備考</summary><small>既存の記録を参照しています。今回の再審査完了を表しません。</small>'+state.existing_notes.map(n=>'<p>'+esc(n.text)+'</p>').join('')+'</details>':'';
-  const stale=state.diagnostics.length?'<p class="reviewStale">保存時の文脈と一致しない備考があります。旧レビュー本文は適用していません。</p>':'';
-  return noteRows+fallback+stale;
+ // Reader notes and audit records share binding checks, not presentation.
+ // Never promote returned reviews or machine checks to dictionary prose.
+ function readerState(binding,w){
+  const state=binding?.get(w)||{existing_notes:[],diagnostics:[],needsReview:false};
+  const memo=typeof w?.b==='string'&&w.b.trim()?w.b:'';
+  return {state,memo,hasContent:!!memo||state.existing_notes.length>0};
  }
- function summaryText(state){return state.diagnostics.length?'保存文脈の競合 '+state.diagnostics.length:state.needsReview?'要確認 '+state.issues.length:'備考';}
- function html(binding,w){if(!binding)return '';const state=binding.get(w);if(!state.notes.length&&!state.existing_notes.length&&!state.diagnostics.length)return '';return '<details class="reviewNotes" data-review-owner="'+binding.index(w)+'"'+(state.needsReview?' data-needs-review="true"':'')+'><summary>'+summaryText(state)+'</summary><div class="reviewNotesBody" data-review-lazy="true"></div></details>';}
- function hydrate(element,binding,w){const body=element?.querySelector?.('.reviewNotesBody');if(!body||!binding)return;const state=binding.get(w),summary=element.querySelector(':scope > summary');if(summary)summary.textContent=summaryText(state);if(state.needsReview)element.setAttribute?.('data-needs-review','true');else element.removeAttribute?.('data-needs-review');if(!element.open){body.replaceChildren();return;}body.innerHTML=bodyHTML(binding,w);}
+ function safeSourceURL(value){
+  if(typeof value!=='string'||!/^https:\/\//.test(value)||/[\u0000-\u0020\u007f]/.test(value))return '';
+  try{const url=new URL(value);return url.protocol==='https:'&&url.hostname&&!url.username&&!url.password?url.href:'';}catch{return '';}
+ }
+ function sourceHTML(binding,w,sources){
+  if(!sources||sources.status==='loading')return '<small class="reviewSourceStatus">出典原文を確認中…</small>';
+  const index=binding?.index(w)??w.i;
+  const failed=sources.status==='error'||sources.status==='partial';
+  const saved=sources.hasSaved&&Number.isInteger(index)?'<button type="button" class="reviewSourceButton" data-review-source-word="'+index+'">出典原文（保存データ）</button>':'';
+  const url=safeSourceURL(sources.etymonlineURL);
+  const external=url?'<a href="'+esc(url)+'" target="_blank" rel="noopener noreferrer">Etymonlineの当該見出し ↗</a>':'';
+  return (saved||external?'<div class="reviewSources">'+saved+external+'</div>':'')+(failed?'<small class="reviewSourceStatus">出典原文の一部を読み込めませんでした。対応は未確認です。</small>':sources.status==='unverified'?'<small class="reviewSourceStatus">この語源に対応するEtymonline原文は未確認です。</small>':!saved&&!external?'<small class="reviewSourceStatus">この語に対応する保存原文は登録されていません。</small>':'');
+ }
+ function bodyHTML(binding,w,sources){
+  const {state,memo,hasContent}=readerState(binding,w);if(!hasContent)return '';
+  const main=memo?'<section class="reviewMemo"><b>語源メモ</b><p>'+esc(memo)+'</p></section>':'';
+  const existing=state.existing_notes.length?'<section class="reviewExisting"><b>既存の語源備考</b>'+state.existing_notes.map(n=>'<p>'+esc(n.text)+'</p>').join('')+'</section>':'';
+  const stale=state.diagnostics.length?'<p class="reviewStale">現在の語義と一致しない過去の備考は表示していません。</p>':state.needsReview?'<p class="reviewStale">この語の語源記録には未解決の確認事項があります。</p>':'';
+  return main+existing+stale+sourceHTML(binding,w,sources);
+ }
+ function summaryText(state){return state.needsReview?'備考（要確認）':'備考';}
+ function html(binding,w){
+  const {state,hasContent}=readerState(binding,w),index=binding?.index(w)??w.i;
+  if(!hasContent||!Number.isInteger(index))return '';
+  return '<details class="reviewNotes" data-review-owner="'+index+'"'+(state.needsReview?' data-needs-review="true"':'')+'><summary>'+summaryText(state)+'</summary><div class="reviewNotesBody" data-review-lazy="true"></div></details>';
+ }
+ function hydrate(element,binding,w,sources){
+  const body=element?.querySelector?.('.reviewNotesBody');if(!body)return;
+  const {state}=readerState(binding,w),summary=element.querySelector(':scope > summary');
+  if(summary)summary.textContent=summaryText(state);
+  if(state.needsReview)element.setAttribute?.('data-needs-review','true');else element.removeAttribute?.('data-needs-review');
+  if(!element.open){body.replaceChildren();return;}body.innerHTML=bodyHTML(binding,w,sources);
+ }
  function pendingHTML(binding){return !binding?.pendingScopes.length?'':'<details class="reviewPending"><summary>対象範囲が未確定の保留 '+binding.pendingScopes.length+'件</summary>'+binding.pendingScopes.map(p=>'<p>'+esc(p.reason)+(Number.isInteger(p.reported_word_count)?'（申告 '+p.reported_word_count+'語）':'')+'</p>').join('')+'</details>';}
  return {prepare,bind,html,bodyHTML,hydrate,pendingHTML,identity,wordMatches};
 });
